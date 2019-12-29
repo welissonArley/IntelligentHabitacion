@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace IntelligentHabitacion.Droid
 {
-    [Activity(Theme = "@style/Theme.Splash", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, NoHistory = true)]
+    [Activity(Label = "Intelligent Habitacion", Theme = "@style/Theme.Splash", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, NoHistory = true)]
     public class SplashScreenActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

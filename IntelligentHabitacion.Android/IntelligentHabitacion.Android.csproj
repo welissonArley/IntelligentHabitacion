@@ -68,6 +68,24 @@
     <Compile Include="SplashScreenActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Raleway-Black.ttf" />
+    <AndroidAsset Include="Assets\Raleway-BlackItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-Bold.ttf" />
+    <AndroidAsset Include="Assets\Raleway-BoldItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-ExtraBold.ttf" />
+    <AndroidAsset Include="Assets\Raleway-ExtraBoldItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-ExtraLight.ttf" />
+    <AndroidAsset Include="Assets\Raleway-ExtraLightItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-Italic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-Light.ttf" />
+    <AndroidAsset Include="Assets\Raleway-LightItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-Medium.ttf" />
+    <AndroidAsset Include="Assets\Raleway-MediumItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-Regular.ttf" />
+    <AndroidAsset Include="Assets\Raleway-SemiBold.ttf" />
+    <AndroidAsset Include="Assets\Raleway-SemiBoldItalic.ttf" />
+    <AndroidAsset Include="Assets\Raleway-Thin.ttf" />
+    <AndroidAsset Include="Assets\Raleway-ThinItalic.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -136,7 +154,19 @@
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\TelaSplash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\TelaSplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\TelaSplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\TelaSplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\TelaSplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\TelaSplash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -7,6 +7,12 @@
              x:Class="IntelligentHabitacion.App">
     <Application.Resources>
         <ResourceDictionary>
+            <OnPlatform x:Key="FontFamilyRalewayRegular" x:TypeArguments="x:String" iOS="Raleway-Regularr" Android="Raleway-Regular.ttf#Raleway" />
+            <OnPlatform x:Key="FontFamilyRalewayThin" x:TypeArguments="x:String" iOS="Raleway-Thin" Android="Raleway-Thin.ttf#Raleway Thin" />
+            <OnPlatform x:Key="FontFamilyRalewayBold" x:TypeArguments="x:String" iOS="Raleway-Bold" Android="Raleway-Bold.ttf#Raleway" />
+            
+            <Color x:Key="YellowDefault">#FEBF3B</Color>
+            
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
             </Style>
@@ -14,6 +20,16 @@
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#FFFFFF"></Setter>
                 <Setter Property="BarTextColor" Value="#000000"></Setter>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayRegular}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelThin">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

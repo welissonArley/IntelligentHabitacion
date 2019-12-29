@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
+  <!-- Splash Screen -->
+  <style name="Theme.Splash" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">false</item>
+    <item name="colorPrimaryDark">#FFFFFF</item>
+  </style>
 
   <style name="MainTheme" parent="MainTheme.Base">
   </style>

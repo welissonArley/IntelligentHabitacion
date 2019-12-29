@@ -10,8 +10,11 @@
             <OnPlatform x:Key="FontFamilyRalewayRegular" x:TypeArguments="x:String" iOS="Raleway-Regularr" Android="Raleway-Regular.ttf#Raleway" />
             <OnPlatform x:Key="FontFamilyRalewayThin" x:TypeArguments="x:String" iOS="Raleway-Thin" Android="Raleway-Thin.ttf#Raleway Thin" />
             <OnPlatform x:Key="FontFamilyRalewayBold" x:TypeArguments="x:String" iOS="Raleway-Bold" Android="Raleway-Bold.ttf#Raleway" />
+            <OnPlatform x:Key="FontFamilyRalewaySemiBold" x:TypeArguments="x:String" iOS="Raleway-SemiBold" Android="Raleway-SemiBold.ttf#Raleway SemiBold" />
+            <OnPlatform x:Key="FontFamilyRalewayMedium" x:TypeArguments="x:String" iOS="Raleway-Medium" Android="Raleway-Medium.ttf#Raleway Medium" />
             
             <Color x:Key="YellowDefault">#FEBF3B</Color>
+            <Color x:Key="GrayDefault">#A1A1A1</Color>
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
@@ -28,8 +31,33 @@
             <Style TargetType="Label" x:Key="LabelThin">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
             </Style>
+            <Style TargetType="Label" x:Key="LabelSemiBold">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelMedium">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+            </Style>
+            
             <Style TargetType="Button">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+            </Style>
+            <Style x:Key="ButtonYellowDefault" TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="BackgroundColor" Value="{DynamicResource YellowDefault}"></Setter>
+                <Setter Property="CornerRadius" Value="7"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="MarginStyleDefault">
+                <Setter Property="Margin" Value="20,0,20,30"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" ApplyToDerivedTypes="True">
+                <Setter Property="PlaceholderColor" Value="{DynamicResource GrayDefault}"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

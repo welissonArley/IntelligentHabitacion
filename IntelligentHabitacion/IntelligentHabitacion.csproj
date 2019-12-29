@@ -21,6 +21,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="View\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

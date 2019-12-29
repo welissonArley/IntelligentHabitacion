@@ -77,5 +77,77 @@ namespace IntelligentHabitacion {
                 return ResourceManager.GetString("MUST_BE_FUN_AND_ORGANIZED", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string TITLE_EMAIL {
+            get {
+                return ResourceManager.GetString("TITLE_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail:.
+        /// </summary>
+        public static string TITLE_EMAIL_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_EMAIL_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string TITLE_FORGOT_PASSWORD {
+            get {
+                return ResourceManager.GetString("TITLE_FORGOT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login to continue.
+        /// </summary>
+        public static string TITLE_LOGIN_TO_CONTINUE {
+            get {
+                return ResourceManager.GetString("TITLE_LOGIN_TO_CONTINUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string TITLE_PASSWORD {
+            get {
+                return ResourceManager.GetString("TITLE_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password:.
+        /// </summary>
+        public static string TITLE_PASSWORD_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_PASSWORD_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string TITLE_REGISTER {
+            get {
+                return ResourceManager.GetString("TITLE_REGISTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome :).
+        /// </summary>
+        public static string TITLE_WELCOME {
+            get {
+                return ResourceManager.GetString("TITLE_WELCOME", resourceCulture);
+            }
+        }
     }
 }

@@ -123,4 +123,28 @@
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>must be fun and organized</value>
   </data>
+  <data name="TITLE_EMAIL" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="TITLE_EMAIL_TWOPOINTS" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
+  <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
+    <value>Login to continue</value>
+  </data>
+  <data name="TITLE_PASSWORD" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="TITLE_REGISTER" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="TITLE_WELCOME" xml:space="preserve">
+    <value>Welcome :)</value>
+  </data>
 </root>

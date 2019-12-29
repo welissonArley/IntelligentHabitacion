@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using IntelligentHabitacion.View;
+using Xamarin.Forms;
 
 namespace IntelligentHabitacion
 {
@@ -8,7 +9,7 @@ namespace IntelligentHabitacion
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new LoginPage();
         }
     }
 }

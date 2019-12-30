@@ -123,6 +123,18 @@
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
+  <data name="PHRASE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
+    <value>Qual é o e-mail para recuperação de senha?</value>
+  </data>
+  <data name="TITLE_CHANGE" xml:space="preserve">
+    <value>Alterar</value>
+  </data>
+  <data name="TITLE_CODE_RECEIVED" xml:space="preserve">
+    <value>Código recebido</value>
+  </data>
+  <data name="TITLE_CODE_RECEIVED_TWOPOINTS" xml:space="preserve">
+    <value>Código recebido:</value>
+  </data>
   <data name="TITLE_EMAIL" xml:space="preserve">
     <value>E-mail</value>
   </data>
@@ -135,14 +147,32 @@
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Faça login para continuar</value>
   </data>
+  <data name="TITLE_NEW_PASSWORD" xml:space="preserve">
+    <value>Nova senha</value>
+  </data>
+  <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Nova senha:</value>
+  </data>
+  <data name="TITLE_NEXT" xml:space="preserve">
+    <value>Próximo</value>
+  </data>
   <data name="TITLE_PASSWORD" xml:space="preserve">
     <value>Senha</value>
+  </data>
+  <data name="TITLE_PASSWORD_CONFIRMATION" xml:space="preserve">
+    <value>Confirmação de senha</value>
+  </data>
+  <data name="TITLE_PASSWORD_CONFIRMATION_TWOPOINTS" xml:space="preserve">
+    <value>Confirmação de senha:</value>
   </data>
   <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Senha:</value>
   </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
+  </data>
+  <data name="TITLE_TYPE_HERE" xml:space="preserve">
+    <value>digite aqui ...</value>
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>

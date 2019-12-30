@@ -31,5 +31,10 @@ namespace IntelligentHabitacion.View
                     LabelPassword.Text = ResourceText.TITLE_PASSWORD_TWOPOINTS;
             };
         }
+
+        private void Clicked_ForgotPassword(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ForgotPasswordPage());
+        }
     }
 }

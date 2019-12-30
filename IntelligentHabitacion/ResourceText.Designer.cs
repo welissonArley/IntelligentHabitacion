@@ -79,6 +79,42 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What is the email to recover the password?.
+        /// </summary>
+        public static string PHRASE_EMAIL_RECOVER_PASSAWORD {
+            get {
+                return ResourceManager.GetString("PHRASE_EMAIL_RECOVER_PASSAWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change.
+        /// </summary>
+        public static string TITLE_CHANGE {
+            get {
+                return ResourceManager.GetString("TITLE_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code received.
+        /// </summary>
+        public static string TITLE_CODE_RECEIVED {
+            get {
+                return ResourceManager.GetString("TITLE_CODE_RECEIVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code received:.
+        /// </summary>
+        public static string TITLE_CODE_RECEIVED_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CODE_RECEIVED_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-mail.
         /// </summary>
         public static string TITLE_EMAIL {
@@ -115,11 +151,56 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        public static string TITLE_NEW_PASSWORD {
+            get {
+                return ResourceManager.GetString("TITLE_NEW_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password:.
+        /// </summary>
+        public static string TITLE_NEW_PASSWORD_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_NEW_PASSWORD_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string TITLE_NEXT {
+            get {
+                return ResourceManager.GetString("TITLE_NEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string TITLE_PASSWORD {
             get {
                 return ResourceManager.GetString("TITLE_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Confirmation.
+        /// </summary>
+        public static string TITLE_PASSWORD_CONFIRMATION {
+            get {
+                return ResourceManager.GetString("TITLE_PASSWORD_CONFIRMATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Confirmation:.
+        /// </summary>
+        public static string TITLE_PASSWORD_CONFIRMATION_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_PASSWORD_CONFIRMATION_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -138,6 +219,15 @@ namespace IntelligentHabitacion {
         public static string TITLE_REGISTER {
             get {
                 return ResourceManager.GetString("TITLE_REGISTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to type here ....
+        /// </summary>
+        public static string TITLE_TYPE_HERE {
+            get {
+                return ResourceManager.GetString("TITLE_TYPE_HERE", resourceCulture);
             }
         }
         

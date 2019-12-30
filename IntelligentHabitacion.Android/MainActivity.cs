@@ -15,6 +15,8 @@ namespace IntelligentHabitacion.Droid
 
             base.OnCreate(savedInstanceState);
 
+            RoundedBoxView.Forms.Plugin.Droid.RoundedBoxViewRenderer.Init();
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

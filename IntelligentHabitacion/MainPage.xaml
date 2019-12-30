@@ -9,6 +9,6 @@
 
         <Image Source="TelaSplash" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
 
-        <Button CornerRadius="16" HeightRequest="60" WidthRequest="160" BackgroundColor="{x:StaticResource YellowDefault}" Text="Get Started" TextColor="Black" Margin="0,0,50,35" HorizontalOptions="EndAndExpand"></Button>
+        <Button CornerRadius="16" HeightRequest="60" WidthRequest="160" BackgroundColor="{x:StaticResource YellowDefault}" Text="Get Started" TextColor="Black" Margin="0,0,50,35" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_GetStarted"></Button>
     </StackLayout>
 </ContentPage>

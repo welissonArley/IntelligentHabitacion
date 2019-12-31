@@ -1,16 +1,20 @@
-﻿using IntelligentHabitacion.Template;
-using RoundedBoxView.Forms.Plugin.Abstractions;
+﻿using IntelligentHabitacion.SetOfRules.Interface;
+using IntelligentHabitacion.Template;
 using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.View
 {
     [DesignTimeVisible(false)]
-    public partial class ForgotPasswordPage : ContentPage
+    public partial class ForgotPasswordPage : BasePage
     {
-        public ForgotPasswordPage()
+        private readonly ILoginRule _loginRule;
+
+        public ForgotPasswordPage(ILoginRule loginRule)
         {
             InitializeComponent();
+
+            _loginRule = loginRule;
 
             InputTextChanged();
         }
@@ -27,7 +31,7 @@ namespace IntelligentHabitacion.View
 
             InputNewPassword.TextChanged += (sender, e) =>
             {
-                if (string.IsNullOrEmpty(LabelNewPassword.Text))
+                if (string.IsNullOrEmpty(InputNewPassword.Text))
                     LabelNewPassword.Text = " ";
                 else
                     LabelNewPassword.Text = ResourceText.TITLE_NEW_PASSWORD_TWOPOINTS;
@@ -35,7 +39,7 @@ namespace IntelligentHabitacion.View
 
             InputConfirmationPassword.TextChanged += (sender, e) =>
             {
-                if (string.IsNullOrEmpty(LabelPasswordConfirmation.Text))
+                if (string.IsNullOrEmpty(InputConfirmationPassword.Text))
                     LabelPasswordConfirmation.Text = " ";
                 else
                     LabelPasswordConfirmation.Text = ResourceText.TITLE_PASSWORD_CONFIRMATION_TWOPOINTS;
@@ -44,20 +48,37 @@ namespace IntelligentHabitacion.View
 
         private void Button_Clicked_Next(object sender, System.EventArgs e)
         {
-            StepContent.Children.RemoveAt(1);
-
-            StepContent.Children.Insert(0, new PrevOrNextStep
+            try
             {
-                Margin = new Thickness(0,0,15,0)
-            });
+                _loginRule.RequestCode(InputEmail.Text);
 
-            RequestEmailContent.IsVisible = false;
-            ChangePasswordContent.IsVisible = true;
+                StepContent.Children.RemoveAt(1);
+
+                StepContent.Children.Insert(0, new PrevOrNextStep
+                {
+                    Margin = new Thickness(0, 0, 15, 0)
+                });
+
+                RequestEmailContent.IsVisible = false;
+                ChangePasswordContent.IsVisible = true;
+            }
+            catch (System.Exception exception)
+            {
+                Exception(exception);
+            }
         }
 
         private void Button_Clicked_Change(object sender, System.EventArgs e)
         {
-            Navigation.PopAsync();
+            try
+            {
+                _loginRule.ChangePasswordForgetPassword(InputCodeReceived.Text, InputNewPassword.Text, InputConfirmationPassword.Text);
+                Navigation.PopAsync();
+            }
+            catch(System.Exception exception)
+            {
+                Exception(exception);
+            }
         }
     }
 }

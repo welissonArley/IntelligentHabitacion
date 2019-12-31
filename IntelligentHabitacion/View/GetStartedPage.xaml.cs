@@ -1,13 +1,12 @@
-﻿using IntelligentHabitacion.View;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Xamarin.Forms;
 
-namespace IntelligentHabitacion
+namespace IntelligentHabitacion.View
 {
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+    public partial class GetStartedPage : BasePage
     {
-        public MainPage()
+        public GetStartedPage()
         {
             InitializeComponent();
         }

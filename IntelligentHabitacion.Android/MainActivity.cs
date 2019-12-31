@@ -25,6 +25,7 @@ namespace IntelligentHabitacion.Droid
             ConfigureDI();
 
             RoundedBoxView.Forms.Plugin.Droid.RoundedBoxViewRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -39,18 +40,26 @@ namespace IntelligentHabitacion.Droid
 
         private void ConfigureDI()
         {
-            var container = TinyIoCContainer.Current;
-
-            var listClassToUseDI = Assembly.Load("IntelligentHabitacion.SetOfRules").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
-                    tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
-
-            foreach (var classDI in listClassToUseDI)
+            if (!Resolver.IsSet)
             {
-                var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
-                container.Register(interfaceToRegister, classDI);
-            }
+                var container = TinyIoCContainer.Current;
 
-            Resolver.SetResolver(new TinyResolver(container));
+                var listClassToUseDI = Assembly.Load("IntelligentHabitacion.SetOfRules").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
+                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
+
+                foreach (var classDI in listClassToUseDI)
+                {
+                    var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
+                    container.Register(interfaceToRegister, classDI);
+                }
+
+                Resolver.SetResolver(new TinyResolver(container));
+            }
+        }
+
+        public override void OnBackPressed()
+        {
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
         }
     }
 }

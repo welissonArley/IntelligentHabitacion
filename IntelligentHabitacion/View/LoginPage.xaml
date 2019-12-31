@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:IntelligentHabitacion"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+             xmlns:local="clr-namespace:IntelligentHabitacion.View"
              xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.CustomControl"
              x:Class="IntelligentHabitacion.View.LoginPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
         <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
             <StackLayout HorizontalOptions="StartAndExpand">
-                <Label Text="{x:Static local:ResourceText.TITLE_WELCOME}" FontSize="24" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></Label>
-                <Label Margin="0,-3,0,0" Text="{x:Static local:ResourceText.TITLE_LOGIN_TO_CONTINUE}" FontSize="10" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelMedium}"></Label>
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_WELCOME}" FontSize="24" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></Label>
+                <Label Margin="0,-3,0,0" Text="{x:Static resourceText:ResourceText.TITLE_LOGIN_TO_CONTINUE}" FontSize="10" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
-            <Label Text="{x:Static local:ResourceText.TITLE_REGISTER}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelMedium}"></Label>
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_REGISTER}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelMedium}"></Label>
         </StackLayout>
 
         <StackLayout VerticalOptions="CenterAndExpand">
             <Label x:Name="LabelEmail" Margin="5,0,0,0" Text=" " FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}"></Label>
-            <CustomEntry:EntryGrayBlackCursor x:Name="InputEmail" Placeholder="{x:Static local:ResourceText.TITLE_EMAIL}" Margin="0,-10,0,0" Keyboard="Email"></CustomEntry:EntryGrayBlackCursor>
+            <CustomEntry:EntryGrayBlackCursor x:Name="InputEmail" Placeholder="{x:Static resourceText:ResourceText.TITLE_EMAIL}" Margin="0,-10,0,0" Keyboard="Email"></CustomEntry:EntryGrayBlackCursor>
             <Label x:Name="LabelPassword" Margin="5,20,0,0" Text=" " FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}"></Label>
-            <CustomEntry:EntryGrayBlackCursor x:Name="InputPassword" Placeholder="{x:Static local:ResourceText.TITLE_PASSWORD}" Margin="0,-10,0,0" IsPassword="True"></CustomEntry:EntryGrayBlackCursor>
+            <CustomEntry:EntryGrayBlackCursor x:Name="InputPassword" Placeholder="{x:Static resourceText:ResourceText.TITLE_PASSWORD}" Margin="0,-10,0,0" IsPassword="True"></CustomEntry:EntryGrayBlackCursor>
 
-            <Label Text="{x:Static local:ResourceText.TITLE_FORGOT_PASSWORD}" HorizontalOptions="EndAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}" Margin="0,40,0,0">
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_FORGOT_PASSWORD}" HorizontalOptions="EndAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}" Margin="0,40,0,0">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Clicked_ForgotPassword"></TapGestureRecognizer>
                 </Label.GestureRecognizers>

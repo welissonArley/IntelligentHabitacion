@@ -1,4 +1,7 @@
-﻿using IntelligentHabitacion.Exception.ExceptionsBase;
+﻿using IntelligentHabitacion.Exception;
+using IntelligentHabitacion.Exception.ExceptionsBase;
+using IntelligentHabitacion.View.Modal;
+using Rg.Plugins.Popup.Extensions;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.View
@@ -8,14 +11,14 @@ namespace IntelligentHabitacion.View
         public void Exception(System.Exception exception)
         {
             if (!((exception as IntelligentHabitacionException) is null))
-                DisplayAlert("Erro", exception.Message, "Ok");
+                Navigation.PushPopupAsync(new ErrorModal(exception.Message));
             else
                 UnknownError();
         }
 
         private void UnknownError()
         {
-            DisplayAlert("Erro", "Erro desconhecido", "Ok");
+            Navigation.PushPopupAsync(new ErrorModal(ResourceTextException.UNKNOW_ERROR));
         }
     }
 }

@@ -132,4 +132,7 @@
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
     <value>Password is not the same as password confirmation</value>
   </data>
+  <data name="UNKNOW_ERROR" xml:space="preserve">
+    <value>Unknow error</value>
+  </data>
 </root>

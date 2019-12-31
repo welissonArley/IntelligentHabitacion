@@ -104,5 +104,14 @@ namespace IntelligentHabitacion.Exception {
                 return ResourceManager.GetString("PASSWORD_NOT_SAME_CONFIRMATION", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknow error.
+        /// </summary>
+        public static string UNKNOW_ERROR {
+            get {
+                return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
+            }
+        }
     }
 }

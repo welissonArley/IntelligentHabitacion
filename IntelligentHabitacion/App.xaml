@@ -16,6 +16,7 @@
             <Color x:Key="YellowDefault">#FEBF3B</Color>
             <Color x:Key="GrayDefault">#A1A1A1</Color>
             <Color x:Key="GreenDefault">#65BCBF</Color>
+            <Color x:Key="RedDefault">#F8777D</Color>
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />

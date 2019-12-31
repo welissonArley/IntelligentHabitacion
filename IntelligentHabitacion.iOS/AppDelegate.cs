@@ -14,7 +14,10 @@ namespace IntelligentHabitacion.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            
             ConfigureDI();
+            Rg.Plugins.Popup.Popup.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
@@ -22,18 +25,21 @@ namespace IntelligentHabitacion.iOS
 
         private void ConfigureDI()
         {
-            var container = TinyIoCContainer.Current;
-
-            var listClassToUseDI = Assembly.Load("IntelligentHabitacion.SetOfRules").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
-                    tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
-
-            foreach (var classDI in listClassToUseDI)
+            if (!Resolver.IsSet)
             {
-                var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
-                container.Register(interfaceToRegister, classDI);
-            }
+                var container = TinyIoCContainer.Current;
 
-            Resolver.SetResolver(new TinyResolver(container));
+                var listClassToUseDI = Assembly.Load("IntelligentHabitacion.SetOfRules").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
+                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
+
+                foreach (var classDI in listClassToUseDI)
+                {
+                    var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
+                    container.Register(interfaceToRegister, classDI);
+                }
+
+                Resolver.SetResolver(new TinyResolver(container));
+            }
         }
     }
 }

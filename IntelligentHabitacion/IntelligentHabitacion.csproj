@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
     <PackageReference Include="Xam.Plugins.Forms.RoundedBoxView" Version="1.0.0.7" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
@@ -35,6 +36,9 @@
     <Compile Update="View\GetStartedPage.xaml.cs">
       <DependentUpon>GetStartedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\ErrorModal.xaml.cs">
+      <DependentUpon>ErrorModal.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -53,9 +57,5 @@
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.SetOfRules\IntelligentHabitacion.SetOfRules.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="View\Modal\" />
   </ItemGroup>
 </Project>

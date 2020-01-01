@@ -24,6 +24,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="Template\InputTextWithLabelComponent.xaml.cs">
+      <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\PrevOrNextStep.xaml.cs">
       <DependentUpon>PrevOrNextStep.xaml</DependentUpon>
     </Compile>

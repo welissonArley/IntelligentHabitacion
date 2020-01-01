@@ -15,35 +15,6 @@ namespace IntelligentHabitacion.View
             InitializeComponent();
 
             _loginRule = loginRule;
-
-            InputTextChanged();
-        }
-
-        private void InputTextChanged()
-        {
-            InputCodeReceived.TextChanged += (sender, e) =>
-            {
-                if (string.IsNullOrEmpty(InputCodeReceived.Text))
-                    LabelCodeReceived.Text = " ";
-                else
-                    LabelCodeReceived.Text = ResourceText.TITLE_CODE_RECEIVED_TWOPOINTS;
-            };
-
-            InputNewPassword.TextChanged += (sender, e) =>
-            {
-                if (string.IsNullOrEmpty(InputNewPassword.Text))
-                    LabelNewPassword.Text = " ";
-                else
-                    LabelNewPassword.Text = ResourceText.TITLE_NEW_PASSWORD_TWOPOINTS;
-            };
-
-            InputConfirmationPassword.TextChanged += (sender, e) =>
-            {
-                if (string.IsNullOrEmpty(InputConfirmationPassword.Text))
-                    LabelPasswordConfirmation.Text = " ";
-                else
-                    LabelPasswordConfirmation.Text = ResourceText.TITLE_PASSWORD_CONFIRMATION_TWOPOINTS;
-            };
         }
 
         private void Button_Clicked_Next(object sender, System.EventArgs e)
@@ -72,7 +43,7 @@ namespace IntelligentHabitacion.View
         {
             try
             {
-                _loginRule.ChangePasswordForgetPassword(InputCodeReceived.Text, InputNewPassword.Text, InputConfirmationPassword.Text);
+                _loginRule.ChangePasswordForgetPassword(CodeReceivedContent.TypedText(), NewPasswordContent.TypedText(), ConfirmationPasswordContent.TypedText());
                 Navigation.PopAsync();
             }
             catch(System.Exception exception)

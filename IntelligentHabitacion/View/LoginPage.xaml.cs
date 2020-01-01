@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
-using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.View
 {
     [DesignTimeVisible(false)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginPage : BasePage
     {
         public LoginPage()
         {
@@ -30,6 +30,11 @@ namespace IntelligentHabitacion.View
                 else
                     LabelPassword.Text = ResourceText.TITLE_PASSWORD_TWOPOINTS;
             };
+        }
+
+        private void Clicked_ForgotPassword(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(Resolver.Resolve<ForgotPasswordPage>());
         }
     }
 }

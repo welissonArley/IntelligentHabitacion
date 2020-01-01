@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+             xmlns:local="clr-namespace:IntelligentHabitacion.View"
+             x:Class="IntelligentHabitacion.View.GetStartedPage">
+    <StackLayout Spacing="0">
+        <Label Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.BECAUSE_LIVE_WITH_FRIENDS}" FontSize="20" HorizontalOptions="CenterAndExpand" TextColor="Black"></Label>
+        <Label Text="{x:Static resourceText:ResourceText.MUST_BE_FUN_AND_ORGANIZED}" FontSize="16" HorizontalOptions="CenterAndExpand" TextColor="Black" Style="{x:StaticResource LabelThin}"></Label>
+
+        <Image Source="TelaSplash" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+
+        <Button CornerRadius="16" HeightRequest="60" WidthRequest="160" BackgroundColor="{x:StaticResource YellowDefault}" Text="Get Started" TextColor="Black" Margin="0,0,35,50" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_GetStarted"></Button>
+    </StackLayout>
+</local:BasePage>

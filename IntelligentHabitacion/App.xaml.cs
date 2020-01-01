@@ -9,7 +9,7 @@ namespace IntelligentHabitacion
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new GetStartedPage();
         }
     }
 }

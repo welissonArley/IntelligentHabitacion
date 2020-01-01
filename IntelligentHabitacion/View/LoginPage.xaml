@@ -6,7 +6,7 @@
              xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.CustomControl"
              x:Class="IntelligentHabitacion.View.LoginPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
+        <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="StartAndExpand">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_WELCOME}" FontSize="24" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></Label>
                 <Label Margin="0,-3,0,0" Text="{x:Static resourceText:ResourceText.TITLE_LOGIN_TO_CONTINUE}" FontSize="10" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelMedium}"></Label>

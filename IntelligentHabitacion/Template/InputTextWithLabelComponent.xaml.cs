@@ -31,7 +31,7 @@ namespace IntelligentHabitacion.Template
 
         public string TypedText()
         {
-            return Input.Text.Trim();
+            return Input.Text?.Trim();
         }
     }
 }

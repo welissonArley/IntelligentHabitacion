@@ -5,8 +5,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
              mc:Ignorable="d"
-             x:Class="IntelligentHabitacion.Template.PrevOrNextStep">
+             x:Class="IntelligentHabitacion.Template.CompleteStep">
     <ContentView.Content>
-        <circleBoxview:RoundedBoxView CornerRadius="15" HeightRequest="15" WidthRequest="15" BorderThickness="3" BorderColor="Black" HorizontalOptions="CenterAndExpand"></circleBoxview:RoundedBoxView>
+        <circleBoxview:RoundedBoxView x:Name="component" CornerRadius="15" HeightRequest="15" WidthRequest="15" BackgroundColor="{StaticResource YellowDefault}" HorizontalOptions="CenterAndExpand"></circleBoxview:RoundedBoxView>
     </ContentView.Content>
 </ContentView>

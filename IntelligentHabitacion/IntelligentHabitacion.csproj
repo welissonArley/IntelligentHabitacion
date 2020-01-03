@@ -24,11 +24,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="Template\CompleteStep.xaml.cs">
+      <DependentUpon>CompleteStep.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\PrevOrNextStep.xaml.cs">
-      <DependentUpon>PrevOrNextStep.xaml</DependentUpon>
+    <Compile Update="Template\IncompleteStep.xaml.cs">
+      <DependentUpon>IncompleteStep.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\ForgotPasswordPage.xaml.cs">
       <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
@@ -52,7 +55,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\CurrentStep.xaml">
+    <EmbeddedResource Update="Template\CompleteStep.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

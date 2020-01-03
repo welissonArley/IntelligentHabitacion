@@ -25,10 +25,7 @@ namespace IntelligentHabitacion.View
 
                 StepContent.Children.RemoveAt(1);
 
-                StepContent.Children.Insert(0, new PrevOrNextStep
-                {
-                    Margin = new Thickness(0, 0, 15, 0)
-                });
+                StepContent.Children.Insert(0, new CompleteStep(marginRight: true));
 
                 RequestEmailContent.IsVisible = false;
                 ChangePasswordContent.IsVisible = true;

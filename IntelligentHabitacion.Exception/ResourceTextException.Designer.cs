@@ -61,7 +61,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code must be entered.
+        ///   Looks up a localized string similar to Code must be entered..
         /// </summary>
         public static string CODE_EMPTY {
             get {
@@ -70,7 +70,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-mail must be entered.
+        ///   Looks up a localized string similar to E-mail must be entered..
         /// </summary>
         public static string EMAIL_EMPTY {
             get {
@@ -79,7 +79,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The E-mail is invalid.
+        ///   Looks up a localized string similar to The E-mail is invalid..
         /// </summary>
         public static string EMAIL_INVALID {
             get {
@@ -88,7 +88,16 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must be entered.
+        ///   Looks up a localized string similar to Name must be entered..
+        /// </summary>
+        public static string NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must be entered..
         /// </summary>
         public static string PASSWORD_EMPTY {
             get {
@@ -97,7 +106,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password is not the same as password confirmation.
+        ///   Looks up a localized string similar to Password is not the same as password confirmation..
         /// </summary>
         public static string PASSWORD_NOT_SAME_CONFIRMATION {
             get {

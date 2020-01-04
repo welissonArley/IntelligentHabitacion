@@ -118,19 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CODE_EMPTY" xml:space="preserve">
-    <value>Code must be entered</value>
+    <value>Code must be entered.</value>
   </data>
   <data name="EMAIL_EMPTY" xml:space="preserve">
-    <value>E-mail must be entered</value>
+    <value>E-mail must be entered.</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>The E-mail is invalid</value>
+    <value>The E-mail is invalid.</value>
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>Name must be entered.</value>
   </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
-    <value>Password must be entered</value>
+    <value>Password must be entered.</value>
   </data>
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
-    <value>Password is not the same as password confirmation</value>
+    <value>Password is not the same as password confirmation.</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>

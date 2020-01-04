@@ -118,21 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CODE_EMPTY" xml:space="preserve">
-    <value>O código deve ser informado</value>
+    <value>O código deve ser informado.</value>
   </data>
   <data name="EMAIL_EMPTY" xml:space="preserve">
-    <value>E-mail deve ser informado</value>
+    <value>E-mail deve ser informado.</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>O E-mail é inválido</value>
+    <value>O E-mail é inválido.</value>
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>O nome deve ser informado.</value>
   </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
-    <value>A senha deve ser informada</value>
+    <value>A senha deve ser informada.</value>
   </data>
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
-    <value>A senha não é igual a confirmação de senha</value>
+    <value>A senha não é igual a confirmação de senha.</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
-    <value>Erro desconhecido</value>
+    <value>Erro desconhecido.</value>
   </data>
 </root>

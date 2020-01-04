@@ -24,17 +24,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
-    <Compile Update="Template\CompleteStep.xaml.cs">
+    <Compile Update="Template\Step\CompleteStep.xaml.cs">
       <DependentUpon>CompleteStep.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\InputTextWithLabelComponent.xaml.cs">
+    <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\IncompleteStep.xaml.cs">
+    <Compile Update="Template\Step\IncompleteStep.xaml.cs">
       <DependentUpon>IncompleteStep.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\ForgotPasswordPage.xaml.cs">
-      <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
+    <Compile Update="View\ForgotPassword\ChangePasswordPage.xaml.cs">
+      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\ForgotPassword\RequestEmailPage.xaml.cs">
+      <DependentUpon>RequestEmailPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -44,6 +47,12 @@
     </Compile>
     <Compile Update="View\Modal\ErrorModal.xaml.cs">
       <DependentUpon>ErrorModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\RegisterUser\RequestPhoneNumberPage.xaml.cs">
+      <DependentUpon>RequestPhoneNumberPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\RegisterUser\RequestNamePage.xaml.cs">
+      <DependentUpon>RequestNamePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -55,7 +64,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\CompleteStep.xaml">
+    <EmbeddedResource Update="Template\Step\CompleteStep.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

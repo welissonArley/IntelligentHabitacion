@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+                xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.CustomControl"
+                xmlns:templateStep="clr-namespace:IntelligentHabitacion.Template.Step"
+                xmlns:local="clr-namespace:IntelligentHabitacion.View"
+                x:Class="IntelligentHabitacion.View.RegisterUser.RequestPhoneNumberPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            
+        </StackLayout>
+
+        <Label Text="{x:Static resourceText:ResourceText.TITLE_TOBEGIN_TELL_NAME}" Style="{x:StaticResource LabelTitle}"></Label>
+
+        <CustomEntry:EntryWhiteBlackCursor VerticalOptions="CenterAndExpand" x:Name="InputName" Placeholder="{x:Static resourceText:ResourceText.TITLE_TYPE_HERE}" Margin="0,-10,0,0" Keyboard="Email"></CustomEntry:EntryWhiteBlackCursor>
+
+        <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Clicked="Button_Clicked_Next"></Button>
+    </StackLayout>
+</local:BasePage>

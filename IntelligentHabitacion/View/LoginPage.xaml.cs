@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using IntelligentHabitacion.View.ForgotPassword;
+using IntelligentHabitacion.View.RegisterUser;
+using System.ComponentModel;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.View
@@ -13,7 +15,12 @@ namespace IntelligentHabitacion.View
 
         private void Clicked_ForgotPassword(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(Resolver.Resolve<ForgotPasswordPage>());
+            Navigation.PushAsync(Resolver.Resolve<RequestEmailPage>());
+        }
+
+        private void Clicked_RegisterUser(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(Resolver.Resolve<RequestNamePage>());
         }
     }
 }

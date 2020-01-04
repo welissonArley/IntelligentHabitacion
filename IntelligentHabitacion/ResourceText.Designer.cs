@@ -79,15 +79,6 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What is the email to recover the password?.
-        /// </summary>
-        public static string PHRASE_EMAIL_RECOVER_PASSAWORD {
-            get {
-                return ResourceManager.GetString("PHRASE_EMAIL_RECOVER_PASSAWORD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
         public static string TITLE_CHANGE {
@@ -115,11 +106,38 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tell me an emergency contact.
+        /// </summary>
+        public static string TITLE_CONTACT_EMERGENCY {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you wish, you can inform me of a second emergency contact (optional).
+        /// </summary>
+        public static string TITLE_CONTACT_EMERGENCY_OPTIONAL {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_OPTIONAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-mail.
         /// </summary>
         public static string TITLE_EMAIL {
             get {
                 return ResourceManager.GetString("TITLE_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the email to recover the password?.
+        /// </summary>
+        public static string TITLE_EMAIL_RECOVER_PASSAWORD {
+            get {
+                return ResourceManager.GetString("TITLE_EMAIL_RECOVER_PASSAWORD", resourceCulture);
             }
         }
         
@@ -178,6 +196,15 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Now your phone number.
+        /// </summary>
+        public static string TITLE_NOW_YOUR_PHONE_NUMBER {
+            get {
+                return ResourceManager.GetString("TITLE_NOW_YOUR_PHONE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string TITLE_PASSWORD {
@@ -223,6 +250,33 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Return.
+        /// </summary>
+        public static string TITLE_RETURN {
+            get {
+                return ResourceManager.GetString("TITLE_RETURN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To finish. Your password.
+        /// </summary>
+        public static string TITLE_TO_FINISH_PASSWORD {
+            get {
+                return ResourceManager.GetString("TITLE_TO_FINISH_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To begin :) Tell me what is your name.
+        /// </summary>
+        public static string TITLE_TOBEGIN_TELL_NAME {
+            get {
+                return ResourceManager.GetString("TITLE_TOBEGIN_TELL_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to type here ....
         /// </summary>
         public static string TITLE_TYPE_HERE {
@@ -237,6 +291,15 @@ namespace IntelligentHabitacion {
         public static string TITLE_WELCOME {
             get {
                 return ResourceManager.GetString("TITLE_WELCOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your e-mail :).
+        /// </summary>
+        public static string TITLE_YOUR_EMAIL {
+            get {
+                return ResourceManager.GetString("TITLE_YOUR_EMAIL", resourceCulture);
             }
         }
     }

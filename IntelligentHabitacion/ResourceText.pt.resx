@@ -123,9 +123,6 @@
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
-  <data name="PHRASE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
-    <value>Qual é o e-mail para recuperação de senha?</value>
-  </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
   </data>
@@ -135,8 +132,17 @@
   <data name="TITLE_CODE_RECEIVED_TWOPOINTS" xml:space="preserve">
     <value>Código recebido:</value>
   </data>
+  <data name="TITLE_CONTACT_EMERGENCY_CASES" xml:space="preserve">
+    <value>Me informe um contato para casos de emergência</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
+    <value>Se desejar, pode me informar um segundo contato para casos de emergência (opcional)</value>
+  </data>
   <data name="TITLE_EMAIL" xml:space="preserve">
     <value>E-mail</value>
+  </data>
+  <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
+    <value>Qual é o e-mail para recuperação de senha?</value>
   </data>
   <data name="TITLE_EMAIL_TWOPOINTS" xml:space="preserve">
     <value>E-mail:</value>
@@ -156,6 +162,9 @@
   <data name="TITLE_NEXT" xml:space="preserve">
     <value>Próximo</value>
   </data>
+  <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
+    <value>Agora seu número de telefone</value>
+  </data>
   <data name="TITLE_PASSWORD" xml:space="preserve">
     <value>Senha</value>
   </data>
@@ -171,10 +180,22 @@
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
+  <data name="TITLE_RETURN" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="TITLE_TOBEGIN_TELL_NAME" xml:space="preserve">
+    <value>Para começar :) Me conte qual é o seu nome</value>
+  </data>
+  <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
+    <value>Para finalizar. A sua senha</value>
+  </data>
   <data name="TITLE_TYPE_HERE" xml:space="preserve">
     <value>digite aqui ...</value>
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_YOUR_EMAIL" xml:space="preserve">
+    <value>O seu e-mail :)</value>
   </data>
 </root>

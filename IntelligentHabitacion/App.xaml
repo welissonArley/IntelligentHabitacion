@@ -39,6 +39,14 @@
             <Style TargetType="Label" x:Key="LabelMedium">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
             </Style>
+            <Style TargetType="Label" x:Key="LabelTitle">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="22"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="Margin" Value="0,40,0,0"></Setter>
+            </Style>
             
             <Style TargetType="Button">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>

@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion", "In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.SetOfRules", "IntelligentHabitacion.SetOfRules\IntelligentHabitacion.SetOfRules.csproj", "{DB53A199-F9D2-43A2-A266-D27BE1467092}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.Exception", "IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj", "{CEA33520-0CFE-402B-9394-941030786EC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Exception", "IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj", "{CEA33520-0CFE-402B-9394-941030786EC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FBED826-5BE0-4C10-B2EF-794FE5D4D425}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

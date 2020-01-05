@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.ViewModel.RegisterUser
             try
             {
                 if (!string.IsNullOrWhiteSpace(Model.EmergencyContact2.Name))
-                    _userRule.ValidateEmergencyContact(Model.EmergencyContact2.Name, Model.EmergencyContact2.Telefone, Model.EmergencyContact2.FamilyRelationship);
+                    _userRule.ValidateEmergencyContact(Model.EmergencyContact2.Name, Model.EmergencyContact2.PhoneNumber, Model.EmergencyContact2.FamilyRelationship);
 
                 Navigation.PushAsync<RequestPasswordViewModel>((viewModel, page) => viewModel.Model = Model);
             }

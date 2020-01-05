@@ -6,25 +6,37 @@ namespace IntelligentHabitacion.SetOfRules.Rule
 {
     public class LoginRule : ILoginRule
     {
-        public void ChangePasswordForgetPassword(string code, string newPassword, string confirmationPassword)
+        public void ChangePasswordForgetPassword(string email, string code, string newPassword, string confirmationPassword)
         {
+            ValidateEmail(email);
+
             if (string.IsNullOrWhiteSpace(code))
                 throw new CodeEmptyException();
 
-            if (string.IsNullOrWhiteSpace(newPassword))
-                throw new PasswordEmptyException();
+            ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
+        }
 
-            if (!newPassword.Equals(confirmationPassword))
-                throw new PasswordIsNotSameConfirmationException();
+        public void Login(string email, string password)
+        {
+            ValidateEmail(email);
+
+            if (string.IsNullOrWhiteSpace(password))
+                throw new PasswordEmptyException();
         }
 
         public void RequestCode(string email)
         {
-            if (string.IsNullOrWhiteSpace(email))
-                throw new EmailEmptyException();
+            ValidateEmail(email);
+        }
 
-            if(!new EmailValidator().IsValidEmail(email))
-                throw new EmailInvalidException();
+        private void ValidateEmail(string email)
+        {
+            new EmailValidator().IsValidEmail(email);
+        }
+
+        private void ValidatePasswordAndPasswordConfirmation(string newPassword, string confirmationPassword)
+        {
+            new PasswordValidator().IsValidaPasswordAndConfirmation(newPassword, confirmationPassword);
         }
     }
 }

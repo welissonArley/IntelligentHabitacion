@@ -126,6 +126,9 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>O E-mail é inválido.</value>
   </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>A senha deve ter pelo menos 6 caracteres.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>O nome deve ser informado.</value>
   </data>

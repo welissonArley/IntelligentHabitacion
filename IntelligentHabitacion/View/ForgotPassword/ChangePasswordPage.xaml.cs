@@ -1,31 +1,14 @@
-﻿using IntelligentHabitacion.SetOfRules.Interface;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace IntelligentHabitacion.View.ForgotPassword
 {
     [DesignTimeVisible(false)]
-    public partial class ChangePasswordPage : BasePage
+    public partial class ChangePasswordPage : ContentPage
     {
-        private readonly ILoginRule _loginRule;
-
-        public ChangePasswordPage(ILoginRule loginRule)
+        public ChangePasswordPage()
         {
             InitializeComponent();
-
-            _loginRule = loginRule;
-        }
-
-        private void Button_Clicked_Change(object sender, System.EventArgs e)
-        {
-            try
-            {
-                _loginRule.ChangePasswordForgetPassword(CodeReceivedContent.TypedText(), NewPasswordContent.TypedText(), ConfirmationPasswordContent.TypedText());
-                Navigation.PopToRootAsync();
-            }
-            catch (System.Exception exception)
-            {
-                Exception(exception);
-            }
         }
     }
 }

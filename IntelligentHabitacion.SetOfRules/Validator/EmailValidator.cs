@@ -1,17 +1,23 @@
-﻿namespace IntelligentHabitacion.SetOfRules.Validator
+﻿using IntelligentHabitacion.Exception;
+
+namespace IntelligentHabitacion.SetOfRules.Validator
 {
     public class EmailValidator
     {
-        public bool IsValidEmail(string email)
+        public void IsValidEmail(string email)
         {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new EmailEmptyException();
+
             try
             {
                 var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
+                if(addr.Address != email)
+                    throw new EmailInvalidException();
             }
             catch
             {
-                return false;
+                throw new EmailInvalidException();
             }
         }
     }

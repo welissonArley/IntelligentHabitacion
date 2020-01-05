@@ -31,7 +31,7 @@ namespace IntelligentHabitacion.SetOfRules.Rule
 
         private void ValidateEmail(string email)
         {
-            new EmailValidator().IsValidEmail(email);
+            new EmailValidator().IsValid(email);
         }
 
         private void ValidatePasswordAndPasswordConfirmation(string newPassword, string confirmationPassword)

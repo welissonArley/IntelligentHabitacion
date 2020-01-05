@@ -126,6 +126,9 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>The E-mail is invalid.</value>
   </data>
+  <data name="FAMILYRELATIONSHIP_EMPTY" xml:space="preserve">
+    <value>Family relationship must be entered.</value>
+  </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
@@ -137,6 +140,12 @@
   </data>
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
     <value>Password is not the same as password confirmation.</value>
+  </data>
+  <data name="PHONENUMBER_EMPTY" xml:space="preserve">
+    <value>One phone number must be entered.</value>
+  </data>
+  <data name="PHONENUMBER_INVALID" xml:space="preserve">
+    <value>The phone number is invalid.</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>

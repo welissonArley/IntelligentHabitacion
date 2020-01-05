@@ -4,7 +4,7 @@ namespace IntelligentHabitacion.SetOfRules.Validator
 {
     public class EmailValidator
     {
-        public void IsValidEmail(string email)
+        public void IsValid(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
                 throw new EmailEmptyException();

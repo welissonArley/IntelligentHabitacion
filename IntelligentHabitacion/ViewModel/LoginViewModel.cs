@@ -1,5 +1,5 @@
 ﻿using IntelligentHabitacion.SetOfRules.Interface;
-using IntelligentHabitacion.ViewModel.ForgotPassword;
+using IntelligentHabitacion.ViewModel.RegisterUser;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -39,7 +39,7 @@ namespace IntelligentHabitacion.ViewModel
         {
             try
             {
-                
+                Navigation.PushAsync<RequestNameViewModel>((viewModel, page) => viewModel.Model = new Model.RegisterUserModel());
             }
             catch (System.Exception exeption)
             {
@@ -50,7 +50,7 @@ namespace IntelligentHabitacion.ViewModel
         {
             try
             {
-                Navigation.PushAsync<RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.ForgetPasswordModel());
+                Navigation.PushAsync<ForgotPassword.RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.ForgetPasswordModel());
             }
             catch (System.Exception exeption)
             {

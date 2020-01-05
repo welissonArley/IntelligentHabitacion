@@ -1,32 +1,14 @@
-﻿using IntelligentHabitacion.SetOfRules.Interface;
-using System.ComponentModel;
-using XLabs.Ioc;
+﻿using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace IntelligentHabitacion.View.RegisterUser
 {
     [DesignTimeVisible(false)]
-    public partial class RequestNamePage : BasePage
+    public partial class RequestNamePage : ContentPage
     {
-        private readonly IUserRule _userRule;
-
-        public RequestNamePage(IUserRule userRule)
+        public RequestNamePage()
         {
             InitializeComponent();
-
-            _userRule = userRule;
-        }
-
-        private void Button_Clicked_Next(object sender, System.EventArgs e)
-        {
-            try
-            {
-                _userRule.ValidateName(InputName.Text);
-                Navigation.PushAsync(Resolver.Resolve<RequestPhoneNumberPage>());
-            }
-            catch (System.Exception exception)
-            {
-                Exception(exception);
-            }
         }
     }
 }

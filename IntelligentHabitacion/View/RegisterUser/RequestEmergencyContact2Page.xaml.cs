@@ -4,9 +4,9 @@ using Xamarin.Forms;
 namespace IntelligentHabitacion.View.RegisterUser
 {
     [DesignTimeVisible(false)]
-    public partial class RequestPhoneNumberPage : ContentPage
+    public partial class RequestEmergencyContact2Page : ContentPage
     {
-        public RequestPhoneNumberPage()
+        public RequestEmergencyContact2Page()
         {
             InitializeComponent();
         }

@@ -49,6 +49,18 @@
     <Compile Update="View\Modal\ErrorModal.xaml.cs">
       <DependentUpon>ErrorModal.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\RegisterUser\RequestPasswordPage.xaml.cs">
+      <DependentUpon>RequestPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\RegisterUser\RequestEmergencyContact2Page.xaml.cs">
+      <DependentUpon>RequestEmergencyContact2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\RegisterUser\RequestEmergencyContact1Page.xaml.cs">
+      <DependentUpon>RequestEmergencyContact1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\RegisterUser\RequestEmailPage.xaml.cs">
+      <DependentUpon>RequestEmailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\RegisterUser\RequestPhoneNumberPage.xaml.cs">
       <DependentUpon>RequestPhoneNumberPage.xaml</DependentUpon>
     </Compile>

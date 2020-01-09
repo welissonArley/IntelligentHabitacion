@@ -4,10 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              x:Class="IntelligentHabitacion.App">
     <Application.Resources>
         <ResourceDictionary>
-            <OnPlatform x:Key="FontFamilyRalewayRegular" x:TypeArguments="x:String" iOS="Raleway-Regularr" Android="Raleway-Regular.ttf#Raleway" />
+            <OnPlatform x:Key="FontFamilyRalewayRegular" x:TypeArguments="x:String" iOS="Raleway-Regular" Android="Raleway-Regular.ttf#Raleway" />
             <OnPlatform x:Key="FontFamilyRalewayThin" x:TypeArguments="x:String" iOS="Raleway-Thin" Android="Raleway-Thin.ttf#Raleway Thin" />
             <OnPlatform x:Key="FontFamilyRalewayBold" x:TypeArguments="x:String" iOS="Raleway-Bold" Android="Raleway-Bold.ttf#Raleway" />
             <OnPlatform x:Key="FontFamilyRalewaySemiBold" x:TypeArguments="x:String" iOS="Raleway-SemiBold" Android="Raleway-SemiBold.ttf#Raleway SemiBold" />
@@ -25,6 +26,7 @@
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#FFFFFF"></Setter>
                 <Setter Property="BarTextColor" Value="#000000"></Setter>
+                <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="True" ></Setter>
             </Style>
 
             <Style TargetType="Label">
@@ -77,6 +79,7 @@
                 <Setter Property="PlaceholderColor" Value="{DynamicResource GrayDefault}"></Setter>
                 <Setter Property="FontSize" Value="14"></Setter>
                 <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

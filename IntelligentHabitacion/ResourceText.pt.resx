@@ -124,7 +124,7 @@
     <value>deve ser divertido e organizado</value>
   </data>
   <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
-    <value>123456</value>
+    <value>Código recebido no e-mail</value>
   </data>
   <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
     <value>Grau de parentesco</value>

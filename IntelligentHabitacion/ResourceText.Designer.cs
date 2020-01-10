@@ -79,7 +79,7 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 123456.
+        ///   Looks up a localized string similar to Code received in email.
         /// </summary>
         public static string PLACEHOLDER_CODE_RECEIVED {
             get {

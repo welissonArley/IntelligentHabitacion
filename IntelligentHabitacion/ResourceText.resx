@@ -124,7 +124,7 @@
     <value>must be fun and organized</value>
   </data>
   <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
-    <value>123456</value>
+    <value>Code received in email</value>
   </data>
   <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
     <value>Degree of kinship</value>

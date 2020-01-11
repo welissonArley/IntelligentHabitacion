@@ -5,7 +5,15 @@
              x:Class="IntelligentHabitacion.Template.TextWithLabel.InputTextWithLabelComponent">
     <ContentView.Content>
         <StackLayout Spacing="0" x:Name="component">
-            <Label x:Name="Label" Margin="5,0,0,0" Text=" " FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}"></Label>
+            <Label x:Name="Label" Text=" " FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}">
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.Platforms>
+                            <On Platform="Android" Value="5,0,0,0"></On>
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>
             <CustomEntry:EntryGrayBlackCursor x:Name="Input"></CustomEntry:EntryGrayBlackCursor>
         </StackLayout>
     </ContentView.Content>

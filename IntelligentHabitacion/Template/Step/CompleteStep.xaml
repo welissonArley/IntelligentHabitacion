@@ -9,6 +9,6 @@
     mc:Ignorable="d"
     x:Class="IntelligentHabitacion.Template.Step.CompleteStep">
     <ContentView.Content>
-        <circleBoxview:RoundedBoxView x:Name="component" CornerRadius="15" HeightRequest="15" WidthRequest="15" BackgroundColor="{StaticResource YellowDefault}" HorizontalOptions="CenterAndExpand" Margin="0,0,15,0"></circleBoxview:RoundedBoxView>
+        <circleBoxview:RoundedBoxView x:Name="component" CornerRadius="8" HeightRequest="16" WidthRequest="16" BackgroundColor="{StaticResource YellowDefault}" HorizontalOptions="CenterAndExpand" Margin="0,0,15,0"></circleBoxview:RoundedBoxView>
     </ContentView.Content>
 </ContentView>

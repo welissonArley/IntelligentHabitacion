@@ -16,7 +16,9 @@ namespace IntelligentHabitacion.iOS
             global::Xamarin.Forms.Forms.Init();
             
             ConfigureDI();
+
             Rg.Plugins.Popup.Popup.Init();
+            RoundedBoxView.Forms.Plugin.iOSUnified.RoundedBoxViewRenderer.Init();
 
             LoadApplication(new App());
 

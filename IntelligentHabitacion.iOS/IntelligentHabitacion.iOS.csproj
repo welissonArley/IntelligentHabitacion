@@ -74,7 +74,6 @@
     <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -145,5 +144,8 @@
     <BundleResource Include="Resources\Fonts\Raleway-Bold.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\TelaSplash.png" />
+    <BundleResource Include="Resources\TelaSplash%402x.png" />
+    <BundleResource Include="Resources\TelaSplash%403x.png" />
   </ItemGroup>
 </Project>

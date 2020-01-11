@@ -95,6 +95,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\TelaSplash.png" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\TelaSplash%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\TelaSplash%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -147,5 +151,8 @@
     <BundleResource Include="Resources\TelaSplash.png" />
     <BundleResource Include="Resources\TelaSplash%402x.png" />
     <BundleResource Include="Resources\TelaSplash%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
 </Project>

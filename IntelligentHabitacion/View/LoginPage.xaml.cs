@@ -1,19 +1,14 @@
 ﻿using System.ComponentModel;
-using XLabs.Ioc;
+using Xamarin.Forms;
 
 namespace IntelligentHabitacion.View
 {
     [DesignTimeVisible(false)]
-    public partial class LoginPage : BasePage
+    public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
             InitializeComponent();
-        }
-
-        private void Clicked_ForgotPassword(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(Resolver.Resolve<ForgotPasswordPage>());
         }
     }
 }

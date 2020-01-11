@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+             xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.CustomControl"
+             xmlns:templateStep="clr-namespace:IntelligentHabitacion.Template.Step"
+             x:Class="IntelligentHabitacion.View.RegisterUser.RequestNamePage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
+        </StackLayout>
+
+        <Label Text="{x:Static resourceText:ResourceText.TITLE_TOBEGIN_TELL_NAME}" Style="{x:StaticResource LabelTitle}"></Label>
+
+        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.Name}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}"></CustomEntry:EntryWhiteBlackCursor>
+
+        <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+    </StackLayout>
+</ContentPage>

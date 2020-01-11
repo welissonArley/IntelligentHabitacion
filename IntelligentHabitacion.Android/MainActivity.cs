@@ -42,7 +42,7 @@ namespace IntelligentHabitacion.Droid
         {
             if (!Resolver.IsSet)
             {
-                var container = TinyIoCContainer.Current;
+                var container = new TinyContainer(new TinyIoCContainer());
 
                 var listClassToUseDI = Assembly.Load("IntelligentHabitacion.SetOfRules").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
                         tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
@@ -53,7 +53,9 @@ namespace IntelligentHabitacion.Droid
                     container.Register(interfaceToRegister, classDI);
                 }
 
-                Resolver.SetResolver(new TinyResolver(container));
+                container.Register<IDependencyContainer>(container);
+
+                Resolver.SetResolver(container.GetResolver());
             }
         }
 

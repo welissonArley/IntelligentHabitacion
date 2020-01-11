@@ -61,7 +61,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code must be entered.
+        ///   Looks up a localized string similar to Code must be entered..
         /// </summary>
         public static string CODE_EMPTY {
             get {
@@ -70,7 +70,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-mail must be entered.
+        ///   Looks up a localized string similar to E-mail must be entered..
         /// </summary>
         public static string EMAIL_EMPTY {
             get {
@@ -79,7 +79,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The E-mail is invalid.
+        ///   Looks up a localized string similar to The E-mail is invalid..
         /// </summary>
         public static string EMAIL_INVALID {
             get {
@@ -88,7 +88,34 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must be entered.
+        ///   Looks up a localized string similar to Family relationship must be entered..
+        /// </summary>
+        public static string FAMILYRELATIONSHIP_EMPTY {
+            get {
+                return ResourceManager.GetString("FAMILYRELATIONSHIP_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must be at least 6 characters..
+        /// </summary>
+        public static string INVALID_PASSWORD {
+            get {
+                return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name must be entered..
+        /// </summary>
+        public static string NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must be entered..
         /// </summary>
         public static string PASSWORD_EMPTY {
             get {
@@ -97,11 +124,29 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password is not the same as password confirmation.
+        ///   Looks up a localized string similar to Password is not the same as password confirmation..
         /// </summary>
         public static string PASSWORD_NOT_SAME_CONFIRMATION {
             get {
                 return ResourceManager.GetString("PASSWORD_NOT_SAME_CONFIRMATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One phone number must be entered..
+        /// </summary>
+        public static string PHONENUMBER_EMPTY {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The phone number is invalid..
+        /// </summary>
+        public static string PHONENUMBER_INVALID {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_INVALID", resourceCulture);
             }
         }
         

@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using IntelligentHabitacion.ViewModel;
+using System.ComponentModel;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.View
 {
     [DesignTimeVisible(false)]
-    public partial class GetStartedPage : BasePage
+    public partial class GetStartedPage : ContentPage
     {
         public GetStartedPage()
         {
@@ -13,7 +15,7 @@ namespace IntelligentHabitacion.View
 
         private void Button_Clicked_GetStarted(object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());
         }
     }
 }

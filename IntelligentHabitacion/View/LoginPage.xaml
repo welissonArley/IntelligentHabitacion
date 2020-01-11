@@ -1,30 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
-                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                xmlns:resourceText="clr-namespace:IntelligentHabitacion"
-                xmlns:template="clr-namespace:IntelligentHabitacion.Template"
-                xmlns:local="clr-namespace:IntelligentHabitacion.View"
-                x:Class="IntelligentHabitacion.View.LoginPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.Template.TextWithLabel"
+             x:Class="IntelligentHabitacion.View.LoginPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
         <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="StartAndExpand">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_WELCOME}" FontSize="24" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></Label>
                 <Label Margin="0,-3,0,0" Text="{x:Static resourceText:ResourceText.TITLE_LOGIN_TO_CONTINUE}" FontSize="10" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
-            <Label Text="{x:Static resourceText:ResourceText.TITLE_REGISTER}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelMedium}"></Label>
-        </StackLayout>
-
-        <StackLayout VerticalOptions="CenterAndExpand">
-            <template:InputTextWithLabelComponent x:Name="EmailContent" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.TITLE_EMAIL}" Keyboard="Email"></template:InputTextWithLabelComponent>
-            <template:InputTextWithLabelComponent Margin="0,20,0,0" x:Name="PasswordContent" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.TITLE_PASSWORD}" IsPassword="True"></template:InputTextWithLabelComponent>
-            
-            <Label Text="{x:Static resourceText:ResourceText.TITLE_FORGOT_PASSWORD}" HorizontalOptions="EndAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}" Margin="0,40,0,0">
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_REGISTER}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelMedium}">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Clicked_ForgotPassword"></TapGestureRecognizer>
+                    <TapGestureRecognizer Command="{Binding RegisterCommand}"></TapGestureRecognizer>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
 
-        <Button Text="Login" Style="{x:StaticResource ButtonYellowDefault}"></Button>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Email" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email"></templateInputTextWithLabel:InputTextWithLabelComponent>
+            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="True"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_FORGOT_PASSWORD}" HorizontalOptions="EndAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}" Margin="0,40,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <Button Text="Login" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding LoginCommand}"></Button>
     </StackLayout>
-</local:BasePage>
+</ContentPage>

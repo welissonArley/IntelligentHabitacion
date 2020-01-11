@@ -21,6 +21,7 @@
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="NavigationPage.BackButtonTitle" Value=""></Setter>
             </Style>
 
             <Style TargetType="NavigationPage">

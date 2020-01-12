@@ -199,4 +199,22 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconGirlReading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconGirlReading%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconGirlReading%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconKingCrown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconKingCrown%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconKingCrown%403x.png" />
+  </ItemGroup>
 </Project>

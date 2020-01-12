@@ -38,6 +38,7 @@ namespace IntelligentHabitacion
             ViewFactory.Register<RequestEmergencyContact1Page, RequestEmergencyContact1ViewModel>();
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
+            ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomePageViewModel>();
         }
     }
 }

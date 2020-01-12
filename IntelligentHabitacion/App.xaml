@@ -18,6 +18,7 @@
             <Color x:Key="GrayDefault">#A1A1A1</Color>
             <Color x:Key="GreenDefault">#65BCBF</Color>
             <Color x:Key="RedDefault">#F8777D</Color>
+            <Color x:Key="BlueDefault">#F2F6F7</Color>
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
@@ -35,6 +36,9 @@
             </Style>
             <Style TargetType="Label" x:Key="LabelThin">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelBold">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelSemiBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>

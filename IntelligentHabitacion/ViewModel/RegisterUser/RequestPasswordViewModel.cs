@@ -1,7 +1,9 @@
 ﻿using IntelligentHabitacion.Model;
 using IntelligentHabitacion.SetOfRules.Interface;
+using IntelligentHabitacion.View;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.ViewModel.RegisterUser
 {
@@ -23,6 +25,8 @@ namespace IntelligentHabitacion.ViewModel.RegisterUser
             try
             {
                 _userRule.ValidatePassword(Model.Password, Model.PasswordConfirmation);
+
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
 
                 Navigation.PopToRootAsync();
             }

@@ -9,6 +9,12 @@ namespace IntelligentHabitacion.View
         public UserWithoutPartOfHomePage()
         {
             InitializeComponent();
+
+            var cardHeight = ((Application.Current.MainPage.Width / 2) - 35) * 1.27;
+
+            GridCards.RowDefinitions.Clear();
+            GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
+            GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
         }
     }
 }

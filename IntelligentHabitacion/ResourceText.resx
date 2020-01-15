@@ -120,6 +120,15 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Because live with friends</value>
   </data>
+  <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
+    <value>Use this option to create a home and be the administrator.</value>
+  </data>
+  <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
+    <value>Use this option to be part of a home already created.</value>
+  </data>
+  <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
+    <value>Use this option to see and/or edit your registry information.</value>
+  </data>
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>must be fun and organized</value>
   </data>
@@ -159,6 +168,9 @@
   <data name="PLACEHOLDER_PHONENUMBER" xml:space="preserve">
     <value>(31) 9 0000-0000 </value>
   </data>
+  <data name="TITILE_ABOUT_APP" xml:space="preserve">
+    <value>About the App</value>
+  </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Change</value>
   </data>
@@ -168,11 +180,14 @@
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Conclude</value>
   </data>
-  <data name="TITLE_CONTACT_EMERGENCY" xml:space="preserve">
+  <data name="TITLE_CONTACT_EMERGENCY_CASES" xml:space="preserve">
     <value>Tell me an emergency contact</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
     <value>If you wish, you can inform me of a second emergency contact (optional)</value>
+  </data>
+  <data name="TITLE_CREATE_HOME" xml:space="preserve">
+    <value>Create a home</value>
   </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>What is the email to recover the password?</value>
@@ -183,8 +198,14 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="TITLE_JOIN_HOME" xml:space="preserve">
+    <value>Join a home</value>
+  </data>
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Login to continue</value>
+  </data>
+  <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
+    <value>My informations</value>
   </data>
   <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>New password:</value>

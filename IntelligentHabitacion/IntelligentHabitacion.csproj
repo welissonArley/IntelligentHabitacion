@@ -25,6 +25,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="Template\CardIlustrationOptions\CardAboutApp.xaml.cs">
+      <DependentUpon>CardAboutApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\CardIlustrationOptions\CardIlustrationOptions.xaml.cs">
+      <DependentUpon>CardIlustrationOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\HeaderWithGirlReading\HeaderWithGirlReading.xaml.cs">
       <DependentUpon>HeaderWithGirlReading.xaml</DependentUpon>
     </Compile>

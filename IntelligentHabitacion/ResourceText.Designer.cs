@@ -70,6 +70,33 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use this option to create a home and be the administrator..
+        /// </summary>
+        public static string DESCRIPTION_CREATE_HOME {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_CREATE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use this option to be part of a home already created..
+        /// </summary>
+        public static string DESCRIPTION_JOIN_HOME {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_JOIN_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use this option to see and/or edit your registry information..
+        /// </summary>
+        public static string DESCRIPTION_MY_INFORMATIONS {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_MY_INFORMATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to must be fun and organized.
         /// </summary>
         public static string MUST_BE_FUN_AND_ORGANIZED {
@@ -187,6 +214,15 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About the App.
+        /// </summary>
+        public static string TITILE_ABOUT_APP {
+            get {
+                return ResourceManager.GetString("TITILE_ABOUT_APP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
         public static string TITLE_CHANGE {
@@ -216,9 +252,9 @@ namespace IntelligentHabitacion {
         /// <summary>
         ///   Looks up a localized string similar to Tell me an emergency contact.
         /// </summary>
-        public static string TITLE_CONTACT_EMERGENCY {
+        public static string TITLE_CONTACT_EMERGENCY_CASES {
             get {
-                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY", resourceCulture);
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_CASES", resourceCulture);
             }
         }
         
@@ -228,6 +264,15 @@ namespace IntelligentHabitacion {
         public static string TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a home.
+        /// </summary>
+        public static string TITLE_CREATE_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_CREATE_HOME", resourceCulture);
             }
         }
         
@@ -259,11 +304,29 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Join a home.
+        /// </summary>
+        public static string TITLE_JOIN_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_JOIN_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login to continue.
         /// </summary>
         public static string TITLE_LOGIN_TO_CONTINUE {
             get {
                 return ResourceManager.GetString("TITLE_LOGIN_TO_CONTINUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My informations.
+        /// </summary>
+        public static string TITLE_MY_INFORMATIONS {
+            get {
+                return ResourceManager.GetString("TITLE_MY_INFORMATIONS", resourceCulture);
             }
         }
         

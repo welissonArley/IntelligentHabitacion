@@ -120,6 +120,15 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Porque morar com os amigos</value>
   </data>
+  <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
+    <value>Utilize esta opção para criar um lar e ser o administrador do mesmo.</value>
+  </data>
+  <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
+    <value>Utilize esta opção para fazer parte de um republica já criada.</value>
+  </data>
+  <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
+    <value>Utilize esta opção para visualizar e/ou editar suas informações de cadastro.</value>
+  </data>
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
@@ -159,6 +168,9 @@
   <data name="PLACEHOLDER_PHONENUMBER" xml:space="preserve">
     <value>(31) 9 0000-0000 </value>
   </data>
+  <data name="TITILE_ABOUT_APP" xml:space="preserve">
+    <value>Sobre o App</value>
+  </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
   </data>
@@ -174,6 +186,9 @@
   <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
     <value>Se desejar, pode me informar um segundo contato para casos de emergência (opcional)</value>
   </data>
+  <data name="TITLE_CREATE_HOME" xml:space="preserve">
+    <value>Criar um lar</value>
+  </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>Qual é o e-mail para recuperação de senha?</value>
   </data>
@@ -183,8 +198,14 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Esqueceu sua senha?</value>
   </data>
+  <data name="TITLE_JOIN_HOME" xml:space="preserve">
+    <value>Participar de um lar</value>
+  </data>
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Faça login para continuar</value>
+  </data>
+  <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
+    <value>Minhas informações</value>
   </data>
   <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Nova senha:</value>

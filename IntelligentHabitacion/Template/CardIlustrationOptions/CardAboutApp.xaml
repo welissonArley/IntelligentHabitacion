@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+    x:Class="IntelligentHabitacion.Template.CardIlustrationOptions.CardAboutApp">
+    <ContentView.Content>
+        <Grid ColumnSpacing="30" x:Name="GridCard">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Frame HasShadow="True" CornerRadius="15" Padding="0" Grid.Column="0">
+                <StackLayout Spacing="0" Orientation="Horizontal">
+                    <Grid Margin="20,9,0,9">
+                        <Image x:Name="ImageIlustration" Source="IlustrationMenThinking" Margin="-40,0,0,0"></Image>
+                        <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" FontSize="12" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource OrangeDefault}" Margin="50,0,0,0"></Label>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion"
+             xmlns:templateHeader="clr-namespace:IntelligentHabitacion.Template.HeaderWithGirlReading"
+             xmlns:templateCard="clr-namespace:IntelligentHabitacion.Template.CardIlustrationOptions"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="IntelligentHabitacion.View.UserWithoutPartOfHomePage">
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Spacing="0">
+            <templateHeader:HeaderWithGirlReading ShowImageKingCrown="False" UserName="Welisson Santos"></templateHeader:HeaderWithGirlReading>
+
+            <Grid Margin="20,30,20,20" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" Ilustration="IlustrationFriendsSharingHome" IlustrationMargin="8,28,8,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_JOIN_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_JOIN_HOME}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" Ilustration="IlustrationCreateHome" IlustrationMargin="12,4,12,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_CREATE_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CREATE_HOME}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" Ilustration="IlustrationMyInformation" IlustrationMargin="33,7,33,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}"></templateCard:CardIlustrationOptions>
+            </Grid>
+
+            <templateCard:CardAboutApp Margin="20,110,20,30"></templateCard:CardAboutApp>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

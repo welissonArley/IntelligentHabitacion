@@ -13,11 +13,14 @@
             <OnPlatform x:Key="FontFamilyRalewayBold" x:TypeArguments="x:String" iOS="Raleway-Bold" Android="Raleway-Bold.ttf#Raleway" />
             <OnPlatform x:Key="FontFamilyRalewaySemiBold" x:TypeArguments="x:String" iOS="Raleway-SemiBold" Android="Raleway-SemiBold.ttf#Raleway SemiBold" />
             <OnPlatform x:Key="FontFamilyRalewayMedium" x:TypeArguments="x:String" iOS="Raleway-Medium" Android="Raleway-Medium.ttf#Raleway Medium" />
+            <OnPlatform x:Key="FontFamilyRalewayLight" x:TypeArguments="x:String" iOS="Raleway-Light" Android="Raleway-Light.ttf#Raleway Light" />
             
             <Color x:Key="YellowDefault">#FEBF3B</Color>
             <Color x:Key="GrayDefault">#A1A1A1</Color>
             <Color x:Key="GreenDefault">#65BCBF</Color>
             <Color x:Key="RedDefault">#F8777D</Color>
+            <Color x:Key="BlueDefault">#F2F6F7</Color>
+            <Color x:Key="OrangeDefault">#FD8369</Color>
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
@@ -36,11 +39,17 @@
             <Style TargetType="Label" x:Key="LabelThin">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
             </Style>
+            <Style TargetType="Label" x:Key="LabelBold">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+            </Style>
             <Style TargetType="Label" x:Key="LabelSemiBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelMedium">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelLight">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelTitle">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>

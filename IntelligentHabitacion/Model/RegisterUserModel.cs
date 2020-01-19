@@ -1,6 +1,8 @@
-﻿namespace IntelligentHabitacion.Model
+﻿using XLabs.Data;
+
+namespace IntelligentHabitacion.Model
 {
-    public class RegisterUserModel
+    public class RegisterUserModel : ObservableObject
     {
         public RegisterUserModel()
         {

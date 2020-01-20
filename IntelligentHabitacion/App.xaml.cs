@@ -1,8 +1,10 @@
 ﻿using IntelligentHabitacion.View;
 using IntelligentHabitacion.View.ForgotPassword;
+using IntelligentHabitacion.View.RegisterHome;
 using IntelligentHabitacion.View.RegisterUser;
 using IntelligentHabitacion.ViewModel;
 using IntelligentHabitacion.ViewModel.ForgotPassword;
+using IntelligentHabitacion.ViewModel.RegisterHome;
 using IntelligentHabitacion.ViewModel.RegisterUser;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -39,6 +41,13 @@ namespace IntelligentHabitacion
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
             ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomePageViewModel>();
+            ViewFactory.Register<RequestZipCodePage, RequestZipCodeViewModel>();
+            ViewFactory.Register<RequestCityPage, RequestCityViewModel>();
+            ViewFactory.Register<RequestAddressPage, RequestAddressViewModel>();
+            ViewFactory.Register<RequestNumberPage, RequestNumberViewModel>();
+            ViewFactory.Register<RequestComplementPage, RequestComplementViewModel>();
+            ViewFactory.Register<RequestNeighborhoodPage, RequestNeighborhoodViewModel>();
+            ViewFactory.Register<RequestNetworkInformationPage, RequestNetworkInformationViewModel>();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace IntelligentHabitacion.Behavior
 
         public ZIPCodeBehavior()
         {
-            _maskEntryBehavior = new MaskEntryBehavior("XXXXX-XXX");            
+            _maskEntryBehavior = new MaskEntryBehavior("XX.XXX-XXX");            
         }
 
         protected override void OnAttachedTo(Entry entry)

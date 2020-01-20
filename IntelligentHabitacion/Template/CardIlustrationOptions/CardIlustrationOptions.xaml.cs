@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Windows.Input;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IntelligentHabitacion.Template.CardIlustrationOptions
@@ -36,6 +37,24 @@ namespace IntelligentHabitacion.Template.CardIlustrationOptions
             {
                 ImageIlustration.Margin = value;
             }
+        }
+
+        public static BindableProperty TappedCardCommandProperty = BindableProperty.Create(propertyName: "TappedCard",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(CardIlustrationOptions),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
+        public ICommand TappedCardCommand
+        {
+            get => (ICommand)GetValue(TappedCardCommandProperty);
+            set => SetValue(TappedCardCommandProperty, value);
+        }
+
+        public void Card_OnTapped(object sender, System.EventArgs e)
+        {
+            TappedCardCommand?.Execute(null);
         }
 
         public CardIlustrationOptions()

@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.SetOfRules.Interface;
-using IntelligentHabitacion.SetOfRules.Validator;
+using IntelligentHabitacion.Validators.Validator;
 
 namespace IntelligentHabitacion.SetOfRules.Rule
 {

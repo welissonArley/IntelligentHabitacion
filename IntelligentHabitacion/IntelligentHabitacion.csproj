@@ -96,6 +96,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
-    <ProjectReference Include="..\IntelligentHabitacion.SetOfRules\IntelligentHabitacion.SetOfRules.csproj" />
+    <ProjectReference Include="..\IntelligentHabitacion.Validators\IntelligentHabitacion.Validators.csproj" />
   </ItemGroup>
 </Project>

@@ -99,10 +99,6 @@
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IntelligentHabitacion.SetOfRules\IntelligentHabitacion.SetOfRules.csproj">
-      <Project>{DB53A199-F9D2-43A2-A266-D27BE1467092}</Project>
-      <Name>IntelligentHabitacion.SetOfRules</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IntelligentHabitacion\IntelligentHabitacion.csproj">
       <Project>{14012B9D-1150-43F2-8E2B-C238135FEEE0}</Project>
       <Name>IntelligentHabitacion</Name>

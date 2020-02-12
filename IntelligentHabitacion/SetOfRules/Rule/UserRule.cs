@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.SetOfRules.Interface;
-using IntelligentHabitacion.SetOfRules.Validator;
+using IntelligentHabitacion.Validators.Validator;
 
 namespace IntelligentHabitacion.SetOfRules.Rule
 {
@@ -15,7 +15,7 @@ namespace IntelligentHabitacion.SetOfRules.Rule
         {
             ValidateName(name);
             ValidatePhoneNumber(phoneNumber, null);
-            if(string.IsNullOrWhiteSpace(degreeKinship))
+            if (string.IsNullOrWhiteSpace(degreeKinship))
                 throw new DegreeKinshipEmptyException();
         }
 

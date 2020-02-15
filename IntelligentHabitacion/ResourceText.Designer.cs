@@ -538,6 +538,15 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        public static string TITLE_VERSION {
+            get {
+                return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome :).
         /// </summary>
         public static string TITLE_WELCOME {

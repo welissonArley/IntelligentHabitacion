@@ -276,6 +276,9 @@
   <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
     <value>To finish. Your password</value>
   </data>
+  <data name="TITLE_VERSION" xml:space="preserve">
+    <value>Version:</value>
+  </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Welcome :)</value>
   </data>

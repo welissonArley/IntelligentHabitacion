@@ -71,6 +71,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppVersion\AppVersionAndroid.cs" />
     <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryWhiteBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
@@ -250,19 +251,19 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\IlustrationMyInformation.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\IlustrationMenThinking.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\IconInformation.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\IlustrationMenThinking.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\IconInformation.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\IlustrationMenThinking.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\IconInformation.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\IlustrationMenThinking.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\IconInformation.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\IlustrationMenThinking.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\IconInformation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

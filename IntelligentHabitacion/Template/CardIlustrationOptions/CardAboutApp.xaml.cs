@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using IntelligentHabitacion.AppVersion;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IntelligentHabitacion.Template.CardIlustrationOptions
@@ -10,10 +11,7 @@ namespace IntelligentHabitacion.Template.CardIlustrationOptions
         {
             InitializeComponent();
 
-            var cardHeight = ((Application.Current.MainPage.Width / 2) - 35) * 0.54;
-
-            GridCard.RowDefinitions.Clear();
-            GridCard.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
+            LabelVersionNumber.Text = DependencyService.Get<IVersaoApp>().GetVersionNumber();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace IntelligentHabitacion.Validators.Validator
             if (string.IsNullOrWhiteSpace(phoneNumber))
                 throw new PhoneNumberEmptyException();
 
-            Regex regex = new Regex(@"^\([1-9]{2}\) 9 [0-9]{4}\-[0-9]{4}$");
+            Regex regex = new Regex(@"^\([1-9]{2}\) [1-9]{1} [0-9]{4}\-[0-9]{4}$");
             if (!regex.Match(phoneNumber).Success)
                 throw new PhoneNumberInvalidException();
         }

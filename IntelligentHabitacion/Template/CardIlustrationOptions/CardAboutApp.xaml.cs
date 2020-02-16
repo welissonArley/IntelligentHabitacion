@@ -12,6 +12,9 @@ namespace IntelligentHabitacion.Template.CardIlustrationOptions
             InitializeComponent();
 
             LabelVersionNumber.Text = DependencyService.Get<IVersaoApp>().GetVersionNumber();
+
+            GridCard.RowDefinitions.Clear();
+            GridCard.RowDefinitions.Add(new RowDefinition { Height = Xamarin.Forms.Device.Idiom == TargetIdiom.Tablet ? 100 : 50 });
         }
     }
 }

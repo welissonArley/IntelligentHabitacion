@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADDRESS_EMPTY" xml:space="preserve">
+    <value>The address must be entered.</value>
+  </data>
+  <data name="CITY_EMPTY" xml:space="preserve">
+    <value>The City's name must be entered.</value>
+  </data>
   <data name="CODE_EMPTY" xml:space="preserve">
     <value>Code must be entered.</value>
   </data>
@@ -135,6 +141,15 @@
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Name must be entered.</value>
   </data>
+  <data name="NEIGHBORHOOD_EMPTY" xml:space="preserve">
+    <value>The neighborhood must be entered.</value>
+  </data>
+  <data name="NETWORKINFORMATIONS_INVALID" xml:space="preserve">
+    <value>The network's name and the password must be entered.</value>
+  </data>
+  <data name="NUMBER_EMPTY" xml:space="preserve">
+    <value>The number must be entered.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>Password must be entered.</value>
   </data>
@@ -149,5 +164,11 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>
+  </data>
+  <data name="ZIPCODE_EMPTY" xml:space="preserve">
+    <value>The Zip Code must be entered.</value>
+  </data>
+  <data name="ZIPCODE_INVALID" xml:space="preserve">
+    <value>The Zip Code is invalid.</value>
   </data>
 </root>

@@ -61,6 +61,24 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The address must be entered..
+        /// </summary>
+        public static string ADDRESS_EMPTY {
+            get {
+                return ResourceManager.GetString("ADDRESS_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The City&apos;s name must be entered..
+        /// </summary>
+        public static string CITY_EMPTY {
+            get {
+                return ResourceManager.GetString("CITY_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code must be entered..
         /// </summary>
         public static string CODE_EMPTY {
@@ -115,6 +133,33 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The neighborhood must be entered..
+        /// </summary>
+        public static string NEIGHBORHOOD_EMPTY {
+            get {
+                return ResourceManager.GetString("NEIGHBORHOOD_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The network&apos;s name and the password must be entered..
+        /// </summary>
+        public static string NETWORKINFORMATIONS_INVALID {
+            get {
+                return ResourceManager.GetString("NETWORKINFORMATIONS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number must be entered..
+        /// </summary>
+        public static string NUMBER_EMPTY {
+            get {
+                return ResourceManager.GetString("NUMBER_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be entered..
         /// </summary>
         public static string PASSWORD_EMPTY {
@@ -156,6 +201,24 @@ namespace IntelligentHabitacion.Exception {
         public static string UNKNOW_ERROR {
             get {
                 return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zip Code must be entered..
+        /// </summary>
+        public static string ZIPCODE_EMPTY {
+            get {
+                return ResourceManager.GetString("ZIPCODE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zip Code is invalid..
+        /// </summary>
+        public static string ZIPCODE_INVALID {
+            get {
+                return ResourceManager.GetString("ZIPCODE_INVALID", resourceCulture);
             }
         }
     }

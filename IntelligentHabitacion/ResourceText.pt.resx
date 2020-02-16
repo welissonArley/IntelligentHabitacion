@@ -132,6 +132,18 @@
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
+  <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
+    <value>Rua Mountain Drive</value>
+  </data>
+  <data name="PLACEHOLDER_ADDRESSCOMPLEMENT" xml:space="preserve">
+    <value>7º Andar</value>
+  </data>
+  <data name="PLACEHOLDER_ADDRESSNUMBER" xml:space="preserve">
+    <value>1007</value>
+  </data>
+  <data name="PLACEHOLDER_CITY" xml:space="preserve">
+    <value>Gotham City</value>
+  </data>
   <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
     <value>Código recebido no e-mail</value>
   </data>
@@ -156,6 +168,12 @@
   <data name="PLACEHOLDER_NAME" xml:space="preserve">
     <value>Bruce Wayne</value>
   </data>
+  <data name="PLACEHOLDER_NEIGHBORHOOD" xml:space="preserve">
+    <value>Palisades</value>
+  </data>
+  <data name="PLACEHOLDER_NETWORK_NAME" xml:space="preserve">
+    <value>Nome da rede ...</value>
+  </data>
   <data name="PLACEHOLDER_NEW_PASSWORD" xml:space="preserve">
     <value>Nova senha</value>
   </data>
@@ -168,8 +186,20 @@
   <data name="PLACEHOLDER_PHONENUMBER" xml:space="preserve">
     <value>(31) 9 0000-0000 </value>
   </data>
+  <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
+    <value>31.275-972</value>
+  </data>
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>Sobre o App</value>
+  </data>
+  <data name="TITLE_ADDRESS" xml:space="preserve">
+    <value>Agora o Logradouro</value>
+  </data>
+  <data name="TITLE_ADDRESSCOMPLEMENT" xml:space="preserve">
+    <value>Algum complemento?</value>
+  </data>
+  <data name="TITLE_ADDRESSNUMBER" xml:space="preserve">
+    <value>Qual o número?</value>
   </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
@@ -207,6 +237,9 @@
   <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
     <value>Minhas informações</value>
   </data>
+  <data name="TITLE_NEIGHBORHOOD" xml:space="preserve">
+    <value>O Bairro</value>
+  </data>
   <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Nova senha:</value>
   </data>
@@ -225,8 +258,17 @@
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
+  <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
+    <value>Para finalizar :) As informações da rede Wi-fi</value>
+  </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
+  </data>
+  <data name="TITLE_TELLME_ZIPCODE" xml:space="preserve">
+    <value>Me informe qual o CEP :)</value>
+  </data>
+  <data name="TITLE_THE_CITY_IS" xml:space="preserve">
+    <value>A Cidade é:</value>
   </data>
   <data name="TITLE_TOBEGIN_TELL_NAME" xml:space="preserve">
     <value>Para começar :) Me conte qual é o seu nome</value>

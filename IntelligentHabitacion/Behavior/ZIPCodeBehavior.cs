@@ -2,13 +2,13 @@
 
 namespace IntelligentHabitacion.Behavior
 {
-    public class PhoneNumberBehavior : Behavior<Entry>
+    public class ZIPCodeBehavior : Behavior<Entry>
     {
         public readonly MaskEntryBehavior _maskEntryBehavior;
 
-        public PhoneNumberBehavior()
+        public ZIPCodeBehavior()
         {
-            _maskEntryBehavior = new MaskEntryBehavior("(XX) X XXXX-XXXX");
+            _maskEntryBehavior = new MaskEntryBehavior("XX.XXX-XXX");            
         }
 
         protected override void OnAttachedTo(Entry entry)

@@ -44,7 +44,7 @@ namespace IntelligentHabitacion.Droid
             {
                 var container = new TinyContainer(new TinyIoCContainer());
 
-                var listClassToUseDI = Assembly.Load("IntelligentHabitacion.SetOfRules").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
+                var listClassToUseDI = Assembly.Load("IntelligentHabitacion").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
                         tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
 
                 foreach (var classDI in listClassToUseDI)

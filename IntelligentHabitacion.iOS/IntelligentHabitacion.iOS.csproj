@@ -65,6 +65,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppVersion\AppVersioniOS.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -249,12 +250,12 @@
     <BundleResource Include="Resources\IlustrationMyInformation%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IlustrationMenThinking.png" />
+    <BundleResource Include="Resources\IconInformation.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IlustrationMenThinking%402x.png" />
+    <BundleResource Include="Resources\IconInformation%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IlustrationMenThinking%403x.png" />
+    <BundleResource Include="Resources\IconInformation%403x.png" />
   </ItemGroup>
 </Project>

@@ -10,12 +10,19 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Frame HasShadow="True" CornerRadius="15" Padding="0" Grid.Column="0">
-                <StackLayout Spacing="0" Orientation="Horizontal">
-                    <Grid Margin="20,9,0,9">
-                        <Image x:Name="ImageIlustration" Source="IlustrationMenThinking" Margin="-40,0,0,0"></Image>
-                        <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" FontSize="12" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource OrangeDefault}" Margin="50,0,0,0"></Label>
-                    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Frame HasShadow="True" CornerRadius="5" Padding="0" Grid.Column="0" Grid.Row="0">
+                <StackLayout Spacing="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="IconInformation" WidthRequest="25" HeightRequest="25"></Image>
+                    <StackLayout Margin="15,0,0,0" Spacing="3">
+                        <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" FontSize="12" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource OrangeDefault}"></Label>
+                        <StackLayout Orientation="Horizontal" Spacing="4">
+                            <Label VerticalOptions="CenterAndExpand" TextColor="Black" FontSize="8" Text="{x:Static resourceText:ResourceText.TITLE_VERSION}" Style="{x:StaticResource LabelLight}"></Label>
+                            <Label x:Name="LabelVersionNumber" VerticalOptions="CenterAndExpand" TextColor="Black" FontSize="14" Style="{x:StaticResource LabelBold}"></Label>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </Grid>

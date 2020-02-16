@@ -106,6 +106,42 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rua Mountain Drive.
+        /// </summary>
+        public static string PLACEHOLDER_ADDRESS {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7º Floor.
+        /// </summary>
+        public static string PLACEHOLDER_ADDRESSCOMPLEMENT {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ADDRESSCOMPLEMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1007.
+        /// </summary>
+        public static string PLACEHOLDER_ADDRESSNUMBER {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ADDRESSNUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gotham City.
+        /// </summary>
+        public static string PLACEHOLDER_CITY {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_CITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code received in email.
         /// </summary>
         public static string PLACEHOLDER_CODE_RECEIVED {
@@ -178,6 +214,24 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Palisades.
+        /// </summary>
+        public static string PLACEHOLDER_NEIGHBORHOOD {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_NEIGHBORHOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Network&apos;s name ....
+        /// </summary>
+        public static string PLACEHOLDER_NETWORK_NAME {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_NETWORK_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New password.
         /// </summary>
         public static string PLACEHOLDER_NEW_PASSWORD {
@@ -214,11 +268,47 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 31.275-972.
+        /// </summary>
+        public static string PLACEHOLDER_ZIPCODE {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ZIPCODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About the App.
         /// </summary>
         public static string TITILE_ABOUT_APP {
             get {
                 return ResourceManager.GetString("TITILE_ABOUT_APP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Now the address.
+        /// </summary>
+        public static string TITLE_ADDRESS {
+            get {
+                return ResourceManager.GetString("TITLE_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Any complement?.
+        /// </summary>
+        public static string TITLE_ADDRESSCOMPLEMENT {
+            get {
+                return ResourceManager.GetString("TITLE_ADDRESSCOMPLEMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the number?.
+        /// </summary>
+        public static string TITLE_ADDRESSNUMBER {
+            get {
+                return ResourceManager.GetString("TITLE_ADDRESSNUMBER", resourceCulture);
             }
         }
         
@@ -331,6 +421,15 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Neighborhood.
+        /// </summary>
+        public static string TITLE_NEIGHBORHOOD {
+            get {
+                return ResourceManager.GetString("TITLE_NEIGHBORHOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New password:.
         /// </summary>
         public static string TITLE_NEW_PASSWORD_TWOPOINTS {
@@ -385,11 +484,38 @@ namespace IntelligentHabitacion {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To finish :) Wi-fi network information.
+        /// </summary>
+        public static string TITLE_REGISTER_NETWORK_INFORMATION {
+            get {
+                return ResourceManager.GetString("TITLE_REGISTER_NETWORK_INFORMATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return.
         /// </summary>
         public static string TITLE_RETURN {
             get {
                 return ResourceManager.GetString("TITLE_RETURN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell me the Zip Code :).
+        /// </summary>
+        public static string TITLE_TELLME_ZIPCODE {
+            get {
+                return ResourceManager.GetString("TITLE_TELLME_ZIPCODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The City is:.
+        /// </summary>
+        public static string TITLE_THE_CITY_IS {
+            get {
+                return ResourceManager.GetString("TITLE_THE_CITY_IS", resourceCulture);
             }
         }
         
@@ -408,6 +534,15 @@ namespace IntelligentHabitacion {
         public static string TITLE_TOBEGIN_TELL_NAME {
             get {
                 return ResourceManager.GetString("TITLE_TOBEGIN_TELL_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        public static string TITLE_VERSION {
+            get {
+                return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
             }
         }
         

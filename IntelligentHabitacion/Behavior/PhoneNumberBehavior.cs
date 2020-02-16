@@ -1,67 +1,26 @@
-﻿using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace IntelligentHabitacion.Behavior
 {
     public class PhoneNumberBehavior : Behavior<Entry>
     {
-        private const string Mask = "(XX) 9 XXXX-XXXX";
-        private readonly IDictionary<int, char> Positions;
+        public readonly MaskEntryBehavior _maskEntryBehavior;
 
         public PhoneNumberBehavior()
         {
-            Positions = new Dictionary<int, char>();
-            SetPositions();
+            _maskEntryBehavior = new MaskEntryBehavior("(XX) X XXXX-XXXX");
         }
 
         protected override void OnAttachedTo(Entry entry)
         {
-            entry.TextChanged += OnEntryTextChanged;
+            entry.TextChanged += _maskEntryBehavior.OnEntryTextChanged;
             base.OnAttachedTo(entry);
         }
 
         protected override void OnDetachingFrom(Entry entry)
         {
-            entry.TextChanged -= OnEntryTextChanged;
+            entry.TextChanged -= _maskEntryBehavior.OnEntryTextChanged;
             base.OnDetachingFrom(entry);
-        }
-
-        void SetPositions()
-        {
-            for (var i = 0; i < Mask.Length; i++)
-            {
-                if (Mask[i] != 'X')
-                    Positions.Add(i, Mask[i]);
-            }
-        }
-
-        private void OnEntryTextChanged(object sender, TextChangedEventArgs args)
-        {
-            var entry = sender as Entry;
-
-            var text = entry.Text;
-
-            if (string.IsNullOrWhiteSpace(text))
-                return;
-
-            if (text.Length > Mask.Length)
-            {
-                entry.Text = text.Remove(text.Length - 1);
-                return;
-            }
-
-            foreach (var position in Positions)
-            {
-                if (text.Length >= position.Key + 1)
-                {
-                    var value = position.Value.ToString();
-                    if (text.Substring(position.Key, 1) != value)
-                        text = text.Insert(position.Key, value);
-                }
-            }
-
-            if (entry.Text != text)
-                entry.Text = text;
         }
     }
 }

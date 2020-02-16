@@ -10,12 +10,16 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-            </Grid.RowDefinitions>
             <Frame HasShadow="True" CornerRadius="5" Padding="0" Grid.Column="0" Grid.Row="0">
                 <StackLayout Spacing="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Image Source="IconInformation" WidthRequest="25" HeightRequest="25"></Image>
+                    <Image Source="IconInformation">
+                        <Image.HeightRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="25" Tablet="50"></OnIdiom>
+                        </Image.HeightRequest>
+                        <Image.WidthRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="25" Tablet="50"></OnIdiom>
+                        </Image.WidthRequest>
+                    </Image>
                     <StackLayout Margin="15,0,0,0" Spacing="3">
                         <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource OrangeDefault}">
                             <Label.FontSize>

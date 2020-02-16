@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.iOS.AppVersion
         {
             var info = NSBundle.MainBundle.InfoDictionary["CFBundleVersion"];
 
-            return $"{info.Description}.0.0";
+            return $"{info.Description}.0";
         }
     }
 }

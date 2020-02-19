@@ -90,6 +90,7 @@
                 <Setter Property="FontSize" Value="14"></Setter>
                 <Setter Property="TextColor" Value="Black"></Setter>
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+                <Setter Property="ReturnType" Value="Go"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

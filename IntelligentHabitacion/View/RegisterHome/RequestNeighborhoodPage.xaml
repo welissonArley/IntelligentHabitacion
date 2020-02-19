@@ -18,7 +18,7 @@
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD}" Style="{x:StaticResource LabelTitle}"></Label>
 
-        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.Neighborhood}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}"></CustomEntry:EntryWhiteBlackCursor>
+        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.Neighborhood}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryWhiteBlackCursor>
 
         <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
     </StackLayout>

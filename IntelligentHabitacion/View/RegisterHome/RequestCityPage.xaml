@@ -18,7 +18,7 @@
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_THE_CITY_IS}" Style="{x:StaticResource LabelTitle}"></Label>
 
-        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.City.Name}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}"></CustomEntry:EntryWhiteBlackCursor>
+        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.City.Name}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryWhiteBlackCursor>
 
         <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
     </StackLayout>

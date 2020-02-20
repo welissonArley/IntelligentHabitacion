@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:templateStep="clr-namespace:IntelligentHabitacion.App.Template.Step"
+             xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
+             x:Class="IntelligentHabitacion.App.View.RegisterUser.RequestEmergencyContact2Page">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
+        </StackLayout>
+
+        <Label Text="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL}" Style="{x:StaticResource LabelTitle}"></Label>
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.EmergencyContact2.Name}" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_NAME}"></CustomEntry:EntryWhiteBlackCursor>
+            <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.EmergencyContact2.PhoneNumber}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" Keyboard="Numeric">
+                <CustomEntry:EntryWhiteBlackCursor.Behaviors>
+                    <behavior:PhoneNumberBehavior></behavior:PhoneNumberBehavior>
+                </CustomEntry:EntryWhiteBlackCursor.Behaviors>
+            </CustomEntry:EntryWhiteBlackCursor>
+            <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.EmergencyContact2.FamilyRelationship}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELANTIONSHIP}"></CustomEntry:EntryWhiteBlackCursor>
+        </StackLayout>
+        
+        <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+    </StackLayout>
+</ContentPage>

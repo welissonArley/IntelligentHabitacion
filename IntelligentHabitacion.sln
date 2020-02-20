@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.Android", "IntelligentHabitacion.Android\IntelligentHabitacion.Android.csproj", "{0DF6CE87-7EF8-4FB7-9F5E-593825862A03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.App.Android", "IntelligentHabitacion.App.Android\IntelligentHabitacion.App.Android.csproj", "{0DF6CE87-7EF8-4FB7-9F5E-593825862A03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.iOS", "IntelligentHabitacion.iOS\IntelligentHabitacion.iOS.csproj", "{9B503306-0FAB-4125-94A0-E2C74E88E67F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.App.iOS", "IntelligentHabitacion.App.iOS\IntelligentHabitacion.App.iOS.csproj", "{9B503306-0FAB-4125-94A0-E2C74E88E67F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion", "IntelligentHabitacion\IntelligentHabitacion.csproj", "{14012B9D-1150-43F2-8E2B-C238135FEEE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.App", "IntelligentHabitacion.App\IntelligentHabitacion.App.csproj", "{14012B9D-1150-43F2-8E2B-C238135FEEE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Exception", "IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj", "{CEA33520-0CFE-402B-9394-941030786EC1}"
 EndProject

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:templateStep="clr-namespace:IntelligentHabitacion.App.Template.Step"
+             x:Class="IntelligentHabitacion.App.View.RegisterHome.RequestNumberPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
+        </StackLayout>
+
+        <Label Text="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER}" Style="{x:StaticResource LabelTitle}"></Label>
+
+        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.Number}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSNUMBER}" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryWhiteBlackCursor>
+
+        <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+    </StackLayout>
+</ContentPage>

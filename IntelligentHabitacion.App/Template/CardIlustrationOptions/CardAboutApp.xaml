@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+    x:Class="IntelligentHabitacion.App.Template.CardIlustrationOptions.CardAboutApp">
+    <ContentView.Content>
+        <Grid ColumnSpacing="30" x:Name="GridCard">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Frame HasShadow="True" CornerRadius="5" Padding="0" Grid.Column="0" Grid.Row="0">
+                <StackLayout Spacing="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="IconInformation">
+                        <Image.HeightRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="25" Tablet="50"></OnIdiom>
+                        </Image.HeightRequest>
+                        <Image.WidthRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="25" Tablet="50"></OnIdiom>
+                        </Image.WidthRequest>
+                    </Image>
+                    <StackLayout Margin="15,0,0,0" Spacing="3">
+                        <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource OrangeDefault}">
+                            <Label.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="24"></OnIdiom>
+                            </Label.FontSize>
+                        </Label>
+                        <StackLayout Orientation="Horizontal" Spacing="4">
+                            <Label VerticalOptions="CenterAndExpand" TextColor="Black" Text="{x:Static resourceText:ResourceText.TITLE_VERSION}" Style="{x:StaticResource LabelLight}">
+                                <Label.FontSize>
+                                    <OnIdiom x:TypeArguments="x:Double" Phone="8" Tablet="16"></OnIdiom>
+                                </Label.FontSize>
+                            </Label>
+                            <Label x:Name="LabelVersionNumber" VerticalOptions="CenterAndExpand" TextColor="Black" Style="{x:StaticResource LabelBold}">
+                                <Label.FontSize>
+                                    <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="28"></OnIdiom>
+                                </Label.FontSize>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

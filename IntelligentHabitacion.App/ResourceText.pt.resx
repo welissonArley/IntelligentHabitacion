@@ -210,6 +210,24 @@
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Concluir</value>
   </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone do contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
+    <value>Contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone do contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
+    <value>Contato 2:</value>
+  </data>
   <data name="TITLE_CONTACT_EMERGENCY_CASES" xml:space="preserve">
     <value>Me informe um contato para casos de emergência</value>
   </data>
@@ -218,6 +236,9 @@
   </data>
   <data name="TITLE_CREATE_HOME" xml:space="preserve">
     <value>Criar um lar</value>
+  </data>
+  <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Deletar conta</value>
   </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>Qual é o e-mail para recuperação de senha?</value>
@@ -237,6 +258,9 @@
   <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
     <value>Minhas informações</value>
   </data>
+  <data name="TITLE_NAME_TWOPOINTS" xml:space="preserve">
+    <value>Nome:</value>
+  </data>
   <data name="TITLE_NEIGHBORHOOD" xml:space="preserve">
     <value>O Bairro</value>
   </data>
@@ -254,6 +278,12 @@
   </data>
   <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Senha:</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_1_TWOPOINTS" xml:space="preserve">
+    <value>Telefone 1:</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_2_TWOPOINTS" xml:space="preserve">
+    <value>Telefone 2:</value>
   </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>

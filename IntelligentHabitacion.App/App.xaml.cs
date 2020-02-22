@@ -48,6 +48,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestComplementPage, RequestComplementViewModel>();
             ViewFactory.Register<RequestNeighborhoodPage, RequestNeighborhoodViewModel>();
             ViewFactory.Register<RequestNetworkInformationPage, RequestNetworkInformationViewModel>();
+            ViewFactory.Register<UpdateUserInformationPage, UpdateUserInformationViewModel>();
         }
     }
 }

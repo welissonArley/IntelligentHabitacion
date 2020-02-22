@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using IntelligentHabitacion.App.Behavior;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IntelligentHabitacion.App.Template.TextWithLabel
@@ -7,6 +8,12 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
     public partial class InputTextWithLabelComponent : ContentView
     {
         public bool TopMargin { get; set; }
+
+        public Xamarin.Forms.Behavior EntryBehavior
+        {
+            get => (Xamarin.Forms.Behavior)GetValue(EntryBehaviorProperty);
+            set => SetValue(EntryBehaviorProperty, value);
+        }
 
         public static BindableProperty TopMarginProperty = BindableProperty.Create(
                                                         propertyName: "TopMargin",
@@ -19,6 +26,20 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
         {
             if ((bool)newValue)
                 ((InputTextWithLabelComponent)bindable).component.Margin = new Thickness(0, 20, 0, 0);
+        }
+
+        public static BindableProperty EntryBehaviorProperty = BindableProperty.Create(
+                                                        propertyName: "EntryBehavior",
+                                                        returnType: typeof(Xamarin.Forms.Behavior),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: EntryBehaviorPropertyChanged);
+
+        private static void EntryBehaviorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue != null)
+                ((InputTextWithLabelComponent)bindable).Input.Behaviors.Add((Xamarin.Forms.Behavior)newValue);
         }
 
         public string PropertyToBindindEntry { set { Input.SetBinding(Entry.TextProperty, value); } }

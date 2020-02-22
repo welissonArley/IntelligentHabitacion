@@ -340,6 +340,60 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kinship with contact 1:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact&apos;s 1 phone number:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact 1:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kinship with contact 2:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact&apos;s 2 phone number:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact 2:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tell me an emergency contact.
         /// </summary>
         internal static string TITLE_CONTACT_EMERGENCY_CASES {
@@ -363,6 +417,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CREATE_HOME {
             get {
                 return ResourceManager.GetString("TITLE_CREATE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete account.
+        /// </summary>
+        internal static string TITLE_DELETE_ACCOUNT {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE_ACCOUNT", resourceCulture);
             }
         }
         
@@ -421,6 +484,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        internal static string TITLE_NAME_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_NAME_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Neighborhood.
         /// </summary>
         internal static string TITLE_NEIGHBORHOOD {
@@ -471,6 +543,24 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_PASSWORD_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_PASSWORD_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number 1:.
+        /// </summary>
+        internal static string TITLE_PHONENUMBER_1_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_PHONENUMBER_1_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number 2:.
+        /// </summary>
+        internal static string TITLE_PHONENUMBER_2_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_PHONENUMBER_2_TWOPOINTS", resourceCulture);
             }
         }
         

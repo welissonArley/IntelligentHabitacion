@@ -25,6 +25,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="Template\Button\DeleteButton.xaml.cs">
+      <DependentUpon>DeleteButton.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\CardIlustrationOptions\CardAboutApp.xaml.cs">
       <DependentUpon>CardAboutApp.xaml</DependentUpon>
     </Compile>
@@ -48,6 +51,9 @@
     </Compile>
     <Compile Update="View\ForgotPassword\RequestEmailPage.xaml.cs">
       <DependentUpon>RequestEmailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\UpdateUserInformationPage.xaml.cs">
+      <DependentUpon>UpdateUserInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\RegisterHome\RequestNetworkInformationPage.xaml.cs">
       <DependentUpon>RequestNetworkInformationPage.xaml</DependentUpon>

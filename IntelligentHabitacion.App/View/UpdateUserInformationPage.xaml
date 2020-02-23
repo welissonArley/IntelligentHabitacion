@@ -30,8 +30,9 @@
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact2.PhoneNumber" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorPhoneNumber}"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact2.FamilyRelationship" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELANTIONSHIP}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
 
+                <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding UpdateInformationsTapped}"></Button>
                 <templateButton:SecondaryActionButton Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_CHANGE_PASSWORD}" TappedButtonCommand="{Binding Path=BindingContext.ChangePasswordTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:SecondaryActionButton>
-                <templateButton:DeleteButton Margin="0,115,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
+                <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
             </StackLayout>
         </ScrollView>
     </StackLayout>

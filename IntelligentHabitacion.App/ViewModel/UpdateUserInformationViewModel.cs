@@ -11,6 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel
         private readonly IUserRule _userRule;
 
         public ICommand DeleteAccountTapped { get; }
+        public ICommand ChangePasswordTapped { get; }
 
         public UserInformationsModel Model { get; set; }
 
@@ -19,6 +20,7 @@ namespace IntelligentHabitacion.App.ViewModel
             _userRule = userRule;
 
             DeleteAccountTapped = new Command(ClickDeleteAccount);
+            ChangePasswordTapped = new Command(ClickChangePasswordAccount);
 
             Model = new UserInformationsModel
             {
@@ -46,6 +48,18 @@ namespace IntelligentHabitacion.App.ViewModel
             try
             {
                 Navigation.PushAsync<ConfirmDeleteAccountViewModel>();
+            }
+            catch (System.Exception exeption)
+            {
+                Exception(exeption);
+            }
+        }
+
+        private void ClickChangePasswordAccount()
+        {
+            try
+            {
+                Navigation.PushAsync<ChangePasswordViewModel>();
             }
             catch (System.Exception exeption)
             {

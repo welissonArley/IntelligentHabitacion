@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="IntelligentHabitacion.App.Template.Button.SecondaryActionButton">
+    <ContentView.Content>
+        <Grid ColumnSpacing="30" x:Name="GridCard">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button x:Name="Button" Clicked="Button_OnTapped" Grid.Column="0" HeightRequest="40" Style="{x:StaticResource ButtonSecondaryActionDefault}"></Button>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

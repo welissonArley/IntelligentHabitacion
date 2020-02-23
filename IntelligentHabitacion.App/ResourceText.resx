@@ -150,6 +150,9 @@
   <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
     <value>Code received in email</value>
   </data>
+  <data name="PLACEHOLDER_CURRENT_PASSWORD" xml:space="preserve">
+    <value>Current password</value>
+  </data>
   <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
     <value>Degree of kinship</value>
   </data>
@@ -210,6 +213,9 @@
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Change</value>
   </data>
+  <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Change password</value>
+  </data>
   <data name="TITLE_CODE_RECEIVED_TWOPOINTS" xml:space="preserve">
     <value>Code received:</value>
   </data>
@@ -242,6 +248,9 @@
   </data>
   <data name="TITLE_CREATE_HOME" xml:space="preserve">
     <value>Create a home</value>
+  </data>
+  <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Current password:</value>
   </data>
   <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
     <value>Delete account</value>

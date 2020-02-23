@@ -160,6 +160,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current password.
+        /// </summary>
+        internal static string PLACEHOLDER_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_CURRENT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Degree of kinship.
         /// </summary>
         internal static string PLACEHOLDER_DEGREE_KINSHIP {
@@ -340,6 +349,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        internal static string TITLE_CHANGE_PASSWORD {
+            get {
+                return ResourceManager.GetString("TITLE_CHANGE_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code received:.
         /// </summary>
         internal static string TITLE_CODE_RECEIVED_TWOPOINTS {
@@ -435,6 +453,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CREATE_HOME {
             get {
                 return ResourceManager.GetString("TITLE_CREATE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current password:.
+        /// </summary>
+        internal static string TITLE_CURRENT_PASSWORD_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CURRENT_PASSWORD_TWOPOINTS", resourceCulture);
             }
         }
         

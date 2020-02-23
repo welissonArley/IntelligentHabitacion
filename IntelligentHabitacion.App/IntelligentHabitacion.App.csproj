@@ -28,6 +28,9 @@
     <Compile Update="Template\Button\ConfirmDangerActionButton.xaml.cs">
       <DependentUpon>ConfirmDangerActionButton.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Button\SecondaryActionButton.xaml.cs">
+      <DependentUpon>SecondaryActionButton.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Button\DeleteButton.xaml.cs">
       <DependentUpon>DeleteButton.xaml</DependentUpon>
     </Compile>
@@ -60,6 +63,9 @@
     </Compile>
     <Compile Update="View\ForgotPassword\RequestEmailPage.xaml.cs">
       <DependentUpon>RequestEmailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\ChangePasswordPage.xaml.cs">
+      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\UpdateUserInformationPage.xaml.cs">
       <DependentUpon>UpdateUserInformationPage.xaml</DependentUpon>

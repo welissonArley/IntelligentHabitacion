@@ -38,5 +38,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             new PasswordValidator().IsValidaPasswordAndConfirmation(newPassword, confirmationPassword);
         }
+
+        public void ChangePassword(string currentPassword, string newPassword, string confirmationPassword)
+        {
+            if (string.IsNullOrWhiteSpace(currentPassword))
+                throw new CurrentPasswordEmptyException();
+
+            ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
+        }
     }
 }

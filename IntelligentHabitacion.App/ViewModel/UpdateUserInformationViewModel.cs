@@ -12,6 +12,7 @@ namespace IntelligentHabitacion.App.ViewModel
 
         public ICommand DeleteAccountTapped { get; }
         public ICommand ChangePasswordTapped { get; }
+        public ICommand LogoutTapped { get; }
 
         public UserInformationsModel Model { get; set; }
 
@@ -21,6 +22,7 @@ namespace IntelligentHabitacion.App.ViewModel
 
             DeleteAccountTapped = new Command(ClickDeleteAccount);
             ChangePasswordTapped = new Command(ClickChangePasswordAccount);
+            LogoutTapped = new Command(ClickLogoutAccount);
 
             Model = new UserInformationsModel
             {
@@ -60,6 +62,19 @@ namespace IntelligentHabitacion.App.ViewModel
             try
             {
                 Navigation.PushAsync<ChangePasswordViewModel>();
+            }
+            catch (System.Exception exeption)
+            {
+                Exception(exeption);
+            }
+        }
+
+        private void ClickLogoutAccount()
+        {
+            try
+            {
+                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.LoginPage>());
+                Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {

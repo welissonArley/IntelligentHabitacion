@@ -8,6 +8,9 @@
              x:Name="UpdateUserInformationContentPage"
              xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
              x:Class="IntelligentHabitacion.App.View.UpdateUserInformationPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconLogout" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding LogoutTapped}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <behavior:PhoneNumberBehavior x:Key="BehaviorPhoneNumber"></behavior:PhoneNumberBehavior>
     </ContentPage.Resources>

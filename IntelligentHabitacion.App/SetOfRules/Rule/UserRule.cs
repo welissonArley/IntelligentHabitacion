@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Validators.Validator;
 
@@ -38,6 +39,25 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             if (!string.IsNullOrWhiteSpace(phoneNumber2))
                 phoneNumberValidator.IsValid(phoneNumber2);
+        }
+
+        public void DeleteAccount(string code, string password)
+        {
+            if (string.IsNullOrWhiteSpace(code))
+                throw new CodeEmptyException();
+
+            if (string.IsNullOrWhiteSpace(password))
+                throw new PasswordEmptyException();
+        }
+
+        public void UpdateInformations(UserInformationsModel userInformations)
+        {
+            ValidateName(userInformations.Name);
+            ValidateEmail(userInformations.Email);
+            ValidatePhoneNumber(userInformations.PhoneNumber1, userInformations.PhoneNumber2);
+            ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.FamilyRelationship);
+            if(!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
+                ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.FamilyRelationship);
         }
     }
 }

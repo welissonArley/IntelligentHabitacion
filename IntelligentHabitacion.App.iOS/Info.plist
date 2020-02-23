@@ -40,6 +40,8 @@
 		<string>Fonts/Raleway-SemiBold.ttf</string>
 		<string>Fonts/Raleway-Thin.ttf</string>
 		<string>Fonts/Raleway-Light.ttf</string>
+		<string>Fonts/Raleway-ExtraBold.ttf</string>
+		<string>Fonts/Raleway-Italic.ttf</string>
 	</array>
 </dict>
 </plist>

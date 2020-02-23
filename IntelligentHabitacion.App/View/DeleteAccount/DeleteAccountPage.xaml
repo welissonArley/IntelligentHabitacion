@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
+             Title="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}"
+             x:Class="IntelligentHabitacion.App.View.DeleteAccount.DeleteAccountPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <Label Style="{x:StaticResource LabelTitle}" Text="{x:Static resourceText:ResourceText.TITLE_ITISSAD_SEEYOUGO}"></Label>
+
+        <customcontrol:LabelJustifyText FontSize="22" Margin="0,40,0,0">
+            <customcontrol:LabelJustifyText.FormattedText>
+                <FormattedString>
+                    <Span Text="Por questões de segurança, digite abaixo sua senha e o código que enviamos no seu e-mail" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span FontFamily="{DynamicResource FontFamilyRalewayItalic}" Text="{Binding Email}" TextColor="Black" FontSize="22"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span Text="para finalizarmos o processo." TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                </FormattedString>
+            </customcontrol:LabelJustifyText.FormattedText>
+        </customcontrol:LabelJustifyText>
+        
+        <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="ConfirmationCode" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CODE_RECEIVED_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CODE_RECEIVED}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+        <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="True"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+        <Button Command="{Binding ConfirmCommand}" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonDangerActionDefault}" VerticalOptions="EndAndExpand"></Button>
+    </StackLayout>
+</ContentPage>

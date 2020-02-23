@@ -1,9 +1,9 @@
 ﻿using IntelligentHabitacion.App.View;
-using IntelligentHabitacion.App.View.ForgotPassword;
+using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.RegisterHome;
 using IntelligentHabitacion.App.View.RegisterUser;
 using IntelligentHabitacion.App.ViewModel;
-using IntelligentHabitacion.App.ViewModel.ForgotPassword;
+using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using Xamarin.Forms;
@@ -33,10 +33,10 @@ namespace IntelligentHabitacion.App
         {
             ViewFactory.Register<LoginPage, LoginViewModel>();
             ViewFactory.Register<View.ForgotPassword.RequestEmailPage, ViewModel.ForgotPassword.RequestEmailViewModel>();
-            ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
+            ViewFactory.Register<View.ForgotPassword.ChangePasswordPage, ViewModel.ForgotPassword.ChangePasswordViewModel>();
             ViewFactory.Register<RequestNamePage, RequestNameViewModel>();
             ViewFactory.Register<RequestPhoneNumberPage, RequestPhoneNumberViewModel>();
-            ViewFactory.Register<View.RegisterUser.RequestEmailPage, ViewModel.RegisterUser.RequestEmailViewModel>();
+            ViewFactory.Register<RequestEmailPage, RequestEmailViewModel>();
             ViewFactory.Register<RequestEmergencyContact1Page, RequestEmergencyContact1ViewModel>();
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
@@ -48,6 +48,10 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestComplementPage, RequestComplementViewModel>();
             ViewFactory.Register<RequestNeighborhoodPage, RequestNeighborhoodViewModel>();
             ViewFactory.Register<RequestNetworkInformationPage, RequestNetworkInformationViewModel>();
+            ViewFactory.Register<UpdateUserInformationPage, UpdateUserInformationViewModel>();
+            ViewFactory.Register<ConfirmDeleteAccountPage, ConfirmDeleteAccountViewModel>();
+            ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
+            ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
         }
     }
 }

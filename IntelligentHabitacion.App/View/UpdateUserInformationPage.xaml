@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
+             xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}"
+             x:Name="UpdateUserInformationContentPage"
+             xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
+             x:Class="IntelligentHabitacion.App.View.UpdateUserInformationPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconLogout" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding LogoutTapped}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <behavior:PhoneNumberBehavior x:Key="BehaviorPhoneNumber"></behavior:PhoneNumberBehavior>
+    </ContentPage.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Email" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" IsPassword="False" Keyboard="Email"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.PhoneNumber1" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_1_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorPhoneNumber}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.PhoneNumber2" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_2_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorPhoneNumber}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                <templateInputTextWithLabel:InputTextWithLabelComponent Margin="0,50,0,0" PropertyToBindindEntry="Model.EmergencyContact1.Name" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact1.PhoneNumber" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorPhoneNumber}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact1.FamilyRelationship" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELANTIONSHIP}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                <templateInputTextWithLabel:InputTextWithLabelComponent Margin="0,50,0,0" PropertyToBindindEntry="Model.EmergencyContact2.Name" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact2.PhoneNumber" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorPhoneNumber}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact2.FamilyRelationship" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELANTIONSHIP}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding UpdateInformationsTapped}"></Button>
+                <templateButton:SecondaryActionButton Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_CHANGE_PASSWORD}" TappedButtonCommand="{Binding Path=BindingContext.ChangePasswordTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:SecondaryActionButton>
+                <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

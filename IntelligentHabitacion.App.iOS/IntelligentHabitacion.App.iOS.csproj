@@ -77,6 +77,12 @@
     <BundleResource Include="Resources\Fonts\Raleway-Light.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\Fonts\Raleway-Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\Fonts\Raleway-ExtraBold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -257,5 +263,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IconInformation%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconLogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconLogout%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconLogout%402x.png" />
   </ItemGroup>
 </Project>

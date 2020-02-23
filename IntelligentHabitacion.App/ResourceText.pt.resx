@@ -132,6 +132,9 @@
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
+  <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
+    <value>Você tem certeza que deseja executar esta ação?</value>
+  </data>
   <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
     <value>Rua Mountain Drive</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
     <value>Código recebido no e-mail</value>
+  </data>
+  <data name="PLACEHOLDER_CURRENT_PASSWORD" xml:space="preserve">
+    <value>Senha atual</value>
   </data>
   <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
     <value>Grau de parentesco</value>
@@ -201,14 +207,38 @@
   <data name="TITLE_ADDRESSNUMBER" xml:space="preserve">
     <value>Qual o número?</value>
   </data>
+  <data name="TITLE_CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
+  </data>
+  <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Alterar senha</value>
   </data>
   <data name="TITLE_CODE_RECEIVED_TWOPOINTS" xml:space="preserve">
     <value>Código recebido:</value>
   </data>
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Concluir</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone do contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
+    <value>Contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone do contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
+    <value>Contato 2:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_CASES" xml:space="preserve">
     <value>Me informe um contato para casos de emergência</value>
@@ -219,6 +249,12 @@
   <data name="TITLE_CREATE_HOME" xml:space="preserve">
     <value>Criar um lar</value>
   </data>
+  <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Senha atual:</value>
+  </data>
+  <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Deletar conta</value>
+  </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>Qual é o e-mail para recuperação de senha?</value>
   </data>
@@ -228,6 +264,9 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Esqueceu sua senha?</value>
   </data>
+  <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
+    <value>É triste ver você partir :((</value>
+  </data>
   <data name="TITLE_JOIN_HOME" xml:space="preserve">
     <value>Participar de um lar</value>
   </data>
@@ -236,6 +275,9 @@
   </data>
   <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
     <value>Minhas informações</value>
+  </data>
+  <data name="TITLE_NAME_TWOPOINTS" xml:space="preserve">
+    <value>Nome:</value>
   </data>
   <data name="TITLE_NEIGHBORHOOD" xml:space="preserve">
     <value>O Bairro</value>
@@ -254,6 +296,12 @@
   </data>
   <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Senha:</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_1_TWOPOINTS" xml:space="preserve">
+    <value>Telefone 1:</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_2_TWOPOINTS" xml:space="preserve">
+    <value>Telefone 2:</value>
   </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
@@ -281,6 +329,9 @@
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_YES_IAMSURE" xml:space="preserve">
+    <value>Sim, eu tenho certeza</value>
   </data>
   <data name="TITLE_YOUR_EMAIL" xml:space="preserve">
     <value>O seu e-mail :)</value>

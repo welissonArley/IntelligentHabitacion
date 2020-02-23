@@ -106,6 +106,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to perform this action?.
+        /// </summary>
+        internal static string PHRASE_AREYOUSUREEXCUTETHISACTION {
+            get {
+                return ResourceManager.GetString("PHRASE_AREYOUSUREEXCUTETHISACTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rua Mountain Drive.
         /// </summary>
         internal static string PLACEHOLDER_ADDRESS {
@@ -147,6 +156,15 @@ namespace IntelligentHabitacion.App {
         internal static string PLACEHOLDER_CODE_RECEIVED {
             get {
                 return ResourceManager.GetString("PLACEHOLDER_CODE_RECEIVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current password.
+        /// </summary>
+        internal static string PLACEHOLDER_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_CURRENT_PASSWORD", resourceCulture);
             }
         }
         
@@ -313,11 +331,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string TITLE_CANCEL {
+            get {
+                return ResourceManager.GetString("TITLE_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
         internal static string TITLE_CHANGE {
             get {
                 return ResourceManager.GetString("TITLE_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        internal static string TITLE_CHANGE_PASSWORD {
+            get {
+                return ResourceManager.GetString("TITLE_CHANGE_PASSWORD", resourceCulture);
             }
         }
         
@@ -336,6 +372,60 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CONCLUDE {
             get {
                 return ResourceManager.GetString("TITLE_CONCLUDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kinship with contact 1:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact&apos;s 1 phone number:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact 1:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kinship with contact 2:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact&apos;s 2 phone number:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact 2:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -367,6 +457,24 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current password:.
+        /// </summary>
+        internal static string TITLE_CURRENT_PASSWORD_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CURRENT_PASSWORD_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete account.
+        /// </summary>
+        internal static string TITLE_DELETE_ACCOUNT {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE_ACCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the email to recover the password?.
         /// </summary>
         internal static string TITLE_EMAIL_RECOVER_PASSAWORD {
@@ -394,6 +502,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It&apos;s so sad see you go :((.
+        /// </summary>
+        internal static string TITLE_ITISSAD_SEEYOUGO {
+            get {
+                return ResourceManager.GetString("TITLE_ITISSAD_SEEYOUGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Join a home.
         /// </summary>
         internal static string TITLE_JOIN_HOME {
@@ -417,6 +534,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_MY_INFORMATIONS {
             get {
                 return ResourceManager.GetString("TITLE_MY_INFORMATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        internal static string TITLE_NAME_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_NAME_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -471,6 +597,24 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_PASSWORD_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_PASSWORD_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number 1:.
+        /// </summary>
+        internal static string TITLE_PHONENUMBER_1_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_PHONENUMBER_1_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number 2:.
+        /// </summary>
+        internal static string TITLE_PHONENUMBER_2_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_PHONENUMBER_2_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -552,6 +696,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_WELCOME {
             get {
                 return ResourceManager.GetString("TITLE_WELCOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes, I&apos;m sure.
+        /// </summary>
+        internal static string TITLE_YES_IAMSURE {
+            get {
+                return ResourceManager.GetString("TITLE_YES_IAMSURE", resourceCulture);
             }
         }
         

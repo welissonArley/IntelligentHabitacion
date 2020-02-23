@@ -126,6 +126,9 @@
   <data name="CODE_EMPTY" xml:space="preserve">
     <value>O código deve ser informado.</value>
   </data>
+  <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
+    <value>A senha atual deve ser informada.</value>
+  </data>
   <data name="EMAIL_EMPTY" xml:space="preserve">
     <value>E-mail deve ser informado.</value>
   </data>

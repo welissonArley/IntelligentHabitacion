@@ -15,7 +15,7 @@
             <OnPlatform x:Key="FontFamilyRalewayMedium" x:TypeArguments="x:String" iOS="Raleway-Medium" Android="Raleway-Medium.ttf#Raleway Medium" />
             <OnPlatform x:Key="FontFamilyRalewayLight" x:TypeArguments="x:String" iOS="Raleway-Light" Android="Raleway-Light.ttf#Raleway Light" />
             <OnPlatform x:Key="FontFamilyRalewayExtraBold" x:TypeArguments="x:String" iOS="Raleway-ExtraBold" Android="Raleway-ExtraBold.ttf#Raleway-ExtraBold" />
-            <OnPlatform x:Key="FontFamilyRalewayItalic" x:TypeArguments="x:String" iOS="Raleway" Android="Raleway-Italic.ttf#Raleway" />
+            <OnPlatform x:Key="FontFamilyRalewayItalic" x:TypeArguments="x:String" iOS="Raleway-Italic" Android="Raleway-Italic.ttf#Raleway" />
             
             <Color x:Key="YellowDefault">#FEBF3B</Color>
             <Color x:Key="GrayDefault">#A1A1A1</Color>

@@ -1,8 +1,10 @@
 ﻿using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.ForgotPassword;
 using IntelligentHabitacion.App.View.RegisterHome;
 using IntelligentHabitacion.App.View.RegisterUser;
 using IntelligentHabitacion.App.ViewModel;
+using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using IntelligentHabitacion.App.ViewModel.ForgotPassword;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
@@ -49,6 +51,8 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestNeighborhoodPage, RequestNeighborhoodViewModel>();
             ViewFactory.Register<RequestNetworkInformationPage, RequestNetworkInformationViewModel>();
             ViewFactory.Register<UpdateUserInformationPage, UpdateUserInformationViewModel>();
+            ViewFactory.Register<ConfirmDeleteAccountPage, ConfirmDeleteAccountViewModel>();
+            ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
         }
     }
 }

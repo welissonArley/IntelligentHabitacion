@@ -7,5 +7,6 @@
         void ValidatePhoneNumber(string phoneNumber1, string phoneNumber2);
         void ValidateEmergencyContact(string name, string phoneNumber, string degreeKinship);
         void ValidatePassword(string password, string confirmationPassword);
+        void DeleteAccount(string codeReceived, string password);
     }
 }

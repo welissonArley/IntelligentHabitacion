@@ -106,6 +106,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to perform this action?.
+        /// </summary>
+        internal static string PHRASE_AREYOUSUREEXCUTETHISACTION {
+            get {
+                return ResourceManager.GetString("PHRASE_AREYOUSUREEXCUTETHISACTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rua Mountain Drive.
         /// </summary>
         internal static string PLACEHOLDER_ADDRESS {
@@ -313,6 +322,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string TITLE_CANCEL {
+            get {
+                return ResourceManager.GetString("TITLE_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
         internal static string TITLE_CHANGE {
@@ -453,6 +471,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_FORGOT_PASSWORD {
             get {
                 return ResourceManager.GetString("TITLE_FORGOT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s so sad see you go :((.
+        /// </summary>
+        internal static string TITLE_ITISSAD_SEEYOUGO {
+            get {
+                return ResourceManager.GetString("TITLE_ITISSAD_SEEYOUGO", resourceCulture);
             }
         }
         
@@ -642,6 +669,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_WELCOME {
             get {
                 return ResourceManager.GetString("TITLE_WELCOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes, I&apos;m sure.
+        /// </summary>
+        internal static string TITLE_YES_IAMSURE {
+            get {
+                return ResourceManager.GetString("TITLE_YES_IAMSURE", resourceCulture);
             }
         }
         

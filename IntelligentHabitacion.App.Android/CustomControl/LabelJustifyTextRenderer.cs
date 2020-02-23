@@ -1,4 +1,5 @@
 ﻿using Android.Content;
+using Android.OS;
 using IntelligentHabitacion.App.CustomControl;
 using IntelligentHabitacion.App.Droid.CustomControl;
 using Xamarin.Forms;
@@ -19,7 +20,10 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
             base.OnElementChanged(e);
             if (Control != null)
             {
-                Control.JustificationMode = Android.Text.JustificationMode.InterWord;
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.OMr1)
+                    Control.JustificationMode = Android.Text.JustificationMode.InterWord;
+                else
+                    Control.TextAlignment = Android.Views.TextAlignment.Center;
             }
         }
     }

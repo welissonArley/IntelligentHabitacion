@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -44,7 +45,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                Navigation.PopToRootAsync();
+                Navigation.PushAsync<ConfirmDeleteAccountViewModel>();
             }
             catch (System.Exception exeption)
             {

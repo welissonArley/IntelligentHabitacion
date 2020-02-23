@@ -132,6 +132,9 @@
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
+  <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
+    <value>Você tem certeza que deseja executar esta ação?</value>
+  </data>
   <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
     <value>Rua Mountain Drive</value>
   </data>
@@ -201,6 +204,9 @@
   <data name="TITLE_ADDRESSNUMBER" xml:space="preserve">
     <value>Qual o número?</value>
   </data>
+  <data name="TITLE_CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
   </data>
@@ -248,6 +254,9 @@
   </data>
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Esqueceu sua senha?</value>
+  </data>
+  <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
+    <value>É triste ver você partir :((</value>
   </data>
   <data name="TITLE_JOIN_HOME" xml:space="preserve">
     <value>Participar de um lar</value>
@@ -311,6 +320,9 @@
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_YES_IAMSURE" xml:space="preserve">
+    <value>Sim, eu tenho certeza</value>
   </data>
   <data name="TITLE_YOUR_EMAIL" xml:space="preserve">
     <value>O seu e-mail :)</value>

@@ -195,6 +195,9 @@
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
   </data>
+  <data name="TEXT_CHECK_YOUR_INTERNET_CONNECTION" xml:space="preserve">
+    <value>Check your internet connection!</value>
+  </data>
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>About the App</value>
   </data>

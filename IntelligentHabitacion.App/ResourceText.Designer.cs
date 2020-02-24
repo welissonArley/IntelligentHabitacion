@@ -295,6 +295,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check your internet connection!.
+        /// </summary>
+        internal static string TEXT_CHECK_YOUR_INTERNET_CONNECTION {
+            get {
+                return ResourceManager.GetString("TEXT_CHECK_YOUR_INTERNET_CONNECTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About the App.
         /// </summary>
         internal static string TITILE_ABOUT_APP {

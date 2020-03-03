@@ -20,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Commu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Validators", "IntelligentHabitacion.Validators\IntelligentHabitacion.Validators.csproj", "{2BFA1B36-24ED-45A1-81EF-0BDD16B678C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.Useful", "IntelligentHabitacion.Useful\IntelligentHabitacion.Useful.csproj", "{5963E9C6-7423-4EA9-8552-93C7489599EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Useful", "IntelligentHabitacion.Useful\IntelligentHabitacion.Useful.csproj", "{5963E9C6-7423-4EA9-8552-93C7489599EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.Api", "IntelligentHabitacion.Api\IntelligentHabitacion.Api.csproj", "{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -134,6 +136,18 @@ Global
 		{5963E9C6-7423-4EA9-8552-93C7489599EF}.Release|iPhone.Build.0 = Release|Any CPU
 		{5963E9C6-7423-4EA9-8552-93C7489599EF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{5963E9C6-7423-4EA9-8552-93C7489599EF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Release|iPhone.Build.0 = Release|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

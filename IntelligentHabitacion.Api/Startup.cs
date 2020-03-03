@@ -63,6 +63,8 @@ namespace IntelligentHabitacion.Api
                 options.OperationFilter<SwaggerDefaultValues>();
                 options.IncludeXmlComments("IntelligentHabitacion.Api.xml");
             });
+
+            RegistrarClassesEInerfacesProjetoNegocio(services);
         }
 
         /// <summary>
@@ -70,6 +72,7 @@ namespace IntelligentHabitacion.Api
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
+        /// <param name="provider"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
@@ -87,6 +90,18 @@ namespace IntelligentHabitacion.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private void RegistrarClassesEInerfacesProjetoNegocio(IServiceCollection services)
+        {
+            var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.SetOfRules").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
+                    type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule"))).ToList();
+
+            foreach (var classRule in listClassIntelligentHabitacionRules)
+            {
+                var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
+                services.AddTransient(interfaceToRegister, classRule);
+            }
         }
     }
 }

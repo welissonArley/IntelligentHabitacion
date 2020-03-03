@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -11,6 +12,17 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class LoginController : BaseController
     {
+        private readonly ILoginRule _loginRule;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loginRule"></param>
+        public LoginController(ILoginRule loginRule)
+        {
+            _loginRule = loginRule;
+        }
+
         /// <summary>
         /// 
         /// </summary>

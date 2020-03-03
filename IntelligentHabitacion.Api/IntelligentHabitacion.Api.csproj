@@ -18,4 +18,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IntelligentHabitacion.Api.SetOfRules\IntelligentHabitacion.Api.SetOfRules.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -214,6 +214,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The database is invalid or don&apos;t unknow.
+        /// </summary>
+        public static string UNKNOWNDATABASE {
+            get {
+                return ResourceManager.GetString("UNKNOWNDATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Zip Code must be entered..
         /// </summary>
         public static string ZIPCODE_EMPTY {

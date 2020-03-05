@@ -2,5 +2,6 @@
 {
     public interface ILoginRule
     {
+        void DoLogin();
     }
 }

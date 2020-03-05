@@ -165,6 +165,9 @@
   <data name="PHONENUMBER_INVALID" xml:space="preserve">
     <value>O número de telefone é inválido.</value>
   </data>
+  <data name="UNKNOWNDATABASE" xml:space="preserve">
+    <value>O banco de dados é invalido ou não conhecido</value>
+  </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
   </data>

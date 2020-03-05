@@ -4,8 +4,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
 {
     public class EmergencyContact : ModelBase
     {
-        public string Name { get; set; }
-        public string DegreeOfKinship { get; set; }
-        public List<Phonenumber> Phonenumbers { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string DegreeOfKinship { get; set; }
+        public virtual ICollection<Phonenumber> Phonenumbers { get; set; }
     }
 }

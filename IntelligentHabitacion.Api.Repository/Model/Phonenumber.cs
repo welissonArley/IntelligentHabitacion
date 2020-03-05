@@ -2,6 +2,6 @@
 {
     public class Phonenumber : ModelBase
     {
-        public string Number { get; set; }
+        public virtual string Number { get; set; }
     }
 }

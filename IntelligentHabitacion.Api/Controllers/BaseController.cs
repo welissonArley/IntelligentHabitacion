@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace IntelligentHabitacion.Api.Controllers
 {
@@ -31,9 +30,9 @@ namespace IntelligentHabitacion.Api.Controllers
         /// 
         /// </summary>
         /// <param name="exception"></param>
-        protected ObjectResult TratarException(Exception exception)
+        protected ObjectResult TratarException(System.Exception exception)
         {
-            return null;
+            return StatusCode(500, string.Empty);
         }
     }
 }

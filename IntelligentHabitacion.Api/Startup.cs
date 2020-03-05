@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using IntelligentHabitacion.Api.Middleware;
+using IntelligentHabitacion.Api.Repository.Model;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -15,13 +19,17 @@ namespace IntelligentHabitacion.Api
     /// </summary>
     public class Startup
     {
+        private AppSettingsManager appSettingsManager { get; }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="configuration"></param>
-        public Startup(IConfiguration configuration)
+        /// <param name="environment"></param>
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
+            appSettingsManager = new AppSettingsManager(environment);
         }
 
         /// <summary>
@@ -64,7 +72,8 @@ namespace IntelligentHabitacion.Api
                 options.IncludeXmlComments("IntelligentHabitacion.Api.xml");
             });
 
-            RegistrarClassesEInerfacesProjetoNegocio(services);
+            RegisterSetOfRules(services);
+            RegisterRepository(services);
         }
 
         /// <summary>
@@ -80,6 +89,8 @@ namespace IntelligentHabitacion.Api
             else
                 app.UseHsts();
 
+            app.UseMiddleware<IntelligentHabitacionMiddleware>();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -92,7 +103,7 @@ namespace IntelligentHabitacion.Api
             app.UseMvc();
         }
 
-        private void RegistrarClassesEInerfacesProjetoNegocio(IServiceCollection services)
+        private void RegisterSetOfRules(IServiceCollection services)
         {
             var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.SetOfRules").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
                     type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule"))).ToList();
@@ -102,6 +113,30 @@ namespace IntelligentHabitacion.Api
                 var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
                 services.AddTransient(interfaceToRegister, classRule);
             }
+        }
+
+        private void RegisterRepository(IServiceCollection services)
+        {
+            services.AddSingleton(ServiceProvider =>
+            {
+                return Fluently.Configure().Database(GetConfigurerDatabase())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ModelBase>()).BuildConfiguration()
+                    .BuildSessionFactory();
+            });
+
+            var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.Repository").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
+                    type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Repository") && !interfaces.Name.Equals("IBaseRepository"))).ToList();
+
+            foreach (var classRule in listClassIntelligentHabitacionRules)
+            {
+                var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Repository"));
+                services.AddTransient(interfaceToRegister, classRule);
+            }
+        }
+
+        private IPersistenceConfigurer GetConfigurerDatabase()
+        {
+            return MySQLConfiguration.Standard.ConnectionString(appSettingsManager.ConnectionString());
         }
     }
 }

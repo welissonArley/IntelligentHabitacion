@@ -1,7 +1,6 @@
 ﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -33,9 +32,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         {
             try
             {
+                _loginRule.DoLogin();
                 return Ok();
             }
-            catch (Exception exception)
+            catch (System.Exception exception)
             {
                 return TratarException(exception);
             }

@@ -153,23 +153,44 @@
   <data name="NUMBER_EMPTY" xml:space="preserve">
     <value>The number must be entered.</value>
   </data>
+  <data name="PARAMETERS_NULL_OR_EMPTY" xml:space="preserve">
+    <value>The parameters are null or empty.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>Password must be entered.</value>
   </data>
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
     <value>Password is not the same as password confirmation.</value>
   </data>
+  <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
+    <value>One phonenumber must be entered for the Emergency contact {0}.</value>
+  </data>
+  <data name="PHONENUMBER_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>The Emergency contact's {0} phonenumber is invalid.</value>
+  </data>
   <data name="PHONENUMBER_EMPTY" xml:space="preserve">
     <value>One phone number must be entered.</value>
   </data>
   <data name="PHONENUMBER_INVALID" xml:space="preserve">
-    <value>The phone number is invalid.</value>
+    <value>The phone number is invalid. (XX) X XXXX-XXXX</value>
+  </data>
+  <data name="THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>The Family relationship with the Emergency contact {0} must be entered.</value>
+  </data>
+  <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>The Emergency contact's name {0} must be entered.</value>
+  </data>
+  <data name="THE_PHONENUMBER_INVALID" xml:space="preserve">
+    <value>The {0} is invalid. (XX) X XXXX-XXXX</value>
   </data>
   <data name="UNKNOWNDATABASE" xml:space="preserve">
     <value>The database is invalid or don't unknow</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>
+  </data>
+  <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>User and/or password is invalid.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>

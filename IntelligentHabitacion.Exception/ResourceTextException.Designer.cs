@@ -169,6 +169,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The parameters are null or empty..
+        /// </summary>
+        public static string PARAMETERS_NULL_OR_EMPTY {
+            get {
+                return ResourceManager.GetString("PARAMETERS_NULL_OR_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be entered..
         /// </summary>
         public static string PASSWORD_EMPTY {
@@ -187,6 +196,24 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One phonenumber must be entered for the Emergency contact {0}..
+        /// </summary>
+        public static string PHONENUMBER_EMERGENCY_CONTACT_EMPTY {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_EMERGENCY_CONTACT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Emergency contact&apos;s {0} phonenumber is invalid..
+        /// </summary>
+        public static string PHONENUMBER_EMERGENCY_CONTACT_INVALID {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_EMERGENCY_CONTACT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One phone number must be entered..
         /// </summary>
         public static string PHONENUMBER_EMPTY {
@@ -196,11 +223,38 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The phone number is invalid..
+        ///   Looks up a localized string similar to The phone number is invalid. (XX) X XXXX-XXXX.
         /// </summary>
         public static string PHONENUMBER_INVALID {
             get {
                 return ResourceManager.GetString("PHONENUMBER_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Family relationship with the Emergency contact {0} must be entered..
+        /// </summary>
+        public static string THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID {
+            get {
+                return ResourceManager.GetString("THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Emergency contact&apos;s name {0} must be entered..
+        /// </summary>
+        public static string THE_NAME_EMERGENCY_CONTACT_INVALID {
+            get {
+                return ResourceManager.GetString("THE_NAME_EMERGENCY_CONTACT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} is invalid. (XX) X XXXX-XXXX.
+        /// </summary>
+        public static string THE_PHONENUMBER_INVALID {
+            get {
+                return ResourceManager.GetString("THE_PHONENUMBER_INVALID", resourceCulture);
             }
         }
         
@@ -219,6 +273,15 @@ namespace IntelligentHabitacion.Exception {
         public static string UNKNOWNDATABASE {
             get {
                 return ResourceManager.GetString("UNKNOWNDATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User and/or password is invalid..
+        /// </summary>
+        public static string USER_OR_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("USER_OR_PASSWORD_INVALID", resourceCulture);
             }
         }
         

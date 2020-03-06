@@ -13,7 +13,7 @@ namespace IntelligentHabitacion.Api.Repository.Map
             Map(x => x.Active);
             Map(x => x.Name);
             Map(x => x.DegreeOfKinship);
-            HasMany(x => x.Phonenumbers).KeyColumn("EmergencyContact_Id");
+            HasMany(x => x.Phonenumbers).KeyColumn("EmergencyContact_Id").Cascade.All();
         }
     }
 }

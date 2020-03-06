@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IntelligentHabitacion.Communication.Error;
+using IntelligentHabitacion.Exception;
+using IntelligentHabitacion.Exception.ExceptionsBase;
+using IntelligentHabitacion.Exception.Parameters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IntelligentHabitacion.Api.Controllers
 {
@@ -11,28 +15,59 @@ namespace IntelligentHabitacion.Api.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="parametro"></param>
-        protected void VerificarParametro(object parametro)
+        /// <param name="parameter"></param>
+        protected void VerifyParameters(object parameter)
         {
-            var parametroEString = parametro is string;
-            if (parametroEString)
+            var parameterIsString = parameter is string;
+            if (parameterIsString)
             {
-                if (string.IsNullOrEmpty((string)parametro))
-                    throw new System.Exception();
+                if (string.IsNullOrEmpty((string)parameter))
+                    throw new ParametersEmptyOrNullException();
             }
-            else if (parametro == null)
-            {
-                throw new System.Exception();
-            }
+            else if (parameter == null)
+                throw new ParametersEmptyOrNullException();
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="exception"></param>
-        protected ObjectResult TratarException(System.Exception exception)
+        protected ObjectResult HandleException(System.Exception exception)
         {
-            return StatusCode(500, string.Empty);
+            if (!((exception as IntelligentHabitacionException) is null))
+                return HandleIntelligentHabitacionException((IntelligentHabitacionException)exception);
+
+            return ThrowUnknowError();
+        }
+
+        private ObjectResult HandleIntelligentHabitacionException(IntelligentHabitacionException exception)
+        {
+            if (!((exception as ErrorOnValidationException) is null))
+            {
+                ErrorOnValidationException validacaoException = (ErrorOnValidationException)exception;
+                return BadRequest(CreateErrorJson(validacaoException));
+            }
+            else if (!((exception as NotFoundException) is null))
+                return NotFound(CreateErrorJson(exception));
+            else if (!((exception as InvalidLoginException) is null))
+                return Unauthorized(CreateErrorJson(exception));
+
+            return BadRequest(CreateErrorJson(exception));
+        }
+
+        private ErrorJson CreateErrorJson(IntelligentHabitacionException exception)
+        {
+            return new ErrorJson(exception.Message);
+        }
+
+        private ErrorJson CreateErrorJson(ErrorOnValidationException exception)
+        {
+            return new ErrorJson(exception.ErrorMensages);
+        }
+
+        private ObjectResult ThrowUnknowError()
+        {
+            return StatusCode(500, new ErrorJson(ResourceTextException.UNKNOW_ERROR));
         }
     }
 }

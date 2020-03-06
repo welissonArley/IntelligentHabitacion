@@ -14,8 +14,8 @@ namespace IntelligentHabitacion.Api.Repository.Map
             Map(x => x.Name);
             Map(x => x.Email);
             Map(x => x.Password);
-            HasMany(x => x.EmergecyContacts).KeyColumn("User_Id");
-            HasMany(x => x.Phonenumbers).KeyColumn("User_Id");
+            HasMany(x => x.EmergecyContacts).KeyColumn("User_Id").Cascade.All();
+            HasMany(x => x.Phonenumbers).KeyColumn("User_Id").Cascade.All();
         }
     }
 }

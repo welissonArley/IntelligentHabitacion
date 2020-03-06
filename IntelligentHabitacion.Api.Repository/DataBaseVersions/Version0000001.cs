@@ -10,13 +10,13 @@ namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
         public override void Up()
         {
             BaseVersion.CreateDefaultColumns(Create.Table("User"))
-                .WithColumn("Name").AsString(1000).NotNullable()
-                .WithColumn("Email").AsString().NotNullable()
-                .WithColumn("Password").AsString().NotNullable();
+                .WithColumn("Name").AsString(2000).NotNullable()
+                .WithColumn("Email").AsString(2000).NotNullable()
+                .WithColumn("Password").AsString(2000).NotNullable();
 
             BaseVersion.CreateDefaultColumns(Create.Table("EmergencyContact"))
-                .WithColumn("Name").AsString(1000).NotNullable()
-                .WithColumn("DegreeOfKinship").AsString().NotNullable()
+                .WithColumn("Name").AsString(2000).NotNullable()
+                .WithColumn("DegreeOfKinship").AsString(2000).NotNullable()
                 .WithColumn("User_Id").AsInt64().Nullable().ForeignKey("FK_EmergencyContact_User_Id", "User", "Id");
 
             BaseVersion.CreateDefaultColumns(Create.Table("Phonenumber"))

@@ -153,23 +153,44 @@
   <data name="NUMBER_EMPTY" xml:space="preserve">
     <value>O número deve ser informado.</value>
   </data>
+  <data name="PARAMETERS_NULL_OR_EMPTY" xml:space="preserve">
+    <value>Os parâmetros são nulos ou vazios.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>A senha deve ser informada.</value>
   </data>
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
     <value>A senha não é igual a confirmação de senha.</value>
   </data>
+  <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
+    <value>Um telefone deve ser informado para o Contato de emergência {0}.</value>
+  </data>
+  <data name="PHONENUMBER_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>O número de telefone do Contato de emergência {0} é inválido.</value>
+  </data>
   <data name="PHONENUMBER_EMPTY" xml:space="preserve">
     <value>Um telefone deve ser informado.</value>
   </data>
   <data name="PHONENUMBER_INVALID" xml:space="preserve">
-    <value>O número de telefone é inválido.</value>
+    <value>O número de telefone é inválido. (XX) X XXXX-XXXX</value>
+  </data>
+  <data name="THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>O grau de parentesco com o Contato de emergência {0} deve ser informado.</value>
+  </data>
+  <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>O nome do Contato de emergência {0} deve ser informado.</value>
+  </data>
+  <data name="THE_PHONENUMBER_INVALID" xml:space="preserve">
+    <value>O número de telefone {0} é inválido. (XX) X XXXX-XXXX</value>
   </data>
   <data name="UNKNOWNDATABASE" xml:space="preserve">
     <value>O banco de dados é invalido ou não conhecido</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
+  </data>
+  <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Usuário e/ou senha inválidos.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>O CEP deve ser informado.</value>

@@ -2,6 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.Model;
+using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -74,6 +75,13 @@ namespace IntelligentHabitacion.Api
 
             RegisterSetOfRules(services);
             RegisterRepository(services);
+
+            services.AddScoped<ICryptographyPassword, CryptographyPassword>(ServiceProvider =>
+            {
+                var key = appSettingsManager.KeyAdditionalCryptography();
+
+                return new CryptographyPassword(key);
+            });
         }
 
         /// <summary>

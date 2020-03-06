@@ -12,22 +12,30 @@ namespace IntelligentHabitacion.Api.Repository.Repository
 
         public IQueryable<TModel> GetAllActive()
         {
-            return Session.Query<TModel>().Where(c => c.Active);
+            var models = Session.Query<TModel>().Where(c => c.Active);
+            foreach (var model in models)
+                model.Decrypt();
+
+            return models;
         }
 
         public virtual TModel GetById(long id)
         {
-            return Session.Get<TModel>(id);
+            var model = Session.Get<TModel>(id);
+            model.Decrypt();
+            return model;
         }
 
         public virtual void Create(TModel model)
         {
             model.Active = true;
+            model.Encripty();
             Session.Save(model);
         }
 
         public virtual void Update(TModel model)
         {
+            model.Encripty();
             Session.Update(model);
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using IntelligentHabitacion.Api.Repository.Cryptography;
+using System.Collections.Generic;
 
 namespace IntelligentHabitacion.Api.Repository.Model
 {
@@ -9,5 +10,31 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public virtual string Password { get; set; }
         public virtual ICollection<Phonenumber> Phonenumbers { get; set; }
         public virtual ICollection<EmergencyContact> EmergecyContacts { get; set; }
+
+        public override void Decrypt()
+        {
+            var encryptManager = new Cryptography.Cryptography();
+            var salt = KeyModel.GetKey(this);
+
+            Email = encryptManager.Dencrypt(Email, salt);
+            Password = encryptManager.Dencrypt(Password, salt);
+            foreach (var phoneNumber in Phonenumbers)
+                phoneNumber.Decrypt();
+            foreach (var emergencyContact in EmergecyContacts)
+                emergencyContact.Decrypt();
+        }
+
+        public override void Encripty()
+        {
+            var encryptManager = new Cryptography.Cryptography();
+            var salt = KeyModel.GetKey(this);
+
+            Email = encryptManager.Encrypt(Email, salt);
+            Password = encryptManager.Encrypt(Password, salt);
+            foreach (var phoneNumber in Phonenumbers)
+                phoneNumber.Encripty();
+            foreach (var emergencyContact in EmergecyContacts)
+                emergencyContact.Encripty();
+        }
     }
 }

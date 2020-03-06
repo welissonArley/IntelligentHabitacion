@@ -1,17 +1,25 @@
-﻿using IntelligentHabitacion.Communication.Response;
+﻿using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception.ErrorJson;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Communication
 {
     public class IntelligentHabitacionHttpClient : HttpClient
     {
-        private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri)
+        private const string UrlIntelligentHabitacionApi = "";
+
+        private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null)
         {
             HttpRequestMessage request = new HttpRequestMessage(httpMethod, uri);
+
+            if (content != null)
+                request.Content = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+
             var resposta = await SendAsync(request);
             await ResponseValidate(resposta);
             return resposta;
@@ -35,6 +43,11 @@ namespace IntelligentHabitacion.Communication
         {
             var resposta = await SendRequisition(HttpMethod.Get, $"https://viacep.com.br/ws/{zipcode.Replace(".", "").Replace("-","")}/json/");
             return JsonConvert.DeserializeObject<ResponseLocationBrazilJson>(await resposta.Content.ReadAsStringAsync());
+        }
+
+        public async Task CreateUser(RequestRegisterUserJson registerUser)
+        {
+            await SendRequisition(HttpMethod.Post, UrlIntelligentHabitacionApi, registerUser);
         }
     }
 }

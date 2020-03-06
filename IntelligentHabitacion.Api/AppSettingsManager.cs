@@ -31,5 +31,19 @@ namespace IntelligentHabitacion.Api
 
             return "";
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string KeyAdditionalCryptography()
+        {
+            if (_hostingEnvironment.IsDevelopment())
+                return "0xYAnUSaoXUjQBJFHrpanwl9DctLyY8";
+            else if (_hostingEnvironment.IsProduction())
+                return "";
+
+            return "";
+        }
     }
 }

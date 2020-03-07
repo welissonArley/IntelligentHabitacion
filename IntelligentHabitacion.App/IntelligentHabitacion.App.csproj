@@ -44,6 +44,9 @@
     <Compile Update="Template\HeaderWithGirlReading\HeaderWithGirlReading.xaml.cs">
       <DependentUpon>HeaderWithGirlReading.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Loading\LoadingContentView.xaml.cs">
+      <DependentUpon>LoadingContentView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Step\CompleteStep.xaml.cs">
       <DependentUpon>CompleteStep.xaml</DependentUpon>
     </Compile>

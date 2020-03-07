@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.View.Modal;
+﻿using IntelligentHabitacion.App.Template.Loading;
+using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Plugin.Connectivity;
@@ -11,16 +12,33 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public class BaseViewModel : XLabs.Forms.Mvvm.ViewModel
     {
-        public void Exception(System.Exception exception)
+        protected void Exception(System.Exception exception)
         {
             var navigation = Resolver.Resolve<INavigation>();
 
-            if (!((exception as IntelligentHabitacionException) is null))
+            if (!((exception as ErrorOnValidationException) is null))
+            {
+                ErrorOnValidationException validacaoException = (ErrorOnValidationException)exception;
+                navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
+            }
+            else if (!((exception as IntelligentHabitacionException) is null))
                 navigation.PushPopupAsync(new ErrorModal(exception.Message));
             else if (!CrossConnectivity.Current.IsConnected)
                 ErrorInternetConnection();
             else
                 UnknownError();
+        }
+
+        protected void ShowLoading()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            navigation.PushPopupAsync(new LoadingContentView());
+        }
+
+        protected void HideLoading()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            navigation.PopPopupAsync();
         }
 
         private void UnknownError()

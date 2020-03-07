@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.Communication;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -20,18 +21,24 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
             OnConcludeCommand = new Command(OnConclude);
         }
 
-        private void OnConclude()
+        private async void OnConclude()
         {
             try
             {
                 _userRule.ValidatePassword(Model.Password, Model.PasswordConfirmation);
 
+                ShowLoading();
+
+                var httpClient = new IntelligentHabitacionHttpClient();
+                await httpClient.CreateUser(new Communication.Request.RequestRegisterUserJson(), System.Globalization.CultureInfo.CurrentCulture.ToString());
+
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
 
-                Navigation.PopToRootAsync();
+                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 Exception(exeption);
             }
         }

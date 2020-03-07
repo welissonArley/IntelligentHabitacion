@@ -25,6 +25,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         {
             try
             {
+                ShowLoading();
                 var result = await _homeRule.ValidadeZipCode(Model.ZipCode);
                 Model.Neighborhood = result.Neighborhood;
                 Model.Address = result.Street;
@@ -33,15 +34,12 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
                 Model.City.State.Abbreviation = result.State.Abbreviation;
                 Model.City.State.Country.Name = result.State.Country.Name;
                 Model.City.State.Country.Abbreviation = result.State.Country.Abbreviation;
-
+                HideLoading();
                 await Navigation.PushAsync<RequestCityViewModel>((viewModel, page) => viewModel.Model = Model);
-            }
-            catch (RequestException)
-            {
-                Exception(new ZipCodeInvalidException());
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 Exception(exeption);
             }
         }

@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
             {
                 _userRule.ValidatePhoneNumber(Model.PhoneNumber1, Model.PhoneNumber2);
 
-                Navigation.PushAsync<RequestEmailViewModel>((viewModel, page) => viewModel.Model = Model);
+                Navigation.PushAsync<RequestEmergencyContact1ViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {

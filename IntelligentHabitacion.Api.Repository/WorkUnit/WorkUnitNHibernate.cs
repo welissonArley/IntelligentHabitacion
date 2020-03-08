@@ -13,6 +13,7 @@ namespace IntelligentHabitacion.Api.Repository.WorkUnit
         public WorkUnitNHibernate(ISessionFactory sessionFactory)
         {
             Session = sessionFactory.OpenSession();
+            Session.FlushMode = FlushMode.Manual;
 
             _transacao = Session.BeginTransaction();
         }

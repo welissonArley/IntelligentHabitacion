@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.Api.Middleware
     {
         RequestDelegate _next;
 
-        private readonly List<string> _idioms = new List<string> { "en", "pt" };
+        private readonly List<string> _idioms = new List<string> { "EN", "PT", "PT-BR", "EN-US" };
 
         /// <summary>
         /// 
@@ -36,7 +36,7 @@ namespace IntelligentHabitacion.Api.Middleware
             if (!context.Request.Path.Value.Contains("swagger") && WorkUnitNHibernate.WorkUnitNHibernateActive == null)
             {
                 var culture = new CultureInfo("pt-BR");
-                if (context.Request.Headers["Accept-Language"].Count > 0)
+                if (context.Request.Headers["Accept-Language"].Count > 0 && _idioms.Contains(context.Request.Headers["Accept-Language"][0].ToUpper()))
                     culture = new CultureInfo(context.Request.Headers["Accept-Language"][0]);
 
                 CultureInfo.CurrentCulture = culture;

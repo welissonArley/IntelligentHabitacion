@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Communication.Error;
+﻿using IntelligentHabitacion.Communication.Boolean;
+using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
@@ -14,7 +15,7 @@ namespace IntelligentHabitacion.Communication
 {
     public class IntelligentHabitacionHttpClient : HttpClient
     {
-        private const string UrlIntelligentHabitacionApi = "https://839eeac8.ngrok.io/api/v1";
+        private const string UrlIntelligentHabitacionApi = "https://9594b8b4.ngrok.io/api/v1";
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
         {
@@ -61,18 +62,24 @@ namespace IntelligentHabitacion.Communication
 
         public async Task<ResponseLocationBrazilJson> GetLocationBrazilByZipCode(string zipcode)
         {
-            var resposta = await SendRequisition(HttpMethod.Get, $"https://viacep.com.br/ws/{zipcode.Replace(".", "").Replace("-","")}/json/");
+            var response = await SendRequisition(HttpMethod.Get, $"https://viacep.com.br/ws/{zipcode.Replace(".", "").Replace("-","")}/json/");
 
-            var errorJson = (JsonConvert.DeserializeObject<ErrorTrueJson>(await resposta.Content.ReadAsStringAsync()));
+            var errorJson = (JsonConvert.DeserializeObject<ErrorTrueJson>(await response.Content.ReadAsStringAsync()));
             if (errorJson.Erro)
                 throw new ZipCodeInvalidException();
 
-            return JsonConvert.DeserializeObject<ResponseLocationBrazilJson>(await resposta.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<ResponseLocationBrazilJson>(await response.Content.ReadAsStringAsync());
         }
 
         public async Task CreateUser(RequestRegisterUserJson registerUser, string language = null)
         {
             await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User", registerUser, language: language);
+        }
+        public async Task<BooleanJson> EmailAlreadyBeenRegistered(string email, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/User/EmailAlreadyBeenRegistered/{email}", language: language);
+
+            return JsonConvert.DeserializeObject<BooleanJson>(await response.Content.ReadAsStringAsync());
         }
     }
 }

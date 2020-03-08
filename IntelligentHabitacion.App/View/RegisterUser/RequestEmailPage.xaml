@@ -8,13 +8,13 @@
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
         <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
             <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
             <templateStep:IncompleteStep></templateStep:IncompleteStep>
             <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
         </StackLayout>
 
-        <Label Text="{x:Static resourceText:ResourceText.TITLE_YOUR_EMAIL}" Style="{x:StaticResource LabelTitle}"></Label>
+        <Label Text="{x:Static resourceText:ResourceText.TITLE_TOBEGIN_TELL_EMAIL}" Style="{x:StaticResource LabelTitle}"></Label>
 
         <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.Email}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryWhiteBlackCursor>
 

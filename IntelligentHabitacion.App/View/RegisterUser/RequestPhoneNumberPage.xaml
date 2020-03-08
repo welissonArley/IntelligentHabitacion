@@ -10,7 +10,7 @@
         <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
             <templateStep:CompleteStep></templateStep:CompleteStep>
             <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:CompleteStep></templateStep:CompleteStep>
             <templateStep:IncompleteStep></templateStep:IncompleteStep>
             <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
         </StackLayout>

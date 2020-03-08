@@ -321,8 +321,8 @@
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>A Cidade é:</value>
   </data>
-  <data name="TITLE_TOBEGIN_TELL_NAME" xml:space="preserve">
-    <value>Para começar :) Me conte qual é o seu nome</value>
+  <data name="TITLE_TOBEGIN_TELL_EMAIL" xml:space="preserve">
+    <value>Para começar :) Me conte qual é o seu e-mail</value>
   </data>
   <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
     <value>Para finalizar. A sua senha</value>
@@ -336,7 +336,7 @@
   <data name="TITLE_YES_IAMSURE" xml:space="preserve">
     <value>Sim, eu tenho certeza</value>
   </data>
-  <data name="TITLE_YOUR_EMAIL" xml:space="preserve">
-    <value>O seu e-mail :)</value>
+  <data name="TITLE_YOUR_NAME" xml:space="preserve">
+    <value>O seu nome ;)</value>
   </data>
 </root>

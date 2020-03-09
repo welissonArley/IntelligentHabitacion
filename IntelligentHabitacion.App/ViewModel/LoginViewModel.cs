@@ -39,7 +39,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                Navigation.PushAsync<RequestNameViewModel>((viewModel, page) => viewModel.Model = new Model.RegisterUserModel());
+                Navigation.PushAsync<RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.RegisterUserModel());
             }
             catch (System.Exception exeption)
             {

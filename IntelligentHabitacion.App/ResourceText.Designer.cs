@@ -682,11 +682,11 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To begin :) Tell me what is your name.
+        ///   Looks up a localized string similar to To begin :) Tell me what is your e-mail.
         /// </summary>
-        internal static string TITLE_TOBEGIN_TELL_NAME {
+        internal static string TITLE_TOBEGIN_TELL_EMAIL {
             get {
-                return ResourceManager.GetString("TITLE_TOBEGIN_TELL_NAME", resourceCulture);
+                return ResourceManager.GetString("TITLE_TOBEGIN_TELL_EMAIL", resourceCulture);
             }
         }
         
@@ -718,11 +718,11 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your e-mail :).
+        ///   Looks up a localized string similar to Your name ;).
         /// </summary>
-        internal static string TITLE_YOUR_EMAIL {
+        internal static string TITLE_YOUR_NAME {
             get {
-                return ResourceManager.GetString("TITLE_YOUR_EMAIL", resourceCulture);
+                return ResourceManager.GetString("TITLE_YOUR_NAME", resourceCulture);
             }
         }
     }

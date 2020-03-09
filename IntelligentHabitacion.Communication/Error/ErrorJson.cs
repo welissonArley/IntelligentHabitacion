@@ -4,6 +4,9 @@ namespace IntelligentHabitacion.Communication.Error
 {
     public class ErrorJson
     {
+        public List<string> Errors { get; set; }
+
+        public ErrorJson() { /* Use only for JsonConvert.DeserializeObject<ErrorJson> */ }
         public ErrorJson(string message)
         {
             Errors = new List<string> { message };
@@ -12,6 +15,5 @@ namespace IntelligentHabitacion.Communication.Error
         {
             Errors = messages;
         }
-        public List<string> Errors { get; set; }
     }
 }

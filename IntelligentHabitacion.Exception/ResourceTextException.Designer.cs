@@ -97,6 +97,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email address has already been registered..
+        /// </summary>
+        public static string EMAIL_ALREADYBEENREGISTERED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADYBEENREGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-mail must be entered..
         /// </summary>
         public static string EMAIL_EMPTY {

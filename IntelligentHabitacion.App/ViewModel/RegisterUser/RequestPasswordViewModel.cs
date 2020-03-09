@@ -20,18 +20,25 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
             OnConcludeCommand = new Command(OnConclude);
         }
 
-        private void OnConclude()
+        private async void OnConclude()
         {
             try
             {
+                ShowLoading();
+
                 _userRule.ValidatePassword(Model.Password, Model.PasswordConfirmation);
+
+                await _userRule.Create(Model);
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
 
-                Navigation.PopToRootAsync();
+                HideLoading();
+
+                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 Exception(exeption);
             }
         }

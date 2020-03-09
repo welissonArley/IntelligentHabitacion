@@ -18,16 +18,18 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
             NextCommand = new Command(OnNext);
         }
 
-        private void OnNext()
+        private async void OnNext()
         {
             try
             {
-                _userRule.ValidateEmail(Model.Email);
-
-                Navigation.PushAsync<RequestEmergencyContact1ViewModel>((viewModel, page) => viewModel.Model = Model);
+                ShowLoading();
+                await _userRule.ValidateEmail(Model.Email);
+                HideLoading();
+                await Navigation.PushAsync<RequestNameViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 Exception(exeption);
             }
         }

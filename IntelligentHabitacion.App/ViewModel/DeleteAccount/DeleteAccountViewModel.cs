@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -17,21 +18,21 @@ namespace IntelligentHabitacion.App.ViewModel.DeleteAccount
         public DeleteAccountViewModel(IUserRule userRule)
         {
             _userRule = userRule;
-            ConfirmCommand = new Command(OnConfirm);
+            ConfirmCommand = new Command(async () => await OnConfirm());
             Email = "br***@gmail.com";
         }
 
-        private void OnConfirm()
+        private async Task OnConfirm()
         {
             try
             {
                 _userRule.DeleteAccount(ConfirmationCode, Password);
                 Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.LoginPage>());
-                Navigation.PopToRootAsync();
+                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

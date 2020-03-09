@@ -2,7 +2,7 @@
 
 namespace IntelligentHabitacion.Useful
 {
-    public class DateTimeController
+    public static class DateTimeController
     {
         public static DateTime DateTimeNow()
         {

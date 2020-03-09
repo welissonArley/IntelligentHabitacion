@@ -5,6 +5,7 @@ using System.Text;
 
 namespace IntelligentHabitacion.Api.Repository.Cryptography
 {
+#pragma warning disable CA2202
     public class Cryptography
     {
         public string Encrypt(string data, string salt)
@@ -18,15 +19,22 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
                 {
                     using (var streamResult = new MemoryStream())
                     {
-                        using (var csStream = new CryptoStream(streamResult, encripter, CryptoStreamMode.Write))
+                        var csStream = new CryptoStream(streamResult, encripter, CryptoStreamMode.Write);
+                        try
                         {
                             using (var writer = new StreamWriter(csStream))
                             {
+                                csStream = null;
                                 writer.Write(data);
                             }
-                        }
 
-                        return ArrayBytesToHexString(streamResult.ToArray());
+                            return ArrayBytesToHexString(streamResult.ToArray());
+                        }
+                        finally
+                        {
+                            if (csStream != null)
+                                csStream.Dispose();
+                        }
                     }
                 }
             }
@@ -42,12 +50,19 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
                 string result;
                 using (var streamTextoEncriptado = new MemoryStream(HexStringToArrayByte(data)))
                 {
-                    using (var csStream = new CryptoStream(streamTextoEncriptado, decriptador, CryptoStreamMode.Read))
+                    var csStream = new CryptoStream(streamTextoEncriptado, decriptador, CryptoStreamMode.Read);
+                    try
                     {
                         using (var reader = new StreamReader(csStream))
                         {
+                            csStream = null;
                             result = reader.ReadToEnd();
                         }
+                    }
+                    finally
+                    {
+                        if (csStream != null)
+                            csStream.Dispose();
                     }
                 }
 

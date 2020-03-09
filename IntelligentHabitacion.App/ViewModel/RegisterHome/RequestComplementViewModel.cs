@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,18 +13,18 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 
         public RequestComplementViewModel()
         {
-            NextCommand = new Command(OnNext);
+            NextCommand = new Command(async () => await OnNext());
         }
 
-        private void OnNext()
+        private async Task OnNext()
         {
             try
             {
-                Navigation.PushAsync<RequestNeighborhoodViewModel>((viewModel, page) => viewModel.Model = Model);
+                await Navigation.PushAsync<RequestNeighborhoodViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

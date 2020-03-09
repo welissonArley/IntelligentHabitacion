@@ -11,16 +11,16 @@ namespace IntelligentHabitacion.App.Behavior
             _maskEntryBehavior = new MaskEntryBehavior("(XX) X XXXX-XXXX");
         }
 
-        protected override void OnAttachedTo(Entry entry)
+        protected override void OnAttachedTo(Entry bindable)
         {
-            entry.TextChanged += _maskEntryBehavior.OnEntryTextChanged;
-            base.OnAttachedTo(entry);
+            bindable.TextChanged += _maskEntryBehavior.OnEntryTextChanged;
+            base.OnAttachedTo(bindable);
         }
 
-        protected override void OnDetachingFrom(Entry entry)
+        protected override void OnDetachingFrom(Entry bindable)
         {
-            entry.TextChanged -= _maskEntryBehavior.OnEntryTextChanged;
-            base.OnDetachingFrom(entry);
+            bindable.TextChanged -= _maskEntryBehavior.OnEntryTextChanged;
+            base.OnDetachingFrom(bindable);
         }
     }
 }

@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -18,10 +19,10 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         public RequestZipCodeViewModel(IHomeRule homeRule)
         {
             _homeRule = homeRule;
-            NextCommand = new Command(OnNext);
+            NextCommand = new Command(async () => await OnNext());
         }
 
-        private async void OnNext()
+        private async Task OnNext()
         {
             try
             {
@@ -40,7 +41,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
             catch (System.Exception exeption)
             {
                 HideLoading();
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

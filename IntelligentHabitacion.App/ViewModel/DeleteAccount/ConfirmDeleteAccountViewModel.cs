@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.DeleteAccount
@@ -10,31 +11,31 @@ namespace IntelligentHabitacion.App.ViewModel.DeleteAccount
 
         public ConfirmDeleteAccountViewModel()
         {
-            CancelCommand = new Command(OnCancel);
-            ConfirmCommand = new Command(OnConfirm);
+            CancelCommand = new Command(async () => await OnCancel());
+            ConfirmCommand = new Command(async () => await OnConfirm());
         }
 
-        private void OnCancel()
+        private async Task OnCancel()
         {
             try
             {
-                Navigation.PopAsync();
+                await Navigation.PopAsync();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
 
-        private void OnConfirm()
+        private async Task OnConfirm()
         {
             try
             {
-                Navigation.PushAsync<DeleteAccountViewModel>();
+                await Navigation.PushAsync<DeleteAccountViewModel>();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

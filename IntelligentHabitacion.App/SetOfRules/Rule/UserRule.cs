@@ -49,9 +49,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 phoneNumberValidator.IsValid(phoneNumber2);
         }
 
-        public void DeleteAccount(string code, string password)
+        public void DeleteAccount(string codeReceived, string password)
         {
-            if (string.IsNullOrWhiteSpace(code))
+            if (string.IsNullOrWhiteSpace(codeReceived))
                 throw new CodeEmptyException();
 
             if (string.IsNullOrWhiteSpace(password))

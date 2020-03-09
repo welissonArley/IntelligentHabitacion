@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -17,19 +18,19 @@ namespace IntelligentHabitacion.App.ViewModel
         public ChangePasswordViewModel(ILoginRule loginRule)
         {
             _loginRule = loginRule;
-            ChangePasswordTapped = new Command(ClickChangePasswordAccount);
+            ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
         }
 
-        private void ClickChangePasswordAccount()
+        private async Task ClickChangePasswordAccount()
         {
             try
             {
                 _loginRule.ChangePassword(CurrentPassword, NewPassword, PasswordConfirmation);
-                Navigation.PopAsync();
+                await Navigation.PopAsync();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

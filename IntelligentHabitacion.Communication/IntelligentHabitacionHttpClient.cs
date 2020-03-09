@@ -15,7 +15,7 @@ namespace IntelligentHabitacion.Communication
 {
     public class IntelligentHabitacionHttpClient : HttpClient
     {
-        private const string UrlIntelligentHabitacionApi = "https://9594b8b4.ngrok.io/api/v1";
+        private const string UrlIntelligentHabitacionApi = "https://33fbc726.ngrok.io/api/v1";
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
         {
@@ -54,7 +54,7 @@ namespace IntelligentHabitacion.Communication
                         }
                     default:
                         {
-                            throw new System.Exception(ResourceTextException.UNKNOW_ERROR);
+                            throw new IntelligentHabitacionException(ResourceTextException.UNKNOW_ERROR);
                         }
                 }
             }

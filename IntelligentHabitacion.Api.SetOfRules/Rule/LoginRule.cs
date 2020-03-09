@@ -16,16 +16,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
         public void DoLogin()
         {
-            _userRepository.Create(new Repository.Model.User
-            {
-                Active = true,
-                CreateDate = DateTime.Today,
-                Email = "df",
-                Name = "df",
-                Password = "df"
-            });
-
-            var x = _userRepository.GetAllActive().ToList();
         }
     }
 }

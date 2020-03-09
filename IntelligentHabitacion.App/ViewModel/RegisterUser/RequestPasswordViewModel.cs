@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -17,10 +18,10 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
         public RequestPasswordViewModel(IUserRule userRule)
         {
             _userRule = userRule;
-            OnConcludeCommand = new Command(OnConclude);
+            OnConcludeCommand = new Command(async () => await OnConclude());
         }
 
-        private async void OnConclude()
+        private async Task OnConclude()
         {
             try
             {
@@ -39,7 +40,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
             catch (System.Exception exeption)
             {
                 HideLoading();
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,19 +17,19 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         public RequestNetworkInformationViewModel(IHomeRule homeRule)
         {
             _homeRule = homeRule;
-            ConcludeCommand = new Command(OnConclude);
+            ConcludeCommand = new Command(async () => await OnConclude());
         }
 
-        private void OnConclude()
+        private async Task OnConclude()
         {
             try
             {
                 _homeRule.ValidadeNetWorkInformation(Model.NetWork.Name, Model.NetWork.Password);
-                Navigation.PopToRootAsync();
+                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

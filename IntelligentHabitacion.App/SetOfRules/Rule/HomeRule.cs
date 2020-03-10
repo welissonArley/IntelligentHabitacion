@@ -10,6 +10,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 {
     public class HomeRule : IHomeRule
     {
+        private readonly IntelligentHabitacionHttpClient _httpClient;
+
+        public HomeRule(IntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
+        {
+            _httpClient = intelligentHabitacionHttpClient;
+        }
+
         public void ValidadeAdress(string address)
         {
             if (string.IsNullOrWhiteSpace(address))
@@ -44,8 +51,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             new ZipCodeValidator().IsValid(zipCode);
 
-            var httpClient = new IntelligentHabitacionHttpClient();
-            var result = await httpClient.GetLocationBrazilByZipCode(zipCode);
+            var result = await _httpClient.GetLocationBrazilByZipCode(zipCode);
 
             return new ResponseLocationJson
             {

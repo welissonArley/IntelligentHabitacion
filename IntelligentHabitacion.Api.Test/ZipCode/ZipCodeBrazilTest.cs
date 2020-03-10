@@ -1,7 +1,6 @@
 ﻿using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
-using System;
 using Xunit;
 
 namespace IntelligentHabitacion.Api.Test.ZipCode
@@ -12,7 +11,7 @@ namespace IntelligentHabitacion.Api.Test.ZipCode
 
         public ZipCodeBrazilTest()
         {
-            _httpClient = new IntelligentHabitacionHttpClient();
+            _httpClient = new IntelligentHabitacionHttpClient("");
         }
 
         [Fact]

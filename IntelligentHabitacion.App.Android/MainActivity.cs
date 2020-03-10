@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using IntelligentHabitacion.Communication;
 using System.Linq;
 using System.Reflection;
 using TinyIoC;
@@ -50,6 +51,8 @@ namespace IntelligentHabitacion.App.Droid
                     var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
                     container.Register(interfaceToRegister, classDI);
                 }
+
+                container.Register(new IntelligentHabitacionHttpClient("https://33fbc726.ngrok.io/api/v1"));
 
                 container.Register<IDependencyContainer>(container);
 

@@ -6,6 +6,7 @@ using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ErrorJson;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -15,7 +16,12 @@ namespace IntelligentHabitacion.Communication
 {
     public class IntelligentHabitacionHttpClient : HttpClient
     {
-        private const string UrlIntelligentHabitacionApi = "https://33fbc726.ngrok.io/api/v1";
+        private readonly string UrlIntelligentHabitacionApi;
+
+        public IntelligentHabitacionHttpClient(string urlIntelligentHabitacionApi)
+        {
+            UrlIntelligentHabitacionApi = urlIntelligentHabitacionApi;
+        }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
         {

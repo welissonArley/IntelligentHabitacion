@@ -78,7 +78,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Password = "123456",
                 PasswordConfirmation = "123456",
                 Email = "newemail@email.com.br",
-                Phonenumbers = new List<string> { "" },
+                Phonenumbers = new List<string> { "", "(31) 9" },
                 Name = "New User",
                 EmergencyContacts = new List<RequestEmergencyContactJson>
                 {
@@ -98,7 +98,82 @@ namespace IntelligentHabitacion.Api.Test.Controller
             });
             Assert.IsType<BadRequestObjectResult>(result);
             var value = (ErrorJson)((BadRequestObjectResult)result).Value;
-            Assert.True(value.Errors.Count == 5);
+            Assert.True(value.Errors.Count == 6);
+        }
+
+        [Fact]
+        public void RegisterUserPasswordDifferentConfirmation()
+        {
+            var result = _controller.Register(new RequestRegisterUserJson
+            {
+                Password = "123456",
+                PasswordConfirmation = "1234567",
+                Email = "newemail@email.com.br",
+                Phonenumbers = new List<string> { "(31) 9 9999-9999" },
+                Name = "New User",
+                EmergencyContacts = new List<RequestEmergencyContactJson>
+                {
+                    new RequestEmergencyContactJson
+                    {
+                        Name = "Contact 1",
+                        DegreeOfKinship = "Relation 1",
+                        Phonenumbers = new List<string>{ "(31) 9 9999-9999" }
+                    }
+                }
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+            var value = (ErrorJson)((BadRequestObjectResult)result).Value;
+            Assert.True(value.Errors.Count == 1);
+        }
+
+        [Fact]
+        public void RegisterUserPasswordLessThan6()
+        {
+            var result = _controller.Register(new RequestRegisterUserJson
+            {
+                Password = "12",
+                PasswordConfirmation = "12",
+                Email = "newemail@email.com.br",
+                Phonenumbers = new List<string> { "(31) 9 9999-9999" },
+                Name = "New User",
+                EmergencyContacts = new List<RequestEmergencyContactJson>
+                {
+                    new RequestEmergencyContactJson
+                    {
+                        Name = "Contact 1",
+                        DegreeOfKinship = "Relation 1",
+                        Phonenumbers = new List<string>{ "(31) 9 9999-9999" }
+                    }
+                }
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+            var value = (ErrorJson)((BadRequestObjectResult)result).Value;
+            Assert.True(value.Errors.Count == 1);
+        }
+
+        [Fact]
+        public void RegisterUserNullemail()
+        {
+            var result = _controller.Register(new RequestRegisterUserJson
+            {
+                Password = "123456",
+                PasswordConfirmation = "123456",
+                Email = "",
+                Phonenumbers = new List<string> { "(31) 9 9999-9999" },
+                Name = "New User",
+                EmergencyContacts = new List<RequestEmergencyContactJson>
+                {
+                    new RequestEmergencyContactJson
+                    {
+                        Name = "Contact 1",
+                        DegreeOfKinship = "Relation 1",
+                        Phonenumbers = new List<string>{ "(31) 9 9999-9999" }
+                    }
+                }
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+            var value = (ErrorJson)((BadRequestObjectResult)result).Value;
+            Assert.True(value.Errors.Count == 1);
         }
 
         [Fact]

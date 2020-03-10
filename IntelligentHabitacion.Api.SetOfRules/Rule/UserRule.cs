@@ -28,7 +28,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
             var result = new BooleanJson
             {
-                Value = _userRepository.GetAllActive().ToList().Any(c => c.Email.Equals(email))
+                Value = _userRepository.GetAllActive().AsEnumerable().Any(c => c.Email.Equals(email))
             };
 
             return result;

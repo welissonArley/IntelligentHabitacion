@@ -1,7 +1,9 @@
 ﻿using FluentValidation;
+using FluentValidation.Validators;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Validators.Validator;
+using System.Collections.Generic;
 
 namespace IntelligentHabitacion.Api.Validators
 {
@@ -37,40 +39,45 @@ namespace IntelligentHabitacion.Api.Validators
             RuleFor(x => x.EmergecyContacts).Must(c => c.Count > 0).WithMessage(ResourceTextException.PHONENUMBER_EMPTY);
             When(x => x.EmergecyContacts.Count > 0, () =>
             {
-                RuleFor(x => x.EmergecyContacts).Custom((emergecyContacts, contexto) =>
+                RuleFor(x => x.EmergecyContacts).Custom((emergecyContacts, context) =>
                 {
-                    var index = 1;
-                    var phoneNumberValidator = new PhoneNumberValidator();
-
-                    foreach (var emergecyContact in emergecyContacts)
-                    {
-                        if(string.IsNullOrWhiteSpace(emergecyContact.Name))
-                            contexto.AddFailure(string.Format(ResourceTextException.THE_NAME_EMERGENCY_CONTACT_INVALID, index));
-
-                        if (string.IsNullOrWhiteSpace(emergecyContact.DegreeOfKinship))
-                            contexto.AddFailure(string.Format(ResourceTextException.THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID, index));
-
-                        if(emergecyContact.Phonenumbers.Count == 0)
-                            contexto.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_EMPTY, index));
-                        else
-                        {
-                            foreach (var phonenumber in emergecyContact.Phonenumbers)
-                            {
-                                try
-                                {
-                                    phoneNumberValidator.IsValid(phonenumber.Number);
-                                }
-                                catch
-                                {
-                                    contexto.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_INVALID, index));
-                                }
-                            }
-                        }
-
-                        index++;
-                    }
+                    ValidateEmergecyContact(emergecyContacts, context);
                 });
             });
+        }
+
+        private void ValidateEmergecyContact(ICollection<EmergencyContact> emergecyContacts, CustomContext context)
+        {
+            var index = 1;
+            var phoneNumberValidator = new PhoneNumberValidator();
+
+            foreach (var emergecyContact in emergecyContacts)
+            {
+                if (string.IsNullOrWhiteSpace(emergecyContact.Name))
+                    context.AddFailure(string.Format(ResourceTextException.THE_NAME_EMERGENCY_CONTACT_INVALID, index));
+
+                if (string.IsNullOrWhiteSpace(emergecyContact.DegreeOfKinship))
+                    context.AddFailure(string.Format(ResourceTextException.THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID, index));
+
+                if (emergecyContact.Phonenumbers.Count == 0)
+                    context.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_EMPTY, index));
+                else
+                {
+                    foreach (var phonenumber in emergecyContact.Phonenumbers)
+                    {
+                        try
+                        {
+                            phoneNumberValidator.IsValid(phonenumber.Number);
+                        }
+                        catch
+                        {
+                            context.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_INVALID, index));
+                        }
+                    }
+                }
+
+                index++;
+            }
         }
     }
 }

@@ -11,9 +11,7 @@ namespace IntelligentHabitacion.Validators.Validator
 
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
-                if (addr.Address != email)
-                    throw new EmailInvalidException();
+                _ = new System.Net.Mail.MailAddress(email);
             }
             catch
             {

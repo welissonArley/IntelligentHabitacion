@@ -2,11 +2,11 @@
 
 namespace IntelligentHabitacion.App.Behavior
 {
-    public class ZIPCodeBehavior : Behavior<Entry>
+    public class ZipCodeBehavior : Behavior<Entry>
     {
         public readonly MaskEntryBehavior _maskEntryBehavior;
 
-        public ZIPCodeBehavior()
+        public ZipCodeBehavior()
         {
             _maskEntryBehavior = new MaskEntryBehavior("XX.XXX-XXX");            
         }

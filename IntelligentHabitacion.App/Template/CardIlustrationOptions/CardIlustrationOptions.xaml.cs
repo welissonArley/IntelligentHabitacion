@@ -13,6 +13,7 @@ namespace IntelligentHabitacion.App.Template.CardIlustrationOptions
             {
                 ImageIlustration.Source = value;
             }
+            get { return ImageIlustration.Source; }
         }
 
         public string TitleCard
@@ -21,6 +22,7 @@ namespace IntelligentHabitacion.App.Template.CardIlustrationOptions
             {
                 LabelTitle.Text = value;
             }
+            get { return LabelTitle.Text; }
         }
 
         public string DescriptionCard
@@ -29,6 +31,7 @@ namespace IntelligentHabitacion.App.Template.CardIlustrationOptions
             {
                 LabelDescriptionCard.Text = value;
             }
+            get { return LabelDescriptionCard.Text; }
         }
 
         public Thickness IlustrationMargin
@@ -37,9 +40,10 @@ namespace IntelligentHabitacion.App.Template.CardIlustrationOptions
             {
                 ImageIlustration.Margin = value;
             }
+            get { return ImageIlustration.Margin; }
         }
 
-        public static BindableProperty TappedCardCommandProperty = BindableProperty.Create(propertyName: "TappedCard",
+        public static readonly BindableProperty TappedCardCommandProperty = BindableProperty.Create(propertyName: "TappedCard",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(CardIlustrationOptions),
                                                         defaultValue: null,

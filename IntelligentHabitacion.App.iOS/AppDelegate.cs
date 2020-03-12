@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.App.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
             
@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.iOS
 
             LoadApplication(new App());
 
-            return base.FinishedLaunching(app, options);
+            return base.FinishedLaunching(uiApplication, launchOptions);
         }
 
         private void ConfigureDI()
@@ -41,7 +41,7 @@ namespace IntelligentHabitacion.App.iOS
                     container.Register(interfaceToRegister, classDI);
                 }
 
-                container.Register(new IntelligentHabitacionHttpClient("https://33fbc726.ngrok.io/api/v1"));
+                container.Register(new IntelligentHabitacionHttpClient());
 
                 container.Register<IDependencyContainer>(container);
 

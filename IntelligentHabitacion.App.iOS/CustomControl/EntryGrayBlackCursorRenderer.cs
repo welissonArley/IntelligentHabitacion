@@ -11,23 +11,19 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
 {
 	public class EntryGrayBlackCursorRenderer : EntryRenderer
     {
-        private CALayer _line;
-
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
 			base.OnElementChanged(e);
-			_line = null;
-
 			if (Control == null || e.NewElement == null)
 				return;
 
 			Control.BorderStyle = UITextBorderStyle.None;
 
-			_line = new CALayer
+			CALayer _line = new CALayer
 			{
-                BorderColor = ColorToEntryLine(),
-                BackgroundColor = ColorToEntryLine(),
-                Frame = new CGRect(0, Frame.Height/2, UIScreen.MainScreen.Bounds.Width - 40, 1f)
+				BorderColor = ColorToEntryLine(),
+				BackgroundColor = ColorToEntryLine(),
+				Frame = new CGRect(0, Frame.Height / 2, UIScreen.MainScreen.Bounds.Width - 40, 1f)
 			};
 
 

@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.Api.Test.ZipCode
 
         public ZipCodeBrazilTest()
         {
-            _httpClient = new IntelligentHabitacionHttpClient("");
+            _httpClient = new IntelligentHabitacionHttpClient();
         }
 
         [Fact]

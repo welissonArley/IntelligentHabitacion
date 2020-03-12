@@ -52,7 +52,7 @@ namespace IntelligentHabitacion.App.Droid
                     container.Register(interfaceToRegister, classDI);
                 }
 
-                container.Register(new IntelligentHabitacionHttpClient("https://33fbc726.ngrok.io/api/v1"));
+                container.Register(new IntelligentHabitacionHttpClient());
 
                 container.Register<IDependencyContainer>(container);
 

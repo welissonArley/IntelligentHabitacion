@@ -12,6 +12,7 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
             {
                 ImageKingCrown.IsVisible = value;
             }
+            get { return ImageKingCrown.IsVisible; }
         }
 
         public string UserName
@@ -20,6 +21,7 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
             {
                 LabelUserName.Text = value;
             }
+            get { return LabelUserName.Text; }
         }
 
         public HeaderWithGirlReading()

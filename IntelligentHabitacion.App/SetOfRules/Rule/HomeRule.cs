@@ -10,9 +10,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 {
     public class HomeRule : IHomeRule
     {
-        private readonly IntelligentHabitacionHttpClient _httpClient;
+        private readonly IIntelligentHabitacionHttpClient _httpClient;
 
-        public HomeRule(IntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
+        public HomeRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
         {
             _httpClient = intelligentHabitacionHttpClient;
         }

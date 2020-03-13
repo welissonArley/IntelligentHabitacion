@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Repository.Model;
+﻿using IntelligentHabitacion.Api.Repository.Cryptography;
+using IntelligentHabitacion.Api.Repository.Model;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -125,6 +126,38 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.Equal("", model.Number);
             model.Decrypt();
             Assert.Equal("", model.Number);
+        }
+
+        [Fact]
+        public void TestDifferentModel()
+        {
+            var model = new TestClass
+            {
+                Name = "Name"
+            };
+
+            Assert.Throws<System.Security.Cryptography.CryptographicException>(() => model.Encripty());
+        }
+    }
+
+    public class TestClass : ModelBase
+    {
+        public string Name { get; set; }
+
+        public override void Decrypt()
+        {
+            var encryptManager = new Cryptography();
+            var salt = KeyModel.GetKey(this);
+
+            Name = encryptManager.Dencrypt(Name, salt);
+        }
+
+        public override void Encripty()
+        {
+            var encryptManager = new Cryptography();
+            var salt = KeyModel.GetKey(this);
+
+            Name = encryptManager.Encrypt(Name, salt);
         }
     }
 }

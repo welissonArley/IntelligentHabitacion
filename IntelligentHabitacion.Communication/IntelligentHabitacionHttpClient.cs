@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Communication
 {
-    public class IntelligentHabitacionHttpClient : HttpClient
+    public class IntelligentHabitacionHttpClient : HttpClient, IIntelligentHabitacionHttpClient
     {
         private readonly string UrlIntelligentHabitacionApi;
 

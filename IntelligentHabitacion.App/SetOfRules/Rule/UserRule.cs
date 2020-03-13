@@ -11,9 +11,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 {
     public class UserRule : IUserRule
     {
-        private readonly IntelligentHabitacionHttpClient _httpClient;
+        private readonly IIntelligentHabitacionHttpClient _httpClient;
 
-        public UserRule(IntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
+        public UserRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
         {
             _httpClient = intelligentHabitacionHttpClient;
         }

@@ -7,8 +7,8 @@ namespace IntelligentHabitacion.Api.Repository.Interface
     {
         IQueryable<TModel> GetAllActive();
         TModel GetById(long id);
-        void Create(TModel entidade);
-        void Update(TModel entidade);
+        void Create(TModel model);
+        void Update(TModel model);
         void DeleteOnDataBase(TModel model);
         void DeleteOnSystem(TModel model);
     }

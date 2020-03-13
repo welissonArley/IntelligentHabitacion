@@ -15,7 +15,7 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
             set => SetValue(EntryBehaviorProperty, value);
         }
 
-        public static BindableProperty TopMarginProperty = BindableProperty.Create(
+        public static readonly BindableProperty TopMarginProperty = BindableProperty.Create(
                                                         propertyName: "TopMargin",
                                                         returnType: typeof(bool),
                                                         declaringType: typeof(InputTextWithLabelComponent),
@@ -28,7 +28,7 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
                 ((InputTextWithLabelComponent)bindable).component.Margin = new Thickness(0, 20, 0, 0);
         }
 
-        public static BindableProperty EntryBehaviorProperty = BindableProperty.Create(
+        public static readonly BindableProperty EntryBehaviorProperty = BindableProperty.Create(
                                                         propertyName: "EntryBehavior",
                                                         returnType: typeof(Xamarin.Forms.Behavior),
                                                         declaringType: typeof(InputTextWithLabelComponent),
@@ -42,11 +42,11 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
                 ((InputTextWithLabelComponent)bindable).Input.Behaviors.Add((Xamarin.Forms.Behavior)newValue);
         }
 
-        public string PropertyToBindindEntry { set { Input.SetBinding(Entry.TextProperty, value); } }
+        public string PropertyToBindindEntry { set { Input.SetBinding(Entry.TextProperty, value); } get { return null; } }
         public string LabelTitle { get; set; }
-        public string PlaceHolderText { set { Input.Placeholder = value; } }
-        public Keyboard Keyboard { set { Input.Keyboard = value; } }
-        public bool IsPassword { set { Input.IsPassword = value; } }
+        public string PlaceHolderText { set { Input.Placeholder = value; } get { return Input.Placeholder; } }
+        public Keyboard Keyboard { set { Input.Keyboard = value; } get { return Input.Keyboard; } }
+        public bool IsPassword { set { Input.IsPassword = value; } get { return Input.IsPassword; } }
 
         public InputTextWithLabelComponent()
         {

@@ -51,6 +51,11 @@ namespace IntelligentHabitacion.App.Droid
                     container.Register(interfaceToRegister, classDI);
                 }
 
+                var classHttpClientDI = Assembly.Load("IntelligentHabitacion.Communication").GetExportedTypes().First(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
+                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.EndsWith("IIntelligentHabitacionHttpClient")));
+
+                container.Register(classHttpClientDI.GetInterfaces().Single(i => i.Name.Equals("IIntelligentHabitacionHttpClient")), classHttpClientDI);
+
                 container.Register<IDependencyContainer>(container);
 
                 Resolver.SetResolver(container.GetResolver());

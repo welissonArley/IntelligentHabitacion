@@ -8,7 +8,7 @@ namespace IntelligentHabitacion.App.Template.Step
     {
         public bool RemoveMargin { get; set; }
 
-        public static BindableProperty RemoveMarginProperty = BindableProperty.Create(
+        public static readonly BindableProperty RemoveMarginProperty = BindableProperty.Create(
                                                         propertyName: "RemoveMarginRight",
                                                         returnType: typeof(bool),
                                                         declaringType: typeof(CompleteStep),

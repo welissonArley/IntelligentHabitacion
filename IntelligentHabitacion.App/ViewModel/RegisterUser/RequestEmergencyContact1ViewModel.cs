@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,20 +16,20 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
         public RequestEmergencyContact1ViewModel(IUserRule userRule)
         {
             _userRule = userRule;
-            NextCommand = new Command(OnNext);
+            NextCommand = new Command(async () => await OnNext());
         }
 
-        private void OnNext()
+        private async Task OnNext()
         {
             try
             {
                 _userRule.ValidateEmergencyContact(Model.EmergencyContact1.Name, Model.EmergencyContact1.PhoneNumber, Model.EmergencyContact1.FamilyRelationship);
 
-                Navigation.PushAsync<RequestEmergencyContact2ViewModel>((viewModel, page) => viewModel.Model = Model);
+                await Navigation.PushAsync<RequestEmergencyContact2ViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

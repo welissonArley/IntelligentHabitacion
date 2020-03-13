@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.ViewModel.DeleteAccount;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -21,10 +22,10 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             _userRule = userRule;
 
-            DeleteAccountTapped = new Command(ClickDeleteAccount);
-            ChangePasswordTapped = new Command(ClickChangePasswordAccount);
-            LogoutTapped = new Command(ClickLogoutAccount);
-            UpdateInformationsTapped = new Command(ClickUpdateInformations);
+            DeleteAccountTapped = new Command(async () => await ClickDeleteAccount());
+            ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
+            LogoutTapped = new Command(async () => await ClickLogoutAccount());
+            UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
 
             Model = new UserInformationsModel
             {
@@ -47,53 +48,53 @@ namespace IntelligentHabitacion.App.ViewModel
             };
         }
 
-        private void ClickDeleteAccount()
+        private async Task ClickDeleteAccount()
         {
             try
             {
-                Navigation.PushAsync<ConfirmDeleteAccountViewModel>();
+                await Navigation.PushAsync<ConfirmDeleteAccountViewModel>();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
 
-        private void ClickChangePasswordAccount()
+        private async Task ClickChangePasswordAccount()
         {
             try
             {
-                Navigation.PushAsync<ChangePasswordViewModel>();
+                await Navigation.PushAsync<ChangePasswordViewModel>();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
 
-        private void ClickLogoutAccount()
+        private async Task ClickLogoutAccount()
         {
             try
             {
                 Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.LoginPage>());
-                Navigation.PopToRootAsync();
+                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
 
-        private void ClickUpdateInformations()
+        private async Task ClickUpdateInformations()
         {
             try
             {
                 _userRule.UpdateInformations(Model);
-                Navigation.PopAsync();
+                await Navigation.PopAsync();
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

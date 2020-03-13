@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.App.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
             
@@ -22,7 +22,7 @@ namespace IntelligentHabitacion.App.iOS
 
             LoadApplication(new App());
 
-            return base.FinishedLaunching(app, options);
+            return base.FinishedLaunching(uiApplication, launchOptions);
         }
 
         private void ConfigureDI()
@@ -39,6 +39,11 @@ namespace IntelligentHabitacion.App.iOS
                     var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
                     container.Register(interfaceToRegister, classDI);
                 }
+
+                var classHttpClientDI = Assembly.Load("IntelligentHabitacion.Communication").GetExportedTypes().First(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
+                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.EndsWith("IIntelligentHabitacionHttpClient")));
+
+                container.Register(classHttpClientDI.GetInterfaces().Single(i => i.Name.Equals("IIntelligentHabitacionHttpClient")), classHttpClientDI);
 
                 container.Register<IDependencyContainer>(container);
 

@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace IntelligentHabitacion.Api.DatabaseVersioning
 {
-    public class Program
+    public static class Program
     {
         public static void Main()
         {

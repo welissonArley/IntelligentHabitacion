@@ -21,7 +21,7 @@ namespace IntelligentHabitacion.Api.Controllers
             var parameterIsString = parameter is string;
             if (parameterIsString)
             {
-                if (string.IsNullOrEmpty((string)parameter))
+                if (string.IsNullOrWhiteSpace((string)parameter))
                     throw new ParametersEmptyOrNullException();
             }
             else if (parameter == null)

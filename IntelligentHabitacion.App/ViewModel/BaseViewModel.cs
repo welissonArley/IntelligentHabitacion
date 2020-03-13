@@ -12,19 +12,19 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public class BaseViewModel : XLabs.Forms.Mvvm.ViewModel
     {
-        protected void Exception(System.Exception exception)
+        protected async Task Exception(System.Exception exception)
         {
             var navigation = Resolver.Resolve<INavigation>();
 
             if (!((exception as ErrorOnValidationException) is null))
             {
                 ErrorOnValidationException validacaoException = (ErrorOnValidationException)exception;
-                navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
+                await navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
             }
             else if (!((exception as IntelligentHabitacionException) is null))
-                navigation.PushPopupAsync(new ErrorModal(exception.Message));
+                await navigation.PushPopupAsync(new ErrorModal(exception.Message));
             else if (!CrossConnectivity.Current.IsConnected)
-                ErrorInternetConnection();
+                await ErrorInternetConnection();
             else
                 UnknownError();
         }
@@ -47,7 +47,7 @@ namespace IntelligentHabitacion.App.ViewModel
             navigation.PushPopupAsync(new ErrorModal(ResourceTextException.UNKNOW_ERROR));
         }
 
-        private async void ErrorInternetConnection()
+        private async Task ErrorInternetConnection()
         {
             var navigation = Resolver.Resolve<INavigation>();
             await navigation.PushPopupAsync(new WithoutInternetConnectionModal());

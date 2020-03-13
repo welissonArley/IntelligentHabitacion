@@ -2,25 +2,25 @@
 
 namespace IntelligentHabitacion.App.Behavior
 {
-    public class ZIPCodeBehavior : Behavior<Entry>
+    public class ZipCodeBehavior : Behavior<Entry>
     {
         public readonly MaskEntryBehavior _maskEntryBehavior;
 
-        public ZIPCodeBehavior()
+        public ZipCodeBehavior()
         {
             _maskEntryBehavior = new MaskEntryBehavior("XX.XXX-XXX");            
         }
 
-        protected override void OnAttachedTo(Entry entry)
+        protected override void OnAttachedTo(Entry bindable)
         {
-            entry.TextChanged += _maskEntryBehavior.OnEntryTextChanged;
-            base.OnAttachedTo(entry);
+            bindable.TextChanged += _maskEntryBehavior.OnEntryTextChanged;
+            base.OnAttachedTo(bindable);
         }
 
-        protected override void OnDetachingFrom(Entry entry)
+        protected override void OnDetachingFrom(Entry bindable)
         {
-            entry.TextChanged -= _maskEntryBehavior.OnEntryTextChanged;
-            base.OnDetachingFrom(entry);
+            bindable.TextChanged -= _maskEntryBehavior.OnEntryTextChanged;
+            base.OnDetachingFrom(bindable);
         }
     }
 }

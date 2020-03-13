@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,19 +17,19 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         public RequestCityViewModel(IHomeRule homeRule)
         {
             _homeRule = homeRule;
-            NextCommand = new Command(OnNext);
+            NextCommand = new Command(async () => await OnNext());
         }
 
-        private void OnNext()
+        private async Task OnNext()
         {
             try
             {
                 _homeRule.ValidadeCity(Model.City.Name);
-                Navigation.PushAsync<RequestAddressViewModel>((viewModel, page) => viewModel.Model = Model);
+                await Navigation.PushAsync<RequestAddressViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

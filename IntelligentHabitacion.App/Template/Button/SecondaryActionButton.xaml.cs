@@ -13,9 +13,10 @@ namespace IntelligentHabitacion.App.Template.Button
             {
                 Button.Text = value;
             }
+            get { return Button.Text; }
         }
 
-        public static BindableProperty TappedButtonCommandProperty = BindableProperty.Create(propertyName: "TappedButton",
+        public static readonly BindableProperty TappedButtonCommandProperty = BindableProperty.Create(propertyName: "TappedButton",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(SecondaryActionButton),
                                                         defaultValue: null,

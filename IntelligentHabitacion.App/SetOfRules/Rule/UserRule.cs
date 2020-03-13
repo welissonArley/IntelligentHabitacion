@@ -11,11 +11,17 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 {
     public class UserRule : IUserRule
     {
+        private readonly IIntelligentHabitacionHttpClient _httpClient;
+
+        public UserRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
+        {
+            _httpClient = intelligentHabitacionHttpClient;
+        }
+
         public async Task ValidateEmail(string email)
         {
             new EmailValidator().IsValid(email);
-            var httpClient = new IntelligentHabitacionHttpClient();
-            var response = await httpClient.EmailAlreadyBeenRegistered(email);
+            var response = await _httpClient.EmailAlreadyBeenRegistered(email);
             if (response.Value)
                 throw new EmailAlreadyBeenRegisteredException();
         }
@@ -49,9 +55,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 phoneNumberValidator.IsValid(phoneNumber2);
         }
 
-        public void DeleteAccount(string code, string password)
+        public void DeleteAccount(string codeReceived, string password)
         {
-            if (string.IsNullOrWhiteSpace(code))
+            if (string.IsNullOrWhiteSpace(codeReceived))
                 throw new CodeEmptyException();
 
             if (string.IsNullOrWhiteSpace(password))
@@ -78,7 +84,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
                 ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.FamilyRelationship);
 
-            var httpClient = new IntelligentHabitacionHttpClient();
             var user = new RequestRegisterUserJson
             {
                 Name = userInformations.Name,
@@ -106,7 +111,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 });
             }
 
-            await httpClient.CreateUser(user, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            await _httpClient.CreateUser(user, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
     }
 }

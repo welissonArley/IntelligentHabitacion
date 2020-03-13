@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,10 +16,10 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
         public RequestEmailViewModel(IUserRule userRule)
         {
             _userRule = userRule;
-            NextCommand = new Command(OnNext);
+            NextCommand = new Command(async () => await OnNext());
         }
 
-        private async void OnNext()
+        private async Task OnNext()
         {
             try
             {
@@ -30,7 +31,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
             catch (System.Exception exeption)
             {
                 HideLoading();
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

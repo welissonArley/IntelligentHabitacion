@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.Api.Middleware
     /// </summary>
     public class IntelligentHabitacionMiddleware
     {
-        RequestDelegate _next;
+        readonly RequestDelegate _next;
 
         private readonly List<string> _idioms = new List<string> { "EN", "PT", "PT-BR", "EN-US" };
 

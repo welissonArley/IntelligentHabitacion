@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -19,12 +20,12 @@ namespace IntelligentHabitacion.App.ViewModel
         public LoginViewModel(ILoginRule loginRule)
         {
             _loginRule = loginRule;
-            LoginCommand = new Command(OnLogin);
-            RegisterCommand = new Command(OnRegister);
-            ForgotPasswordCommand = new Command(OnForgotPassword);
+            LoginCommand = new Command(async () => await OnLogin());
+            RegisterCommand = new Command(async () => await OnRegister());
+            ForgotPasswordCommand = new Command(async () => await OnForgotPassword());
         }
 
-        private void OnLogin()
+        private async Task OnLogin()
         {
             try
             {
@@ -32,29 +33,29 @@ namespace IntelligentHabitacion.App.ViewModel
             }
             catch(System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
-        private void OnRegister()
+        private async Task OnRegister()
         {
             try
             {
-                Navigation.PushAsync<RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.RegisterUserModel());
+                await Navigation.PushAsync<RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.RegisterUserModel());
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
-        private void OnForgotPassword()
+        private async Task OnForgotPassword()
         {
             try
             {
-                Navigation.PushAsync<ForgotPassword.RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.ForgetPasswordModel());
+                await Navigation.PushAsync<ForgotPassword.RequestEmailViewModel>((viewModel, page) => viewModel.Model = new Model.ForgetPasswordModel());
             }
             catch (System.Exception exeption)
             {
-                Exception(exeption);
+                await Exception(exeption);
             }
         }
     }

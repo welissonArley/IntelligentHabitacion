@@ -1,11 +1,22 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.Communication;
+using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Validators.Validator;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule
 {
     public class LoginRule : ILoginRule
     {
+        private readonly IIntelligentHabitacionHttpClient _httpClient;
+
+        public LoginRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient)
+        {
+            _httpClient = intelligentHabitacionHttpClient;
+        }
+
         public void ChangePasswordForgetPassword(string email, string code, string newPassword, string confirmationPassword)
         {
             ValidateEmail(email);
@@ -16,12 +27,20 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
         }
 
-        public void Login(string email, string password)
+        public async Task<ResponseLoginJson> Login(string email, string password)
         {
             ValidateEmail(email);
 
             if (string.IsNullOrWhiteSpace(password))
                 throw new PasswordEmptyException();
+
+            var response = await _httpClient.Login(new RequestLoginJson
+            {
+                User = email,
+                Password = password
+            }, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            return response;
         }
 
         public void RequestCode(string email)

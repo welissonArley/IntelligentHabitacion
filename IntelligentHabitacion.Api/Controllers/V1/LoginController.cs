@@ -1,4 +1,6 @@
 ﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,15 +27,16 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="loginJson"></param>
         /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult Login()
+        [ProducesResponseType(typeof(ResponseLoginJson), StatusCodes.Status200OK)]
+        public IActionResult Login(RequestLoginJson loginJson)
         {
             try
             {
-                _loginRule.DoLogin();
-                return Ok();
+                var response = _loginRule.DoLogin(loginJson);
+                return Ok(response);
             }
             catch (System.Exception exception)
             {

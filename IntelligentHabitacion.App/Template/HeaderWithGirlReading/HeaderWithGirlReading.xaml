@@ -16,7 +16,7 @@
                 <Frame Grid.Row="0" HasShadow="True" CornerRadius="7" Padding="0" BackgroundColor="{x:StaticResource BlueDefault}">
                     <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                         <Image x:Name="ImageKingCrown" HeightRequest="20" WidthRequest="20" Margin="10,0,0,0" Source="IconKingCrown"></Image>
-                        <Label Margin="15,0,0,0" x:Name="LabelUserName" TextColor="Black" Style="{x:StaticResource LabelBold}" FontSize="16"></Label>
+                        <Label Margin="15,0,0,0" x:Name="LabelUserName" TextColor="Black" Style="{x:StaticResource LabelBold}" FontSize="16" VerticalOptions="EndAndExpand"></Label>
                     </StackLayout>
                 </Frame>
             </Grid>

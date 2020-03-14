@@ -6,24 +6,6 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HeaderWithGirlReading : ContentView
     {
-        public bool ShowImageKingCrown
-        {
-            set
-            {
-                ImageKingCrown.IsVisible = value;
-            }
-            get { return ImageKingCrown.IsVisible; }
-        }
-
-        public string UserName
-        {
-            set
-            {
-                LabelUserName.Text = value;
-            }
-            get { return LabelUserName.Text; }
-        }
-
         public HeaderWithGirlReading()
         {
             InitializeComponent();
@@ -32,6 +14,8 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
 
             ImageGirlReading.WidthRequest = deviceWidth;
             ImageGirlReading.HeightRequest = deviceWidth * 0.77;
+
+            LabelUserName.Text = "Santos";
         }
     }
 }

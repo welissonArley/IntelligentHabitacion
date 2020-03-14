@@ -1,8 +1,10 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
@@ -29,10 +31,17 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                _loginRule.Login(Email, Password);
+                ShowLoading();
+
+                var response = await _loginRule.Login(Email, Password);
+
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
+
+                HideLoading();
             }
             catch(System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

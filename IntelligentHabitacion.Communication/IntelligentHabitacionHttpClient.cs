@@ -19,7 +19,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://3016454f.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://6b3138a9.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
@@ -85,6 +85,11 @@ namespace IntelligentHabitacion.Communication
             var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/User/EmailAlreadyBeenRegistered/{email}", language: language);
 
             return JsonConvert.DeserializeObject<BooleanJson>(await response.Content.ReadAsStringAsync());
+        }
+        public async Task<ResponseLoginJson> Login(RequestLoginJson loginUser, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Login", loginUser, language: language);
+            return JsonConvert.DeserializeObject<ResponseLoginJson>(await response.Content.ReadAsStringAsync());
         }
     }
 }

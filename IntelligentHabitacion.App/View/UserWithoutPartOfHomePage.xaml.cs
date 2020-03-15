@@ -10,7 +10,7 @@ namespace IntelligentHabitacion.App.View
         {
             InitializeComponent();
 
-            var cardHeight = ((Application.Current.MainPage.Width / 2) - 35) * 1.27;
+            var cardHeight = ((IntelligentHabitacionDevice.IntelligentHabitacionDevice.Width() / 2) - 35) * 1.27;
 
             GridCards.RowDefinitions.Clear();
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });

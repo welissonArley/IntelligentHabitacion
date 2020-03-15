@@ -1,7 +1,10 @@
-﻿namespace IntelligentHabitacion.Api.SetOfRules.Interface
+﻿using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
+
+namespace IntelligentHabitacion.Api.SetOfRules.Interface
 {
     public interface ILoginRule
     {
-        void DoLogin();
+        ResponseLoginJson DoLogin(RequestLoginJson loginJson);
     }
 }

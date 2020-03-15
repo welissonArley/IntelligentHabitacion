@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Useful;
 using System.Linq;
 
@@ -39,6 +40,18 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Active = true,
                 CreateDate = DateTimeController.DateTimeNow(),
                 Number = number
+            };
+        }
+        #endregion
+
+        #region MapperModelToJson
+        public ResponseLoginJson MapperModelToJsonLogin(User user)
+        {
+            return new ResponseLoginJson
+            {
+                Name = user.Name,
+                IsPartOfOneHome = false,
+                IsAdministrator = false
             };
         }
         #endregion

@@ -2,6 +2,8 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using IntelligentHabitacion.App.Droid.SQLite;
+using IntelligentHabitacion.App.SQLite.Interface;
 using System.Linq;
 using System.Reflection;
 using TinyIoC;
@@ -43,11 +45,11 @@ namespace IntelligentHabitacion.App.Droid
                 var container = new TinyContainer(new TinyIoCContainer());
 
                 var listClassToUseDI = Assembly.Load("IntelligentHabitacion.App").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
-                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
+                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && (interfaces.Name.EndsWith("Rule") || interfaces.Name.EndsWith("Database"))));
 
                 foreach (var classDI in listClassToUseDI)
                 {
-                    var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
+                    var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && (i.Name.EndsWith("Rule") || i.Name.EndsWith("Database")));
                     container.Register(interfaceToRegister, classDI);
                 }
 
@@ -55,6 +57,8 @@ namespace IntelligentHabitacion.App.Droid
                         tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.EndsWith("IIntelligentHabitacionHttpClient")));
 
                 container.Register(classHttpClientDI.GetInterfaces().Single(i => i.Name.Equals("IIntelligentHabitacionHttpClient")), classHttpClientDI);
+
+                container.Register<ISqliteConnection>(new SqliteDatabaseAndroid());
 
                 container.Register<IDependencyContainer>(container);
 

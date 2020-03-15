@@ -1,14 +1,19 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.SQLite;
+using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
         private readonly ILoginRule _loginRule;
+        private readonly ISqliteDatabase _database;
 
         public ICommand LoginCommand { protected set; get; }
         public ICommand RegisterCommand { protected set; get; }
@@ -17,8 +22,9 @@ namespace IntelligentHabitacion.App.ViewModel
         public string Email { get; set; }
         public string Password { get; set; }
         
-        public LoginViewModel(ILoginRule loginRule)
+        public LoginViewModel(ILoginRule loginRule, ISqliteDatabase database)
         {
+            _database = database;
             _loginRule = loginRule;
             LoginCommand = new Command(async () => await OnLogin());
             RegisterCommand = new Command(async () => await OnRegister());
@@ -29,10 +35,25 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                _loginRule.Login(Email, Password);
+                ShowLoading();
+
+                var response = await _loginRule.Login(Email, Password);
+
+                _database.Save(new SQLite.Model.UserSqlite
+                {
+                    Name = response.Name,
+                    IsAdministrator = response.IsAdministrator,
+                    IsPartOfOneHome = response.IsPartOfOneHome,
+                    Width = Application.Current.MainPage.Width
+                });
+
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
+
+                HideLoading();
             }
             catch(System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

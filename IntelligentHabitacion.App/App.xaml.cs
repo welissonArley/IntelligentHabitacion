@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.View;
+﻿using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.RegisterHome;
 using IntelligentHabitacion.App.View.RegisterUser;
@@ -22,7 +23,11 @@ namespace IntelligentHabitacion.App
 
             RegisterViews();
 
-            MainPage = new GetStartedPage();
+            var user = Resolver.Resolve<ISqliteDatabase>().Get();
+            if (user != null)
+                MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
+            else
+                MainPage = new GetStartedPage();
 
             Resolver.Resolve<IDependencyContainer>()
                 .Register<INavigationService>(t => new NavigationService(MainPage.Navigation)) // New Xlabs nav service

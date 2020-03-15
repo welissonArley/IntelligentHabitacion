@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using IntelligentHabitacion.App.iOS.SQLite;
+using IntelligentHabitacion.App.SQLite.Interface;
 using System.Linq;
 using System.Reflection;
 using TinyIoC;
@@ -32,7 +34,7 @@ namespace IntelligentHabitacion.App.iOS
                 var container = new TinyContainer(new TinyIoCContainer());
 
                 var listClassToUseDI = Assembly.Load("IntelligentHabitacion.App").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
-                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule")));
+                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && (interfaces.Name.EndsWith("Rule") || interfaces.Name.EndsWith("Database"))));
 
                 foreach (var classDI in listClassToUseDI)
                 {
@@ -44,6 +46,8 @@ namespace IntelligentHabitacion.App.iOS
                         tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.EndsWith("IIntelligentHabitacionHttpClient")));
 
                 container.Register(classHttpClientDI.GetInterfaces().Single(i => i.Name.Equals("IIntelligentHabitacionHttpClient")), classHttpClientDI);
+
+                container.Register<ISqliteConnection>(new SqliteDatabaseiOs());
 
                 container.Register<IDependencyContainer>(container);
 

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using IntelligentHabitacion.App.SQLite.Interface;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
@@ -9,13 +10,15 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
         public HeaderWithGirlReading()
         {
             InitializeComponent();
-
-            var deviceWidth = Application.Current.MainPage.Width;
+            
+            var deviceWidth = IntelligentHabitacionDevice.IntelligentHabitacionDevice.Width();
 
             ImageGirlReading.WidthRequest = deviceWidth;
             ImageGirlReading.HeightRequest = deviceWidth * 0.77;
 
-            LabelUserName.Text = "Santos";
+            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
+
+            LabelUserName.Text = database.Get().Name;
         }
     }
 }

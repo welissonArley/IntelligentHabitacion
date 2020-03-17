@@ -19,9 +19,11 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
         }
 
         //Use for token
+        private const string TokenKey = "1M0okZY8u4EmqGjO";
+
         public static string GetKey()
         {
-            return "1M0okZY8u4EmqGjO";
+            return TokenKey;
         }
     }
 }

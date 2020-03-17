@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.View;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,13 +12,16 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
     public class RequestPasswordViewModel : BaseViewModel
     {
         private readonly IUserRule _userRule;
+        private readonly ISqliteDatabase _database;
+
         public ICommand OnConcludeCommand { protected set; get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestPasswordViewModel(IUserRule userRule)
+        public RequestPasswordViewModel(IUserRule userRule, ISqliteDatabase database)
         {
             _userRule = userRule;
+            _database = database;
             OnConcludeCommand = new Command(async () => await OnConclude());
         }
 
@@ -29,7 +33,16 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
 
                 _userRule.ValidatePassword(Model.Password, Model.PasswordConfirmation);
 
-                await _userRule.Create(Model);
+                var response = await _userRule.Create(Model);
+
+                _database.Save(new SQLite.Model.UserSqlite
+                {
+                    Name = Model.Name,
+                    IsAdministrator = false,
+                    IsPartOfOneHome = false,
+                    Width = Application.Current.MainPage.Width,
+                    Token = response.Token
+                });
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
 

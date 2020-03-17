@@ -97,7 +97,8 @@ namespace IntelligentHabitacion.Api
             else
                 app.UseHsts();
 
-            app.UseMiddleware<IntelligentHabitacionMiddleware>();
+            app.UseMiddleware<CultureMiddleware>()
+                .UseMiddleware<NHibernateMiddleware>();
 
             app.UseSwagger();
 
@@ -125,7 +126,7 @@ namespace IntelligentHabitacion.Api
 
         private void RegisterRepository(IServiceCollection services)
         {
-            services.AddSingleton(ServiceProvider =>
+            services.AddTransient(ServiceProvider =>
             {
                 return Fluently.Configure().Database(GetConfigurerDatabase())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ModelBase>()).BuildConfiguration()

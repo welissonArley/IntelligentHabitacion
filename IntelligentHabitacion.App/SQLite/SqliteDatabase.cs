@@ -16,17 +16,35 @@ namespace IntelligentHabitacion.App.SQLite
 
         public UserSqlite Get()
         {
-            return _dataBase.Table<UserSqlite>().FirstOrDefault();
+            var user = _dataBase.Table<UserSqlite>().FirstOrDefault();
+            if (user == null)
+                return null;
+
+            user.Token = new Cryptography().Dencrypt(user.Token);
+            return user;
         }
 
         public void Save(UserSqlite user)
         {
             Delete();
+
+            var encryptManager = new Cryptography();
+            user.Token = encryptManager.Encrypt(user.Token);
+
             _dataBase.Insert(user);
         }
 
-        public void Update(UserSqlite user)
+        public void UpdateName(string newName)
         {
+            UserSqlite user = Get();
+            user.Name = newName;
+            _dataBase.Update(user);
+        }
+
+        public void UpdateToken(string newToken)
+        {
+            UserSqlite user = Get();
+            user.Token = new Cryptography().Encrypt(newToken);
             _dataBase.Update(user);
         }
 

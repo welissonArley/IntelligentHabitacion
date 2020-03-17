@@ -7,7 +7,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
     {
         void ChangePasswordForgetPassword(string email, string code, string newPassword, string confirmationPassword);
         void RequestCode(string email);
-        Task<ResponseLoginJson> Login(string email, string password);
+        Task<ResponseJson> Login(string email, string password);
         void ChangePassword(string currentPassword, string newPassword, string confirmationPassword);
     }
 }

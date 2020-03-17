@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Api.Repository\IntelligentHabitacion.Api.Repository.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.Validators\IntelligentHabitacion.Api.Validators.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />

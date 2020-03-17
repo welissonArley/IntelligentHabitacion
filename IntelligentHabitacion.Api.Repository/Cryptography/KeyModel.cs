@@ -8,12 +8,22 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
         {
             if (!((model as User) is null))
                 return "AHRyipfROiWbUdoD";
-            else if (!((model as Phonenumber) is null))
+            
+            if (!((model as Phonenumber) is null))
                 return "SdhmzX8JgyLHoQin";
-            else if (!((model as EmergencyContact) is null))
+            
+            if (!((model as EmergencyContact) is null))
                 return "AHRyipfROiWbUdoD";
 
             return "";
+        }
+
+        //Use for token
+        private const string TokenKey = "1M0okZY8u4EmqGjO";
+
+        public static string GetKey()
+        {
+            return TokenKey;
         }
     }
 }

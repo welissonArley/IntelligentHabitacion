@@ -27,7 +27,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
         }
 
-        public async Task<ResponseLoginJson> Login(string email, string password)
+        public async Task<ResponseJson> Login(string email, string password)
         {
             ValidateEmail(email);
 

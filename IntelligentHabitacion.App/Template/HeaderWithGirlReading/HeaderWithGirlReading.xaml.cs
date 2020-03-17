@@ -18,7 +18,9 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
 
             var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
 
-            LabelUserName.Text = database.Get().Name;
+            var user = database.Get();
+            LabelUserName.Text = user.Name;
+            ImageKingCrown.IsVisible = user.IsAdministrator;
         }
     }
 }

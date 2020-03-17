@@ -8,14 +8,14 @@ namespace IntelligentHabitacion.Api.Repository.WorkUnit
         [ThreadStatic]
         private static WorkUnitNHibernate _workUnitNHibernateActive;
 
-        private readonly ITransaction _transacao;
+        private readonly ITransaction _transaction;
 
         public WorkUnitNHibernate(ISessionFactory sessionFactory)
         {
             Session = sessionFactory.OpenSession();
             Session.FlushMode = FlushMode.Manual;
 
-            _transacao = Session.BeginTransaction();
+            _transaction = Session.BeginTransaction();
         }
 
         public static WorkUnitNHibernate WorkUnitNHibernateActive
@@ -28,12 +28,13 @@ namespace IntelligentHabitacion.Api.Repository.WorkUnit
 
         public void Commit()
         {
-            _transacao.Commit();
+            if(_transaction.IsActive)
+                _transaction.Commit();
         }
 
         public void Rollback()
         {
-            _transacao.Rollback();
+            _transaction.Rollback();
             Session.Clear();
         }
 

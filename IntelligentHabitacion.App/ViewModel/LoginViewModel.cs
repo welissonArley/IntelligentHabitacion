@@ -1,8 +1,8 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite;
 using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
+using IntelligentHabitacion.Communication.Response;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -39,12 +39,15 @@ namespace IntelligentHabitacion.App.ViewModel
 
                 var response = await _loginRule.Login(Email, Password);
 
+                var responseLogin = (ResponseLoginJson)response.Response;
+
                 _database.Save(new SQLite.Model.UserSqlite
                 {
-                    Name = response.Name,
-                    IsAdministrator = response.IsAdministrator,
-                    IsPartOfOneHome = response.IsPartOfOneHome,
-                    Width = Application.Current.MainPage.Width
+                    Name = responseLogin.Name,
+                    IsAdministrator = responseLogin.IsAdministrator,
+                    IsPartOfOneHome = responseLogin.IsPartOfOneHome,
+                    Width = Application.Current.MainPage.Width,
+                    Token = response.Token
                 });
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());

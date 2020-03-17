@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Validators.Validator;
 using System.Collections.Generic;
@@ -74,7 +75,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.FamilyRelationship);
         }
 
-        public async Task Create(RegisterUserModel userInformations)
+        public async Task<ResponseJson> Create(RegisterUserModel userInformations)
         {
             ValidateName(userInformations.Name);
             await ValidateEmail(userInformations.Email);
@@ -111,7 +112,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 });
             }
 
-            await _httpClient.CreateUser(user, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            return await _httpClient.CreateUser(user, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
     }
 }

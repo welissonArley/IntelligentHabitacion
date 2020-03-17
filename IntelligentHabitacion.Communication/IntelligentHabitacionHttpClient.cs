@@ -6,6 +6,7 @@ using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ErrorJson;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Newtonsoft.Json;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -19,7 +20,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://6b3138a9.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://fbff0c58.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
@@ -64,6 +65,10 @@ namespace IntelligentHabitacion.Communication
                 }
             }
         }
+        private string GetToken(HttpResponseMessage responseMessage)
+        {
+            return responseMessage.Headers.GetValues("Tvih").First();
+        }
 
         public async Task<ResponseLocationBrazilJson> GetLocationBrazilByZipCode(string zipcode)
         {
@@ -76,9 +81,14 @@ namespace IntelligentHabitacion.Communication
             return JsonConvert.DeserializeObject<ResponseLocationBrazilJson>(await response.Content.ReadAsStringAsync());
         }
 
-        public async Task CreateUser(RequestRegisterUserJson registerUser, string language = null)
+        public async Task<ResponseJson> CreateUser(RequestRegisterUserJson registerUser, string language = null)
         {
-            await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User", registerUser, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User", registerUser, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
         }
         public async Task<BooleanJson> EmailAlreadyBeenRegistered(string email, string language = null)
         {
@@ -86,10 +96,14 @@ namespace IntelligentHabitacion.Communication
 
             return JsonConvert.DeserializeObject<BooleanJson>(await response.Content.ReadAsStringAsync());
         }
-        public async Task<ResponseLoginJson> Login(RequestLoginJson loginUser, string language = null)
+        public async Task<ResponseJson> Login(RequestLoginJson loginUser, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Login", loginUser, language: language);
-            return JsonConvert.DeserializeObject<ResponseLoginJson>(await response.Content.ReadAsStringAsync());
+            return new ResponseJson
+            {
+                Response = JsonConvert.DeserializeObject<ResponseLoginJson>(await response.Content.ReadAsStringAsync()),
+                Token = GetToken(response)
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
+using IntelligentHabitacion.Api.Repository.WorkUnit;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Api.Validators;
@@ -46,7 +47,14 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             var validation = new UserValidator().Validate(userModel);
 
             if (validation.IsValid)
+            {
                 _userRepository.Create(userModel);
+                /*
+                 * Please, the next line of code is only needed here ok?
+                 * Because the token will be generated and the user must actually have the commit already made.
+                 */
+                WorkUnitNHibernate.WorkUnitNHibernateActive.Commit();
+            }
             else
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
         }

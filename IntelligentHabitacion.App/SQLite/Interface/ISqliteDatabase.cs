@@ -7,6 +7,7 @@ namespace IntelligentHabitacion.App.SQLite.Interface
         UserSqlite Get();
         void Save(UserSqlite user);
         void Delete();
-        void Update(UserSqlite user);
+        void UpdateName(string newName);
+        void UpdateToken(string newToken);
     }
 }

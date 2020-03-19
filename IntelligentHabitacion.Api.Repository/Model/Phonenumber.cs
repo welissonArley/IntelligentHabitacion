@@ -1,10 +1,14 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model
 {
+    [Table("Phonenumber")]
     public class Phonenumber : ModelBase
     {
-        public virtual string Number { get; set; }
+        public string Number { get; set; }
+        public long? UserId { get; set; }
+        public long? EmergencyContactId { get; set; }
 
         public override void Decrypt()
         {

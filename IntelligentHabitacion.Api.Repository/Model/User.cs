@@ -1,21 +1,20 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model
 {
+    [Table("User")]
     public class User : ModelBase
     {
-        public virtual string Name { get; set; }
-        public virtual string Email { get; set; }
-        public virtual string Password { get; set; }
-        public virtual ICollection<Phonenumber> Phonenumbers { get; set; }
-        public virtual ICollection<EmergencyContact> EmergecyContacts { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public ICollection<Phonenumber> Phonenumbers { get; set; }
+        public ICollection<EmergencyContact> EmergecyContacts { get; set; }
 
         public override void Decrypt()
         {
-            if (!Encripted)
-                return;
-
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
 
@@ -25,8 +24,6 @@ namespace IntelligentHabitacion.Api.Repository.Model
                 phoneNumber.Decrypt();
             foreach (var emergencyContact in EmergecyContacts)
                 emergencyContact.Decrypt();
-
-            Encripted = false;
         }
 
         public override void Encripty()
@@ -40,10 +37,6 @@ namespace IntelligentHabitacion.Api.Repository.Model
                 phoneNumber.Encripty();
             foreach (var emergencyContact in EmergecyContacts)
                 emergencyContact.Encripty();
-
-            Encripted = true;
         }
-
-        private bool Encripted = true;
     }
 }

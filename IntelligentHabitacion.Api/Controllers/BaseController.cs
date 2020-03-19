@@ -10,7 +10,6 @@ using IntelligentHabitacion.Exception.Parameters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using NHibernate;
 using System.IO;
 
 namespace IntelligentHabitacion.Api.Controllers
@@ -140,22 +139,13 @@ namespace IntelligentHabitacion.Api.Controllers
 
         private void CreateToken(User user, string token)
         {
-            ISessionFactory sessionFactory = (ISessionFactory)HttpContext.RequestServices.GetService(typeof(ISessionFactory));
-
-            NHibernate.ISession Session = sessionFactory.OpenSession();
-
-            ITransaction transaction = Session.BeginTransaction();
-
-            var tokenRepository = new TokenRepository(Session);
+            var tokenRepository = new TokenRepository();
 
             tokenRepository.Create(new Token
             {
                 Value = token,
-                User = user
+                UserId = user.Id
             });
-
-            transaction.Commit();
-            Session.Close();
         }
 
         private bool ItIsNecessaryToGenerateToken()

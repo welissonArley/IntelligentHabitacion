@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using Moq;
 using Xunit;
@@ -39,11 +40,15 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         private IIntelligentHabitacionHttpClient GetMokIntelligentHabitacionHttpClient()
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
-            mock.Setup(c => c.Login(It.IsAny<RequestLoginJson>(), "")).ReturnsAsync(new Communication.Response.ResponseLoginJson
+            mock.Setup(c => c.Login(It.IsAny<RequestLoginJson>(), "")).ReturnsAsync(new ResponseJson
             {
-                Name = "User",
-                IsAdministrator = false,
-                IsPartOfOneHome = false
+                Token = "",
+                Response = new ResponseLoginJson
+                {
+                    Name = "User",
+                    IsAdministrator = false,
+                    IsPartOfOneHome = false
+                }
             });
 
             return mock.Object;

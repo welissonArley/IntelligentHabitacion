@@ -1,11 +1,12 @@
-﻿using IntelligentHabitacion.Api.Repository.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Token
 {
+    [Table("Token")]
     public class Token
     {
-        public virtual long Id { get; set; }
-        public virtual string Value { get; set; }
-        public virtual User User { get; set; }
+        public long Id { get; set; }
+        public string Value { get; set; }
+        public long UserId { get; set; }
     }
 }

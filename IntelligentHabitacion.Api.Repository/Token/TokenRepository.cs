@@ -1,16 +1,16 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
-using NHibernate;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.Repository.Token
 {
-    public class TokenRepository
+    public class TokenRepository : DbContext
     {
-        private readonly ISession Session;
+        protected virtual DbSet<Token> ModelSet { get; set; }
 
-        public TokenRepository(ISession session)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            Session = session;
+            optionsBuilder.UseMySql("Server=localhost;Database=intelligenthabitacion;Uid=root;Pwd=@Ioasys;");
         }
 
         public void Create(Token token)
@@ -19,19 +19,22 @@ namespace IntelligentHabitacion.Api.Repository.Token
             var salt = KeyModel.GetKey();
             token.Value = encryptManager.Encrypt(token.Value, salt);
 
-            var tokenCreated = Get(token.User.Id);
+            var tokenCreated = Get(token.UserId);
             if (tokenCreated == null)
-                Session.Save(token);
+            {
+                ModelSet.Add(token);
+                SaveChanges();
+            }
             else
             {
                 tokenCreated.Value = token.Value;
-                Session.Update(tokenCreated);
+                SaveChanges();
             }
         }
 
         public Token Get(long id)
         {
-            var token = Session.Query<Token>().FirstOrDefault(c => c.User.Id == id);
+            var token = ModelSet.FirstOrDefault(c => c.UserId == id);
             if (token == null)
                 return null;
 

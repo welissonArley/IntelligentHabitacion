@@ -1,7 +1,4 @@
-﻿using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
-using IntelligentHabitacion.Api.Middleware;
-using IntelligentHabitacion.Api.Repository.Model;
+﻿using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -97,8 +94,7 @@ namespace IntelligentHabitacion.Api
             else
                 app.UseHsts();
 
-            app.UseMiddleware<CultureMiddleware>()
-                .UseMiddleware<NHibernateMiddleware>();
+            app.UseMiddleware<CultureMiddleware>();
 
             app.UseSwagger();
 
@@ -126,13 +122,6 @@ namespace IntelligentHabitacion.Api
 
         private void RegisterRepository(IServiceCollection services)
         {
-            services.AddTransient(ServiceProvider =>
-            {
-                return Fluently.Configure().Database(GetConfigurerDatabase())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ModelBase>()).BuildConfiguration()
-                    .BuildSessionFactory();
-            });
-
             var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.Repository").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
                     type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Repository") && !interfaces.Name.Equals("IBaseRepository"))).ToList();
 
@@ -141,11 +130,6 @@ namespace IntelligentHabitacion.Api
                 var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Repository"));
                 services.AddTransient(interfaceToRegister, classRule);
             }
-        }
-
-        private IPersistenceConfigurer GetConfigurerDatabase()
-        {
-            return MySQLConfiguration.Standard.ConnectionString(appSettingsManager.ConnectionString());
         }
     }
 }

@@ -116,7 +116,7 @@ namespace IntelligentHabitacion.Api
             foreach (var classRule in listClassIntelligentHabitacionRules)
             {
                 var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
-                services.AddTransient(interfaceToRegister, classRule);
+                services.AddScoped(interfaceToRegister, classRule);
             }
         }
 
@@ -128,7 +128,7 @@ namespace IntelligentHabitacion.Api
             foreach (var classRule in listClassIntelligentHabitacionRules)
             {
                 var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Repository"));
-                services.AddTransient(interfaceToRegister, classRule);
+                services.AddScoped(interfaceToRegister, classRule);
             }
         }
     }

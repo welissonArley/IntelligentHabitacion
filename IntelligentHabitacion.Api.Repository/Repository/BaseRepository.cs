@@ -34,18 +34,18 @@ namespace IntelligentHabitacion.Api.Repository.Repository
         public void Create(TModel model)
         {
             model.Active = true;
-            model.Encripty();
+            model.Encrypty();
             ModelSet.Add(model);
             SaveChanges();
         }
 
         public void Update(TModel model)
         {
-            model.Encripty();
+            model.Encrypty();
             SaveChanges();
         }
 
-        public void DeleteOnDataBase(TModel model)
+        public void DeleteOnDatabase(TModel model)
         {
             ModelSet.Remove(model);
             SaveChanges();

@@ -28,6 +28,11 @@ namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
                 .WithColumn("Id").AsInt64().PrimaryKey().Identity()
                 .WithColumn("Value").AsString(2000).NotNullable()
                 .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_Token_User_Id", "User", "Id");
+
+            BaseVersion.CreateDefaultColumns(Create.Table("Code"))
+                .WithColumn("Value").AsString().NotNullable()
+                .WithColumn("Type").AsInt64().NotNullable()
+                .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_Code_User_Id", "User", "Id");
         }
     }
 }

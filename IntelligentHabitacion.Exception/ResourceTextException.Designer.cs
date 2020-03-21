@@ -142,6 +142,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid user..
+        /// </summary>
+        public static string INVALID_USER {
+            get {
+                return ResourceManager.GetString("INVALID_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name must be entered..
         /// </summary>
         public static string NAME_EMPTY {
@@ -237,6 +246,15 @@ namespace IntelligentHabitacion.Exception {
         public static string PHONENUMBER_INVALID {
             get {
                 return ResourceManager.GetString("PHONENUMBER_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One code to reset the password is requerid..
+        /// </summary>
+        public static string REQUERED_CODE_RESET_PASSWORD {
+            get {
+                return ResourceManager.GetString("REQUERED_CODE_RESET_PASSWORD", resourceCulture);
             }
         }
         

@@ -25,7 +25,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         }
 
         /// <summary>
-        /// 
+        /// Function to do Login on API
         /// </summary>
         /// <param name="loginJson"></param>
         /// <returns></returns>
@@ -35,8 +35,50 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         {
             try
             {
+                VerifyParameters(loginJson);
                 var response = _loginRule.DoLogin(loginJson);
                 return Ok(response);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// Use this function to get a code to reset your password
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RequestCodeResetPassword/{email}")]
+        public IActionResult RequestCodeResetPassword(string email)
+        {
+            try
+            {
+                VerifyParameters(email);
+                _loginRule.RequestCodeToResetPassword(email);
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// Use this function to reset the password
+        /// </summary>
+        /// <param name="resetYourPasswordJson"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("ResetYourPassword")]
+        public IActionResult ResetYourPassword(RequestResetYourPasswordJson resetYourPasswordJson)
+        {
+            try
+            {
+                VerifyParameters(resetYourPasswordJson);
+                _loginRule.ResetYourPassword(resetYourPasswordJson);
+                return Ok();
             }
             catch (System.Exception exception)
             {

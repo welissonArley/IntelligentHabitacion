@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public DateTime? UpdateDate { get; set; }
         public bool Active { get; set; }
 
-        public abstract void Encripty();
+        public abstract void Encrypty();
         public abstract void Decrypt();
     }
 }

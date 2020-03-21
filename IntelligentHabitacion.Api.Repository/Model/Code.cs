@@ -3,19 +3,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model
 {
-    [Table("Phonenumber")]
-    public class Phonenumber : ModelBase
+    public enum CodeType
     {
-        public string Number { get; set; }
-        public long? UserId { get; set; }
-        public long? EmergencyContactId { get; set; }
+        ResetPassword = 1
+    }
+
+    [Table("Code")]
+    public class Code : ModelBase
+    {
+        public string Value { get; set; }
+        public CodeType Type { get; set; }
+        public long UserId { get; set; }
 
         public override void Decrypt()
         {
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
 
-            Number = encryptManager.Dencrypt(Number, salt);
+            Value = encryptManager.Dencrypt(Value, salt);
         }
 
         public override void Encrypty()
@@ -23,7 +28,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
 
-            Number = encryptManager.Encrypt(Number, salt);
+            Value = encryptManager.Encrypt(Value, salt);
         }
     }
 }

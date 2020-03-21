@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Map\**" />
+    <EmbeddedResource Remove="Map\**" />
+    <None Remove="Map\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentMigrator" Version="2.0.6" />
     <PackageReference Include="FluentMigrator.Runner" Version="2.0.6" />
     <PackageReference Include="MySql.Data" Version="8.0.19" />

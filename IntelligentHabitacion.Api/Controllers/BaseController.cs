@@ -33,6 +33,16 @@ namespace IntelligentHabitacion.Api.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <returns></returns>
+        public override OkResult Ok()
+        {
+            WriteAutenticationHeader();
+            return base.Ok();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="uri"></param>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -115,14 +125,14 @@ namespace IntelligentHabitacion.Api.Controllers
             {
                 var login = JsonConvert.DeserializeObject<RequestLoginJson>(GetBodyMessage());
                 IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
-                user = userRepository.GetUserByEmail(login.User);
+                user = userRepository.GetByEmail(login.User);
                 tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
             }
             else if (Request.Path.Value.Contains("User"))
             {
                 var registerUser = JsonConvert.DeserializeObject<RequestRegisterUserJson>(GetBodyMessage());
                 IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
-                user = userRepository.GetUserByEmail(registerUser.Email);
+                user = userRepository.GetByEmail(registerUser.Email);
                 tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
             }
 
@@ -151,6 +161,12 @@ namespace IntelligentHabitacion.Api.Controllers
         private bool ItIsNecessaryToGenerateToken()
         {
             if (Request.Path.Value.Contains("User/EmailAlreadyBeenRegistered/"))
+                return false;
+
+            if (Request.Path.Value.Contains("Login/RequestCodeResetPassword"))
+                return false;
+
+            if (Request.Path.Value.Contains("Login/ResetYourPassword"))
                 return false;
 
             if (Request.Path.Value.Contains("Login") && Response.StatusCode == StatusCodes.Status500InternalServerError)

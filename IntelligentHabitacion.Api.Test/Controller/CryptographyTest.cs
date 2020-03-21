@@ -56,7 +56,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 }
             };
             Assert.Equal("email@email.com.br", model.Email);
-            model.Encripty();
+            model.Encrypty();
             Assert.NotEqual("email@email.com.br", model.Email);
             model.Decrypt();
             Assert.Equal("email@email.com.br", model.Email);
@@ -74,7 +74,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Number = "(31) 9 9999-9999"
             };
             Assert.Equal("(31) 9 9999-9999", model.Number);
-            model.Encripty();
+            model.Encrypty();
             Assert.NotEqual("(31) 9 9999-9999", model.Number);
             model.Decrypt();
             Assert.Equal("(31) 9 9999-9999", model.Number);
@@ -104,7 +104,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 }
             };
             Assert.Equal("Contact", model.Name);
-            model.Encripty();
+            model.Encrypty();
             Assert.NotEqual("Contact", model.Name);
             model.Decrypt();
             Assert.Equal("Contact", model.Name);
@@ -122,7 +122,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Number = ""
             };
             Assert.Equal("", model.Number);
-            model.Encripty();
+            model.Encrypty();
             Assert.Equal("", model.Number);
             model.Decrypt();
             Assert.Equal("", model.Number);
@@ -136,7 +136,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Name = "Name"
             };
 
-            Assert.Throws<System.Security.Cryptography.CryptographicException>(() => model.Encripty());
+            Assert.Throws<System.Security.Cryptography.CryptographicException>(() => model.Encrypty());
         }
     }
 
@@ -152,7 +152,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Name = encryptManager.Dencrypt(Name, salt);
         }
 
-        public override void Encripty()
+        public override void Encrypty()
         {
             var encryptManager = new Cryptography();
             var salt = KeyModel.GetKey(this);

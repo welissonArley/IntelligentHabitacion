@@ -144,6 +144,9 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
+  <data name="INVALID_USER" xml:space="preserve">
+    <value>Invalid user.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Name must be entered.</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="PHONENUMBER_INVALID" xml:space="preserve">
     <value>The phone number is invalid. (XX) X XXXX-XXXX</value>
+  </data>
+  <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
+    <value>One code to reset the password is requerid.</value>
   </data>
   <data name="THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Family relationship with the Emergency contact {0} must be entered.</value>

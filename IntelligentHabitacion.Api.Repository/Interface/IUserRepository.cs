@@ -4,6 +4,6 @@ namespace IntelligentHabitacion.Api.Repository.Interface
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        User GetUserByEmail(string email);
+        User GetByEmail(string email);
     }
 }

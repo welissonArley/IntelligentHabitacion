@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.Api.Repository.Repository
             return models;
         }
 
-        public User GetUserByEmail(string email)
+        public User GetByEmail(string email)
         {
             var userTemp = new User
             {
@@ -31,7 +31,7 @@ namespace IntelligentHabitacion.Api.Repository.Repository
                 EmergecyContacts = new List<EmergencyContact>(),
                 Phonenumbers = new List<Phonenumber>()
             };
-            userTemp.Encripty();
+            userTemp.Encrypty();
 
             var response = IncludeModel().FirstOrDefault(c => c.Active && c.Email.Equals(userTemp.Email));
 

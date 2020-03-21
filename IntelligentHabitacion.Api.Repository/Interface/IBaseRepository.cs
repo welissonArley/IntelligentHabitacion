@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.Api.Repository.Interface
         TModel GetById(long id);
         void Create(TModel model);
         void Update(TModel model);
-        void DeleteOnDataBase(TModel model);
+        void DeleteOnDatabase(TModel model);
         void DeleteOnSystem(TModel model);
     }
 }

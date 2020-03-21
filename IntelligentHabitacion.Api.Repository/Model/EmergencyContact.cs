@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
                 phoneNumber.Decrypt();
         }
 
-        public override void Encripty()
+        public override void Encrypty()
         {
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
@@ -31,7 +31,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
             Name = encryptManager.Encrypt(Name, salt);
             DegreeOfKinship = encryptManager.Encrypt(DegreeOfKinship, salt);
             foreach (var phoneNumber in Phonenumbers)
-                phoneNumber.Encripty();
+                phoneNumber.Encrypty();
         }
     }
 }

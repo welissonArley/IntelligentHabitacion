@@ -1,5 +1,7 @@
-﻿using IntelligentHabitacion.Api.Middleware;
+﻿using IntelligentHabitacion.Api.Filter;
+using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
+using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -79,6 +81,11 @@ namespace IntelligentHabitacion.Api
 
                 return new CryptographyPassword(key);
             });
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<ILoggedUser, LoggedUser>();
+
+            services.AddScoped<AuthenticationFilter>();
         }
 
         /// <summary>

@@ -45,13 +45,39 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
         #endregion
 
         #region MapperModelToJson
-        public ResponseLoginJson MapperModelToJsonLogin(User user)
+        public ResponseLoginJson MapperModelToJsonLogin(User model)
         {
             return new ResponseLoginJson
             {
-                Name = user.Name,
+                Name = model.Name,
                 IsPartOfOneHome = false,
                 IsAdministrator = false
+            };
+        }
+        public ResponseUserInformationsJson MapperModelToJson(User model)
+        {
+            return new ResponseUserInformationsJson
+            {
+                Name = model.Name,
+                Email = model.Email,
+                Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
+                EmergencyContactc = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList()
+            };
+        }
+        public ResponsePhonenumberJson MapperModelToJson(Phonenumber model)
+        {
+            return new ResponsePhonenumberJson
+            {
+                Number = model.Number
+            };
+        }
+        public ResponseEmergencyContactJson MapperModelToJson(EmergencyContact model)
+        {
+            return new ResponseEmergencyContactJson
+            {
+                Name = model.Name,
+                DegreeOfKinship = model.DegreeOfKinship,
+                Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList()
             };
         }
         #endregion

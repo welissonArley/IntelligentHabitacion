@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Repository.Token;
 using IntelligentHabitacion.Api.SetOfRules.JWT;
+using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
@@ -118,8 +119,8 @@ namespace IntelligentHabitacion.Api.Controllers
             if (!ItIsNecessaryToGenerateToken())
                 return;
 
-            var tokenToUseInNextRequest = "";
-            User user = null;
+            User user;
+            string tokenToUseInNextRequest;
 
             if (Request.Path.Value.Contains("Login"))
             {
@@ -128,11 +129,38 @@ namespace IntelligentHabitacion.Api.Controllers
                 user = userRepository.GetByEmail(login.User);
                 tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
             }
-            else if (Request.Path.Value.Contains("User"))
+            else if (Request.Path.Value.Contains("User/Register"))
             {
                 var registerUser = JsonConvert.DeserializeObject<RequestRegisterUserJson>(GetBodyMessage());
                 IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
                 user = userRepository.GetByEmail(registerUser.Email);
+                tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
+            }
+            else if (Request.Path.Value.Contains("User/Update"))
+            {
+                if(Response.StatusCode == StatusCodes.Status500InternalServerError)
+                {
+                    ILoggedUser loggedUser = (ILoggedUser)HttpContext.RequestServices.GetService(typeof(ILoggedUser));
+                    user = loggedUser.User();
+
+                    var autorizathion = HttpContext.Request.Headers["Authorization"].ToString();
+                    var token = autorizathion.Substring("Basic ".Length).Trim();
+
+                    var email = new TokenController().User(token);
+                    tokenToUseInNextRequest = new TokenController().CreateToken(email);
+                }
+                else
+                {
+                    var updateUser = JsonConvert.DeserializeObject<RequestUpdateUserJson>(GetBodyMessage());
+                    IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
+                    user = userRepository.GetByEmail(updateUser.Email);
+                    tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
+                }
+            }
+            else
+            {
+                ILoggedUser loggedUser = (ILoggedUser)HttpContext.RequestServices.GetService(typeof(ILoggedUser));
+                user = loggedUser.User();
                 tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
             }
 
@@ -172,7 +200,7 @@ namespace IntelligentHabitacion.Api.Controllers
             if (Request.Path.Value.Contains("Login") && Response.StatusCode == StatusCodes.Status500InternalServerError)
                 return false;
 
-            if (Request.Path.Value.Contains("User") && Response.StatusCode == StatusCodes.Status500InternalServerError)
+            if (Request.Path.Value.Contains("User/Register") && Response.StatusCode == StatusCodes.Status500InternalServerError)
                 return false;
 
             return true;

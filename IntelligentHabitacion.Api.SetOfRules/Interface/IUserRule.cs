@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 
 namespace IntelligentHabitacion.Api.SetOfRules.Interface
 {
@@ -7,5 +8,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
     {
         void Register(RequestRegisterUserJson registerUserJson);
         BooleanJson EmailAlreadyBeenRegistered(string email);
+        void Update(RequestUpdateUserJson updateUserJson);
+        void ChangePassword(RequestChangePasswordJson changePasswordJson);
+        ResponseUserInformationsJson GetInformations();
     }
 }

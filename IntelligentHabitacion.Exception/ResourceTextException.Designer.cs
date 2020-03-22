@@ -97,6 +97,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The current password is invalid..
+        /// </summary>
+        public static string CURRENT_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("CURRENT_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This email address has already been registered..
         /// </summary>
         public static string EMAIL_ALREADYBEENREGISTERED {
@@ -309,6 +318,15 @@ namespace IntelligentHabitacion.Exception {
         public static string USER_OR_PASSWORD_INVALID {
             get {
                 return ResourceManager.GetString("USER_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You do not have permission to access this resource..
+        /// </summary>
+        public static string USER_WITHOUT_PERMISSION_ACCESS_RESOURCE {
+            get {
+                return ResourceManager.GetString("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE", resourceCulture);
             }
         }
         

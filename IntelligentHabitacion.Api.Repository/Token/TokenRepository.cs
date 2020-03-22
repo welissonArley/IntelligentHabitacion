@@ -32,9 +32,9 @@ namespace IntelligentHabitacion.Api.Repository.Token
             }
         }
 
-        public Token Get(long id)
+        public Token Get(long userId)
         {
-            var token = ModelSet.FirstOrDefault(c => c.UserId == id);
+            var token = ModelSet.FirstOrDefault(c => c.UserId == userId);
             if (token == null)
                 return null;
 

@@ -51,6 +51,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpGet]
         [Route("RequestCodeResetPassword/{email}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult RequestCodeResetPassword(string email)
         {
             try
@@ -72,6 +73,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPut]
         [Route("ResetYourPassword")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult ResetYourPassword(RequestResetYourPasswordJson resetYourPasswordJson)
         {
             try

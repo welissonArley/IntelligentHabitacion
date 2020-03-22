@@ -129,6 +129,9 @@
   <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
     <value>Current password must be entered.</value>
   </data>
+  <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
+    <value>The current password is invalid.</value>
+  </data>
   <data name="EMAIL_ALREADYBEENREGISTERED" xml:space="preserve">
     <value>This email address has already been registered.</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>User and/or password is invalid.</value>
+  </data>
+  <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
+    <value>You do not have permission to access this resource.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>

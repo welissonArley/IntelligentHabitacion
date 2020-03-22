@@ -1,11 +1,15 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
+using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.Validators;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
+using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
+using IntelligentHabitacion.Useful;
 using IntelligentHabitacion.Validators.Validator;
 using System.Linq;
 
@@ -15,11 +19,26 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
     {
         private readonly IUserRepository _userRepository;
         private readonly ICryptographyPassword _cryptography;
+        private readonly ILoggedUser _loggedUser;
 
-        public UserRule(IUserRepository userRepository, ICryptographyPassword cryptography)
+        public UserRule(IUserRepository userRepository, ICryptographyPassword cryptography, ILoggedUser loggedUser)
         {
             _userRepository = userRepository;
             _cryptography = cryptography;
+            _loggedUser = loggedUser;
+        }
+
+        public void ChangePassword(RequestChangePasswordJson changePasswordJson)
+        {
+            new PasswordValidator().IsValidaPasswordAndConfirmation(changePasswordJson.NewPassword, changePasswordJson.NewPasswordConfirmation);
+
+            var loggedUser = _loggedUser.User();
+
+            if (!loggedUser.Password.Equals(_cryptography.Encrypt(changePasswordJson.CurrentPassword)))
+                throw new CurrentPasswordException();
+
+            loggedUser.Password = _cryptography.Encrypt(changePasswordJson.NewPassword);
+            _userRepository.Update(loggedUser);
         }
 
         public BooleanJson EmailAlreadyBeenRegistered(string email)
@@ -32,6 +51,13 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             };
 
             return result;
+        }
+
+        public ResponseUserInformationsJson GetInformations()
+        {
+            var loggedUser = _loggedUser.User();
+
+            return new Mapper.Mapper().MapperModelToJson(loggedUser);
         }
 
         public void Register(RequestRegisterUserJson registerUserJson)
@@ -47,6 +73,30 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
             if (validation.IsValid)
                 _userRepository.Create(userModel);
+            else
+                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
+        }
+
+        public void Update(RequestUpdateUserJson updateUserJson)
+        {
+            var loggedUser = _loggedUser.User();
+            var userToUpdate = _userRepository.GetById(loggedUser.Id);
+
+            userToUpdate.UpdateDate = DateTimeController.DateTimeNow();
+            userToUpdate.Name = updateUserJson.Name;
+            userToUpdate.Email = updateUserJson.Email;
+            userToUpdate.Phonenumbers.Clear();
+            userToUpdate.EmergecyContacts.Clear();
+
+            var mapper = new Mapper.Mapper();
+
+            userToUpdate.Phonenumbers = updateUserJson.Phonenumbers.Select(c => mapper.MapperJsonToModel(c)).ToList();
+            userToUpdate.EmergecyContacts = updateUserJson.EmergencyContacts.Select(c => mapper.MapperJsonToModel(c)).ToList();
+
+            var validation = new UserValidator().Validate(userToUpdate);
+
+            if (validation.IsValid)
+                _userRepository.Update(userToUpdate);
             else
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
         }

@@ -1,6 +1,8 @@
-﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+﻿using IntelligentHabitacion.Api.Filter;
+using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,6 +33,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [Route("Register")]
         public IActionResult Register(RequestRegisterUserJson registerUserJson)
         {
             try
@@ -62,6 +65,74 @@ namespace IntelligentHabitacion.Api.Controllers.V1
 
                 var response = _userRule.EmailAlreadyBeenRegistered(email);
                 return Ok(response);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will update the logged user's personal informations
+        /// </summary>
+        /// <param name="updateUserJson"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [ServiceFilter(typeof(AuthenticationFilter))]
+        [Route("Update")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult Update(RequestUpdateUserJson updateUserJson)
+        {
+            try
+            {
+                VerifyParameters(updateUserJson);
+
+                _userRule.Update(updateUserJson);
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will update the password
+        /// </summary>
+        /// <param name="changePasswordJson"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [ServiceFilter(typeof(AuthenticationFilter))]
+        [Route("ChangePassword")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult ChangePassword(RequestChangePasswordJson changePasswordJson)
+        {
+            try
+            {
+                VerifyParameters(changePasswordJson);
+                _userRule.ChangePassword(changePasswordJson);
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will return the user's informations
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ServiceFilter(typeof(AuthenticationFilter))]
+        [Route("Informations")]
+        [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
+        public IActionResult Informations()
+        {
+            try
+            {
+                var informations = _userRule.GetInformations();
+                return Ok(informations);
             }
             catch (System.Exception exception)
             {

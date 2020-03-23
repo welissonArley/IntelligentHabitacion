@@ -23,11 +23,14 @@ namespace IntelligentHabitacion.App.ViewModel.ForgotPassword
         {
             try
             {
-                _loginRule.ChangePasswordForgetPassword(Model.Email, Model.CodeReceived, Model.NewPassword, Model.PasswordConfirmation);
+                ShowLoading();
+                await _loginRule.ChangePasswordForgotPassword(Model.Email, Model.CodeReceived, Model.NewPassword, Model.PasswordConfirmation);
+                HideLoading();
                 await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

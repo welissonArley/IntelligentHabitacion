@@ -126,6 +126,12 @@
   <data name="CODE_EMPTY" xml:space="preserve">
     <value>Code must be entered.</value>
   </data>
+  <data name="CODE_INVALID" xml:space="preserve">
+    <value>The code is invalid.</value>
+  </data>
+  <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
+    <value>Request a code to reset your password.</value>
+  </data>
   <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
     <value>Current password must be entered.</value>
   </data>
@@ -140,6 +146,9 @@
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>The E-mail is invalid.</value>
+  </data>
+  <data name="EXPIRED_CODE" xml:space="preserve">
+    <value>Expired code. Request a new one.</value>
   </data>
   <data name="FAMILYRELATIONSHIP_EMPTY" xml:space="preserve">
     <value>Family relationship must be entered.</value>

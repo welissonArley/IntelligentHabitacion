@@ -4,7 +4,7 @@ namespace IntelligentHabitacion.Exception.API
 {
     public class RequiredCodeResetPasswordException : IntelligentHabitacionException
     {
-        public RequiredCodeResetPasswordException() : base(ResourceTextException.INVALID_USER)
+        public RequiredCodeResetPasswordException() : base(ResourceTextException.CODE_RESET_PASSWORD_REQUIRED)
         {
 
         }

@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://fbff0c58.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://05047baf.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
@@ -81,9 +81,10 @@ namespace IntelligentHabitacion.Communication
             return JsonConvert.DeserializeObject<ResponseLocationBrazilJson>(await response.Content.ReadAsStringAsync());
         }
 
+        #region User
         public async Task<ResponseJson> CreateUser(RequestRegisterUserJson registerUser, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User", registerUser, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User/Register", registerUser, language: language);
             return new ResponseJson
             {
                 Response = null,
@@ -96,6 +97,13 @@ namespace IntelligentHabitacion.Communication
 
             return JsonConvert.DeserializeObject<BooleanJson>(await response.Content.ReadAsStringAsync());
         }
+        #endregion
+
+        #region Login
+        public async Task RequestCodeResetPassword(string email, string language = null)
+        {
+            await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Login/RequestCodeResetPassword/{email}", language: language);
+        }
         public async Task<ResponseJson> Login(RequestLoginJson loginUser, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Login", loginUser, language: language);
@@ -105,5 +113,10 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
+        public async Task ChangePasswordForgotPassword(RequestResetYourPasswordJson resetYourPassword, string language = null)
+        {
+            await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/Login/ResetYourPassword", resetYourPassword, language: language);
+        }
+        #endregion
     }
 }

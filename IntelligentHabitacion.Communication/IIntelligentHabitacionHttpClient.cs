@@ -11,5 +11,7 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> CreateUser(RequestRegisterUserJson registerUser, string language = null);
         Task<ResponseLocationBrazilJson> GetLocationBrazilByZipCode(string zipcode);
         Task<ResponseJson> Login(RequestLoginJson loginUser, string language = null);
+        Task RequestCodeResetPassword(string email, string language = null);
+        Task ChangePasswordForgotPassword(RequestResetYourPasswordJson resetYourPassword, string language = null);
     }
 }

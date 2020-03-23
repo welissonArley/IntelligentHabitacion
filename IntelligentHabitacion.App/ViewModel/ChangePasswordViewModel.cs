@@ -25,7 +25,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                _loginRule.ChangePassword(CurrentPassword, NewPassword, PasswordConfirmation);
+                //_loginRule.ChangePassword(CurrentPassword, NewPassword, PasswordConfirmation);
                 await Navigation.PopAsync();
             }
             catch (System.Exception exeption)

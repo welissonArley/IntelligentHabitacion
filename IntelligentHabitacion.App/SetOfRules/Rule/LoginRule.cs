@@ -17,7 +17,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _httpClient = intelligentHabitacionHttpClient;
         }
 
-        public void ChangePasswordForgetPassword(string email, string code, string newPassword, string confirmationPassword)
+        public async Task ChangePasswordForgotPassword(string email, string code, string newPassword, string confirmationPassword)
         {
             ValidateEmail(email);
 
@@ -25,6 +25,14 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 throw new CodeEmptyException();
 
             ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
+
+            await _httpClient.ChangePasswordForgotPassword(new RequestResetYourPasswordJson
+            {
+                Email = email,
+                Code = code,
+                Password = newPassword,
+                PasswordConfirmation = confirmationPassword
+            }, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
 
         public async Task<ResponseJson> Login(string email, string password)
@@ -43,9 +51,10 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             return response;
         }
 
-        public void RequestCode(string email)
+        public async Task RequestCode(string email)
         {
             ValidateEmail(email);
+            await _httpClient.RequestCodeResetPassword(email, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
 
         private void ValidateEmail(string email)
@@ -56,14 +65,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         private void ValidatePasswordAndPasswordConfirmation(string newPassword, string confirmationPassword)
         {
             new PasswordValidator().IsValidaPasswordAndConfirmation(newPassword, confirmationPassword);
-        }
-
-        public void ChangePassword(string currentPassword, string newPassword, string confirmationPassword)
-        {
-            if (string.IsNullOrWhiteSpace(currentPassword))
-                throw new CurrentPasswordEmptyException();
-
-            ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.SetOfRules.EmailHelper
 {
@@ -14,8 +15,10 @@ namespace IntelligentHabitacion.Api.SetOfRules.EmailHelper
             var plainTextContent = plainText;
             var htmlContent = htmlText;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            client.SendEmailAsync(msg);
-        }
+
+			Task.Run(async () => await client.SendEmailAsync(msg));
+
+		}
 
 		private string Header()
 		{
@@ -47,7 +50,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.EmailHelper
 
         public void ResetPassword(string email, string code, string userName)
         {
-            var plainText = $"Olá {userName}, Precisa resetar sua senha para acessar sua conta certo? Use o código abaixo para prosseguir com a ação:\n\n\n";
+            var plainText = $"Olá {userName}, Precisa resetar sua senha para acessar sua conta, certo? Use o código abaixo para prosseguir com a ação:\n\n\n";
             plainText = $"{plainText}{code}\n\n\n";
             plainText = $"{plainText}Mas lembre-se, não deixe pra depois pois este código será valido por apenas 1 hora combinado?\n\n\n";
             plainText = $"{plainText}Obrigado,\nIntelligent Habitacion Admin Team.";

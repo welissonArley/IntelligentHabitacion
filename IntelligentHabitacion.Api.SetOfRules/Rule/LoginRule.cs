@@ -68,12 +68,15 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             if (userCode == null)
                 throw new RequiredCodeResetPasswordException();
 
-            _codeRepository.DeleteOnDatabase(userCode);
+            if(!userCode.Value.Equals(resetYourPasswordJson.Code.ToUpper()))
+                throw new InvalidCodeException();
 
-            if(!userCode.Value.Equals(resetYourPasswordJson.Code.ToUpper()) || userCode.CreateDate.AddHours(1) < DateTimeController.DateTimeNow())
-                throw new RequiredCodeResetPasswordException();
+            if(userCode.CreateDate.AddHours(1) < DateTimeController.DateTimeNow())
+                throw new ExpiredCodeException();
 
             new PasswordValidator().IsValidaPasswordAndConfirmation(resetYourPasswordJson.Password, resetYourPasswordJson.PasswordConfirmation);
+
+            _codeRepository.DeleteOnDatabase(userCode);
 
             user.Password = _cryptography.Encrypt(resetYourPasswordJson.Password);
 

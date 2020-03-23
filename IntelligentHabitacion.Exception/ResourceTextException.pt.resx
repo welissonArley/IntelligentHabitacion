@@ -126,6 +126,12 @@
   <data name="CODE_EMPTY" xml:space="preserve">
     <value>O código deve ser informado.</value>
   </data>
+  <data name="CODE_INVALID" xml:space="preserve">
+    <value>O código é inválido.</value>
+  </data>
+  <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
+    <value>Solicite um código para alterar sua senha.</value>
+  </data>
   <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
     <value>A senha atual deve ser informada.</value>
   </data>
@@ -140,6 +146,9 @@
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>O E-mail é inválido.</value>
+  </data>
+  <data name="EXPIRED_CODE" xml:space="preserve">
+    <value>O código expirou. Solicite um novo.</value>
   </data>
   <data name="FAMILYRELATIONSHIP_EMPTY" xml:space="preserve">
     <value>O grau de parentesco deve ser informado.</value>

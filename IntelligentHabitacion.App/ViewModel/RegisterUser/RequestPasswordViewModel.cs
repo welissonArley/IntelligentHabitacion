@@ -29,7 +29,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
         {
             try
             {
-                ShowLoading();
+                await ShowLoading();
 
                 _userRule.ValidatePassword(Model.Password, Model.PasswordConfirmation);
 

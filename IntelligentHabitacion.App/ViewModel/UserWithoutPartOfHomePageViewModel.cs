@@ -31,10 +31,13 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
+                await ShowLoading();
                 await Navigation.PushAsync<UpdateUserInformationViewModel>();
+                HideLoading();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

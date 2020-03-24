@@ -14,6 +14,11 @@ namespace IntelligentHabitacion.App.SQLite
             _dataBase.CreateTable<UserSqlite>();
         }
 
+        private UserSqlite GetWithoutDencryptToken()
+        {
+            return _dataBase.Table<UserSqlite>().FirstOrDefault();
+        }
+
         public UserSqlite Get()
         {
             var user = _dataBase.Table<UserSqlite>().FirstOrDefault();
@@ -36,21 +41,21 @@ namespace IntelligentHabitacion.App.SQLite
 
         public void UpdateName(string newName)
         {
-            UserSqlite user = Get();
+            UserSqlite user = GetWithoutDencryptToken();
             user.Name = newName;
             _dataBase.Update(user);
         }
 
         public void UpdateToken(string newToken)
         {
-            UserSqlite user = Get();
+            UserSqlite user = GetWithoutDencryptToken();
             user.Token = new Cryptography().Encrypt(newToken);
             _dataBase.Update(user);
         }
 
         public void Delete()
         {
-            UserSqlite user = Get();
+            UserSqlite user = GetWithoutDencryptToken();
             if (user != null)
                 _dataBase.Delete(user);
         }

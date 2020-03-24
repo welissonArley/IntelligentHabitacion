@@ -35,7 +35,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                ShowLoading();
+                await ShowLoading();
 
                 var response = await _loginRule.Login(Email, Password);
 

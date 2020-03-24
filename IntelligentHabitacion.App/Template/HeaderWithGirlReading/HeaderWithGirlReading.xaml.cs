@@ -16,6 +16,11 @@ namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
             ImageGirlReading.WidthRequest = deviceWidth;
             ImageGirlReading.HeightRequest = deviceWidth * 0.77;
 
+            FillInformations();
+        }
+
+        public void FillInformations()
+        {
             var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
 
             var user = database.Get();

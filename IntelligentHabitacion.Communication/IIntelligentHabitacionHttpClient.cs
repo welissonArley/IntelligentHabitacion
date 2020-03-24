@@ -13,5 +13,7 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> Login(RequestLoginJson loginUser, string language = null);
         Task RequestCodeResetPassword(string email, string language = null);
         Task ChangePasswordForgotPassword(RequestResetYourPasswordJson resetYourPassword, string language = null);
+        Task<ResponseJson> GetUsersInformations(string token, string language = null);
+        Task<ResponseJson> UpdateUsersInformations(RequestUpdateUserJson updateUser, string token, string language = null);
     }
 }

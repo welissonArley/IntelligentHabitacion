@@ -26,7 +26,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         {
             try
             {
-                ShowLoading();
+                await ShowLoading();
                 var result = await _homeRule.ValidadeZipCode(Model.ZipCode);
                 Model.Neighborhood = result.Neighborhood;
                 Model.Address = result.Street;

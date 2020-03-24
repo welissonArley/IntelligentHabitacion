@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.ViewModel.ForgotPassword
         {
             try
             {
-                ShowLoading();
+                await ShowLoading();
                 await _loginRule.RequestCode(Model.Email);
                 HideLoading();
                 await Navigation.PushAsync<ChangePasswordViewModel>((viewModel, page) => viewModel.Model = Model);

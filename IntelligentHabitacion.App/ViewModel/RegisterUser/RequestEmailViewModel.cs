@@ -23,8 +23,8 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
         {
             try
             {
-                ShowLoading();
-                await _userRule.ValidateEmail(Model.Email);
+                await ShowLoading();
+                await _userRule.ValidateEmailAndVerifyIfAlreadyBeenRegistered(Model.Email);
                 HideLoading();
                 await Navigation.PushAsync<RequestNameViewModel>((viewModel, page) => viewModel.Model = Model);
             }

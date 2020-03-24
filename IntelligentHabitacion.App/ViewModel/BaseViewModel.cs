@@ -29,10 +29,10 @@ namespace IntelligentHabitacion.App.ViewModel
                 UnknownError();
         }
 
-        protected void ShowLoading()
+        protected async Task ShowLoading()
         {
             var navigation = Resolver.Resolve<INavigation>();
-            navigation.PushPopupAsync(new LoadingContentView());
+            await navigation.PushPopupAsync(new LoadingContentView());
         }
 
         protected void HideLoading()

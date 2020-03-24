@@ -30,25 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel
             LogoutTapped = new Command(async () => await ClickLogoutAccount());
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
 
-            Model = new UserInformationsModel
-            {
-                Name = "Welisson",
-                Email = "welisson@gmail.com",
-                PhoneNumber1 = "(31) 9 8565-0000",
-                PhoneNumber2 = "",
-                EmergencyContact1 = new EmergencyContactModel
-                {
-                    Name = "Z",
-                    FamilyRelationship = "Mãe",
-                    PhoneNumber = "(37) 9 5555-5555"
-                },
-                EmergencyContact2 = new EmergencyContactModel
-                {
-                    Name = "J",
-                    FamilyRelationship = "Pai",
-                    PhoneNumber = "(37) 9 7777-7777"
-                }
-            };
+            Model = _userRule.GetInformations();
         }
 
         private async Task ClickDeleteAccount()
@@ -93,11 +75,14 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                _userRule.UpdateInformations(Model);
+                await ShowLoading();
+                await _userRule.UpdateInformations(Model);
                 await Navigation.PopAsync();
+                HideLoading();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

@@ -16,5 +16,11 @@ namespace IntelligentHabitacion.App.View
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
         }
+
+        protected override void OnAppearing()
+        {
+            HeaderGirlReading.FillInformations();
+            base.OnAppearing();
+        }
     }
 }

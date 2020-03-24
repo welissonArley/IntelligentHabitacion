@@ -23,12 +23,15 @@ namespace IntelligentHabitacion.Communication
             UrlIntelligentHabitacionApi = "https://05047baf.ngrok.io/api/v1";
         }
 
-        private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string language = null)
+        private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
         {
             HttpRequestMessage request = new HttpRequestMessage(httpMethod, uri);
 
             if (content != null)
                 request.Content = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+
+            if (!string.IsNullOrWhiteSpace(token))
+                request.Headers.Authorization = new AuthenticationHeaderValue("Basic", token);
 
             if (!string.IsNullOrWhiteSpace(language))
                 request.Headers.AcceptLanguage.Add(new StringWithQualityHeaderValue(language));
@@ -96,6 +99,23 @@ namespace IntelligentHabitacion.Communication
             var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/User/EmailAlreadyBeenRegistered/{email}", language: language);
 
             return JsonConvert.DeserializeObject<BooleanJson>(await response.Content.ReadAsStringAsync());
+        }
+        public async Task<ResponseJson> GetUsersInformations(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/User/Informations", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = JsonConvert.DeserializeObject<ResponseUserInformationsJson>(await response.Content.ReadAsStringAsync()),
+                Token = GetToken(response)
+            };
+        }
+        public async Task<ResponseJson> UpdateUsersInformations(RequestUpdateUserJson updateUser, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/User/Update", updateUser, token: token, language: language);
+            return new ResponseJson
+            {
+                Token = GetToken(response)
+            };
         }
         #endregion
 

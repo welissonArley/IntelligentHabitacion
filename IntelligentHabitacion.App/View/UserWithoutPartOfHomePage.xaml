@@ -9,7 +9,7 @@
              x:Class="IntelligentHabitacion.App.View.UserWithoutPartOfHomePage">
     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <StackLayout Spacing="0">
-            <templateHeader:HeaderWithGirlReading></templateHeader:HeaderWithGirlReading>
+            <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
 
             <Grid Margin="20,30,20,20" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
                 <Grid.ColumnDefinitions>

@@ -46,31 +46,48 @@ namespace IntelligentHabitacion.Communication
         {
             if (!responseMessage.IsSuccessStatusCode)
             {
+                var token = GetToken(responseMessage);
                 var errorJson = JsonConvert.DeserializeObject<ErrorJson>(await responseMessage.Content.ReadAsStringAsync());
                 switch (responseMessage.StatusCode)
                 {
                     case System.Net.HttpStatusCode.BadRequest:
                         {
-                            throw new ErrorOnValidationException(errorJson.Errors);
+                            throw new ResponseException
+                            {
+                                Token = token,
+                                Exception = new ErrorOnValidationException(errorJson.Errors)
+                            };
                         }
                     case System.Net.HttpStatusCode.NotFound:
                         {
-                            throw new NotFoundException(errorJson.Errors[0]);
+                            throw new ResponseException
+                            {
+                                Token = token,
+                                Exception = new NotFoundException(errorJson.Errors[0])
+                            };
                         }
                     case System.Net.HttpStatusCode.Unauthorized:
                         {
-                            throw new InvalidLoginException();
+                            throw new ResponseException
+                            {
+                                Token = token,
+                                Exception = new IntelligentHabitacionException(errorJson.Errors[0])
+                            };
                         }
                     default:
                         {
-                            throw new IntelligentHabitacionException(ResourceTextException.UNKNOW_ERROR);
+                            throw new ResponseException
+                            {
+                                Token = token,
+                                Exception = new IntelligentHabitacionException(ResourceTextException.UNKNOW_ERROR)
+                            };
                         }
                 }
             }
         }
         private string GetToken(HttpResponseMessage responseMessage)
         {
-            return responseMessage.Headers.GetValues("Tvih").First();
+            return responseMessage.Headers.Contains("Tvih") ? responseMessage.Headers.GetValues("Tvih")?.First() : null;
         }
 
         public async Task<ResponseLocationBrazilJson> GetLocationBrazilByZipCode(string zipcode)
@@ -112,6 +129,14 @@ namespace IntelligentHabitacion.Communication
         public async Task<ResponseJson> UpdateUsersInformations(RequestUpdateUserJson updateUser, string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/User/Update", updateUser, token: token, language: language);
+            return new ResponseJson
+            {
+                Token = GetToken(response)
+            };
+        }
+        public async Task<ResponseJson> ChangePassword(RequestChangePasswordJson changePassword, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/User/ChangePassword", changePassword, token: token, language: language);
             return new ResponseJson
             {
                 Token = GetToken(response)

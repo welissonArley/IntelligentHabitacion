@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.Template.Loading;
+﻿using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.Template.Loading;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -16,13 +17,24 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             var navigation = Resolver.Resolve<INavigation>();
 
-            if (!((exception as ErrorOnValidationException) is null))
+            if (!((exception as ResponseException) is null))
             {
-                ErrorOnValidationException validacaoException = (ErrorOnValidationException)exception;
-                await navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
+                var responseException = (ResponseException)exception;
+                var database = Resolver.Resolve<ISqliteDatabase>();
+
+                if(!string.IsNullOrWhiteSpace(responseException.Token))
+                    database.UpdateToken(responseException.Token);
+
+                if (!((responseException.Exception as ErrorOnValidationException) is null))
+                {
+                    ErrorOnValidationException validacaoException = (ErrorOnValidationException)responseException.Exception;
+                    await navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
+                }
+                else if (!((responseException.Exception as IntelligentHabitacionException) is null))
+                    await navigation.PushPopupAsync(new ErrorModal(((IntelligentHabitacionException)responseException.Exception).Message));
+                else
+                    UnknownError();
             }
-            else if (!((exception as IntelligentHabitacionException) is null))
-                await navigation.PushPopupAsync(new ErrorModal(exception.Message));
             else if (!CrossConnectivity.Current.IsConnected)
                 await ErrorInternetConnection();
             else

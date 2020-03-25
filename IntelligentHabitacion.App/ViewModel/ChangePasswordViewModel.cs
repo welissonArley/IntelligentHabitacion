@@ -7,17 +7,17 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public class ChangePasswordViewModel : BaseViewModel
     {
-        public ICommand ChangePasswordTapped { get; }
+        private readonly IUserRule _userRule;
 
-        private readonly ILoginRule _loginRule;
+        public ICommand ChangePasswordTapped { get; }
 
         public string CurrentPassword { get; set; }
         public string NewPassword { get; set; }
         public string PasswordConfirmation { get; set; }
 
-        public ChangePasswordViewModel(ILoginRule loginRule)
+        public ChangePasswordViewModel(IUserRule userRule)
         {
-            _loginRule = loginRule;
+            _userRule = userRule;
             ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
         }
 
@@ -25,11 +25,14 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                //_loginRule.ChangePassword(CurrentPassword, NewPassword, PasswordConfirmation);
+                await ShowLoading();
+                await _userRule.ChangePassword(CurrentPassword, NewPassword, PasswordConfirmation);
                 await Navigation.PopAsync();
+                HideLoading();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

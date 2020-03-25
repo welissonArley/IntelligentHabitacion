@@ -194,5 +194,22 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             return userInformationsModel;
         }
+
+        public async Task ChangePassword(string currentPassword, string newPassword, string confirmationPassword)
+        {
+            if (string.IsNullOrWhiteSpace(currentPassword))
+                throw new CurrentPasswordEmptyException();
+
+            ValidatePassword(newPassword, confirmationPassword);
+
+            var response = await _httpClient.ChangePassword(new RequestChangePasswordJson
+            {
+                CurrentPassword = currentPassword,
+                NewPassword = newPassword,
+                NewPasswordConfirmation = confirmationPassword
+            },_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+        }
     }
 }

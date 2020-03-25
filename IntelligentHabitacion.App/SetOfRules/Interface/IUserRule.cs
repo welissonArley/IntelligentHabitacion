@@ -16,5 +16,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         Task<ResponseJson> Create(RegisterUserModel userInformations);
         Task UpdateInformations(UserInformationsModel userInformations);
         UserInformationsModel GetInformations();
+        Task ChangePassword(string currentPassword, string newPassword, string confirmationPassword);
     }
 }

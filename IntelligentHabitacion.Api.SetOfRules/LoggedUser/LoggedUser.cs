@@ -21,7 +21,10 @@ namespace IntelligentHabitacion.Api.SetOfRules.LoggedUser
         public User User()
         {
             if (user != null)
+            {
+                user.Decrypt();
                 return user;
+            }
 
             var autorizacao = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString();
 

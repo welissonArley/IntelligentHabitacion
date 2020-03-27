@@ -6,6 +6,9 @@
     x:Class="IntelligentHabitacion.App.Template.CardIlustrationOptions.CardAboutApp">
     <ContentView.Content>
         <Grid ColumnSpacing="30" x:Name="GridCard">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Card_OnTapped"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>

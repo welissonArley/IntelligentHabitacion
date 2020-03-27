@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             x:Class="IntelligentHabitacion.App.View.AboutThisAppPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <customControl:LabelJustifyText Style="{x:StaticResource LabelMedium}" TextColor="Black" Margin="0,20,0,0">
+            <customControl:LabelJustifyText.FontSize>
+                <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="28"></OnIdiom>
+            </customControl:LabelJustifyText.FontSize>
+            <customControl:LabelJustifyText.FormattedText>
+                <FormattedString>
+                    <Span Text="Este aplicativo foi criado com  a intenção de facilitar a vida de pessoas que dividem um apartamento com amigos."></Span>
+                    <Span Text="{x:Static system:Environment.NewLine}"></Span>
+                    <Span Text="{x:Static system:Environment.NewLine}"></Span>
+                    <Span Text="O App vai auxiliar na organização e enviar notificações para assuntos importantes, tais como notificações para lembrar do cronograma de limpeza; sobre o pagamento do aluguel; aviso do recebimento de encomendas, entre outros."></Span>
+                    <Span Text="{x:Static system:Environment.NewLine}"></Span>
+                    <Span Text="{x:Static system:Environment.NewLine}"></Span>
+                    <Span Text="Com um design fácil e criativo, espero que seja útil para seu lar :)"></Span>
+                </FormattedString>
+            </customControl:LabelJustifyText.FormattedText>
+        </customControl:LabelJustifyText>
+
+        <Label Text="Fontes dos icones e Ilustrações utilizadas:" TextColor="{x:StaticResource GrayDefault}" FontSize="8" Margin="0,40,0,0"></Label>
+
+        <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Flaticon_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="https://www.flaticon.com" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Freepick_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="https://br.freepik.com" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Undraw_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="https://undraw.co/illustrations" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Drawkit_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="https://www.drawkit.io" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -72,6 +72,9 @@
     <Compile Update="View\ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\AboutThisAppPage.xaml.cs">
+      <DependentUpon>AboutThisAppPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>
     </Compile>

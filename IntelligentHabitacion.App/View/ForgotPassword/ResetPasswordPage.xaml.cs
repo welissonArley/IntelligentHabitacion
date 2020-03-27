@@ -4,9 +4,9 @@ using Xamarin.Forms;
 namespace IntelligentHabitacion.App.View.ForgotPassword
 {
     [DesignTimeVisible(false)]
-    public partial class ChangePasswordPage : ContentPage
+    public partial class ResetPasswordPage : ContentPage
     {
-        public ChangePasswordPage()
+        public ResetPasswordPage()
         {
             InitializeComponent();
         }

@@ -25,7 +25,7 @@ namespace IntelligentHabitacion.App
 
             var user = Resolver.Resolve<ISqliteDatabase>().Get();
             if (user != null)
-                MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
+                MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
             else
                 MainPage = new GetStartedPage();
 
@@ -38,14 +38,14 @@ namespace IntelligentHabitacion.App
         {
             ViewFactory.Register<LoginPage, LoginViewModel>();
             ViewFactory.Register<View.ForgotPassword.RequestEmailPage, ViewModel.ForgotPassword.RequestEmailViewModel>();
-            ViewFactory.Register<View.ForgotPassword.ChangePasswordPage, ViewModel.ForgotPassword.ChangePasswordViewModel>();
+            ViewFactory.Register<View.ForgotPassword.ResetPasswordPage, ViewModel.ForgotPassword.ResetPasswordViewModel>();
             ViewFactory.Register<RequestNamePage, RequestNameViewModel>();
             ViewFactory.Register<RequestPhoneNumberPage, RequestPhoneNumberViewModel>();
             ViewFactory.Register<RequestEmailPage, RequestEmailViewModel>();
             ViewFactory.Register<RequestEmergencyContact1Page, RequestEmergencyContact1ViewModel>();
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
-            ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomePageViewModel>();
+            ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomeViewModel>();
             ViewFactory.Register<RequestZipCodePage, RequestZipCodeViewModel>();
             ViewFactory.Register<RequestCityPage, RequestCityViewModel>();
             ViewFactory.Register<RequestAddressPage, RequestAddressViewModel>();
@@ -57,6 +57,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<ConfirmDeleteAccountPage, ConfirmDeleteAccountViewModel>();
             ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
+            ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
         }
     }
 }

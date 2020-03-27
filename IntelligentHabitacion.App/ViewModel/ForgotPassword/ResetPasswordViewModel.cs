@@ -6,14 +6,14 @@ using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.ForgotPassword
 {
-    public class ChangePasswordViewModel : BaseViewModel
+    public class ResetPasswordViewModel : BaseViewModel
     {
         private readonly ILoginRule _loginRule;
         public ICommand ChangePasswordCommand { protected set; get; }
 
         public ForgetPasswordModel Model { get; set; }
 
-        public ChangePasswordViewModel(ILoginRule loginRule)
+        public ResetPasswordViewModel(ILoginRule loginRule)
         {
             _loginRule = loginRule;
             ChangePasswordCommand = new Command(async () => await OnChangePassword());

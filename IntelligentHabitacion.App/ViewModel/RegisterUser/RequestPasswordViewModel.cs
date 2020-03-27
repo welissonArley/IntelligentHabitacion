@@ -44,7 +44,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
                     Token = response.Token
                 });
 
-                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomePageViewModel, UserWithoutPartOfHomePage>());
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 
                 HideLoading();
 

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:templateHeader="clr-namespace:IntelligentHabitacion.App.Template.HeaderWithGirlReading"
+             xmlns:templateCard="clr-namespace:IntelligentHabitacion.App.Template.CardIlustrationOptions"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="IntelligentHabitacion.App.View.UserIsPartOfHomePage">
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Spacing="0">
+            <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
+
+            <Grid Margin="20,30,20,20" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" Ilustration="IlustrationFinances" IlustrationMargin="23,10,22,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_FINANCES}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_FINANCES}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" Ilustration="IlustrationShopping" IlustrationMargin="11,10,10,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_SHOPPING}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_SHOPPING}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" Ilustration="IlustrationCleanHouse" IlustrationMargin="8,10,9,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CLEAN_HOUSE}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="1" Ilustration="IlustrationMyFood" IlustrationMargin="13,10,14,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_FOOD}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_FOOD}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="2" Ilustration="IlustrationTheFriends" IlustrationMargin="7,10,7,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_FRIENDS}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="2" Ilustration="IlustrationSweetHome" IlustrationMargin="21,10,20,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_HOME_SWEET_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_HOME_SWEET_HOME}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="3" Ilustration="IlustrationMyInformation" IlustrationMargin="33,7,33,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}"></templateCard:CardIlustrationOptions>
+            </Grid>
+
+            <templateCard:CardAboutApp Margin="20,110,20,30"></templateCard:CardAboutApp>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

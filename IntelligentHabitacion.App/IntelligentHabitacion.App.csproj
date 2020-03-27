@@ -63,8 +63,8 @@
     <Compile Update="View\DeleteAccount\ConfirmDeleteAccountPage.xaml.cs">
       <DependentUpon>ConfirmDeleteAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\ForgotPassword\ChangePasswordPage.xaml.cs">
-      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
+    <Compile Update="View\ForgotPassword\ResetPasswordPage.xaml.cs">
+      <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\ForgotPassword\RequestEmailPage.xaml.cs">
       <DependentUpon>RequestEmailPage.xaml</DependentUpon>
@@ -98,6 +98,9 @@
     </Compile>
     <Compile Update="View\RegisterHome\RequestZipCodePage.xaml.cs">
       <DependentUpon>RequestZipCodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\UserIsPartOfHomePage.xaml.cs">
+      <DependentUpon>UserIsPartOfHomePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\UserWithoutPartOfHomePage.xaml.cs">
       <DependentUpon>UserWithoutPartOfHomePage.xaml</DependentUpon>

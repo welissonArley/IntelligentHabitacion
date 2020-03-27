@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
-    public class UserWithoutPartOfHomePageViewModel : BaseViewModel
+    public class UserWithoutPartOfHomeViewModel : BaseViewModel
     {
         public ICommand CardCreateHomeTapped { get; }
         public ICommand CardMyInformationTapped { get; }
 
-        public UserWithoutPartOfHomePageViewModel()
+        public UserWithoutPartOfHomeViewModel()
         {
             CardCreateHomeTapped = new Command(async () => await ClickOnCardCreateHome());
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());

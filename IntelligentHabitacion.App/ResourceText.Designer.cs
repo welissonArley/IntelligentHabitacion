@@ -70,11 +70,38 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Follow the Cleaning schedule to make the home clean and beautiful..
+        /// </summary>
+        internal static string DESCRIPTION_CLEAN_HOUSE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_CLEAN_HOUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use this option to create a home and be the administrator..
         /// </summary>
         internal static string DESCRIPTION_CREATE_HOME {
             get {
                 return ResourceManager.GetString("DESCRIPTION_CREATE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track your household income and expenses..
+        /// </summary>
+        internal static string DESCRIPTION_FINANCES {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_FINANCES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See useful information about home data..
+        /// </summary>
+        internal static string DESCRIPTION_HOME_SWEET_HOME {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_HOME_SWEET_HOME", resourceCulture);
             }
         }
         
@@ -88,11 +115,38 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Track the foods you have, with amount and expiration date..
+        /// </summary>
+        internal static string DESCRIPTION_MY_FOOD {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_MY_FOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See useful information about your friends at home..
+        /// </summary>
+        internal static string DESCRIPTION_MY_FRIENDS {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_MY_FRIENDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use this option to see and/or edit your registry information..
         /// </summary>
         internal static string DESCRIPTION_MY_INFORMATIONS {
             get {
                 return ResourceManager.GetString("DESCRIPTION_MY_INFORMATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Going to the Supermarket? Take a look at the shopping list..
+        /// </summary>
+        internal static string DESCRIPTION_SHOPPING {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_SHOPPING", resourceCulture);
             }
         }
         
@@ -367,6 +421,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clean house.
+        /// </summary>
+        internal static string TITLE_CLEAN_HOUSE {
+            get {
+                return ResourceManager.GetString("TITLE_CLEAN_HOUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code received:.
         /// </summary>
         internal static string TITLE_CODE_RECEIVED_TWOPOINTS {
@@ -502,11 +565,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finances.
+        /// </summary>
+        internal static string TITLE_FINANCES {
+            get {
+                return ResourceManager.GetString("TITLE_FINANCES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         internal static string TITLE_FORGOT_PASSWORD {
             get {
                 return ResourceManager.GetString("TITLE_FORGOT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home, sweet home.
+        /// </summary>
+        internal static string TITLE_HOME_SWEET_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_HOME_SWEET_HOME", resourceCulture);
             }
         }
         
@@ -534,6 +615,24 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_LOGIN_TO_CONTINUE {
             get {
                 return ResourceManager.GetString("TITLE_LOGIN_TO_CONTINUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My food.
+        /// </summary>
+        internal static string TITLE_MY_FOOD {
+            get {
+                return ResourceManager.GetString("TITLE_MY_FOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My friends.
+        /// </summary>
+        internal static string TITLE_MY_FRIENDS {
+            get {
+                return ResourceManager.GetString("TITLE_MY_FRIENDS", resourceCulture);
             }
         }
         
@@ -651,6 +750,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_RETURN {
             get {
                 return ResourceManager.GetString("TITLE_RETURN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shopping.
+        /// </summary>
+        internal static string TITLE_SHOPPING {
+            get {
+                return ResourceManager.GetString("TITLE_SHOPPING", resourceCulture);
             }
         }
         

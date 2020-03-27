@@ -120,14 +120,32 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Because live with friends</value>
   </data>
+  <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
+    <value>Follow the Cleaning schedule to make the home clean and beautiful.</value>
+  </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
+  </data>
+  <data name="DESCRIPTION_FINANCES" xml:space="preserve">
+    <value>Track your household income and expenses.</value>
+  </data>
+  <data name="DESCRIPTION_HOME_SWEET_HOME" xml:space="preserve">
+    <value>See useful information about home data.</value>
   </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Use this option to be part of a home already created.</value>
   </data>
+  <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
+    <value>Track the foods you have, with amount and expiration date.</value>
+  </data>
+  <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
+    <value>See useful information about your friends at home.</value>
+  </data>
   <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
     <value>Use this option to see and/or edit your registry information.</value>
+  </data>
+  <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
+    <value>Going to the Supermarket? Take a look at the shopping list.</value>
   </data>
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>must be fun and organized</value>
@@ -219,6 +237,9 @@
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="TITLE_CLEAN_HOUSE" xml:space="preserve">
+    <value>Clean house</value>
+  </data>
   <data name="TITLE_CODE_RECEIVED_TWOPOINTS" xml:space="preserve">
     <value>Code received:</value>
   </data>
@@ -264,8 +285,14 @@
   <data name="TITLE_EMAIL_TWOPOINTS" xml:space="preserve">
     <value>E-mail:</value>
   </data>
+  <data name="TITLE_FINANCES" xml:space="preserve">
+    <value>Finances</value>
+  </data>
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Forgot your password?</value>
+  </data>
+  <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
+    <value>Home, sweet home</value>
   </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>It's so sad see you go :((</value>
@@ -275,6 +302,12 @@
   </data>
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Login to continue</value>
+  </data>
+  <data name="TITLE_MY_FOOD" xml:space="preserve">
+    <value>My food</value>
+  </data>
+  <data name="TITLE_MY_FRIENDS" xml:space="preserve">
+    <value>My friends</value>
   </data>
   <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
     <value>My informations</value>
@@ -314,6 +347,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>
+  </data>
+  <data name="TITLE_SHOPPING" xml:space="preserve">
+    <value>Shopping</value>
   </data>
   <data name="TITLE_TELLME_ZIPCODE" xml:space="preserve">
     <value>Tell me the Zip Code :)</value>

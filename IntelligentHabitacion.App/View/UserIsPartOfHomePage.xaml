@@ -5,6 +5,7 @@
              xmlns:templateHeader="clr-namespace:IntelligentHabitacion.App.Template.HeaderWithGirlReading"
              xmlns:templateCard="clr-namespace:IntelligentHabitacion.App.Template.CardIlustrationOptions"
              NavigationPage.HasNavigationBar="False"
+             x:Name="UserPartOfAHomeContentPage"
              x:Class="IntelligentHabitacion.App.View.UserIsPartOfHomePage">
     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <StackLayout Spacing="0">
@@ -22,7 +23,7 @@
                 <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="1" Ilustration="IlustrationMyFood" IlustrationMargin="13,10,14,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_FOOD}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_FOOD}"></templateCard:CardIlustrationOptions>
                 <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="2" Ilustration="IlustrationTheFriends" IlustrationMargin="7,10,7,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_FRIENDS}"></templateCard:CardIlustrationOptions>
                 <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="2" Ilustration="IlustrationSweetHome" IlustrationMargin="21,10,20,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_HOME_SWEET_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_HOME_SWEET_HOME}"></templateCard:CardIlustrationOptions>
-                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="3" Ilustration="IlustrationMyInformation" IlustrationMargin="33,7,33,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="3" Ilustration="IlustrationMyInformation" IlustrationMargin="33,7,33,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}" TappedCardCommand="{Binding Path=BindingContext.CardMyInformationTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>
             </Grid>
 
             <templateCard:CardAboutApp Margin="20,110,20,30"></templateCard:CardAboutApp>

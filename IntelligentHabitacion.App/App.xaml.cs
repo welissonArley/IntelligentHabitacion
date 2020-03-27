@@ -23,14 +23,11 @@ namespace IntelligentHabitacion.App
 
             RegisterViews();
 
-            MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
-
-            /*
             var user = Resolver.Resolve<ISqliteDatabase>().Get();
             if (user != null)
                 MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
             else
-                MainPage = new GetStartedPage();*/
+                MainPage = new GetStartedPage();
 
             Resolver.Resolve<IDependencyContainer>()
                 .Register<INavigationService>(t => new NavigationService(MainPage.Navigation)) // New Xlabs nav service

@@ -177,7 +177,7 @@ namespace IntelligentHabitacion.Api.Controllers
 
         private void CreateToken(User user, string token)
         {
-            var tokenRepository = new TokenRepository();
+            var tokenRepository = (ITokenRepository)HttpContext.RequestServices.GetService(typeof(ITokenRepository));
 
             tokenRepository.Create(new Token
             {

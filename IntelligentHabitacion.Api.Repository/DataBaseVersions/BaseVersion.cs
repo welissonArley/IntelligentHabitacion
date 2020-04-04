@@ -1,6 +1,6 @@
 ﻿using FluentMigrator.Builders.Create.Table;
 
-namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
+namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
 {
     public static class BaseVersion
     {

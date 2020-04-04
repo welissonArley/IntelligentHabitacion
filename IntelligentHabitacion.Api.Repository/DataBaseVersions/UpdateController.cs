@@ -9,7 +9,7 @@ using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Exception.Repository;
 using System.Reflection;
 
-namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
+namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
 {
     public class UpdateController
     {

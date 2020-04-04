@@ -78,7 +78,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <param name="updateUserJson"></param>
         /// <returns></returns>
         [HttpPut]
-        [ServiceFilter(typeof(AuthenticationFilter))]
+        [ServiceFilter(typeof(AuthenticationAttribute))]
         [Route("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Update(RequestUpdateUserJson updateUserJson)
@@ -102,7 +102,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <param name="changePasswordJson"></param>
         /// <returns></returns>
         [HttpPut]
-        [ServiceFilter(typeof(AuthenticationFilter))]
+        [ServiceFilter(typeof(AuthenticationAttribute))]
         [Route("ChangePassword")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult ChangePassword(RequestChangePasswordJson changePasswordJson)
@@ -124,7 +124,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ServiceFilter(typeof(AuthenticationFilter))]
+        [ServiceFilter(typeof(AuthenticationAttribute))]
         [Route("Informations")]
         [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
         public IActionResult Informations()

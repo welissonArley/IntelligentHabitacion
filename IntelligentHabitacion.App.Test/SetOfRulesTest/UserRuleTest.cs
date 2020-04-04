@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Rule;
+using IntelligentHabitacion.App.Test.Factory;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Exception;
 using Moq;
@@ -12,21 +13,21 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
 
         public UserRuleTest()
         {
-            _userRule = new UserRule(GetMokIntelligentHabitacionHttpClient());
+            _userRule = new UserRule(GetMokIntelligentHabitacionHttpClient(), new SQlite().GetMokSQLite());
         }
 
         [Fact]
-        public void ValidateEmailEmailAlreadyBeenRegister()
+        public async System.Threading.Tasks.Task ValidateEmailEmailAlreadyBeenRegister()
         {
-            Assert.ThrowsAsync<EmailAlreadyBeenRegisteredException>(async () => await _userRule.ValidateEmail("exist@gmail.com"));
+            await Assert.ThrowsAsync<EmailAlreadyBeenRegisteredException>(() => _userRule.ValidateEmailAndVerifyIfAlreadyBeenRegistered("exist@gmail.com"));
         }
 
         [Fact]
-        public async void ValidateEmailEmailNotRegister()
+        public void ValidateEmailEmailNotRegister()
         {
             try
             {
-                await _userRule.ValidateEmail("dontexist@gmail.com");
+                _userRule.ValidateEmail("dontexist@gmail.com");
                 Assert.True(true);
             }
             catch

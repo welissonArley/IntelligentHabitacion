@@ -2,20 +2,26 @@
 using IntelligentHabitacion.Api.Test.FactoryFake;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.IO;
+using System.Text;
 using Xunit;
 
 namespace IntelligentHabitacion.Api.Test.Controller
 {
-    public class LoginControllerTest
+    public class LoginControllerTest : BaseControllerTest
     {
         private readonly LoginController _controller;
-        private readonly LoginFactoryFake _factory;
 
         public LoginControllerTest()
         {
-            _factory = new LoginFactoryFake();
-            _controller = new LoginController(_factory.GetRule());
+            _controller = new LoginController(new LoginFactoryFake().GetRule())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            _controller.HttpContext.Request.Path = new PathString("/Login");
         }
 
         [Fact]
@@ -35,11 +41,14 @@ namespace IntelligentHabitacion.Api.Test.Controller
         [Fact]
         public void LoginSucess()
         {
-            var result = _controller.Login(new RequestLoginJson
+            var request = new RequestLoginJson
             {
                 User = "user1@gmail.com",
                 Password = "123456"
-            });
+            };
+
+            _controller.Request.Body = new MemoryStream(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request)));
+            var result = _controller.Login(request);
 
             Assert.IsType<OkObjectResult>(result);
         }

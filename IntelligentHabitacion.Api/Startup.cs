@@ -1,5 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Middleware;
+using IntelligentHabitacion.Api.Repository.DatabaseInformations;
+using IntelligentHabitacion.Api.Repository.Token;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using Microsoft.AspNetCore.Builder;
@@ -85,7 +87,7 @@ namespace IntelligentHabitacion.Api
             services.AddHttpContextAccessor();
             services.AddScoped<ILoggedUser, LoggedUser>();
 
-            services.AddScoped<AuthenticationFilter>();
+            services.AddScoped<AuthenticationAttribute>();
         }
 
         /// <summary>
@@ -129,8 +131,13 @@ namespace IntelligentHabitacion.Api
 
         private void RegisterRepository(IServiceCollection services)
         {
+            services.AddScoped<IDatabaseInformations, DatabaseInformations>(ServiceProvider =>
+            {
+                return new DatabaseInformations(appSettingsManager.ConnectionString(), DatabaseType.MySql);
+            });
+
             var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.Repository").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
-                    type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Repository") && !interfaces.Name.Equals("IBaseRepository"))).ToList();
+                    type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Repository") && !interfaces.Name.Equals("IBaseRepository") && !interfaces.Name.Equals("IDatabaseTypeRepository"))).ToList();
 
             foreach (var classRule in listClassIntelligentHabitacionRules)
             {

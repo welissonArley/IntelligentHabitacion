@@ -12,17 +12,20 @@ namespace IntelligentHabitacion.Api.Filter
     /// <summary>
     /// 
     /// </summary>
-    public class AuthenticationFilter : Attribute, IActionFilter
+    public class AuthenticationAttribute : Attribute, IActionFilter
     {
         private readonly IUserRepository _userRepository;
+        private readonly ITokenRepository _tokenRepository;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userRepository"></param>
-        public AuthenticationFilter(IUserRepository userRepository)
+        /// <param name="tokenRepository"></param>
+        public AuthenticationAttribute(IUserRepository userRepository, ITokenRepository tokenRepository)
         {
             _userRepository = userRepository;
+            _tokenRepository = tokenRepository;
         }
 
         /// <summary>
@@ -54,10 +57,12 @@ namespace IntelligentHabitacion.Api.Filter
 
                     if (user == null)
                         UserDoesNotHaveAccess(context);
-
-                    var token = new TokenRepository().Get(user.Id);
-                    if (!token.Value.Equals(tokenRequest))
-                        UserDoesNotHaveAccess(context);
+                    else
+                    {
+                        var token = _tokenRepository.Get(user.Id);
+                        if (!token.Value.Equals(tokenRequest))
+                            UserDoesNotHaveAccess(context);
+                    }
                 }
                 catch
                 {

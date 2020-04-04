@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
+namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
 {
     [Migration((long)EnumVersions.RegisterUser, "Create table to save the user's informations")]
     public class Version0000001 : Migration

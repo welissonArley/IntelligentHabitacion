@@ -74,7 +74,7 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
             {
                 Name = "User 1",
                 Email = "user1@gmail.com",
-                Password = "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413",
+                Password = "e6c83b282aeb2e022844595721cc00bbda47cb24537c1779f9bb84f04039e1676e6ba8573e588da1052510e3aa0a32a9e55879ae22b0c2d62136fc0a3e85f8bb",
                 Phonenumbers = new List<Phonenumber>(),
                 EmergecyContacts = new List<EmergencyContact>()
             });

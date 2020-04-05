@@ -7,8 +7,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
     public class Phonenumber : ModelBase
     {
         public string Number { get; set; }
-        public long? UserId { get; set; }
-        public long? EmergencyContactId { get; set; }
+        public long UserId { get; set; }
 
         public override void Decrypt()
         {
@@ -18,7 +17,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
             Number = encryptManager.Dencrypt(Number, salt);
         }
 
-        public override void Encrypty()
+        public override void Encrypt()
         {
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);

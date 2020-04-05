@@ -1,10 +1,11 @@
-﻿using SendGrid;
+﻿using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
+using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.SetOfRules.EmailHelper
 {
-	public class EmailHelper
+	public class EmailHelper : IEmailHelper
 	{
 		private readonly string _header;
 

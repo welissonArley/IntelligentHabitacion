@@ -6,7 +6,6 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Validators.Validator;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -96,7 +95,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 Name = userInformations.EmergencyContact1.Name,
                 DegreeOfKinship = userInformations.EmergencyContact1.FamilyRelationship,
-                Phonenumbers = new List<string> { userInformations.EmergencyContact1.PhoneNumber }
+                Phonenumber = userInformations.EmergencyContact1.PhoneNumber
             });
 
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
@@ -105,7 +104,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 {
                     Name = userInformations.EmergencyContact2.Name,
                     DegreeOfKinship = userInformations.EmergencyContact2.FamilyRelationship,
-                    Phonenumbers = new List<string> { userInformations.EmergencyContact2.PhoneNumber }
+                    Phonenumber = userInformations.EmergencyContact2.PhoneNumber
                 });
             }
 
@@ -140,7 +139,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 Name = userInformations.EmergencyContact1.Name,
                 DegreeOfKinship = userInformations.EmergencyContact1.FamilyRelationship,
-                Phonenumbers = new List<string> { userInformations.EmergencyContact1.PhoneNumber }
+                Phonenumber = userInformations.EmergencyContact1.PhoneNumber
             });
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
             {
@@ -148,7 +147,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 {
                     Name = userInformations.EmergencyContact2.Name,
                     DegreeOfKinship = userInformations.EmergencyContact2.FamilyRelationship,
-                    Phonenumbers = new List<string> { userInformations.EmergencyContact2.PhoneNumber }
+                    Phonenumber = userInformations.EmergencyContact2.PhoneNumber
                 });
             }
 
@@ -178,7 +177,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 Name = emergencyContact.Name,
                 FamilyRelationship = emergencyContact.DegreeOfKinship,
-                PhoneNumber = emergencyContact.Phonenumbers.First().Number
+                PhoneNumber = emergencyContact.Phonenumber
             };
 
             if(userInformations.EmergencyContactc.Count > 1)
@@ -188,7 +187,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 {
                     Name = emergencyContact.Name,
                     FamilyRelationship = emergencyContact.DegreeOfKinship,
-                    PhoneNumber = emergencyContact.Phonenumbers.First().Number
+                    PhoneNumber = emergencyContact.Phonenumber
                 };
             }
 

@@ -1,8 +1,9 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.DatabaseInformations;
-using IntelligentHabitacion.Api.Repository.Token;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
+using IntelligentHabitacion.Api.SetOfRules.EmailHelper;
+using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -79,15 +80,14 @@ namespace IntelligentHabitacion.Api
 
             services.AddScoped<ICryptographyPassword, CryptographyPassword>(ServiceProvider =>
             {
-                var key = appSettingsManager.KeyAdditionalCryptography();
-
-                return new CryptographyPassword(key);
+                return new CryptographyPassword(appSettingsManager.KeyAdditionalCryptography());
             });
 
             services.AddHttpContextAccessor();
-            services.AddScoped<ILoggedUser, LoggedUser>();
 
             services.AddScoped<AuthenticationAttribute>();
+            services.AddScoped<ILoggedUser, LoggedUser>();
+            services.AddScoped<IEmailHelper, EmailHelper>();
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace IntelligentHabitacion.Api
             foreach (var classRule in listClassIntelligentHabitacionRules)
             {
                 var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Repository"));
-                services.AddScoped(interfaceToRegister, classRule);
+                services.AddTransient(interfaceToRegister, classRule);
             }
         }
     }

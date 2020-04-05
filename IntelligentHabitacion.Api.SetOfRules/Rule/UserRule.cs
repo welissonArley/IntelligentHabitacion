@@ -34,11 +34,13 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
             var loggedUser = _loggedUser.User();
 
-            if (!loggedUser.Password.Equals(_cryptography.Encrypt(changePasswordJson.CurrentPassword)))
+            var userToUpdate = _userRepository.GetById(loggedUser.Id);
+
+            if (!userToUpdate.Password.Equals(_cryptography.Encrypt(changePasswordJson.CurrentPassword)))
                 throw new CurrentPasswordException();
 
-            loggedUser.Password = _cryptography.Encrypt(changePasswordJson.NewPassword);
-            _userRepository.Update(loggedUser);
+            userToUpdate.Password = _cryptography.Encrypt(changePasswordJson.NewPassword);
+            _userRepository.Update(userToUpdate);
         }
 
         public BooleanJson EmailAlreadyBeenRegistered(string email)

@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
+using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -16,12 +17,15 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
         private readonly IUserRepository _userRepository;
         private readonly ICryptographyPassword _cryptography;
         private readonly ICodeRepository _codeRepository;
+        private readonly IEmailHelper _emailHelper;
 
-        public LoginRule(IUserRepository userRepository, ICryptographyPassword cryptography, ICodeRepository codeRepository)
+        public LoginRule(IUserRepository userRepository, ICryptographyPassword cryptography,
+            ICodeRepository codeRepository, IEmailHelper emailHelper)
         {
             _userRepository = userRepository;
             _cryptography = cryptography;
             _codeRepository = codeRepository;
+            _emailHelper = emailHelper;
         }
 
         public ResponseLoginJson DoLogin(RequestLoginJson loginJson)
@@ -54,7 +58,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                     UserId = user.Id
                 });
 
-                new EmailHelper.EmailHelper().ResetPassword(email, codeRandom, user.Name);
+                _emailHelper.ResetPassword(email, codeRandom, user.Name);
             }
         }
 

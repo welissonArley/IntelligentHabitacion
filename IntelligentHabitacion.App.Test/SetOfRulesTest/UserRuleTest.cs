@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.Test.Factory;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Exception;
 using Moq;
+using System.Collections.Generic;
 using Xunit;
 
 namespace IntelligentHabitacion.App.Test.SetOfRulesTest
@@ -162,6 +163,72 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             }
         }
 
+        [Fact]
+        public void ChangePasswordEmptyCurrentPassword()
+        {
+            Assert.ThrowsAsync<CurrentPasswordEmptyException>(() => _userRule.ChangePassword("", "", ""));
+        }
+
+        [Fact]
+        public async void ChangePasswordSucess()
+        {
+            try
+            {
+                await _userRule.ChangePassword("password123", "@Password123", "@Password123");
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public void GetInformations()
+        {
+            try
+            {
+                _userRule.GetInformations();
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public async void UpdateInformationsSucess()
+        {
+            try
+            {
+                await _userRule.UpdateInformations(new Model.UserInformationsModel
+                {
+                    Name = "User 2",
+                    Email = "user2@email.com",
+                    PhoneNumber1 = "(37) 9 9999-9999",
+                    PhoneNumber2 = "(37) 9 9999-9999",
+                    EmergencyContact1 = new Model.EmergencyContactModel
+                    {
+                        Name = "Contact 1",
+                        FamilyRelationship = "Mother",
+                        PhoneNumber = "(37) 9 9999-9999"
+                    },
+                    EmergencyContact2 = new Model.EmergencyContactModel
+                    {
+                        Name = "Contact 1",
+                        FamilyRelationship = "Mother",
+                        PhoneNumber = "(37) 9 9999-9999"
+                    }
+                });
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
         private IIntelligentHabitacionHttpClient GetMokIntelligentHabitacionHttpClient()
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
@@ -173,6 +240,49 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             mock.Setup(c => c.EmailAlreadyBeenRegistered("dontexist@gmail.com", null)).ReturnsAsync(new Communication.Boolean.BooleanJson
             {
                 Value = false
+            });
+            mock.Setup(c => c.ChangePassword(It.IsAny<Communication.Request.RequestChangePasswordJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new Communication.Response.ResponseJson
+            {
+                Token = "token"
+            });
+            mock.Setup(c => c.GetUsersInformations(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new Communication.Response.ResponseJson
+            {
+                Token = "token",
+                Response = new Communication.Response.ResponseUserInformationsJson
+                {
+                    Name = "User",
+                    Email = "email@email.com",
+                    Phonenumbers = new List<Communication.Response.ResponsePhonenumberJson>
+                    {
+                        new Communication.Response.ResponsePhonenumberJson
+                        {
+                            Number = "(37) 9 9999-9999"
+                        },
+                        new Communication.Response.ResponsePhonenumberJson
+                        {
+                            Number = "(31) 9 8888-8888"
+                        }
+                    },
+                    EmergencyContactc = new List<Communication.Response.ResponseEmergencyContactJson>
+                    {
+                        new Communication.Response.ResponseEmergencyContactJson
+                        {
+                            Name = "Contact 1",
+                            DegreeOfKinship = "Mother",
+                            Phonenumber = "(31) 9 8888-8888"
+                        },
+                        new Communication.Response.ResponseEmergencyContactJson
+                        {
+                            Name = "Contact 1",
+                            DegreeOfKinship = "Mother",
+                            Phonenumber = "(31) 9 8888-8888"
+                        }
+                    }
+                }
+            });
+            mock.Setup(c => c.UpdateUsersInformations(It.IsAny<Communication.Request.RequestUpdateUserJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new Communication.Response.ResponseJson
+            {
+                Token = "token"
             });
 
             return mock.Object;

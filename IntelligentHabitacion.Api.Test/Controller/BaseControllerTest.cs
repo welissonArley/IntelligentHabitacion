@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
+using IntelligentHabitacion.Api.SetOfRules.JWT;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.Test.FactoryFake;
 using Microsoft.AspNetCore.Http;
@@ -41,6 +42,11 @@ namespace IntelligentHabitacion.Api.Test.Controller
             repositorioMock.Setup(c => c.Get(It.IsAny<long>())).Returns(new Token());
 
             return repositorioMock.Object;
+        }
+
+        protected string GetToken()
+        {
+            return $"Basic {new TokenController().CreateToken("user1@gmail.com")}";
         }
     }
 }

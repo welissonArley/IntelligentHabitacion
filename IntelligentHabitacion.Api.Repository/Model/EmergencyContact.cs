@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model
@@ -9,7 +8,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
     {
         public string Name { get; set; }
         public string DegreeOfKinship { get; set; }
-        public ICollection<Phonenumber> Phonenumbers { get; set; }
+        public string Phonenumber { get; set; }
         public long UserId { get; set; }
 
         public override void Decrypt()
@@ -19,19 +18,17 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
             Name = encryptManager.Dencrypt(Name, salt);
             DegreeOfKinship = encryptManager.Dencrypt(DegreeOfKinship, salt);
-            foreach (var phoneNumber in Phonenumbers)
-                phoneNumber.Decrypt();
+            Phonenumber = encryptManager.Dencrypt(Phonenumber, salt);
         }
 
-        public override void Encrypty()
+        public override void Encrypt()
         {
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
 
             Name = encryptManager.Encrypt(Name, salt);
             DegreeOfKinship = encryptManager.Encrypt(DegreeOfKinship, salt);
-            foreach (var phoneNumber in Phonenumbers)
-                phoneNumber.Encrypty();
+            Phonenumber = encryptManager.Encrypt(Phonenumber, salt);
         }
     }
 }

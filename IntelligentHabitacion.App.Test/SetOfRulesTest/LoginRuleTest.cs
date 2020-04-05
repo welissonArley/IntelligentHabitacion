@@ -37,6 +37,52 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             }
         }
 
+        [Fact]
+        public async void RequestCode()
+        {
+            try
+            {
+                await _loginRule.RequestCode("user@email.com");
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public void ChangePasswordForgotPasswordInvalidCode()
+        {
+            Assert.ThrowsAsync<CodeEmptyException>(async () => await _loginRule.ChangePasswordForgotPassword(new Model.ForgetPasswordModel
+            {
+                Email = "exist@gmail.com",
+                CodeReceived = "",
+                NewPassword = "",
+                PasswordConfirmation = ""
+            }));
+        }
+
+        [Fact]
+        public async void ChangePasswordForgotPasswordSucess()
+        {
+            try
+            {
+                await _loginRule.ChangePasswordForgotPassword(new Model.ForgetPasswordModel
+                {
+                    Email = "exist@gmail.com",
+                    CodeReceived = "1234",
+                    NewPassword = "@Password123",
+                    PasswordConfirmation = "@Password123"
+                });
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
         private IIntelligentHabitacionHttpClient GetMokIntelligentHabitacionHttpClient()
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
@@ -50,6 +96,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                     IsPartOfOneHome = false
                 }
             });
+            mock.Setup(c => c.RequestCodeResetPassword(It.IsAny<string>(), It.IsAny<string>()));
 
             return mock.Object;
         }

@@ -35,6 +35,8 @@ namespace IntelligentHabitacion.App.ViewModel
                 else
                     UnknownError();
             }
+            else if (!((exception as IntelligentHabitacionException) is null))
+                await navigation.PushPopupAsync(new ErrorModal(((IntelligentHabitacionException)exception).Message));
             else if (!CrossConnectivity.Current.IsConnected)
                 await ErrorInternetConnection();
             else

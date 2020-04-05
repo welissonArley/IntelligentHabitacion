@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.App.ViewModel.ForgotPassword
             try
             {
                 await ShowLoading();
-                await _loginRule.ChangePasswordForgotPassword(Model.Email, Model.CodeReceived, Model.NewPassword, Model.PasswordConfirmation);
+                await _loginRule.ChangePasswordForgotPassword(Model);
                 HideLoading();
                 await Navigation.PopToRootAsync();
             }

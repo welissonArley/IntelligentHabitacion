@@ -30,7 +30,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 CreateDate = DateTimeController.DateTimeNow(),
                 Name = emergencyContactJson.Name,
                 DegreeOfKinship = emergencyContactJson.DegreeOfKinship,
-                Phonenumbers = emergencyContactJson.Phonenumbers.Select(c => MapperJsonToModel(c)).ToList()
+                Phonenumber = emergencyContactJson.Phonenumber
             };
         }
         public Phonenumber MapperJsonToModel(string number)
@@ -77,7 +77,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             {
                 Name = model.Name,
                 DegreeOfKinship = model.DegreeOfKinship,
-                Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList()
+                Phonenumber = model.Phonenumber
             };
         }
         #endregion

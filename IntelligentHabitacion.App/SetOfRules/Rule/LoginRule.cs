@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -17,21 +18,21 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _httpClient = intelligentHabitacionHttpClient;
         }
 
-        public async Task ChangePasswordForgotPassword(string email, string code, string newPassword, string confirmationPassword)
+        public async Task ChangePasswordForgotPassword(ForgetPasswordModel model)
         {
-            ValidateEmail(email);
+            ValidateEmail(model.Email);
 
-            if (string.IsNullOrWhiteSpace(code))
+            if (string.IsNullOrWhiteSpace(model.CodeReceived))
                 throw new CodeEmptyException();
 
-            ValidatePasswordAndPasswordConfirmation(newPassword, confirmationPassword);
+            ValidatePasswordAndPasswordConfirmation(model.NewPassword, model.PasswordConfirmation);
 
             await _httpClient.ChangePasswordForgotPassword(new RequestResetYourPasswordJson
             {
-                Email = email,
-                Code = code,
-                Password = newPassword,
-                PasswordConfirmation = confirmationPassword
+                Email = model.Email,
+                Code = model.CodeReceived,
+                Password = model.NewPassword,
+                PasswordConfirmation = model.PasswordConfirmation
             }, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
 

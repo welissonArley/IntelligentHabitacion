@@ -59,20 +59,17 @@ namespace IntelligentHabitacion.Api.Validators
                 if (string.IsNullOrWhiteSpace(emergecyContact.DegreeOfKinship))
                     context.AddFailure(string.Format(ResourceTextException.THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID, index));
 
-                if (emergecyContact.Phonenumbers.Count == 0)
+                if (string.IsNullOrWhiteSpace(emergecyContact.Phonenumber))
                     context.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_EMPTY, index));
                 else
                 {
-                    foreach (var phonenumber in emergecyContact.Phonenumbers)
+                    try
                     {
-                        try
-                        {
-                            phoneNumberValidator.IsValid(phonenumber.Number);
-                        }
-                        catch
-                        {
-                            context.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_INVALID, index));
-                        }
+                        phoneNumberValidator.IsValid(emergecyContact.Phonenumber);
+                    }
+                    catch
+                    {
+                        context.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_INVALID, index));
                     }
                 }
 

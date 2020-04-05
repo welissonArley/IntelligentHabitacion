@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
+namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
 {
     [Migration((long)EnumVersions.RegisterUser, "Create table to save the user's informations")]
     public class Version0000001 : Migration
@@ -17,12 +17,12 @@ namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
             BaseVersion.CreateDefaultColumns(Create.Table("EmergencyContact"))
                 .WithColumn("Name").AsString(2000).NotNullable()
                 .WithColumn("DegreeOfKinship").AsString(2000).NotNullable()
+                .WithColumn("Phonenumber").AsString().NotNullable()
                 .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_EmergencyContact_User_Id", "User", "Id");
 
             BaseVersion.CreateDefaultColumns(Create.Table("Phonenumber"))
                 .WithColumn("Number").AsString().NotNullable()
-                .WithColumn("UserId").AsInt64().Nullable().ForeignKey("FK_Phonenumber_User_Id", "User", "Id")
-                .WithColumn("EmergencyContactId").AsInt64().Nullable().ForeignKey("FK_Phonenumber_EmergencyContact_Id", "EmergencyContact", "Id");
+                .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_Phonenumber_User_Id", "User", "Id");
 
             Create.Table("Token")
                 .WithColumn("Id").AsInt64().PrimaryKey().Identity()

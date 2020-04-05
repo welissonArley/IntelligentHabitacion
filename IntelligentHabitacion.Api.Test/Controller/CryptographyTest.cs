@@ -41,22 +41,12 @@ namespace IntelligentHabitacion.Api.Test.Controller
                         UpdateDate = DateTime.Today,
                         Name = "Contact",
                         DegreeOfKinship = "Relation",
-                        Phonenumbers = new List<Phonenumber>
-                        {
-                            new Phonenumber
-                            {
-                                Id = 2,
-                                Active = true,
-                                CreateDate = DateTime.Today,
-                                UpdateDate = DateTime.Today,
-                                Number = "(31) 9 9999-9999"
-                            }
-                        }
+                        Phonenumber = "(31) 9 9999-9999"
                     }
                 }
             };
             Assert.Equal("email@email.com.br", model.Email);
-            model.Encrypty();
+            model.Encrypt();
             Assert.NotEqual("email@email.com.br", model.Email);
             model.Decrypt();
             Assert.Equal("email@email.com.br", model.Email);
@@ -74,7 +64,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Number = "(31) 9 9999-9999"
             };
             Assert.Equal("(31) 9 9999-9999", model.Number);
-            model.Encrypty();
+            model.Encrypt();
             Assert.NotEqual("(31) 9 9999-9999", model.Number);
             model.Decrypt();
             Assert.Equal("(31) 9 9999-9999", model.Number);
@@ -91,20 +81,10 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 UpdateDate = DateTime.Today,
                 Name = "Contact",
                 DegreeOfKinship = "Relation",
-                Phonenumbers = new List<Phonenumber>
-                {
-                    new Phonenumber
-                    {
-                        Id = 2,
-                        Active = true,
-                        CreateDate = DateTime.Today,
-                        UpdateDate = DateTime.Today,
-                        Number = "(31) 9 9999-9999"
-                    }
-                }
+                Phonenumber = "(31) 9 9999-9999"
             };
             Assert.Equal("Contact", model.Name);
-            model.Encrypty();
+            model.Encrypt();
             Assert.NotEqual("Contact", model.Name);
             model.Decrypt();
             Assert.Equal("Contact", model.Name);
@@ -122,7 +102,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Number = ""
             };
             Assert.Equal("", model.Number);
-            model.Encrypty();
+            model.Encrypt();
             Assert.Equal("", model.Number);
             model.Decrypt();
             Assert.Equal("", model.Number);
@@ -136,7 +116,27 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Name = "Name"
             };
 
-            Assert.Throws<System.Security.Cryptography.CryptographicException>(() => model.Encrypty());
+            Assert.Throws<System.Security.Cryptography.CryptographicException>(() => model.Encrypt());
+        }
+
+        [Fact]
+        public void TestCodeCryptography()
+        {
+            var model = new Code
+            {
+                Id = 1,
+                Active = true,
+                CreateDate = DateTime.Today,
+                UpdateDate = DateTime.Today,
+                Type = CodeType.ResetPassword,
+                UserId = 1,
+                Value = "1234"
+            };
+            Assert.Equal("1234", model.Value);
+            model.Encrypt();
+            Assert.NotEqual("1234", model.Value);
+            model.Decrypt();
+            Assert.Equal("1234", model.Value);
         }
     }
 
@@ -152,7 +152,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Name = encryptManager.Dencrypt(Name, salt);
         }
 
-        public override void Encrypty()
+        public override void Encrypt()
         {
             var encryptManager = new Cryptography();
             var salt = KeyModel.GetKey(this);

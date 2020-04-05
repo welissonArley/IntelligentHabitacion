@@ -1,5 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Repository;
-using IntelligentHabitacion.Api.Repository.DataBaseVersions;
+using IntelligentHabitacion.Api.Repository.DatabaseVersions;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System;
 using System.Configuration;

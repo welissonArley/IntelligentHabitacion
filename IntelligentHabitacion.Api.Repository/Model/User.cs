@@ -15,9 +15,6 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
         public override void Decrypt()
         {
-            if (!Encrypted)
-                return;
-
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
 
@@ -27,11 +24,9 @@ namespace IntelligentHabitacion.Api.Repository.Model
                 phoneNumber.Decrypt();
             foreach (var emergencyContact in EmergecyContacts)
                 emergencyContact.Decrypt();
-
-            Encrypted = false;
         }
 
-        public override void Encrypty()
+        public override void Encrypt()
         {
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
@@ -39,13 +34,9 @@ namespace IntelligentHabitacion.Api.Repository.Model
             Email = encryptManager.Encrypt(Email, salt);
             Password = encryptManager.Encrypt(Password, salt);
             foreach (var phoneNumber in Phonenumbers)
-                phoneNumber.Encrypty();
+                phoneNumber.Encrypt();
             foreach (var emergencyContact in EmergecyContacts)
-                emergencyContact.Encrypty();
-
-            Encrypted = true;
+                emergencyContact.Encrypt();
         }
-
-        private bool Encrypted = true;
     }
 }

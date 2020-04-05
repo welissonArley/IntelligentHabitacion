@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
             Value = encryptManager.Dencrypt(Value, salt);
         }
 
-        public override void Encrypty()
+        public override void Encrypt()
         {
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);

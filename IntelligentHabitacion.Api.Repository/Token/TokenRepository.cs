@@ -1,16 +1,36 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
+using IntelligentHabitacion.Api.Repository.DatabaseInformations;
+using IntelligentHabitacion.Exception.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.Repository.Token
 {
-    public class TokenRepository : DbContext
+    public class TokenRepository : DbContext, ITokenRepository
     {
+        private readonly IDatabaseInformations _databaseInformations;
+
         protected virtual DbSet<Token> ModelSet { get; set; }
+
+        public TokenRepository(IDatabaseInformations databaseInformations)
+        {
+            _databaseInformations = databaseInformations;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("Server=localhost;Database=intelligenthabitacion;Uid=root;Pwd=@Ioasys;");
+            switch (_databaseInformations.DatabaseType())
+            {
+                case DatabaseInformations.DatabaseType.MySql:
+                    {
+                        optionsBuilder.UseMySql(_databaseInformations.ConectionString());
+                    }
+                    break;
+                default:
+                    {
+                        throw new UnknownDatabaseException();
+                    }
+            }
         }
 
         public void Create(Token token)
@@ -21,15 +41,11 @@ namespace IntelligentHabitacion.Api.Repository.Token
 
             var tokenCreated = Get(token.UserId);
             if (tokenCreated == null)
-            {
                 ModelSet.Add(token);
-                SaveChanges();
-            }
             else
-            {
                 tokenCreated.Value = token.Value;
-                SaveChanges();
-            }
+
+            SaveChanges();
         }
 
         public Token Get(long userId)

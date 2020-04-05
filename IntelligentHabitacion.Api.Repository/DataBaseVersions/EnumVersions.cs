@@ -1,4 +1,4 @@
-﻿namespace IntelligentHabitacion.Api.Repository.DataBaseVersions
+﻿namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
 {
     public enum EnumVersions
     {

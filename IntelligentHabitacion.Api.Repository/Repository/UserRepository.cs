@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Repository.Interface;
+﻿using IntelligentHabitacion.Api.Repository.DatabaseInformations;
+using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -9,9 +10,13 @@ namespace IntelligentHabitacion.Api.Repository.Repository
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        private IIncludableQueryable<User, ICollection<Phonenumber>> IncludeModel()
+        public UserRepository(IDatabaseInformations databaseInformations) : base(databaseInformations)
         {
-            return ModelSet.Where(c => c.Active).Include(c => c.Phonenumbers).Include(c => c.EmergecyContacts).ThenInclude(c => c.Phonenumbers);
+        }
+
+        private IIncludableQueryable<User, ICollection<EmergencyContact>> IncludeModel()
+        {
+            return ModelSet.Where(c => c.Active).Include(c => c.Phonenumbers).Include(c => c.EmergecyContacts);
         }
 
         public override IQueryable<User> GetAllActive()
@@ -23,6 +28,14 @@ namespace IntelligentHabitacion.Api.Repository.Repository
             return models;
         }
 
+        public override User GetById(long id)
+        {
+            var model = IncludeModel().FirstOrDefault(c => c.Id == id);
+            model?.Decrypt();
+
+            return model;
+        }
+
         public User GetByEmail(string email)
         {
             var userTemp = new User
@@ -31,7 +44,7 @@ namespace IntelligentHabitacion.Api.Repository.Repository
                 EmergecyContacts = new List<EmergencyContact>(),
                 Phonenumbers = new List<Phonenumber>()
             };
-            userTemp.Encrypty();
+            userTemp.Encrypt();
 
             var response = IncludeModel().FirstOrDefault(c => c.Active && c.Email.Equals(userTemp.Email));
 

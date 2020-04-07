@@ -1,8 +1,10 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.View;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 {
@@ -24,11 +26,21 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         {
             try
             {
+                await ShowLoading();
+
                 _homeRule.ValidadeNetWorkInformation(Model.NetWork.Name, Model.NetWork.Password);
+
+                await _homeRule.Create(Model);
+
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+
+                HideLoading();
+
                 await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
+                HideLoading();
                 await Exception(exeption);
             }
         }

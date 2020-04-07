@@ -12,6 +12,9 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public string Password { get; set; }
         public ICollection<Phonenumber> Phonenumbers { get; set; }
         public ICollection<EmergencyContact> EmergecyContacts { get; set; }
+        [ForeignKey("HomeId")]
+        public Home Home { get; set; }
+        public long? HomeId { get; set; }
 
         public override void Decrypt()
         {
@@ -24,6 +27,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
                 phoneNumber.Decrypt();
             foreach (var emergencyContact in EmergecyContacts)
                 emergencyContact.Decrypt();
+
+            Home?.Decrypt();
         }
 
         public override void Encrypt()
@@ -37,6 +42,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
                 phoneNumber.Encrypt();
             foreach (var emergencyContact in EmergecyContacts)
                 emergencyContact.Encrypt();
+
+            Home?.Encrypt();
         }
     }
 }

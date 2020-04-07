@@ -9,5 +9,6 @@ namespace IntelligentHabitacion.App.SQLite.Interface
         void Delete();
         void UpdateName(string newName);
         void UpdateToken(string newToken);
+        void IsAdministrator();
     }
 }

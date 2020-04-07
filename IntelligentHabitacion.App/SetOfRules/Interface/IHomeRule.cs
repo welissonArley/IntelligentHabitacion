@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Communication.Response;
+﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.Communication.Response;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Interface
@@ -11,5 +12,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void ValidadeNumber(string number);
         void ValidadeNeighborhood(string neighborhood);
         void ValidadeNetWorkInformation(string name, string password);
+        Task Create(RegisterHomeModel Model);
     }
 }

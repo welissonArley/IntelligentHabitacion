@@ -42,6 +42,25 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Number = number
             };
         }
+        public Home MapperJsonToModel(RequestRegisterHomeJson registerHomeJson)
+        {
+            return new Home
+            {
+                Active = true,
+                CreateDate = DateTimeController.DateTimeNow(),
+                Address = registerHomeJson.Address,
+                City = registerHomeJson.City.Name,
+                State = registerHomeJson.City.State.Name,
+                Country = registerHomeJson.City.State.Country.Name,
+                CountryAbbreviation = registerHomeJson.City.State.Country.Abbreviation,
+                Complement = registerHomeJson.Complement,
+                Neighborhood = registerHomeJson.Neighborhood,
+                NetworksName = registerHomeJson.NetworksName,
+                NetworksPassword = registerHomeJson.NetworksPassword,
+                Number = registerHomeJson.Number,
+                ZipCode = registerHomeJson.ZipCode
+            };
+        }
         #endregion
 
         #region MapperModelToJson
@@ -50,8 +69,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             return new ResponseLoginJson
             {
                 Name = model.Name,
-                IsPartOfOneHome = false,
-                IsAdministrator = false
+                IsPartOfOneHome = model.Home != null,
+                IsAdministrator = model.Home != null ? model.Home.AdministratorId == model.Id : false
             };
         }
         public ResponseUserInformationsJson MapperModelToJson(User model)

@@ -2,6 +2,7 @@
 {
     public enum EnumVersions
     {
-        RegisterUser = 1
+        RegisterUser = 1,
+        RegisterHome = 2
     }
 }

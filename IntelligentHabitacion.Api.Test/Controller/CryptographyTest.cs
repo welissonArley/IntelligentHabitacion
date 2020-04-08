@@ -91,6 +91,34 @@ namespace IntelligentHabitacion.Api.Test.Controller
         }
 
         [Fact]
+        public void TestHomeCryptography()
+        {
+            var model = new Home
+            {
+                Id = 1,
+                Active = true,
+                CreateDate = DateTime.Today,
+                UpdateDate = DateTime.Today,
+                Address = "Address",
+                City = "City",
+                Complement = "",
+                Country = "Country",
+                CountryAbbreviation = "A",
+                Neighborhood = "Neighborhood",
+                NetworksName = "Name",
+                NetworksPassword = "Password",
+                Number = "1",
+                State = "State",
+                ZipCode = "Zipcode"
+            };
+            Assert.Equal("Address", model.Address);
+            model.Encrypt();
+            Assert.NotEqual("Address", model.Address);
+            model.Decrypt();
+            Assert.Equal("Address", model.Address);
+        }
+
+        [Fact]
         public void TestWithoutDatas()
         {
             var model = new Phonenumber
@@ -137,6 +165,12 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.NotEqual("1234", model.Value);
             model.Decrypt();
             Assert.Equal("1234", model.Value);
+        }
+
+        [Fact]
+        public void TestKeyToken()
+        {
+            Assert.True(!string.IsNullOrWhiteSpace(KeyModel.GetKey()));
         }
     }
 

@@ -25,7 +25,12 @@ namespace IntelligentHabitacion.App
 
             var user = Resolver.Resolve<ISqliteDatabase>().Get();
             if (user != null)
-                MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+            {
+                if (user.IsPartOfOneHome)
+                    MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+                else
+                    MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+            }
             else
                 MainPage = new GetStartedPage();
 

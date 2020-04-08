@@ -28,7 +28,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             var userFactory = new UserFactoryFake();
 
             var mock = new Mock<IServiceProvider>();
-            mock.Setup(c => c.GetService(typeof(ILoggedUser))).Returns(userFactory.GetLoggedUser());
+            mock.Setup(c => c.GetService(typeof(ILoggedUser))).Returns(userFactory.GetLoggedUserWithouHome());
             mock.Setup(c => c.GetService(typeof(ITokenRepository))).Returns(GetTokenRepositoryMock());
             mock.Setup(c => c.GetService(typeof(IUserRepository))).Returns(userFactory.GetRepository());
 

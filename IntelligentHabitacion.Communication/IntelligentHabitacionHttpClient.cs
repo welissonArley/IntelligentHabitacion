@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://05047baf.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://ea251ab9.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -161,6 +161,18 @@ namespace IntelligentHabitacion.Communication
         public async Task ChangePasswordForgotPassword(RequestResetYourPasswordJson resetYourPassword, string language = null)
         {
             await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/Login/ResetYourPassword", resetYourPassword, language: language);
+        }
+        #endregion
+
+        #region Home
+        public async Task<ResponseJson> CreateHome(RequestRegisterHomeJson registerHome, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Home/Register", registerHome, token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
         }
         #endregion
     }

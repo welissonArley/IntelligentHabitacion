@@ -54,8 +54,27 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.IsType<OkObjectResult>(result);
             var value = (ResponseLoginJson)((OkObjectResult)result).Value;
             Assert.True(!string.IsNullOrWhiteSpace(value.Name));
-            Assert.IsType<bool>(value.IsPartOfOneHome);
-            Assert.IsType<bool>(value.IsAdministrator);
+            Assert.True(!value.IsPartOfOneHome);
+            Assert.True(!value.IsAdministrator);
+        }
+
+        [Fact]
+        public void LoginSucessUserIsAdministrator()
+        {
+            var request = new RequestLoginJson
+            {
+                User = "user4@gmail.com",
+                Password = "123456"
+            };
+
+            _controller.Request.Body = new MemoryStream(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request)));
+            var result = _controller.Login(request);
+
+            Assert.IsType<OkObjectResult>(result);
+            var value = (ResponseLoginJson)((OkObjectResult)result).Value;
+            Assert.True(!string.IsNullOrWhiteSpace(value.Name));
+            Assert.True(value.IsPartOfOneHome);
+            Assert.True(value.IsAdministrator);
         }
 
         [Fact]

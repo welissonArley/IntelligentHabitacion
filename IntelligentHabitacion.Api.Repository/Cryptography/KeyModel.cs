@@ -18,6 +18,9 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
             if (!((model as Code) is null))
                 return "0Xb9EqlbJbT9WGSb";
 
+            if (!((model as Home) is null))
+                return "U7L5atxzMZbXzFEt";
+
             return "";
         }
 

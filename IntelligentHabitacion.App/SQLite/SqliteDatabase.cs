@@ -53,6 +53,14 @@ namespace IntelligentHabitacion.App.SQLite
             _dataBase.Update(user);
         }
 
+        public void IsAdministrator()
+        {
+            UserSqlite user = GetWithoutDencryptToken();
+            user.IsAdministrator = true;
+            user.IsPartOfOneHome = true;
+            _dataBase.Update(user);
+        }
+
         public void Delete()
         {
             UserSqlite user = GetWithoutDencryptToken();

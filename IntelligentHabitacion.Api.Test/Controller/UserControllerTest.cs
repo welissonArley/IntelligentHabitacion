@@ -110,7 +110,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     {
                         Name = "Contact 2",
                         DegreeOfKinship = "Relation 2",
-                        Phonenumber = ""
+                        Phonenumber = "37"
                     }
                 }
             });

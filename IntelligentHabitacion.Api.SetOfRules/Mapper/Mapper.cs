@@ -66,12 +66,17 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
         #region MapperModelToJson
         public ResponseLoginJson MapperModelToJsonLogin(User model)
         {
-            return new ResponseLoginJson
+            var response = new ResponseLoginJson
             {
                 Name = model.Name,
                 IsPartOfOneHome = model.Home != null,
-                IsAdministrator = model.Home != null ? model.Home.AdministratorId == model.Id : false
+                IsAdministrator = false
             };
+
+            if (model.Home != null)
+                response.IsAdministrator = model.Home.AdministratorId == model.Id;
+
+            return response;
         }
         public ResponseUserInformationsJson MapperModelToJson(User model)
         {

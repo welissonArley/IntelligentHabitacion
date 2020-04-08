@@ -132,6 +132,12 @@
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Request a code to reset your password.</value>
   </data>
+  <data name="COUNTRY_ABBREVIATION_EMPTY" xml:space="preserve">
+    <value>The Abbreviation Country must be entered.</value>
+  </data>
+  <data name="COUNTRY_EMPTY" xml:space="preserve">
+    <value>The Country's name must be entered.</value>
+  </data>
   <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
     <value>Current password must be entered.</value>
   </data>
@@ -209,6 +215,9 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>
+  </data>
+  <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
+    <value>You are already part of a home. This operation is not allowed at this time.</value>
   </data>
   <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>User and/or password is invalid.</value>

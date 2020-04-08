@@ -106,6 +106,24 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Abbreviation Country must be entered..
+        /// </summary>
+        public static string COUNTRY_ABBREVIATION_EMPTY {
+            get {
+                return ResourceManager.GetString("COUNTRY_ABBREVIATION_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Country&apos;s name must be entered..
+        /// </summary>
+        public static string COUNTRY_EMPTY {
+            get {
+                return ResourceManager.GetString("COUNTRY_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current password must be entered..
         /// </summary>
         public static string CURRENT_PASSWORD_EMPTY {
@@ -336,6 +354,15 @@ namespace IntelligentHabitacion.Exception {
         public static string UNKNOWNDATABASE {
             get {
                 return ResourceManager.GetString("UNKNOWNDATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are already part of a home. This operation is not allowed at this time..
+        /// </summary>
+        public static string USER_IS_PART_OF_A_HOME {
+            get {
+                return ResourceManager.GetString("USER_IS_PART_OF_A_HOME", resourceCulture);
             }
         }
         

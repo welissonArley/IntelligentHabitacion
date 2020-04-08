@@ -4,7 +4,6 @@
     {
         public string ZipCode { get; set; }
         public RequestRegisterCityJson City { get; set; }
-        public string Country { get; set; }
         public string Address { get; set; }
         public string Number { get; set; }
         public string Complement { get; set; }

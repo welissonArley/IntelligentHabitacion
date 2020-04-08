@@ -132,6 +132,12 @@
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Solicite um código para alterar sua senha.</value>
   </data>
+  <data name="COUNTRY_ABBREVIATION_EMPTY" xml:space="preserve">
+    <value>A abreviação do País deve ser informada.</value>
+  </data>
+  <data name="COUNTRY_EMPTY" xml:space="preserve">
+    <value>O nome do País deve ser informado.</value>
+  </data>
   <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
     <value>A senha atual deve ser informada.</value>
   </data>
@@ -209,6 +215,9 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
+  </data>
+  <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
+    <value>Você já faz parte de um lar. Está operação não é permitida neste momento.</value>
   </data>
   <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>Usuário e/ou senha inválidos.</value>

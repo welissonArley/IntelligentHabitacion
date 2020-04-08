@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.Validators;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
 
@@ -23,8 +24,11 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
         public void Register(RequestRegisterHomeJson registerHomeJson)
         {
-            var homeModel = new Mapper.Mapper().MapperJsonToModel(registerHomeJson);
             var loggedUser = _loggedUser.User();
+            if (loggedUser.HomeId != null)
+                throw new UserIsPartOfAHomeException();
+
+            var homeModel = new Mapper.Mapper().MapperJsonToModel(registerHomeJson);
             homeModel.AdministratorId = loggedUser.Id;
 
             var validation = new HomeValidator().Validate(homeModel);

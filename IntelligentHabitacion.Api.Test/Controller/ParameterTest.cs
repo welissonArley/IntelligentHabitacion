@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Controllers.V1;
 using IntelligentHabitacion.Communication.Error;
+using IntelligentHabitacion.Exception.ErrorJson;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
@@ -48,6 +49,37 @@ namespace IntelligentHabitacion.Api.Test.Controller
             _controller.HttpContext.Request.Path = new PathString("/User/Register/");
             var result = _controller.Register(new Communication.Request.RequestRegisterUserJson());
             Assert.IsType<ObjectResult>(result);
+        }
+
+        [Fact]
+        public void ErrorJsonContructor()
+        {
+            try
+            {
+                new ErrorJson();
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public void ErrorTrueJsonContructor()
+        {
+            try
+            {
+                var error = new ErrorTrueJson
+                {
+                    Erro = true
+                };
+                Assert.True(error.Erro);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
         }
     }
 }

@@ -358,6 +358,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are not part of a home. This operation is not allowed at this time..
+        /// </summary>
+        public static string USER_IS_NOT_PART_OF_A_HOME {
+            get {
+                return ResourceManager.GetString("USER_IS_NOT_PART_OF_A_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are already part of a home. This operation is not allowed at this time..
         /// </summary>
         public static string USER_IS_PART_OF_A_HOME {

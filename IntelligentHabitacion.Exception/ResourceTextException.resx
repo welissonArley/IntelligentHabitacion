@@ -216,6 +216,9 @@
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>
   </data>
+  <data name="USER_IS_NOT_PART_OF_A_HOME" xml:space="preserve">
+    <value>You are not part of a home. This operation is not allowed at this time.</value>
+  </data>
   <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
     <value>You are already part of a home. This operation is not allowed at this time.</value>
   </data>

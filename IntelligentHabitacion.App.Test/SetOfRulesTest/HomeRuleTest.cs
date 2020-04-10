@@ -186,7 +186,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         {
             try
             {
-                await _homeRule.Create(new Model.RegisterHomeModel
+                await _homeRule.Create(new Model.HomeModel
                 {
                     Address = "Address",
                     City = new Model.CityModel
@@ -195,7 +195,6 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                         State = new Model.StateModel
                         {
                             Name = "State",
-                            Abbreviation = "A",
                             Country = new Model.CountryModel
                             {
                                 Name = "Country",
@@ -213,6 +212,20 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                     Number = "1",
                     ZipCode = "00.000-000"
                 });
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public async void GetInformations()
+        {
+            try
+            {
+                await _homeRule.GetInformations();
                 Assert.True(true);
             }
             catch
@@ -244,6 +257,32 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             mock.Setup(c => c.CreateHome(It.IsAny<RequestRegisterHomeJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
             {
                 Token = "token"
+            });
+            mock.Setup(c => c.GetHomesInformations(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "Token",
+                Response = new ResponseHomeInformationsJson {
+                    Address = "Address",
+                    City = "City",
+                    Complement = "Complement",
+                    Neighborhood = "Neighborhood",
+                    Number = "1",
+                    State = new ResponseStateJson
+                    {
+                        Name = "State",
+                        Country = new ResponseCountryJson
+                        {
+                            Name = "Country",
+                            Abbreviation = "A"
+                        }
+                    },
+                    ZipCode = "ZipCode",
+                    NetWork = new ResponseWifiNetworkJson
+                    {
+                        Name = "Name",
+                        Password = "Password"
+                    }
+                }
             });
 
             return mock.Object;

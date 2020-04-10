@@ -15,7 +15,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void DeleteAccount(string codeReceived, string password);
         Task<ResponseJson> Create(RegisterUserModel userInformations);
         Task UpdateInformations(UserInformationsModel userInformations);
-        UserInformationsModel GetInformations();
+        Task<UserInformationsModel> GetInformations();
         Task ChangePassword(string currentPassword, string newPassword, string confirmationPassword);
     }
 }

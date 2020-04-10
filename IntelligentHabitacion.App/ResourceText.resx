@@ -225,8 +225,17 @@
   <data name="TITLE_ADDRESSCOMPLEMENT" xml:space="preserve">
     <value>Any complement?</value>
   </data>
+  <data name="TITLE_ADDRESSCOMPLEMENT_TWOPOINTS" xml:space="preserve">
+    <value>Complement:</value>
+  </data>
   <data name="TITLE_ADDRESSNUMBER" xml:space="preserve">
     <value>What is the number?</value>
+  </data>
+  <data name="TITLE_ADDRESSNUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Number:</value>
+  </data>
+  <data name="TITLE_ADDRESS_TWOPOINTS" xml:space="preserve">
+    <value>Address:</value>
   </data>
   <data name="TITLE_CANCEL" xml:space="preserve">
     <value>Cancel</value>
@@ -236,6 +245,9 @@
   </data>
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change password</value>
+  </data>
+  <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
+    <value>City:</value>
   </data>
   <data name="TITLE_CLEAN_HOUSE" xml:space="preserve">
     <value>Clean house</value>
@@ -279,6 +291,9 @@
   <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
     <value>Delete account</value>
   </data>
+  <data name="TITLE_DELETE_HOME" xml:space="preserve">
+    <value>Delete home</value>
+  </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>What is the email to recover the password?</value>
   </data>
@@ -317,6 +332,9 @@
   </data>
   <data name="TITLE_NEIGHBORHOOD" xml:space="preserve">
     <value>The Neighborhood</value>
+  </data>
+  <data name="TITLE_NEIGHBORHOOD_TWOPOINTS" xml:space="preserve">
+    <value>Neighborhood:</value>
   </data>
   <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>New password:</value>
@@ -374,5 +392,8 @@
   </data>
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>Your name ;)</value>
+  </data>
+  <data name="TITLE_ZIPCODE_TWOPOINTS" xml:space="preserve">
+    <value>ZipCode:</value>
   </data>
 </root>

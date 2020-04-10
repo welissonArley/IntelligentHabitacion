@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                await Navigation.PushAsync<RequestZipCodeViewModel>((viewModel, page) => viewModel.Model = new Model.RegisterHomeModel());
+                await Navigation.PushAsync<RequestZipCodeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel());
             }
             catch (System.Exception exeption)
             {

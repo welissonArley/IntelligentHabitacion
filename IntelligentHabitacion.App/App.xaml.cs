@@ -63,6 +63,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
             ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
+            ViewFactory.Register<UpdateHomeInformationPage, HomeInformationViewModel>();
         }
     }
 }

@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.Validators;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
@@ -20,6 +21,15 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _homeRepository = homeRepository;
             _loggedUser = loggedUser;
             _userRepository = userRepository;
+        }
+
+        public ResponseHomeInformationsJson GetInformations()
+        {
+            var loggedUser = _loggedUser.User();
+            if (loggedUser.HomeId == null)
+                throw new UserIsNotPartOfAHomeException();
+
+            return new Mapper.Mapper().MapperModelToJson(loggedUser.Home);
         }
 
         public void Register(RequestRegisterHomeJson registerHomeJson)

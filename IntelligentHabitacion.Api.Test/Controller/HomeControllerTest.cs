@@ -93,5 +93,27 @@ namespace IntelligentHabitacion.Api.Test.Controller
             });
             Assert.IsType<CreatedResult>(result);
         }
+
+        [Fact]
+        public void GetInformationsUserWithoutHome()
+        {
+            _controller.HttpContext.Request.Path = new PathString("/Home/Informations/");
+            var result = _controller.Informations();
+            Assert.IsType<BadRequestObjectResult>(result);
+            var value = (ErrorJson)((BadRequestObjectResult)result).Value;
+            Assert.True(value.Errors.Count == 1);
+        }
+
+        [Fact]
+        public void GetInformationsSuccess()
+        {
+            var controller = new HomeController(new HomeFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Home/Informations/");
+            var result = controller.Informations();
+            Assert.IsType<OkObjectResult>(result);
+        }
     }
 }

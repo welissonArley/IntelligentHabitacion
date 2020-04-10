@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 
         public ICommand NextCommand { protected set; get; }
 
-        public RegisterHomeModel Model { get; set; }
+        public HomeModel Model { get; set; }
 
         public RequestZipCodeViewModel(IHomeRule homeRule)
         {
@@ -32,7 +32,6 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
                 Model.Address = result.Street;
                 Model.City.Name = result.City;
                 Model.City.State.Name = result.State.Name;
-                Model.City.State.Abbreviation = result.State.Abbreviation;
                 Model.City.State.Country.Name = result.State.Country.Name;
                 Model.City.State.Country.Abbreviation = result.State.Country.Abbreviation;
                 HideLoading();

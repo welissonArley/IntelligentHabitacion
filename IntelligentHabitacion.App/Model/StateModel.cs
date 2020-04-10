@@ -10,7 +10,6 @@ namespace IntelligentHabitacion.App.Model
         }
 
         public string Name { get; set; }
-        public string Abbreviation { get; set; }
         public CountryModel Country { get; set; }
     }
 }

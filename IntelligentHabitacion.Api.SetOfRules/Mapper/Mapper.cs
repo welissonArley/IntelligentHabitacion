@@ -104,6 +104,32 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Phonenumber = model.Phonenumber
             };
         }
+        public ResponseHomeInformationsJson MapperModelToJson(Home model)
+        {
+            return new ResponseHomeInformationsJson
+            {
+                Address = model.Address,
+                City = model.City,
+                Complement = model.Complement,
+                Neighborhood = model.Neighborhood,
+                Number = model.Number,
+                ZipCode = model.ZipCode,
+                NetWork = new ResponseWifiNetworkJson
+                {
+                    Name = model.NetworksName,
+                    Password = model.NetworksPassword
+                },
+                State = new ResponseStateJson
+                {
+                    Name = model.State,
+                    Country = new ResponseCountryJson
+                    {
+                        Name = model.Country,
+                        Abbreviation = model.CountryAbbreviation
+                    }
+                }
+            };
+        }
         #endregion
     }
 }

@@ -184,11 +184,11 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         }
 
         [Fact]
-        public void GetInformations()
+        public async void GetInformations()
         {
             try
             {
-                _userRule.GetInformations();
+                await _userRule.GetInformations();
                 Assert.True(true);
             }
             catch

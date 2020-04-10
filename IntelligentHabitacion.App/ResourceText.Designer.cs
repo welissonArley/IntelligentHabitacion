@@ -376,6 +376,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address:.
+        /// </summary>
+        internal static string TITLE_ADDRESS_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ADDRESS_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Any complement?.
         /// </summary>
         internal static string TITLE_ADDRESSCOMPLEMENT {
@@ -385,11 +394,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Complement:.
+        /// </summary>
+        internal static string TITLE_ADDRESSCOMPLEMENT_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ADDRESSCOMPLEMENT_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the number?.
         /// </summary>
         internal static string TITLE_ADDRESSNUMBER {
             get {
                 return ResourceManager.GetString("TITLE_ADDRESSNUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number:.
+        /// </summary>
+        internal static string TITLE_ADDRESSNUMBER_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ADDRESSNUMBER_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -417,6 +444,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CHANGE_PASSWORD {
             get {
                 return ResourceManager.GetString("TITLE_CHANGE_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City:.
+        /// </summary>
+        internal static string TITLE_CITY_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CITY_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -547,6 +583,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete home.
+        /// </summary>
+        internal static string TITLE_DELETE_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the email to recover the password?.
         /// </summary>
         internal static string TITLE_EMAIL_RECOVER_PASSAWORD {
@@ -660,6 +705,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_NEIGHBORHOOD {
             get {
                 return ResourceManager.GetString("TITLE_NEIGHBORHOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neighborhood:.
+        /// </summary>
+        internal static string TITLE_NEIGHBORHOOD_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_NEIGHBORHOOD_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -831,6 +885,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_YOUR_NAME {
             get {
                 return ResourceManager.GetString("TITLE_YOUR_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZipCode:.
+        /// </summary>
+        internal static string TITLE_ZIPCODE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ZIPCODE_TWOPOINTS", resourceCulture);
             }
         }
     }

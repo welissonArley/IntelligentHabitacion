@@ -186,7 +186,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         {
             try
             {
-                await _homeRule.Create(new Model.RegisterHomeModel
+                await _homeRule.Create(new Model.HomeModel
                 {
                     Address = "Address",
                     City = new Model.CityModel

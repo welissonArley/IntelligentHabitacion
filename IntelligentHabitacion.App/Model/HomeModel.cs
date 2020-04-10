@@ -2,9 +2,9 @@
 
 namespace IntelligentHabitacion.App.Model
 {
-    public class RegisterHomeModel : ObservableObject
+    public class HomeModel : ObservableObject
     {
-        public RegisterHomeModel()
+        public HomeModel()
         {
             City = new CityModel();
             NetWork = new WifiNetworkModel();

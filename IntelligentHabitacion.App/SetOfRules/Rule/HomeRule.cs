@@ -22,7 +22,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _database = database;
         }
 
-        public async Task Create(RegisterHomeModel Model)
+        public async Task Create(HomeModel Model)
         {
             ValidadeAdress(Model.Address);
             ValidadeCity(Model.City.Name);
@@ -56,6 +56,43 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             _database.UpdateToken(response.Token);
             _database.IsAdministrator();
+        }
+
+        public async Task<HomeModel> GetInformations()
+        {
+            var response = await _httpClient.GetHomesInformations(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+
+            var homeInformations = (ResponseHomeInformationsJson)response.Response;
+
+            return new HomeModel
+            {
+                Address = homeInformations.Address,
+                Complement = homeInformations.Complement,
+                Neighborhood = homeInformations.Neighborhood,
+                Number = homeInformations.Number,
+                ZipCode = homeInformations.ZipCode,
+                NetWork = new WifiNetworkModel
+                {
+                    Name = homeInformations.NetWork.Name,
+                    Password = homeInformations.NetWork.Password
+                },
+                City = new CityModel
+                {
+                    Name = homeInformations.City,
+                    State = new StateModel
+                    {
+                        Name = homeInformations.State.Name,
+                        Abbreviation = homeInformations.State.Abbreviation,
+                        Country = new CountryModel
+                        {
+                            Abbreviation = homeInformations.State.Country.Abbreviation,
+                            Name = homeInformations.State.Country.Name
+                        }
+                    }
+                }
+            };
         }
 
         public void ValidadeAdress(string address)

@@ -216,6 +216,9 @@
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
   </data>
+  <data name="USER_IS_NOT_PART_OF_A_HOME" xml:space="preserve">
+    <value>Você não faz parte de um lar. Está operação não é permitida neste momento.</value>
+  </data>
   <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
     <value>Você já faz parte de um lar. Está operação não é permitida neste momento.</value>
   </data>

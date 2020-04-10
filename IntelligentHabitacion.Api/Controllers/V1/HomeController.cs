@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +42,26 @@ namespace IntelligentHabitacion.Api.Controllers.V1
 
                 _homeRule.Register(registerHomeJson);
                 return Created(string.Empty, string.Empty);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will return the home's informations
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Informations")]
+        [ProducesResponseType(typeof(ResponseHomeInformationsJson), StatusCodes.Status200OK)]
+        public IActionResult Informations()
+        {
+            try
+            {
+                var informations = _homeRule.GetInformations();
+                return Ok(informations);
             }
             catch (System.Exception exception)
             {

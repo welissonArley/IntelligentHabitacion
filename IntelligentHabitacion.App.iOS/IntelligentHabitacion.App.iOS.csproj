@@ -338,4 +338,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IlustrationTheFriends%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconWifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconWifi%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconWifi%403x.png" />
+  </ItemGroup>
 </Project>

@@ -30,7 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel
             LogoutTapped = new Command(async () => await ClickLogoutAccount());
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
 
-            Model = _userRule.GetInformations();
+            Model = Task.Run(async () => await _userRule.GetInformations()).Result;
         }
 
         private async Task ClickDeleteAccount()

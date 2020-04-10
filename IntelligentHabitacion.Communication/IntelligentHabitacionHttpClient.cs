@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://ea251ab9.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://1b527888.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -171,6 +171,16 @@ namespace IntelligentHabitacion.Communication
             return new ResponseJson
             {
                 Response = null,
+                Token = GetToken(response)
+            };
+        }
+
+        public async Task<ResponseJson> GetHomesInformations(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Home/Informations", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = JsonConvert.DeserializeObject<ResponseHomeInformationsJson>(await response.Content.ReadAsStringAsync()),
                 Token = GetToken(response)
             };
         }

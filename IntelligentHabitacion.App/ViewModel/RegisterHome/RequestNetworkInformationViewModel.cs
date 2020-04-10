@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 
         public ICommand ConcludeCommand { protected set; get; }
 
-        public RegisterHomeModel Model { get; set; }
+        public HomeModel Model { get; set; }
 
         public RequestNetworkInformationViewModel(IHomeRule homeRule)
         {

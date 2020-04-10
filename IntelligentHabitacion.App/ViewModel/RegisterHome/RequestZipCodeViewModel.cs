@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 
         public ICommand NextCommand { protected set; get; }
 
-        public RegisterHomeModel Model { get; set; }
+        public HomeModel Model { get; set; }
 
         public RequestZipCodeViewModel(IHomeRule homeRule)
         {

@@ -154,9 +154,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             return await _httpClient.CreateUser(user, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
 
-        public UserInformationsModel GetInformations()
+        public async Task<UserInformationsModel> GetInformations()
         {
-            var response = Task.Run(async () => await _httpClient.GetUsersInformations(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString())).Result;
+            var response = await _httpClient.GetUsersInformations(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _database.UpdateToken(response.Token);
 

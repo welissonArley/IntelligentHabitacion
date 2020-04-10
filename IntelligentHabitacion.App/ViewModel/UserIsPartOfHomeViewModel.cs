@@ -7,10 +7,12 @@ namespace IntelligentHabitacion.App.ViewModel
     public class UserIsPartOfHomeViewModel : BaseViewModel
     {
         public ICommand CardMyInformationTapped { get; }
+        public ICommand CardHomesInformationsTapped { get; }
 
         public UserIsPartOfHomeViewModel()
         {
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
+            CardHomesInformationsTapped = new Command(async () => await ClickOnCardHomesInformations());
         }
 
         private async Task ClickOnCardMyInformations()
@@ -19,6 +21,21 @@ namespace IntelligentHabitacion.App.ViewModel
             {
                 await ShowLoading();
                 await Navigation.PushAsync<UpdateUserInformationViewModel>();
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        private async Task ClickOnCardHomesInformations()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<HomeInformationViewModel>();
                 HideLoading();
             }
             catch (System.Exception exeption)

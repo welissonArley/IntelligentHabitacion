@@ -84,7 +84,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                     State = new StateModel
                     {
                         Name = homeInformations.State.Name,
-                        Abbreviation = homeInformations.State.Abbreviation,
                         Country = new CountryModel
                         {
                             Abbreviation = homeInformations.State.Country.Abbreviation,

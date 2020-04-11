@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://1b527888.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://f686201b.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -68,6 +68,9 @@ namespace IntelligentHabitacion.Communication
                         }
                     case System.Net.HttpStatusCode.Unauthorized:
                         {
+                            if(errorJson.ErrorCode == ErrorCode.TokenExpired)
+                                throw new TokenExpiredException();
+                            
                             throw new ResponseException
                             {
                                 Token = token,

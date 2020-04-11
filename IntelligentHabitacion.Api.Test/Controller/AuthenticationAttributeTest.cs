@@ -1,13 +1,15 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.JWT;
+using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
+using IntelligentHabitacion.Communication.Error;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Moq;
 using System.Collections.Generic;
+using System.Threading;
 using Xunit;
 
 namespace IntelligentHabitacion.Api.Test.Controller
@@ -17,7 +19,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         [Fact]
         public void OnActionExecuted()
         {
-            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null);
+            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null, null);
             actionFiltroAutenticacao.OnActionExecuted(null);
             Assert.True(true);
         }
@@ -25,7 +27,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         [Fact]
         public void OnActionExecutingWithoutToken()
         {
-            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null);
+            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null, null);
 
             var context = GetActionExecutingContext(true);
 
@@ -36,7 +38,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         [Fact]
         public void OnActionExecutingError()
         {
-            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null);
+            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null, null);
 
             var context = GetActionExecutingContext();
 
@@ -49,7 +51,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         {
             var userMock = new Mock<IUserRepository>();
 
-            var actionFiltroAutenticacao = new AuthenticationAttribute(userMock.Object, null);
+            var actionFiltroAutenticacao = new AuthenticationAttribute(userMock.Object, null, new TokenController(60));
 
             var context = GetActionExecutingContext();
 
@@ -69,7 +71,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Value = "0"
             });
 
-            var actionFiltroAutenticacao = new AuthenticationAttribute(userMock.Object, tokenMock.Object);
+            var actionFiltroAutenticacao = new AuthenticationAttribute(userMock.Object, tokenMock.Object, new TokenController(60));
 
             var context = GetActionExecutingContext();
 
@@ -77,10 +79,26 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.IsType<UnauthorizedObjectResult>(context.Result);
         }
 
-        private ActionExecutingContext GetActionExecutingContext(bool withoutToken = false)
+        [Fact]
+        public void OnActionExecutingTokenExpired()
+        {
+            var actionFiltroAutenticacao = new AuthenticationAttribute(null, null, new TokenController(0.1)) ;
+
+            var context = GetActionExecutingContext(expirationTimeMinutes: 0.01);
+
+            Thread.Sleep(2000);
+
+            actionFiltroAutenticacao.OnActionExecuting(context);
+            Assert.IsType<UnauthorizedObjectResult>(context.Result);
+
+            var result = (ErrorJson)((UnauthorizedObjectResult)context.Result).Value;
+            Assert.True(result.ErrorCode == ErrorCode.TokenExpired);
+        }
+
+        private ActionExecutingContext GetActionExecutingContext(bool withoutToken = false, double expirationTimeMinutes = 60)
         {
             var httpContext = new DefaultHttpContext();
-            httpContext.Request.Headers["Authorization"] = withoutToken ? "" : $"Basic {new TokenController().CreateToken("u@u.com")}";
+            httpContext.Request.Headers["Authorization"] = withoutToken ? "" : $"Basic {new TokenController(expirationTimeMinutes).CreateToken("u@u.com")}";
 
             return new ActionExecutingContext(new ActionContext
             {

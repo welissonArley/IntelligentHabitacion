@@ -1,7 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.JWT;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
+using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using IntelligentHabitacion.Api.Test.FactoryFake;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             mock.Setup(c => c.GetService(typeof(ILoggedUser))).Returns(userFactory.GetLoggedUserWithouHome());
             mock.Setup(c => c.GetService(typeof(ITokenRepository))).Returns(GetTokenRepositoryMock());
             mock.Setup(c => c.GetService(typeof(IUserRepository))).Returns(userFactory.GetRepository());
+            mock.Setup(c => c.GetService(typeof(ITokenController))).Returns(new TokenController(60));
 
             return mock.Object;
         }
@@ -46,7 +48,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
 
         protected string GetToken()
         {
-            return $"Basic {new TokenController().CreateToken("user1@gmail.com")}";
+            return $"Basic {new TokenController(60).CreateToken("user1@gmail.com")}";
         }
     }
 }

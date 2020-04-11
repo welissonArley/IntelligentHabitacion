@@ -781,6 +781,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to For security reasons, please log in again..
+        /// </summary>
+        internal static string TITLE_PLEASE_LOGIN_AGAIN {
+            get {
+                return ResourceManager.GetString("TITLE_PLEASE_LOGIN_AGAIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string TITLE_REGISTER {

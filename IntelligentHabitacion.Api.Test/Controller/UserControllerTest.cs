@@ -2,6 +2,8 @@
 using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Repository.Token;
+using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using IntelligentHabitacion.Api.Test.FactoryFake;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Error;
@@ -232,6 +234,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             var mock = new Mock<IServiceProvider>();
             mock.Setup(c => c.GetService(typeof(ITokenRepository))).Returns(GetTokenRepositoryMock());
             mock.Setup(c => c.GetService(typeof(IUserRepository))).Returns(userMock.Object);
+            mock.Setup(c => c.GetService(typeof(ITokenController))).Returns(new TokenController(60));
 
             _controller.HttpContext.RequestServices = mock.Object;
             _controller.Request.Body = new MemoryStream(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request)));

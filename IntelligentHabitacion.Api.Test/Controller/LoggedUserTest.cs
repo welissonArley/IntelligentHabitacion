@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
-using IntelligentHabitacion.Api.SetOfRules.JWT;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
+using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using Microsoft.AspNetCore.Http;
 using Moq;
 using System.Collections.Generic;
@@ -29,11 +29,12 @@ namespace IntelligentHabitacion.Api.Test.Controller
             var mockHttpContext = new Mock<IHttpContextAccessor>();
 
             var context = new DefaultHttpContext();
-            context.Request.Headers.Add("Authorization", $"Basic {new TokenController().CreateToken("user@gmail.com")}");
+            var tokenController = new TokenController(60);
+            context.Request.Headers.Add("Authorization", $"Basic {tokenController.CreateToken("user@gmail.com")}");
 
             mockHttpContext.Setup(c => c.HttpContext).Returns(context);
 
-            var controller = new LoggedUser(mockHttpContext.Object, mockUser.Object);
+            var controller = new LoggedUser(mockHttpContext.Object, mockUser.Object, tokenController);
             var user = controller.User();
             user.Decrypt();
             Assert.Equal("teste@email.com", user.Email);

@@ -5,6 +5,8 @@ using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
+using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -88,6 +90,10 @@ namespace IntelligentHabitacion.Api
             services.AddScoped<AuthenticationAttribute>();
             services.AddScoped<ILoggedUser, LoggedUser>();
             services.AddScoped<IEmailHelper, EmailHelper>();
+            services.AddScoped<ITokenController, TokenController>(ServiceProvider =>
+            {
+                return new TokenController(appSettingsManager.ExpirationTimeMinutes());
+            });
         }
 
         /// <summary>

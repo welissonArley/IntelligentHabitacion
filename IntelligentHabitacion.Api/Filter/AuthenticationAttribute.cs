@@ -1,10 +1,12 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
 using IntelligentHabitacion.Api.SetOfRules.JWT;
+using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.IdentityModel.Tokens;
 using System;
 
 namespace IntelligentHabitacion.Api.Filter
@@ -63,6 +65,13 @@ namespace IntelligentHabitacion.Api.Filter
                         if (!token.Value.Equals(tokenRequest))
                             UserDoesNotHaveAccess(context);
                     }
+                }
+                catch(SecurityTokenExpiredException)
+                {
+                    context.Result = new UnauthorizedObjectResult(new ErrorJson
+                    {
+                        ErrorCode = ErrorCode.TokenExpired
+                    });
                 }
                 catch
                 {

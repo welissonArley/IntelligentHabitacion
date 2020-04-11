@@ -357,6 +357,9 @@
   <data name="TITLE_PHONENUMBER_2_TWOPOINTS" xml:space="preserve">
     <value>Phone number 2:</value>
   </data>
+  <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
+    <value>For security reasons, please log in again.</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Register</value>
   </data>

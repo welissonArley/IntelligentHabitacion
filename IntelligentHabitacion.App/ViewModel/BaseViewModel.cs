@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.Template.Loading;
+using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -7,6 +8,7 @@ using Plugin.Connectivity;
 using Rg.Plugins.Popup.Extensions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel
@@ -17,7 +19,17 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             var navigation = Resolver.Resolve<INavigation>();
 
-            if (!((exception as ResponseException) is null))
+            if (!(exception.InnerException as System.Reflection.TargetInvocationException is null))
+            {
+                var targetInvocationException = (System.Reflection.TargetInvocationException)exception.InnerException;
+                if (!(targetInvocationException.InnerException.InnerException as TokenExpiredException is null))
+                    await SecurityTokenExpired(navigation);
+                else
+                    UnknownError();
+            }
+            else if (!((exception as TokenExpiredException) is null))
+                await SecurityTokenExpired(navigation);
+            else if (!((exception as ResponseException) is null))
             {
                 var responseException = (ResponseException)exception;
                 var database = Resolver.Resolve<ISqliteDatabase>();
@@ -67,6 +79,15 @@ namespace IntelligentHabitacion.App.ViewModel
             await navigation.PushPopupAsync(new WithoutInternetConnectionModal());
             await Task.Delay(1100);
             await navigation.PopPopupAsync();
+        }
+
+        private async Task SecurityTokenExpired(INavigation navigation)
+        {
+            var database = Resolver.Resolve<ISqliteDatabase>();
+            database.Delete();
+            await navigation.PopAllPopupAsync();
+            await navigation.PushPopupAsync(new ErrorModal(ResourceText.TITLE_PLEASE_LOGIN_AGAIN));
+            Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());
         }
     }
 }

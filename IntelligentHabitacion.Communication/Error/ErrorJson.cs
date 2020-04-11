@@ -2,8 +2,15 @@
 
 namespace IntelligentHabitacion.Communication.Error
 {
+    public enum ErrorCode
+    {
+        TokenExpired = 0,
+        Error = 1
+    }
+
     public class ErrorJson
     {
+        public ErrorCode ErrorCode = ErrorCode.Error;
         public List<string> Errors { get; set; }
 
         public ErrorJson() { /* Use only for JsonConvert.DeserializeObject<ErrorJson> */ }

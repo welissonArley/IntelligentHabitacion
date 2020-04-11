@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [ServiceFilter(typeof(AuthenticationAttribute))]
+    [ServiceFilter(typeof(AuthenticationUserAttribute))]
     public class HomeController : BaseController
     {
         private readonly IHomeRule _homeRule;

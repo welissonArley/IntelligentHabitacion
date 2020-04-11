@@ -12,7 +12,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [ServiceFilter(typeof(AuthenticationUserAttribute))]
     public class HomeController : BaseController
     {
         private readonly IHomeRule _homeRule;
@@ -34,6 +33,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [Route("Register")]
+        [ServiceFilter(typeof(AuthenticationUserAttribute))]
         public IActionResult Register(RequestRegisterHomeJson registerHomeJson)
         {
             try
@@ -56,12 +56,36 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("Informations")]
         [ProducesResponseType(typeof(ResponseHomeInformationsJson), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserAttribute))]
         public IActionResult Informations()
         {
             try
             {
                 var informations = _homeRule.GetInformations();
                 return Ok(informations);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will update the Home's informations
+        /// </summary>
+        /// <param name="updateHomeJson"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("Update")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult Update(RequestRegisterHomeJson updateHomeJson)
+        {
+            try
+            {
+                VerifyParameters(updateHomeJson);
+                _homeRule.Update(updateHomeJson);
+                return Ok();
             }
             catch (System.Exception exception)
             {

@@ -115,5 +115,75 @@ namespace IntelligentHabitacion.Api.Test.Controller
             var result = controller.Informations();
             Assert.IsType<OkObjectResult>(result);
         }
+
+        [Fact]
+        public void UpdateInformationsInvalid()
+        {
+            var controller = new HomeController(new HomeFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Home/Update/");
+            var result = controller.Update(new RequestRegisterHomeJson
+            {
+                Address = "",
+                City = new RequestRegisterCityJson
+                {
+                    Name = "City",
+                    State = new RequestRegisterStateJson
+                    {
+                        Name = "State",
+                        Country = new RequestRegisterCountryJson
+                        {
+                            Name = "Country",
+                            Abbreviation = "A"
+                        }
+                    }
+                },
+                Complement = "",
+                Neighborhood = "Neighborhood",
+                NetworksName = "",
+                NetworksPassword = "password",
+                Number = "1",
+                ZipCode = ""
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+            var value = (ErrorJson)((BadRequestObjectResult)result).Value;
+            Assert.True(value.Errors.Count == 3);
+        }
+
+        [Fact]
+        public void UpdateInformationsSuccess()
+        {
+            var controller = new HomeController(new HomeFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Home/Update/");
+            var result = controller.Update(new RequestRegisterHomeJson
+            {
+                Address = "Address",
+                City = new RequestRegisterCityJson
+                {
+                    Name = "City",
+                    State = new RequestRegisterStateJson
+                    {
+                        Name = "State",
+                        Country = new RequestRegisterCountryJson
+                        {
+                            Name = "Country",
+                            Abbreviation = "A"
+                        }
+                    }
+                },
+                Complement = "",
+                Neighborhood = "Neighborhood",
+                NetworksName = "Network",
+                NetworksPassword = "password",
+                Number = "1",
+                ZipCode = "00.000-000"
+            });
+            Assert.IsType<OkResult>(result);
+        }
     }
 }

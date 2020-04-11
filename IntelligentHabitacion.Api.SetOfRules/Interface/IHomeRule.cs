@@ -7,5 +7,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
     {
         void Register(RequestRegisterHomeJson registerHomeJson);
         ResponseHomeInformationsJson GetInformations();
+        void Update(RequestRegisterHomeJson updateHomeJson);
     }
 }

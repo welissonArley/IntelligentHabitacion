@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace IntelligentHabitacion.Api.SetOfRules.JWT
+namespace IntelligentHabitacion.Api.SetOfRules.Token.JWT
 {
-    public class TokenController
+    public class TokenController : ITokenController
     {
         private const string Email = "eml";
+        private readonly double _expirationTimeMinutes;
+
+        public TokenController(double expirationTimeMinutes)
+        {
+            _expirationTimeMinutes = expirationTimeMinutes;
+        }
 
         public string CreateToken(string email)
         {
@@ -21,7 +27,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.JWT
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Expires = DateTime.UtcNow.AddMinutes(180), // 3 hours
+                Expires = DateTime.UtcNow.AddMinutes(_expirationTimeMinutes),
                 Subject = new ClaimsIdentity(claims),
                 SigningCredentials = new SigningCredentials(SimetricKey(), SecurityAlgorithms.HmacSha256Signature)
             };

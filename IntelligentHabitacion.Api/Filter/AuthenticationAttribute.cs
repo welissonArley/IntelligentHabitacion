@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.JWT;
+using IntelligentHabitacion.Api.SetOfRules.Token;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -18,16 +18,19 @@ namespace IntelligentHabitacion.Api.Filter
     {
         private readonly IUserRepository _userRepository;
         private readonly ITokenRepository _tokenRepository;
+        private readonly ITokenController _tokenController;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userRepository"></param>
         /// <param name="tokenRepository"></param>
-        public AuthenticationAttribute(IUserRepository userRepository, ITokenRepository tokenRepository)
+        /// <param name="tokenController"></param>
+        public AuthenticationAttribute(IUserRepository userRepository, ITokenRepository tokenRepository, ITokenController tokenController)
         {
             _userRepository = userRepository;
             _tokenRepository = tokenRepository;
+            _tokenController = tokenController;
         }
 
         /// <summary>
@@ -53,8 +56,7 @@ namespace IntelligentHabitacion.Api.Filter
                 try
                 {
                     var tokenRequest = authentication.Substring("Basic ".Length).Trim();
-                    var tokenController = new TokenController();
-                    var email = tokenController.User(tokenRequest);
+                    var email = _tokenController.User(tokenRequest);
                     var user = _userRepository.GetByEmail(email);
 
                     if (user == null)

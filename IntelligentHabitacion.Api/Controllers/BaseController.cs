@@ -1,8 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.JWT;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
+using IntelligentHabitacion.Api.SetOfRules.Token;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
@@ -122,19 +122,21 @@ namespace IntelligentHabitacion.Api.Controllers
             User user;
             string tokenToUseInNextRequest;
 
+            var tokenController = (ITokenController)HttpContext.RequestServices.GetService(typeof(ITokenController));
+
             if (Request.Path.Value.Contains("Login"))
             {
                 var login = JsonConvert.DeserializeObject<RequestLoginJson>(GetBodyMessage());
                 IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
                 user = userRepository.GetByEmail(login.User);
-                tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
+                tokenToUseInNextRequest = tokenController.CreateToken(user.Email);
             }
             else if (Request.Path.Value.Contains("User/Register"))
             {
                 var registerUser = JsonConvert.DeserializeObject<RequestRegisterUserJson>(GetBodyMessage());
                 IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
                 user = userRepository.GetByEmail(registerUser.Email);
-                tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
+                tokenToUseInNextRequest = tokenController.CreateToken(user.Email);
             }
             else if (Request.Path.Value.Contains("User/Update"))
             {
@@ -146,22 +148,22 @@ namespace IntelligentHabitacion.Api.Controllers
                     var autorizathion = HttpContext.Request.Headers["Authorization"].ToString();
                     var token = autorizathion.Substring("Basic ".Length).Trim();
 
-                    var email = new TokenController().User(token);
-                    tokenToUseInNextRequest = new TokenController().CreateToken(email);
+                    var email = tokenController.User(token);
+                    tokenToUseInNextRequest = tokenController.CreateToken(email);
                 }
                 else
                 {
                     var updateUser = JsonConvert.DeserializeObject<RequestUpdateUserJson>(GetBodyMessage());
                     IUserRepository userRepository = (IUserRepository)HttpContext.RequestServices.GetService(typeof(IUserRepository));
                     user = userRepository.GetByEmail(updateUser.Email);
-                    tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
+                    tokenToUseInNextRequest = tokenController.CreateToken(user.Email);
                 }
             }
             else
             {
                 ILoggedUser loggedUser = (ILoggedUser)HttpContext.RequestServices.GetService(typeof(ILoggedUser));
                 user = loggedUser.User();
-                tokenToUseInNextRequest = new TokenController().CreateToken(user.Email);
+                tokenToUseInNextRequest = tokenController.CreateToken(user.Email);
             }
 
             CreateToken(user, tokenToUseInNextRequest);

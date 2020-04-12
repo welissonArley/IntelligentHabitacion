@@ -367,6 +367,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add friend.
+        /// </summary>
+        internal static string TITLE_ADD_FRIEND {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_FRIEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Now the address.
         /// </summary>
         internal static string TITLE_ADDRESS {

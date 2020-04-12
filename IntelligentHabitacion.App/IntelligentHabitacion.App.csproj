@@ -45,6 +45,9 @@
     <Compile Update="Template\HeaderWithGirlReading\HeaderWithGirlReading.xaml.cs">
       <DependentUpon>HeaderWithGirlReading.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\MyFriendsComponent.xaml.cs">
+      <DependentUpon>MyFriendsComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Loading\LoadingContentView.xaml.cs">
       <DependentUpon>LoadingContentView.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,9 @@
     </Compile>
     <Compile Update="View\AboutThisAppPage.xaml.cs">
       <DependentUpon>AboutThisAppPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\MyFriendsPage.xaml.cs">
+      <DependentUpon>MyFriendsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>

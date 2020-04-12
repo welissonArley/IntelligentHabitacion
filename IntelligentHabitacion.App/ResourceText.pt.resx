@@ -237,6 +237,9 @@
   <data name="TITLE_ADDRESS_TWOPOINTS" xml:space="preserve">
     <value>Logradouro:</value>
   </data>
+  <data name="TITLE_ADD_FRIEND" xml:space="preserve">
+    <value>Adicionar amigo</value>
+  </data>
   <data name="TITLE_CANCEL" xml:space="preserve">
     <value>Cancelar</value>
   </data>

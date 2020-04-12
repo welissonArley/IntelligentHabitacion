@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IntelligentHabitacion.App.Template.Informations.MyFriendsComponent">
+    <ContentView.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+            <StackLayout AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                <Frame Margin="0,10,25,10" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="true" CornerRadius="15" Padding="0">
+                    <StackLayout Margin="20,15,0,15" Spacing="-3">
+                        <Label x:Name="LabelFriendsName" FontSize="18" TextColor="{x:StaticResource YellowDefault}" Style="{x:StaticResource LabelExtraBold}"></Label>
+                        <StackLayout Margin="0,5,0,0" Orientation="Horizontal" Spacing="-3">
+                            <Label FontSize="13" Style="{x:StaticResource LabelThin}" x:Name="LabelFriendPhonenumber1" TextColor="Black"></Label>
+                            <Label Margin="15,0,15,0" Text="|" TextColor="Black" Style="{x:StaticResource LabelBold}" FontSize="14" x:Name="LabelSeparator" IsVisible="False"></Label>
+                            <Label FontSize="13" Style="{x:StaticResource LabelThin}" x:Name="LabelFriendPhonenumber2" TextColor="Black"></Label>
+                        </StackLayout>
+
+                        <Label Margin="0,15,0,5" x:Name="LabelEmergencyContact1Name" FontSize="14" TextColor="Black"></Label>
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" x:Name="LabelEmergencyContact1RelationshipTo" FontSize="12" Style="{x:StaticResource LabelThin}" TextColor="Black"></Label>
+                            <Label Grid.Column="1" Margin="-20,0,0,0" x:Name="LabelEmergencyContact1Phonenumber" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="Black"></Label>
+                        </Grid>
+                        
+                        <Label Margin="0,15,0,5" x:Name="LabelEmergencyContact2Name" FontSize="14" TextColor="Black"></Label>
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" x:Name="LabelEmergencyContact2RelationshipTo" FontSize="12" Style="{x:StaticResource LabelThin}" TextColor="Black"></Label>
+                            <Label Grid.Column="1" Margin="-20,0,0,0" x:Name="LabelEmergencyContact2Phonenumber" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="Black"></Label>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="Center" HorizontalOptions="End">
+                <Image Source="IconCircleEdit" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"></Image>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
+             x:Class="IntelligentHabitacion.App.View.MyFriendsPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
+        <ListView ItemTapped="ListView_ItemTapped" RowHeight="185" Margin="0,0,0,20" VerticalOptions="FillAndExpand" ItemsSource="{Binding FriendsList}" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <template:MyFriendsComponent FriendName="{Binding Name}" EmergencyContact1Name="{Binding EmergencyContact1.Name}" EmergencyContact2Name="{Binding EmergencyContact2.Name}" EmergencyContact1Phonenumber="{Binding EmergencyContact1.PhoneNumber}" EmergencyContact2Phonenumber="{Binding EmergencyContact2.PhoneNumber}" EmergencyContact1RelationshipTo="{Binding EmergencyContact1.FamilyRelationship}" EmergencyContact2RelationshipTo="{Binding EmergencyContact2.FamilyRelationship}" FriendPhonenumber1="{Binding Phonenumber1}" FriendPhonenumber2="{Binding Phonenumber2}"></template:MyFriendsComponent>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}"></Button>
+    </StackLayout>
+</ContentPage>

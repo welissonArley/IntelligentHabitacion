@@ -347,4 +347,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconWifi%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCircleEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCircleEdit%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCircleEdit%403x.png" />
+  </ItemGroup>
 </Project>

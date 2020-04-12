@@ -109,6 +109,10 @@
                 <Setter Property="Margin" Value="20,0,20,30"></Setter>
                 <Setter Property="Spacing" Value="0"></Setter>
             </Style>
+            <Style TargetType="StackLayout" x:Key="MarginStyleDefaultWithScroll">
+                <Setter Property="Margin" Value="0,0,0,30"></Setter>
+                <Setter Property="Spacing" Value="0"></Setter>
+            </Style>
 
             <Style TargetType="Entry" ApplyToDerivedTypes="True">
                 <Setter Property="PlaceholderColor" Value="{DynamicResource GrayDefault}"></Setter>

@@ -87,7 +87,8 @@ namespace IntelligentHabitacion.Api
 
             services.AddHttpContextAccessor();
 
-            services.AddScoped<AuthenticationAttribute>();
+            services.AddScoped<AuthenticationUserAttribute>();
+            services.AddScoped<AuthenticationUserIsAdminAttribute>();
             services.AddScoped<ILoggedUser, LoggedUser>();
             services.AddScoped<IEmailHelper, EmailHelper>();
             services.AddScoped<ITokenController, TokenController>(ServiceProvider =>

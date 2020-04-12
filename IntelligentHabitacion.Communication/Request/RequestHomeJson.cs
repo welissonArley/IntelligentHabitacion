@@ -1,6 +1,6 @@
 ﻿namespace IntelligentHabitacion.Communication.Request
 {
-    public class RequestRegisterHomeJson
+    public class RequestHomeJson
     {
         public string ZipCode { get; set; }
         public RequestRegisterCityJson City { get; set; }

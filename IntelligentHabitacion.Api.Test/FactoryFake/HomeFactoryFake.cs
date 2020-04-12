@@ -21,6 +21,7 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
         {
             var repositorioMock = new Mock<IHomeRepository>();
             repositorioMock.Setup(c => c.Create(new Home()));
+            repositorioMock.Setup(c => c.GetById(1)).Returns(new Home());
 
             return repositorioMock.Object;
         }

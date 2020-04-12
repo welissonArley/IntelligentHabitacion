@@ -78,8 +78,8 @@
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\UpdateHomeInformationPage.xaml.cs">
-      <DependentUpon>UpdateHomeInformationPage.xaml</DependentUpon>
+    <Compile Update="View\HomeInformationPage.xaml.cs">
+      <DependentUpon>HomeInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\UpdateUserInformationPage.xaml.cs">
       <DependentUpon>UpdateUserInformationPage.xaml</DependentUpon>

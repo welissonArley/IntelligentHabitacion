@@ -3,18 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
-             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel" xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
              Title="{x:Static resourceText:ResourceText.TITLE_HOME_SWEET_HOME}"
              x:Name="UpdateHomeInformationContentPage"
-             x:Class="IntelligentHabitacion.App.View.UpdateHomeInformationPage">
+             x:Class="IntelligentHabitacion.App.View.HomeInformationPage">
+    <ContentPage.Resources>
+        <behavior:ZipCodeBehavior x:Key="BehaviorZipCode"></behavior:ZipCodeBehavior>
+    </ContentPage.Resources>
     <StackLayout>
         <ScrollView>
             <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+                <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.ZipCode" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ZIPCODE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ZIPCODE}" IsPassword="False" EntryBehavior="{x:StaticResource BehaviorZipCode}" EntryUnfocused="{Binding ZipCodeChangedUnfocused}" Keyboard="Numeric"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.Address" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESS}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.Neighborhood" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.Number" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSNUMBER}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.Complement" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSCOMPLEMENT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSCOMPLEMENT}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
-                <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.ZipCode" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ZIPCODE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ZIPCODE}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.City.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
 
                 <StackLayout Orientation="Horizontal" Margin="0,30,0,0">
@@ -25,7 +28,7 @@
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.NetWork.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NETWORK_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.NetWork.Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
 
-                <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}"></Button>
+                <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding UpdateInformationsTapped}"></Button>
                 <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_HOME}" IsVisible="{Binding IsAdministrator}"></templateButton:DeleteButton>
             </StackLayout>
         </ScrollView>

@@ -22,37 +22,15 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _database = database;
         }
 
-        public async Task Create(HomeModel Model)
+        public async Task Create(HomeModel model)
         {
-            ValidadeAdress(Model.Address);
-            ValidadeCity(Model.City.Name);
-            ValidadeNeighborhood(Model.Neighborhood);
-            ValidadeNetWorkInformation(Model.NetWork.Name, Model.NetWork.Password);
-            ValidadeNumber(Model.Number);
+            ValidadeAdress(model.Address);
+            ValidadeCity(model.City.Name);
+            ValidadeNeighborhood(model.Neighborhood);
+            ValidadeNetWorkInformation(model.NetWork.Name, model.NetWork.Password);
+            ValidadeNumber(model.Number);
 
-            var response = await _httpClient.CreateHome(new RequestRegisterHomeJson
-            {
-                Address = Model.Address,
-                City = new RequestRegisterCityJson
-                {
-                    Name = Model.City.Name,
-                    State = new RequestRegisterStateJson
-                    {
-                        Name = Model.City.State.Name,
-                        Country = new RequestRegisterCountryJson
-                        {
-                            Name = Model.City.State.Country.Name,
-                            Abbreviation = Model.City.State.Country.Abbreviation
-                        }
-                    }
-                },
-                Complement = Model.Complement,
-                ZipCode = Model.ZipCode,
-                Neighborhood = Model.Neighborhood,
-                NetworksName = Model.NetWork.Name,
-                NetworksPassword = Model.NetWork.Password,
-                Number = Model.Number
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.CreateHome(CreateRequestHomeJson(model), _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _database.UpdateToken(response.Token);
             _database.IsAdministrator();
@@ -92,6 +70,19 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                     }
                 }
             };
+        }
+
+        public async Task UpdateInformations(HomeModel model)
+        {
+            ValidadeAdress(model.Address);
+            ValidadeCity(model.City.Name);
+            ValidadeNeighborhood(model.Neighborhood);
+            ValidadeNetWorkInformation(model.NetWork.Name, model.NetWork.Password);
+            ValidadeNumber(model.Number);
+
+            var response = await _httpClient.UpdateHome(CreateRequestHomeJson(model), _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
         }
 
         public void ValidadeAdress(string address)
@@ -145,6 +136,33 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                         Name = "Brasil"
                     }
                 }
+            };
+        }
+
+        private RequestHomeJson CreateRequestHomeJson(HomeModel model)
+        {
+            return new RequestHomeJson
+            {
+                Address = model.Address,
+                City = new RequestRegisterCityJson
+                {
+                    Name = model.City.Name,
+                    State = new RequestRegisterStateJson
+                    {
+                        Name = model.City.State.Name,
+                        Country = new RequestRegisterCountryJson
+                        {
+                            Name = model.City.State.Country.Name,
+                            Abbreviation = model.City.State.Country.Abbreviation
+                        }
+                    }
+                },
+                Complement = model.Complement,
+                ZipCode = model.ZipCode,
+                Neighborhood = model.Neighborhood,
+                NetworksName = model.NetWork.Name,
+                NetworksPassword = model.NetWork.Password,
+                Number = model.Number
             };
         }
     }

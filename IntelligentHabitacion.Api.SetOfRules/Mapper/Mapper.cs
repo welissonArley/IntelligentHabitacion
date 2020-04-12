@@ -42,7 +42,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Number = number
             };
         }
-        public Home MapperJsonToModel(RequestRegisterHomeJson registerHomeJson)
+        public Home MapperJsonToModel(RequestHomeJson registerHomeJson)
         {
             return new Home
             {

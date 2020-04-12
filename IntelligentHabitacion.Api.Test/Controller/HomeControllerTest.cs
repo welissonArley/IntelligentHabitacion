@@ -28,7 +28,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 ControllerContext = GetHttpContext()
             };
             controller.HttpContext.Request.Path = new PathString("/Home/Register/");
-            var result = controller.Register(new RequestRegisterHomeJson());
+            var result = controller.Register(new RequestHomeJson());
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
@@ -36,7 +36,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void CreateInvalid()
         {
             _controller.HttpContext.Request.Path = new PathString("/Home/Register/");
-            var result = _controller.Register(new RequestRegisterHomeJson
+            var result = _controller.Register(new RequestHomeJson
             {
                 Address = "",
                 City = new RequestRegisterCityJson
@@ -68,7 +68,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void CreateSucess()
         {
             _controller.HttpContext.Request.Path = new PathString("/Home/Register/");
-            var result = _controller.Register(new RequestRegisterHomeJson
+            var result = _controller.Register(new RequestHomeJson
             {
                 Address = "Address",
                 City = new RequestRegisterCityJson
@@ -114,6 +114,76 @@ namespace IntelligentHabitacion.Api.Test.Controller
             controller.HttpContext.Request.Path = new PathString("/Home/Informations/");
             var result = controller.Informations();
             Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public void UpdateInformationsInvalid()
+        {
+            var controller = new HomeController(new HomeFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Home/Update/");
+            var result = controller.Update(new RequestHomeJson
+            {
+                Address = "",
+                City = new RequestRegisterCityJson
+                {
+                    Name = "City",
+                    State = new RequestRegisterStateJson
+                    {
+                        Name = "State",
+                        Country = new RequestRegisterCountryJson
+                        {
+                            Name = "Country",
+                            Abbreviation = "A"
+                        }
+                    }
+                },
+                Complement = "",
+                Neighborhood = "Neighborhood",
+                NetworksName = "",
+                NetworksPassword = "password",
+                Number = "1",
+                ZipCode = ""
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+            var value = (ErrorJson)((BadRequestObjectResult)result).Value;
+            Assert.True(value.Errors.Count == 3);
+        }
+
+        [Fact]
+        public void UpdateInformationsSuccess()
+        {
+            var controller = new HomeController(new HomeFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Home/Update/");
+            var result = controller.Update(new RequestHomeJson
+            {
+                Address = "Address",
+                City = new RequestRegisterCityJson
+                {
+                    Name = "City",
+                    State = new RequestRegisterStateJson
+                    {
+                        Name = "State",
+                        Country = new RequestRegisterCountryJson
+                        {
+                            Name = "Country",
+                            Abbreviation = "A"
+                        }
+                    }
+                },
+                Complement = "",
+                Neighborhood = "Neighborhood",
+                NetworksName = "Network",
+                NetworksPassword = "password",
+                Number = "1",
+                ZipCode = "00.000-000"
+            });
+            Assert.IsType<OkResult>(result);
         }
     }
 }

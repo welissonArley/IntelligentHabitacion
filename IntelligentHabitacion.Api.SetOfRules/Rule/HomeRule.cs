@@ -6,6 +6,7 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
+using IntelligentHabitacion.Useful;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.SetOfRules.Rule
@@ -32,7 +33,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             return new Mapper.Mapper().MapperModelToJson(loggedUser.Home);
         }
 
-        public void Register(RequestRegisterHomeJson registerHomeJson)
+        public void Register(RequestHomeJson registerHomeJson)
         {
             var loggedUser = _loggedUser.User();
             if (loggedUser.HomeId != null)
@@ -50,6 +51,32 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 userToUpdate.HomeId = homeModel.Id;
                 _userRepository.Update(userToUpdate);
             }
+            else
+                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
+        }
+
+        public void Update(RequestHomeJson updateHomeJson)
+        {
+            var loggedUser = _loggedUser.User();
+            var homeModel = _homeRepository.GetById((long)loggedUser.HomeId);
+
+            homeModel.UpdateDate = DateTimeController.DateTimeNow();
+            homeModel.Address = updateHomeJson.Address;
+            homeModel.City = updateHomeJson.City.Name;
+            homeModel.State = updateHomeJson.City.State.Name;
+            homeModel.Country = updateHomeJson.City.State.Country.Name;
+            homeModel.CountryAbbreviation = updateHomeJson.City.State.Country.Abbreviation;
+            homeModel.Complement = updateHomeJson.Complement;
+            homeModel.Neighborhood = updateHomeJson.Neighborhood;
+            homeModel.NetworksName = updateHomeJson.NetworksName;
+            homeModel.NetworksPassword = updateHomeJson.NetworksPassword;
+            homeModel.Number = updateHomeJson.Number;
+            homeModel.ZipCode = updateHomeJson.ZipCode;
+
+            var validation = new HomeValidator().Validate(homeModel);
+
+            if (validation.IsValid)
+                _homeRepository.Update(homeModel);
             else
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
         }

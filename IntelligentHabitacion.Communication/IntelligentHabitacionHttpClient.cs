@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://f686201b.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://b3236a1b.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -168,7 +168,7 @@ namespace IntelligentHabitacion.Communication
         #endregion
 
         #region Home
-        public async Task<ResponseJson> CreateHome(RequestRegisterHomeJson registerHome, string token, string language = null)
+        public async Task<ResponseJson> CreateHome(RequestHomeJson registerHome, string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Home/Register", registerHome, token: token, language: language);
             return new ResponseJson
@@ -177,13 +177,21 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
-
         public async Task<ResponseJson> GetHomesInformations(string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Home/Informations", token: token, language: language);
             return new ResponseJson
             {
                 Response = JsonConvert.DeserializeObject<ResponseHomeInformationsJson>(await response.Content.ReadAsStringAsync()),
+                Token = GetToken(response)
+            };
+        }
+        public async Task<ResponseJson> UpdateHome(RequestHomeJson registerHome, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/Home/Update", registerHome, token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
                 Token = GetToken(response)
             };
         }

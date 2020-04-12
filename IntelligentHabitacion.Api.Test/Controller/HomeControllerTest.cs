@@ -28,7 +28,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 ControllerContext = GetHttpContext()
             };
             controller.HttpContext.Request.Path = new PathString("/Home/Register/");
-            var result = controller.Register(new RequestRegisterHomeJson());
+            var result = controller.Register(new RequestHomeJson());
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
@@ -36,7 +36,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void CreateInvalid()
         {
             _controller.HttpContext.Request.Path = new PathString("/Home/Register/");
-            var result = _controller.Register(new RequestRegisterHomeJson
+            var result = _controller.Register(new RequestHomeJson
             {
                 Address = "",
                 City = new RequestRegisterCityJson
@@ -68,7 +68,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void CreateSucess()
         {
             _controller.HttpContext.Request.Path = new PathString("/Home/Register/");
-            var result = _controller.Register(new RequestRegisterHomeJson
+            var result = _controller.Register(new RequestHomeJson
             {
                 Address = "Address",
                 City = new RequestRegisterCityJson
@@ -124,7 +124,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 ControllerContext = GetHttpContext()
             };
             controller.HttpContext.Request.Path = new PathString("/Home/Update/");
-            var result = controller.Update(new RequestRegisterHomeJson
+            var result = controller.Update(new RequestHomeJson
             {
                 Address = "",
                 City = new RequestRegisterCityJson
@@ -160,7 +160,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 ControllerContext = GetHttpContext()
             };
             controller.HttpContext.Request.Path = new PathString("/Home/Update/");
-            var result = controller.Update(new RequestRegisterHomeJson
+            var result = controller.Update(new RequestHomeJson
             {
                 Address = "Address",
                 City = new RequestRegisterCityJson

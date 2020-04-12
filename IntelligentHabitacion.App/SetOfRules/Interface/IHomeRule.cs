@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void ValidadeNumber(string number);
         void ValidadeNeighborhood(string neighborhood);
         void ValidadeNetWorkInformation(string name, string password);
-        Task Create(HomeModel Model);
+        Task Create(HomeModel model);
         Task<HomeModel> GetInformations();
         Task UpdateInformations(HomeModel model);
     }

@@ -1,14 +1,13 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SQLite.Interface;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
-    public class HomeInformationViewModel : BaseViewModel, INotifyPropertyChanged
+    public class HomeInformationViewModel : BaseViewModel
     {
         private string _currentZipCode;
         private readonly IHomeRule _homeRule;
@@ -79,11 +78,6 @@ namespace IntelligentHabitacion.App.ViewModel
                 HideLoading();
                 await Exception(exeption);
             }
-        }
-
-        public override void OnViewDisappearing()
-        {
-            base.OnViewDisappearing();
         }
     }
 }

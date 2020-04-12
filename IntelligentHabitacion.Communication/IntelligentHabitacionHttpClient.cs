@@ -168,7 +168,7 @@ namespace IntelligentHabitacion.Communication
         #endregion
 
         #region Home
-        public async Task<ResponseJson> CreateHome(RequestRegisterHomeJson registerHome, string token, string language = null)
+        public async Task<ResponseJson> CreateHome(RequestHomeJson registerHome, string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Home/Register", registerHome, token: token, language: language);
             return new ResponseJson
@@ -186,7 +186,7 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
-        public async Task<ResponseJson> UpdateHome(RequestRegisterHomeJson registerHome, string token, string language = null)
+        public async Task<ResponseJson> UpdateHome(RequestHomeJson registerHome, string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/Home/Update", registerHome, token: token, language: language);
             return new ResponseJson

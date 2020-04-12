@@ -234,6 +234,45 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             }
         }
 
+        [Fact]
+        public async void UpdateSucess()
+        {
+            try
+            {
+                await _homeRule.UpdateInformations(new Model.HomeModel
+                {
+                    Address = "Address",
+                    City = new Model.CityModel
+                    {
+                        Name = "City",
+                        State = new Model.StateModel
+                        {
+                            Name = "State",
+                            Country = new Model.CountryModel
+                            {
+                                Name = "Country",
+                                Abbreviation = "A"
+                            }
+                        }
+                    },
+                    Complement = "",
+                    Neighborhood = "Neighborhood",
+                    NetWork = new Model.WifiNetworkModel
+                    {
+                        Name = "Network",
+                        Password = "password"
+                    },
+                    Number = "1",
+                    ZipCode = "00.000-000"
+                });
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
         private IIntelligentHabitacionHttpClient GetMokIntelligentHabitacionHttpClient()
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
@@ -254,7 +293,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 Token = "Token",
                 Exception = new ZipCodeInvalidException()
             });
-            mock.Setup(c => c.CreateHome(It.IsAny<RequestRegisterHomeJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            mock.Setup(c => c.CreateHome(It.IsAny<RequestHomeJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
             {
                 Token = "token"
             });
@@ -284,7 +323,11 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                     }
                 }
             });
-
+            mock.Setup(c => c.UpdateHome(It.IsAny<RequestHomeJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "Token",
+                Response = null
+            });
             return mock.Object;
         }
     }

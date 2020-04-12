@@ -34,7 +34,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ProducesResponseType(StatusCodes.Status201Created)]
         [Route("Register")]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
-        public IActionResult Register(RequestRegisterHomeJson registerHomeJson)
+        public IActionResult Register(RequestHomeJson registerHomeJson)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [Route("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult Update(RequestRegisterHomeJson updateHomeJson)
+        public IActionResult Update(RequestHomeJson updateHomeJson)
         {
             try
             {

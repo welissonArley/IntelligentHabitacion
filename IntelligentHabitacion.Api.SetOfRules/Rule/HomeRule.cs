@@ -33,7 +33,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             return new Mapper.Mapper().MapperModelToJson(loggedUser.Home);
         }
 
-        public void Register(RequestRegisterHomeJson registerHomeJson)
+        public void Register(RequestHomeJson registerHomeJson)
         {
             var loggedUser = _loggedUser.User();
             if (loggedUser.HomeId != null)
@@ -55,7 +55,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
         }
 
-        public void Update(RequestRegisterHomeJson updateHomeJson)
+        public void Update(RequestHomeJson updateHomeJson)
         {
             var loggedUser = _loggedUser.User();
             var homeModel = _homeRepository.GetById((long)loggedUser.HomeId);

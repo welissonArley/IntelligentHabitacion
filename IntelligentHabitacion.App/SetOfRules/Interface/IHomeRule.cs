@@ -14,5 +14,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void ValidadeNetWorkInformation(string name, string password);
         Task Create(HomeModel Model);
         Task<HomeModel> GetInformations();
+        Task UpdateInformations(HomeModel model);
     }
 }

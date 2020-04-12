@@ -1,4 +1,5 @@
-﻿using XLabs.Data;
+﻿using System.ComponentModel;
+using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
 {
@@ -8,8 +9,19 @@ namespace IntelligentHabitacion.App.Model
         {
             State = new StateModel();
         }
-
-        public string Name { get; set; }
+        private string _name;
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+            }
+        }
         public StateModel State { get; set; }
     }
 }

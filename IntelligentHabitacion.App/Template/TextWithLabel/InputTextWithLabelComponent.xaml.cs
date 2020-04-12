@@ -1,5 +1,4 @@
-﻿using IntelligentHabitacion.App.Behavior;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IntelligentHabitacion.App.Template.TextWithLabel
@@ -13,6 +12,12 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
         {
             get => (Xamarin.Forms.Behavior)GetValue(EntryBehaviorProperty);
             set => SetValue(EntryBehaviorProperty, value);
+        }
+
+        public System.EventHandler<FocusEventArgs> EntryUnfocused
+        {
+            get => (System.EventHandler<FocusEventArgs>)GetValue(EntryUnfocusedProperty);
+            set => SetValue(EntryUnfocusedProperty, value);
         }
 
         public static readonly BindableProperty TopMarginProperty = BindableProperty.Create(
@@ -36,13 +41,27 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: EntryBehaviorPropertyChanged);
 
+        public static readonly BindableProperty EntryUnfocusedProperty = BindableProperty.Create(
+                                                        propertyName: "EntryUnfocused",
+                                                        returnType: typeof(System.EventHandler<FocusEventArgs>),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: EntryUnfocusedPropertyChanged);
+
         private static void EntryBehaviorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (newValue != null)
                 ((InputTextWithLabelComponent)bindable).Input.Behaviors.Add((Xamarin.Forms.Behavior)newValue);
         }
 
-        public string PropertyToBindindEntry { set { Input.SetBinding(Entry.TextProperty, value); } get { return null; } }
+        private static void EntryUnfocusedPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue != null)
+                ((InputTextWithLabelComponent)bindable).Input.Unfocused += (System.EventHandler<FocusEventArgs>)newValue;
+        }
+
+        public string PropertyToBindindEntry { set { Input.SetBinding(Entry.TextProperty, value, mode: BindingMode.TwoWay); } get { return null; } }
         public string LabelTitle { get; set; }
         public string PlaceHolderText { set { Input.Placeholder = value; } get { return Input.Placeholder; } }
         public Keyboard Keyboard { set { Input.Keyboard = value; } get { return Input.Keyboard; } }

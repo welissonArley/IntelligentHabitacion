@@ -135,7 +135,78 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 HomeId = 1,
                 Home = new Home
                 {
-                    Id = 1
+                    Id = 1,
+                    Users = new List<User>
+                    {
+                        new User
+                        {
+                            Id = 1,
+                            Phonenumbers = new List<Phonenumber>
+                            {
+                                new Phonenumber
+                                {
+                                    Number = "(31) 9 9999-9999",
+                                    UserId = 1
+                                },
+                                new Phonenumber
+                                {
+                                    Number = "(31) 9 9999-9999",
+                                    UserId = 1
+                                }
+                            },
+                            EmergecyContacts = new List<EmergencyContact>
+                            {
+                                new EmergencyContact
+                                {
+                                    DegreeOfKinship = "Mother",
+                                    Name = "Contact",
+                                    Phonenumber = "(31) 9 8888-8888",
+                                    UserId = 1
+                                },
+                                new EmergencyContact
+                                {
+                                    DegreeOfKinship = "Mother",
+                                    Name = "Contact",
+                                    Phonenumber = "(31) 9 8888-8888",
+                                    UserId = 1
+                                }
+                            }
+                        },
+                        new User
+                        {
+                            Id = 2,
+                            Phonenumbers = new List<Phonenumber>
+                            {
+                                new Phonenumber
+                                {
+                                    Number = "(31) 9 9999-9999",
+                                    UserId = 1
+                                },
+                                new Phonenumber
+                                {
+                                    Number = "(31) 9 9999-9999",
+                                    UserId = 1
+                                }
+                            },
+                            EmergecyContacts = new List<EmergencyContact>
+                            {
+                                new EmergencyContact
+                                {
+                                    DegreeOfKinship = "Mother",
+                                    Name = "Contact",
+                                    Phonenumber = "(31) 9 8888-8888",
+                                    UserId = 1
+                                },
+                                new EmergencyContact
+                                {
+                                    DegreeOfKinship = "Mother",
+                                    Name = "Contact",
+                                    Phonenumber = "(31) 9 8888-8888",
+                                    UserId = 1
+                                }
+                            }
+                        }
+                    }
                 }
             });
 

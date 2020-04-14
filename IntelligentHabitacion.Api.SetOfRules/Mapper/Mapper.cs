@@ -130,6 +130,15 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 }
             };
         }
+        public ResponseFriendJson MapperModelToJsonFriend(User model)
+        {
+            return new ResponseFriendJson
+            {
+                Name = model.Name,
+                Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
+                EmergencyContactc = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList()
+            };
+        }
         #endregion
     }
 }

@@ -147,6 +147,9 @@
   <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
     <value>Going to the Supermarket? Take a look at the shopping list.</value>
   </data>
+  <data name="FORMAT_DATE" xml:space="preserve">
+    <value>MMMM dd, yyyy</value>
+  </data>
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>must be fun and organized</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
+    <value>Choose your friend</value>
+  </data>
   <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
     <value>City:</value>
   </data>
@@ -309,11 +315,17 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
+    <value>{0} friends available.</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
   </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>It's so sad see you go :((</value>
+  </data>
+  <data name="TITLE_JOINED_ON" xml:space="preserve">
+    <value>Joined on {0}</value>
   </data>
   <data name="TITLE_JOIN_HOME" xml:space="preserve">
     <value>Join a home</value>
@@ -371,6 +383,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>
+  </data>
+  <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
+    <value>Search by name</value>
   </data>
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>

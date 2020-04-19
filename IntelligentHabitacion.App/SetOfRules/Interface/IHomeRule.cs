@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.Communication.Response;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Interface
@@ -15,5 +16,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         Task Create(HomeModel model);
         Task<HomeModel> GetInformations();
         Task UpdateInformations(HomeModel model);
+        Task<ObservableCollection<FriendModel>> GetHouseFriends();
     }
 }

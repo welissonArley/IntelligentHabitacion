@@ -1,4 +1,6 @@
-﻿namespace IntelligentHabitacion.App.Model
+﻿using System;
+
+namespace IntelligentHabitacion.App.Model
 {
     public class FriendModel
     {
@@ -7,5 +9,7 @@
         public string Phonenumber2 { get; set; }
         public EmergencyContactModel EmergencyContact1 { get; set; }
         public EmergencyContactModel EmergencyContact2 { get; set; }
+        public string ProfileColor { get; set; }
+        public DateTime JoinedOn { get; set; }
     }
 }

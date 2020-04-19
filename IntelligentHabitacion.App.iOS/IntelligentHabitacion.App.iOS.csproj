@@ -66,6 +66,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AppVersion\AppVersioniOS.cs" />
+    <Compile Include="CustomControl\EntryTransparentBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -348,12 +349,21 @@
     <BundleResource Include="Resources\IconWifi%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconCircleEdit.png" />
+    <BundleResource Include="Resources\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconCircleEdit%402x.png" />
+    <BundleResource Include="Resources\IconPhone%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconCircleEdit%403x.png" />
+    <BundleResource Include="Resources\IconPhone%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSearch%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSearch%402x.png" />
   </ItemGroup>
 </Project>

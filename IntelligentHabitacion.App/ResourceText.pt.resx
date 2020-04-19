@@ -147,6 +147,9 @@
   <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
     <value>Vai ao Supermercado? Dê uma olhadinha na lista de compras.</value>
   </data>
+  <data name="FORMAT_DATE" xml:space="preserve">
+    <value>dd MMMM yyyy</value>
+  </data>
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>deve ser divertido e organizado</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Alterar senha</value>
   </data>
+  <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
+    <value>Escolha seu amigo</value>
+  </data>
   <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
     <value>Cidade:</value>
   </data>
@@ -309,11 +315,17 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Esqueceu sua senha?</value>
   </data>
+  <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
+    <value>{0} amigos disponíveis.</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
   </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>É triste ver você partir :((</value>
+  </data>
+  <data name="TITLE_JOINED_ON" xml:space="preserve">
+    <value>Juntou-se em {0}</value>
   </data>
   <data name="TITLE_JOIN_HOME" xml:space="preserve">
     <value>Participar de um lar</value>
@@ -371,6 +383,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
+  </data>
+  <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
+    <value>Busque por nome</value>
   </data>
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>

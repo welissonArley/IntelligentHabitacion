@@ -1,5 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
@@ -7,40 +9,9 @@ namespace IntelligentHabitacion.App.ViewModel
     {
         public ObservableCollection<FriendModel> FriendsList { get; set; }
 
-        public MyFriendsViewModel()
+        public MyFriendsViewModel(IHomeRule homeRule)
         {
-            FriendsList = new ObservableCollection<FriendModel>
-            {
-                new FriendModel
-                {
-                    Name = "Matheus",
-                    Phonenumber1 = "(37) 9 9811-1881",
-                    Phonenumber2 = "(37) 9 9811-1882",
-                    EmergencyContact1 = new EmergencyContactModel
-                    {
-                        Name = "Zilda",
-                        PhoneNumber = "(31) 9 0000-0000",
-                        FamilyRelationship = "Mãe"
-                    }
-                },
-                new FriendModel
-                {
-                    Name = "William",
-                    Phonenumber1 = "(37) 9 9811-1881",
-                    EmergencyContact1 = new EmergencyContactModel
-                    {
-                        Name = "Zilda",
-                        PhoneNumber = "(31) 9 0000-0000",
-                        FamilyRelationship = "Mãe"
-                    },
-                    EmergencyContact2 = new EmergencyContactModel
-                    {
-                        Name = "Zilda",
-                        PhoneNumber = "(31) 9 0000-0000",
-                        FamilyRelationship = "Mãe"
-                    }
-                }
-            };
+            FriendsList = Task.Run(async () => await homeRule.GetHouseFriends()).Result;
         }
     }
 }

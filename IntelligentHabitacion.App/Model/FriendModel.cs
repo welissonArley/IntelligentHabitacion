@@ -1,8 +1,9 @@
 ﻿using System;
+using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
 {
-    public class FriendModel
+    public class FriendModel : ObservableObject
     {
         public string Name { get; set; }
         public string Phonenumber1 { get; set; }

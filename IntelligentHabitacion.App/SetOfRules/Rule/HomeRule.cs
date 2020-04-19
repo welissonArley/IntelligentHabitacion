@@ -8,6 +8,7 @@ using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Useful;
 using IntelligentHabitacion.Validators.Validator;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -38,9 +39,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _database.IsAdministrator();
         }
 
-        public async Task<ObservableCollection<FriendModel>> GetHouseFriends()
+        public async Task<List<FriendModel>> GetHouseFriends()
         {
-            return new ObservableCollection<FriendModel>
+            return new List<FriendModel>
             {
                 new FriendModel
                 {

@@ -78,6 +78,9 @@
     <Compile Update="View\AboutThisAppPage.xaml.cs">
       <DependentUpon>AboutThisAppPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\ChoosePhonenumberModal.xaml.cs">
+      <DependentUpon>ChoosePhonenumberModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\MyFriendsPage.xaml.cs">
       <DependentUpon>MyFriendsPage.xaml</DependentUpon>
     </Compile>

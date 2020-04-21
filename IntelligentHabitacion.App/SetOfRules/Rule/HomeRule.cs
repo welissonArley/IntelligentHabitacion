@@ -9,7 +9,6 @@ using IntelligentHabitacion.Useful;
 using IntelligentHabitacion.Validators.Validator;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule
@@ -73,7 +72,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                         PhoneNumber = "(31) 9 0000-0000",
                         FamilyRelationship = "Mãe"
                     },
-                    ProfileColor = Useful.Color.RandomColor(),
+                    ProfileColor = Color.RandomColor(),
                     JoinedOn = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Local)
                 },
                 new FriendModel

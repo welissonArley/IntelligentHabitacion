@@ -243,6 +243,9 @@
   <data name="TITLE_ADD_FRIEND" xml:space="preserve">
     <value>Add friend</value>
   </data>
+  <data name="TITLE_CALL_TO_TWOPOINTS" xml:space="preserve">
+    <value>Call to {0}:</value>
+  </data>
   <data name="TITLE_CANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -251,6 +254,9 @@
   </data>
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change password</value>
+  </data>
+  <data name="TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS" xml:space="preserve">
+    <value>Choose one of the numbers below:</value>
   </data>
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Choose your friend</value>

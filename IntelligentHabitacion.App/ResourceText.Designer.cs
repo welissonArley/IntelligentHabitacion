@@ -439,6 +439,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Call to {0}:.
+        /// </summary>
+        internal static string TITLE_CALL_TO_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CALL_TO_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string TITLE_CANCEL {
@@ -462,6 +471,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CHANGE_PASSWORD {
             get {
                 return ResourceManager.GetString("TITLE_CHANGE_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose one of the numbers below:.
+        /// </summary>
+        internal static string TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS", resourceCulture);
             }
         }
         

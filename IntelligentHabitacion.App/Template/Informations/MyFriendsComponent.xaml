@@ -17,10 +17,13 @@
                     <Label x:Name="LabelJoinedOn" Style="{x:StaticResource LabelThin}" TextColor="{x:StaticResource GrayDefault}" FontSize="12"></Label>
                 </StackLayout>
                 <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MakePhoneCall_Tapped"></TapGestureRecognizer>
+                    </Grid.GestureRecognizers>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <circleBoxview:RoundedBoxView x:Name="BackgroundCall" Grid.Row="0" CornerRadius="15" HeightRequest="30" WidthRequest="30" BackgroundColor="#65BCBF"></circleBoxview:RoundedBoxView>
+                    <circleBoxview:RoundedBoxView x:Name="BackgroundCall" Grid.Row="0" CornerRadius="15" HeightRequest="30" WidthRequest="30"></circleBoxview:RoundedBoxView>
                     <Image Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="IconPhone" HeightRequest="16" WidthRequest="15"></Image>
                 </Grid>
             </StackLayout>

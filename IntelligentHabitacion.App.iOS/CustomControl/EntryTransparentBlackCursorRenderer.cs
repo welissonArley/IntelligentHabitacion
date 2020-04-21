@@ -14,10 +14,7 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
 		protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
 		{
 			base.OnElementChanged(e);
-			if (Control == null || e.NewElement == null)
-				return;
-
-			Control.BorderStyle = UITextBorderStyle.None;
+			if (Control == null || e.NewElement == null) return;
 
 			CALayer _line = new CALayer
 			{
@@ -25,7 +22,7 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
 				BackgroundColor = ColorToEntryLine(),
 				Frame = new CGRect(0, Frame.Height / 2, UIScreen.MainScreen.Bounds.Width - 40, 1f)
 			};
-
+			Control.BorderStyle = UITextBorderStyle.None;
 			Control.Layer.AddSublayer(_line);
 			Control.TintColor = UIColor.Black;
 		}

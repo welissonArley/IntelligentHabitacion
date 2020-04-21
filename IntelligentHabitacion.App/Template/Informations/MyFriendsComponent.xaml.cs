@@ -1,5 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.Useful;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,7 +10,6 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyFriendsComponent : ContentView
     {
-        private static FriendModel _friend;
         public FriendModel Friend
         {
             get => (FriendModel)GetValue(FriendProperty);
@@ -23,23 +24,41 @@ namespace IntelligentHabitacion.App.Template.Informations
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: FriendChanged);
 
+        public static readonly BindableProperty TappedMakePhonecallCommandProperty = BindableProperty.Create(propertyName: "TappedMakePhonecall",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(MyFriendsComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
+        public ICommand TappedMakePhonecallCommand
+        {
+            get => (ICommand)GetValue(TappedMakePhonecallCommandProperty);
+            set => SetValue(TappedMakePhonecallCommandProperty, value);
+        }
+
         private static void FriendChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if(newValue != null)
             {
-                _friend = (FriendModel)newValue;
+                var friendModel = (FriendModel)newValue;
                 var component = ((MyFriendsComponent)bindable);
-                component.LabelFriendsName.Text = _friend.Name;
-                component.LabelShortName.Text = Name.ShortNameConverter(_friend.Name);
-                component.BackgroundShortName.BackgroundColor = Xamarin.Forms.Color.FromHex(_friend.ProfileColor);
-                component.BackgroundCall.BackgroundColor = Xamarin.Forms.Color.FromHex(_friend.ProfileColor);
-                component.LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, _friend.JoinedOn.ToString(ResourceText.FORMAT_DATE));
+                component.LabelFriendsName.Text = friendModel.Name;
+                component.LabelShortName.Text = Name.ShortNameConverter(friendModel.Name);
+                component.BackgroundShortName.BackgroundColor = Xamarin.Forms.Color.FromHex(friendModel.ProfileColor);
+                component.BackgroundCall.BackgroundColor = Xamarin.Forms.Color.FromHex(friendModel.ProfileColor);
+                component.LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, friendModel.JoinedOn.ToString(ResourceText.FORMAT_DATE));
             }
         }
 
         public MyFriendsComponent()
         {
             InitializeComponent();
+        }
+
+        private void MakePhoneCall_Tapped(object sender, System.EventArgs e)
+        {
+            TappedMakePhonecallCommand?.Execute(Friend);
         }
     }
 }

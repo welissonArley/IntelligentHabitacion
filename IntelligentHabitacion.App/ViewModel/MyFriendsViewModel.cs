@@ -1,46 +1,62 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.Useful;
+using IntelligentHabitacion.App.View.Modal;
+using Rg.Plugins.Popup.Extensions;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
     public class MyFriendsViewModel : BaseViewModel
     {
+        public ICommand SearchTextChangedCommand { protected set; get; }
+        public ICommand MakePhonecallCommand { protected set; get; }
+
+        private readonly ObservableCollection<FriendModel> _friendsList;
         public ObservableCollection<FriendModel> FriendsList { get; set; }
 
-        public MyFriendsViewModel()
+        public MyFriendsViewModel(IHomeRule homeRule)
         {
-            FriendsList = new ObservableCollection<FriendModel>
+            FriendsList = new ObservableCollection<FriendModel>(Task.Run(async () => await homeRule.GetHouseFriends()).Result);
+            _friendsList = FriendsList;
+            SearchTextChangedCommand = new Command((value) =>
             {
-                new FriendModel
-                {
-                    Name = "Matheus",
-                    Phonenumber1 = "(37) 9 9811-1881",
-                    Phonenumber2 = "(37) 9 9811-1882",
-                    EmergencyContact1 = new EmergencyContactModel
-                    {
-                        Name = "Zilda",
-                        PhoneNumber = "(31) 9 0000-0000",
-                        FamilyRelationship = "Mãe"
-                    }
-                },
-                new FriendModel
-                {
-                    Name = "William",
-                    Phonenumber1 = "(37) 9 9811-1881",
-                    EmergencyContact1 = new EmergencyContactModel
-                    {
-                        Name = "Zilda",
-                        PhoneNumber = "(31) 9 0000-0000",
-                        FamilyRelationship = "Mãe"
-                    },
-                    EmergencyContact2 = new EmergencyContactModel
-                    {
-                        Name = "Zilda",
-                        PhoneNumber = "(31) 9 0000-0000",
-                        FamilyRelationship = "Mãe"
-                    }
-                }
-            };
+                OnSearchTextChanged((string)value);
+            });
+            MakePhonecallCommand = new Command(async (value) =>
+            {
+                await MakePhonecall((FriendModel)value);
+            });
+        }
+
+        private void OnSearchTextChanged(string value)
+        {
+            FriendsList = new ObservableCollection<FriendModel>(_friendsList.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
+
+            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+        }
+        private async Task MakePhonecall(FriendModel friend)
+        {
+            if (string.IsNullOrWhiteSpace(friend.Phonenumber2))
+                await MakeCall(friend.Phonenumber1);
+            else
+            {
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new ChoosePhonenumberModal(friend.Name, friend.Phonenumber1, friend.Phonenumber2, friend.ProfileColor, MakeCall));
+            }
+        }
+
+        private async Task MakeCall(string number)
+        {
+            await ShowLoading();
+            Phonecall.Make(number);
+            HideLoading();
         }
     }
 }

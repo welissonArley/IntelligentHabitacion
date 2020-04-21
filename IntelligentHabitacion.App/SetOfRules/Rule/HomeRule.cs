@@ -7,6 +7,8 @@ using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Useful;
 using IntelligentHabitacion.Validators.Validator;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule
@@ -34,6 +36,74 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             _database.UpdateToken(response.Token);
             _database.IsAdministrator();
+        }
+
+        public async Task<List<FriendModel>> GetHouseFriends()
+        {
+            return new List<FriendModel>
+            {
+                new FriendModel
+                {
+                    Name = "Matheus",
+                    Phonenumber1 = "(37) 9 9811-1881",
+                    Phonenumber2 = "(37) 9 9811-1882",
+                    EmergencyContact1 = new EmergencyContactModel
+                    {
+                        Name = "Zilda",
+                        PhoneNumber = "(31) 9 0000-0000",
+                        FamilyRelationship = "Mãe"
+                    },
+                    ProfileColor = Color.RandomColor(),
+                    JoinedOn = DateTime.SpecifyKind(DateTime.UtcNow.AddDays(-2), DateTimeKind.Local)
+                },
+                new FriendModel
+                {
+                    Name = "William",
+                    Phonenumber1 = "(37) 9 9811-1881",
+                    EmergencyContact1 = new EmergencyContactModel
+                    {
+                        Name = "Zilda",
+                        PhoneNumber = "(31) 9 0000-0000",
+                        FamilyRelationship = "Mãe"
+                    },
+                    EmergencyContact2 = new EmergencyContactModel
+                    {
+                        Name = "Zilda",
+                        PhoneNumber = "(31) 9 0000-0000",
+                        FamilyRelationship = "Mãe"
+                    },
+                    ProfileColor = Color.RandomColor(),
+                    JoinedOn = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Local)
+                },
+                new FriendModel
+                {
+                    Name = "Anilton Barbosa",
+                    Phonenumber1 = "(37) 9 9811-1881",
+                    Phonenumber2 = "(37) 9 9811-1882",
+                    EmergencyContact1 = new EmergencyContactModel
+                    {
+                        Name = "Zilda",
+                        PhoneNumber = "(31) 9 0000-0000",
+                        FamilyRelationship = "Mãe"
+                    },
+                    ProfileColor = Color.RandomColor(),
+                    JoinedOn = DateTime.SpecifyKind(DateTime.UtcNow.AddDays(-362), DateTimeKind.Local)
+                },
+                new FriendModel
+                {
+                    Name = "Pablo Henrique",
+                    Phonenumber1 = "(37) 9 9811-1881",
+                    Phonenumber2 = "(37) 9 9811-1882",
+                    EmergencyContact1 = new EmergencyContactModel
+                    {
+                        Name = "Zilda",
+                        PhoneNumber = "(31) 9 0000-0000",
+                        FamilyRelationship = "Mãe"
+                    },
+                    ProfileColor = Color.RandomColor(),
+                    JoinedOn = DateTime.SpecifyKind(DateTime.UtcNow.AddDays(-4000), DateTimeKind.Local)
+                }
+            };
         }
 
         public async Task<HomeModel> GetInformations()

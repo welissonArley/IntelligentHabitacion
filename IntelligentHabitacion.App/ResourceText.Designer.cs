@@ -151,6 +151,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MMMM dd, yyyy.
+        /// </summary>
+        internal static string FORMAT_DATE {
+            get {
+                return ResourceManager.GetString("FORMAT_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to must be fun and organized.
         /// </summary>
         internal static string MUST_BE_FUN_AND_ORGANIZED {
@@ -430,6 +439,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Call to {0}:.
+        /// </summary>
+        internal static string TITLE_CALL_TO_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CALL_TO_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string TITLE_CANCEL {
@@ -453,6 +471,24 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CHANGE_PASSWORD {
             get {
                 return ResourceManager.GetString("TITLE_CHANGE_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose one of the numbers below:.
+        /// </summary>
+        internal static string TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your friend.
+        /// </summary>
+        internal static string TITLE_CHOOSE_YOUR_FRIEND {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_YOUR_FRIEND", resourceCulture);
             }
         }
         
@@ -637,6 +673,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} friends available..
+        /// </summary>
+        internal static string TITLE_FRIENDS_AVALIABLE {
+            get {
+                return ResourceManager.GetString("TITLE_FRIENDS_AVALIABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home, sweet home.
         /// </summary>
         internal static string TITLE_HOME_SWEET_HOME {
@@ -660,6 +705,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_JOIN_HOME {
             get {
                 return ResourceManager.GetString("TITLE_JOIN_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Joined on {0}.
+        /// </summary>
+        internal static string TITLE_JOINED_ON {
+            get {
+                return ResourceManager.GetString("TITLE_JOINED_ON", resourceCulture);
             }
         }
         
@@ -822,6 +876,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_RETURN {
             get {
                 return ResourceManager.GetString("TITLE_RETURN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by name.
+        /// </summary>
+        internal static string TITLE_SEARCH_BY_NAME {
+            get {
+                return ResourceManager.GetString("TITLE_SEARCH_BY_NAME", resourceCulture);
             }
         }
         

@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="AppVersion\AppVersionAndroid.cs" />
     <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />
+    <Compile Include="CustomControl\EntryTransparentBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryWhiteBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="MainActivity.cs" />
@@ -399,19 +400,34 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\IconWifi.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\IconCircleEdit.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\IconCircleEdit.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\IconCircleEdit.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\IconCircleEdit.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\IconCircleEdit.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\IconPhone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\IconSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\IconSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\IconSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\IconSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\IconSearch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

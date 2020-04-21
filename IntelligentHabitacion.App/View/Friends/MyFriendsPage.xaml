@@ -4,7 +4,7 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
              x:Name="MyFriendsContentPage"
-             x:Class="IntelligentHabitacion.App.View.MyFriendsPage">
+             x:Class="IntelligentHabitacion.App.View.Friends.MyFriendsPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
         <Label Margin="20,20,20,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
         <Frame Margin="20,20,20,0" BackgroundColor="#F1F1F1" HasShadow="False" HeightRequest="40" CornerRadius="20" Padding="0">

@@ -11,7 +11,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Ioc;
 
-namespace IntelligentHabitacion.App.ViewModel
+namespace IntelligentHabitacion.App.ViewModel.Friends
 {
     public class MyFriendsViewModel : BaseViewModel
     {

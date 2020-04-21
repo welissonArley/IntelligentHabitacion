@@ -81,7 +81,7 @@
     <Compile Update="View\Modal\ChoosePhonenumberModal.xaml.cs">
       <DependentUpon>ChoosePhonenumberModal.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\MyFriendsPage.xaml.cs">
+    <Compile Update="View\Friends\MyFriendsPage.xaml.cs">
       <DependentUpon>MyFriendsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">

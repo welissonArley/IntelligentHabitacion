@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations" xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
+             x:Name="FriendDetailsContent"
+             x:Class="IntelligentHabitacion.App.View.Friends.FriendDetailsPage">
+    <ContentPage.Resources>
+        <converter:ObjectIsNullOrEmptyConverter x:Key="ObjectNullEmptyConverter"></converter:ObjectIsNullOrEmptyConverter>
+        <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+        <converter:DescriptionDateJoinedTheHouseConverter x:Key="DescriptionDateJoinedTheHouseConverter"></converter:DescriptionDateJoinedTheHouseConverter>
+    </ContentPage.Resources>
+    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}" Spacing="-3">
+        <StackLayout Orientation="Horizontal" Margin="20,20,20,0">
+            <Grid VerticalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <circleBoxview:RoundedBoxView Grid.Column="0" Grid.Row="0" CornerRadius="40" HeightRequest="80" WidthRequest="80" BackgroundColor="{Binding Model.ProfileColor}"></circleBoxview:RoundedBoxView>
+                <Label Text="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Grid.Column="0" TextColor="White" FontSize="36" Style="{x:StaticResource LabelBold}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+            </Grid>
+            <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
+                <Label Text="{Binding Model.Name}" TextColor="Black" FontSize="18"></Label>
+                <customControl:LabelJustifyText Text="{Binding Model.JoinedOn, Converter={StaticResource DescriptionDateJoinedTheHouseConverter}}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Margin="0,30,0,0" VerticalOptions="FillAndExpand">
+            <StackLayout Margin="20,0,20,0" VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" Spacing="-3">
+                    <template:PhonenumberToCallComponent TitleLabel="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_1_TWOPOINTS}" PhoneNumber="{Binding Model.Phonenumber1}" ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}"></template:PhonenumberToCallComponent>
+                    <template:PhonenumberToCallComponent Margin="0,20,0,0" TitleLabel="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_2_TWOPOINTS}" PhoneNumber="{Binding Model.Phonenumber2}" ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}">
+                            <template:PhonenumberToCallComponent.Triggers>
+                            <DataTrigger TargetType="template:PhonenumberToCallComponent" Binding="{Binding Model.Phonenumber2, Converter={StaticResource ObjectNullEmptyConverter}}" Value="true">
+                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                </DataTrigger>
+                            </template:PhonenumberToCallComponent.Triggers>
+                        </template:PhonenumberToCallComponent>
+                    <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_EMERGENCY_CONTACTS_TWOPOINTS}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelSemiBold}"></Label>
+                    <template:EmergencyContactComponent Margin="0,30,0,0" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}" Relationship="{Binding Model.EmergencyContact1.FamilyRelationship}" ContactName="{Binding Model.EmergencyContact1.Name}" PhoneNumber="{Binding Model.EmergencyContact1.PhoneNumber}" ProfileColor="{Binding Model.ProfileColor}"></template:EmergencyContactComponent>
+                    <BoxView BackgroundColor="Black" HeightRequest="0.2" Opacity="0.1" Margin="0,20,0,0">
+                        <BoxView.Triggers>
+                            <DataTrigger TargetType="BoxView" Binding="{Binding Model.EmergencyContact2, Converter={StaticResource ObjectNullEmptyConverter}}" Value="true">
+                                <Setter Property="IsVisible" Value="False"></Setter>
+                            </DataTrigger>
+                        </BoxView.Triggers>
+                    </BoxView>
+                    <template:EmergencyContactComponent Margin="0,20,0,0" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}" Relationship="{Binding Model.EmergencyContact2.FamilyRelationship}" ContactName="{Binding Model.EmergencyContact2.Name}" PhoneNumber="{Binding Model.EmergencyContact2.PhoneNumber}" ProfileColor="{Binding Model.ProfileColor}">
+                        <template:EmergencyContactComponent.Triggers>
+                            <DataTrigger TargetType="template:EmergencyContactComponent" Binding="{Binding Model.EmergencyContact2, Converter={StaticResource ObjectNullEmptyConverter}}" Value="true">
+                                <Setter Property="IsVisible" Value="False"></Setter>
+                            </DataTrigger>
+                        </template:EmergencyContactComponent.Triggers>
+                    </template:EmergencyContactComponent>
+                </StackLayout>
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_NOTIFY_ORDER_ARRIVED}" Style="{x:StaticResource ButtonGreenDefault}"></Button>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

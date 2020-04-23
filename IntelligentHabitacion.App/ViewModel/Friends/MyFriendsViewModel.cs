@@ -17,6 +17,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
     {
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand MakePhonecallCommand { protected set; get; }
+        public ICommand DetailFriendCommand { protected set; get; }
 
         private readonly ObservableCollection<FriendModel> _friendsList;
         public ObservableCollection<FriendModel> FriendsList { get; set; }
@@ -32,6 +33,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             MakePhonecallCommand = new Command(async (value) =>
             {
                 await MakePhonecall((FriendModel)value);
+            });
+            DetailFriendCommand = new Command(async (value) =>
+            {
+                await OnDetailFriend((FriendModel)value);
             });
         }
 
@@ -50,6 +55,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                 var navigation = Resolver.Resolve<INavigation>();
                 await navigation.PushPopupAsync(new ChoosePhonenumberModal(friend.Name, friend.Phonenumber1, friend.Phonenumber2, friend.ProfileColor, MakeCall));
             }
+        }
+        private async Task OnDetailFriend(FriendModel friend)
+        {
+            await ShowLoading();
+            await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) => viewModel.Model = friend);
+            HideLoading();
         }
 
         private async Task MakeCall(string number)

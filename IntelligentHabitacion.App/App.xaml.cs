@@ -67,6 +67,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
             ViewFactory.Register<HomeInformationPage, HomeInformationViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
+            ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
         }
     }
 }

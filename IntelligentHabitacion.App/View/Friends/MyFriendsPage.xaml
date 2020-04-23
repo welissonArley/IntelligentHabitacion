@@ -22,7 +22,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <template:MyFriendsComponent TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=List}}" Friend="{Binding .}"></template:MyFriendsComponent>
+                        <template:MyFriendsComponent TappedItemCommand="{Binding Path=BindingContext.DetailFriendCommand, Source={x:Reference Name=List}}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=List}}" Friend="{Binding .}"></template:MyFriendsComponent>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

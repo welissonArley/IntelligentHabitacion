@@ -484,6 +484,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change joined date.
+        /// </summary>
+        internal static string TITLE_CHANGE_JOINED_DATE {
+            get {
+                return ResourceManager.GetString("TITLE_CHANGE_JOINED_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change password.
         /// </summary>
         internal static string TITLE_CHANGE_PASSWORD {
@@ -961,6 +970,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string TITLE_REMOVE {
+            get {
+                return ResourceManager.GetString("TITLE_REMOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return.
         /// </summary>
         internal static string TITLE_RETURN {
@@ -975,6 +993,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SEARCH_BY_NAME {
             get {
                 return ResourceManager.GetString("TITLE_SEARCH_BY_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set as administrator.
+        /// </summary>
+        internal static string TITLE_SET_AS_ADMINISTRATOR {
+            get {
+                return ResourceManager.GetString("TITLE_SET_AS_ADMINISTRATOR", resourceCulture);
             }
         }
         

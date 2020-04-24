@@ -258,6 +258,9 @@
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
   </data>
+  <data name="TITLE_CHANGE_JOINED_DATE" xml:space="preserve">
+    <value>Alterar data da entrada</value>
+  </data>
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Alterar senha</value>
   </data>
@@ -417,11 +420,17 @@
   <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
     <value>Parentesco:</value>
   </data>
+  <data name="TITLE_REMOVE" xml:space="preserve">
+    <value>Remover</value>
+  </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Busque por nome</value>
+  </data>
+  <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
+    <value>Definir como administrador</value>
   </data>
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>

@@ -93,6 +93,9 @@
     <Compile Update="View\Friends\MyFriendsPage.xaml.cs">
       <DependentUpon>MyFriendsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\MenuOptionsAdministratorFriendDetailModal.xaml.cs">
+      <DependentUpon>MenuOptionsAdministratorFriendDetailModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>
     </Compile>

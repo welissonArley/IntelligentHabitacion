@@ -29,6 +29,18 @@ namespace IntelligentHabitacion.Api.Test.Controller
         }
 
         [Fact]
+        public void UserWithoutFriends()
+        {
+            var controller = new FriendController(new FriendFactoryFake().GetRuleLoggedUserWithoutFriend())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Home/Register/");
+            var result = controller.Friends();
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Fact]
         public void GetFriendsSuccess()
         {
             var controller = new FriendController(new FriendFactoryFake().GetRuleLoggedUserAdministrator())

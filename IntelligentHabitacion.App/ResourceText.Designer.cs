@@ -187,6 +187,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oh no, you haven&apos;t added any friends yet :(.
+        /// </summary>
+        internal static string PHRASE_YOU_HAVENT_ADDED_FRIENDS {
+            get {
+                return ResourceManager.GetString("PHRASE_YOU_HAVENT_ADDED_FRIENDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rua Mountain Drive.
         /// </summary>
         internal static string PLACEHOLDER_ADDRESS {

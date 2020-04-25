@@ -159,6 +159,9 @@
   <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
     <value>Are you sure you want to perform this action?</value>
   </data>
+  <data name="PHRASE_YOU_HAVENT_ADDED_FRIENDS" xml:space="preserve">
+    <value>Oh no, you haven't added any friends yet :(</value>
+  </data>
   <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
     <value>Rua Mountain Drive</value>
   </data>

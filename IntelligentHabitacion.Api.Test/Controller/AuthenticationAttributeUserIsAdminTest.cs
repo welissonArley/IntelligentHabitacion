@@ -57,7 +57,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             {
                 Id = 1,
                 HomeId = 1,
-                Home = new Repository.Model.Home
+                HomeAssociation = new Repository.Model.Home
                 {
                     AdministratorId = 1
                 }

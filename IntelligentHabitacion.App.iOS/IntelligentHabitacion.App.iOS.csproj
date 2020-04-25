@@ -375,4 +375,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconMenuDots%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationDog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationDog%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationDog%402x.png" />
+  </ItemGroup>
 </Project>

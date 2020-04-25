@@ -19,5 +19,6 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> CreateHome(RequestHomeJson registerHome, string token, string language = null);
         Task<ResponseJson> UpdateHome(RequestHomeJson registerHome, string token, string language = null);
         Task<ResponseJson> GetHomesInformations(string token, string language = null);
+        Task<ResponseJson> GetHouseFriends(string token, string language = null);
     }
 }

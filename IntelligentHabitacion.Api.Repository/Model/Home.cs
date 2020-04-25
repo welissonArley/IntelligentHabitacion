@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model
@@ -19,7 +18,6 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public string NetworksName { get; set; }
         public string NetworksPassword { get; set; }
         public long AdministratorId { get; set; }
-        public ICollection<User> Users { get; set; }
 
         public override void Decrypt()
         {

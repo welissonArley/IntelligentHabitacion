@@ -19,7 +19,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Name = userJson.Name,
                 Password = userJson.Password,
                 EmergecyContacts = userJson.EmergencyContacts.Select(c => MapperJsonToModel(c)).ToList(),
-                Phonenumbers = userJson.Phonenumbers.Select(c => MapperJsonToModel(c)).ToList()
+                Phonenumbers = userJson.Phonenumbers.Select(c => MapperJsonToModel(c)).ToList(),
+                ProfileColor = Color.RandomColor()
             };
         }
         public EmergencyContact MapperJsonToModel(RequestEmergencyContactJson emergencyContactJson)
@@ -69,12 +70,12 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             var response = new ResponseLoginJson
             {
                 Name = model.Name,
-                IsPartOfOneHome = model.Home != null,
+                IsPartOfOneHome = model.HomeAssociationId != null,
                 IsAdministrator = false
             };
 
-            if (model.Home != null)
-                response.IsAdministrator = model.Home.AdministratorId == model.Id;
+            if (model.HomeAssociation != null)
+                response.IsAdministrator = model.HomeAssociation.Home.AdministratorId == model.Id;
 
             return response;
         }
@@ -136,7 +137,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             {
                 Name = model.Name,
                 Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
-                EmergencyContactc = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList()
+                EmergencyContact = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),
+                ProfileColor = model.ProfileColor,
+                JoinedOn = model.HomeAssociation.JoinedOn
             };
         }
         #endregion

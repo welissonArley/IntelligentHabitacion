@@ -366,4 +366,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconSearch%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconMenuDots.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconMenuDots%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconMenuDots%403x.png" />
+  </ItemGroup>
 </Project>

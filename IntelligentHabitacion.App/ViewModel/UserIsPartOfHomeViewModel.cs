@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using IntelligentHabitacion.App.ViewModel.Friends;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 

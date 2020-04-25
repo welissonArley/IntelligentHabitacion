@@ -126,6 +126,9 @@
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
   </data>
+  <data name="DESCRIPTION_DATE_JOINED_THE_HOUSE" xml:space="preserve">
+    <value>Joined on {0}. Today it is exactly {1} that you share a home :)</value>
+  </data>
   <data name="DESCRIPTION_FINANCES" xml:space="preserve">
     <value>Track your household income and expenses.</value>
   </data>
@@ -180,13 +183,13 @@
   <data name="PLACEHOLDER_EMAIL" xml:space="preserve">
     <value>bruce@waynetech.com</value>
   </data>
-  <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELANTIONSHIP" xml:space="preserve">
+  <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP" xml:space="preserve">
     <value>Mother</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT1_NAME" xml:space="preserve">
     <value>Martha Wayne</value>
   </data>
-  <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELANTIONSHIP" xml:space="preserve">
+  <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP" xml:space="preserve">
     <value>Father</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
@@ -243,6 +246,9 @@
   <data name="TITLE_ADD_FRIEND" xml:space="preserve">
     <value>Add friend</value>
   </data>
+  <data name="TITLE_AND" xml:space="preserve">
+    <value>and</value>
+  </data>
   <data name="TITLE_CALL_TO_TWOPOINTS" xml:space="preserve">
     <value>Call to {0}:</value>
   </data>
@@ -251,6 +257,9 @@
   </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Change</value>
+  </data>
+  <data name="TITLE_CHANGE_JOINED_DATE" xml:space="preserve">
+    <value>Change joined date</value>
   </data>
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change password</value>
@@ -303,6 +312,12 @@
   <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Current password:</value>
   </data>
+  <data name="TITLE_DAY" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="TITLE_DAYS" xml:space="preserve">
+    <value>days</value>
+  </data>
   <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
     <value>Delete account</value>
   </data>
@@ -314,6 +329,9 @@
   </data>
   <data name="TITLE_EMAIL_TWOPOINTS" xml:space="preserve">
     <value>E-mail:</value>
+  </data>
+  <data name="TITLE_EMERGENCY_CONTACTS_TWOPOINTS" xml:space="preserve">
+    <value>Emergency contacts:</value>
   </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finances</value>
@@ -339,6 +357,12 @@
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Login to continue</value>
   </data>
+  <data name="TITLE_MONTH" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="TITLE_MONTHS" xml:space="preserve">
+    <value>months</value>
+  </data>
   <data name="TITLE_MY_FOOD" xml:space="preserve">
     <value>My food</value>
   </data>
@@ -363,6 +387,9 @@
   <data name="TITLE_NEXT" xml:space="preserve">
     <value>Next</value>
   </data>
+  <data name="TITLE_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
+    <value>Notify that an order has arrived :)</value>
+  </data>
   <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
     <value>Now your phone number</value>
   </data>
@@ -378,6 +405,9 @@
   <data name="TITLE_PHONENUMBER_2_TWOPOINTS" xml:space="preserve">
     <value>Phone number 2:</value>
   </data>
+  <data name="TITLE_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Phonenumber:</value>
+  </data>
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>For security reasons, please log in again.</value>
   </data>
@@ -387,11 +417,20 @@
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
     <value>To finish :) Wi-fi network information</value>
   </data>
+  <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Relationship:</value>
+  </data>
+  <data name="TITLE_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Search by name</value>
+  </data>
+  <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
+    <value>Set as administrator</value>
   </data>
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>
@@ -413,6 +452,12 @@
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Welcome :)</value>
+  </data>
+  <data name="TITLE_YEAR" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="TITLE_YEARS" xml:space="preserve">
+    <value>years</value>
   </data>
   <data name="TITLE_YES_IAMSURE" xml:space="preserve">
     <value>Yes, I'm sure</value>

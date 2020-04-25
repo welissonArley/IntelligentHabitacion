@@ -31,10 +31,23 @@ namespace IntelligentHabitacion.App.Template.Informations
                                                         defaultBindingMode: BindingMode.OneWay,
                                                         propertyChanged: null);
 
+        public static readonly BindableProperty TappedItemCommandProperty = BindableProperty.Create(propertyName: "TappedItem",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(MyFriendsComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
         public ICommand TappedMakePhonecallCommand
         {
             get => (ICommand)GetValue(TappedMakePhonecallCommandProperty);
             set => SetValue(TappedMakePhonecallCommandProperty, value);
+        }
+
+        public ICommand TappedItemCommand
+        {
+            get => (ICommand)GetValue(TappedItemCommandProperty);
+            set => SetValue(TappedItemCommandProperty, value);
         }
 
         private static void FriendChanged(BindableObject bindable, object oldValue, object newValue)
@@ -59,6 +72,11 @@ namespace IntelligentHabitacion.App.Template.Informations
         private void MakePhoneCall_Tapped(object sender, System.EventArgs e)
         {
             TappedMakePhonecallCommand?.Execute(Friend);
+        }
+
+        private void Item_Tapped(object sender, System.EventArgs e)
+        {
+            TappedItemCommand?.Execute(Friend);
         }
     }
 }

@@ -45,6 +45,12 @@
     <Compile Update="Template\HeaderWithGirlReading\HeaderWithGirlReading.xaml.cs">
       <DependentUpon>HeaderWithGirlReading.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\EmergencyContactComponent.xaml.cs">
+      <DependentUpon>EmergencyContactComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Informations\PhonenumberToCallComponent.xaml.cs">
+      <DependentUpon>PhonenumberToCallComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\MyFriendsComponent.xaml.cs">
       <DependentUpon>MyFriendsComponent.xaml</DependentUpon>
     </Compile>
@@ -78,11 +84,17 @@
     <Compile Update="View\AboutThisAppPage.xaml.cs">
       <DependentUpon>AboutThisAppPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Friends\FriendDetailsPage.xaml.cs">
+      <DependentUpon>FriendDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\ChoosePhonenumberModal.xaml.cs">
       <DependentUpon>ChoosePhonenumberModal.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\MyFriendsPage.xaml.cs">
+    <Compile Update="View\Friends\MyFriendsPage.xaml.cs">
       <DependentUpon>MyFriendsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Modal\MenuOptionsAdministratorFriendDetailModal.xaml.cs">
+      <DependentUpon>MenuOptionsAdministratorFriendDetailModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>

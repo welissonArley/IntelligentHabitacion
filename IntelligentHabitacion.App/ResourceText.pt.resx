@@ -126,6 +126,9 @@
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Utilize esta opção para criar um lar e ser o administrador do mesmo.</value>
   </data>
+  <data name="DESCRIPTION_DATE_JOINED_THE_HOUSE" xml:space="preserve">
+    <value>Entrou em {0}. Hoje fazem exatamente {1} que vocês compartilham um lar :)</value>
+  </data>
   <data name="DESCRIPTION_FINANCES" xml:space="preserve">
     <value>Acompanhe as receitas e despesas do seu lar.</value>
   </data>
@@ -180,13 +183,13 @@
   <data name="PLACEHOLDER_EMAIL" xml:space="preserve">
     <value>bruce@waynetech.com</value>
   </data>
-  <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELANTIONSHIP" xml:space="preserve">
+  <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP" xml:space="preserve">
     <value>Mãe</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT1_NAME" xml:space="preserve">
     <value>Martha Wayne</value>
   </data>
-  <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELANTIONSHIP" xml:space="preserve">
+  <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP" xml:space="preserve">
     <value>Pai</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
@@ -243,6 +246,9 @@
   <data name="TITLE_ADD_FRIEND" xml:space="preserve">
     <value>Adicionar amigo</value>
   </data>
+  <data name="TITLE_AND" xml:space="preserve">
+    <value>e</value>
+  </data>
   <data name="TITLE_CALL_TO_TWOPOINTS" xml:space="preserve">
     <value>Ligar para {0}:</value>
   </data>
@@ -251,6 +257,9 @@
   </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
+  </data>
+  <data name="TITLE_CHANGE_JOINED_DATE" xml:space="preserve">
+    <value>Alterar data da entrada</value>
   </data>
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Alterar senha</value>
@@ -303,6 +312,12 @@
   <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Senha atual:</value>
   </data>
+  <data name="TITLE_DAY" xml:space="preserve">
+    <value>dia</value>
+  </data>
+  <data name="TITLE_DAYS" xml:space="preserve">
+    <value>dias</value>
+  </data>
   <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
     <value>Deletar conta</value>
   </data>
@@ -314,6 +329,9 @@
   </data>
   <data name="TITLE_EMAIL_TWOPOINTS" xml:space="preserve">
     <value>E-mail:</value>
+  </data>
+  <data name="TITLE_EMERGENCY_CONTACTS_TWOPOINTS" xml:space="preserve">
+    <value>Contatos de emergência:</value>
   </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finanças</value>
@@ -339,6 +357,12 @@
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Faça login para continuar</value>
   </data>
+  <data name="TITLE_MONTH" xml:space="preserve">
+    <value>mês</value>
+  </data>
+  <data name="TITLE_MONTHS" xml:space="preserve">
+    <value>mêses</value>
+  </data>
   <data name="TITLE_MY_FOOD" xml:space="preserve">
     <value>My food</value>
   </data>
@@ -363,6 +387,9 @@
   <data name="TITLE_NEXT" xml:space="preserve">
     <value>Próximo</value>
   </data>
+  <data name="TITLE_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
+    <value>Avisar que chegou uma encomenda :)</value>
+  </data>
   <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
     <value>Agora seu número de telefone</value>
   </data>
@@ -378,6 +405,9 @@
   <data name="TITLE_PHONENUMBER_2_TWOPOINTS" xml:space="preserve">
     <value>Telefone 2:</value>
   </data>
+  <data name="TITLE_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone:</value>
+  </data>
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>Por razões de segurança, faça login novamente.</value>
   </data>
@@ -387,11 +417,20 @@
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
     <value>Para finalizar :) As informações da rede Wi-fi</value>
   </data>
+  <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco:</value>
+  </data>
+  <data name="TITLE_REMOVE" xml:space="preserve">
+    <value>Remover</value>
+  </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Busque por nome</value>
+  </data>
+  <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
+    <value>Definir como administrador</value>
   </data>
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>
@@ -413,6 +452,12 @@
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_YEAR" xml:space="preserve">
+    <value>ano</value>
+  </data>
+  <data name="TITLE_YEARS" xml:space="preserve">
+    <value>anos</value>
   </data>
   <data name="TITLE_YES_IAMSURE" xml:space="preserve">
     <value>Sim, eu tenho certeza</value>

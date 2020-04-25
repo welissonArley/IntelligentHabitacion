@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Xamarin.Forms;
 
-namespace IntelligentHabitacion.App.View
+namespace IntelligentHabitacion.App.View.Friends
 {
     [DesignTimeVisible(false)]
     public partial class MyFriendsPage : ContentPage

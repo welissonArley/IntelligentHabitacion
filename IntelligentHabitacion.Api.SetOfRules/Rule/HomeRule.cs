@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
+using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.Validators;
@@ -27,16 +28,16 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
         public ResponseHomeInformationsJson GetInformations()
         {
             var loggedUser = _loggedUser.User();
-            if (loggedUser.HomeId == null)
+            if (loggedUser.HomeAssociationId == null)
                 throw new UserIsNotPartOfAHomeException();
 
-            return new Mapper.Mapper().MapperModelToJson(loggedUser.Home);
+            return new Mapper.Mapper().MapperModelToJson(loggedUser.HomeAssociation.Home);
         }
 
         public void Register(RequestHomeJson registerHomeJson)
         {
             var loggedUser = _loggedUser.User();
-            if (loggedUser.HomeId != null)
+            if (loggedUser.HomeAssociationId != null)
                 throw new UserIsPartOfAHomeException();
 
             var homeModel = new Mapper.Mapper().MapperJsonToModel(registerHomeJson);
@@ -46,9 +47,15 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
             if (validation.IsValid)
             {
-                _homeRepository.Create(homeModel);
                 var userToUpdate = _userRepository.GetById(loggedUser.Id);
-                userToUpdate.HomeId = homeModel.Id;
+                var dateTimeNow = DateTimeController.DateTimeNow();
+                userToUpdate.HomeAssociation = new HomeAssociation
+                {
+                    Active = true,
+                    CreateDate = dateTimeNow,
+                    JoinedOn = dateTimeNow,
+                    Home = homeModel
+                };
                 _userRepository.Update(userToUpdate);
             }
             else
@@ -58,7 +65,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
         public void Update(RequestHomeJson updateHomeJson)
         {
             var loggedUser = _loggedUser.User();
-            var homeModel = _homeRepository.GetById((long)loggedUser.HomeId);
+            var homeModel = _homeRepository.GetById(loggedUser.HomeAssociation.HomeId);
 
             homeModel.UpdateDate = DateTimeController.DateTimeNow();
             homeModel.Address = updateHomeJson.Address;

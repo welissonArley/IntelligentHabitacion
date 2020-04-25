@@ -119,6 +119,38 @@ namespace IntelligentHabitacion.Api.Test.Controller
         }
 
         [Fact]
+        public void TestHomeAssociationCryptography()
+        {
+            var model = new HomeAssociation
+            {
+                Home = new Home
+                {
+                    Id = 1,
+                    Active = true,
+                    CreateDate = DateTime.Today,
+                    UpdateDate = DateTime.Today,
+                    Address = "Address",
+                    City = "City",
+                    Complement = "",
+                    Country = "Country",
+                    CountryAbbreviation = "A",
+                    Neighborhood = "Neighborhood",
+                    NetworksName = "Name",
+                    NetworksPassword = "Password",
+                    Number = "1",
+                    State = "State",
+                    ZipCode = "Zipcode"
+                }
+            };
+
+            Assert.Equal("Address", model.Home.Address);
+            model.Encrypt();
+            Assert.NotEqual("Address", model.Home.Address);
+            model.Decrypt();
+            Assert.Equal("Address", model.Home.Address);
+        }
+
+        [Fact]
         public void TestWithoutDatas()
         {
             var model = new Phonenumber

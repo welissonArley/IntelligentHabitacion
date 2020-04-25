@@ -16,7 +16,9 @@ namespace IntelligentHabitacion.Api.Repository.Repository
 
         private IIncludableQueryable<User, ICollection<EmergencyContact>> IncludeModel()
         {
-            return ModelSet.Where(c => c.Active).Include(c => c.Phonenumbers).Include(c => c.Home).Include(c => c.EmergecyContacts);
+            return ModelSet.Where(c => c.Active).Include(c => c.Phonenumbers)
+                .Include(c => c.HomeAssociation).ThenInclude(c => c.Home)
+                .Include(c => c.EmergecyContacts);
         }
 
         public override IQueryable<User> GetAllActive()

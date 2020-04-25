@@ -13,5 +13,10 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
         {
             return new FriendRule(GetLoggedUserAdministrator());
         }
+
+        public FriendRule GetRuleLoggedUserWithoutFriend()
+        {
+            return new FriendRule(GetLoggedUserWithoutFriends());
+        }
     }
 }

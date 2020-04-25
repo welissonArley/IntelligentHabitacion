@@ -22,10 +22,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private readonly ObservableCollection<FriendModel> _friendsList;
         public ObservableCollection<FriendModel> FriendsList { get; set; }
 
-        public MyFriendsViewModel(IHomeRule homeRule)
+        public bool FriendsListIsEmpty { get; set; }
+
+        public MyFriendsViewModel(IFriendRule friendRule)
         {
-            FriendsList = new ObservableCollection<FriendModel>(Task.Run(async () => await homeRule.GetHouseFriends()).Result);
+            FriendsList = new ObservableCollection<FriendModel>(Task.Run(async () => await friendRule.GetHouseFriends()).Result);
             _friendsList = FriendsList;
+            FriendsListIsEmpty = _friendsList.Count == 0;
             SearchTextChangedCommand = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);

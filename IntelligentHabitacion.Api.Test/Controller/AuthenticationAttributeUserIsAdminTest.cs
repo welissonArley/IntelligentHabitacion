@@ -56,10 +56,13 @@ namespace IntelligentHabitacion.Api.Test.Controller
             userMock.Setup(c => c.GetByEmail(It.IsAny<string>())).Returns(new Repository.Model.User
             {
                 Id = 1,
-                HomeId = 1,
-                Home = new Repository.Model.Home
+                HomeAssociationId = 1,
+                HomeAssociation = new Repository.Model.HomeAssociation
                 {
-                    AdministratorId = 1
+                    Home = new Repository.Model.Home
+                    {
+                        AdministratorId = 1
+                    }
                 }
             });
 

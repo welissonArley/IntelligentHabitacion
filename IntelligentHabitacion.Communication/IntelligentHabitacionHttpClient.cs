@@ -6,6 +6,7 @@ using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ErrorJson;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -20,7 +21,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://b3236a1b.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://a50d9bb4.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -192,6 +193,18 @@ namespace IntelligentHabitacion.Communication
             return new ResponseJson
             {
                 Response = null,
+                Token = GetToken(response)
+            };
+        }
+        #endregion
+
+        #region Friends
+        public async Task<ResponseJson> GetHouseFriends(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Friend/Friends", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = response.StatusCode == System.Net.HttpStatusCode.NoContent ? new List<ResponseFriendJson>() : JsonConvert.DeserializeObject<List<ResponseFriendJson>>(await response.Content.ReadAsStringAsync()),
                 Token = GetToken(response)
             };
         }

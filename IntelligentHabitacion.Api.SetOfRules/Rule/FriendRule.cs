@@ -19,11 +19,11 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
         public List<ResponseFriendJson> GetFriends()
         {
             var loggedUser = _loggedUser.User();
-            if (loggedUser.HomeId == null)
+            if (loggedUser.HomeAssociationId == null)
                 throw new UserIsNotPartOfAHomeException();
 
             var mapper = new Mapper.Mapper();
-            return loggedUser.Home.Users.Where(c => c.Id != loggedUser.Id).Select(c => mapper.MapperModelToJsonFriend(c)).ToList();
+            return loggedUser.HomeAssociation.Users.Where(c => c.Id != loggedUser.Id).Select(c => mapper.MapperModelToJsonFriend(c)).ToList();
         }
     }
 }

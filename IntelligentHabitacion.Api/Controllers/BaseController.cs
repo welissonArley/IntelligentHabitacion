@@ -44,6 +44,16 @@ namespace IntelligentHabitacion.Api.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <returns></returns>
+        public override NoContentResult NoContent()
+        {
+            WriteAutenticationHeader();
+            return base.NoContent();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="uri"></param>
         /// <param name="value"></param>
         /// <returns></returns>

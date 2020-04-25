@@ -132,15 +132,21 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                         UserId = 1
                     }
                 },
-                HomeId = 1,
-                Home = new Home
+                HomeAssociationId = 1,
+                ProfileColor = "#000000",
+                HomeAssociation = new HomeAssociation
                 {
-                    Id = 1,
+                    HomeId = 1,
+                    JoinedOn = DateTime.Today,
                     Users = new List<User>
                     {
                         new User
                         {
                             Id = 1,
+                            HomeAssociation = new HomeAssociation
+                            {
+                                JoinedOn = DateTime.Today
+                            },
                             Phonenumbers = new List<Phonenumber>
                             {
                                 new Phonenumber
@@ -175,6 +181,10 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                         new User
                         {
                             Id = 2,
+                            HomeAssociation = new HomeAssociation
+                            {
+                                JoinedOn = DateTime.Today
+                            },
                             Phonenumbers = new List<Phonenumber>
                             {
                                 new Phonenumber
@@ -206,6 +216,68 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                                 }
                             }
                         }
+                    },
+                    Home = new Home
+                    {
+                        Id = 1
+                    }
+                }
+            });
+
+            return mock.Object;
+        }
+
+        public ILoggedUser GetLoggedUserWithoutFriends()
+        {
+            var mock = new Mock<ILoggedUser>();
+            mock.Setup(c => c.User()).Returns(new User
+            {
+                Id = 1,
+                Active = true,
+                CreateDate = DateTime.Today,
+                Email = "user@user.com",
+                Password = "e6c83b282aeb2e022844595721cc00bbda47cb24537c1779f9bb84f04039e1676e6ba8573e588da1052510e3aa0a32a9e55879ae22b0c2d62136fc0a3e85f8bb",
+                Name = "User",
+                Phonenumbers = new List<Phonenumber>
+                {
+                    new Phonenumber
+                    {
+                        Number = "(31) 9 9999-9999",
+                        UserId = 1
+                    },
+                    new Phonenumber
+                    {
+                        Number = "(31) 9 9999-9999",
+                        UserId = 1
+                    }
+                },
+                EmergecyContacts = new List<EmergencyContact>
+                {
+                    new EmergencyContact
+                    {
+                        DegreeOfKinship = "Mother",
+                        Name = "Contact",
+                        Phonenumber = "(31) 9 8888-8888",
+                        UserId = 1
+                    },
+                    new EmergencyContact
+                    {
+                        DegreeOfKinship = "Mother",
+                        Name = "Contact",
+                        Phonenumber = "(31) 9 8888-8888",
+                        UserId = 1
+                    }
+                },
+                HomeAssociationId = 1,
+                ProfileColor = "#000000",
+                HomeAssociation = new HomeAssociation
+                {
+                    HomeId = 1,
+                    JoinedOn = DateTime.Today,
+                    Users = new List<User>(),
+                    Home = new Home
+                    {
+                        Id = 1
                     }
                 }
             });

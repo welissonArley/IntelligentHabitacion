@@ -38,6 +38,9 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             try
             {
                 var list = _friendRule.GetFriends();
+                if (list.Count == 0)
+                    return NoContent();
+
                 return Ok(list);
             }
             catch (System.Exception exception)

@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IntelligentHabitacion.App.Template.Informations.MyFoodsComponent">
     <ContentView.Content>
-        <StackLayout HorizontalOptions="FillAndExpand" Margin="20,10,20,10">
+        <StackLayout HorizontalOptions="FillAndExpand" Margin="20,10,20,10" Spacing="-3">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Item_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
             <Label x:Name="Product" Style="{x:StaticResource LabelMedium}" FontSize="15" TextColor="Black"></Label>
             <StackLayout Orientation="Horizontal">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                    <Label x:Name="Description" Style="{x:StaticResource LabelMedium}" FontSize="12" TextColor="{x:StaticResource GrayDefault}"></Label>
+                    <Label x:Name="Description" Margin="0,2,0,0" Style="{x:StaticResource LabelMedium}" FontSize="12" TextColor="{x:StaticResource GrayDefault}"></Label>
                 </StackLayout>
                 <Grid HorizontalOptions="End" ColumnSpacing="15" VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
@@ -24,7 +24,7 @@
                     <Button Grid.Row="0" Grid.Column="1" Text="+1" BackgroundColor="White" BorderWidth="2" BorderColor="{x:StaticResource GreenDefault}" TextColor="{x:StaticResource GreenDefault}" CornerRadius="7" FontSize="12" Padding="0"></Button>
                 </Grid>
             </StackLayout>
-            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" HeightRequest="0.2" Opacity="0.5"></BoxView>
+            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" HeightRequest="0.2" Opacity="0.5" Margin="0,10,0,0"></BoxView>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

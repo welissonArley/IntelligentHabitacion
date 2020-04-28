@@ -44,7 +44,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                 var component = ((MyFoodsComponent)bindable);
                 component.Product.Text = foodModel.Name;
 
-                component.Description.Text = $"{foodModel.Amount} {GetEnumDescription.Description(foodModel.Type)}{(foodModel.DueDate is null ? "" : $" | {ResourceText.TITLE_DUEDATE_TWOPOINTS} {foodModel.DueDate.Value:dd MMMM yyyy}")}";
+                component.Description.Text = $"{foodModel.Amount} {GetEnumDescription.Description(foodModel.Type)}{(foodModel.DueDate is null ? "" : $" | {ResourceText.TITLE_DUEDATE_TWOPOINTS} {foodModel.DueDate.Value:dd MMM yyyy}")}";
             }
         }
 

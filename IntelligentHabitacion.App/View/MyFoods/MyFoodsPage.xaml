@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FOODS}"
+             x:Name="MyFoodsContentPage"
+             x:Class="IntelligentHabitacion.App.View.MyFoods.MyFoodsPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
+        <Label Margin="20,20,20,0" Text="{Binding FoodsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_PRODUCTS_AVALIABLES}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+        <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFoodsContentPage}}"></component:SearchByNameComponent>
+        <ListView ItemTapped="ListView_ItemTapped" RowHeight="65" Margin="0,30,0,20" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding FoodsList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <template:MyFoodsComponent Food="{Binding .}"></template:MyFoodsComponent>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}"></Button>
+    </StackLayout>
+</ContentPage>

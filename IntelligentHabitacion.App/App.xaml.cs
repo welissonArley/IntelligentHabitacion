@@ -2,11 +2,13 @@
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.Friends;
+using IntelligentHabitacion.App.View.MyFoods;
 using IntelligentHabitacion.App.View.RegisterHome;
 using IntelligentHabitacion.App.View.RegisterUser;
 using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using IntelligentHabitacion.App.ViewModel.Friends;
+using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using Xamarin.Forms;
@@ -68,6 +70,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<HomeInformationPage, HomeInformationViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
             ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
+            ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
         }
     }
 }

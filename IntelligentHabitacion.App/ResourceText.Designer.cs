@@ -403,6 +403,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add product.
+        /// </summary>
+        internal static string TITLE_ADD_PRODUCT {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_PRODUCT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Now the address.
         /// </summary>
         internal static string TITLE_ADDRESS {
@@ -462,6 +471,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_AND {
             get {
                 return ResourceManager.GetString("TITLE_AND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Box(es).
+        /// </summary>
+        internal static string TITLE_BOX {
+            get {
+                return ResourceManager.GetString("TITLE_BOX", resourceCulture);
             }
         }
         
@@ -691,6 +709,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Due date:.
+        /// </summary>
+        internal static string TITLE_DUEDATE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_DUEDATE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the email to recover the password?.
         /// </summary>
         internal static string TITLE_EMAIL_RECOVER_PASSAWORD {
@@ -781,6 +808,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kilogram(s).
+        /// </summary>
+        internal static string TITLE_KILOGRAM {
+            get {
+                return ResourceManager.GetString("TITLE_KILOGRAM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login to continue.
         /// </summary>
         internal static string TITLE_LOGIN_TO_CONTINUE {
@@ -808,11 +844,11 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My food.
+        ///   Looks up a localized string similar to My foods.
         /// </summary>
-        internal static string TITLE_MY_FOOD {
+        internal static string TITLE_MY_FOODS {
             get {
-                return ResourceManager.GetString("TITLE_MY_FOOD", resourceCulture);
+                return ResourceManager.GetString("TITLE_MY_FOODS", resourceCulture);
             }
         }
         
@@ -898,6 +934,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Package(s).
+        /// </summary>
+        internal static string TITLE_PACKAGE {
+            get {
+                return ResourceManager.GetString("TITLE_PACKAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password Confirmation:.
         /// </summary>
         internal static string TITLE_PASSWORD_CONFIRMATION_TWOPOINTS {
@@ -948,6 +993,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_PLEASE_LOGIN_AGAIN {
             get {
                 return ResourceManager.GetString("TITLE_PLEASE_LOGIN_AGAIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} products avaliables.
+        /// </summary>
+        internal static string TITLE_PRODUCTS_AVALIABLES {
+            get {
+                return ResourceManager.GetString("TITLE_PRODUCTS_AVALIABLES", resourceCulture);
             }
         }
         
@@ -1056,6 +1110,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_TOBEGIN_TELL_EMAIL {
             get {
                 return ResourceManager.GetString("TITLE_TOBEGIN_TELL_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unity(s).
+        /// </summary>
+        internal static string TITLE_UNITY {
+            get {
+                return ResourceManager.GetString("TITLE_UNITY", resourceCulture);
             }
         }
         

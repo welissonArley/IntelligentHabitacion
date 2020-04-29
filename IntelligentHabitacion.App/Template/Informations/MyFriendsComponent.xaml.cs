@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.Useful;
 using System.Windows.Input;
 using Xamarin.Forms;

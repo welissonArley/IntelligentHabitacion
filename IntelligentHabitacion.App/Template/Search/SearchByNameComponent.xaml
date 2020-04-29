@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+    xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+    x:Class="IntelligentHabitacion.App.Template.Search.SearchByNameComponent">
+    <ContentView.Content>
+        <Frame Margin="20,20,20,0" BackgroundColor="#F1F1F1" HasShadow="False" HeightRequest="40" CornerRadius="20" Padding="0">
+            <StackLayout Orientation="Horizontal" Spacing="-3">
+                <Image Margin="15,0,15,0" Source="IconSearch" VerticalOptions="CenterAndExpand" HeightRequest="15" WidthRequest="15"></Image>
+                <customControl:EntryTransparentBlackCursor TextChanged="Entry_TextChanged" FontSize="12" Placeholder="{x:Static resourceText:ResourceText.TITLE_SEARCH_BY_NAME}" PlaceholderColor="{x:StaticResource GrayDefault}" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"></customControl:EntryTransparentBlackCursor>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

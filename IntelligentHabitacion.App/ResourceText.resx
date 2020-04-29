@@ -249,8 +249,14 @@
   <data name="TITLE_ADD_FRIEND" xml:space="preserve">
     <value>Add friend</value>
   </data>
+  <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
+    <value>Add product</value>
+  </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>
+  </data>
+  <data name="TITLE_BOX" xml:space="preserve">
+    <value>Box(es)</value>
   </data>
   <data name="TITLE_CALL_TO_TWOPOINTS" xml:space="preserve">
     <value>Call to {0}:</value>
@@ -327,6 +333,9 @@
   <data name="TITLE_DELETE_HOME" xml:space="preserve">
     <value>Delete home</value>
   </data>
+  <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
+    <value>Due date:</value>
+  </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>What is the email to recover the password?</value>
   </data>
@@ -357,6 +366,9 @@
   <data name="TITLE_JOIN_HOME" xml:space="preserve">
     <value>Join a home</value>
   </data>
+  <data name="TITLE_KILOGRAM" xml:space="preserve">
+    <value>Kilogram(s)</value>
+  </data>
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Login to continue</value>
   </data>
@@ -366,8 +378,8 @@
   <data name="TITLE_MONTHS" xml:space="preserve">
     <value>months</value>
   </data>
-  <data name="TITLE_MY_FOOD" xml:space="preserve">
-    <value>My food</value>
+  <data name="TITLE_MY_FOODS" xml:space="preserve">
+    <value>My foods</value>
   </data>
   <data name="TITLE_MY_FRIENDS" xml:space="preserve">
     <value>My friends</value>
@@ -396,6 +408,9 @@
   <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
     <value>Now your phone number</value>
   </data>
+  <data name="TITLE_PACKAGE" xml:space="preserve">
+    <value>Package(s)</value>
+  </data>
   <data name="TITLE_PASSWORD_CONFIRMATION_TWOPOINTS" xml:space="preserve">
     <value>Password Confirmation:</value>
   </data>
@@ -413,6 +428,9 @@
   </data>
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>For security reasons, please log in again.</value>
+  </data>
+  <data name="TITLE_PRODUCTS_AVALIABLES" xml:space="preserve">
+    <value>{0} products avaliables</value>
   </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Register</value>
@@ -449,6 +467,9 @@
   </data>
   <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
     <value>To finish. Your password</value>
+  </data>
+  <data name="TITLE_UNITY" xml:space="preserve">
+    <value>Unity(s)</value>
   </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Version:</value>

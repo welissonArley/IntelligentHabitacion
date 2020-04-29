@@ -17,6 +17,7 @@ namespace IntelligentHabitacion.App.Model
 
     public class FoodModel
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public DateTime? DueDate { get; set; }
         public double Amount { get; set; }

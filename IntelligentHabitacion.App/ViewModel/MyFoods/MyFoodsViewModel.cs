@@ -11,18 +11,20 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
     public class MyFoodsViewModel : BaseViewModel
     {
         public ICommand SearchTextChangedCommand { protected set; get; }
+        public ICommand TappedChangeAmountCommand { protected set; get; }
 
-        private readonly ObservableCollection<FoodModel> _foodsList;
+        private ObservableCollection<FoodModel> _foodsList;
         public ObservableCollection<FoodModel> FoodsList { get; set; }
 
         public bool FoodsListIsEmpty { get; set; }
 
         public MyFoodsViewModel()
         {
-            FoodsList = new ObservableCollection<FoodModel>
+            _foodsList = new ObservableCollection<FoodModel>
             {
                 new FoodModel
                 {
+                    Id = "1",
                     Amount = 5,
                     DueDate = DateTime.Today,
                     Manufacturer = "Coca-Cola",
@@ -31,15 +33,21 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 },
                 new FoodModel
                 {
+                    Id = "2",
                     Amount = 1,
                     Manufacturer = "Sadia",
                     Name = "Frango desfiado",
                     Type = Model.Type.Package
                 }
             };
+            FoodsList = _foodsList;
             SearchTextChangedCommand = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);
+            });
+            TappedChangeAmountCommand = new Command((value) =>
+            {
+                OnChangeAmount((FoodModel)value);
             });
         }
 
@@ -47,7 +55,18 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             FoodsList = new ObservableCollection<FoodModel>(_foodsList.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
 
-            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+            OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+        }
+        private void OnChangeAmount(FoodModel model)
+        {
+            if(model.Amount <= 0)
+            {
+                _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
+                if(FoodsList.Any(c => c.Id == model.Id))
+                    FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
+            }
+
+            OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
         }
     }
 }

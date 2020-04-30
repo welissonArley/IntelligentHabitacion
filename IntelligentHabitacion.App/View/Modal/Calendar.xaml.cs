@@ -115,6 +115,12 @@ namespace IntelligentHabitacion.App.View.Modal
 
         private void ValidateMinimumAndMaximumDate()
         {
+            ValidadeMinimumDate();
+            ValidadeMaximumDate();
+        }
+
+        private void ValidadeMinimumDate()
+        {
             if (_minimumDate.HasValue)
             {
                 var minimumDate = _minimumDate.Value;
@@ -144,7 +150,9 @@ namespace IntelligentHabitacion.App.View.Modal
                     ButtonPreviousMonth.IsEnabled = true;
                 }
             }
-
+        }
+        private void ValidadeMaximumDate()
+        {
             if (_maximumDate.HasValue)
             {
                 var maximumDate = _maximumDate.Value;

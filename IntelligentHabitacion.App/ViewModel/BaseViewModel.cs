@@ -25,11 +25,17 @@ namespace IntelligentHabitacion.App.ViewModel
             {
                 var targetInvocationException = (System.Reflection.TargetInvocationException)exception.InnerException;
                 if (!(targetInvocationException.InnerException.InnerException as TokenExpiredException is null))
+                {
                     await SecurityTokenExpired(navigation);
+                    return;
+                }
                 else if (!CrossConnectivity.Current.IsConnected)
+                {
                     await ErrorInternetConnection();
-                else
-                    UnknownError();
+                    return;
+                }
+
+                UnknownError();
             }
             else if (!((exception as TokenExpiredException) is null))
                 await SecurityTokenExpired(navigation);

@@ -13,7 +13,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedChangeAmountCommand { protected set; get; }
 
-        private ObservableCollection<FoodModel> _foodsList;
+        private ObservableCollection<FoodModel> _foodsList { get; set; }
         public ObservableCollection<FoodModel> FoodsList { get; set; }
 
         public bool FoodsListIsEmpty { get; set; }

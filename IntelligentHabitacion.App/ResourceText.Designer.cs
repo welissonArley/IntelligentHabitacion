@@ -763,6 +763,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Frid.
+        /// </summary>
+        internal static string TITLE_FRIDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_FRIDAY_ABBREVIATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} friends available..
         /// </summary>
         internal static string TITLE_FRIENDS_AVALIABLE {
@@ -822,6 +831,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_LOGIN_TO_CONTINUE {
             get {
                 return ResourceManager.GetString("TITLE_LOGIN_TO_CONTINUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mon.
+        /// </summary>
+        internal static string TITLE_MONDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_MONDAY_ABBREVIATED", resourceCulture);
             }
         }
         
@@ -1051,6 +1069,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sat.
+        /// </summary>
+        internal static string TITLE_SATURDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_SATURDAY_ABBREVIATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search by name.
         /// </summary>
         internal static string TITLE_SEARCH_BY_NAME {
@@ -1078,6 +1105,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sun.
+        /// </summary>
+        internal static string TITLE_SUNDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_SUNDAY_ABBREVIATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tell me the Zip Code :).
         /// </summary>
         internal static string TITLE_TELLME_ZIPCODE {
@@ -1092,6 +1128,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_THE_CITY_IS {
             get {
                 return ResourceManager.GetString("TITLE_THE_CITY_IS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thu.
+        /// </summary>
+        internal static string TITLE_THURSDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_THURSDAY_ABBREVIATED", resourceCulture);
             }
         }
         
@@ -1114,6 +1159,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tue.
+        /// </summary>
+        internal static string TITLE_TUESDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_TUESDAY_ABBREVIATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unity(s).
         /// </summary>
         internal static string TITLE_UNITY {
@@ -1128,6 +1182,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_VERSION {
             get {
                 return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wed.
+        /// </summary>
+        internal static string TITLE_WEDNESDAY_ABBREVIATED {
+            get {
+                return ResourceManager.GetString("TITLE_WEDNESDAY_ABBREVIATED", resourceCulture);
             }
         }
         

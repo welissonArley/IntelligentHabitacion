@@ -15,6 +15,8 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public class BaseViewModel : XLabs.Forms.Mvvm.ViewModel
     {
+        private LoadingContentView _loadingContentView;
+
         protected async Task Exception(System.Exception exception)
         {
             var navigation = Resolver.Resolve<INavigation>();
@@ -24,6 +26,8 @@ namespace IntelligentHabitacion.App.ViewModel
                 var targetInvocationException = (System.Reflection.TargetInvocationException)exception.InnerException;
                 if (!(targetInvocationException.InnerException.InnerException as TokenExpiredException is null))
                     await SecurityTokenExpired(navigation);
+                else if (!CrossConnectivity.Current.IsConnected)
+                    await ErrorInternetConnection();
                 else
                     UnknownError();
             }
@@ -57,14 +61,16 @@ namespace IntelligentHabitacion.App.ViewModel
 
         protected async Task ShowLoading()
         {
+            _loadingContentView = new LoadingContentView();
             var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new LoadingContentView());
+            await navigation.PushPopupAsync(_loadingContentView);
         }
 
         protected void HideLoading()
         {
             var navigation = Resolver.Resolve<INavigation>();
-            navigation.PopPopupAsync();
+            navigation.RemovePopupPageAsync(_loadingContentView);
+            _loadingContentView = null;
         }
 
         private void UnknownError()

@@ -384,4 +384,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\IlustrationDog%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconRoundDirection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconRoundDirection%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconRoundDirection%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSquareDirection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSquareDirection%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSquareDirection%403x.png" />
+  </ItemGroup>
 </Project>

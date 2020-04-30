@@ -99,6 +99,9 @@
     <Compile Update="View\Friends\MyFriendsPage.xaml.cs">
       <DependentUpon>MyFriendsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\MenuOptionsAdministratorFriendDetailModal.xaml.cs">
       <DependentUpon>MenuOptionsAdministratorFriendDetailModal.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,9 @@
     <EmbeddedResource Update="ResourceText.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\Date\ColumnDayTemplete.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Template\Step\CompleteStep.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

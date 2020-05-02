@@ -120,6 +120,9 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>O logradouro deve ser informado.</value>
   </data>
+  <data name="AMOUNT_PRODUCTS_INVALID" xml:space="preserve">
+    <value>A quantidade de produtos é inválida.</value>
+  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>O nome da cidade deve ser informado.</value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="PHONENUMBER_INVALID" xml:space="preserve">
     <value>O número de telefone é inválido. (XX) X XXXX-XXXX</value>
+  </data>
+  <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
+    <value>O nome do produto deve ser informado.</value>
   </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>Um código para alterar a senha é necessário.</value>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel" xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             Title="{Binding Title}"
+             x:Name="AddEditMyFoodsContentPage"
+             x:Class="IntelligentHabitacion.App.View.MyFoods.AddEditMyFoodsPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <StackLayout VerticalOptions="FillAndExpand" Spacing="-3">
+            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PRODUCT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PRODUCT}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Manufacturer" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_MANUFACTURER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_MANUFACTURER}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+            <StackLayout Spacing="0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectDueDateTapped}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="False" PropertyToBindindEntry="Model.DueDate" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_DUEDATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_DUE_DATE}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+            </StackLayout>
+            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Amount" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_AMOUNT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_AMOUNT}" IsPassword="False" Keyboard="Numeric" ></templateInputTextWithLabel:InputTextWithLabelComponent>
+        </StackLayout>
+        <StackLayout>
+            <templateButton:SecondaryActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_SAVE_AND_NEW}" TappedButtonCommand="{Binding Path=BindingContext.SaveAndNewCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:SecondaryActionButton>
+            <Button VerticalOptions="EndAndExpand" Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding SaveCommand}"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

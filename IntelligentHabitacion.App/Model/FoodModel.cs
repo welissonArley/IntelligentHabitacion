@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
 {
@@ -15,7 +16,7 @@ namespace IntelligentHabitacion.App.Model
         Kilogram = 3
     }
 
-    public class FoodModel
+    public class FoodModel : ObservableObject
     {
         public string Id { get; set; }
         public string Name { get; set; }

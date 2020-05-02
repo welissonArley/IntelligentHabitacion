@@ -171,6 +171,9 @@
   <data name="PLACEHOLDER_ADDRESSNUMBER" xml:space="preserve">
     <value>1007</value>
   </data>
+  <data name="PLACEHOLDER_AMOUNT" xml:space="preserve">
+    <value>Quantidade</value>
+  </data>
   <data name="PLACEHOLDER_CITY" xml:space="preserve">
     <value>Gotham City</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
     <value>Grau de parentesco</value>
+  </data>
+  <data name="PLACEHOLDER_DUE_DATE" xml:space="preserve">
+    <value>Data de vencimento</value>
   </data>
   <data name="PLACEHOLDER_EMAIL" xml:space="preserve">
     <value>bruce@waynetech.com</value>
@@ -197,6 +203,9 @@
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
     <value>Thomas Wayne</value>
+  </data>
+  <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
+    <value>Fabricante</value>
   </data>
   <data name="PLACEHOLDER_NAME" xml:space="preserve">
     <value>Bruce Wayne</value>
@@ -218,6 +227,9 @@
   </data>
   <data name="PLACEHOLDER_PHONENUMBER" xml:space="preserve">
     <value>(31) 9 0000-0000 </value>
+  </data>
+  <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
+    <value>Produto</value>
   </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
@@ -251,6 +263,9 @@
   </data>
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Adicionar produto</value>
+  </data>
+  <data name="TITLE_AMOUNT_TWOPOINTS" xml:space="preserve">
+    <value>Quantidade:</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>e</value>
@@ -336,6 +351,9 @@
   <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
     <value>Data vencimento:</value>
   </data>
+  <data name="TITLE_EDIT" xml:space="preserve">
+    <value>Editar</value>
+  </data>
   <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
     <value>Qual é o e-mail para recuperação de senha?</value>
   </data>
@@ -375,6 +393,9 @@
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Faça login para continuar</value>
   </data>
+  <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
+    <value>Fabricante:</value>
+  </data>
   <data name="TITLE_MONDAY_ABBREVIATED" xml:space="preserve">
     <value>Seg</value>
   </data>
@@ -401,6 +422,9 @@
   </data>
   <data name="TITLE_NEIGHBORHOOD_TWOPOINTS" xml:space="preserve">
     <value>Bairro:</value>
+  </data>
+  <data name="TITLE_NEW_ITEM" xml:space="preserve">
+    <value>Novo item</value>
   </data>
   <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Nova senha:</value>
@@ -438,6 +462,9 @@
   <data name="TITLE_PRODUCTS_AVALIABLES" xml:space="preserve">
     <value>{0} produtos disponíveis</value>
   </data>
+  <data name="TITLE_PRODUCT_TWOPOINTS" xml:space="preserve">
+    <value>Produto:</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
@@ -455,6 +482,12 @@
   </data>
   <data name="TITLE_SATURDAY_ABBREVIATED" xml:space="preserve">
     <value>Sáb</value>
+  </data>
+  <data name="TITLE_SAVE" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="TITLE_SAVE_AND_NEW" xml:space="preserve">
+    <value>Salvar e novo</value>
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Busque por nome</value>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,6 +13,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
     {
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedChangeAmountCommand { protected set; get; }
+        public ICommand AddNewItemCommand { protected set; get; }
 
         private ObservableCollection<FoodModel> _foodsList { get; set; }
         public ObservableCollection<FoodModel> FoodsList { get; set; }
@@ -40,7 +42,26 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                     Type = Model.Type.Package
                 }
             };
-            FoodsList = _foodsList;
+            FoodsList = new ObservableCollection<FoodModel>
+            {
+                new FoodModel
+                {
+                    Id = "1",
+                    Amount = 5,
+                    DueDate = DateTime.Today,
+                    Manufacturer = "Coca-Cola",
+                    Name = "Kuat Lata 350ml",
+                    Type = Model.Type.Unity
+                },
+                new FoodModel
+                {
+                    Id = "2",
+                    Amount = 1,
+                    Manufacturer = "Sadia",
+                    Name = "Frango desfiado",
+                    Type = Model.Type.Package
+                }
+            };
             SearchTextChangedCommand = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);
@@ -48,6 +69,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             TappedChangeAmountCommand = new Command((value) =>
             {
                 OnChangeAmount((FoodModel)value);
+            });
+            AddNewItemCommand = new Command(async() =>
+            {
+                await OnAddNewItem();
             });
         }
 
@@ -66,6 +91,27 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                     FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
             }
 
+            OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+        }
+        private async Task OnAddNewItem()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, page) => viewModel.CallbackSave = NewItemAdded);
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        private void NewItemAdded(FoodModel model)
+        {
+            _foodsList.Insert(0, model);
+            FoodsList.Insert(0, model);
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
         }
     }

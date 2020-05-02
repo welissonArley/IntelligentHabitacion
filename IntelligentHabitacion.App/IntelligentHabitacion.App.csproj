@@ -111,6 +111,9 @@
     <Compile Update="View\HomeInformationPage.xaml.cs">
       <DependentUpon>HomeInformationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\MyFoods\AddEditMyFoodsPage.xaml.cs">
+      <DependentUpon>AddEditMyFoodsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\UpdateUserInformationPage.xaml.cs">
       <DependentUpon>UpdateUserInformationPage.xaml</DependentUpon>
     </Compile>

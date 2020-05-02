@@ -18,6 +18,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}"></Button>
+        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddNewItemCommand}"></Button>
     </StackLayout>
 </ContentPage>

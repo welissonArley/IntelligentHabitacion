@@ -71,6 +71,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
             ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
             ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
+            ViewFactory.Register<AddEditMyFoodsPage, AddEditMyFoodsViewModel>();
         }
     }
 }

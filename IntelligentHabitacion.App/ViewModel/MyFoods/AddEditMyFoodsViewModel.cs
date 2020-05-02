@@ -30,7 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             if (Model == null)
             {
                 Title = ResourceText.TITLE_NEW_ITEM;
-                Model = new FoodModel();
+                Model = new FoodModel { Amount = 1 };
             }
             else
                 Title = ResourceText.TITLE_EDIT;

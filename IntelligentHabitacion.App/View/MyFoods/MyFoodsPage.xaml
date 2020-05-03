@@ -13,11 +13,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <template:MyFoodsComponent Food="{Binding .}" TappedChangeAmountCommand="{Binding Path=BindingContext.TappedChangeAmountCommand, Source={x:Reference Name=MyFoodsContentPage}}"></template:MyFoodsComponent>
+                        <template:MyFoodsComponent Food="{Binding .}" TappedItemCommand="{Binding Path=BindingContext.TappedItemCommand, Source={x:Reference Name=MyFoodsContentPage}}" TappedChangeAmountCommand="{Binding Path=BindingContext.TappedChangeAmountCommand, Source={x:Reference Name=MyFoodsContentPage}}"></template:MyFoodsComponent>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}"></Button>
+        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddNewItemCommand}"></Button>
     </StackLayout>
 </ContentPage>

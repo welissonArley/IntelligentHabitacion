@@ -70,6 +70,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The amount of products is invalid..
+        /// </summary>
+        public static string AMOUNT_PRODUCTS_INVALID {
+            get {
+                return ResourceManager.GetString("AMOUNT_PRODUCTS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The City&apos;s name must be entered..
         /// </summary>
         public static string CITY_EMPTY {
@@ -300,6 +309,15 @@ namespace IntelligentHabitacion.Exception {
         public static string PHONENUMBER_INVALID {
             get {
                 return ResourceManager.GetString("PHONENUMBER_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The product name must be entered..
+        /// </summary>
+        public static string PRODUCT_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("PRODUCT_NAME_EMPTY", resourceCulture);
             }
         }
         

@@ -7,6 +7,7 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
     public partial class InputTextWithLabelComponent : ContentView
     {
         public bool TopMargin { get; set; }
+        public IValueConverter ConverterToEntry { get; set; }
 
         public Xamarin.Forms.Behavior EntryBehavior
         {
@@ -49,6 +50,14 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: EntryUnfocusedPropertyChanged);
 
+        public static readonly BindableProperty PropertyToBindindEntryProperty = BindableProperty.Create(
+                                                        propertyName: "PropertyToBindindEntry",
+                                                        returnType: typeof(string),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: PropertyToBindindEntryChanged);
+
         private static void EntryBehaviorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (newValue != null)
@@ -61,7 +70,26 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
                 ((InputTextWithLabelComponent)bindable).Input.Unfocused += (System.EventHandler<FocusEventArgs>)newValue;
         }
 
-        public string PropertyToBindindEntry { set { Input.SetBinding(Entry.TextProperty, value, mode: BindingMode.TwoWay); } get { return null; } }
+        private static void PropertyToBindindEntryChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            Binding binding = new Binding(newValue.ToString())
+            {
+                Mode = BindingMode.TwoWay
+            };
+
+            var bindableComponent = ((InputTextWithLabelComponent)bindable);
+
+            if (bindableComponent.ConverterToEntry != null)
+                binding.Converter = bindableComponent.ConverterToEntry;
+
+            bindableComponent.Input.SetBinding(Entry.TextProperty, binding);
+        }
+
+        public string PropertyToBindindEntry
+        {
+            get => (string)GetValue(PropertyToBindindEntryProperty);
+            set => SetValue(PropertyToBindindEntryProperty, value);
+        }
         public string LabelTitle { get; set; }
         public string PlaceHolderText { set { Input.Placeholder = value; } get { return Input.Placeholder; } }
         public Keyboard Keyboard { set { Input.Keyboard = value; } get { return Input.Keyboard; } }

@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.App.Converter
             if (decimal.TryParse(strValue, out decimal resultdecimal))
                 return resultdecimal;
 
-            return 0;
+            return (decimal)0.0;
         }
     }
 }

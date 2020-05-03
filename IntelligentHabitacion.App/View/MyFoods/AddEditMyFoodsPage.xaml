@@ -24,7 +24,21 @@
             </StackLayout>
             <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource DecimalConverter}" PropertyToBindindEntry="Model.Amount" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_AMOUNT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_AMOUNT}" IsPassword="False" Keyboard="Numeric" ></templateInputTextWithLabel:InputTextWithLabelComponent>
         </StackLayout>
+        <StackLayout IsVisible="False">
+            <StackLayout.Triggers>
+                <DataTrigger TargetType="StackLayout" Binding="{Binding Title}" Value="{x:Static resourceText:ResourceText.TITLE_EDIT}">
+                    <Setter Property="IsVisible" Value="True"></Setter>
+                </DataTrigger>
+            </StackLayout.Triggers>
+            <templateButton:ConfirmDangerActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE}" TappedButtonCommand="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:ConfirmDangerActionButton>
+            <Button VerticalOptions="EndAndExpand" Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding SaveCommand}"></Button>
+        </StackLayout>
         <StackLayout>
+            <StackLayout.Triggers>
+                <DataTrigger TargetType="StackLayout" Binding="{Binding Title}" Value="{x:Static resourceText:ResourceText.TITLE_EDIT}">
+                    <Setter Property="IsVisible" Value="False"></Setter>
+                </DataTrigger>
+            </StackLayout.Triggers>
             <templateButton:SecondaryActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_SAVE_AND_NEW}" TappedButtonCommand="{Binding Path=BindingContext.SaveAndNewCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:SecondaryActionButton>
             <Button VerticalOptions="EndAndExpand" Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding SaveCommand}"></Button>
         </StackLayout>

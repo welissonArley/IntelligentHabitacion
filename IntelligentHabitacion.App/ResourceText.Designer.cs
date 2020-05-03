@@ -736,6 +736,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string TITLE_DELETE {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete account.
         /// </summary>
         internal static string TITLE_DELETE_ACCOUNT {

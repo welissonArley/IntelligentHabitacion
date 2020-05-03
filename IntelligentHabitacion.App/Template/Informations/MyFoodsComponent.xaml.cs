@@ -72,19 +72,26 @@ namespace IntelligentHabitacion.App.Template.Informations
             InitializeComponent();
         }
 
-        private void Item_Tapped(object sender, System.EventArgs e)
+        public void Refresh()
         {
-            TappedItemCommand?.Execute(Food);
+            Product.Text = Food.Name;
+            DueDateController.Text = $"{(int)GetTypeDueDate(Food)}";
+            Description.Text = DescriptionToShow(Food);
         }
 
-        private void Button_AddOne(object sender, System.EventArgs e)
+        private void Item_Tapped(object sender, EventArgs e)
+        {
+            TappedItemCommand?.Execute(this);
+        }
+
+        private void Button_AddOne(object sender, EventArgs e)
         {
             Food.Amount++;
             Description.Text = DescriptionToShow(Food);
             TappedChangeAmountCommand?.Execute(Food);
         }
 
-        private void Button_SubtractOne(object sender, System.EventArgs e)
+        private void Button_SubtractOne(object sender, EventArgs e)
         {
             Food.Amount--;
             Description.Text = DescriptionToShow(Food);

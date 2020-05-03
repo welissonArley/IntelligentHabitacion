@@ -15,6 +15,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
     {
         public ICommand SelectDueDateTapped { get; }
         public ICommand SaveCommand { get; }
+        public ICommand DeleteCommand { get; }
         public ICommand SaveAndNewCommand { get; }
 
         private readonly IMyFoodsRule _myFoodsRule;
@@ -23,18 +24,12 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public FoodModel Model { get; set; }
 
         public Action<FoodModel> CallbackSave { get; set; }
+        public Action<FoodModel> CallbackDelete { get; set; }
 
         public AddEditMyFoodsViewModel(IMyFoodsRule myFoodsRule)
         {
             _myFoodsRule = myFoodsRule;
-            if (Model == null)
-            {
-                Title = ResourceText.TITLE_NEW_ITEM;
-                Model = new FoodModel { Amount = 1 };
-            }
-            else
-                Title = ResourceText.TITLE_EDIT;
-
+            
             SelectDueDateTapped = new Command(async() =>
             {
                 await ClickSelectDueDate();
@@ -47,6 +42,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             {
                 await OnSaveAndNew();
             });
+            DeleteCommand = new Command(async () =>
+            {
+                await OnDeleteItem();
+            });
         }
 
         private async Task OnSaveItem()
@@ -54,7 +53,8 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             try
             {
                 await ShowLoading();
-                Model.Id = _myFoodsRule.AddItem(Model);
+                if(string.IsNullOrEmpty(Model.Id))
+                    Model.Id = _myFoodsRule.AddItem(Model);
                 CallbackSave(Model);
                 HideLoading();
                 await Navigation.PopAsync();
@@ -86,11 +86,26 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 await Exception(exeption);
             }
         }
+        private async Task OnDeleteItem()
+        {
+            try
+            {
+                await ShowLoading();
+                CallbackDelete(Model);
+                HideLoading();
+                await Navigation.PopAsync();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
         private async Task ClickSelectDueDate()
         {
             await ShowLoading();
             var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new Calendar(DateTime.Today, OnDateSelected, minimumDate: DateTime.Today));
+            await navigation.PushPopupAsync(new Calendar(Model.DueDate ?? DateTime.Today, OnDateSelected, minimumDate: DateTime.Today));
             HideLoading();
         }
         private void OnDateSelected(DateTime date)

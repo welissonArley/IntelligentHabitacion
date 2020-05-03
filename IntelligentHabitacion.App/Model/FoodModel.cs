@@ -24,5 +24,17 @@ namespace IntelligentHabitacion.App.Model
         public decimal Amount { get; set; }
         public string Manufacturer { get; set; }
         public Type Type { get; set; }
+
+        public FoodModel Clone()
+        {
+            return new FoodModel
+            {
+                Id = Id,
+                Name = Name,
+                DueDate = DueDate,
+                Amount = Amount,
+                Type = Type
+            };
+        }
     }
 }

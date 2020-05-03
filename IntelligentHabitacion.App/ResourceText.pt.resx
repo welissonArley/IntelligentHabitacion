@@ -342,6 +342,9 @@
   <data name="TITLE_DAYS" xml:space="preserve">
     <value>dias</value>
   </data>
+  <data name="TITLE_DELETE" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
   <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
     <value>Deletar conta</value>
   </data>

@@ -1276,6 +1276,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        internal static string TITLE_TYPE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_TYPE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unity(s).
         /// </summary>
         internal static string TITLE_UNITY {

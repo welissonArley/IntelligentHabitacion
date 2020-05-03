@@ -522,6 +522,9 @@
   <data name="TITLE_TUESDAY_ABBREVIATED" xml:space="preserve">
     <value>Ter</value>
   </data>
+  <data name="TITLE_TYPE_TWOPOINTS" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unidade(s)</value>
   </data>

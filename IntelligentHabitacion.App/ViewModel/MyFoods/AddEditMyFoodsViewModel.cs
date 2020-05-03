@@ -17,6 +17,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public ICommand SaveCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand SaveAndNewCommand { get; }
+        public ICommand SelectedTypeItemCommand { get; }
 
         private readonly IMyFoodsRule _myFoodsRule;
 
@@ -45,6 +46,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             DeleteCommand = new Command(async () =>
             {
                 await OnDeleteItem();
+            });
+            SelectedTypeItemCommand = new Command((parameter) =>
+            {
+                Model.Type = (Model.Type)((Plugin.InputKit.Shared.Controls.RadioButtonGroupView)parameter).SelectedIndex;
             });
         }
 

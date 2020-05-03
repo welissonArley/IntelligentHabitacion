@@ -33,6 +33,7 @@ namespace IntelligentHabitacion.App.Model
                 Name = Name,
                 DueDate = DueDate,
                 Amount = Amount,
+                Manufacturer = Manufacturer,
                 Type = Type
             };
         }

@@ -209,5 +209,17 @@ namespace IntelligentHabitacion.Communication
             };
         }
         #endregion
+
+        #region MyFood
+        public async Task<ResponseJson> CreateMyFood(RequestAddMyFoodJson registerMyFood, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/MyFood/AddFoods", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = JsonConvert.DeserializeObject<string>(await response.Content.ReadAsStringAsync()),
+                Token = GetToken(response)
+            };
+        }
+        #endregion
     }
 }

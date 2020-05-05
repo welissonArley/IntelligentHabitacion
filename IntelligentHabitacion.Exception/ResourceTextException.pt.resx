@@ -216,6 +216,9 @@
   <data name="THE_PHONENUMBER_INVALID" xml:space="preserve">
     <value>O número de telefone {0} é inválido. (XX) X XXXX-XXXX</value>
   </data>
+  <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
+    <value>O tipo do produto é inválido.</value>
+  </data>
   <data name="UNKNOWNDATABASE" xml:space="preserve">
     <value>O banco de dados é invalido ou não conhecido</value>
   </data>

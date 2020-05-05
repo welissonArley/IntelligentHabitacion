@@ -3,6 +3,7 @@
     public enum EnumVersions
     {
         RegisterUser = 1,
-        RegisterHome = 2
+        RegisterHome = 2,
+        RegisterUsersFood = 3
     }
 }

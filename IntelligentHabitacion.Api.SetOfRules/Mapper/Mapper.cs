@@ -62,6 +62,19 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 ZipCode = registerHomeJson.ZipCode
             };
         }
+        public MyFood MapperJsonToModel(RequestAddMyFoodJson model)
+        {
+            return new MyFood
+            {
+                Active = true,
+                Amount = model.Amount,
+                DueDate = model.DueDate,
+                Manufacturer = model.Manufacturer,
+                Name = model.Name,
+                Type = (Repository.Model.Type)model.Type,
+                CreateDate = DateTimeController.DateTimeNow()
+            };
+        }
         #endregion
 
         #region MapperModelToJson
@@ -140,6 +153,18 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 EmergencyContact = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),
                 ProfileColor = model.ProfileColor,
                 JoinedOn = model.HomeAssociation.JoinedOn
+            };
+        }
+        public ResponseMyFoodJson MapperModelToJson(MyFood model)
+        {
+            return new ResponseMyFoodJson
+            {
+                Name = model.Name,
+                Amount = model.Amount,
+                DueDate = model.DueDate,
+                Manufacturer = model.Manufacturer,
+                Type = (Communication.Response.Type)model.Type,
+                Id = model.EncryptedId()
             };
         }
         #endregion

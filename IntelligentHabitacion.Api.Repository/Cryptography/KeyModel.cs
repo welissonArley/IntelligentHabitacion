@@ -21,6 +21,9 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
             if (!((model as Home) is null))
                 return "U7L5atxzMZbXzFEt";
 
+            if (!((model as MyFood) is null))
+                return "3RAGAaHTWK8pGSJU";
+
             return "";
         }
 

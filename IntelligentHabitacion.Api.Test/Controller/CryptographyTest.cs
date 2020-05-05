@@ -200,6 +200,29 @@ namespace IntelligentHabitacion.Api.Test.Controller
         }
 
         [Fact]
+        public void TestMyFoodCryptography()
+        {
+            var model = new MyFood
+            {
+                Id = 1,
+                Active = true,
+                CreateDate = DateTime.Today,
+                UpdateDate = DateTime.Today,
+                Amount = 5,
+                DueDate = DateTime.Today,
+                Manufacturer = "Manufacturer",
+                Name = "Name",
+                Type = Repository.Model.Type.Box,
+                UserId = 1
+            };
+            Assert.Equal("Manufacturer", model.Manufacturer);
+            model.Encrypt();
+            Assert.NotEqual("Manufacturer", model.Manufacturer);
+            model.Decrypt();
+            Assert.Equal("Manufacturer", model.Manufacturer);
+        }
+
+        [Fact]
         public void TestKeyToken()
         {
             Assert.True(!string.IsNullOrWhiteSpace(KeyModel.GetKey()));

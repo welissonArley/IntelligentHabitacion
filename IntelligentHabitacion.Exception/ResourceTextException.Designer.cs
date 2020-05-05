@@ -358,6 +358,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The product&apos;s type is invalid..
+        /// </summary>
+        public static string TYPE_PRODUCTS_INVALID {
+            get {
+                return ResourceManager.GetString("TYPE_PRODUCTS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknow error.
         /// </summary>
         public static string UNKNOW_ERROR {

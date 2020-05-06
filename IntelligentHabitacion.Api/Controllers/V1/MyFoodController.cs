@@ -78,7 +78,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("Delete")]
+        [Route("Delete/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult DeleteFoods(string id)
         {
@@ -102,6 +102,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPut]
         [Route("ChangeQuantity")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult ChangeQuantity(RequestChangeQuantityJson changeQuantity)
         {
             try
@@ -124,6 +125,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPut]
         [Route("EditFood")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult EditFood(RequestEditMyFoodJson editMyFood)
         {
             try

@@ -20,6 +20,10 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> UpdateHome(RequestHomeJson registerHome, string token, string language = null);
         Task<ResponseJson> GetHomesInformations(string token, string language = null);
         Task<ResponseJson> GetHouseFriends(string token, string language = null);
-        Task<ResponseJson> CreateMyFood(RequestAddMyFoodJson registerMyFood, string token, string language = null);
+        Task<ResponseJson> AddMyFood(RequestAddMyFoodJson myFood, string token, string language = null);
+        Task<ResponseJson> EditMyFood(RequestEditMyFoodJson myFood, string token, string language = null);
+        Task<ResponseJson> DeleteMyFood(string id, string token, string language = null);
+        Task<ResponseJson> ChangeQuantityMyFood(RequestChangeQuantityJson myFood, string token, string language = null);
+        Task<ResponseJson> GetMyFoods(string token, string language = null);
     }
 }

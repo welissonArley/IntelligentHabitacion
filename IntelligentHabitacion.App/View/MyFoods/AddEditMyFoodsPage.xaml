@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
-        <ScrollView>
+        <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout Margin="20,0,20,0" VerticalOptions="FillAndExpand" Spacing="-3">
                 <StackLayout VerticalOptions="FillAndExpand" Spacing="-3">
                     <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Name" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PRODUCT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PRODUCT}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>

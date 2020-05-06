@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.Model;
+﻿using IntelligentHabitacion.App.Converter;
+using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Useful;
 using System;
 using System.Windows.Input;
@@ -100,7 +101,7 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private static string DescriptionToShow(FoodModel foodModel)
         {
-            return $"{foodModel.Amount} {GetEnumDescription.Description(foodModel.Type)}{(foodModel.DueDate is null ? "" : $" | {ResourceText.TITLE_DUEDATE_TWOPOINTS} {foodModel.DueDate.Value:dd MMM yyyy}")}";
+            return $"{new ValueDecimalConverter().Convert(foodModel.Amount, null, null, null)} {GetEnumDescription.Description(foodModel.Type)}{(foodModel.DueDate is null ? "" : $" | {ResourceText.TITLE_DUEDATE_TWOPOINTS} {foodModel.DueDate.Value:dd MMM yyyy}")}";
         }
         private static TypeDueDate GetTypeDueDate(FoodModel foodModel)
         {

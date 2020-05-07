@@ -18,12 +18,18 @@ namespace IntelligentHabitacion.Api.Repository.Repository
 
         public MyFood GetMyFood(long foodId, long userId)
         {
-            return IncludeModel().FirstOrDefault(c => c.UserId == userId && c.Id == foodId);
+            var model = IncludeModel().FirstOrDefault(c => c.UserId == userId && c.Id == foodId);
+            model?.Decrypt();
+
+            return model;
         }
 
         public IQueryable<MyFood> GetMyFoods(long userId)
         {
-            return IncludeModel().Where(c => c.UserId == userId);
+            var models = IncludeModel().Where(c => c.UserId == userId);
+            foreach (var model in models)
+                model.Decrypt();
+            return models;
         }
     }
 }

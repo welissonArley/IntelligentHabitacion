@@ -58,8 +58,12 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             try
             {
                 await ShowLoading();
-                if(string.IsNullOrEmpty(Model.Id))
-                    Model.Id = _myFoodsRule.AddItem(Model);
+
+                if (string.IsNullOrEmpty(Model.Id))
+                    Model.Id = await _myFoodsRule.AddItem(Model);
+                else
+                    await _myFoodsRule.EditItem(Model);
+
                 CallbackSave(Model);
                 HideLoading();
                 await Navigation.PopAsync();
@@ -75,13 +79,13 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             try
             {
                 await ShowLoading();
-                Model.Id = _myFoodsRule.AddItem(Model);
+                Model.Id = await _myFoodsRule.AddItem(Model);
                 CallbackSave(Model);
+                Model.Id = string.Empty;
                 Model.Name = "";
                 Model.Manufacturer = "";
-                Model.Amount = 0;
+                Model.Amount = 1;
                 Model.DueDate = null;
-                Model.Type = IntelligentHabitacion.App.Model.Type.Unity;
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 HideLoading();
             }
@@ -96,6 +100,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             try
             {
                 await ShowLoading();
+                await _myFoodsRule.DeleteMyFood(Model.Id);
                 CallbackDelete(Model);
                 HideLoading();
                 await Navigation.PopAsync();

@@ -204,6 +204,9 @@
   <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
     <value>The product name must be entered.</value>
   </data>
+  <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
+    <value>The product was not found.</value>
+  </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>One code to reset the password is requerid.</value>
   </data>

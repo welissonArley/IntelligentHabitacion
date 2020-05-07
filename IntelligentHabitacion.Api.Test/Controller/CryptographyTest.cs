@@ -61,13 +61,15 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Active = true,
                 CreateDate = DateTime.Today,
                 UpdateDate = DateTime.Today,
-                Number = "(31) 9 9999-9999"
+                Number = "(31) 9 9999-9999",
+                UserId = 1
             };
             Assert.Equal("(31) 9 9999-9999", model.Number);
             model.Encrypt();
             Assert.NotEqual("(31) 9 9999-9999", model.Number);
             model.Decrypt();
             Assert.Equal("(31) 9 9999-9999", model.Number);
+            Assert.Equal(1, model.UserId);
         }
 
         [Fact]
@@ -81,13 +83,15 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 UpdateDate = DateTime.Today,
                 Name = "Contact",
                 DegreeOfKinship = "Relation",
-                Phonenumber = "(31) 9 9999-9999"
+                Phonenumber = "(31) 9 9999-9999",
+                UserId = 1
             };
             Assert.Equal("Contact", model.Name);
             model.Encrypt();
             Assert.NotEqual("Contact", model.Name);
             model.Decrypt();
             Assert.Equal("Contact", model.Name);
+            Assert.Equal(1, model.UserId);
         }
 
         [Fact]
@@ -220,6 +224,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.NotEqual("Manufacturer", model.Manufacturer);
             model.Decrypt();
             Assert.Equal("Manufacturer", model.Manufacturer);
+            Assert.Equal(1, model.UserId);
         }
 
         [Fact]

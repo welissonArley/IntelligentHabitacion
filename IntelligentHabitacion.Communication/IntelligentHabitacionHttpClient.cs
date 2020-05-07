@@ -21,7 +21,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://a50d9bb4.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = "https://1e14e282.ngrok.io/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -211,12 +211,49 @@ namespace IntelligentHabitacion.Communication
         #endregion
 
         #region MyFood
-        public async Task<ResponseJson> CreateMyFood(RequestAddMyFoodJson registerMyFood, string token, string language = null)
+        public async Task<ResponseJson> AddMyFood(RequestAddMyFoodJson myFood, string token, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/MyFood/AddFoods", token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/MyFood/AddFood", myFood, token: token, language: language);
             return new ResponseJson
             {
-                Response = JsonConvert.DeserializeObject<string>(await response.Content.ReadAsStringAsync()),
+                Response = (await response.Content.ReadAsStringAsync()).ToString(),
+                Token = GetToken(response)
+            };
+        }
+
+        public async Task<ResponseJson> EditMyFood(RequestEditMyFoodJson myFood, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/MyFood/EditFood", myFood, token: token, language: language);
+            return new ResponseJson
+            {
+                Token = GetToken(response)
+            };
+        }
+
+        public async Task<ResponseJson> DeleteMyFood(string id, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Delete, $"{UrlIntelligentHabitacionApi}/MyFood/Delete/{id}", token: token, language: language);
+            return new ResponseJson
+            {
+                Token = GetToken(response)
+            };
+        }
+
+        public async Task<ResponseJson> ChangeQuantityMyFood(RequestChangeQuantityMyFoodJson myFood, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/MyFood/ChangeQuantity/", myFood, token: token, language: language);
+            return new ResponseJson
+            {
+                Token = GetToken(response)
+            };
+        }
+
+        public async Task<ResponseJson> GetMyFoods(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/MyFood/MyFoods/", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = response.StatusCode == System.Net.HttpStatusCode.NoContent ? new List<ResponseMyFoodJson>() : JsonConvert.DeserializeObject<List<ResponseMyFoodJson>>(await response.Content.ReadAsStringAsync()),
                 Token = GetToken(response)
             };
         }

@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.Template.Informations;
 using System;
 using System.Collections.ObjectModel;
@@ -14,6 +15,8 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
     {
         private MyFoodsComponent componentToEdit { get; set; }
 
+        private readonly IMyFoodsRule _myFoodsRule;
+
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedChangeAmountCommand { protected set; get; }
         public ICommand AddNewItemCommand { protected set; get; }
@@ -24,56 +27,22 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
 
         public bool FoodsListIsEmpty { get; set; }
 
-        public MyFoodsViewModel()
+        public MyFoodsViewModel(IMyFoodsRule myFoodsRule)
         {
+            _myFoodsRule = myFoodsRule;
             componentToEdit = null;
-            _foodsList = new ObservableCollection<FoodModel>
-            {
-                new FoodModel
-                {
-                    Id = "1",
-                    Amount = 5,
-                    DueDate = DateTime.Today.AddDays(-10),
-                    Manufacturer = "Coca-Cola",
-                    Name = "Kuat Lata 350ml",
-                    Type = Model.Type.Unity
-                },
-                new FoodModel
-                {
-                    Id = "2",
-                    Amount = 1,
-                    Manufacturer = "Sadia",
-                    Name = "Frango desfiado",
-                    Type = Model.Type.Package
-                }
-            };
-            FoodsList = new ObservableCollection<FoodModel>
-            {
-                new FoodModel
-                {
-                    Id = "1",
-                    Amount = 5,
-                    DueDate = DateTime.Today.AddDays(-10),
-                    Manufacturer = "Coca-Cola",
-                    Name = "Kuat Lata 350ml",
-                    Type = Model.Type.Unity
-                },
-                new FoodModel
-                {
-                    Id = "2",
-                    Amount = 1,
-                    Manufacturer = "Sadia",
-                    Name = "Frango desfiado",
-                    Type = Model.Type.Package
-                }
-            };
+
+            var foodsList = Task.Run(async () => await myFoodsRule.GetMyFoods()).Result;
+            _foodsList = new ObservableCollection<FoodModel>(foodsList);
+            FoodsList = new ObservableCollection<FoodModel>(foodsList);
+
             SearchTextChangedCommand = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);
             });
-            TappedChangeAmountCommand = new Command((value) =>
+            TappedChangeAmountCommand = new Command(async (value) =>
             {
-                OnChangeAmount((FoodModel)value);
+                await OnChangeAmount((FoodModel)value);
             });
             AddNewItemCommand = new Command(async() =>
             {
@@ -91,12 +60,23 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
 
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
         }
-        private void OnChangeAmount(FoodModel model)
+        private async Task OnChangeAmount(FoodModel model)
         {
-            if(model.Amount <= 0)
+            try
             {
-                _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
-                FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
+                await ShowLoading();
+                await _myFoodsRule.ChangeQuantity(model);
+                if (model.Amount <= 0)
+                {
+                    _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
+                    FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
+                }
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
             }
         }
         private async Task OnAddNewItem()
@@ -143,8 +123,6 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         private void EditItem(FoodModel model)
         {
             var item = _foodsList.First(c => c.Id.Equals(model.Id));
-            FillModelEdit(item, model);
-            item = FoodsList.First(c => c.Id.Equals(model.Id));
             FillModelEdit(item, model);
             componentToEdit.Refresh();
             componentToEdit = null;

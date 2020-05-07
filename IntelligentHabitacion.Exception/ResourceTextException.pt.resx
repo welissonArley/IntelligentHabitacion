@@ -204,6 +204,9 @@
   <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
     <value>O nome do produto deve ser informado.</value>
   </data>
+  <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
+    <value>O produto não foi encontrado.</value>
+  </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>Um código para alterar a senha é necessário.</value>
   </data>

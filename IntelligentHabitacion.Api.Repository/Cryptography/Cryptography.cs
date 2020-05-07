@@ -32,8 +32,7 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
                         }
                         finally
                         {
-                            if (csStream != null)
-                                csStream.Dispose();
+                            csStream?.Dispose();
                         }
                     }
                 }
@@ -61,8 +60,7 @@ namespace IntelligentHabitacion.Api.Repository.Cryptography
                     }
                     finally
                     {
-                        if (csStream != null)
-                            csStream.Dispose();
+                        csStream?.Dispose();
                     }
                 }
 

@@ -103,7 +103,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpPut]
         [Route("ChangeQuantity")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ChangeQuantity(RequestChangeQuantityJson changeQuantity)
+        public IActionResult ChangeQuantity(RequestChangeQuantityMyFoodJson changeQuantity)
         {
             try
             {

@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> AddMyFood(RequestAddMyFoodJson myFood, string token, string language = null);
         Task<ResponseJson> EditMyFood(RequestEditMyFoodJson myFood, string token, string language = null);
         Task<ResponseJson> DeleteMyFood(string id, string token, string language = null);
-        Task<ResponseJson> ChangeQuantityMyFood(RequestChangeQuantityJson myFood, string token, string language = null);
+        Task<ResponseJson> ChangeQuantityMyFood(RequestChangeQuantityMyFoodJson myFood, string token, string language = null);
         Task<ResponseJson> GetMyFoods(string token, string language = null);
     }
 }

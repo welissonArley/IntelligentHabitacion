@@ -28,8 +28,7 @@ namespace IntelligentHabitacion.App.SQLite
                         }
                         finally
                         {
-                            if (csStream != null)
-                                csStream.Dispose();
+                            csStream?.Dispose();
                         }
                     }
                 }
@@ -54,8 +53,7 @@ namespace IntelligentHabitacion.App.SQLite
                     }
                     finally
                     {
-                        if (csStream != null)
-                            csStream.Dispose();
+                        csStream?.Dispose();
                     }
                 }
 

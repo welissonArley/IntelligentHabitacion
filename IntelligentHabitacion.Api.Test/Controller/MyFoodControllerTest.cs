@@ -132,7 +132,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void ChangeQuantityFoodNotFound()
         {
             _controller.HttpContext.Request.Path = new PathString("/MyFood/ChangeQuantity/");
-            var result = _controller.ChangeQuantity(new RequestChangeQuantityJson
+            var result = _controller.ChangeQuantity(new RequestChangeQuantityMyFoodJson
             {
                 Id = new MyFood { Id = 700 }.EncryptedId(),
                 Quantity = 5
@@ -142,7 +142,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
 
         [Theory]
         [MemberData(nameof(ChangeQuantityData))]
-        public void ChangeQuantitySucess(RequestChangeQuantityJson request)
+        public void ChangeQuantitySucess(RequestChangeQuantityMyFoodJson request)
         {
             _controller.HttpContext.Request.Path = new PathString("/MyFood/ChangeQuantity/");
             var result = _controller.ChangeQuantity(request);
@@ -163,8 +163,8 @@ namespace IntelligentHabitacion.Api.Test.Controller
 
         public static IEnumerable<object[]> ChangeQuantityData => new List<object[]>
         {
-            new object[] { new RequestChangeQuantityJson { Id = new MyFood { Id = 1 }.EncryptedId(), Quantity = 0 } },
-            new object[] { new RequestChangeQuantityJson { Id = new MyFood { Id = 1 }.EncryptedId(), Quantity = 5 } }
+            new object[] { new RequestChangeQuantityMyFoodJson { Id = new MyFood { Id = 1 }.EncryptedId(), Quantity = 0 } },
+            new object[] { new RequestChangeQuantityMyFoodJson { Id = new MyFood { Id = 1 }.EncryptedId(), Quantity = 5 } }
         };
 }
 }

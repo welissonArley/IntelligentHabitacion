@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _myFoodRepository = myFoodRepository;
         }
 
-        public void ChangeQuantity(RequestChangeQuantityJson changeQuantity)
+        public void ChangeQuantity(RequestChangeQuantityMyFoodJson changeQuantity)
         {
             var decriptedId = new MyFood().DecryptedId(changeQuantity.Id);
             var model = _myFoodRepository.GetMyFood(decriptedId, _loggedUser.User().Id);

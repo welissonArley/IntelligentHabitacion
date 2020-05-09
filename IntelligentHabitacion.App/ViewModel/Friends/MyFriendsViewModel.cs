@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand MakePhonecallCommand { protected set; get; }
         public ICommand DetailFriendCommand { protected set; get; }
+        public ICommand AddFriendCommand { protected set; get; }
 
         private readonly ObservableCollection<FriendModel> _friendsList;
         public ObservableCollection<FriendModel> FriendsList { get; set; }
@@ -41,6 +43,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             {
                 await OnDetailFriend((FriendModel)value);
             });
+            AddFriendCommand = new Command(async () =>
+            {
+                await OnAddFriend();
+            });
         }
 
         private void OnSearchTextChanged(string value)
@@ -63,6 +69,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             await ShowLoading();
             await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) => viewModel.Model = friend);
+            HideLoading();
+        }
+        private async Task OnAddFriend()
+        {
+            await ShowLoading();
+            await Navigation.PushAsync<QrCodeToAddFriendViewModel>();
             HideLoading();
         }
 

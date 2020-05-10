@@ -12,6 +12,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         private readonly WebSocketAddFriendConnection _webSocketAddFriendConnection;
         public string Time { get; set; }
         public bool ReceivedCode { get; set; }
+        public string QrCode { get; set; }
 
         public QrCodeToAddFriendViewModel(ISqliteDatabase database)
         {
@@ -22,6 +23,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         private void OnCodeReceived(string code)
         {
             ReceivedCode = true;
+            QrCode = code;
+            OnPropertyChanged(new PropertyChangedEventArgs("QrCode"));
             OnPropertyChanged(new PropertyChangedEventArgs("ReceivedCode"));
         }
 

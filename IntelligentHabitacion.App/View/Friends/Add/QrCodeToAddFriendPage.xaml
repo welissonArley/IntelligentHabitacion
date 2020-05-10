@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              mc:Ignorable="d"
              Title="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}"
              x:Class="IntelligentHabitacion.App.View.Friends.Add.QrCodeToAddFriendPage">
@@ -36,6 +36,17 @@
                 <ActivityIndicator Color="{x:StaticResource GreenDefault}" IsRunning="True"></ActivityIndicator>
                 <Label Text="Gerando o código ..." TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
+
+            <zxing:ZXingBarcodeImageView IsVisible="False" WidthRequest="200" HeightRequest="200" VerticalOptions="CenterAndExpand" BackgroundColor="White" BarcodeValue="{Binding QrCode}" BarcodeFormat="QR_CODE">
+                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions Width="200" Height="200" />
+                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                <zxing:ZXingBarcodeImageView.Triggers>
+                    <DataTrigger TargetType="zxing:ZXingBarcodeImageView" Binding="{Binding ReceivedCode}" Value="true">
+                        <Setter Property="IsVisible" Value="True"></Setter>
+                    </DataTrigger>
+                </zxing:ZXingBarcodeImageView.Triggers>
+            </zxing:ZXingBarcodeImageView>
 
             <StackLayout IsVisible="False">
                 <StackLayout.Triggers>

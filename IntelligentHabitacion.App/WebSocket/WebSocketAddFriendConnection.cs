@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.App.WebSocket
         public WebSocketAddFriendConnection()
         {
             _connection = new HubConnectionBuilder()
-                    .WithUrl(new Uri("wss://f75e4008.ngrok.io/addNewFriend"), HttpTransportType.WebSockets)
+                    .WithUrl(new Uri("wss://a7ea687d.ngrok.io/addNewFriend"), HttpTransportType.WebSockets)
                     .WithAutomaticReconnect().Build();
         }
 

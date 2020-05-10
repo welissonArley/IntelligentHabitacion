@@ -43,7 +43,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             var user = _userRepository.GetByEmail(email);
             if (user != null)
             {
-                var codeRandom = new CodeGenerator().Random();
+                var codeRandom = new CodeGenerator().Random6Chars();
 
                 var userCodes = _codeRepository.GetByUser(user.Id);
                 foreach(var code in userCodes)

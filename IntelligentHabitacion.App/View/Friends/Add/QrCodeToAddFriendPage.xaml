@@ -11,6 +11,11 @@
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
             <customcontrol:LabelJustifyText FontSize="22" IsVisible="False">
+                <customcontrol:LabelJustifyText.Triggers>
+                    <DataTrigger TargetType="customcontrol:LabelJustifyText" Binding="{Binding ReceivedCode}" Value="true">
+                        <Setter Property="IsVisible" Value="True"></Setter>
+                    </DataTrigger>
+                </customcontrol:LabelJustifyText.Triggers>
                 <customcontrol:LabelJustifyText.FormattedText>
                     <FormattedString>
                         <Span Text="Hey, peça que o novo integrante vá no App, clique em" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
@@ -23,11 +28,21 @@
             </customcontrol:LabelJustifyText>
 
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding ReceivedCode}" Value="true">
+                        <Setter Property="IsVisible" Value="False"></Setter>
+                    </DataTrigger>
+                </StackLayout.Triggers>
                 <ActivityIndicator Color="{x:StaticResource GreenDefault}" IsRunning="True"></ActivityIndicator>
                 <Label Text="Gerando o código ..." TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
 
-            <StackLayout IsVisible="True">
+            <StackLayout IsVisible="False">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding ReceivedCode}" Value="true">
+                        <Setter Property="IsVisible" Value="True"></Setter>
+                    </DataTrigger>
+                </StackLayout.Triggers>
                 <Label Text="Operação vai expirar em:" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
                 <Label Text="{Binding Time}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
             </StackLayout>

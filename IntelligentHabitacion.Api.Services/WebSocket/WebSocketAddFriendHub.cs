@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Services.WebSocket
@@ -12,9 +13,26 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
             _hubContext = hubContext;
         }
 
-        public async Task GetQrCode(string userToken)
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+            Disconnect();
+            return base.OnDisconnectedAsync(exception);
+        }
+
+        public async Task GetCode(string userToken)
         {
             Context.Items.Add(Context.ConnectionId, new AddFriendController(_hubContext, Context.ConnectionId));
+            await Clients.Client(Context.ConnectionId).SendAsync("AvailableCode", "codigpgerado");
+        }
+
+        private void Disconnect()
+        {
+            if (Context.Items.ContainsKey(Context.ConnectionId))
+            {
+                var controller = (AddFriendController)Context.Items[Context.ConnectionId];
+                controller.StopProcess();
+                Context.Items.Remove(controller);
+            }
         }
     }
 }

@@ -11,11 +11,18 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
     {
         private readonly WebSocketAddFriendConnection _webSocketAddFriendConnection;
         public string Time { get; set; }
+        public bool ReceivedCode { get; set; }
 
         public QrCodeToAddFriendViewModel(ISqliteDatabase database)
         {
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
-            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(OnChangedTime, database.Get().Token)));
+            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(OnCodeReceived, OnChangedTime, database.Get().Token)));
+        }
+
+        private void OnCodeReceived(string code)
+        {
+            ReceivedCode = true;
+            OnPropertyChanged(new PropertyChangedEventArgs("ReceivedCode"));
         }
 
         private async void OnChangedTime(int timer)

@@ -16,14 +16,18 @@ namespace IntelligentHabitacion.App.WebSocket
                     .WithAutomaticReconnect().Build();
         }
 
-        public async Task GetQrCodeToAddFriend(Action<int> callbackTimer, string token)
+        public async Task GetQrCodeToAddFriend(Action<string> callbackCode, Action<int> callbackTimer, string token)
         {
             _connection.On<int>("AvailableTime", (timer) =>
             {
                 callbackTimer(timer);
             });
+            _connection.On<string>("AvailableCode", (code) =>
+            {
+                callbackCode(code);
+            });
             await _connection.StartAsync();
-            await _connection.InvokeAsync("GetQrCode", token);
+            await _connection.InvokeAsync("GetCode", token);
         }
     }
 }

@@ -513,6 +513,9 @@
   <data name="TITLE_THURSDAY_ABBREVIATED" xml:space="preserve">
     <value>Thu</value>
   </data>
+  <data name="TITLE_TIME_EXPIRED_TRY_AGAIN" xml:space="preserve">
+    <value>Time has expired. Please try again.</value>
+  </data>
   <data name="TITLE_TOBEGIN_TELL_EMAIL" xml:space="preserve">
     <value>To begin :) Tell me what is your e-mail</value>
   </data>

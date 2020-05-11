@@ -1249,6 +1249,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time has expired. Please try again..
+        /// </summary>
+        internal static string TITLE_TIME_EXPIRED_TRY_AGAIN {
+            get {
+                return ResourceManager.GetString("TITLE_TIME_EXPIRED_TRY_AGAIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To finish. Your password.
         /// </summary>
         internal static string TITLE_TO_FINISH_PASSWORD {

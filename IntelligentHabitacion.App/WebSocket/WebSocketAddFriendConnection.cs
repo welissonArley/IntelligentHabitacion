@@ -9,11 +9,16 @@ namespace IntelligentHabitacion.App.WebSocket
     {
         private readonly HubConnection _connection;
 
-        public WebSocketAddFriendConnection()
+        public WebSocketAddFriendConnection(Action<string> callbackError)
         {
             _connection = new HubConnectionBuilder()
-                    .WithUrl(new Uri("wss://a7ea687d.ngrok.io/addNewFriend"), HttpTransportType.WebSockets)
+                    .WithUrl(new Uri("wss://c803362b.ngrok.io/addNewFriend"), HttpTransportType.WebSockets)
                     .WithAutomaticReconnect().Build();
+
+            _connection.On<string>("ThrowError", (messageError) =>
+            {
+                callbackError(messageError);
+            });
         }
 
         public async Task GetQrCodeToAddFriend(Action<string> callbackCode, Action<int> callbackTimer, string token)

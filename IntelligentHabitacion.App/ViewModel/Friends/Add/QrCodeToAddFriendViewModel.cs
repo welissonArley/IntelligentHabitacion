@@ -1,9 +1,12 @@
 ﻿using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.WebSocket;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 {
@@ -16,7 +19,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 
         public QrCodeToAddFriendViewModel(ISqliteDatabase database)
         {
-            _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
+            _webSocketAddFriendConnection = new WebSocketAddFriendConnection(HandleException);
             Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(OnCodeReceived, OnChangedTime, database.Get().Token)));
         }
 
@@ -28,7 +31,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             OnPropertyChanged(new PropertyChangedEventArgs("ReceivedCode"));
         }
 
-        private async void OnChangedTime(int timer)
+        private void OnChangedTime(int timer)
         {
             if (timer > 0)
             {
@@ -36,7 +39,14 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                 OnPropertyChanged(new PropertyChangedEventArgs("Time"));
             }
             else
-                await Navigation.PopToRootAsync();
+                HandleException(ResourceText.TITLE_TIME_EXPIRED_TRY_AGAIN);
+        }
+
+        private async void HandleException(string message)
+        {
+            await Navigation.PopToRootAsync();
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PushPopupAsync(new ErrorModal(message));
         }
     }
 }

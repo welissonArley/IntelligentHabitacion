@@ -70,6 +70,24 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hey, ask the new member to go to the App, click on.
+        /// </summary>
+        internal static string DESCRIPTION_ADDING_FRIEND_FIRST_PART {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ADDING_FRIEND_FIRST_PART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to and read the Qr Code below :).
+        /// </summary>
+        internal static string DESCRIPTION_ADDING_FRIEND_SECOND_PART {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ADDING_FRIEND_SECOND_PART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Follow the Cleaning schedule to make the home clean and beautiful..
         /// </summary>
         internal static string DESCRIPTION_CLEAN_HOUSE {
@@ -844,6 +862,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generating code ....
+        /// </summary>
+        internal static string TITLE_GENERATING_CODE {
+            get {
+                return ResourceManager.GetString("TITLE_GENERATING_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home, sweet home.
         /// </summary>
         internal static string TITLE_HOME_SWEET_HOME {
@@ -1236,6 +1263,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_THE_CITY_IS {
             get {
                 return ResourceManager.GetString("TITLE_THE_CITY_IS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This operation will expire in:.
+        /// </summary>
+        internal static string TITLE_THIS_OPERATION_WILL_EXPIRE {
+            get {
+                return ResourceManager.GetString("TITLE_THIS_OPERATION_WILL_EXPIRE", resourceCulture);
             }
         }
         

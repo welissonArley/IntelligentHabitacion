@@ -39,7 +39,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                 OnPropertyChanged(new PropertyChangedEventArgs("Time"));
             }
             else
+            {
+                DisconnectFromSocket();
                 HandleException(ResourceText.TITLE_TIME_EXPIRED_TRY_AGAIN);
+            }
         }
 
         private async void HandleException(string message)
@@ -47,6 +50,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             await Navigation.PopToRootAsync();
             var navigation = Resolver.Resolve<INavigation>();
             await navigation.PushPopupAsync(new ErrorModal(message));
+        }
+
+        public void DisconnectFromSocket()
+        {
+            Task.Run(async () => await _webSocketAddFriendConnection.StopConnection());
         }
     }
 }

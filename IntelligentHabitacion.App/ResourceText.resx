@@ -120,6 +120,12 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Because live with friends</value>
   </data>
+  <data name="DESCRIPTION_ADDING_FRIEND_FIRST_PART" xml:space="preserve">
+    <value>Hey, ask the new member to go to the App, click on</value>
+  </data>
+  <data name="DESCRIPTION_ADDING_FRIEND_SECOND_PART" xml:space="preserve">
+    <value>and read the Qr Code below :)</value>
+  </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Follow the Cleaning schedule to make the home clean and beautiful.</value>
   </data>
@@ -378,6 +384,9 @@
   <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
     <value>{0} friends available.</value>
   </data>
+  <data name="TITLE_GENERATING_CODE" xml:space="preserve">
+    <value>Generating code ...</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
   </data>
@@ -509,6 +518,9 @@
   </data>
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>The City is:</value>
+  </data>
+  <data name="TITLE_THIS_OPERATION_WILL_EXPIRE" xml:space="preserve">
+    <value>This operation will expire in:</value>
   </data>
   <data name="TITLE_THURSDAY_ABBREVIATED" xml:space="preserve">
     <value>Thu</value>

@@ -6,11 +6,12 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
              Title="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}"
              x:Class="IntelligentHabitacion.App.View.Friends.Add.QrCodeToAddFriendPage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-            <customcontrol:LabelJustifyText FontSize="22" IsVisible="False">
+            <customcontrol:LabelJustifyText FontSize="22" IsVisible="False" Margin="0,40,0,0">
                 <customcontrol:LabelJustifyText.Triggers>
                     <DataTrigger TargetType="customcontrol:LabelJustifyText" Binding="{Binding ReceivedCode}" Value="true">
                         <Setter Property="IsVisible" Value="True"></Setter>
@@ -18,11 +19,11 @@
                 </customcontrol:LabelJustifyText.Triggers>
                 <customcontrol:LabelJustifyText.FormattedText>
                     <FormattedString>
-                        <Span Text="Hey, peça que o novo integrante vá no App, clique em" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                        <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND_FIRST_PART}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
                         <Span Text=" &quot;" FontSize="22" TextColor="Black" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                        <Span Text="Participar de um Lar" TextColor="{x:StaticResource GreenDefault}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                        <Span Text="{x:Static resourceText:ResourceText.TITLE_JOIN_HOME}" TextColor="{x:StaticResource GreenDefault}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
                         <Span Text="&quot; " FontSize="22" TextColor="Black" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                        <Span Text="e leia o Qr Code abaixo :)" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                        <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND_SECOND_PART}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
                     </FormattedString>
                 </customcontrol:LabelJustifyText.FormattedText>
             </customcontrol:LabelJustifyText>
@@ -34,7 +35,7 @@
                     </DataTrigger>
                 </StackLayout.Triggers>
                 <ActivityIndicator Color="{x:StaticResource GreenDefault}" IsRunning="True"></ActivityIndicator>
-                <Label Text="Gerando o código ..." TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_GENERATING_CODE}" TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
 
             <zxing:ZXingBarcodeImageView IsVisible="False" WidthRequest="200" HeightRequest="200" VerticalOptions="CenterAndExpand" BackgroundColor="White" BarcodeValue="{Binding QrCode}" BarcodeFormat="QR_CODE">
@@ -54,7 +55,7 @@
                         <Setter Property="IsVisible" Value="True"></Setter>
                     </DataTrigger>
                 </StackLayout.Triggers>
-                <Label Text="Operação vai expirar em:" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
                 <Label Text="{Binding Time}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
             </StackLayout>
         </StackLayout>

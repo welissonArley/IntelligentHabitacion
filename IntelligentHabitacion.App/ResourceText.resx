@@ -276,6 +276,9 @@
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>
   </data>
+  <data name="TITLE_APPROACH_CAMERA_READ_QRCODE" xml:space="preserve">
+    <value>Move the camera closer to the QRCode to read.</value>
+  </data>
   <data name="TITLE_BOX" xml:space="preserve">
     <value>Box(es)</value>
   </data>
@@ -530,6 +533,9 @@
   </data>
   <data name="TITLE_TOBEGIN_TELL_EMAIL" xml:space="preserve">
     <value>To begin :) Tell me what is your e-mail</value>
+  </data>
+  <data name="TITLE_TOUCH_SCREEN_TO_FOCUS" xml:space="preserve">
+    <value>Touch the screen to focus.</value>
   </data>
   <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
     <value>To finish. Your password</value>

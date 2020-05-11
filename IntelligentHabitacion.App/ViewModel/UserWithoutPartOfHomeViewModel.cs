@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.ViewModel.RegisterHome;
+﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -9,11 +10,13 @@ namespace IntelligentHabitacion.App.ViewModel
     {
         public ICommand CardCreateHomeTapped { get; }
         public ICommand CardMyInformationTapped { get; }
+        public ICommand CardJoinHomeTapped { get; }
 
         public UserWithoutPartOfHomeViewModel()
         {
             CardCreateHomeTapped = new Command(async () => await ClickOnCardCreateHome());
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
+            CardJoinHomeTapped = new Command(async () => await ClickOnCardJoinHome());
         }
 
         private async Task ClickOnCardCreateHome()
@@ -40,6 +43,11 @@ namespace IntelligentHabitacion.App.ViewModel
                 HideLoading();
                 await Exception(exeption);
             }
+        }
+        private async Task ClickOnCardJoinHome()
+        {
+            var scanner = new QrCodeScanningService();
+            var result = await scanner.Scan();
         }
     }
 }

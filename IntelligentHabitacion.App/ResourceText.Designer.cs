@@ -538,6 +538,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move the camera closer to the QRCode to read..
+        /// </summary>
+        internal static string TITLE_APPROACH_CAMERA_READ_QRCODE {
+            get {
+                return ResourceManager.GetString("TITLE_APPROACH_CAMERA_READ_QRCODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box(es).
         /// </summary>
         internal static string TITLE_BOX {
@@ -1308,6 +1317,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_TOBEGIN_TELL_EMAIL {
             get {
                 return ResourceManager.GetString("TITLE_TOBEGIN_TELL_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touch the screen to focus..
+        /// </summary>
+        internal static string TITLE_TOUCH_SCREEN_TO_FOCUS {
+            get {
+                return ResourceManager.GetString("TITLE_TOUCH_SCREEN_TO_FOCUS", resourceCulture);
             }
         }
         

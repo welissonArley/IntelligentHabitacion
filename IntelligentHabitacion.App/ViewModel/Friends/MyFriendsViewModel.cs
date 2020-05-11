@@ -67,15 +67,31 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         }
         private async Task OnDetailFriend(FriendModel friend)
         {
-            await ShowLoading();
-            await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) => viewModel.Model = friend);
-            HideLoading();
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) => viewModel.Model = friend);
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
         private async Task OnAddFriend()
         {
-            await ShowLoading();
-            await Navigation.PushAsync<QrCodeToAddFriendViewModel>();
-            HideLoading();
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<QrCodeToAddFriendViewModel>();
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
 
         private async Task MakeCall(string number)

@@ -46,7 +46,7 @@ namespace IntelligentHabitacion.App.ViewModel
         }
         private async Task ClickOnCardJoinHome()
         {
-            var scanner = new QrCodeScanningService();
+            var scanner = new QrCodeService();
             var result = await scanner.Scan();
         }
     }

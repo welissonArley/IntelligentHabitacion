@@ -4,30 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              mc:Ignorable="d"
+             x:Name="QrCodeToAddFriendContentPage"
              NavigationPage.HasNavigationBar="False"
-             Title="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}"
              x:Class="IntelligentHabitacion.App.View.Friends.Add.QrCodeToAddFriendPage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-            <customcontrol:LabelJustifyText FontSize="22" IsVisible="False" Margin="0,40,0,0">
-                <customcontrol:LabelJustifyText.Triggers>
-                    <DataTrigger TargetType="customcontrol:LabelJustifyText" Binding="{Binding ReceivedCode}" Value="true">
-                        <Setter Property="IsVisible" Value="True"></Setter>
-                    </DataTrigger>
-                </customcontrol:LabelJustifyText.Triggers>
-                <customcontrol:LabelJustifyText.FormattedText>
-                    <FormattedString>
-                        <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND_FIRST_PART}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                        <Span Text=" &quot;" FontSize="22" TextColor="Black" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                        <Span Text="{x:Static resourceText:ResourceText.TITLE_JOIN_HOME}" TextColor="{x:StaticResource GreenDefault}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                        <Span Text="&quot; " FontSize="22" TextColor="Black" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                        <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND_SECOND_PART}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                    </FormattedString>
-                </customcontrol:LabelJustifyText.FormattedText>
-            </customcontrol:LabelJustifyText>
-
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding ReceivedCode}" Value="true">
@@ -37,26 +22,52 @@
                 <ActivityIndicator Color="{x:StaticResource GreenDefault}" IsRunning="True"></ActivityIndicator>
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_GENERATING_CODE}" TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
-
-            <zxing:ZXingBarcodeImageView IsVisible="False" WidthRequest="200" HeightRequest="200" VerticalOptions="CenterAndExpand" BackgroundColor="White" BarcodeValue="{Binding QrCode}" BarcodeFormat="QR_CODE">
-                <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                    <zxcm:EncodingOptions Width="200" Height="200" />
-                </zxing:ZXingBarcodeImageView.BarcodeOptions>
-                <zxing:ZXingBarcodeImageView.Triggers>
-                    <DataTrigger TargetType="zxing:ZXingBarcodeImageView" Binding="{Binding ReceivedCode}" Value="true">
-                        <Setter Property="IsVisible" Value="True"></Setter>
-                    </DataTrigger>
-                </zxing:ZXingBarcodeImageView.Triggers>
-            </zxing:ZXingBarcodeImageView>
-
-            <StackLayout IsVisible="False">
+            <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="-3">
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding ReceivedCode}" Value="true">
                         <Setter Property="IsVisible" Value="True"></Setter>
                     </DataTrigger>
                 </StackLayout.Triggers>
-                <Label Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="{Binding Time}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
+                    <Grid VerticalOptions="StartAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <circleBoxview:RoundedBoxView Grid.Column="0" Grid.Row="0" CornerRadius="40" HeightRequest="80" WidthRequest="80" BackgroundColor="#BF658B"></circleBoxview:RoundedBoxView>
+                        <Label Text="?" Grid.Column="0" TextColor="White" FontSize="36" Style="{x:StaticResource LabelBold}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </Grid>
+                    <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" TextColor="Black" FontSize="18"></Label>
+                        <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="QR Code" TextColor="Black" FontSize="17" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"></Label>
+
+                    <Grid HorizontalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="180"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <BoxView BackgroundColor="Black" Grid.Column="0" Grid.Row="0"></BoxView>
+
+                        <zxing:ZXingBarcodeImageView x:Name="BarcodeView" WidthRequest="170" HeightRequest="170" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" BarcodeValue="{Binding QrCode}">
+                            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                <zxcm:EncodingOptions Width="170" Height="170"></zxcm:EncodingOptions>
+                            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        </zxing:ZXingBarcodeImageView>
+                    </Grid>
+
+                    <Label Margin="0,15,0,0" Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="{Binding Time}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+                <templateButton:DeleteButton TitleButton="{x:Static resourceText:ResourceText.TITLE_CANCEL_OPERATION}" TappedButtonCommand="{Binding Path=BindingContext.CancelOperationTapped, Source={x:Reference Name=QrCodeToAddFriendContentPage}}"></templateButton:DeleteButton>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

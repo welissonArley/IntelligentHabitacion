@@ -5,6 +5,7 @@ using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Ioc;
 
@@ -17,9 +18,15 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         public bool ReceivedCode { get; set; }
         public string QrCode { get; set; }
 
+        public ICommand CancelOperationTapped { get; set; }
+
         public QrCodeToAddFriendViewModel(ISqliteDatabase database)
         {
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection(HandleException);
+            CancelOperationTapped = new Command(async() =>
+            {
+                await OnCancelOperation();
+            });
             Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(OnCodeReceived, OnChangedTime, database.Get().Token)));
         }
 
@@ -43,6 +50,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                 DisconnectFromSocket();
                 HandleException(ResourceText.TITLE_TIME_EXPIRED_TRY_AGAIN);
             }
+        }
+
+        private async Task OnCancelOperation()
+        {
+            await Navigation.PopToRootAsync();
+            DisconnectFromSocket();
         }
 
         private async void HandleException(string message)

@@ -4,7 +4,7 @@ using ZXing.Mobile;
 
 namespace IntelligentHabitacion.App.Services
 {
-    public class QrCodeScanningService
+    public class QrCodeService
     {
         public async Task<string> Scan()
         {

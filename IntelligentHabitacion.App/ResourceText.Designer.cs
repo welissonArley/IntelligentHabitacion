@@ -70,20 +70,11 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hey, ask the new member to go to the App, click on.
+        ///   Looks up a localized string similar to The new member must go to the app, click on “Join a home” and read the QR Code below :).
         /// </summary>
-        internal static string DESCRIPTION_ADDING_FRIEND_FIRST_PART {
+        internal static string DESCRIPTION_ADDING_FRIEND {
             get {
-                return ResourceManager.GetString("DESCRIPTION_ADDING_FRIEND_FIRST_PART", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to and read the Qr Code below :).
-        /// </summary>
-        internal static string DESCRIPTION_ADDING_FRIEND_SECOND_PART {
-            get {
-                return ResourceManager.GetString("DESCRIPTION_ADDING_FRIEND_SECOND_PART", resourceCulture);
+                return ResourceManager.GetString("DESCRIPTION_ADDING_FRIEND", resourceCulture);
             }
         }
         
@@ -466,6 +457,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding new Friend.
+        /// </summary>
+        internal static string TITLE_ADDING_NEW_FRIEND {
+            get {
+                return ResourceManager.GetString("TITLE_ADDING_NEW_FRIEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Now the address.
         /// </summary>
         internal static string TITLE_ADDRESS {
@@ -570,6 +570,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CANCEL {
             get {
                 return ResourceManager.GetString("TITLE_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel operation.
+        /// </summary>
+        internal static string TITLE_CANCEL_OPERATION {
+            get {
+                return ResourceManager.GetString("TITLE_CANCEL_OPERATION", resourceCulture);
             }
         }
         

@@ -40,6 +40,24 @@ namespace IntelligentHabitacion.Api.Repository.Repository
 
         public User GetByEmail(string email)
         {
+            var userTemp = TempUserWithEmail(email);
+
+            var response = IncludeModel().FirstOrDefault(c => c.Active && c.Email.Equals(userTemp.Email));
+
+            response?.Decrypt();
+
+            return response;
+        }
+
+        public bool EmailAlreadyBeenRegistered(string email)
+        {
+            var userTemp = TempUserWithEmail(email);
+
+            return ModelSet.Any(c => c.Active && c.Email.Equals(userTemp.Email));
+        }
+
+        private User TempUserWithEmail(string email)
+        {
             var userTemp = new User
             {
                 Email = email,
@@ -48,11 +66,7 @@ namespace IntelligentHabitacion.Api.Repository.Repository
             };
             userTemp.Encrypt();
 
-            var response = IncludeModel().FirstOrDefault(c => c.Active && c.Email.Equals(userTemp.Email));
-
-            response?.Decrypt();
-
-            return response;
+            return userTemp;
         }
     }
 }

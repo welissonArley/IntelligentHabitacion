@@ -25,7 +25,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         public async Task ValidateEmailAndVerifyIfAlreadyBeenRegistered(string email)
         {
             ValidateEmail(email);
-            var response = await _httpClient.EmailAlreadyBeenRegistered(email);
+            var response = await _httpClient.EmailAlreadyBeenRegistered(email, System.Globalization.CultureInfo.CurrentCulture.ToString());
             if (response.Value)
                 throw new EmailAlreadyBeenRegisteredException();
         }

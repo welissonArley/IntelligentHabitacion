@@ -8,11 +8,11 @@ namespace IntelligentHabitacion.App.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
-                return string.Format("{0:n}", 0);
-
-            var valueDecimal = (decimal)value;
-            return string.Format("{0:n}", valueDecimal);
+            /*
+             * This function is used in conjunction with DecimalBehavior.
+             * We only need ConverterBack, to correctly convert the string to decimal for the Model.
+             */
+            return value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

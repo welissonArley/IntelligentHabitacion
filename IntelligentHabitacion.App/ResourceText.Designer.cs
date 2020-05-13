@@ -331,6 +331,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry date.
+        /// </summary>
+        internal static string PLACEHOLDER_ENTRY_DATE {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ENTRY_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manufacturer.
         /// </summary>
         internal static string PLACEHOLDER_MANUFACTURER {
@@ -412,6 +421,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 600.00.
+        /// </summary>
+        internal static string PLACEHOLDER_RENT_AMOUNT {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_RENT_AMOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 31.275-972.
         /// </summary>
         internal static string PLACEHOLDER_ZIPCODE {
@@ -435,6 +453,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITILE_ABOUT_APP {
             get {
                 return ResourceManager.GetString("TITILE_ABOUT_APP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        internal static string TITLE_ACCEPT {
+            get {
+                return ResourceManager.GetString("TITLE_ACCEPT", resourceCulture);
             }
         }
         
@@ -844,6 +871,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry date:.
+        /// </summary>
+        internal static string TITLE_ENTRY_DATE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ENTRY_DATE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finances.
         /// </summary>
         internal static string TITLE_FINANCES {
@@ -1191,6 +1227,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_REMOVE {
             get {
                 return ResourceManager.GetString("TITLE_REMOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rent amount:.
+        /// </summary>
+        internal static string TITLE_RENT_AMOUNT_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_RENT_AMOUNT_TWOPOINTS", resourceCulture);
             }
         }
         

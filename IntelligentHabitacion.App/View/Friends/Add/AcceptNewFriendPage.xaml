@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations" xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
+             mc:Ignorable="d"
+             x:Name="AcceptNewFriendContentPage"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="IntelligentHabitacion.App.View.Friends.Add.AcceptNewFriendPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+            <converter:ValueDecimalConverter x:Key="DecimalConverter"></converter:ValueDecimalConverter>
+            <converter:DateToStringConverter x:Key="StringDateConverter"></converter:DateToStringConverter>
+        </ResourceDictionary>
+        <behavior:DecimalBehavior x:Key="BehaviorDecimal"></behavior:DecimalBehavior>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3">
+            <template:CircleWithTextComponent Margin="0,40,0,0" HorizontalOptions="CenterAndExpand" Color="{Binding Model.ProfileColor}" Text="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></template:CircleWithTextComponent>
+            <Label Margin="0,20,0,0" Text="{Binding Model.Name}" TextColor="Black" FontSize="24" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></Label>
+            <StackLayout VerticalOptions="FillAndExpand" Margin="0,50,0,0">
+                <StackLayout Spacing="0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectEntryDateTapped}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource StringDateConverter}" IsEnabled="False" PropertyToBindindEntry="Model.EntryDate" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ENTRY_DATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ENTRY_DATE}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                </StackLayout>
+                <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource DecimalConverter}" PropertyToBindindEntry="Model.RentAmount" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_RENT_AMOUNT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_RENT_AMOUNT}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorDecimal}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+            </StackLayout>
+            
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="{Binding Time}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+
+            <Button Margin="0,30,0,0" Style="{x:StaticResource ButtonGreenDefault}" Text="{x:Static resourceText:ResourceText.TITLE_ACCEPT}"></Button>
+            <templateButton:DeleteButton Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_CANCEL_OPERATION}" TappedButtonCommand="{Binding Path=BindingContext.CancelOperationTapped, Source={x:Reference Name=AcceptNewFriendContentPage}}"></templateButton:DeleteButton>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

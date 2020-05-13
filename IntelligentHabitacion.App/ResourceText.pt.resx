@@ -207,6 +207,9 @@
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
     <value>Thomas Wayne</value>
   </data>
+  <data name="PLACEHOLDER_ENTRY_DATE" xml:space="preserve">
+    <value>Data de entrada</value>
+  </data>
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Fabricante</value>
   </data>
@@ -234,6 +237,9 @@
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Produto</value>
   </data>
+  <data name="PLACEHOLDER_RENT_AMOUNT" xml:space="preserve">
+    <value>600,00</value>
+  </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
   </data>
@@ -242,6 +248,9 @@
   </data>
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>Sobre o App</value>
+  </data>
+  <data name="TITLE_ACCEPT" xml:space="preserve">
+    <value>Aceitar</value>
   </data>
   <data name="TITLE_ADDING_NEW_FRIEND" xml:space="preserve">
     <value>Adicionar novo amigo</value>
@@ -378,6 +387,9 @@
   <data name="TITLE_EMERGENCY_CONTACTS_TWOPOINTS" xml:space="preserve">
     <value>Contatos de emergência:</value>
   </data>
+  <data name="TITLE_ENTRY_DATE_TWOPOINTS" xml:space="preserve">
+    <value>Data de entrada:</value>
+  </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finanças</value>
   </data>
@@ -494,6 +506,9 @@
   </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remover</value>
+  </data>
+  <data name="TITLE_RENT_AMOUNT_TWOPOINTS" xml:space="preserve">
+    <value>Valor do aluguel:</value>
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>

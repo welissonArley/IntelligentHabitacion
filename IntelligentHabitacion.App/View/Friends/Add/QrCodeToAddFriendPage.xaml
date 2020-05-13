@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
-             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              mc:Ignorable="d"
              x:Name="QrCodeToAddFriendContentPage"
              NavigationPage.HasNavigationBar="False"
@@ -29,16 +31,7 @@
                     </DataTrigger>
                 </StackLayout.Triggers>
                 <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
-                    <Grid VerticalOptions="StartAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="80"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <circleBoxview:RoundedBoxView Grid.Column="0" Grid.Row="0" CornerRadius="40" HeightRequest="80" WidthRequest="80" BackgroundColor="#BF658B"></circleBoxview:RoundedBoxView>
-                        <Label Text="?" Grid.Column="0" TextColor="White" FontSize="36" Style="{x:StaticResource LabelBold}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
-                    </Grid>
+                    <template:CircleWithTextComponent VerticalOptions="StartAndExpand" Color="#BF658B" Text="?"></template:CircleWithTextComponent>
                     <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
                         <Label Text="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" TextColor="Black" FontSize="18"></Label>
                         <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>

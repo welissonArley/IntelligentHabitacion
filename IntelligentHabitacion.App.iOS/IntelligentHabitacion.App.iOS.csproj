@@ -411,4 +411,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconSquareDirection%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSuccess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSuccess%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconSuccess%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconError%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconError%403x.png" />
+  </ItemGroup>
 </Project>

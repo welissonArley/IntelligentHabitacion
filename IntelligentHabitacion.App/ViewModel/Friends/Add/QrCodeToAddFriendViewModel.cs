@@ -21,6 +21,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         public string ProfileColor { get; set; }
 
         public ICommand CancelOperationTapped { get; set; }
+        public ICommand ApprovedOperation { get; set; }
 
         public QrCodeToAddFriendViewModel(ISqliteDatabase database)
         {
@@ -46,7 +47,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             });
             var callbackCodeWasRead = new Command(async(newFriendToAddJson) =>
             {
-                await OnCodeWasRead((ResponseInformationsNewFriendToAddJson)newFriendToAddJson);
+                await OnCodeWasRead((ResponseFriendJson)newFriendToAddJson);
             });
 
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
@@ -82,7 +83,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             DisconnectFromSocket();
         }
 
-        private async Task OnCodeWasRead(ResponseInformationsNewFriendToAddJson newFriendToAddJson)
+        private async Task OnCodeWasRead(ResponseFriendJson newFriendToAddJson)
         {
             try
             {
@@ -96,6 +97,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                         EntryDate = DateTime.Today,
                         RentAmount = 0
                     };
+                    viewModel.NewFriendToAddJson = newFriendToAddJson;
+                    viewModel.ApprovedOperation = ApprovedOperation;
                 });
             }
             catch (System.Exception exeption)

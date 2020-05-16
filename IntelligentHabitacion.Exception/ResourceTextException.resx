@@ -210,6 +210,9 @@
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>The product was not found.</value>
   </data>
+  <data name="RENTAL_AMOUNT_INVALID" xml:space="preserve">
+    <value>Invalid rental amount.</value>
+  </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>One code to reset the password is requerid.</value>
   </data>

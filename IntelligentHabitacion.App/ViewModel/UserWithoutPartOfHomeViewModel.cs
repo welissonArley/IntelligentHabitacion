@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.WebSocket;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel
@@ -72,10 +74,7 @@ namespace IntelligentHabitacion.App.ViewModel
                 var result = await scanner.Scan();
                 if (!string.IsNullOrWhiteSpace(result))
                 {
-                    await navigation.PushPopupAsync(new LoadingWithMessagesModal(new List<string>
-                    {
-                        ResourceText.TITLE_WARMING_UP_ENGINES, ResourceText.TITLE_SENDING_QRCODE, ResourceText.TITLE_VALIDATING_OPERATION, ResourceText.TITLE_WAITING_FOR_ADMINISTRATOR
-                    }));
+                    await navigation.PushPopupAsync(new LoadingWithMessagesModal(new List<string>{ ResourceText.TITLE_WARMING_UP_ENGINES, ResourceText.TITLE_SENDING_QRCODE, ResourceText.TITLE_VALIDATING_OPERATION, ResourceText.TITLE_WAITING_FOR_ADMINISTRATOR }));
                     var callbackDeclined = new Command(async() =>
                     {
                         await navigation.PushPopupAsync(new OperationErrorModal(ResourceText.TITLE_DECLINED));
@@ -86,9 +85,11 @@ namespace IntelligentHabitacion.App.ViewModel
                     var callbackApproved = new Command(async () =>
                     {
                         await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
+                        _sqliteDatabase.IsPartOfHome();
+                        Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
                         await Task.Delay(1100);
-                        await navigation.PopAllPopupAsync();
                         DisconnectFromSocket();
+                        await navigation.PopAllPopupAsync();
                     });
                     await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, _sqliteDatabase.Get().Token, result);
                 }

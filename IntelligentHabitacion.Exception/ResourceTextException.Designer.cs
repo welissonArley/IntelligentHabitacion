@@ -340,6 +340,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid rental amount..
+        /// </summary>
+        public static string RENTAL_AMOUNT_INVALID {
+            get {
+                return ResourceManager.GetString("RENTAL_AMOUNT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One code to reset the password is requerid..
         /// </summary>
         public static string REQUERED_CODE_RESET_PASSWORD {

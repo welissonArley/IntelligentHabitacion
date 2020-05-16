@@ -149,6 +149,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
         {
             return new ResponseFriendJson
             {
+                Id = model.EncryptedId(),
                 Name = model.Name,
                 Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
                 EmergencyContact = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),

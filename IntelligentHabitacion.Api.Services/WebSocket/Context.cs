@@ -35,7 +35,14 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
             await _hubContext.Clients.Client(_newFriendConnectionSocketId).SendAsync("Declined");
             _newFriendConnectionSocketId = null;
         }
-
+        public string GetFriendId()
+        {
+            return _newFriendId;
+        }
+        public string GetFriendConnectionSocketId()
+        {
+            return _newFriendConnectionSocketId;
+        }
         public void SetNewFriendInformations(string newFriendId, string newFriendConnectionSocketId)
         {
             _newFriendId = newFriendId;

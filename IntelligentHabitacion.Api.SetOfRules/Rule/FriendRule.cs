@@ -3,12 +3,12 @@ using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using IntelligentHabitacion.Useful;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,10 +46,13 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
             _codeRepository.DeleteOnDatabase(codeResult);
 
+            var mapper = new Mapper.Mapper();
             return new ResponseCodeWasReadJson
             {
                 Id = user.EncryptedId(),
                 Name = user.Name,
+                Phonenumbers = user.Phonenumbers.Select(c => mapper.MapperModelToJson(c)).ToList(),
+                EmergencyContact = user.EmergecyContacts.Select(c => mapper.MapperModelToJson(c)).ToList(),
                 ProfileColor = user.ProfileColor,
                 AdminId = admin.EncryptedId()
             };
@@ -84,6 +87,24 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             };
         }
 
+        public void ApproveFriend(string adminId, string friendId, RequestApproveAddFriendJson requestApprove)
+        {
+            if (requestApprove.RentAmount <= 0)
+                throw new RentalAmountInvalidException();
+
+            var homeId = _userRepository.GetHomeId(new User().DecryptedId(adminId));
+            var friend = _userRepository.GetById(new User().DecryptedId(friendId));
+            friend.HomeAssociation = new HomeAssociation
+            {
+                Active = true,
+                CreateDate = DateTimeController.DateTimeNow(),
+                HomeId = homeId.Value,
+                RentAmount = requestApprove.RentAmount,
+                JoinedOn = requestApprove.JoinedOn
+            };
+            _userRepository.Update(friend);
+        }
+
         public List<ResponseFriendJson> GetFriends()
         {
             var loggedUser = _loggedUser.User();
@@ -91,7 +112,10 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 throw new UserIsNotPartOfAHomeException();
 
             var mapper = new Mapper.Mapper();
-            return loggedUser.HomeAssociation.Users.Where(c => c.Id != loggedUser.Id).Select(c => mapper.MapperModelToJsonFriend(c)).ToList();
+
+            var friends = _userRepository.GetByHome(loggedUser.HomeAssociation.HomeId);
+
+            return friends.Where(c => c.Id != loggedUser.Id).Select(c => mapper.MapperModelToJsonFriend(c)).ToList();
         }
     }
 }

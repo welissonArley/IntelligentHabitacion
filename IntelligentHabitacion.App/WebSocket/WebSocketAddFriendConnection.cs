@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Communication.Response;
+﻿using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
@@ -41,7 +42,7 @@ namespace IntelligentHabitacion.App.WebSocket
             {
                 callbackCodeIsReceived?.Execute(code);
             });
-            _connection.On<ResponseInformationsNewFriendToAddJson>("CodeWasRead", (newFriendInformations) =>
+            _connection.On<ResponseFriendJson>("CodeWasRead", (newFriendInformations) =>
             {
                 callbackWhenCodeIsRead?.Execute(newFriendInformations);
             });
@@ -54,7 +55,7 @@ namespace IntelligentHabitacion.App.WebSocket
             {
                 callbackAdiminDeclined?.Execute(null);
             });
-            _connection.On("Approve", () =>
+            _connection.On("SuccessfullyApproved", () =>
             {
                 callbackAdiminApproved?.Execute(null);
             });
@@ -65,9 +66,13 @@ namespace IntelligentHabitacion.App.WebSocket
         {
             await _connection.InvokeAsync("Decline");
         }
-        public async Task ApproveFriendCandidate()
+        public async Task ApproveFriendCandidate(ICommand callbackSuccessfullyApproved, RequestApproveAddFriendJson requestApprove)
         {
-            await _connection.InvokeAsync("Approve");
+            _connection.On("SuccessfullyApproved", () =>
+            {
+                callbackSuccessfullyApproved?.Execute(null);
+            });
+            await _connection.InvokeAsync("Approve", requestApprove);
         }
         public async Task StopConnection()
         {

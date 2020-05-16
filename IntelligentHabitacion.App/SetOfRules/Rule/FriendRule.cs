@@ -30,6 +30,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             return responseFriends.Select(c => new FriendModel
             {
+                Id = c.Id,
                 Name = c.Name,
                 ProfileColor = c.ProfileColor,
                 JoinedOn = c.JoinedOn,

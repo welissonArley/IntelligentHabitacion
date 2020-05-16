@@ -34,7 +34,14 @@ namespace IntelligentHabitacion.App.ViewModel
                     await ErrorInternetConnection();
                     return;
                 }
+                else if (!((targetInvocationException.InnerException.InnerException as ResponseException) is null))
+                {
+                    var responseException = (ResponseException)targetInvocationException.InnerException.InnerException;
+                    var database = Resolver.Resolve<ISqliteDatabase>();
 
+                    if (!string.IsNullOrWhiteSpace(responseException.Token))
+                        database.UpdateToken(responseException.Token);
+                }
                 UnknownError();
             }
             else if (!((exception as TokenExpiredException) is null))

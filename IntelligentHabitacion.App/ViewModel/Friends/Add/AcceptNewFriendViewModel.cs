@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.WebSocket;
+using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Exception;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Ioc;
+using ZXing.QrCode.Internal;
 
 namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 {
@@ -37,10 +40,14 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             }
         }
         public AcceptNewFriendModel Model { get; set; }
+        public ResponseFriendJson NewFriendToAddJson { get; set; }
         public string Time { get; set; }
+
+        public ICommand ApprovedOperation { get; set; }
 
         public ICommand SelectEntryDateTapped { get; }
         public ICommand CancelOperationTapped { get; }
+        public ICommand ApproveOperationTapped { get; }
 
         public AcceptNewFriendViewModel()
         {
@@ -51,6 +58,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             CancelOperationTapped = new Command(async () =>
             {
                 await OnCancelOperation();
+            });
+            ApproveOperationTapped = new Command(async () =>
+            {
+                await OnApproveOperation();
             });
 
             /*
@@ -98,6 +109,29 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             await _webSocketAddFriendConnection.DeclinedFriendCandidate();
             DisconnectFromSocket();
             await Navigation.PopAsync();
+        }
+        private async Task OnApproveOperation()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            if (Model.RentAmount <= 0)
+                await navigation.PushPopupAsync(new ErrorModal(ResourceTextException.RENTAL_AMOUNT_INVALID));
+            else
+            {
+                await _webSocketAddFriendConnection.ApproveFriendCandidate(new Command(async () =>
+                {
+                    await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
+                    NewFriendToAddJson.JoinedOn = Model.EntryDate;
+                    ApprovedOperation?.Execute(NewFriendToAddJson);
+                    await Task.Delay(1100);
+                    DisconnectFromSocket();
+                    await navigation.PopAllPopupAsync();
+                    await Navigation.PopAsync();
+                }), new Communication.Request.RequestApproveAddFriendJson
+                {
+                    JoinedOn = Model.EntryDate,
+                    RentAmount = Model.RentAmount
+                });
+            }
         }
 
         public void DisconnectFromSocket()

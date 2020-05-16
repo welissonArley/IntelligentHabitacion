@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model
@@ -12,7 +11,6 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public long HomeId { get; set; }
         public DateTime JoinedOn { get; set; }
         public decimal RentAmount { get; set; }
-        public ICollection<User> Users { get; set; }
 
         public override void Decrypt()
         {
@@ -21,7 +19,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
         public override void Encrypt()
         {
-            Home.Encrypt();
+            Home?.Encrypt();
         }
     }
 }

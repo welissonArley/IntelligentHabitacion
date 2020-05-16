@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -54,7 +55,7 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
                 context.SetNewFriendInformations(response.Id, Context.ConnectionId);
                 context.StartTimer();
 
-                var informationsNewFriendToAdd = (ResponseInformationsNewFriendToAddJson)response;
+                var informationsNewFriendToAdd = (ResponseFriendJson)response;
                 await Clients.Client(context.GetAdminConnectionSocketId()).SendAsync("CodeWasRead", informationsNewFriendToAdd);
             }
             catch (IntelligentHabitacionException e)
@@ -69,19 +70,49 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
 
         public async Task Decline()
         {
-            var adminId = Manager.GetAdminId(Context.ConnectionId);
-            if (!string.IsNullOrWhiteSpace(adminId))
+            try
             {
-                var context = Manager.Get(adminId);
-                context.StopTimer();
-                await context.SendDeclinedFriendCandidate();
-                await Manager.Remove(Context.ConnectionId);
+                var adminId = Manager.GetAdminId(Context.ConnectionId);
+                if (!string.IsNullOrWhiteSpace(adminId))
+                {
+                    var context = Manager.Get(adminId);
+                    context.StopTimer();
+                    await context.SendDeclinedFriendCandidate();
+                    await Manager.Remove(Context.ConnectionId);
+                }
+            }
+            catch
+            {
+                await Clients.Client(Context.ConnectionId).SendAsync("ThrowError", ResourceTextException.UNKNOW_ERROR);
             }
         }
 
-        public async Task Approve()
+        public async Task Approve(RequestApproveAddFriendJson requestApprove)
         {
-
+            try
+            {
+                var adminId = Manager.GetAdminId(Context.ConnectionId);
+                if (!string.IsNullOrWhiteSpace(adminId))
+                {
+                    var context = Manager.Get(adminId);
+                    context.StopTimer();
+                    var friendId = context.GetFriendId();
+                    var connetionFriend = context.GetFriendConnectionSocketId();
+                    _friendRule.ApproveFriend(adminId, friendId, requestApprove);
+                    context.SetNewFriendInformations(null, null);
+                    await Clients.Client(Context.ConnectionId).SendAsync("SuccessfullyApproved");
+                    await Clients.Client(connetionFriend).SendAsync("SuccessfullyApproved");
+                    await Manager.Remove(Context.ConnectionId);
+                }
+            }
+            catch (IntelligentHabitacionException e)
+            {
+                await Clients.Client(Context.ConnectionId).SendAsync("ThrowError", e.Message);
+            }
+            catch
+            {
+                await Clients.Client(Context.ConnectionId).SendAsync("ThrowError", ResourceTextException.UNKNOW_ERROR);
+            }
         }
 
         private async Task Disconnect()

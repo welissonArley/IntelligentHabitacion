@@ -210,6 +210,9 @@
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>O produto não foi encontrado.</value>
   </data>
+  <data name="RENTAL_AMOUNT_INVALID" xml:space="preserve">
+    <value>O valor do aluguel é inválido.</value>
+  </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>Um código para alterar a senha é necessário.</value>
   </data>

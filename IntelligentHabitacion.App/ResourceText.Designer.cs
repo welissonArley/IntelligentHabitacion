@@ -1303,6 +1303,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sending QRCode ....
+        /// </summary>
+        internal static string TITLE_SENDING_QRCODE {
+            get {
+                return ResourceManager.GetString("TITLE_SENDING_QRCODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set as administrator.
         /// </summary>
         internal static string TITLE_SET_AS_ADMINISTRATOR {
@@ -1429,11 +1438,38 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validating operation ....
+        /// </summary>
+        internal static string TITLE_VALIDATING_OPERATION {
+            get {
+                return ResourceManager.GetString("TITLE_VALIDATING_OPERATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version:.
         /// </summary>
         internal static string TITLE_VERSION {
             get {
                 return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for Administrator ....
+        /// </summary>
+        internal static string TITLE_WAITING_FOR_ADMINISTRATOR {
+            get {
+                return ResourceManager.GetString("TITLE_WAITING_FOR_ADMINISTRATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warming up engines ....
+        /// </summary>
+        internal static string TITLE_WARMING_UP_ENGINES {
+            get {
+                return ResourceManager.GetString("TITLE_WARMING_UP_ENGINES", resourceCulture);
             }
         }
         

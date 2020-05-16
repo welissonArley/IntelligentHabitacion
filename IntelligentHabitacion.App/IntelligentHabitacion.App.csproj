@@ -97,6 +97,9 @@
     <Compile Update="View\Friends\FriendDetailsPage.xaml.cs">
       <DependentUpon>FriendDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
+      <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\OperationErrorModal.xaml.cs">
       <DependentUpon>OperationErrorModal.xaml</DependentUpon>
     </Compile>

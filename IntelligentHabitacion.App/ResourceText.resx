@@ -531,6 +531,9 @@
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Search by name</value>
   </data>
+  <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
+    <value>Sending QRCode ...</value>
+  </data>
   <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
     <value>Set as administrator</value>
   </data>
@@ -573,8 +576,17 @@
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unity(s)</value>
   </data>
+  <data name="TITLE_VALIDATING_OPERATION" xml:space="preserve">
+    <value>Validating operation ...</value>
+  </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Version:</value>
+  </data>
+  <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
+    <value>Waiting for Administrator ...</value>
+  </data>
+  <data name="TITLE_WARMING_UP_ENGINES" xml:space="preserve">
+    <value>Warming up engines ...</value>
   </data>
   <data name="TITLE_WEDNESDAY_ABBREVIATED" xml:space="preserve">
     <value>Wed</value>

@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.WebSocket;
 using Rg.Plugins.Popup.Extensions;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -64,16 +65,19 @@ namespace IntelligentHabitacion.App.ViewModel
         }
         private async Task ClickOnCardJoinHome()
         {
+            var navigation = Resolver.Resolve<INavigation>();
             try
             {
                 var scanner = new QrCodeService();
                 var result = await scanner.Scan();
                 if (!string.IsNullOrWhiteSpace(result))
                 {
-                    await ShowLoading();
+                    await navigation.PushPopupAsync(new LoadingWithMessagesModal(new List<string>
+                    {
+                        ResourceText.TITLE_WARMING_UP_ENGINES, ResourceText.TITLE_SENDING_QRCODE, ResourceText.TITLE_VALIDATING_OPERATION, ResourceText.TITLE_WAITING_FOR_ADMINISTRATOR
+                    }));
                     var callbackDeclined = new Command(async() =>
                     {
-                        var navigation = Resolver.Resolve<INavigation>();
                         await navigation.PushPopupAsync(new OperationErrorModal(ResourceText.TITLE_DECLINED));
                         await Task.Delay(1100);
                         await navigation.PopAllPopupAsync();
@@ -81,7 +85,6 @@ namespace IntelligentHabitacion.App.ViewModel
                     });
                     var callbackApproved = new Command(async () =>
                     {
-                        var navigation = Resolver.Resolve<INavigation>();
                         await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
                         await Task.Delay(1100);
                         await navigation.PopAllPopupAsync();
@@ -92,7 +95,7 @@ namespace IntelligentHabitacion.App.ViewModel
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
+                await navigation.PopPopupAsync();
                 await Exception(exeption);
             }
         }
@@ -100,8 +103,8 @@ namespace IntelligentHabitacion.App.ViewModel
         private async Task HandleException(string message)
         {
             DisconnectFromSocket();
-            HideLoading();
             var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PopAllPopupAsync();
             await navigation.PushPopupAsync(new ErrorModal(message));
         }
 

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.App.WebSocket;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
@@ -12,26 +13,71 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 {
     public class AcceptNewFriendViewModel : BaseViewModel
     {
+        private WebSocketAddFriendConnection _webSocketAddFriendConnection;
+        public WebSocketAddFriendConnection WebSocketAddFriendConnection
+        {
+            get
+            {
+                return _webSocketAddFriendConnection;
+            }
+            set
+            {
+                _webSocketAddFriendConnection = value;
+
+                var callbackWhenAnErrorOccurs = new Command(async (message) =>
+                {
+                    await HandleException(message.ToString());
+                });
+                var callbackTimeChanged = new Command(async (time) =>
+                {
+                    await OnChangedTime((int)time);
+                });
+
+                _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, callbackTimeChanged);
+            }
+        }
         public AcceptNewFriendModel Model { get; set; }
         public string Time { get; set; }
 
         public ICommand SelectEntryDateTapped { get; }
+        public ICommand CancelOperationTapped { get; }
 
         public AcceptNewFriendViewModel()
         {
-            Model = new AcceptNewFriendModel
-            {
-                Name = "Anilton Barbosa",
-                ProfileColor = "#000000",
-                EntryDate = DateTime.Today,
-                RentAmount = 650
-            };
-            Time = "00:59";
-
             SelectEntryDateTapped = new Command(async () =>
             {
                 await ClickSelectDueDate();
             });
+            CancelOperationTapped = new Command(async () =>
+            {
+                await OnCancelOperation();
+            });
+
+            /*
+             * In position two it will always be the QrCodeToAddFriendPage
+             */
+            var navigation = Resolver.Resolve<INavigation>();
+            navigation.RemovePage(navigation.NavigationStack[2]);
+        }
+
+        private async Task OnChangedTime(int timer)
+        {
+            if (timer > 0)
+            {
+                Time = DateTime.Today.AddSeconds(timer).ToString("mm:ss");
+                OnPropertyChanged(new PropertyChangedEventArgs("Time"));
+            }
+            else
+            {
+                DisconnectFromSocket();
+                await HandleException(ResourceText.TITLE_TIME_EXPIRED_TRY_AGAIN);
+            }
+        }
+        private async Task HandleException(string message)
+        {
+            await Navigation.PopAsync();
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PushPopupAsync(new ErrorModal(message));
         }
 
         private async Task ClickSelectDueDate()
@@ -45,6 +91,18 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         {
             Model.EntryDate = date;
             OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+        }
+
+        private async Task OnCancelOperation()
+        {
+            await _webSocketAddFriendConnection.DeclinedFriendCandidate();
+            DisconnectFromSocket();
+            await Navigation.PopAsync();
+        }
+
+        public void DisconnectFromSocket()
+        {
+            Task.Run(async () => await _webSocketAddFriendConnection.StopConnection());
         }
     }
 }

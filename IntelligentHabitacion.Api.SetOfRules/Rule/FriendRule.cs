@@ -30,7 +30,32 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _codeRepository = codeRepository;
         }
 
-        public Tuple<string, string> GetCodeToAddFriend(string userToken)
+        public ResponseCodeWasReadJson CodeWasRead(string userToken, string code)
+        {
+            var email = _tokenController.User(userToken);
+            var user = _userRepository.GetByEmail(email);
+
+            if(user.HomeAssociationId != null)
+                throw new IntelligentHabitacionException(ResourceTextException.USER_IS_PART_OF_A_HOME);
+
+            var codeResult = _codeRepository.GetByCode(code);
+            if(codeResult == null)
+                throw new IntelligentHabitacionException(ResourceTextException.CODE_INVALID);
+
+            var admin = _userRepository.GetById(codeResult.UserId);
+
+            _codeRepository.DeleteOnDatabase(codeResult);
+
+            return new ResponseCodeWasReadJson
+            {
+                Id = user.EncryptedId(),
+                Name = user.Name,
+                ProfileColor = user.ProfileColor,
+                AdminId = admin.EncryptedId()
+            };
+        }
+
+        public ResponseCodeToAddFriendJson GetCodeToAddFriend(string userToken)
         {
             var email = _tokenController.User(userToken);
             var user = _userRepository.GetByEmail(email);
@@ -52,7 +77,11 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 UserId = user.Id
             });
 
-            return Tuple.Create(codeRandom, user.EncryptedId());
+            return new ResponseCodeToAddFriendJson
+            {
+                AdminId = user.EncryptedId(),
+                Code = codeRandom
+            };
         }
 
         public List<ResponseFriendJson> GetFriends()

@@ -11,6 +11,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public Home Home { get; set; }
         public long HomeId { get; set; }
         public DateTime JoinedOn { get; set; }
+        public decimal RentAmount { get; set; }
         public ICollection<User> Users { get; set; }
 
         public override void Decrypt()

@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.WebSocket;
+using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
@@ -17,17 +18,40 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         public string Time { get; set; }
         public bool ReceivedCode { get; set; }
         public string QrCode { get; set; }
+        public string ProfileColor { get; set; }
 
         public ICommand CancelOperationTapped { get; set; }
 
         public QrCodeToAddFriendViewModel(ISqliteDatabase database)
         {
-            _webSocketAddFriendConnection = new WebSocketAddFriendConnection(HandleException);
-            CancelOperationTapped = new Command(async() =>
+            var userSqlite = database.Get();
+            ProfileColor = userSqlite.ProfileColor;
+
+            CancelOperationTapped = new Command(async () =>
             {
                 await OnCancelOperation();
             });
-            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(OnCodeReceived, OnChangedTime, database.Get().Token)));
+
+            var callbackWhenAnErrorOccurs = new Command(async (message) =>
+            {
+                await HandleException(message.ToString());
+            });
+            var callbackTimeChanged = new Command(async (time) =>
+            {
+                await OnChangedTime((int)time);
+            });
+            var callbackCodeIsReceived = new Command((code) =>
+            {
+                OnCodeReceived(code.ToString());
+            });
+            var callbackCodeWasRead = new Command(async(newFriendToAddJson) =>
+            {
+                await OnCodeWasRead((ResponseInformationsNewFriendToAddJson)newFriendToAddJson);
+            });
+
+            _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
+            _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, callbackTimeChanged);
+            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, userSqlite.Token)));
         }
 
         private void OnCodeReceived(string code)
@@ -38,7 +62,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             OnPropertyChanged(new PropertyChangedEventArgs("ReceivedCode"));
         }
 
-        private void OnChangedTime(int timer)
+        private async Task OnChangedTime(int timer)
         {
             if (timer > 0)
             {
@@ -48,7 +72,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             else
             {
                 DisconnectFromSocket();
-                HandleException(ResourceText.TITLE_TIME_EXPIRED_TRY_AGAIN);
+                await HandleException(ResourceText.TITLE_TIME_EXPIRED_TRY_AGAIN);
             }
         }
 
@@ -58,9 +82,32 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             DisconnectFromSocket();
         }
 
-        private async void HandleException(string message)
+        private async Task OnCodeWasRead(ResponseInformationsNewFriendToAddJson newFriendToAddJson)
         {
-            await Navigation.PopToRootAsync();
+            try
+            {
+                await Navigation.PushAsync<AcceptNewFriendViewModel>((viewModel, page) =>
+                {
+                    viewModel.WebSocketAddFriendConnection = _webSocketAddFriendConnection;
+                    viewModel.Model = new Model.AcceptNewFriendModel
+                    {
+                        Name = newFriendToAddJson.Name,
+                        ProfileColor = newFriendToAddJson.ProfileColor,
+                        EntryDate = DateTime.Today,
+                        RentAmount = 0
+                    };
+                });
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        private async Task HandleException(string message)
+        {
+            await Navigation.PopAsync();
             var navigation = Resolver.Resolve<INavigation>();
             await navigation.PushPopupAsync(new ErrorModal(message));
         }

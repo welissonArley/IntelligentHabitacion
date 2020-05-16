@@ -10,6 +10,7 @@ namespace IntelligentHabitacion.App.View.Modal
             InitializeComponent();
 
             LabelText.Text = message;
+            CloseWhenBackgroundIsClicked = false;
         }
     }
 }

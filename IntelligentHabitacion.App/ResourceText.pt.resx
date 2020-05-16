@@ -252,6 +252,9 @@
   <data name="TITLE_ACCEPT" xml:space="preserve">
     <value>Aceitar</value>
   </data>
+  <data name="TITLE_ACCEPTED" xml:space="preserve">
+    <value>Aceito!</value>
+  </data>
   <data name="TITLE_ADDING_NEW_FRIEND" xml:space="preserve">
     <value>Adicionar novo amigo</value>
   </data>
@@ -362,6 +365,9 @@
   </data>
   <data name="TITLE_DAYS" xml:space="preserve">
     <value>dias</value>
+  </data>
+  <data name="TITLE_DECLINED" xml:space="preserve">
+    <value>Recusado!</value>
   </data>
   <data name="TITLE_DELETE" xml:space="preserve">
     <value>Excluir</value>

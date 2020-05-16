@@ -83,6 +83,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             var response = new ResponseLoginJson
             {
                 Name = model.Name,
+                ProfileColor = model.ProfileColor,
                 IsPartOfOneHome = model.HomeAssociationId != null,
                 IsAdministrator = false
             };

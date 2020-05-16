@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.SignalR;
@@ -17,10 +18,10 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
             _friendRule = friendRule;
         }
 
-        public override Task OnDisconnectedAsync(System.Exception exception)
+        public override async Task OnDisconnectedAsync(System.Exception exception)
         {
-            Disconnect();
-            return base.OnDisconnectedAsync(exception);
+            await Disconnect();
+            await base.OnDisconnectedAsync(exception);
         }
 
         public async Task GetCode(string userToken)
@@ -28,10 +29,10 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
             try
             {
                 var response = _friendRule.GetCodeToAddFriend(userToken);
-                var code = response.Item1;
-                var admin = response.Item2;
-                Context.Items.Add(Context.ConnectionId, new AddFriendController(_hubContext, Context.ConnectionId));
-                await Clients.Client(Context.ConnectionId).SendAsync("AvailableCode", code);
+                var context = new Context(_hubContext, Context.ConnectionId);
+                Manager.Add(Context.ConnectionId, response.AdminId, context);
+                context.StartTimer();
+                await Clients.Client(Context.ConnectionId).SendAsync("AvailableCode", response.Code);
             }
             catch (IntelligentHabitacionException e)
             {
@@ -43,14 +44,49 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
             }
         }
 
-        private void Disconnect()
+        public async Task CodeWasRead(string userToken, string code)
         {
-            if (Context.Items.ContainsKey(Context.ConnectionId))
+            try
             {
-                var controller = (AddFriendController)Context.Items[Context.ConnectionId];
-                controller.StopProcess();
-                Context.Items.Remove(controller);
+                var response = _friendRule.CodeWasRead(userToken, code);
+                var context = Manager.Get(response.AdminId);
+                context.StopTimer();
+                context.SetNewFriendInformations(response.Id, Context.ConnectionId);
+                context.StartTimer();
+
+                var informationsNewFriendToAdd = (ResponseInformationsNewFriendToAddJson)response;
+                await Clients.Client(context.GetAdminConnectionSocketId()).SendAsync("CodeWasRead", informationsNewFriendToAdd);
             }
+            catch (IntelligentHabitacionException e)
+            {
+                await Clients.Client(Context.ConnectionId).SendAsync("ThrowError", e.Message);
+            }
+            catch
+            {
+                await Clients.Client(Context.ConnectionId).SendAsync("ThrowError", ResourceTextException.UNKNOW_ERROR);
+            }
+        }
+
+        public async Task Decline()
+        {
+            var adminId = Manager.GetAdminId(Context.ConnectionId);
+            if (!string.IsNullOrWhiteSpace(adminId))
+            {
+                var context = Manager.Get(adminId);
+                context.StopTimer();
+                await context.SendDeclinedFriendCandidate();
+                await Manager.Remove(Context.ConnectionId);
+            }
+        }
+
+        public async Task Approve()
+        {
+
+        }
+
+        private async Task Disconnect()
+        {
+            await Manager.Remove(Context.ConnectionId);
         }
     }
 }

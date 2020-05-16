@@ -12,6 +12,20 @@ namespace IntelligentHabitacion.Api.Repository.Repository
         {
         }
 
+        public Code GetByCode(string code)
+        {
+            var tempCode = new Code
+            {
+                Value = code
+            };
+            tempCode.Encrypt();
+
+            var result = ModelSet.FirstOrDefault(c => c.Active && c.Value.Equals(tempCode.Value));
+            result?.Decrypt();
+
+            return result;
+        }
+
         public List<Code> GetByUser(long id)
         {
             var listCode = ModelSet.Where(c => c.Active && c.UserId == id);

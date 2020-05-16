@@ -40,8 +40,8 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(registerUserJson);
 
-                _userRule.Register(registerUserJson);
-                return Created(string.Empty, string.Empty);
+                var profileColor = _userRule.Register(registerUserJson);
+                return Created(string.Empty, profileColor);
             }
             catch (System.Exception exception)
             {

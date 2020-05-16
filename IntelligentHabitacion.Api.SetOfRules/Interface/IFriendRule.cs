@@ -7,6 +7,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
     public interface IFriendRule
     {
         List<ResponseFriendJson> GetFriends();
-        Tuple<string, string> GetCodeToAddFriend(string userToken);
+        ResponseCodeToAddFriendJson GetCodeToAddFriend(string userToken);
+        ResponseCodeWasReadJson CodeWasRead(string userToken, string code);
     }
 }

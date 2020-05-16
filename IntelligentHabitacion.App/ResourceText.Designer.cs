@@ -466,6 +466,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accepted!.
+        /// </summary>
+        internal static string TITLE_ACCEPTED {
+            get {
+                return ResourceManager.GetString("TITLE_ACCEPTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add friend.
         /// </summary>
         internal static string TITLE_ADD_FRIEND {
@@ -795,6 +804,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_DAYS {
             get {
                 return ResourceManager.GetString("TITLE_DAYS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Declined!.
+        /// </summary>
+        internal static string TITLE_DECLINED {
+            get {
+                return ResourceManager.GetString("TITLE_DECLINED", resourceCulture);
             }
         }
         

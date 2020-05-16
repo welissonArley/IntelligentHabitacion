@@ -62,7 +62,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             return new Mapper.Mapper().MapperModelToJson(loggedUser);
         }
 
-        public void Register(RequestRegisterUserJson registerUserJson)
+        public string Register(RequestRegisterUserJson registerUserJson)
         {
             new PasswordValidator().IsValidaPasswordAndConfirmation(registerUserJson.Password, registerUserJson.PasswordConfirmation);
             if (EmailAlreadyBeenRegistered(registerUserJson.Email).Value)
@@ -77,6 +77,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 _userRepository.Create(userModel);
             else
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
+
+            return userModel.ProfileColor;
         }
 
         public void Update(RequestUpdateUserJson updateUserJson)

@@ -41,7 +41,8 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
                     IsAdministrator = false,
                     IsPartOfOneHome = false,
                     Width = Application.Current.MainPage.Width,
-                    Token = response.Token
+                    Token = response.Token,
+                    ProfileColor = response.Response.ToString()
                 });
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());

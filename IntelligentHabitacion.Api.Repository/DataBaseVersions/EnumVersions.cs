@@ -4,6 +4,7 @@
     {
         RegisterUser = 1,
         RegisterHome = 2,
-        RegisterUsersFood = 3
+        RegisterUsersFood = 3,
+        RegisterFinances = 4
     }
 }

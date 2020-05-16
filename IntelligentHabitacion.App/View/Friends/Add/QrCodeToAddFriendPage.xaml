@@ -31,7 +31,7 @@
                     </DataTrigger>
                 </StackLayout.Triggers>
                 <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
-                    <template:CircleWithTextComponent VerticalOptions="StartAndExpand" Color="#BF658B" Text="?"></template:CircleWithTextComponent>
+                    <template:CircleWithTextComponent VerticalOptions="StartAndExpand" Color="{Binding ProfileColor}" Text="?"></template:CircleWithTextComponent>
                     <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
                         <Label Text="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" TextColor="Black" FontSize="18"></Label>
                         <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>

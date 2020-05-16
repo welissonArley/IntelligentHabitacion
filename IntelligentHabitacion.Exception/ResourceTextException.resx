@@ -135,6 +135,9 @@
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Request a code to reset your password.</value>
   </data>
+  <data name="CONNECTION_ADMINISTRATOR_LOST" xml:space="preserve">
+    <value>The connection to the administrator has been lost.</value>
+  </data>
   <data name="COUNTRY_ABBREVIATION_EMPTY" xml:space="preserve">
     <value>The Abbreviation Country must be entered.</value>
   </data>

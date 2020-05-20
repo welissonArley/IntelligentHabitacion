@@ -233,11 +233,11 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
             mock.Setup(c => c.CreateUser(new Communication.Request.RequestRegisterUserJson(), ""));
-            mock.Setup(c => c.EmailAlreadyBeenRegistered("exist@gmail.com", null)).ReturnsAsync(new Communication.Boolean.BooleanJson
+            mock.Setup(c => c.EmailAlreadyBeenRegistered("exist@gmail.com", It.IsAny<string>())).ReturnsAsync(new Communication.Boolean.BooleanJson
             {
                 Value = true
             });
-            mock.Setup(c => c.EmailAlreadyBeenRegistered("dontexist@gmail.com", null)).ReturnsAsync(new Communication.Boolean.BooleanJson
+            mock.Setup(c => c.EmailAlreadyBeenRegistered("dontexist@gmail.com", It.IsAny<string>())).ReturnsAsync(new Communication.Boolean.BooleanJson
             {
                 Value = false
             });

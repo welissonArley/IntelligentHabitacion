@@ -94,6 +94,7 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 Phonenumbers = new List<Phonenumber>(),
                 EmergecyContacts = new List<EmergencyContact>()
             });
+            repositorioMock.Setup(c => c.EmailAlreadyBeenRegistered(UserExistFake().Email)).Returns(true);
 
             return repositorioMock.Object;
         }

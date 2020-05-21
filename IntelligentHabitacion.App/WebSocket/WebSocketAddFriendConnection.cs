@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Communication.Url;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
@@ -17,7 +18,7 @@ namespace IntelligentHabitacion.App.WebSocket
         public WebSocketAddFriendConnection()
         {
             _connection = new HubConnectionBuilder()
-                    .WithUrl(new Uri("wss://14c51b28.ngrok.io/addNewFriend"), HttpTransportType.WebSockets)
+                    .WithUrl(new Uri($"wss://{UrlHelper.IntelligentHabitacionApi}/addNewFriend"), HttpTransportType.WebSockets)
                     .WithAutomaticReconnect().Build();
 
             _connection.On<string>("ThrowError", (messageError) =>

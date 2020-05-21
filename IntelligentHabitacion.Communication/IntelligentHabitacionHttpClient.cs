@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Communication.Url;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ErrorJson;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -21,7 +22,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://14c51b28.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = $"https://{UrlHelper.IntelligentHabitacionApi}/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)

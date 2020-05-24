@@ -27,6 +27,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 var response = await _friendRule.GetHouseFriends();
                 Assert.True(response.Count > 0);
                 var friend = response.First();
+                Assert.True(!string.IsNullOrEmpty(friend.Id));
                 Assert.True(!string.IsNullOrWhiteSpace(friend.Name));
                 Assert.True(!string.IsNullOrWhiteSpace(friend.Phonenumber1));
                 Assert.True(!string.IsNullOrWhiteSpace(friend.Phonenumber2));
@@ -51,6 +52,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 {
                     new ResponseFriendJson
                     {
+                        Id = "A1",
                         Name = "Friend 1",
                         JoinedOn = DateTime.Today,
                         ProfileColor = "#FFFFFF",

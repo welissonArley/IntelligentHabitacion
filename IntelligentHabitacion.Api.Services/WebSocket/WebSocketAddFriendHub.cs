@@ -70,20 +70,13 @@ namespace IntelligentHabitacion.Api.Services.WebSocket
 
         public async Task Decline()
         {
-            try
+            var adminId = Manager.GetAdminId(Context.ConnectionId);
+            if (!string.IsNullOrWhiteSpace(adminId))
             {
-                var adminId = Manager.GetAdminId(Context.ConnectionId);
-                if (!string.IsNullOrWhiteSpace(adminId))
-                {
-                    var context = Manager.Get(adminId);
-                    context.StopTimer();
-                    await context.SendDeclinedFriendCandidate();
-                    await Manager.Remove(Context.ConnectionId);
-                }
-            }
-            catch
-            {
-                await Clients.Client(Context.ConnectionId).SendAsync("ThrowError", ResourceTextException.UNKNOW_ERROR);
+                var context = Manager.Get(adminId);
+                context.StopTimer();
+                await context.SendDeclinedFriendCandidate();
+                await Manager.Remove(Context.ConnectionId);
             }
         }
 

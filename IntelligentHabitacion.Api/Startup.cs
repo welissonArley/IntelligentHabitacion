@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.DatabaseInformations;
+using IntelligentHabitacion.Api.Services.WebSocket;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
@@ -48,6 +49,8 @@ namespace IntelligentHabitacion.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddMvcCore().AddJsonFormatters().AddVersionedApiExplorer(
@@ -105,6 +108,11 @@ namespace IntelligentHabitacion.Api
         /// <param name="provider"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<WebSocketAddFriendHub>("/addNewFriend");
+            });
+
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
             else

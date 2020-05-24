@@ -120,6 +120,9 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Because live with friends</value>
   </data>
+  <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
+    <value>The new member must go to the app, click on “Join a home” and read the QR Code below :)</value>
+  </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Follow the Cleaning schedule to make the home clean and beautiful.</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
     <value>Thomas Wayne</value>
   </data>
+  <data name="PLACEHOLDER_ENTRY_DATE" xml:space="preserve">
+    <value>Entry date</value>
+  </data>
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Manufacturer</value>
   </data>
@@ -231,6 +237,9 @@
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Product</value>
   </data>
+  <data name="PLACEHOLDER_RENT_AMOUNT" xml:space="preserve">
+    <value>600.00</value>
+  </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
   </data>
@@ -239,6 +248,15 @@
   </data>
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>About the App</value>
+  </data>
+  <data name="TITLE_ACCEPT" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="TITLE_ACCEPTED" xml:space="preserve">
+    <value>Accepted!</value>
+  </data>
+  <data name="TITLE_ADDING_NEW_FRIEND" xml:space="preserve">
+    <value>Adding new Friend</value>
   </data>
   <data name="TITLE_ADDRESS" xml:space="preserve">
     <value>Now the address</value>
@@ -270,6 +288,9 @@
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>
   </data>
+  <data name="TITLE_APPROACH_CAMERA_READ_QRCODE" xml:space="preserve">
+    <value>Move the camera closer to the QRCode to read.</value>
+  </data>
   <data name="TITLE_BOX" xml:space="preserve">
     <value>Box(es)</value>
   </data>
@@ -278,6 +299,9 @@
   </data>
   <data name="TITLE_CANCEL" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="TITLE_CANCEL_OPERATION" xml:space="preserve">
+    <value>Cancel operation</value>
   </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Change</value>
@@ -342,6 +366,9 @@
   <data name="TITLE_DAYS" xml:space="preserve">
     <value>days</value>
   </data>
+  <data name="TITLE_DECLINED" xml:space="preserve">
+    <value>Declined!</value>
+  </data>
   <data name="TITLE_DELETE" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -366,6 +393,9 @@
   <data name="TITLE_EMERGENCY_CONTACTS_TWOPOINTS" xml:space="preserve">
     <value>Emergency contacts:</value>
   </data>
+  <data name="TITLE_ENTRY_DATE_TWOPOINTS" xml:space="preserve">
+    <value>Entry date:</value>
+  </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finances</value>
   </data>
@@ -377,6 +407,9 @@
   </data>
   <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
     <value>{0} friends available.</value>
+  </data>
+  <data name="TITLE_GENERATING_CODE" xml:space="preserve">
+    <value>Generating code ...</value>
   </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
@@ -480,6 +513,9 @@
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="TITLE_RENT_AMOUNT_TWOPOINTS" xml:space="preserve">
+    <value>Rent amount:</value>
+  </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>
   </data>
@@ -494,6 +530,9 @@
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Search by name</value>
+  </data>
+  <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
+    <value>Sending QRCode ...</value>
   </data>
   <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
     <value>Set as administrator</value>
@@ -510,11 +549,20 @@
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>The City is:</value>
   </data>
+  <data name="TITLE_THIS_OPERATION_WILL_EXPIRE" xml:space="preserve">
+    <value>This operation will expire in:</value>
+  </data>
   <data name="TITLE_THURSDAY_ABBREVIATED" xml:space="preserve">
     <value>Thu</value>
   </data>
+  <data name="TITLE_TIME_EXPIRED_TRY_AGAIN" xml:space="preserve">
+    <value>Time has expired. Please try again.</value>
+  </data>
   <data name="TITLE_TOBEGIN_TELL_EMAIL" xml:space="preserve">
     <value>To begin :) Tell me what is your e-mail</value>
+  </data>
+  <data name="TITLE_TOUCH_SCREEN_TO_FOCUS" xml:space="preserve">
+    <value>Touch the screen to focus.</value>
   </data>
   <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
     <value>To finish. Your password</value>
@@ -528,8 +576,17 @@
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unity(s)</value>
   </data>
+  <data name="TITLE_VALIDATING_OPERATION" xml:space="preserve">
+    <value>Validating operation ...</value>
+  </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Version:</value>
+  </data>
+  <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
+    <value>Waiting for Administrator ...</value>
+  </data>
+  <data name="TITLE_WARMING_UP_ENGINES" xml:space="preserve">
+    <value>Warming up engines ...</value>
   </data>
   <data name="TITLE_WEDNESDAY_ABBREVIATED" xml:space="preserve">
     <value>Wed</value>

@@ -83,6 +83,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             var response = new ResponseLoginJson
             {
                 Name = model.Name,
+                ProfileColor = model.ProfileColor,
                 IsPartOfOneHome = model.HomeAssociationId != null,
                 IsAdministrator = false
             };
@@ -148,6 +149,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
         {
             return new ResponseFriendJson
             {
+                Id = model.EncryptedId(),
                 Name = model.Name,
                 Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
                 EmergencyContact = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),

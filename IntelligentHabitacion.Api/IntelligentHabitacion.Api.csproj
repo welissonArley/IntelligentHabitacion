@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IntelligentHabitacion.Api.Services\IntelligentHabitacion.Api.Services.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.SetOfRules\IntelligentHabitacion.Api.SetOfRules.csproj" />
   </ItemGroup>
 

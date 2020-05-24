@@ -68,5 +68,19 @@ namespace IntelligentHabitacion.Api.Repository.Repository
 
             return userTemp;
         }
+
+        public List<User> GetByHome(long homeId)
+        {
+            var result =  IncludeModel().Where(c => c.HomeAssociation != null && c.HomeAssociation.HomeId == homeId).ToList();
+            foreach (var user in result)
+                user.Decrypt();
+
+            return result;
+        }
+
+        public long? GetHomeId(long userId)
+        {
+            return IncludeModel().Where(c => c.Id == userId).Select(c => c.HomeAssociation.HomeId).FirstOrDefault();
+        }
     }
 }

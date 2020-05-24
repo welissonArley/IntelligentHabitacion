@@ -17,14 +17,14 @@ namespace IntelligentHabitacion.App.Test.Converter
         public void NullValue()
         {
             var result = _converter.Convert(null, null, null, null);
-            Assert.True(result.ToString().Equals("0.00") || result.ToString().Equals("0,00"));
+            Assert.Null(result);
         }
 
         [Fact]
         public void DecimalValue()
         {
             var result = _converter.Convert((decimal)7, null, null, null);
-            Assert.True(result.ToString().Equals("7.00") || result.ToString().Equals("7,00"));
+            Assert.True(result is decimal);
         }
 
         [Fact]

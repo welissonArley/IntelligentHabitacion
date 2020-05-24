@@ -135,6 +135,9 @@
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Solicite um código para alterar sua senha.</value>
   </data>
+  <data name="CONNECTION_ADMINISTRATOR_LOST" xml:space="preserve">
+    <value>A conexão com o administrador foi perdida.</value>
+  </data>
   <data name="COUNTRY_ABBREVIATION_EMPTY" xml:space="preserve">
     <value>A abreviação do País deve ser informada.</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>O produto não foi encontrado.</value>
+  </data>
+  <data name="RENTAL_AMOUNT_INVALID" xml:space="preserve">
+    <value>O valor do aluguel é inválido.</value>
   </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>Um código para alterar a senha é necessário.</value>

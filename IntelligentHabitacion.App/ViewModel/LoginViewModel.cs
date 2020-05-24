@@ -44,6 +44,7 @@ namespace IntelligentHabitacion.App.ViewModel
                 _database.Save(new SQLite.Model.UserSqlite
                 {
                     Name = responseLogin.Name,
+                    ProfileColor = responseLogin.ProfileColor,
                     IsAdministrator = responseLogin.IsAdministrator,
                     IsPartOfOneHome = responseLogin.IsPartOfOneHome,
                     Width = Application.Current.MainPage.Width,

@@ -70,6 +70,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The new member must go to the app, click on “Join a home” and read the QR Code below :).
+        /// </summary>
+        internal static string DESCRIPTION_ADDING_FRIEND {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ADDING_FRIEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Follow the Cleaning schedule to make the home clean and beautiful..
         /// </summary>
         internal static string DESCRIPTION_CLEAN_HOUSE {
@@ -322,6 +331,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry date.
+        /// </summary>
+        internal static string PLACEHOLDER_ENTRY_DATE {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ENTRY_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manufacturer.
         /// </summary>
         internal static string PLACEHOLDER_MANUFACTURER {
@@ -403,6 +421,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 600.00.
+        /// </summary>
+        internal static string PLACEHOLDER_RENT_AMOUNT {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_RENT_AMOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 31.275-972.
         /// </summary>
         internal static string PLACEHOLDER_ZIPCODE {
@@ -430,6 +457,24 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        internal static string TITLE_ACCEPT {
+            get {
+                return ResourceManager.GetString("TITLE_ACCEPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accepted!.
+        /// </summary>
+        internal static string TITLE_ACCEPTED {
+            get {
+                return ResourceManager.GetString("TITLE_ACCEPTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add friend.
         /// </summary>
         internal static string TITLE_ADD_FRIEND {
@@ -444,6 +489,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_ADD_PRODUCT {
             get {
                 return ResourceManager.GetString("TITLE_ADD_PRODUCT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adding new Friend.
+        /// </summary>
+        internal static string TITLE_ADDING_NEW_FRIEND {
+            get {
+                return ResourceManager.GetString("TITLE_ADDING_NEW_FRIEND", resourceCulture);
             }
         }
         
@@ -520,6 +574,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move the camera closer to the QRCode to read..
+        /// </summary>
+        internal static string TITLE_APPROACH_CAMERA_READ_QRCODE {
+            get {
+                return ResourceManager.GetString("TITLE_APPROACH_CAMERA_READ_QRCODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box(es).
         /// </summary>
         internal static string TITLE_BOX {
@@ -543,6 +606,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CANCEL {
             get {
                 return ResourceManager.GetString("TITLE_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel operation.
+        /// </summary>
+        internal static string TITLE_CANCEL_OPERATION {
+            get {
+                return ResourceManager.GetString("TITLE_CANCEL_OPERATION", resourceCulture);
             }
         }
         
@@ -736,6 +808,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Declined!.
+        /// </summary>
+        internal static string TITLE_DECLINED {
+            get {
+                return ResourceManager.GetString("TITLE_DECLINED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string TITLE_DELETE {
@@ -808,6 +889,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry date:.
+        /// </summary>
+        internal static string TITLE_ENTRY_DATE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ENTRY_DATE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finances.
         /// </summary>
         internal static string TITLE_FINANCES {
@@ -840,6 +930,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_FRIENDS_AVALIABLE {
             get {
                 return ResourceManager.GetString("TITLE_FRIENDS_AVALIABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generating code ....
+        /// </summary>
+        internal static string TITLE_GENERATING_CODE {
+            get {
+                return ResourceManager.GetString("TITLE_GENERATING_CODE", resourceCulture);
             }
         }
         
@@ -1150,6 +1249,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rent amount:.
+        /// </summary>
+        internal static string TITLE_RENT_AMOUNT_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_RENT_AMOUNT_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return.
         /// </summary>
         internal static string TITLE_RETURN {
@@ -1191,6 +1299,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SEARCH_BY_NAME {
             get {
                 return ResourceManager.GetString("TITLE_SEARCH_BY_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending QRCode ....
+        /// </summary>
+        internal static string TITLE_SENDING_QRCODE {
+            get {
+                return ResourceManager.GetString("TITLE_SENDING_QRCODE", resourceCulture);
             }
         }
         
@@ -1240,11 +1357,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This operation will expire in:.
+        /// </summary>
+        internal static string TITLE_THIS_OPERATION_WILL_EXPIRE {
+            get {
+                return ResourceManager.GetString("TITLE_THIS_OPERATION_WILL_EXPIRE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thu.
         /// </summary>
         internal static string TITLE_THURSDAY_ABBREVIATED {
             get {
                 return ResourceManager.GetString("TITLE_THURSDAY_ABBREVIATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time has expired. Please try again..
+        /// </summary>
+        internal static string TITLE_TIME_EXPIRED_TRY_AGAIN {
+            get {
+                return ResourceManager.GetString("TITLE_TIME_EXPIRED_TRY_AGAIN", resourceCulture);
             }
         }
         
@@ -1263,6 +1398,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_TOBEGIN_TELL_EMAIL {
             get {
                 return ResourceManager.GetString("TITLE_TOBEGIN_TELL_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touch the screen to focus..
+        /// </summary>
+        internal static string TITLE_TOUCH_SCREEN_TO_FOCUS {
+            get {
+                return ResourceManager.GetString("TITLE_TOUCH_SCREEN_TO_FOCUS", resourceCulture);
             }
         }
         
@@ -1294,11 +1438,38 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validating operation ....
+        /// </summary>
+        internal static string TITLE_VALIDATING_OPERATION {
+            get {
+                return ResourceManager.GetString("TITLE_VALIDATING_OPERATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version:.
         /// </summary>
         internal static string TITLE_VERSION {
             get {
                 return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for Administrator ....
+        /// </summary>
+        internal static string TITLE_WAITING_FOR_ADMINISTRATOR {
+            get {
+                return ResourceManager.GetString("TITLE_WAITING_FOR_ADMINISTRATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warming up engines ....
+        /// </summary>
+        internal static string TITLE_WARMING_UP_ENGINES {
+            get {
+                return ResourceManager.GetString("TITLE_WARMING_UP_ENGINES", resourceCulture);
             }
         }
         

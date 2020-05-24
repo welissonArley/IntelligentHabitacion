@@ -21,6 +21,7 @@ namespace IntelligentHabitacion.App.iOS
 
             Rg.Plugins.Popup.Popup.Init();
             RoundedBoxView.Forms.Plugin.iOSUnified.RoundedBoxViewRenderer.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             LoadApplication(new App());
 

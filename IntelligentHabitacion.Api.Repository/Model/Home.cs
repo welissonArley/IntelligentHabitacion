@@ -6,6 +6,13 @@ namespace IntelligentHabitacion.Api.Repository.Model
     [Table("Home")]
     public class Home : ModelBase
     {
+        private bool _encrypted { get; set; }
+
+        public Home()
+        {
+            _encrypted = true;
+        }
+
         public string ZipCode { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -21,6 +28,9 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
         public override void Decrypt()
         {
+            if (!_encrypted)
+                return;
+
             var encryptManager = new Cryptography.Cryptography();
             var salt = KeyModel.GetKey(this);
 
@@ -35,6 +45,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
             Neighborhood = encryptManager.Dencrypt(Neighborhood, salt);
             NetworksName = encryptManager.Dencrypt(NetworksName, salt);
             NetworksPassword = encryptManager.Dencrypt(NetworksPassword, salt);
+
+            _encrypted = false;
         }
 
         public override void Encrypt()
@@ -53,6 +65,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
             Neighborhood = encryptManager.Encrypt(Neighborhood, salt);
             NetworksName = encryptManager.Encrypt(NetworksName, salt);
             NetworksPassword = encryptManager.Encrypt(NetworksPassword, salt);
+
+            _encrypted = true;
         }
     }
 }

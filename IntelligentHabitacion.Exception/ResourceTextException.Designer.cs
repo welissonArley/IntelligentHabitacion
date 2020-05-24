@@ -115,6 +115,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The connection to the administrator has been lost..
+        /// </summary>
+        public static string CONNECTION_ADMINISTRATOR_LOST {
+            get {
+                return ResourceManager.GetString("CONNECTION_ADMINISTRATOR_LOST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Abbreviation Country must be entered..
         /// </summary>
         public static string COUNTRY_ABBREVIATION_EMPTY {
@@ -327,6 +336,15 @@ namespace IntelligentHabitacion.Exception {
         public static string PRODUCT_NOT_FOUND {
             get {
                 return ResourceManager.GetString("PRODUCT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid rental amount..
+        /// </summary>
+        public static string RENTAL_AMOUNT_INVALID {
+            get {
+                return ResourceManager.GetString("RENTAL_AMOUNT_INVALID", resourceCulture);
             }
         }
         

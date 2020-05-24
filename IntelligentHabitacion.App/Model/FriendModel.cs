@@ -5,6 +5,7 @@ namespace IntelligentHabitacion.App.Model
 {
     public class FriendModel : ObservableObject
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Phonenumber1 { get; set; }
         public string Phonenumber2 { get; set; }

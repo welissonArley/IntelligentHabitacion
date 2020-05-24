@@ -22,41 +22,11 @@ namespace IntelligentHabitacion.App.ViewModel
             var navigation = Resolver.Resolve<INavigation>();
 
             if (!(exception.InnerException as System.Reflection.TargetInvocationException is null))
-            {
-                var targetInvocationException = (System.Reflection.TargetInvocationException)exception.InnerException;
-                if (!(targetInvocationException.InnerException.InnerException as TokenExpiredException is null))
-                {
-                    await SecurityTokenExpired(navigation);
-                    return;
-                }
-                else if (!CrossConnectivity.Current.IsConnected)
-                {
-                    await ErrorInternetConnection();
-                    return;
-                }
-
-                UnknownError();
-            }
+                await TargetInvocationException((System.Reflection.TargetInvocationException)exception.InnerException, navigation);
             else if (!((exception as TokenExpiredException) is null))
                 await SecurityTokenExpired(navigation);
             else if (!((exception as ResponseException) is null))
-            {
-                var responseException = (ResponseException)exception;
-                var database = Resolver.Resolve<ISqliteDatabase>();
-
-                if(!string.IsNullOrWhiteSpace(responseException.Token))
-                    database.UpdateToken(responseException.Token);
-
-                if (!((responseException.Exception as ErrorOnValidationException) is null))
-                {
-                    ErrorOnValidationException validacaoException = (ErrorOnValidationException)responseException.Exception;
-                    await navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
-                }
-                else if (!((responseException.Exception as IntelligentHabitacionException) is null))
-                    await navigation.PushPopupAsync(new ErrorModal(((IntelligentHabitacionException)responseException.Exception).Message));
-                else
-                    UnknownError();
-            }
+                await ResponseException((ResponseException)exception, navigation);
             else if (!((exception as IntelligentHabitacionException) is null))
                 await navigation.PushPopupAsync(new ErrorModal(((IntelligentHabitacionException)exception).Message));
             else if (!CrossConnectivity.Current.IsConnected)
@@ -79,12 +49,42 @@ namespace IntelligentHabitacion.App.ViewModel
             _loadingContentView = null;
         }
 
+        #region Exceptions
+
+        private async Task TargetInvocationException(System.Reflection.TargetInvocationException targetInvocationException, INavigation navigation)
+        {
+            if (!(targetInvocationException.InnerException.InnerException as TokenExpiredException is null))
+                await SecurityTokenExpired(navigation);
+            else if (!CrossConnectivity.Current.IsConnected)
+                await ErrorInternetConnection();
+            else if (!((targetInvocationException.InnerException.InnerException as ResponseException) is null))
+                await ResponseException((ResponseException)targetInvocationException.InnerException.InnerException, navigation);
+            else
+                UnknownError();
+        }
+        private async Task ResponseException(ResponseException responseException, INavigation navigation)
+        {
+            var database = Resolver.Resolve<ISqliteDatabase>();
+
+            if (!string.IsNullOrWhiteSpace(responseException.Token))
+                database.UpdateToken(responseException.Token);
+
+            if (!((responseException.Exception as ErrorOnValidationException) is null))
+            {
+                ErrorOnValidationException validacaoException = (ErrorOnValidationException)responseException.Exception;
+                await navigation.PushPopupAsync(new ErrorModal("- " + string.Join("\n- ", validacaoException.ErrorMensages)));
+            }
+            else if (!((responseException.Exception as IntelligentHabitacionException) is null))
+                await navigation.PushPopupAsync(new ErrorModal(((IntelligentHabitacionException)responseException.Exception).Message));
+            else
+                UnknownError();
+        }
+        
         private void UnknownError()
         {
             var navigation = Resolver.Resolve<INavigation>();
             navigation.PushPopupAsync(new ErrorModal(ResourceTextException.UNKNOW_ERROR));
         }
-
         private async Task ErrorInternetConnection()
         {
             var navigation = Resolver.Resolve<INavigation>();
@@ -92,7 +92,6 @@ namespace IntelligentHabitacion.App.ViewModel
             await Task.Delay(1100);
             await navigation.PopPopupAsync();
         }
-
         private async Task SecurityTokenExpired(INavigation navigation)
         {
             var database = Resolver.Resolve<ISqliteDatabase>();
@@ -101,5 +100,7 @@ namespace IntelligentHabitacion.App.ViewModel
             await navigation.PushPopupAsync(new ErrorModal(ResourceText.TITLE_PLEASE_LOGIN_AGAIN));
             Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());
         }
+
+        #endregion
     }
 }

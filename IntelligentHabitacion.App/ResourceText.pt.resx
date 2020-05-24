@@ -120,6 +120,9 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Porque morar com os amigos</value>
   </data>
+  <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
+    <value>O novo integrante deve ir no app, clicar em “Participar de uma Lar” e ler o QR Code abaixo :)</value>
+  </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Acompanhe o cronograma de Limpeza para deixar o lar limpo e lindo.</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
     <value>Thomas Wayne</value>
   </data>
+  <data name="PLACEHOLDER_ENTRY_DATE" xml:space="preserve">
+    <value>Data de entrada</value>
+  </data>
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Fabricante</value>
   </data>
@@ -231,6 +237,9 @@
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Produto</value>
   </data>
+  <data name="PLACEHOLDER_RENT_AMOUNT" xml:space="preserve">
+    <value>600,00</value>
+  </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
   </data>
@@ -239,6 +248,15 @@
   </data>
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>Sobre o App</value>
+  </data>
+  <data name="TITLE_ACCEPT" xml:space="preserve">
+    <value>Aceitar</value>
+  </data>
+  <data name="TITLE_ACCEPTED" xml:space="preserve">
+    <value>Aceito!</value>
+  </data>
+  <data name="TITLE_ADDING_NEW_FRIEND" xml:space="preserve">
+    <value>Adicionar novo amigo</value>
   </data>
   <data name="TITLE_ADDRESS" xml:space="preserve">
     <value>Agora o Logradouro</value>
@@ -270,6 +288,9 @@
   <data name="TITLE_AND" xml:space="preserve">
     <value>e</value>
   </data>
+  <data name="TITLE_APPROACH_CAMERA_READ_QRCODE" xml:space="preserve">
+    <value>Aproxime a câmera do QRCode para realizar a leitura.</value>
+  </data>
   <data name="TITLE_BOX" xml:space="preserve">
     <value>Caixa(s)</value>
   </data>
@@ -278,6 +299,9 @@
   </data>
   <data name="TITLE_CANCEL" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="TITLE_CANCEL_OPERATION" xml:space="preserve">
+    <value>Cancelar operação</value>
   </data>
   <data name="TITLE_CHANGE" xml:space="preserve">
     <value>Alterar</value>
@@ -342,6 +366,9 @@
   <data name="TITLE_DAYS" xml:space="preserve">
     <value>dias</value>
   </data>
+  <data name="TITLE_DECLINED" xml:space="preserve">
+    <value>Recusado!</value>
+  </data>
   <data name="TITLE_DELETE" xml:space="preserve">
     <value>Excluir</value>
   </data>
@@ -366,6 +393,9 @@
   <data name="TITLE_EMERGENCY_CONTACTS_TWOPOINTS" xml:space="preserve">
     <value>Contatos de emergência:</value>
   </data>
+  <data name="TITLE_ENTRY_DATE_TWOPOINTS" xml:space="preserve">
+    <value>Data de entrada:</value>
+  </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finanças</value>
   </data>
@@ -377,6 +407,9 @@
   </data>
   <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
     <value>{0} amigos disponíveis.</value>
+  </data>
+  <data name="TITLE_GENERATING_CODE" xml:space="preserve">
+    <value>Gerando código ...</value>
   </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
@@ -480,6 +513,9 @@
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remover</value>
   </data>
+  <data name="TITLE_RENT_AMOUNT_TWOPOINTS" xml:space="preserve">
+    <value>Valor do aluguel:</value>
+  </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
   </data>
@@ -494,6 +530,9 @@
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Busque por nome</value>
+  </data>
+  <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
+    <value>Enviando o QRCode ...</value>
   </data>
   <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
     <value>Definir como administrador</value>
@@ -510,11 +549,20 @@
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>A Cidade é:</value>
   </data>
+  <data name="TITLE_THIS_OPERATION_WILL_EXPIRE" xml:space="preserve">
+    <value>Esta operação vai expirar em:</value>
+  </data>
   <data name="TITLE_THURSDAY_ABBREVIATED" xml:space="preserve">
     <value>Qui</value>
   </data>
+  <data name="TITLE_TIME_EXPIRED_TRY_AGAIN" xml:space="preserve">
+    <value>O tempo expirou. Por favor, tente novamente.</value>
+  </data>
   <data name="TITLE_TOBEGIN_TELL_EMAIL" xml:space="preserve">
     <value>Para começar :) Me conte qual é o seu e-mail</value>
+  </data>
+  <data name="TITLE_TOUCH_SCREEN_TO_FOCUS" xml:space="preserve">
+    <value>Toque na tela para focar.</value>
   </data>
   <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
     <value>Para finalizar. A sua senha</value>
@@ -528,8 +576,17 @@
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unidade(s)</value>
   </data>
+  <data name="TITLE_VALIDATING_OPERATION" xml:space="preserve">
+    <value>Validando operação ...</value>
+  </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Versão:</value>
+  </data>
+  <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
+    <value>Aguardando o Administrador ...</value>
+  </data>
+  <data name="TITLE_WARMING_UP_ENGINES" xml:space="preserve">
+    <value>Aquecendo os motores ...</value>
   </data>
   <data name="TITLE_WEDNESDAY_ABBREVIATED" xml:space="preserve">
     <value>Qua</value>

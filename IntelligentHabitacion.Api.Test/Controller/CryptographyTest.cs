@@ -120,6 +120,8 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.NotEqual("Address", model.Address);
             model.Decrypt();
             Assert.Equal("Address", model.Address);
+            model.Decrypt();
+            Assert.Equal("Address", model.Address);
         }
 
         [Fact]

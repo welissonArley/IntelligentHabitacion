@@ -1,26 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior" xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
              x:Name="MyFriendsContentPage"
              x:Class="IntelligentHabitacion.App.View.Friends.MyFriendsPage">
+    <ContentPage.Resources>
+        <converter:InverseBoolConverter x:Key="BoolInverseConverter"></converter:InverseBoolConverter>
+    </ContentPage.Resources>
     <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
-        <StackLayout Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="False">
-            <StackLayout.Triggers>
-                <DataTrigger TargetType="StackLayout" Binding="{Binding FriendsListIsEmpty}" Value="True">
-                    <Setter Property="IsVisible" Value="True"></Setter>
-                </DataTrigger>
-            </StackLayout.Triggers>
+        <StackLayout Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
             <Image Source="IlustrationDog"></Image>
             <Label Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></Label>
         </StackLayout>
-        <StackLayout>
-            <StackLayout.Triggers>
-                <DataTrigger TargetType="StackLayout" Binding="{Binding FriendsListIsEmpty}" Value="True">
-                    <Setter Property="IsVisible" Value="False"></Setter>
-                </DataTrigger>
-            </StackLayout.Triggers>
+        <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding FriendsListIsEmpty, Converter={StaticResource BoolInverseConverter}}">
             <Label Margin="20,20,20,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
             <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFriendsContentPage}}"></component:SearchByNameComponent>
             <Label Margin="20,30,20,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_YOUR_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
@@ -34,6 +30,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}"></Button>
+        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddFriendCommand}" IsVisible="{Binding IsAdministrator}"></Button>
     </StackLayout>
 </ContentPage>

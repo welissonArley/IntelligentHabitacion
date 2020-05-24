@@ -56,6 +56,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             Assert.True(!string.IsNullOrWhiteSpace(value.Name));
             Assert.True(!value.IsPartOfOneHome);
             Assert.True(!value.IsAdministrator);
+            Assert.True(!string.IsNullOrWhiteSpace(value.ProfileColor));
         }
 
         [Fact]

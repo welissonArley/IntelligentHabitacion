@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Communication.Url;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ErrorJson;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -21,7 +22,7 @@ namespace IntelligentHabitacion.Communication
 
         public IntelligentHabitacionHttpClient()
         {
-            UrlIntelligentHabitacionApi = "https://1e14e282.ngrok.io/api/v1";
+            UrlIntelligentHabitacionApi = $"https://{UrlHelper.IntelligentHabitacionApi}/api/v1";
         }
 
         private async Task<HttpResponseMessage> SendRequisition(HttpMethod httpMethod, string uri, object content = null, string token = null, string language = null)
@@ -109,9 +110,10 @@ namespace IntelligentHabitacion.Communication
         public async Task<ResponseJson> CreateUser(RequestRegisterUserJson registerUser, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User/Register", registerUser, language: language);
+            var profileColor = await response.Content.ReadAsStringAsync();
             return new ResponseJson
             {
-                Response = null,
+                Response = profileColor,
                 Token = GetToken(response)
             };
         }

@@ -7,7 +7,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
     public class EmergencyContact : ModelBase
     {
         public string Name { get; set; }
-        public string DegreeOfKinship { get; set; }
+        public string Relationship { get; set; }
         public string Phonenumber { get; set; }
         public long UserId { get; set; }
 
@@ -17,7 +17,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
             var salt = KeyModel.GetKey(this);
 
             Name = encryptManager.Dencrypt(Name, salt);
-            DegreeOfKinship = encryptManager.Dencrypt(DegreeOfKinship, salt);
+            Relationship = encryptManager.Dencrypt(Relationship, salt);
             Phonenumber = encryptManager.Dencrypt(Phonenumber, salt);
         }
 
@@ -27,7 +27,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
             var salt = KeyModel.GetKey(this);
 
             Name = encryptManager.Encrypt(Name, salt);
-            DegreeOfKinship = encryptManager.Encrypt(DegreeOfKinship, salt);
+            Relationship = encryptManager.Encrypt(Relationship, salt);
             Phonenumber = encryptManager.Encrypt(Phonenumber, salt);
         }
     }

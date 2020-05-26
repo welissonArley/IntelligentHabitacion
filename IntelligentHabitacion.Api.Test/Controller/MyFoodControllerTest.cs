@@ -39,7 +39,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             _controller.HttpContext.Request.Path = new PathString("/MyFood/AddFoods/");
             var result = _controller.AddFood(new RequestAddMyFoodJson
             {
-                Amount = 5,
+                Quantity = 5,
                 DueDate = DateTime.Today,
                 Manufacturer = "M",
                 Name = "N",
@@ -119,7 +119,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
             var result = _controller.EditFood(new RequestEditMyFoodJson
             {
                 Id = new MyFood { Id = 1 }.EncryptedId(),
-                Amount = 5,
+                Quantity = 5,
                 DueDate = DateTime.Today,
                 Manufacturer = "M",
                 Name = "N",

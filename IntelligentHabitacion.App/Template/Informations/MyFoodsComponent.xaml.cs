@@ -28,10 +28,10 @@ namespace IntelligentHabitacion.App.Template.Informations
             get => (ICommand)GetValue(TappedItemCommandProperty);
             set => SetValue(TappedItemCommandProperty, value);
         }
-        public ICommand TappedChangeAmountCommand
+        public ICommand TappedChangeQuantityCommand
         {
-            get => (ICommand)GetValue(TappedChangeAmountCommandProperty);
-            set => SetValue(TappedChangeAmountCommandProperty, value);
+            get => (ICommand)GetValue(TappedChangeQuantityCommandProperty);
+            set => SetValue(TappedChangeQuantityCommandProperty, value);
         }
 
         public static readonly BindableProperty FoodProperty = BindableProperty.Create(
@@ -49,7 +49,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                                                         defaultBindingMode: BindingMode.OneWay,
                                                         propertyChanged: null);
 
-        public static readonly BindableProperty TappedChangeAmountCommandProperty = BindableProperty.Create(propertyName: "TappedChangeAmount",
+        public static readonly BindableProperty TappedChangeQuantityCommandProperty = BindableProperty.Create(propertyName: "TappedChangeQuantity",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(MyFriendsComponent),
                                                         defaultValue: null,
@@ -87,21 +87,21 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private void Button_AddOne(object sender, EventArgs e)
         {
-            Food.Amount++;
+            Food.Quantity++;
             Description.Text = DescriptionToShow(Food);
-            TappedChangeAmountCommand?.Execute(Food);
+            TappedChangeQuantityCommand?.Execute(Food);
         }
 
         private void Button_SubtractOne(object sender, EventArgs e)
         {
-            Food.Amount--;
+            Food.Quantity--;
             Description.Text = DescriptionToShow(Food);
-            TappedChangeAmountCommand?.Execute(Food);
+            TappedChangeQuantityCommand?.Execute(Food);
         }
 
         private static string DescriptionToShow(FoodModel foodModel)
         {
-            return $"{new ValueDecimalConverter().Convert(foodModel.Amount, null, null, null)} {GetEnumDescription.Description(foodModel.Type)}{(foodModel.DueDate is null ? "" : $" | {ResourceText.TITLE_DUEDATE_TWOPOINTS} {foodModel.DueDate.Value:dd MMM yyyy}")}";
+            return $"{new ValueDecimalConverter().Convert(foodModel.Quantity, null, null, null)} {GetEnumDescription.Description(foodModel.Type)}{(foodModel.DueDate is null ? "" : $" | {ResourceText.TITLE_DUEDATE_TWOPOINTS} {foodModel.DueDate.Value:dd MMM yyyy}")}";
         }
         private static TypeDueDate GetTypeDueDate(FoodModel foodModel)
         {

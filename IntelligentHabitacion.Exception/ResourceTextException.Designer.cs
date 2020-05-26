@@ -70,15 +70,6 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The amount of products is invalid..
-        /// </summary>
-        public static string AMOUNT_PRODUCTS_INVALID {
-            get {
-                return ResourceManager.GetString("AMOUNT_PRODUCTS_INVALID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The City&apos;s name must be entered..
         /// </summary>
         public static string CITY_EMPTY {
@@ -196,15 +187,6 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Family relationship must be entered..
-        /// </summary>
-        public static string FAMILYRELATIONSHIP_EMPTY {
-            get {
-                return ResourceManager.GetString("FAMILYRELATIONSHIP_EMPTY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Password must be at least 6 characters..
         /// </summary>
         public static string INVALID_PASSWORD {
@@ -219,6 +201,15 @@ namespace IntelligentHabitacion.Exception {
         public static string INVALID_USER {
             get {
                 return ResourceManager.GetString("INVALID_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid monthly rent..
+        /// </summary>
+        public static string MONTHLYRENT_INVALID {
+            get {
+                return ResourceManager.GetString("MONTHLYRENT_INVALID", resourceCulture);
             }
         }
         
@@ -340,11 +331,20 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid rental amount..
+        ///   Looks up a localized string similar to The quantity of products is invalid..
         /// </summary>
-        public static string RENTAL_AMOUNT_INVALID {
+        public static string QUANTITY_PRODUCTS_INVALID {
             get {
-                return ResourceManager.GetString("RENTAL_AMOUNT_INVALID", resourceCulture);
+                return ResourceManager.GetString("QUANTITY_PRODUCTS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relationship must be entered..
+        /// </summary>
+        public static string RELATIONSHIPTO_EMPTY {
+            get {
+                return ResourceManager.GetString("RELATIONSHIPTO_EMPTY", resourceCulture);
             }
         }
         
@@ -354,15 +354,6 @@ namespace IntelligentHabitacion.Exception {
         public static string REQUERED_CODE_RESET_PASSWORD {
             get {
                 return ResourceManager.GetString("REQUERED_CODE_RESET_PASSWORD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Family relationship with the Emergency contact {0} must be entered..
-        /// </summary>
-        public static string THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID {
-            get {
-                return ResourceManager.GetString("THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID", resourceCulture);
             }
         }
         
@@ -381,6 +372,15 @@ namespace IntelligentHabitacion.Exception {
         public static string THE_PHONENUMBER_INVALID {
             get {
                 return ResourceManager.GetString("THE_PHONENUMBER_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Relationship with the Emergency contact {0} must be entered..
+        /// </summary>
+        public static string THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID {
+            get {
+                return ResourceManager.GetString("THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID", resourceCulture);
             }
         }
         

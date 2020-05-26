@@ -6,6 +6,6 @@ namespace IntelligentHabitacion.App.Model
     {
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public string FamilyRelationship { get; set; }
+        public string Relationship { get; set; }
     }
 }

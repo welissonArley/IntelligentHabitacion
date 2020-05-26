@@ -16,7 +16,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
     public class MyFood : ModelBase
     {
         public string Name { get; set; }
-        public decimal Amount { get; set; }
+        public decimal Quantity { get; set; }
         public string Manufacturer { get; set; }
         public Type Type { get; set; }
         public DateTime? DueDate { get; set; }

@@ -95,7 +95,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                         Name = newFriendToAddJson.Name,
                         ProfileColor = newFriendToAddJson.ProfileColor,
                         EntryDate = DateTime.Today,
-                        RentAmount = 0
+                        MonthlyRent = 0
                     };
                     viewModel.NewFriendToAddJson = newFriendToAddJson;
                     viewModel.ApprovedOperation = ApprovedOperation;

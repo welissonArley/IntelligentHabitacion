@@ -105,13 +105,13 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     new RequestEmergencyContactJson
                     {
                         Name = "",
-                        DegreeOfKinship = "",
+                        Relationship = "",
                         Phonenumber = ""
                     },
                     new RequestEmergencyContactJson
                     {
                         Name = "Contact 2",
-                        DegreeOfKinship = "Relation 2",
+                        Relationship = "Relation 2",
                         Phonenumber = "37"
                     }
                 }
@@ -137,7 +137,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     new RequestEmergencyContactJson
                     {
                         Name = "Contact 1",
-                        DegreeOfKinship = "Relation 1",
+                        Relationship = "Relation 1",
                         Phonenumber = "(31) 9 9999-9999"
                     }
                 }
@@ -163,7 +163,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     new RequestEmergencyContactJson
                     {
                         Name = "Contact 1",
-                        DegreeOfKinship = "Relation 1",
+                        Relationship = "Relation 1",
                         Phonenumber = "(31) 9 9999-9999"
                     }
                 }
@@ -189,7 +189,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     new RequestEmergencyContactJson
                     {
                         Name = "Contact 1",
-                        DegreeOfKinship = "Relation 1",
+                        Relationship = "Relation 1",
                         Phonenumber = "(31) 9 9999-9999"
                     }
                 }
@@ -215,7 +215,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     new RequestEmergencyContactJson
                     {
                         Name = "Contact 1",
-                        DegreeOfKinship = "Relation 1",
+                        Relationship = "Relation 1",
                         Phonenumber = "(31) 9 9999-9999"
                     }
                 }
@@ -311,7 +311,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                     new RequestEmergencyContactJson
                     {
                         Name = "Contact",
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Phonenumber = "(31) 9 8888-8888"
                     }
                 }

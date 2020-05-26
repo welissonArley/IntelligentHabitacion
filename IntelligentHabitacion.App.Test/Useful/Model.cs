@@ -15,13 +15,13 @@ namespace IntelligentHabitacion.App.Test.Useful
                 Id = "@FriendId",
                 Name = "Friend",
                 ProfileColor = "#000000",
-                RentAmount = 600
+                MonthlyRent = 600
             };
             Assert.True(DateTime.Today == result.EntryDate);
             Assert.Equal("@FriendId", result.Id);
             Assert.Equal("Friend", result.Name);
             Assert.Equal("#000000", result.ProfileColor);
-            Assert.True(result.RentAmount == 600);
+            Assert.True(result.MonthlyRent == 600);
         }
     }
 }

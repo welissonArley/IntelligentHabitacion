@@ -1,7 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.Template.Informations;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -18,7 +17,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         private readonly IMyFoodsRule _myFoodsRule;
 
         public ICommand SearchTextChangedCommand { protected set; get; }
-        public ICommand TappedChangeAmountCommand { protected set; get; }
+        public ICommand TappedChangeQuantityCommand { protected set; get; }
         public ICommand AddNewItemCommand { protected set; get; }
         public ICommand TappedItemCommand { protected set; get; }
 
@@ -40,9 +39,9 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             {
                 OnSearchTextChanged((string)value);
             });
-            TappedChangeAmountCommand = new Command(async (value) =>
+            TappedChangeQuantityCommand = new Command(async (value) =>
             {
-                await OnChangeAmount((FoodModel)value);
+                await OnChangeQuantity((FoodModel)value);
             });
             AddNewItemCommand = new Command(async() =>
             {
@@ -60,13 +59,13 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
 
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
         }
-        private async Task OnChangeAmount(FoodModel model)
+        private async Task OnChangeQuantity(FoodModel model)
         {
             try
             {
                 await ShowLoading();
                 await _myFoodsRule.ChangeQuantity(model);
-                if (model.Amount <= 0)
+                if (model.Quantity <= 0)
                 {
                     _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
                     FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
@@ -88,7 +87,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 {
                     viewModel.CallbackSave = NewItemAdded;
                     viewModel.Title = ResourceText.TITLE_NEW_ITEM;
-                    viewModel.Model = new FoodModel { Amount = 1 };
+                    viewModel.Model = new FoodModel { Quantity = 1 };
                 });
                 HideLoading();
             }
@@ -146,7 +145,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             copyTo.Manufacturer = from.Manufacturer;
             copyTo.Type = from.Type;
             copyTo.DueDate = from.DueDate;
-            copyTo.Amount = from.Amount;
+            copyTo.Quantity = from.Quantity;
         }
     }
 }

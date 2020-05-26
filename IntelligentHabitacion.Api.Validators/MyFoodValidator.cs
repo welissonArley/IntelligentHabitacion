@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.Api.Validators
         public MyFoodValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage(ResourceTextException.PRODUCT_NAME_EMPTY);
-            RuleFor(x => x.Amount).GreaterThan(0).WithMessage(ResourceTextException.AMOUNT_PRODUCTS_INVALID);
+            RuleFor(x => x.Quantity).GreaterThan(0).WithMessage(ResourceTextException.QUANTITY_PRODUCTS_INVALID);
             RuleFor(x => x.Type).IsInEnum().WithMessage(ResourceTextException.TYPE_PRODUCTS_INVALID);
         }
     }

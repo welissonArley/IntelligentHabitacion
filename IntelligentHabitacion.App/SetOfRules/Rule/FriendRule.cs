@@ -39,13 +39,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 EmergencyContact1 = new EmergencyContactModel
                 {
                     Name = c.EmergencyContact[0].Name,
-                    FamilyRelationship = c.EmergencyContact[0].DegreeOfKinship,
+                    Relationship = c.EmergencyContact[0].Relationship,
                     PhoneNumber = c.EmergencyContact[0].Phonenumber
                 },
                 EmergencyContact2 = c.EmergencyContact.Count > 1 ? new EmergencyContactModel
                 {
                     Name = c.EmergencyContact[1].Name,
-                    FamilyRelationship = c.EmergencyContact[1].DegreeOfKinship,
+                    Relationship = c.EmergencyContact[1].Relationship,
                     PhoneNumber = c.EmergencyContact[1].Phonenumber
                 } : null
             }).ToList();

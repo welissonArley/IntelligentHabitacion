@@ -142,7 +142,7 @@
     <value>Use this option to be part of a home already created.</value>
   </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
-    <value>Track the foods you have, with amount and expiration date.</value>
+    <value>Track the foods you have, with quantity and expiration date.</value>
   </data>
   <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
     <value>See useful information about your friends at home.</value>
@@ -174,9 +174,6 @@
   <data name="PLACEHOLDER_ADDRESSNUMBER" xml:space="preserve">
     <value>1007</value>
   </data>
-  <data name="PLACEHOLDER_AMOUNT" xml:space="preserve">
-    <value>Amount</value>
-  </data>
   <data name="PLACEHOLDER_CITY" xml:space="preserve">
     <value>Gotham City</value>
   </data>
@@ -185,9 +182,6 @@
   </data>
   <data name="PLACEHOLDER_CURRENT_PASSWORD" xml:space="preserve">
     <value>Current password</value>
-  </data>
-  <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
-    <value>Degree of kinship</value>
   </data>
   <data name="PLACEHOLDER_DUE_DATE" xml:space="preserve">
     <value>Due date</value>
@@ -213,6 +207,9 @@
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Manufacturer</value>
   </data>
+  <data name="PLACEHOLDER_MONTHLYRENT" xml:space="preserve">
+    <value>600.00</value>
+  </data>
   <data name="PLACEHOLDER_NAME" xml:space="preserve">
     <value>Bruce Wayne</value>
   </data>
@@ -237,8 +234,11 @@
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Product</value>
   </data>
-  <data name="PLACEHOLDER_RENT_AMOUNT" xml:space="preserve">
-    <value>600.00</value>
+  <data name="PLACEHOLDER_QUANTITY" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
+    <value>Relationship</value>
   </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
@@ -281,9 +281,6 @@
   </data>
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Add product</value>
-  </data>
-  <data name="TITLE_AMOUNT_TWOPOINTS" xml:space="preserve">
-    <value>Amount:</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>
@@ -330,20 +327,20 @@
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Conclude</value>
   </data>
-  <data name="TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Kinship with contact 1:</value>
-  </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Contact's 1 phone number:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Relationship to with contact 1:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
     <value>Contact 1:</value>
   </data>
-  <data name="TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Kinship with contact 2:</value>
-  </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Contact's 2 phone number:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Relationship to contact 2:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
     <value>Contact 2:</value>
@@ -438,6 +435,9 @@
   <data name="TITLE_MONTH" xml:space="preserve">
     <value>month</value>
   </data>
+  <data name="TITLE_MONTHLYRENT_TWOPOINTS" xml:space="preserve">
+    <value>Monthly rent:</value>
+  </data>
   <data name="TITLE_MONTHS" xml:space="preserve">
     <value>months</value>
   </data>
@@ -501,6 +501,9 @@
   <data name="TITLE_PRODUCT_TWOPOINTS" xml:space="preserve">
     <value>Product:</value>
   </data>
+  <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
+    <value>Quantity:</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -512,9 +515,6 @@
   </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remove</value>
-  </data>
-  <data name="TITLE_RENT_AMOUNT_TWOPOINTS" xml:space="preserve">
-    <value>Rent amount:</value>
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>

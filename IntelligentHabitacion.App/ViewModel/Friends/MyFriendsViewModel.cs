@@ -102,13 +102,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                         EmergencyContact1 = new EmergencyContactModel
                         {
                             Name = json.EmergencyContact[0].Name,
-                            FamilyRelationship = json.EmergencyContact[0].DegreeOfKinship,
+                            Relationship = json.EmergencyContact[0].Relationship,
                             PhoneNumber = json.EmergencyContact[0].Phonenumber
                         },
                         EmergencyContact2 = json.EmergencyContact.Count == 1 ? null : new EmergencyContactModel
                         {
                             Name = json.EmergencyContact[1].Name,
-                            FamilyRelationship = json.EmergencyContact[1].DegreeOfKinship,
+                            Relationship = json.EmergencyContact[1].Relationship,
                             PhoneNumber = json.EmergencyContact[1].Phonenumber
                         }
                     };

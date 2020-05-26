@@ -73,14 +73,14 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 {
                     new EmergencyContact
                     {
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Name = "Contact",
                         Phonenumber = "(31) 9 8888-8888",
                         UserId = 1
                     },
                     new EmergencyContact
                     {
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Name = "Contact",
                         Phonenumber = "(31) 9 8888-8888",
                         UserId = 1
@@ -119,14 +119,14 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 {
                     new EmergencyContact
                     {
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Name = "Contact",
                         Phonenumber = "(31) 9 8888-8888",
                         UserId = 1
                     },
                     new EmergencyContact
                     {
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Name = "Contact",
                         Phonenumber = "(31) 9 8888-8888",
                         UserId = 1
@@ -176,14 +176,14 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 {
                     new EmergencyContact
                     {
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Name = "Contact",
                         Phonenumber = "(31) 9 8888-8888",
                         UserId = 1
                     },
                     new EmergencyContact
                     {
-                        DegreeOfKinship = "Mother",
+                        Relationship = "Mother",
                         Name = "Contact",
                         Phonenumber = "(31) 9 8888-8888",
                         UserId = 1

@@ -29,7 +29,7 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
             {
                 new MyFood
                 {
-                    Amount = 7,
+                    Quantity = 7,
                     DueDate = DateTime.Now,
                     Id = 1,
                     Manufacturer = "M",

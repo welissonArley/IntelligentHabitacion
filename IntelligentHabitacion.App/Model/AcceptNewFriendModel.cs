@@ -8,7 +8,7 @@ namespace IntelligentHabitacion.App.Model
         public string Id { get; set; }
         public string Name { get; set; }
         public DateTime EntryDate { get; set; }
-        public decimal RentAmount { get; set; }
+        public decimal MonthlyRent { get; set; }
         public string ProfileColor { get; set; }
     }
 }

@@ -73,13 +73,13 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                             {
                                 Name = "Contact 1",
                                 Phonenumber = "(31) 9 0000-0000",
-                                DegreeOfKinship = "M"
+                                Relationship = "M"
                             },
                             new ResponseEmergencyContactJson
                             {
                                 Name = "Contact 2",
                                 Phonenumber = "(31) 9 0000-0000",
-                                DegreeOfKinship = "M"
+                                Relationship = "M"
                             }
                         }
                     }

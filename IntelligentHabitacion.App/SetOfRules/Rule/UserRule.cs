@@ -35,12 +35,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             new EmailValidator().IsValid(email);
         }
 
-        public void ValidateEmergencyContact(string name, string phoneNumber, string degreeKinship)
+        public void ValidateEmergencyContact(string name, string phoneNumber, string relationship)
         {
             ValidateName(name);
             ValidatePhoneNumber(phoneNumber, null);
-            if (string.IsNullOrWhiteSpace(degreeKinship))
-                throw new DegreeKinshipEmptyException();
+            if (string.IsNullOrWhiteSpace(relationship))
+                throw new RelationshipToEmptyException();
         }
 
         public void ValidateName(string name)
@@ -78,9 +78,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidateName(userInformations.Name);
             ValidateEmail(userInformations.Email);
             ValidatePhoneNumber(userInformations.PhoneNumber1, userInformations.PhoneNumber2);
-            ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.FamilyRelationship);
+            ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.Relationship);
             if(!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
-                ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.FamilyRelationship);
+                ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.Relationship);
 
             var updateUser = new RequestUpdateUserJson
             {
@@ -94,7 +94,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             updateUser.EmergencyContacts.Add(new RequestEmergencyContactJson
             {
                 Name = userInformations.EmergencyContact1.Name,
-                DegreeOfKinship = userInformations.EmergencyContact1.FamilyRelationship,
+                Relationship = userInformations.EmergencyContact1.Relationship,
                 Phonenumber = userInformations.EmergencyContact1.PhoneNumber
             });
 
@@ -103,7 +103,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 updateUser.EmergencyContacts.Add(new RequestEmergencyContactJson
                 {
                     Name = userInformations.EmergencyContact2.Name,
-                    DegreeOfKinship = userInformations.EmergencyContact2.FamilyRelationship,
+                    Relationship = userInformations.EmergencyContact2.Relationship,
                     Phonenumber = userInformations.EmergencyContact2.PhoneNumber
                 });
             }
@@ -120,9 +120,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             await ValidateEmailAndVerifyIfAlreadyBeenRegistered(userInformations.Email);
             ValidatePassword(userInformations.Password, userInformations.PasswordConfirmation);
             ValidatePhoneNumber(userInformations.PhoneNumber1, userInformations.PhoneNumber2);
-            ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.FamilyRelationship);
+            ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.Relationship);
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
-                ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.FamilyRelationship);
+                ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.Relationship);
 
             var user = new RequestRegisterUserJson
             {
@@ -138,7 +138,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             user.EmergencyContacts.Add(new RequestEmergencyContactJson
             {
                 Name = userInformations.EmergencyContact1.Name,
-                DegreeOfKinship = userInformations.EmergencyContact1.FamilyRelationship,
+                Relationship = userInformations.EmergencyContact1.Relationship,
                 Phonenumber = userInformations.EmergencyContact1.PhoneNumber
             });
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
@@ -146,7 +146,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 user.EmergencyContacts.Add(new RequestEmergencyContactJson
                 {
                     Name = userInformations.EmergencyContact2.Name,
-                    DegreeOfKinship = userInformations.EmergencyContact2.FamilyRelationship,
+                    Relationship = userInformations.EmergencyContact2.Relationship,
                     Phonenumber = userInformations.EmergencyContact2.PhoneNumber
                 });
             }
@@ -176,7 +176,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             userInformationsModel.EmergencyContact1 = new EmergencyContactModel
             {
                 Name = emergencyContact.Name,
-                FamilyRelationship = emergencyContact.DegreeOfKinship,
+                Relationship = emergencyContact.Relationship,
                 PhoneNumber = emergencyContact.Phonenumber
             };
 
@@ -186,7 +186,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 userInformationsModel.EmergencyContact2 = new EmergencyContactModel
                 {
                     Name = emergencyContact.Name,
-                    FamilyRelationship = emergencyContact.DegreeOfKinship,
+                    Relationship = emergencyContact.Relationship,
                     PhoneNumber = emergencyContact.Phonenumber
                 };
             }

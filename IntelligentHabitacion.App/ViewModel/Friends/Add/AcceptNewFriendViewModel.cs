@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Ioc;
-using ZXing.QrCode.Internal;
 
 namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 {
@@ -113,8 +112,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         private async Task OnApproveOperation()
         {
             var navigation = Resolver.Resolve<INavigation>();
-            if (Model.RentAmount <= 0)
-                await navigation.PushPopupAsync(new ErrorModal(ResourceTextException.RENTAL_AMOUNT_INVALID));
+            if (Model.MonthlyRent <= 0)
+                await navigation.PushPopupAsync(new ErrorModal(ResourceTextException.MONTHLYRENT_INVALID));
             else
             {
                 await _webSocketAddFriendConnection.ApproveFriendCandidate(new Command(async () =>
@@ -129,7 +128,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                 }), new Communication.Request.RequestApproveAddFriendJson
                 {
                     JoinedOn = Model.EntryDate,
-                    RentAmount = Model.RentAmount
+                    MonthlyRent = Model.MonthlyRent
                 });
             }
         }

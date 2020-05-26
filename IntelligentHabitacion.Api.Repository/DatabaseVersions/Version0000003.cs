@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
         {
             BaseVersion.CreateDefaultColumns(Create.Table("MyFood"))
                 .WithColumn("Name").AsString().NotNullable()
-                .WithColumn("Amount").AsDecimal().NotNullable()
+                .WithColumn("Quantity").AsDecimal().NotNullable()
                 .WithColumn("Manufacturer").AsString().Nullable()
                 .WithColumn("Type").AsInt32().NotNullable()
                 .WithColumn("DueDate").AsDateTime().Nullable()

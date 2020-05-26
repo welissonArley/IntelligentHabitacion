@@ -38,9 +38,9 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         }
 
         [Fact]
-        public void ValidateEmergencyContactInvalidDegreeKinship()
+        public void ValidateEmergencyContactInvalidRelationship()
         {
-            Assert.Throws<DegreeKinshipEmptyException>(() => _userRule.ValidateEmergencyContact("Name", "(31) 9 9999-9999", ""));
+            Assert.Throws<RelationshipToEmptyException>(() => _userRule.ValidateEmergencyContact("Name", "(31) 9 9999-9999", ""));
         }
 
         [Fact]
@@ -145,13 +145,13 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                     EmergencyContact1 = new Model.EmergencyContactModel
                     {
                         Name = "Name",
-                        FamilyRelationship = "Mother",
+                        Relationship = "Mother",
                         PhoneNumber = "(31) 9 9999-9999"
                     },
                     EmergencyContact2 = new Model.EmergencyContactModel
                     {
                         Name = "Name",
-                        FamilyRelationship = "Mother",
+                        Relationship = "Mother",
                         PhoneNumber = "(31) 9 9999-9999"
                     }
                 });
@@ -211,13 +211,13 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                     EmergencyContact1 = new Model.EmergencyContactModel
                     {
                         Name = "Contact 1",
-                        FamilyRelationship = "Mother",
+                        Relationship = "Mother",
                         PhoneNumber = "(37) 9 9999-9999"
                     },
                     EmergencyContact2 = new Model.EmergencyContactModel
                     {
                         Name = "Contact 1",
-                        FamilyRelationship = "Mother",
+                        Relationship = "Mother",
                         PhoneNumber = "(37) 9 9999-9999"
                     }
                 });
@@ -268,13 +268,13 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                         new Communication.Response.ResponseEmergencyContactJson
                         {
                             Name = "Contact 1",
-                            DegreeOfKinship = "Mother",
+                            Relationship = "Mother",
                             Phonenumber = "(31) 9 8888-8888"
                         },
                         new Communication.Response.ResponseEmergencyContactJson
                         {
                             Name = "Contact 1",
-                            DegreeOfKinship = "Mother",
+                            Relationship = "Mother",
                             Phonenumber = "(31) 9 8888-8888"
                         }
                     }

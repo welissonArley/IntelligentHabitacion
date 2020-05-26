@@ -268,15 +268,6 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Degree of kinship.
-        /// </summary>
-        internal static string PLACEHOLDER_DEGREE_KINSHIP {
-            get {
-                return ResourceManager.GetString("PLACEHOLDER_DEGREE_KINSHIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Due date.
         /// </summary>
         internal static string PLACEHOLDER_DUE_DATE {
@@ -417,6 +408,15 @@ namespace IntelligentHabitacion.App {
         internal static string PLACEHOLDER_PRODUCT {
             get {
                 return ResourceManager.GetString("PLACEHOLDER_PRODUCT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relationship.
+        /// </summary>
+        internal static string PLACEHOLDER_RELATIONSHIP {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_RELATIONSHIP", resourceCulture);
             }
         }
         
@@ -700,20 +700,20 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kinship with contact 1:.
-        /// </summary>
-        internal static string TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS {
-            get {
-                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contact&apos;s 1 phone number:.
         /// </summary>
         internal static string TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relationship to with contact 1:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -727,20 +727,20 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kinship with contact 2:.
-        /// </summary>
-        internal static string TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS {
-            get {
-                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contact&apos;s 2 phone number:.
         /// </summary>
         internal static string TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relationship to contact 2:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS", resourceCulture);
             }
         }
         

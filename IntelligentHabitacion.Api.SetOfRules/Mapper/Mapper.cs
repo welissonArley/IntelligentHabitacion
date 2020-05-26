@@ -30,7 +30,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Active = true,
                 CreateDate = DateTimeController.DateTimeNow(),
                 Name = emergencyContactJson.Name,
-                DegreeOfKinship = emergencyContactJson.DegreeOfKinship,
+                Relationship = emergencyContactJson.Relationship,
                 Phonenumber = emergencyContactJson.Phonenumber
             };
         }
@@ -115,7 +115,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             return new ResponseEmergencyContactJson
             {
                 Name = model.Name,
-                DegreeOfKinship = model.DegreeOfKinship,
+                Relationship = model.Relationship,
                 Phonenumber = model.Phonenumber
             };
         }

@@ -162,9 +162,6 @@
   <data name="EXPIRED_CODE" xml:space="preserve">
     <value>Expired code. Request a new one.</value>
   </data>
-  <data name="FAMILYRELATIONSHIP_EMPTY" xml:space="preserve">
-    <value>Family relationship must be entered.</value>
-  </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
@@ -210,20 +207,23 @@
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>The product was not found.</value>
   </data>
+  <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
+    <value>Relationship must be entered.</value>
+  </data>
   <data name="RENTAL_AMOUNT_INVALID" xml:space="preserve">
     <value>Invalid rental amount.</value>
   </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>One code to reset the password is requerid.</value>
   </data>
-  <data name="THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
-    <value>The Family relationship with the Emergency contact {0} must be entered.</value>
-  </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Emergency contact's name {0} must be entered.</value>
   </data>
   <data name="THE_PHONENUMBER_INVALID" xml:space="preserve">
     <value>The {0} is invalid. (XX) X XXXX-XXXX</value>
+  </data>
+  <data name="THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>The Relationship with the Emergency contact {0} must be entered.</value>
   </data>
   <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
     <value>The product's type is invalid.</value>

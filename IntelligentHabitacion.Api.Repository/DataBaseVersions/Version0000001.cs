@@ -16,7 +16,7 @@ namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
 
             BaseVersion.CreateDefaultColumns(Create.Table("EmergencyContact"))
                 .WithColumn("Name").AsString(2000).NotNullable()
-                .WithColumn("DegreeOfKinship").AsString(2000).NotNullable()
+                .WithColumn("Relationship").AsString(100).NotNullable()
                 .WithColumn("Phonenumber").AsString().NotNullable()
                 .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_EmergencyContact_User_Id", "User", "Id");
 

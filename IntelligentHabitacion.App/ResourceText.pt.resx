@@ -186,9 +186,6 @@
   <data name="PLACEHOLDER_CURRENT_PASSWORD" xml:space="preserve">
     <value>Senha atual</value>
   </data>
-  <data name="PLACEHOLDER_DEGREE_KINSHIP" xml:space="preserve">
-    <value>Grau de parentesco</value>
-  </data>
   <data name="PLACEHOLDER_DUE_DATE" xml:space="preserve">
     <value>Data de vencimento</value>
   </data>
@@ -236,6 +233,9 @@
   </data>
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Produto</value>
+  </data>
+  <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
+    <value>Grau de parentesco</value>
   </data>
   <data name="PLACEHOLDER_RENT_AMOUNT" xml:space="preserve">
     <value>600,00</value>
@@ -330,20 +330,20 @@
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Concluir</value>
   </data>
-  <data name="TITLE_CONTACT_EMERGENCY_1_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Parentesco com contato 1:</value>
-  </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Telefone do contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 1:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
     <value>Contato 1:</value>
   </data>
-  <data name="TITLE_CONTACT_EMERGENCY_2_DEGREE_KINSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Parentesco com contato 2:</value>
-  </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Telefone do contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 2:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
     <value>Contato 2:</value>

@@ -44,7 +44,7 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                         CreateDate = DateTime.Today,
                         Active = true,
                         Name = "Contact 1",
-                        DegreeOfKinship = "Relation 1",
+                        Relationship = "Relation 1",
                         Phonenumber = "(31) 9 8888-8888"
                     }
                 }

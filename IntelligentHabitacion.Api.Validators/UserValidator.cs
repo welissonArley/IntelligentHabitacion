@@ -56,8 +56,8 @@ namespace IntelligentHabitacion.Api.Validators
                 if (string.IsNullOrWhiteSpace(emergecyContact.Name))
                     context.AddFailure(string.Format(ResourceTextException.THE_NAME_EMERGENCY_CONTACT_INVALID, index));
 
-                if (string.IsNullOrWhiteSpace(emergecyContact.DegreeOfKinship))
-                    context.AddFailure(string.Format(ResourceTextException.THE_FAMILYRELATIONSHIP_EMERGENCY_CONTACT_INVALID, index));
+                if (string.IsNullOrWhiteSpace(emergecyContact.Relationship))
+                    context.AddFailure(string.Format(ResourceTextException.THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID, index));
 
                 if (string.IsNullOrWhiteSpace(emergecyContact.Phonenumber))
                     context.AddFailure(string.Format(ResourceTextException.PHONENUMBER_EMERGENCY_CONTACT_EMPTY, index));

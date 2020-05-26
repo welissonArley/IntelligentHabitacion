@@ -40,7 +40,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                         CreateDate = DateTime.Today,
                         UpdateDate = DateTime.Today,
                         Name = "Contact",
-                        DegreeOfKinship = "Relation",
+                        Relationship = "Relation",
                         Phonenumber = "(31) 9 9999-9999"
                     }
                 }
@@ -82,7 +82,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 CreateDate = DateTime.Today,
                 UpdateDate = DateTime.Today,
                 Name = "Contact",
-                DegreeOfKinship = "Relation",
+                Relationship = "Relation",
                 Phonenumber = "(31) 9 9999-9999",
                 UserId = 1
             };

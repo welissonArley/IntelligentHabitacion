@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
         {
             try
             {
-                _userRule.ValidateEmergencyContact(Model.EmergencyContact1.Name, Model.EmergencyContact1.PhoneNumber, Model.EmergencyContact1.FamilyRelationship);
+                _userRule.ValidateEmergencyContact(Model.EmergencyContact1.Name, Model.EmergencyContact1.PhoneNumber, Model.EmergencyContact1.Relationship);
 
                 await Navigation.PushAsync<RequestEmergencyContact2ViewModel>((viewModel, page) => viewModel.Model = Model);
             }

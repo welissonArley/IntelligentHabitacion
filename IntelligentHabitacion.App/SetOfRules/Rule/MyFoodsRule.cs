@@ -27,7 +27,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             var response = await _httpClient.AddMyFood(new Communication.Request.RequestAddMyFoodJson
             {
-                Amount = model.Amount,
+                Quantity = model.Quantity,
                 DueDate = model.DueDate,
                 Manufacturer = model.Manufacturer,
                 Name = model.Name,
@@ -57,7 +57,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             return responseFoods.Select(c => new FoodModel
             {
                 Id = c.Id,
-                Amount = c.Amount,
+                Quantity = c.Quantity,
                 DueDate = c.DueDate,
                 Manufacturer = c.Manufacturer,
                 Name = c.Name,
@@ -70,7 +70,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             var response = await _httpClient.ChangeQuantityMyFood(new Communication.Request.RequestChangeQuantityMyFoodJson
             {
                 Id = model.Id,
-                Quantity = model.Amount
+                Quantity = model.Quantity
             }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _database.UpdateToken(response.Token);
@@ -81,8 +81,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             if (string.IsNullOrWhiteSpace(model.Name))
                 throw new ProductNameEmptyException();
 
-            if (model.Amount <= 0)
-                throw new AmountProductsInvalidException();
+            if (model.Quantity <= 0)
+                throw new QuantityProductsInvalidException();
         }
 
         public async Task EditItem(FoodModel model)
@@ -92,7 +92,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             var response = await _httpClient.EditMyFood(new Communication.Request.RequestEditMyFoodJson
             {
                 Id = model.Id,
-                Amount = model.Amount,
+                Quantity = model.Quantity,
                 DueDate = model.DueDate,
                 Manufacturer = model.Manufacturer,
                 Name = model.Name,

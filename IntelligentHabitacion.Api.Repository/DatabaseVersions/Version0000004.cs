@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
         public override void Up()
         {
             Alter.Table("HomeAssociation")
-                .AddColumn("RentAmount").AsDecimal().NotNullable();
+                .AddColumn("MonthlyRent").AsDecimal().NotNullable();
         }
     }
 }

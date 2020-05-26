@@ -35,7 +35,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 _myFoodRepository.DeleteOnDatabase(model);
             else
             {
-                model.Amount = changeQuantity.Quantity;
+                model.Quantity = changeQuantity.Quantity;
                 _myFoodRepository.Update(model);
             }
         }
@@ -72,7 +72,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             if (model is null)
                 throw new ProductNotFoundException();
 
-            model.Amount = editMyFood.Amount;
+            model.Quantity = editMyFood.Quantity;
             model.DueDate = editMyFood.DueDate;
             model.Manufacturer = editMyFood.Manufacturer;
             model.Name = editMyFood.Name;

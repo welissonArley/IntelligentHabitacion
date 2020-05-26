@@ -27,7 +27,7 @@
                         </StackLayout.GestureRecognizers>
                         <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource StringDateConverter}" IsEnabled="False" PropertyToBindindEntry="Model.DueDate" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_DUEDATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_DUE_DATE}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                     </StackLayout>
-                    <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource DecimalConverter}" PropertyToBindindEntry="Model.Amount" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_AMOUNT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_AMOUNT}" IsPassword="False" Keyboard="Numeric" ></templateInputTextWithLabel:InputTextWithLabelComponent>
+                    <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource DecimalConverter}" PropertyToBindindEntry="Model.Quantity" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_QUANTITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_QUANTITY}" IsPassword="False" Keyboard="Numeric" ></templateInputTextWithLabel:InputTextWithLabelComponent>
 
                     <Label Text="{x:Static resourceText:ResourceText.TITLE_TYPE_TWOPOINTS}" FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}" Margin="0,20,0,0"></Label>
                     <InputKit:RadioButtonGroupView Margin="0,10,0,0" SelectedItemChangedCommand="{Binding SelectedTypeItemCommand}">

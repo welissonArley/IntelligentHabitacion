@@ -120,9 +120,6 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>The address must be entered.</value>
   </data>
-  <data name="AMOUNT_PRODUCTS_INVALID" xml:space="preserve">
-    <value>The amount of products is invalid.</value>
-  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>The City's name must be entered.</value>
   </data>
@@ -168,6 +165,9 @@
   <data name="INVALID_USER" xml:space="preserve">
     <value>Invalid user.</value>
   </data>
+  <data name="MONTHLYRENT_INVALID" xml:space="preserve">
+    <value>Invalid monthly rent.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Name must be entered.</value>
   </data>
@@ -207,11 +207,11 @@
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>The product was not found.</value>
   </data>
+  <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
+    <value>The quantity of products is invalid.</value>
+  </data>
   <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
     <value>Relationship must be entered.</value>
-  </data>
-  <data name="RENTAL_AMOUNT_INVALID" xml:space="preserve">
-    <value>Invalid rental amount.</value>
   </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>One code to reset the password is requerid.</value>

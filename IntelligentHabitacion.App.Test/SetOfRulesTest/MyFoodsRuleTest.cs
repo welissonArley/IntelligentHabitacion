@@ -26,7 +26,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         {
             Assert.ThrowsAsync<ProductNameEmptyException>(() => _myFoodRule.AddItem(new Model.FoodModel
             {
-                Amount = 5,
+                Quantity = 5,
                 DueDate = DateTime.Today,
                 Manufacturer = "M",
                 Type = Model.Type.Box
@@ -36,9 +36,9 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         [Fact]
         public void CreateWithInvalidQuantity()
         {
-            Assert.ThrowsAsync<AmountProductsInvalidException>(() => _myFoodRule.AddItem(new Model.FoodModel
+            Assert.ThrowsAsync<QuantityProductsInvalidException>(() => _myFoodRule.AddItem(new FoodModel
             {
-                Amount = -5,
+                Quantity = -5,
                 DueDate = DateTime.Today,
                 Name = "N",
                 Manufacturer = "M",
@@ -53,7 +53,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             {
                 var response = await _myFoodRule.AddItem(new Model.FoodModel
                 {
-                    Amount = 5,
+                    Quantity = 5,
                     DueDate = DateTime.Today,
                     Manufacturer = "M",
                     Name = "N",
@@ -103,7 +103,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 await _myFoodRule.ChangeQuantity(new Model.FoodModel
                 {
                     Id = "Id",
-                    Amount = 5,
+                    Quantity = 5,
                     DueDate = DateTime.Today,
                     Manufacturer = "M",
                     Name = "N",
@@ -125,7 +125,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 await _myFoodRule.EditItem(new Model.FoodModel
                 {
                     Id = "Id",
-                    Amount = 5,
+                    Quantity = 5,
                     DueDate = DateTime.Today,
                     Manufacturer = "M",
                     Name = "N",
@@ -144,7 +144,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
         {
             var x1 = new FoodModel
             {
-                Amount = 5,
+                Quantity = 5,
                 DueDate = DateTime.Today,
                 Id = "1",
                 Manufacturer = "M",
@@ -156,7 +156,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
 
             Assert.Equal(x1.Manufacturer, x2.Manufacturer);
             Assert.Equal(x1.Name, x2.Name);
-            Assert.Equal(x1.Amount, x2.Amount);
+            Assert.Equal(x1.Quantity, x2.Quantity);
             Assert.NotEqual(x1, x2);
         }
 
@@ -181,7 +181,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                     {
                         Id = "1",
                         Manufacturer = "M",
-                        Amount = 1,
+                        Quantity = 1,
                         DueDate = DateTime.Today,
                         Name = "N",
                         Type = Communication.Response.Type.Box

@@ -70,15 +70,6 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The amount of products is invalid..
-        /// </summary>
-        public static string AMOUNT_PRODUCTS_INVALID {
-            get {
-                return ResourceManager.GetString("AMOUNT_PRODUCTS_INVALID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The City&apos;s name must be entered..
         /// </summary>
         public static string CITY_EMPTY {
@@ -214,6 +205,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid monthly rent..
+        /// </summary>
+        public static string MONTHLYRENT_INVALID {
+            get {
+                return ResourceManager.GetString("MONTHLYRENT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name must be entered..
         /// </summary>
         public static string NAME_EMPTY {
@@ -331,20 +331,20 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The quantity of products is invalid..
+        /// </summary>
+        public static string QUANTITY_PRODUCTS_INVALID {
+            get {
+                return ResourceManager.GetString("QUANTITY_PRODUCTS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relationship must be entered..
         /// </summary>
         public static string RELATIONSHIPTO_EMPTY {
             get {
                 return ResourceManager.GetString("RELATIONSHIPTO_EMPTY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid rental amount..
-        /// </summary>
-        public static string RENTAL_AMOUNT_INVALID {
-            get {
-                return ResourceManager.GetString("RENTAL_AMOUNT_INVALID", resourceCulture);
             }
         }
         

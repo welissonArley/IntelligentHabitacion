@@ -67,7 +67,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             return new MyFood
             {
                 Active = true,
-                Amount = model.Amount,
+                Quantity = model.Quantity,
                 DueDate = model.DueDate,
                 Manufacturer = model.Manufacturer,
                 Name = model.Name,
@@ -162,7 +162,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             return new ResponseMyFoodJson
             {
                 Name = model.Name,
-                Amount = model.Amount,
+                Quantity = model.Quantity,
                 DueDate = model.DueDate,
                 Manufacturer = model.Manufacturer,
                 Type = (Communication.Response.Type)model.Type,

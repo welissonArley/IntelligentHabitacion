@@ -89,8 +89,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
         public void ApproveFriend(string adminId, string friendId, RequestApproveAddFriendJson requestApprove)
         {
-            if (requestApprove.RentAmount <= 0)
-                throw new RentalAmountInvalidException();
+            if (requestApprove.MonthlyRent <= 0)
+                throw new MonthlyRentInvalidException();
 
             var homeId = _userRepository.GetHomeId(new User().DecryptedId(adminId));
             var friend = _userRepository.GetById(new User().DecryptedId(friendId));
@@ -99,7 +99,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 Active = true,
                 CreateDate = DateTimeController.DateTimeNow(),
                 HomeId = homeId.Value,
-                RentAmount = requestApprove.RentAmount,
+                MonthlyRent = requestApprove.MonthlyRent,
                 JoinedOn = requestApprove.JoinedOn
             };
             _userRepository.Update(friend);

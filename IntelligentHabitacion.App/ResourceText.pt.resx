@@ -174,9 +174,6 @@
   <data name="PLACEHOLDER_ADDRESSNUMBER" xml:space="preserve">
     <value>1007</value>
   </data>
-  <data name="PLACEHOLDER_AMOUNT" xml:space="preserve">
-    <value>Quantidade</value>
-  </data>
   <data name="PLACEHOLDER_CITY" xml:space="preserve">
     <value>Gotham City</value>
   </data>
@@ -210,6 +207,9 @@
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Fabricante</value>
   </data>
+  <data name="PLACEHOLDER_MONTHLYRENT" xml:space="preserve">
+    <value>600,00</value>
+  </data>
   <data name="PLACEHOLDER_NAME" xml:space="preserve">
     <value>Bruce Wayne</value>
   </data>
@@ -234,11 +234,11 @@
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Produto</value>
   </data>
+  <data name="PLACEHOLDER_QUANTITY" xml:space="preserve">
+    <value>Quantidade</value>
+  </data>
   <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
     <value>Grau de parentesco</value>
-  </data>
-  <data name="PLACEHOLDER_RENT_AMOUNT" xml:space="preserve">
-    <value>600,00</value>
   </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
@@ -281,9 +281,6 @@
   </data>
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Adicionar produto</value>
-  </data>
-  <data name="TITLE_AMOUNT_TWOPOINTS" xml:space="preserve">
-    <value>Quantidade:</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>e</value>
@@ -438,6 +435,9 @@
   <data name="TITLE_MONTH" xml:space="preserve">
     <value>mês</value>
   </data>
+  <data name="TITLE_MONTHLYRENT_TWOPOINTS" xml:space="preserve">
+    <value>Valor do aluguel:</value>
+  </data>
   <data name="TITLE_MONTHS" xml:space="preserve">
     <value>mêses</value>
   </data>
@@ -501,6 +501,9 @@
   <data name="TITLE_PRODUCT_TWOPOINTS" xml:space="preserve">
     <value>Produto:</value>
   </data>
+  <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
+    <value>Quantidade:</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
@@ -512,9 +515,6 @@
   </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remover</value>
-  </data>
-  <data name="TITLE_RENT_AMOUNT_TWOPOINTS" xml:space="preserve">
-    <value>Valor do aluguel:</value>
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>

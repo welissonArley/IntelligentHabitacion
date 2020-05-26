@@ -134,13 +134,13 @@ namespace IntelligentHabitacion.Api.Test.Services.WebSocket
 
             mockClientProxy.Verify(clientProxy => clientProxy.SendCoreAsync("ThrowError", It.Is<object[]>(o => o != null && o.Length == 1 && o[0].Equals(ResourceTextException.UNKNOW_ERROR)), System.Threading.CancellationToken.None), Times.Once);
 
-            await _hub.Approve(new RequestApproveAddFriendJson { JoinedOn = DateTime.Today, RentAmount = -1 });
+            await _hub.Approve(new RequestApproveAddFriendJson { JoinedOn = DateTime.Today, MonthlyRent = -1 });
 
             mockClients.Verify(clients => clients.Client(_connectionAdminId), Times.Exactly(4));
 
-            mockClientProxy.Verify(clientProxy => clientProxy.SendCoreAsync("ThrowError", It.Is<object[]>(o => o != null && o.Length == 1 && o[0].Equals(ResourceTextException.RENTAL_AMOUNT_INVALID)), System.Threading.CancellationToken.None), Times.Once);
+            mockClientProxy.Verify(clientProxy => clientProxy.SendCoreAsync("ThrowError", It.Is<object[]>(o => o != null && o.Length == 1 && o[0].Equals(ResourceTextException.MONTHLYRENT_INVALID)), System.Threading.CancellationToken.None), Times.Once);
 
-            await _hub.Approve(new RequestApproveAddFriendJson { JoinedOn = DateTime.Today, RentAmount = 750 });
+            await _hub.Approve(new RequestApproveAddFriendJson { JoinedOn = DateTime.Today, MonthlyRent = 750 });
 
             mockClients.Verify(clients => clients.Client(_connectionAdminId), Times.Exactly(5));
             mockClients.Verify(clients => clients.Client(_connectionFriendId), Times.Once);

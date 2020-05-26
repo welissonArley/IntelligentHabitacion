@@ -214,7 +214,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Active = true,
                 CreateDate = DateTime.Today,
                 UpdateDate = DateTime.Today,
-                Amount = 5,
+                Quantity = 5,
                 DueDate = DateTime.Today,
                 Manufacturer = "Manufacturer",
                 Name = "Name",

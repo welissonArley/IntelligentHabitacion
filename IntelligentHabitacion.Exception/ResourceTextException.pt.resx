@@ -120,9 +120,6 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>O logradouro deve ser informado.</value>
   </data>
-  <data name="AMOUNT_PRODUCTS_INVALID" xml:space="preserve">
-    <value>A quantidade de produtos é inválida.</value>
-  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>O nome da cidade deve ser informado.</value>
   </data>
@@ -168,6 +165,9 @@
   <data name="INVALID_USER" xml:space="preserve">
     <value>Usuário inválido</value>
   </data>
+  <data name="MONTHLYRENT_INVALID" xml:space="preserve">
+    <value>O valor do aluguel é inválido.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>O nome deve ser informado.</value>
   </data>
@@ -207,11 +207,11 @@
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>O produto não foi encontrado.</value>
   </data>
+  <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
+    <value>A quantidade de produtos é inválida.</value>
+  </data>
   <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
     <value>O grau de parentesco deve ser informado.</value>
-  </data>
-  <data name="RENTAL_AMOUNT_INVALID" xml:space="preserve">
-    <value>O valor do aluguel é inválido.</value>
   </data>
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>Um código para alterar a senha é necessário.</value>

@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Configuration.Swagger;
+using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.DatabaseInformations;
 using IntelligentHabitacion.Api.Services.WebSocket;
@@ -14,7 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System.Linq;
 using System.Reflection;
 
@@ -25,23 +27,22 @@ namespace IntelligentHabitacion.Api
     /// </summary>
     public class Startup
     {
-        private AppSettingsManager appSettingsManager { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public IConfiguration Configuration { get; }
+        private AppSettingsManager _appSettingsManager { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="environment"></param>
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
-            appSettingsManager = new AppSettingsManager(environment);
+            _appSettingsManager = new AppSettingsManager(environment);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IConfiguration Configuration { get; }
 
         /// <summary>
         /// 
@@ -51,24 +52,24 @@ namespace IntelligentHabitacion.Api
         {
             services.AddSignalR();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
-            services.AddMvcCore().AddJsonFormatters().AddVersionedApiExplorer(
-              options =>
-              {
-                  options.GroupNameFormat = "'v'VVV";
-                  options.SubstituteApiVersionInUrl = true;
-              });
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            });
 
             services.AddApiVersioning(options => options.ReportApiVersions = true);
 
             services.AddSwaggerGen(options => {
+
                 var provider = services.BuildServiceProvider().GetRequiredService<IApiVersionDescriptionProvider>();
 
                 for (var indice = provider.ApiVersionDescriptions.Count - 1; indice >= 0; indice--)
                 {
                     var description = provider.ApiVersionDescriptions.ElementAt(indice);
-                    options.SwaggerDoc(description.GroupName, new Info()
+                    options.SwaggerDoc(description.GroupName, new OpenApiInfo
                     {
                         Title = $"{this.GetType().Assembly.GetCustomAttribute<AssemblyProductAttribute>().Product} {description.ApiVersion}",
                         Version = description.ApiVersion.ToString(),
@@ -76,7 +77,8 @@ namespace IntelligentHabitacion.Api
                     });
                 }
 
-                options.OperationFilter<SwaggerDefaultValues>();
+                options.SchemaFilter<SwaggerSubtypeOfAttributeFilter>();
+                options.SchemaFilter<EnumSchemaFilter>();
                 options.IncludeXmlComments("IntelligentHabitacion.Api.xml");
             });
 
@@ -85,7 +87,7 @@ namespace IntelligentHabitacion.Api
 
             services.AddScoped<ICryptographyPassword, CryptographyPassword>(ServiceProvider =>
             {
-                return new CryptographyPassword(appSettingsManager.KeyAdditionalCryptography());
+                return new CryptographyPassword(_appSettingsManager.KeyAdditionalCryptography());
             });
 
             services.AddHttpContextAccessor();
@@ -96,7 +98,7 @@ namespace IntelligentHabitacion.Api
             services.AddScoped<IEmailHelper, EmailHelper>();
             services.AddScoped<ITokenController, TokenController>(ServiceProvider =>
             {
-                return new TokenController(appSettingsManager.ExpirationTimeMinutes());
+                return new TokenController(_appSettingsManager.ExpirationTimeMinutes());
             });
         }
 
@@ -106,13 +108,8 @@ namespace IntelligentHabitacion.Api
         /// <param name="app"></param>
         /// <param name="env"></param>
         /// <param name="provider"></param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<WebSocketAddFriendHub>("/addNewFriend");
-            });
-
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
             else
@@ -121,7 +118,6 @@ namespace IntelligentHabitacion.Api
             app.UseMiddleware<CultureMiddleware>();
 
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 foreach (var description in provider.ApiVersionDescriptions)
@@ -129,7 +125,15 @@ namespace IntelligentHabitacion.Api
             });
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseRouting();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHub<WebSocketAddFriendHub>("/addNewFriend");
+            });
         }
 
         private void RegisterSetOfRules(IServiceCollection services)
@@ -148,7 +152,7 @@ namespace IntelligentHabitacion.Api
         {
             services.AddScoped<IDatabaseInformations, DatabaseInformations>(ServiceProvider =>
             {
-                return new DatabaseInformations(appSettingsManager.ConnectionString(), DatabaseType.MySql);
+                return new DatabaseInformations(_appSettingsManager.ConnectionString(), DatabaseType.MySql);
             });
 
             var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.Repository").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&

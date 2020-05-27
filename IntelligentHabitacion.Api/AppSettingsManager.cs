@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace IntelligentHabitacion.Api
 {
@@ -7,13 +8,13 @@ namespace IntelligentHabitacion.Api
     /// </summary>
     public class AppSettingsManager
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="hostingEnvironment"></param>
-        public AppSettingsManager(IHostingEnvironment hostingEnvironment)
+        public AppSettingsManager(IWebHostEnvironment hostingEnvironment)
         {
             _hostingEnvironment = hostingEnvironment;
         }

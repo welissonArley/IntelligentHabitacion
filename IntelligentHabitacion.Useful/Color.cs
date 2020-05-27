@@ -1,88 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IntelligentHabitacion.Useful
 {
     public static class Color
     {
-        private enum ColorToUse
-        {
-            Color1 = 1,
-            Color2 = 2,
-            Color3 = 3,
-            Color4 = 4,
-            Color5 = 5,
-            Color6 = 6,
-            Color7 = 7,
-            Color8 = 8,
-            Color9 = 9,
-            Color10 = 10,
-            Color11 = 11,
-            Color12 = 12,
-            Color13 = 13,
-            Color14 = 14,
-            Color15 = 15,
-            Color16 = 16,
-            Color17 = 17,
-            Color18 = 18,
-            Color19 = 19,
-            Color20 = 20,
-        };
-
-        private static string GetColor(ColorToUse color)
-        {
-            switch (color)
-            {
-                case ColorToUse.Color1:
-                    return "#00BD9D";
-                case ColorToUse.Color2:
-                    return "#1ECE6C";
-                case ColorToUse.Color3:
-                    return "#2C97DD";
-                case ColorToUse.Color4:
-                    return "#9C56B9";
-                case ColorToUse.Color5:
-                    return "#334960";
-                case ColorToUse.Color6:
-                    return "#F69E00";
-                case ColorToUse.Color7:
-                    return "#E87E04";
-                case ColorToUse.Color8:
-                    return "#EA4B35";
-                case ColorToUse.Color9:
-                    return "#7E8C8D";
-                case ColorToUse.Color10:
-                    return "#65BCBF";
-                case ColorToUse.Color11:
-                    return "#657EBF";
-                case ColorToUse.Color12:
-                    return "#BF9B65";
-                case ColorToUse.Color13:
-                    return "#BF658B";
-                case ColorToUse.Color14:
-                    return "#CB5E5E";
-                case ColorToUse.Color15:
-                    return "#5ECB69";
-                case ColorToUse.Color16:
-                    return "#5E97CB";
-                case ColorToUse.Color17:
-                    return "#285059";
-                case ColorToUse.Color18:
-                    return "#592828";
-                case ColorToUse.Color19:
-                    return "#2F2859";
-                case ColorToUse.Color20:
-                    return "#DB2365";
-                default:
-                    return "#000000";
-            }
-        }
-
         public static string RandomColor()
         {
-            var colors = Enum.GetValues(typeof(ColorToUse));
+            var colors = ColorList();
 
-            var index = new Random().Next(colors.Length - 1);
-            return GetColor((ColorToUse)colors.GetValue(index));
+            var index = new Random().Next(0, colors.Count - 1);
+
+            return colors.ElementAt(index);
+        }
+
+        private static List<string> ColorList()
+        {
+            return new List<string>
+            {
+                "#2b390e","#003636","#123622","#113321","#152a23","#002a15","#002a00","#172617","#002627","#1a2309","#002517",
+                "#082213","#007faa","#2a7ab0","#008080","#2574a9","#336e7b","#406098","#3455db","#1460aa","#006080","#205d86",
+                "#3a539b","#34495e","#005051","#0f4880","#2e456d","#34415e","#1f3a93","#2c3e50","#16405b","#34385e","#004055",
+                "#2d383c","#0000b5","#22313f","#0a3055","#1c2a43","#252a2a","#002a2a","#00008b","#0c2231","#00202a","#000060",
+                "#05182a","#000036","#9b59b6","#7462e0","#886288","#8859b6","#b200fd","#7659b6","#765ab0","#a74165","#9932cc",
+                "#b500b5","#8e44ad","#8a2be2","#aa00aa","#913d88","#5e50b5","#9400d3","#9a12b3","#77448b","#5a4586","#7928a1",
+                "#674172","#7023b7","#8b008b","#663399","#5d445d","#7d314c","#7600a8","#483d8b","#800080","#532f61","#561b8d",
+                "#591d77","#3d2f5b","#58007e","#600060","#522032","#322a60","#550055","#3c1362","#332533","#39134c","#3b0053",
+                "#2e1b36","#360036","#211931","#1c1836","#220b38","#2a002a","#1d0029","#696969","#4b6a88","#4d6066","#4f5a65",
+                "#555555","#545454","#4b5555","#34515e","#3e3e3e","#2e343b","#2b2b2b","#2a2a2a","#292929","#1c2833","#8d6708",
+                "#806c00","#856514","#726012","#555344","#634806","#554800","#5a440d","#483c0c","#382903","#2a2a22","#302407",
+                "#2a2400","#1d1905","#9f6b3f","#d43900","#aa5d00","#aa5535","#914f15","#80503d","#aa2e00","#744e2e","#804600",
+                "#804028","#802200","#66380f","#553529","#552f00","#4a321d","#552a1b","#551700","#3c2109","#2a150d","#dc2a2a",
+                "#dc143c","#e00000","#d91e18","#bc3e31","#c0392b","#d50000","#cf000f","#aa422f","#b22222","#b50000","#b11030",
+                "#aa0000","#923026","#96281b","#803224","#871a1a","#8b0000","#870c25","#800000","#67221b","#552118","#5d1212",
+                "#600000","#5c0819","#550000","#3d1410","#360000","#320a0a","#32050e","#2b0000"
+            };
         }
     }
 }

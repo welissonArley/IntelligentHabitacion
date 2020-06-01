@@ -14,14 +14,13 @@
     <ContentPage.Resources>
         <converter:ObjectIsNullOrEmptyConverter x:Key="ObjectNullEmptyConverter"></converter:ObjectIsNullOrEmptyConverter>
         <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
-        <converter:DescriptionDateJoinedTheHouseConverter x:Key="DescriptionDateJoinedTheHouseConverter"></converter:DescriptionDateJoinedTheHouseConverter>
     </ContentPage.Resources>
     <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}" Spacing="-3">
         <StackLayout Orientation="Horizontal" Margin="20,20,20,0">
             <template:CircleWithTextComponent VerticalOptions="StartAndExpand" Color="{Binding Model.ProfileColor}" Text="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></template:CircleWithTextComponent>
             <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
                 <Label Text="{Binding Model.Name}" TextColor="Black" FontSize="18"></Label>
-                <customControl:LabelJustifyText Text="{Binding Model.JoinedOn, Converter={StaticResource DescriptionDateJoinedTheHouseConverter}}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Text="{Binding Model.DescriptionDateJoined}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>
             </StackLayout>
         </StackLayout>
         <ScrollView Margin="0,30,0,0" VerticalOptions="FillAndExpand">
@@ -36,7 +35,7 @@
                             </template:PhonenumberToCallComponent.Triggers>
                         </template:PhonenumberToCallComponent>
                     <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_EMERGENCY_CONTACTS_TWOPOINTS}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelSemiBold}"></Label>
-                    <template:EmergencyContactComponent Margin="0,30,0,0" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}" Relationship="{Binding Model.EmergencyContact1.FamilyRelationship}" ContactName="{Binding Model.EmergencyContact1.Name}" PhoneNumber="{Binding Model.EmergencyContact1.PhoneNumber}" ProfileColor="{Binding Model.ProfileColor}"></template:EmergencyContactComponent>
+                    <template:EmergencyContactComponent Margin="0,30,0,0" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}" Relationship="{Binding Model.EmergencyContact1.Relationship}" ContactName="{Binding Model.EmergencyContact1.Name}" PhoneNumber="{Binding Model.EmergencyContact1.PhoneNumber}" ProfileColor="{Binding Model.ProfileColor}"></template:EmergencyContactComponent>
                     <BoxView BackgroundColor="Black" HeightRequest="0.2" Opacity="0.1" Margin="0,20,0,0">
                         <BoxView.Triggers>
                             <DataTrigger TargetType="BoxView" Binding="{Binding Model.EmergencyContact2, Converter={StaticResource ObjectNullEmptyConverter}}" Value="true">
@@ -44,7 +43,7 @@
                             </DataTrigger>
                         </BoxView.Triggers>
                     </BoxView>
-                    <template:EmergencyContactComponent Margin="0,20,0,0" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}" Relationship="{Binding Model.EmergencyContact2.FamilyRelationship}" ContactName="{Binding Model.EmergencyContact2.Name}" PhoneNumber="{Binding Model.EmergencyContact2.PhoneNumber}" ProfileColor="{Binding Model.ProfileColor}">
+                    <template:EmergencyContactComponent Margin="0,20,0,0" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}" Relationship="{Binding Model.EmergencyContact2.Relationship}" ContactName="{Binding Model.EmergencyContact2.Name}" PhoneNumber="{Binding Model.EmergencyContact2.PhoneNumber}" ProfileColor="{Binding Model.ProfileColor}">
                         <template:EmergencyContactComponent.Triggers>
                             <DataTrigger TargetType="template:EmergencyContactComponent" Binding="{Binding Model.EmergencyContact2, Converter={StaticResource ObjectNullEmptyConverter}}" Value="true">
                                 <Setter Property="IsVisible" Value="False"></Setter>

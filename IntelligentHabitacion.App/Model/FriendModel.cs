@@ -13,5 +13,6 @@ namespace IntelligentHabitacion.App.Model
         public EmergencyContactModel EmergencyContact2 { get; set; }
         public string ProfileColor { get; set; }
         public DateTime JoinedOn { get; set; }
+        public string DescriptionDateJoined { get; set; }
     }
 }

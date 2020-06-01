@@ -30,6 +30,9 @@ namespace IntelligentHabitacion.Api.Middleware
         /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
+            // Allows the request Body can be read multiple
+            context.Request.EnableBuffering();
+
             var culture = new CultureInfo("PT-BR");
             if (context.Request.Headers["Accept-Language"].Count > 0 && _idioms.Contains(context.Request.Headers["Accept-Language"][0].ToUpper()))
                 culture = new CultureInfo(context.Request.Headers["Accept-Language"][0]);

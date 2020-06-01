@@ -115,7 +115,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
             var friends = _userRepository.GetByHome(loggedUser.HomeAssociation.HomeId);
 
-            return friends.Where(c => c.Id != loggedUser.Id).Select(c => mapper.MapperModelToJsonFriend(c)).ToList();
+            return friends.Where(c => c.Id != loggedUser.Id).Select(c => mapper.MapperModelToJsonFriend(c, loggedUser.HomeAssociation.JoinedOn)).ToList();
         }
     }
 }

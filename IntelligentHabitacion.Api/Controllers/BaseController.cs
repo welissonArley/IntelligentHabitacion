@@ -184,7 +184,7 @@ namespace IntelligentHabitacion.Api.Controllers
         {
             var reader = new StreamReader(Request.Body);
             reader.BaseStream.Seek(0, SeekOrigin.Begin);
-            return reader.ReadToEnd();
+            return System.Threading.Tasks.Task.Run(async () => await reader.ReadToEndAsync()).Result;
         }
 
         private void CreateToken(User user, string token)

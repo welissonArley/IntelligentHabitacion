@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Useful;
+using System;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.SetOfRules.Mapper
@@ -145,7 +146,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 }
             };
         }
-        public ResponseFriendJson MapperModelToJsonFriend(User model)
+        public ResponseFriendJson MapperModelToJsonFriend(User model, DateTime requestersJoinedOn)
         {
             return new ResponseFriendJson
             {
@@ -154,7 +155,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
                 EmergencyContact = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),
                 ProfileColor = model.ProfileColor,
-                JoinedOn = model.HomeAssociation.JoinedOn
+                JoinedOn = model.HomeAssociation.JoinedOn,
+                DescriptionDateJoined = string.Format(ResourceText.DESCRIPTION_DATE_JOINED_THE_HOUSE, DateTimeController.DateToStringYearMonthAndDay(DateTime.Compare(requestersJoinedOn, model.HomeAssociation.JoinedOn) == 1 ? requestersJoinedOn : model.HomeAssociation.JoinedOn))
             };
         }
         public ResponseMyFoodJson MapperModelToJson(MyFood model)

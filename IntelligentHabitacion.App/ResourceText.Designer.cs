@@ -97,15 +97,6 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Joined on {0}. Today it is exactly {1} that you share a home :).
-        /// </summary>
-        internal static string DESCRIPTION_DATE_JOINED_THE_HOUSE {
-            get {
-                return ResourceManager.GetString("DESCRIPTION_DATE_JOINED_THE_HOUSE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Track your household income and expenses..
         /// </summary>
         internal static string DESCRIPTION_FINANCES {
@@ -700,7 +691,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Relationship to with contact 1:.
+        ///   Looks up a localized string similar to Relationship to contact 1:.
         /// </summary>
         internal static string TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS {
             get {

@@ -129,9 +129,6 @@
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
   </data>
-  <data name="DESCRIPTION_DATE_JOINED_THE_HOUSE" xml:space="preserve">
-    <value>Joined on {0}. Today it is exactly {1} that you share a home :)</value>
-  </data>
   <data name="DESCRIPTION_FINANCES" xml:space="preserve">
     <value>Track your household income and expenses.</value>
   </data>
@@ -331,7 +328,7 @@
     <value>Contact's 1 phone number:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Relationship to with contact 1:</value>
+    <value>Relationship to contact 1:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
     <value>Contact 1:</value>

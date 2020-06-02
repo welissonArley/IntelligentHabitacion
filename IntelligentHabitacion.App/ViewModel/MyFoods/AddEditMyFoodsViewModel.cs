@@ -118,10 +118,11 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             await navigation.PushPopupAsync(new Calendar(Model.DueDate ?? DateTime.Today, OnDateSelected, minimumDate: DateTime.Today));
             HideLoading();
         }
-        private void OnDateSelected(DateTime date)
+        private Task OnDateSelected(DateTime date)
         {
             Model.DueDate = date;
             OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+            return Task.CompletedTask;
         }
     }
 }

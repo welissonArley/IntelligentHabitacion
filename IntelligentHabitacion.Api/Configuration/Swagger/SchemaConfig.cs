@@ -15,20 +15,20 @@ namespace IntelligentHabitacion.Api.Configuration.Swagger
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="schema"></param>
         /// <param name="context"></param>
-        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
             if (context.Type.IsEnum)
             {
-                model.Enum.Clear();
+                schema.Enum.Clear();
 
                 foreach (var item in Enum.GetValues(context.Type))
                 {
                     var value = (int)item;
                     var name = Enum.GetName(context.Type, item);
 
-                    model.Enum.Add(new OpenApiString($"{value} - {name}"));
+                    schema.Enum.Add(new OpenApiString($"{value} - {name}"));
                 }
             }
         }
@@ -42,9 +42,9 @@ namespace IntelligentHabitacion.Api.Configuration.Swagger
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="schema"></param>
         /// <param name="context"></param>
-        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
             var subTypes = context
                 .Type

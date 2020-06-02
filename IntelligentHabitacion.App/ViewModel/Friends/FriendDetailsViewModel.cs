@@ -1,7 +1,11 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using Rg.Plugins.Popup.Extensions;
+using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -11,12 +15,17 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
 {
     public class FriendDetailsViewModel : BaseViewModel
     {
+        private readonly IFriendRule _friendRule;
+
         public ICommand MakePhonecallCommand { protected set; get; }
         public ICommand MenuOptionsCommand { protected set; get; }
 
-        public FriendModel Model { get; set; }
+        private ICommand ChangeDateJoinOnCommand { set; get; }
 
-        public FriendDetailsViewModel()
+        public FriendModel Model { get; set; }
+        public ICommand RefreshCallback { get; set; }
+
+        public FriendDetailsViewModel(IFriendRule friendRule)
         {
             MakePhonecallCommand = new Command(async (value) =>
             {
@@ -26,6 +35,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             {
                 await ShowAdministratorOptions();
             });
+
+            ChangeDateJoinOnCommand = new Command(async () =>
+            {
+                await ChangeDateOption();
+            });
+
+            _friendRule = friendRule;
         }
 
         private async Task MakeCall(string number)
@@ -38,7 +54,35 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private async Task ShowAdministratorOptions()
         {
             var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new MenuOptionsAdministratorFriendDetailModal());
+            await navigation.PushPopupAsync(new AdministratorFriendDetailModal(ChangeDateJoinOnCommand));
+        }
+
+        private async Task ChangeDateOption()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PopAllPopupAsync();
+            await ShowLoading();
+            await navigation.PushPopupAsync(new Calendar(Model.JoinedOn, OnDateSelected, maximumDate: DateTime.Today));
+            HideLoading();
+        }
+
+        private async Task OnDateSelected(DateTime date)
+        {
+            try
+            {
+                await ShowLoading();
+                var friend = await _friendRule.ChangeDateJoinOn(Model.Id, date);
+                Model.DescriptionDateJoined = friend.DescriptionDateJoined;
+                Model.JoinedOn = friend.JoinedOn;
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                RefreshCallback?.Execute(null);
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
     }
 }

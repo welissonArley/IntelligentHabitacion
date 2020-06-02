@@ -140,7 +140,8 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                     JoinedOn = DateTime.Today,
                     Home = new Home
                     {
-                        Id = 1
+                        Id = 1,
+                        AdministratorId = 1
                     }
                 }
             });

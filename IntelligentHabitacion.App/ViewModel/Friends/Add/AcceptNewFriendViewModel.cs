@@ -97,10 +97,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             await navigation.PushPopupAsync(new Calendar(Model.EntryDate, OnDateSelected, maximumDate: DateTime.Today));
             HideLoading();
         }
-        private void OnDateSelected(DateTime date)
+        private Task OnDateSelected(DateTime date)
         {
             Model.EntryDate = date;
             OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+            return Task.CompletedTask;
         }
 
         private async Task OnCancelOperation()

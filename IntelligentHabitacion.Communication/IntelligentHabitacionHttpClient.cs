@@ -210,6 +210,15 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
+        public async Task<ResponseJson> ChangeDateJoinHome(RequestChangeDateJoinHomeJson request, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/Friend/ChangeDateJoinHome", request, token: token, language: language);
+            return new ResponseJson
+            {
+                Response = JsonConvert.DeserializeObject<ResponseFriendJson>(await response.Content.ReadAsStringAsync()),
+                Token = GetToken(response)
+            };
+        }
         #endregion
 
         #region MyFood

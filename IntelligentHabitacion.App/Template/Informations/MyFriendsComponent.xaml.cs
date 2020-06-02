@@ -75,7 +75,16 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private void Item_Tapped(object sender, System.EventArgs e)
         {
-            TappedItemCommand?.Execute(Friend);
+            TappedItemCommand?.Execute(this);
+        }
+
+        public void Refresh()
+        {
+            LabelFriendsName.Text = Friend.Name;
+            LabelShortName.Text = Name.ShortNameConverter(Friend.Name);
+            BackgroundShortName.BackgroundColor = Xamarin.Forms.Color.FromHex(Friend.ProfileColor);
+            BackgroundCall.BackgroundColor = Xamarin.Forms.Color.FromHex(Friend.ProfileColor);
+            LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, Friend.JoinedOn.ToString(ResourceText.FORMAT_DATE));
         }
     }
 }

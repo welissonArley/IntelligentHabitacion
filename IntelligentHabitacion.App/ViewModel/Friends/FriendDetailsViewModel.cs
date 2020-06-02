@@ -65,7 +65,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             await navigation.PushPopupAsync(new Calendar(Model.JoinedOn, OnDateSelected, maximumDate: DateTime.Today));
             HideLoading();
         }
-        private async void OnDateSelected(DateTime date)
+
+        private async Task OnDateSelected(DateTime date)
         {
             try
             {

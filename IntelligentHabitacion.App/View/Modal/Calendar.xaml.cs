@@ -3,6 +3,7 @@ using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.View.Modal
 {
@@ -12,9 +13,9 @@ namespace IntelligentHabitacion.App.View.Modal
         private DateTime _date;
         private DateTime? _minimumDate;
         private DateTime? _maximumDate;
-        private readonly Action<DateTime> _callbackSelectedDay;
+        private readonly Func<DateTime, Task> _callbackSelectedDay;
 
-        public Calendar(DateTime startDay, Action<DateTime> callbackSelectedDay, DateTime? minimumDate = null, DateTime? maximumDate = null)
+        public Calendar(DateTime startDay, Func<DateTime, Task> callbackSelectedDay, DateTime? minimumDate = null, DateTime? maximumDate = null)
         {
             InitializeComponent();
 

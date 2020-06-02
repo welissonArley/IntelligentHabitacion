@@ -20,6 +20,7 @@ using Microsoft.OpenApi.Models;
 using System.Linq;
 using System.Reflection;
 
+#pragma warning disable ASP0000
 namespace IntelligentHabitacion.Api
 {
     /// <summary>

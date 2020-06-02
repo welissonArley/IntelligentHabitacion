@@ -159,6 +159,9 @@
   <data name="EXPIRED_CODE" xml:space="preserve">
     <value>Expired code. Request a new one.</value>
   </data>
+  <data name="FRIEND_NOT_FOUND" xml:space="preserve">
+    <value>Friend was not found.</value>
+  </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
@@ -245,6 +248,9 @@
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>You do not have permission to access this resource.</value>
+  </data>
+  <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
+    <value>You cannot perform this action.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>

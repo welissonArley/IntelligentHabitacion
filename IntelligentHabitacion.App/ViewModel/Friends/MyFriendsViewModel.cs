@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.Template.Informations;
 using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
@@ -18,6 +19,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
 {
     public class MyFriendsViewModel : BaseViewModel
     {
+        private MyFriendsComponent componentToEdit { get; set; }
+
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand MakePhonecallCommand { protected set; get; }
         public ICommand DetailFriendCommand { protected set; get; }
@@ -45,7 +48,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             });
             DetailFriendCommand = new Command(async (value) =>
             {
-                await OnDetailFriend((FriendModel)value);
+                componentToEdit = (MyFriendsComponent)value;
+                await OnDetailFriend(componentToEdit.Friend);
             });
             AddFriendCommand = new Command(async () =>
             {
@@ -74,7 +78,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) => viewModel.Model = friend);
+                await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) =>
+                {
+                    viewModel.Model = friend;
+                    viewModel.RefreshCallback = new Command(RefreshList);
+                });
                 HideLoading();
             }
             catch (System.Exception exeption)
@@ -131,6 +139,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             await ShowLoading();
             Phonecall.Make(number);
             HideLoading();
+        }
+
+        private void RefreshList()
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+            componentToEdit.Refresh();
         }
     }
 }

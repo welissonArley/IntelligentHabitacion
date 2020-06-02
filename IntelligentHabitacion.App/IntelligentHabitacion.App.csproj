@@ -115,8 +115,8 @@
     <Compile Update="View\Modal\Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\Modal\MenuOptionsAdministratorFriendDetailModal.xaml.cs">
-      <DependentUpon>MenuOptionsAdministratorFriendDetailModal.xaml</DependentUpon>
+    <Compile Update="View\Modal\MenuOptions\AdministratorFriendDetailModal.xaml.cs">
+      <DependentUpon>AdministratorFriendDetailModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [ServiceFilter(typeof(AuthenticationUserAttribute))]
     public class FriendController : BaseController
     {
         private readonly IFriendRule _friendRule;
@@ -33,6 +33,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("Friends")]
         [ProducesResponseType(typeof(List<ResponseFriendJson>), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserAttribute))]
         public IActionResult Friends()
         {
             try
@@ -42,6 +43,29 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                     return NoContent();
 
                 return Ok(list);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will change the date when the friend joined at home
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("ChangeDateJoinHome")]
+        [ProducesResponseType(typeof(ResponseFriendJson), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult ChangeDateJoinHome(RequestChangeDateJoinHomeJson request)
+        {
+            try
+            {
+                var response = _friendRule.ChangeDateJoinHome(request);
+
+                return Ok(response);
             }
             catch (System.Exception exception)
             {

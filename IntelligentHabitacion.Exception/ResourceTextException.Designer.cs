@@ -187,6 +187,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friend was not found..
+        /// </summary>
+        public static string FRIEND_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("FRIEND_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be at least 6 characters..
         /// </summary>
         public static string INVALID_PASSWORD {
@@ -444,6 +453,15 @@ namespace IntelligentHabitacion.Exception {
         public static string USER_WITHOUT_PERMISSION_ACCESS_RESOURCE {
             get {
                 return ResourceManager.GetString("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot perform this action..
+        /// </summary>
+        public static string YOU_CANNNOT_PERMORM_THIS_ACTION {
+            get {
+                return ResourceManager.GetString("YOU_CANNNOT_PERMORM_THIS_ACTION", resourceCulture);
             }
         }
         

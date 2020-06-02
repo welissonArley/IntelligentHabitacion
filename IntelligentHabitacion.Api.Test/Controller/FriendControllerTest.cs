@@ -1,8 +1,11 @@
 ﻿using IntelligentHabitacion.Api.Controllers.V1;
+using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Test.FactoryFake;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -54,6 +57,44 @@ namespace IntelligentHabitacion.Api.Test.Controller
             var value = (List<ResponseFriendJson>)((OkObjectResult)result).Value;
 
             Assert.True(value.Count == 1);
+        }
+
+        [Fact]
+        public void ChangeDateJoinHome_FriendNotFound()
+        {
+            _controller.HttpContext.Request.Path = new PathString("/Friend/ChangeDateJoinHome/");
+            var result = _controller.ChangeDateJoinHome(new RequestChangeDateJoinHomeJson
+            {
+                FriendId = new User().EncryptedId()
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public void ChangeDateJoinHome_FriendInvalid()
+        {
+            _controller.HttpContext.Request.Path = new PathString("/Friend/ChangeDateJoinHome/");
+            var result = _controller.ChangeDateJoinHome(new RequestChangeDateJoinHomeJson
+            {
+                FriendId = new User() { Id = 1 }.EncryptedId()
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public void ChangeDateJoinHome_Sucess()
+        {
+            var controller = new FriendController(new FriendFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Friend/ChangeDateJoinHome/");
+            var result = controller.ChangeDateJoinHome(new RequestChangeDateJoinHomeJson
+            {
+                FriendId = new User() { Id = 2 }.EncryptedId(),
+                JoinOn = DateTime.Today
+            });
+            Assert.IsType<OkObjectResult>(result);
         }
     }
 }

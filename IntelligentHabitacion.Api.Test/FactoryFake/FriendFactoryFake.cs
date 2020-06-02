@@ -114,6 +114,21 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                     }
                 }
             });
+            repositorioMock.Setup(c => c.GetById(2)).Returns(new User
+            {
+                Name = "User 1",
+                Email = "user1@gmail.com",
+                Password = "e6c83b282aeb2e022844595721cc00bbda47cb24537c1779f9bb84f04039e1676e6ba8573e588da1052510e3aa0a32a9e55879ae22b0c2d62136fc0a3e85f8bb",
+                Phonenumbers = new List<Phonenumber>(),
+                EmergecyContacts = new List<EmergencyContact>(),
+                HomeAssociation = new HomeAssociation
+                {
+                    Home = new Home
+                    {
+                        AdministratorId = 1
+                    }
+                }
+            });
 
             return repositorioMock.Object;
         }

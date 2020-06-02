@@ -1,7 +1,9 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.Test.Factory;
 using IntelligentHabitacion.Communication;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Useful;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -32,6 +34,28 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 Assert.True(!string.IsNullOrWhiteSpace(friend.Phonenumber1));
                 Assert.True(!string.IsNullOrWhiteSpace(friend.Phonenumber2));
                 Assert.True(!string.IsNullOrWhiteSpace(friend.ProfileColor));
+                Assert.NotNull(friend.EmergencyContact1);
+                Assert.NotNull(friend.EmergencyContact2);
+                Assert.True(friend.JoinedOn.Date == DateTime.Today);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public async void ChangeDateJoinOnSucess()
+        {
+            try
+            {
+                var friend = await _friendRule.ChangeDateJoinOn("1", DateTime.Today);
+                Assert.True(!string.IsNullOrEmpty(friend.Id));
+                Assert.True(!string.IsNullOrWhiteSpace(friend.Name));
+                Assert.True(!string.IsNullOrWhiteSpace(friend.Phonenumber1));
+                Assert.True(!string.IsNullOrWhiteSpace(friend.Phonenumber2));
+                Assert.True(!string.IsNullOrWhiteSpace(friend.ProfileColor));
+                Assert.True(!string.IsNullOrWhiteSpace(friend.DescriptionDateJoined));
                 Assert.NotNull(friend.EmergencyContact1);
                 Assert.NotNull(friend.EmergencyContact2);
                 Assert.True(friend.JoinedOn.Date == DateTime.Today);
@@ -81,6 +105,44 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                                 Phonenumber = "(31) 9 0000-0000",
                                 Relationship = "M"
                             }
+                        }
+                    }
+                }
+            });
+            mock.Setup(c => c.ChangeDateJoinHome(It.IsAny<RequestChangeDateJoinHomeJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "token",
+                Response = new ResponseFriendJson
+                {
+                    Id = "A1",
+                    Name = "Friend 1",
+                    DescriptionDateJoined = DateTimeController.DateToStringYearMonthAndDay(DateTime.Today.AddYears(-2).AddMonths(-3).AddDays(-4)),
+                    JoinedOn = DateTime.Today,
+                    ProfileColor = "#FFFFFF",
+                    Phonenumbers = new List<ResponsePhonenumberJson>
+                    {
+                        new ResponsePhonenumberJson
+                        {
+                            Number = "(31) 9 1111-1111"
+                        },
+                        new ResponsePhonenumberJson
+                        {
+                            Number = "(31) 9 2222-2222"
+                        }
+                    },
+                    EmergencyContact = new List<ResponseEmergencyContactJson>
+                    {
+                        new ResponseEmergencyContactJson
+                        {
+                            Name = "Contact 1",
+                            Phonenumber = "(31) 9 0000-0000",
+                            Relationship = "M"
+                        },
+                        new ResponseEmergencyContactJson
+                        {
+                            Name = "Contact 2",
+                            Phonenumber = "(31) 9 0000-0000",
+                            Relationship = "M"
                         }
                     }
                 }

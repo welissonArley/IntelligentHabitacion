@@ -16,6 +16,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public HomeAssociation HomeAssociation { get; set; }
         public long? HomeAssociationId { get; set; }
         public string ProfileColor { get; set; }
+        public string PushNotificationId { get; set; }
 
         public override void Decrypt()
         {
@@ -24,6 +25,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
             Email = encryptManager.Dencrypt(Email, salt);
             Password = encryptManager.Dencrypt(Password, salt);
+            PushNotificationId = encryptManager.Dencrypt(PushNotificationId, salt);
             foreach (var phoneNumber in Phonenumbers)
                 phoneNumber.Decrypt();
             foreach (var emergencyContact in EmergecyContacts)
@@ -39,6 +41,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
             Email = encryptManager.Encrypt(Email, salt);
             Password = encryptManager.Encrypt(Password, salt);
+            PushNotificationId = encryptManager.Encrypt(PushNotificationId, salt);
             foreach (var phoneNumber in Phonenumbers)
                 phoneNumber.Encrypt();
             foreach (var emergencyContact in EmergecyContacts)

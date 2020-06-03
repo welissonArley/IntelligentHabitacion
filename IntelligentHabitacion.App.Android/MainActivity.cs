@@ -2,7 +2,9 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Com.OneSignal;
 using IntelligentHabitacion.App.Droid.SQLite;
+using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.SQLite.Interface;
 using System.Linq;
 using System.Reflection;
@@ -32,6 +34,8 @@ namespace IntelligentHabitacion.App.Droid
             Plugin.InputKit.Platforms.Droid.Config.Init(this, savedInstanceState);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+            OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
+            OneSignal.Current.RegisterForPushNotifications();
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

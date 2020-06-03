@@ -166,6 +166,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Com.OneSignal">
+      <Version>3.8.2</Version>
+    </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.0.0.2</Version>
     </PackageReference>
@@ -428,5 +431,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IconError%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconNotification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconNotification%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconNotification%403x.png" />
   </ItemGroup>
 </Project>

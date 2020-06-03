@@ -210,6 +210,9 @@
   <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
     <value>O produto não foi encontrado.</value>
   </data>
+  <data name="PUSHNOTIFICATION_INVALID" xml:space="preserve">
+    <value>Id para push notification é inválido.</value>
+  </data>
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>A quantidade de produtos é inválida.</value>
   </data>

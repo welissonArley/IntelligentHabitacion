@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Com.OneSignal" Version="3.8.2" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.4" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
@@ -99,6 +100,9 @@
     </Compile>
     <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
       <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Modal\NotifyModal.xaml.cs">
+      <DependentUpon>NotifyModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\OperationErrorModal.xaml.cs">
       <DependentUpon>OperationErrorModal.xaml</DependentUpon>

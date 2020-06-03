@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.Communication;
@@ -129,7 +130,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Name = userInformations.Name,
                 Email = userInformations.Email,
                 Password = userInformations.Password,
-                PasswordConfirmation = userInformations.PasswordConfirmation
+                PasswordConfirmation = userInformations.PasswordConfirmation,
+                PushNotificationId = OneSignalManager.MyOneSignalId
             };
             user.Phonenumbers.Add(userInformations.PhoneNumber1);
             if(!string.IsNullOrWhiteSpace(userInformations.PhoneNumber2))

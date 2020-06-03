@@ -100,6 +100,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Email = "newemail@email.com.br",
                 Phonenumbers = new List<string> { "", "(31) 9" },
                 Name = "New User",
+                PushNotificationId = "Id",
                 EmergencyContacts = new List<RequestEmergencyContactJson>
                 {
                     new RequestEmergencyContactJson
@@ -210,6 +211,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Email = "newemail@email.com.br",
                 Phonenumbers = new List<string> { "(31) 9 9999-9999" },
                 Name = "New User",
+                PushNotificationId = "Id",
                 EmergencyContacts = new List<RequestEmergencyContactJson>
                 {
                     new RequestEmergencyContactJson

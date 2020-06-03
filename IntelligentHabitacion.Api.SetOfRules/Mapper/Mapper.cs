@@ -21,7 +21,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Password = userJson.Password,
                 EmergecyContacts = userJson.EmergencyContacts.Select(c => MapperJsonToModel(c)).ToList(),
                 Phonenumbers = userJson.Phonenumbers.Select(c => MapperJsonToModel(c)).ToList(),
-                ProfileColor = Color.RandomColor()
+                ProfileColor = Color.RandomColor(),
+                PushNotificationId = userJson.PushNotificationId
             };
         }
         public EmergencyContact MapperJsonToModel(RequestEmergencyContactJson emergencyContactJson)

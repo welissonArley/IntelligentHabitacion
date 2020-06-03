@@ -340,6 +340,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The push notification id is invalid..
+        /// </summary>
+        public static string PUSHNOTIFICATION_INVALID {
+            get {
+                return ResourceManager.GetString("PUSHNOTIFICATION_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The quantity of products is invalid..
         /// </summary>
         public static string QUANTITY_PRODUCTS_INVALID {

@@ -1,5 +1,7 @@
-﻿using Foundation;
+﻿using Com.OneSignal;
+using Foundation;
 using IntelligentHabitacion.App.iOS.SQLite;
+using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.SQLite.Interface;
 using System.Linq;
 using System.Reflection;
@@ -22,10 +24,12 @@ namespace IntelligentHabitacion.App.iOS
             Rg.Plugins.Popup.Popup.Init();
             RoundedBoxView.Forms.Plugin.iOSUnified.RoundedBoxViewRenderer.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+            OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
 
             LoadApplication(new App());
 
             Plugin.InputKit.Platforms.iOS.Config.Init();
+            OneSignal.Current.RegisterForPushNotifications();
 
             return base.FinishedLaunching(uiApplication, launchOptions);
         }

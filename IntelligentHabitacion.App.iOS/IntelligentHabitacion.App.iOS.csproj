@@ -441,4 +441,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconNotification%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconOrderHasArrived.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconOrderHasArrived%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconOrderHasArrived%403x.png" />
+  </ItemGroup>
 </Project>

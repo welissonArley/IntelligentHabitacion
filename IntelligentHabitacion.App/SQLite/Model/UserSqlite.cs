@@ -12,5 +12,6 @@ namespace IntelligentHabitacion.App.SQLite.Model
         public bool IsAdministrator { get; set; }
         public string Token { get; set; }
         public double Width { get; set; }
+        public bool HasOrder { get; set; }
     }
 }

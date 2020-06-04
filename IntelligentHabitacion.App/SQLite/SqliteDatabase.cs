@@ -74,5 +74,19 @@ namespace IntelligentHabitacion.App.SQLite
             if (user != null)
                 _dataBase.Delete(user);
         }
+
+        public void ReceivedOrder()
+        {
+            UserSqlite user = GetWithoutDencryptToken();
+            user.HasOrder = true;
+            _dataBase.Update(user);
+        }
+
+        public void GotTheOrder()
+        {
+            UserSqlite user = GetWithoutDencryptToken();
+            user.HasOrder = false;
+            _dataBase.Update(user);
+        }
     }
 }

@@ -3,10 +3,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="#32bea6"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
     x:Class="IntelligentHabitacion.App.View.Modal.OperationSuccessfullyExecutedModal">
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0">
         <Image Source="IconSuccess" HeightRequest="150" WidthRequest="150"></Image>
-        <Label Margin="0,20,0,0" FontSize="24" x:Name="LabelText" TextColor="White" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></Label>
+        <customControl:LabelJustifyText Margin="0,20,0,0" FontSize="24" x:Name="LabelText" TextColor="White" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></customControl:LabelJustifyText>
     </StackLayout>
 </pages:PopupPage>

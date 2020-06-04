@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using IntelligentHabitacion.App.SQLite.Interface;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.View
@@ -11,11 +12,26 @@ namespace IntelligentHabitacion.App.View
             InitializeComponent();
 
             SetGridDefinitions();
+
+            HeaderOrderHasArrived.ButtonClickedCommand = new Command(UserGotOrder);
         }
 
         protected override void OnAppearing()
         {
             HeaderGirlReading.FillInformations();
+
+            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
+            if (database.Get().HasOrder)
+            {
+                HeaderOrderHasArrived.IsVisible = true;
+                HeaderGirlReading.IsVisible = false;
+            }
+            else
+            {
+                HeaderOrderHasArrived.IsVisible = false;
+                HeaderGirlReading.IsVisible = true;
+            }
+
             base.OnAppearing();
         }
 
@@ -28,6 +44,14 @@ namespace IntelligentHabitacion.App.View
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
+        }
+
+        private void UserGotOrder()
+        {
+            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
+            database.GotTheOrder();
+            HeaderOrderHasArrived.IsVisible = false;
+            HeaderGirlReading.IsVisible = true;
         }
     }
 }

@@ -47,7 +47,10 @@
     <Compile Update="Template\CardIlustrationOptions\CardIlustrationOptions.xaml.cs">
       <DependentUpon>CardIlustrationOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\HeaderWithGirlReading\HeaderWithGirlReading.xaml.cs">
+    <Compile Update="Template\Header\HeaderOrderHasArrived.xaml.cs">
+      <DependentUpon>HeaderOrderHasArrived.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Header\HeaderWithGirlReading.xaml.cs">
       <DependentUpon>HeaderWithGirlReading.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Informations\EmergencyContactComponent.xaml.cs">

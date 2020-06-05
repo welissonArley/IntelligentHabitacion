@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
+using IntelligentHabitacion.Api.Services.JWT;
 using IntelligentHabitacion.Api.SetOfRules.Rule;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -12,17 +12,17 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
     {
         public FriendRule GetRule()
         {
-            return new FriendRule(GetLoggedUserWithouHome(), new TokenController(60), new UserFactoryFake().GetRepository(), TokenMock());
+            return new FriendRule(GetLoggedUserWithouHome(), new UserFactoryFake().GetRepository(), PushNotification());
         }
 
         public FriendRule GetRuleLoggedUserAdministrator()
         {
-            return new FriendRule(GetLoggedUserAdministrator(), new TokenController(60), GetRepositoryUserAdministrator(), TokenMock());
+            return new FriendRule(GetLoggedUserAdministrator(), GetRepositoryUserAdministrator(), PushNotification());
         }
 
         public FriendRule GetRuleLoggedUserWithoutFriend()
         {
-            return new FriendRule(GetLoggedUserWithoutFriends(), new TokenController(60), GetRepositoryWithoutFriend(), TokenMock());
+            return new FriendRule(GetLoggedUserWithoutFriends(), GetRepositoryWithoutFriend(), PushNotification());
         }
 
         public IUserRepository GetRepositoryWithoutFriend()
@@ -126,7 +126,8 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                     Home = new Home
                     {
                         AdministratorId = 1
-                    }
+                    },
+                    HomeId = 1
                 }
             });
 

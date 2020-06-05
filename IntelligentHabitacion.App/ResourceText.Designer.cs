@@ -160,6 +160,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your order has arrived and is waiting for you ;).
+        /// </summary>
+        internal static string DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MMMM dd, yyyy.
         /// </summary>
         internal static string FORMAT_DATE {
@@ -543,6 +552,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_ADDRESSNUMBER_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_ADDRESSNUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok, já recebi!.
+        /// </summary>
+        internal static string TITLE_ALREADY_RECEIVED {
+            get {
+                return ResourceManager.GetString("TITLE_ALREADY_RECEIVED", resourceCulture);
             }
         }
         

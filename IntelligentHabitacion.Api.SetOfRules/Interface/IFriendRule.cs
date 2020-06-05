@@ -7,9 +7,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
     public interface IFriendRule
     {
         List<ResponseFriendJson> GetFriends();
-        ResponseCodeToAddFriendJson GetCodeToAddFriend(string userToken);
-        ResponseCodeWasReadJson CodeWasRead(string userToken, string code);
-        void ApproveFriend(string adminId, string friendId, RequestApproveAddFriendJson requestApprove);
         ResponseFriendJson ChangeDateJoinHome(RequestChangeDateJoinHomeJson request);
+        void NotifyOrderHasArrived(string friendId);
     }
 }

@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace IntelligentHabitacion.App.Template.HeaderWithGirlReading
+namespace IntelligentHabitacion.App.Template.Header
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HeaderWithGirlReading : ContentView

@@ -1,8 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
+using IntelligentHabitacion.Api.Services.Interface;
+using IntelligentHabitacion.Api.Services.JWT;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
-using IntelligentHabitacion.Api.SetOfRules.Token;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using IntelligentHabitacion.Api.Test.FactoryFake;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

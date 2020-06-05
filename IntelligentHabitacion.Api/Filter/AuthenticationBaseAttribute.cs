@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
-using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Api.Services.Interface;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;

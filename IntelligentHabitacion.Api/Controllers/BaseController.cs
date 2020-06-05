@@ -1,8 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Repository.Token;
+using IntelligentHabitacion.Api.Services.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
-using IntelligentHabitacion.Api.SetOfRules.Token;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;

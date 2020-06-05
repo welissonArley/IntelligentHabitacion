@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
+using IntelligentHabitacion.Api.Services.JWT;
 using IntelligentHabitacion.Communication.Error;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

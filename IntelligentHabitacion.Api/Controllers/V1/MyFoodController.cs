@@ -13,7 +13,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     /// </summary>
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [ServiceFilter(typeof(AuthenticationUserAttribute))]
+    [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
     public class MyFoodController : BaseController
     {
         private readonly IMyFoodRule _myFoodRule;

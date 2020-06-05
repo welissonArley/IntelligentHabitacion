@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace IntelligentHabitacion.Api.Services.WebSocket
+namespace IntelligentHabitacion.Api.Services.WebSocket.AddFriend
 {
     public static class Manager
     {

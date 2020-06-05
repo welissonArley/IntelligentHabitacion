@@ -18,6 +18,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private readonly IFriendRule _friendRule;
 
         public ICommand MakePhonecallCommand { protected set; get; }
+        public ICommand NotifyFriendOrderHasArrivedCommand { protected set; get; }
         public ICommand MenuOptionsCommand { protected set; get; }
 
         private ICommand ChangeDateJoinOnCommand { set; get; }
@@ -39,6 +40,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             ChangeDateJoinOnCommand = new Command(async () =>
             {
                 await ChangeDateOption();
+            });
+
+            NotifyFriendOrderHasArrivedCommand = new Command(async() =>
+            {
+                await NotifyFriendOrderHasArrived();
             });
 
             _friendRule = friendRule;
@@ -76,6 +82,21 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                 Model.JoinedOn = friend.JoinedOn;
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 RefreshCallback?.Execute(null);
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        private async Task NotifyFriendOrderHasArrived()
+        {
+            try
+            {
+                await ShowLoading();
+                await _friendRule.NotifyFriendOrderHasArrived(Model.Id);
                 HideLoading();
             }
             catch (System.Exception exeption)

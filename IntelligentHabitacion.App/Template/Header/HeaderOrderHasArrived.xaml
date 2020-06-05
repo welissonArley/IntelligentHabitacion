@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+    mc:Ignorable="d"
+    x:Class="IntelligentHabitacion.App.Template.Header.HeaderOrderHasArrived">
+    <ContentView.Content>
+        <Grid Margin="20,0,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="ImageOrderHasArrived" Grid.Column="0" HorizontalOptions="StartAndExpand" Source="IconOrderHasArrived"></Image>
+
+            <Grid HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="{x:Static resourceText:ResourceText.DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU}" FontSize="16" TextColor="Black" Style="{x:StaticResource LabelLight}" VerticalOptions="EndAndExpand"></Label>
+                <Button Grid.Column="0" Grid.Row="2" Text="{x:Static resourceText:ResourceText.TITLE_ALREADY_RECEIVED}" Style="{x:StaticResource ButtonYellowDefault}" Margin="0,0,0,10" Clicked="Button_Clicked"></Button>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

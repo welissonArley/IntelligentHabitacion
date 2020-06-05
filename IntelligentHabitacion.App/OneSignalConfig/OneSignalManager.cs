@@ -1,4 +1,7 @@
 ﻿using Com.OneSignal.Abstractions;
+using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.Useful;
+using System.Linq;
 
 namespace IntelligentHabitacion.App.OneSignalConfig
 {
@@ -14,7 +17,18 @@ namespace IntelligentHabitacion.App.OneSignalConfig
 
         public static void Notification(OSNotification notification)
         {
+            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
+            var key = notification.payload.additionalData.Keys.FirstOrDefault();
+            if (string.IsNullOrWhiteSpace(key))
+                return;
 
+            switch (key)
+            {
+                case EnumNotifications.OrderReceived:
+                    {
+                        database.ReceivedOrder();
+                    }break;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+﻿using IntelligentHabitacion.Api.Services.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
@@ -6,14 +6,14 @@ using IntelligentHabitacion.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
-namespace IntelligentHabitacion.Api.Services.WebSocket
+namespace IntelligentHabitacion.Api.Services.WebSocket.AddFriend
 {
     public class WebSocketAddFriendHub : Hub
     {
         private readonly IHubContext<WebSocketAddFriendHub> _hubContext;
-        private readonly IFriendRule _friendRule;
+        private readonly IAddFriendRule _friendRule;
 
-        public WebSocketAddFriendHub(IHubContext<WebSocketAddFriendHub> hubContext, IFriendRule friendRule)
+        public WebSocketAddFriendHub(IHubContext<WebSocketAddFriendHub> hubContext, IAddFriendRule friendRule)
         {
             _hubContext = hubContext;
             _friendRule = friendRule;

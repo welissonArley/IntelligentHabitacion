@@ -7,11 +7,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="SendGrid" Version="9.15.1" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Api.Repository\IntelligentHabitacion.Api.Repository.csproj" />
+    <ProjectReference Include="..\IntelligentHabitacion.Api.Services\IntelligentHabitacion.Api.Services.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.Validators\IntelligentHabitacion.Api.Validators.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Useful\IntelligentHabitacion.Useful.csproj" />

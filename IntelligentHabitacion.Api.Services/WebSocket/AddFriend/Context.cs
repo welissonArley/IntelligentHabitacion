@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace IntelligentHabitacion.Api.Services.WebSocket
+namespace IntelligentHabitacion.Api.Services.WebSocket.AddFriend
 {
     public class Context
     {

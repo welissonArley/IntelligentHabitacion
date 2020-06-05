@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     mc:Ignorable="d"
-    x:Class="IntelligentHabitacion.App.Template.HeaderWithGirlReading.HeaderWithGirlReading">
+    x:Class="IntelligentHabitacion.App.Template.Header.HeaderWithGirlReading">
     <ContentView.Content>
         <StackLayout Spacing="0">
             <Image x:Name="ImageGirlReading" Source="IconGirlReading"></Image>

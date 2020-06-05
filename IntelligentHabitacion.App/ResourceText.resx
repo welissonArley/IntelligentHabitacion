@@ -150,6 +150,9 @@
   <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
     <value>Going to the Supermarket? Take a look at the shopping list.</value>
   </data>
+  <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
+    <value>Your order has arrived and is waiting for you ;)</value>
+  </data>
   <data name="FORMAT_DATE" xml:space="preserve">
     <value>MMMM dd, yyyy</value>
   </data>
@@ -278,6 +281,9 @@
   </data>
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Add product</value>
+  </data>
+  <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
+    <value>Ok, já recebi!</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>

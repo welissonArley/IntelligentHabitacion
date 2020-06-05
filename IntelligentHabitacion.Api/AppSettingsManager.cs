@@ -60,5 +60,28 @@ namespace IntelligentHabitacion.Api
 
             return 180;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string OneSignalAppId()
+        {
+            if (_hostingEnvironment.IsDevelopment() || _hostingEnvironment.IsProduction())
+                return "658a8e23-65fe-450f-9bf8-9ef1c3d1abdc";
+
+            return "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string OneSignalApiKey()
+        {
+            if (_hostingEnvironment.IsDevelopment() || _hostingEnvironment.IsProduction())
+                return "NzE1ODliMmYtNDc5Yy00YWQ0LWE2NzAtNDQ1OGVjNGViYmFl";
+
+            return "";
+        }
     }
 }

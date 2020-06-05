@@ -3,13 +3,13 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="{x:StaticResource YellowDefault}"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
     x:Class="IntelligentHabitacion.App.View.Modal.NotifyModal">
     <StackLayout>
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
             <Image Source="IconNotification" HeightRequest="150" WidthRequest="150"></Image>
             <Label x:Name="LabelTitle" TextColor="Black" Style="{x:StaticResource LabelExtraBold}" FontSize="18" HorizontalOptions="CenterAndExpand" Margin="0,40,0,0"></Label>
-            <Label Margin="0,40,0,0" FontSize="24" x:Name="LabelMessage" TextColor="White" Style="{x:StaticResource LabelMedium}" HorizontalOptions="CenterAndExpand"></Label>
+            <customControl:LabelJustifyText Margin="0,40,0,0" FontSize="24" x:Name="LabelMessage" TextColor="White" Style="{x:StaticResource LabelMedium}" HorizontalOptions="CenterAndExpand"></customControl:LabelJustifyText>
         </StackLayout>
         <Grid Margin="0,0,20,30">
             <Grid.ColumnDefinitions>

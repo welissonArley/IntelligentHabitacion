@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.Api.Filter
     /// <summary>
     /// 
     /// </summary>
-    public class AuthenticationUserAttribute : AuthenticationBaseAttribute, IActionFilter
+    public class AuthenticationUserIsPartOfHomeAttribute : AuthenticationBaseAttribute, IActionFilter
     {
         private readonly ITokenRepository _tokenRepository;
 
@@ -19,7 +19,7 @@ namespace IntelligentHabitacion.Api.Filter
         /// <param name="userRepository"></param>
         /// <param name="tokenRepository"></param>
         /// <param name="tokenController"></param>
-        public AuthenticationUserAttribute(IUserRepository userRepository, ITokenRepository tokenRepository, ITokenController tokenController) : base(userRepository, tokenController)
+        public AuthenticationUserIsPartOfHomeAttribute(IUserRepository userRepository, ITokenRepository tokenRepository, ITokenController tokenController) : base(userRepository, tokenController)
         {
             _tokenRepository = tokenRepository;
         }
@@ -42,7 +42,7 @@ namespace IntelligentHabitacion.Api.Filter
             try
             {
                 var user = GetUser(context);
-                if (user == null)
+                if (user == null || user.HomeAssociationId == null)
                     UserDoesNotHaveAccess(context);
                 else
                 {

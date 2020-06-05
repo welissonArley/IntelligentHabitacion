@@ -89,5 +89,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 } : null
             }).ToList();
         }
+
+        public async Task NotifyFriendOrderHasArrived(string friendId)
+        {
+            var response = await _httpClient.NotifyFriendOrderHasArrived(friendId, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+        }
     }
 }

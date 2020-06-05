@@ -72,5 +72,28 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 return HandleException(exception);
             }
         }
+
+        /// <summary>
+        /// This function will notify one friend that one order has arrived
+        /// </summary>
+        /// <param name="friendId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("NotifyOrderReceived")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public IActionResult NotifyOrderReceived(string friendId)
+        {
+            try
+            {
+                _friendRule.NotifyOrderHasArrived(friendId);
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
     }
 }

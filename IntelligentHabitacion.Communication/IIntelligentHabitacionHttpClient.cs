@@ -26,5 +26,6 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> ChangeQuantityMyFood(RequestChangeQuantityMyFoodJson myFood, string token, string language = null);
         Task<ResponseJson> GetMyFoods(string token, string language = null);
         Task<ResponseJson> ChangeDateJoinHome(RequestChangeDateJoinHomeJson request, string token, string language = null);
+        Task<ResponseJson> NotifyFriendOrderHasArrived(string friendId, string token, string language = null);
     }
 }

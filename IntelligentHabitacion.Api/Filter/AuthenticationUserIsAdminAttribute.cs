@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Api.Services.Interface;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
 

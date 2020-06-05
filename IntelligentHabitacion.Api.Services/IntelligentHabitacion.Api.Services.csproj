@@ -6,10 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IntelligentHabitacion.Api.SetOfRules\IntelligentHabitacion.Api.SetOfRules.csproj" />
+    <ProjectReference Include="..\IntelligentHabitacion.Api.Repository\IntelligentHabitacion.Api.Repository.csproj" />
+    <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
+    <ProjectReference Include="..\IntelligentHabitacion.Useful\IntelligentHabitacion.Useful.csproj" />
   </ItemGroup>
 
 </Project>

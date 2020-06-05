@@ -1,4 +1,4 @@
-﻿namespace IntelligentHabitacion.Api.SetOfRules.Token
+﻿namespace IntelligentHabitacion.Api.Services.Interface
 {
     public interface ITokenController
     {

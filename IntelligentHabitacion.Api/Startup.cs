@@ -2,13 +2,14 @@
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.DatabaseInformations;
-using IntelligentHabitacion.Api.Services.WebSocket;
+using IntelligentHabitacion.Api.Services.Interface;
+using IntelligentHabitacion.Api.Services.JWT;
+using IntelligentHabitacion.Api.Services.PushNotification;
+using IntelligentHabitacion.Api.Services.WebSocket.AddFriend;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
-using IntelligentHabitacion.Api.SetOfRules.Token;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -94,12 +95,18 @@ namespace IntelligentHabitacion.Api
             services.AddHttpContextAccessor();
 
             services.AddScoped<AuthenticationUserAttribute>();
+            services.AddScoped<AuthenticationUserIsPartOfHomeAttribute>();
             services.AddScoped<AuthenticationUserIsAdminAttribute>();
             services.AddScoped<ILoggedUser, LoggedUser>();
+            services.AddScoped<IAddFriendRule, AddFriendRule>();
             services.AddScoped<IEmailHelper, EmailHelper>();
             services.AddScoped<ITokenController, TokenController>(ServiceProvider =>
             {
                 return new TokenController(_appSettingsManager.ExpirationTimeMinutes());
+            });
+            services.AddSingleton<IPushNotificationService, OneSignalService>(ServiceProvider =>
+            {
+                return new OneSignalService(_appSettingsManager.OneSignalAppId(), _appSettingsManager.OneSignalApiKey());
             });
         }
 

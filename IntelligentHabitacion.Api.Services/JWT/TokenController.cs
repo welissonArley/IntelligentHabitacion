@@ -1,10 +1,11 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using IntelligentHabitacion.Api.Services.Interface;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace IntelligentHabitacion.Api.SetOfRules.Token.JWT
+namespace IntelligentHabitacion.Api.Services.JWT
 {
     public class TokenController : ITokenController
     {

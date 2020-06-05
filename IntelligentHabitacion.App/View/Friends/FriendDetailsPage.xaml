@@ -51,7 +51,7 @@
                         </template:EmergencyContactComponent.Triggers>
                     </template:EmergencyContactComponent>
                 </StackLayout>
-                <Button Text="{x:Static resourceText:ResourceText.TITLE_NOTIFY_ORDER_ARRIVED}" Style="{x:StaticResource ButtonGreenDefault}"></Button>
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_NOTIFY_ORDER_ARRIVED}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding NotifyFriendOrderHasArrivedCommand}"></Button>
             </StackLayout>
         </ScrollView>
     </StackLayout>

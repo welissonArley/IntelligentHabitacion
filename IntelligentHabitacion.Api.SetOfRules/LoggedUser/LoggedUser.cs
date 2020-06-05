@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
-using IntelligentHabitacion.Api.SetOfRules.Token;
+using IntelligentHabitacion.Api.Services.Interface;
 using Microsoft.AspNetCore.Http;
 
 namespace IntelligentHabitacion.Api.SetOfRules.LoggedUser

@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
+using IntelligentHabitacion.Api.Services.JWT;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
 using Microsoft.AspNetCore.Http;
 using Moq;
 using System.Collections.Generic;

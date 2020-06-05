@@ -6,6 +6,7 @@ using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception.API;
+using IntelligentHabitacion.Useful;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -78,7 +79,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
                 { "en", "You have received an order and it is waiting for you 😃" },
                 { "pt", "Você recebeu uma encomenda e ela está te esperando 😃" }
             };
-            var data = new Dictionary<string, string> { { "ho", "1" } };
+            var data = new Dictionary<string, string> { { EnumNotifications.OrderReceived, "1" } };
 
             _pushNotificationService.Send(titles, messages, new List<string> { friend.PushNotificationId }, data);
         }

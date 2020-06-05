@@ -2,8 +2,8 @@
 using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.SetOfRules.Token;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
+using IntelligentHabitacion.Api.Services.Interface;
+using IntelligentHabitacion.Api.Services.JWT;
 using IntelligentHabitacion.Api.Test.FactoryFake;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Error;

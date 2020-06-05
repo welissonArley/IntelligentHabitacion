@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
+using IntelligentHabitacion.Api.Services.Interface;
 using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
@@ -202,6 +203,15 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                     }
                 }
             });
+
+            return mock.Object;
+        }
+
+        public IPushNotificationService PushNotification()
+        {
+            var mock = new Mock<IPushNotificationService>();
+            mock.Setup(c => c.Send(It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<List<string>>()));
+            mock.Setup(c => c.Send(It.IsAny<Dictionary<string, string>>(), It.IsAny<Dictionary<string, string>>(), It.IsAny<List<string>>(), It.IsAny<Dictionary<string, string>>()));
 
             return mock.Object;
         }

@@ -14,12 +14,12 @@ using Xunit;
 
 namespace IntelligentHabitacion.Api.Test.Controller
 {
-    public class AuthenticationAttributeUserTest
+    public class AuthenticationAttributeUserIsPartOfHomeTest
     {
         [Fact]
         public void OnActionExecuted()
         {
-            var actionFiltroAutenticacao = new AuthenticationUserAttribute(null, null, null);
+            var actionFiltroAutenticacao = new AuthenticationUserIsPartOfHomeAttribute(null, null, null);
             actionFiltroAutenticacao.OnActionExecuted(null);
             Assert.True(true);
         }
@@ -27,7 +27,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         [Fact]
         public void OnActionExecutingWithoutToken()
         {
-            var actionFiltroAutenticacao = new AuthenticationUserAttribute(null, null, null);
+            var actionFiltroAutenticacao = new AuthenticationUserIsPartOfHomeAttribute(null, null, null);
 
             var context = GetActionExecutingContext(true);
 
@@ -39,8 +39,9 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void OnActionExecutingInvalidUser()
         {
             var userMock = new Mock<IUserRepository>();
+            userMock.Setup(c => c.GetByEmail(It.IsAny<string>())).Returns(new Repository.Model.User());
 
-            var actionFiltroAutenticacao = new AuthenticationUserAttribute(userMock.Object, null, new TokenController(60));
+            var actionFiltroAutenticacao = new AuthenticationUserIsPartOfHomeAttribute(userMock.Object, null, new TokenController(60));
 
             var context = GetActionExecutingContext();
 
@@ -52,7 +53,18 @@ namespace IntelligentHabitacion.Api.Test.Controller
         public void OnActionExecutingDifferentToken()
         {
             var userMock = new Mock<IUserRepository>();
-            userMock.Setup(c => c.GetByEmail(It.IsAny<string>())).Returns(new Repository.Model.User());
+            userMock.Setup(c => c.GetByEmail(It.IsAny<string>())).Returns(new Repository.Model.User
+            {
+                Id = 1,
+                HomeAssociationId = 1,
+                HomeAssociation = new Repository.Model.HomeAssociation
+                {
+                    Home = new Repository.Model.Home
+                    {
+                        AdministratorId = 1
+                    }
+                }
+            });
 
             var tokenMock = new Mock<ITokenRepository>();
             tokenMock.Setup(c => c.Get(It.IsAny<long>())).Returns(new Token
@@ -60,7 +72,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
                 Value = "0"
             });
 
-            var actionFiltroAutenticacao = new AuthenticationUserAttribute(userMock.Object, tokenMock.Object, new TokenController(60));
+            var actionFiltroAutenticacao = new AuthenticationUserIsPartOfHomeAttribute(userMock.Object, tokenMock.Object, new TokenController(60));
 
             var context = GetActionExecutingContext();
 
@@ -71,7 +83,7 @@ namespace IntelligentHabitacion.Api.Test.Controller
         [Fact]
         public void OnActionExecutingTokenExpired()
         {
-            var actionFiltroAutenticacao = new AuthenticationUserAttribute(null, null, new TokenController(0.1)) ;
+            var actionFiltroAutenticacao = new AuthenticationUserIsPartOfHomeAttribute(null, null, new TokenController(0.1)) ;
 
             var context = GetActionExecutingContext(expirationTimeMinutes: 0.01);
 

@@ -66,10 +66,24 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             }
         }
 
+        [Fact]
+        public async void NotifyFriendOrderHasArrivedSucess()
+        {
+            try
+            {
+                await _friendRule.NotifyFriendOrderHasArrived("1");
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
         private IIntelligentHabitacionHttpClient GetMokIntelligentHabitacionHttpClient()
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
-            mock.Setup(c => c.GetHouseFriends(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new Communication.Response.ResponseJson
+            mock.Setup(c => c.GetHouseFriends(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
             {
                 Token = "token",
                 Response = new List<ResponseFriendJson>
@@ -146,6 +160,11 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                         }
                     }
                 }
+            });
+            mock.Setup(c => c.NotifyFriendOrderHasArrived(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "token",
+                Response = null
             });
 
             return mock.Object;

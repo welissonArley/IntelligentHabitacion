@@ -1,5 +1,6 @@
 ﻿using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.Useful;
 using System.Linq;
 
 namespace IntelligentHabitacion.App.OneSignalConfig
@@ -23,7 +24,7 @@ namespace IntelligentHabitacion.App.OneSignalConfig
 
             switch (key)
             {
-                case "ho":
+                case EnumNotifications.OrderReceived:
                     {
                         database.ReceivedOrder();
                     }break;

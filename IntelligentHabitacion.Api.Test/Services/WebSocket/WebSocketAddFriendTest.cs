@@ -1,8 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
-using IntelligentHabitacion.Api.Services.WebSocket;
-using IntelligentHabitacion.Api.SetOfRules.Rule;
-using IntelligentHabitacion.Api.SetOfRules.Token.JWT;
+using IntelligentHabitacion.Api.Services.JWT;
+using IntelligentHabitacion.Api.Services.WebSocket.AddFriend;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
@@ -218,9 +217,9 @@ namespace IntelligentHabitacion.Api.Test.Services.WebSocket
             mockClientProxy.Verify(clientProxy => clientProxy.SendCoreAsync("AvailableTime", It.Is<object[]>(o => o != null && o.Length == 1), System.Threading.CancellationToken.None), Times.Exactly(2));
         }
 
-        private FriendRule GetRule()
+        private AddFriendRule GetRule()
         {
-            return new FriendRule(null, new TokenController(60), GetRepository(), TokenMock());
+            return new AddFriendRule(TokenMock(), GetRepository(), new TokenController(60));
         }
         private IUserRepository GetRepository()
         {

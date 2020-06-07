@@ -12,17 +12,29 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
     {
         public FriendRule GetRule()
         {
-            return new FriendRule(GetLoggedUserWithouHome(), new UserFactoryFake().GetRepository(), PushNotification());
+            return new FriendRule(GetLoggedUserWithouHome(), new UserFactoryFake().GetRepository(), PushNotification(), TokenMock(), EmailHelperMock(), GetCryptographyPassword());
         }
 
         public FriendRule GetRuleLoggedUserAdministrator()
         {
-            return new FriendRule(GetLoggedUserAdministrator(), GetRepositoryUserAdministrator(), PushNotification());
+            return new FriendRule(GetLoggedUserAdministrator(), GetRepositoryUserAdministrator(), PushNotification(), TokenMock(), EmailHelperMock(), GetCryptographyPassword());
+        }
+
+        public FriendRule GetRuleLoggedUserAdministratorTokenExpired()
+        {
+            var mock = new Mock<ICodeRepository>();
+            mock.Setup(c => c.GetByUserChangeAdministrator(1)).Returns(new Code
+            {
+                Value = "1234",
+                CreateDate = DateTime.UtcNow.AddHours(-8)
+            });
+
+            return new FriendRule(GetLoggedUserAdministrator(), GetRepositoryUserAdministrator(), PushNotification(), mock.Object, EmailHelperMock(), GetCryptographyPassword());
         }
 
         public FriendRule GetRuleLoggedUserWithoutFriend()
         {
-            return new FriendRule(GetLoggedUserWithoutFriends(), GetRepositoryWithoutFriend(), PushNotification());
+            return new FriendRule(GetLoggedUserWithoutFriends(), GetRepositoryWithoutFriend(), PushNotification(), TokenMock(), EmailHelperMock(), GetCryptographyPassword());
         }
 
         public IUserRepository GetRepositoryWithoutFriend()

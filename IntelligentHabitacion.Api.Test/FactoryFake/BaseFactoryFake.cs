@@ -42,6 +42,11 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 Value = "1234",
                 CreateDate = DateTime.UtcNow.AddHours(-5)
             });
+            mock.Setup(c => c.GetByUserChangeAdministrator(1)).Returns(new Code
+            {
+                Value = "1234",
+                CreateDate = DateTime.UtcNow
+            });
 
             return mock.Object;
         }

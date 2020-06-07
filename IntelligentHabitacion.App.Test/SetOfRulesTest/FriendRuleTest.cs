@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.Test.Factory;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Useful;
 using Moq;
 using System;
@@ -72,6 +73,46 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             try
             {
                 await _friendRule.NotifyFriendOrderHasArrived("1");
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public async void RequestCodeToChangeAdministratorSucess()
+        {
+            try
+            {
+                await _friendRule.RequestCodeToChangeAdministrator();
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public async void ChangeAdministratorCodeEmpty()
+        {
+            await Assert.ThrowsAsync<CodeEmptyException>(() => _friendRule.ChangeAdministrator("", "", ""));
+        }
+
+        [Fact]
+        public async void ChangeAdministratorPasswordEmpty()
+        {
+            await Assert.ThrowsAsync<PasswordEmptyException>(() => _friendRule.ChangeAdministrator("1", "", ""));
+        }
+
+        [Fact]
+        public async void ChangeAdministratorSucess()
+        {
+            try
+            {
+                await _friendRule.ChangeAdministrator("1", "1", "1");
                 Assert.True(true);
             }
             catch
@@ -162,6 +203,16 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 }
             });
             mock.Setup(c => c.NotifyFriendOrderHasArrived(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "token",
+                Response = null
+            });
+            mock.Setup(c => c.RequestCodeToChangeAdministrator(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "token",
+                Response = null
+            });
+            mock.Setup(c => c.ChangeAdministrator(It.IsAny<RequestAdminActionsOnFriendJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
             {
                 Token = "token",
                 Response = null

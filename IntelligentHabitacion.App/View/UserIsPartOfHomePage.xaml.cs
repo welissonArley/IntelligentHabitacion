@@ -18,20 +18,7 @@ namespace IntelligentHabitacion.App.View
 
         protected override void OnAppearing()
         {
-            HeaderGirlReading.FillInformations();
-
-            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
-            if (database.Get().HasOrder)
-            {
-                HeaderOrderHasArrived.IsVisible = true;
-                HeaderGirlReading.IsVisible = false;
-            }
-            else
-            {
-                HeaderOrderHasArrived.IsVisible = false;
-                HeaderGirlReading.IsVisible = true;
-            }
-
+            RefreshHeader();
             base.OnAppearing();
         }
 
@@ -52,6 +39,23 @@ namespace IntelligentHabitacion.App.View
             database.GotTheOrder();
             HeaderOrderHasArrived.IsVisible = false;
             HeaderGirlReading.IsVisible = true;
+        }
+
+        public void RefreshHeader()
+        {
+            HeaderGirlReading.FillInformations();
+
+            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
+            if (database.Get().HasOrder)
+            {
+                HeaderOrderHasArrived.IsVisible = true;
+                HeaderGirlReading.IsVisible = false;
+            }
+            else
+            {
+                HeaderOrderHasArrived.IsVisible = false;
+                HeaderGirlReading.IsVisible = true;
+            }
         }
     }
 }

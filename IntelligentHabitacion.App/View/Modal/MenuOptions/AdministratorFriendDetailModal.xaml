@@ -25,6 +25,9 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Spacing="-3" HeightRequest="40">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ChangeAdministrator_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
                     <StackLayout VerticalOptions="CenterAndExpand">
                         <Label Text="{x:Static resourceText:ResourceText.TITLE_SET_AS_ADMINISTRATOR}" FontSize="14" Style="{x:StaticResource LabelMedium}" TextColor="Black"></Label>
                         <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>

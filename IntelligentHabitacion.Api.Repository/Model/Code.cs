@@ -6,7 +6,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
     public enum CodeType
     {
         ResetPassword = 1,
-        AddFriend = 2
+        AddFriend = 2,
+        ChangeAdministrator = 3
     }
 
     [Table("Code")]

@@ -10,6 +10,7 @@ namespace IntelligentHabitacion.App.SQLite.Interface
         void UpdateName(string newName);
         void UpdateToken(string newToken);
         void IsAdministrator();
+        void IsNotAdministrator();
         void IsPartOfHome();
         void ReceivedOrder();
         void GotTheOrder();

@@ -6,6 +6,7 @@ using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Friends.Add;
+using IntelligentHabitacion.App.View.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.MyFoods;
 using IntelligentHabitacion.App.View.RegisterHome;
@@ -14,6 +15,7 @@ using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
+using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
@@ -93,6 +95,8 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<AddEditMyFoodsPage, AddEditMyFoodsViewModel>();
             ViewFactory.Register<QrCodeToAddFriendPage, QrCodeToAddFriendViewModel>();
             ViewFactory.Register<AcceptNewFriendPage, AcceptNewFriendViewModel>();
+            ViewFactory.Register<ChangeAdministratorPage, ChangeAdministratorViewModel>();
+            ViewFactory.Register<ApproveActionWithCodePasswordPage, ApproveActionWithCodePasswordViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

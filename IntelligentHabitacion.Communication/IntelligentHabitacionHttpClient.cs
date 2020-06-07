@@ -228,6 +228,24 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
+        public async Task<ResponseJson> RequestCodeToChangeAdministrator(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Friend/RequestCodeChangeAdministrator", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
+        }
+        public async Task<ResponseJson> ChangeAdministrator(RequestAdminActionsOnFriendJson request, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/ChangeAdministrator", request, token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
+        }
         #endregion
 
         #region MyFood

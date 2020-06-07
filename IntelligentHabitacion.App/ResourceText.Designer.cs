@@ -70,6 +70,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to By performing this process you are transferring all the privileges of being an Administrator to your friend.
+        /// </summary>
+        internal static string DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The new member must go to the app, click on “Join a home” and read the QR Code below :).
         /// </summary>
         internal static string DESCRIPTION_ADDING_FRIEND {
@@ -556,7 +565,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ok, já recebi!.
+        ///   Looks up a localized string similar to Ok, I received!.
         /// </summary>
         internal static string TITLE_ALREADY_RECEIVED {
             get {
@@ -907,6 +916,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to For security reasons, enter your password and the code we sent in your email below to finish the process..
+        /// </summary>
+        internal static string TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL {
+            get {
+                return ResourceManager.GetString("TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         internal static string TITLE_FORGOT_PASSWORD {
@@ -1240,7 +1258,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To finish :) Wi-fi network information.
+        ///   Looks up a localized string similar to To finish :) Wi-fi network information (Optional).
         /// </summary>
         internal static string TITLE_REGISTER_NETWORK_INFORMATION {
             get {

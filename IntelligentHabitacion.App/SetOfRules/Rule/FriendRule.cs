@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,25 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             _httpClient = intelligentHabitacionHttpClient;
             _database = database;
+        }
+
+        public async Task ChangeAdministrator(string code, string friendId, string password)
+        {
+            if (string.IsNullOrWhiteSpace(code))
+                throw new CodeEmptyException();
+
+            if (string.IsNullOrWhiteSpace(password))
+                throw new PasswordEmptyException();
+
+            var response = await _httpClient.ChangeAdministrator(new RequestAdminActionsOnFriendJson
+            {
+                Code = code,
+                FriendId = friendId,
+                Password = password
+            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.IsNotAdministrator();
+            _database.UpdateToken(response.Token);
         }
 
         public async Task<FriendModel> ChangeDateJoinOn(string friendId, DateTime date)
@@ -93,6 +113,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         public async Task NotifyFriendOrderHasArrived(string friendId)
         {
             var response = await _httpClient.NotifyFriendOrderHasArrived(friendId, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+        }
+
+        public async Task RequestCodeToChangeAdministrator()
+        {
+            var response = await _httpClient.RequestCodeToChangeAdministrator(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _database.UpdateToken(response.Token);
         }

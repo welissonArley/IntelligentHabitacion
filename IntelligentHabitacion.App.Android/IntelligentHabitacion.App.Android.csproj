@@ -66,7 +66,7 @@
       <Version>3.8.2</Version>
     </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
-      <Version>2.0.0.2</Version>
+      <Version>2.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.7.335</Version>
@@ -77,10 +77,10 @@
     <PackageReference Include="Xam.Plugins.Forms.RoundedBoxView">
       <Version>1.0.0.7</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.847" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.InputKit">
-      <Version>3.3.0</Version>
+      <Version>3.3.1</Version>
     </PackageReference>
     <PackageReference Include="XLabs.IoC.TinyIoC">
       <Version>2.0.5782</Version>
@@ -577,4 +577,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\IconOrderHasArrived.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Target Name="_ResolveSatellitePaths" DependsOnTargets="_ResolveAssemblies">
+    <ResolveAssemblyReference AllowedAssemblyExtensions="$(AllowedReferenceAssemblyFileExtensions)" AssemblyFiles="@(ResolvedUserAssemblies)" AutoUnify="$(AutoUnifyAssemblyReferences)" FindDependencies="True" FindRelatedFiles="False" FindSatellites="True" SearchPaths="$(AssemblySearchPaths)" TargetFrameworkMoniker="$(TargetFrameworkMoniker)" TargetFrameworkMonikerDisplayName="$(TargetFrameworkMonikerDisplayName)" TargetFrameworkDirectories="$(TargetFrameworkDirectory)">
+      <Output TaskParameter="SatelliteFiles" ItemName="_AndroidResolvedSatellitePaths" />
+    </ResolveAssemblyReference>
+  </Target>
 </Project>

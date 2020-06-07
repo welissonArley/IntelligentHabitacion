@@ -101,6 +101,12 @@
     <Compile Update="View\Friends\FriendDetailsPage.xaml.cs">
       <DependentUpon>FriendDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Friends\ChangeAdministrator\ChangeAdministratorPage.xaml.cs">
+      <DependentUpon>ChangeAdministratorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\ApproveActionWithCodePasswordPage.xaml.cs">
+      <DependentUpon>ApproveActionWithCodePasswordPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
       <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
     </Compile>

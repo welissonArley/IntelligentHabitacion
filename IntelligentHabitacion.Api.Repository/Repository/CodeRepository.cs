@@ -35,6 +35,13 @@ namespace IntelligentHabitacion.Api.Repository.Repository
             return listCode.ToList();
         }
 
+        public Code GetByUserChangeAdministrator(long id)
+        {
+            var code = ModelSet.FirstOrDefault(c => c.Active && c.UserId == id && c.Type == CodeType.ChangeAdministrator);
+            code?.Decrypt();
+            return code;
+        }
+
         public Code GetByUserResetPassword(long id)
         {
             var code = ModelSet.FirstOrDefault(c => c.Active && c.UserId == id && c.Type == CodeType.ResetPassword);

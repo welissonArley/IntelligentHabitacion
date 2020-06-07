@@ -120,6 +120,9 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Because live with friends</value>
   </data>
+  <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
+    <value>By performing this process you are transferring all the privileges of being an Administrator to your friend</value>
+  </data>
   <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
     <value>The new member must go to the app, click on “Join a home” and read the QR Code below :)</value>
   </data>
@@ -283,7 +286,7 @@
     <value>Add product</value>
   </data>
   <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
-    <value>Ok, já recebi!</value>
+    <value>Ok, I received!</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>
@@ -402,6 +405,9 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL" xml:space="preserve">
+    <value>For security reasons, enter your password and the code we sent in your email below to finish the process.</value>
+  </data>
   <data name="TITLE_FRIDAY_ABBREVIATED" xml:space="preserve">
     <value>Frid</value>
   </data>
@@ -511,7 +517,7 @@
     <value>Register</value>
   </data>
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
-    <value>To finish :) Wi-fi network information</value>
+    <value>To finish :) Wi-fi network information (Optional)</value>
   </data>
   <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
     <value>Relationship:</value>

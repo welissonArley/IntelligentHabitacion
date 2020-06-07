@@ -8,9 +8,6 @@
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
              x:Name="FriendDetailsContent"
              x:Class="IntelligentHabitacion.App.View.Friends.FriendDetailsPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconMenuDots" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding MenuOptionsCommand}"></ToolbarItem>
-    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <converter:ObjectIsNullOrEmptyConverter x:Key="ObjectNullEmptyConverter"></converter:ObjectIsNullOrEmptyConverter>
         <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>

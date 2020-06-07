@@ -78,5 +78,33 @@ namespace IntelligentHabitacion.Api.SetOfRules.EmailHelper
 
             SendEmail("Recuperar Senha", plainText, htmlText, email);
         }
+
+        public void ChangeAdmin(string adminEmail, string code, string adminName)
+        {
+			var plainText = $"Olá {adminName}, Use o código abaixo para definir seu amigo como o novo Administrador:\n\n\n";
+			plainText = $"{plainText}{code}\n\n\n";
+			plainText = $"{plainText}Mas lembre-se, não deixe pra depois pois este código será valido por apenas 10 minutos, combinado?\n\n\n";
+			plainText = $"{plainText}Obrigado,\nIntelligent Habitacion Admin Team.";
+
+			var htmlText = $@"{_header}<div style=""margin-top: 50px;"">
+			<span style=""font-family: 'Raleway';font-size: 14px;"">Olá {adminName},</span>
+			<span style=""font-family: 'Raleway';font-size: 14px;display: block;margin-top: 14px;"">Use o código abaixo para definir seu amigo como o novo Administrador:</span>
+			
+			<div style=""margin-top: 50px;"">
+				<span style=""color: #FEBF3B;font-family: 'Raleway';font-size: 30px;font-weight: 800;"">{code}</span>
+			</div>
+			
+			<div style=""margin-top: 50px;"">
+				<span style=""font-family: 'Raleway';font-size: 14px;"">Mas lembre-se, não deixe pra depois, pois este código será valido por apenas 10 minutos, combinado?</span>
+			</div>
+		</div>";
+
+			htmlText = $@"{htmlText}<div style=""margin-top: 100px;"">
+			<span style=""font-family: 'Raleway';font-size: 14px;"">Obrigado,</span>
+			<span style=""font-family: 'Raleway';font-size: 14px;display: block;margin-top: 14px;"">Intelligent Habitacion Admin Team.</span>
+		</div>";
+
+			SendEmail("Definir novo Administrador", plainText, htmlText, adminEmail);
+		}
     }
 }

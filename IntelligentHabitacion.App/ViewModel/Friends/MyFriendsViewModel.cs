@@ -1,6 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.Template.Informations;
 using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Modal;
@@ -28,13 +27,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
 
         private ObservableCollection<FriendModel> _friendsList { get; set; }
         public ObservableCollection<FriendModel> FriendsList { get; set; }
-        public bool IsAdministrator { get; set; }
 
         public bool FriendsListIsEmpty { get; set; }
 
-        public MyFriendsViewModel(IFriendRule friendRule, ISqliteDatabase database)
+        public MyFriendsViewModel(IFriendRule friendRule)
         {
-            IsAdministrator = database.Get().IsAdministrator;
             FriendsList = new ObservableCollection<FriendModel>(Task.Run(async () => await friendRule.GetHouseFriends()).Result);
             _friendsList = FriendsList;
             FriendsListIsEmpty = _friendsList.Count == 0;

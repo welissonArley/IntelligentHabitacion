@@ -120,6 +120,9 @@
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Porque morar com os amigos</value>
   </data>
+  <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
+    <value>Ao executar este processo você está transferindo todos os privilégios de ser Admistrador para o seu amigo</value>
+  </data>
   <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
     <value>O novo integrante deve ir no app, clicar em “Participar de uma Lar” e ler o QR Code abaixo :)</value>
   </data>
@@ -283,7 +286,7 @@
     <value>Adicionar produto</value>
   </data>
   <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
-    <value>Ok, I received!</value>
+    <value>Ok, já recebi!</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>e</value>
@@ -402,6 +405,9 @@
   <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
     <value>Esqueceu sua senha?</value>
   </data>
+  <data name="TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL" xml:space="preserve">
+    <value>Por questões de segurança, digite abaixo sua senha e o código que enviamos no seu e-mail para finalizarmos o processo.</value>
+  </data>
   <data name="TITLE_FRIDAY_ABBREVIATED" xml:space="preserve">
     <value>Sex</value>
   </data>
@@ -511,7 +517,7 @@
     <value>Cadastrar</value>
   </data>
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
-    <value>Para finalizar :) As informações da rede Wi-fi</value>
+    <value>Para finalizar :) As informações da rede Wi-fi (Opcional)</value>
   </data>
   <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
     <value>Parentesco:</value>

@@ -3,5 +3,6 @@
     public interface IEmailHelper
     {
         void ResetPassword(string email, string code, string userName);
+        void ChangeAdmin(string adminEmail, string code, string adminName);
     }
 }

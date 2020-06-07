@@ -33,7 +33,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("Friends")]
         [ProducesResponseType(typeof(List<ResponseFriendJson>), StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserAttribute))]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public IActionResult Friends()
         {
             try
@@ -63,6 +63,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         {
             try
             {
+                VerifyParameters(request);
                 var response = _friendRule.ChangeDateJoinHome(request);
 
                 return Ok(response);
@@ -86,7 +87,54 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         {
             try
             {
+                VerifyParameters(friendId);
                 _friendRule.NotifyOrderHasArrived(friendId);
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will send one code to e-mail of the house's Administrator
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RequestCodeChangeAdministrator")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult RequestCodeChangeAdministrator()
+        {
+            try
+            {
+                _friendRule.RequestCodeChangeAdministrator();
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will change the house's Administrator
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ChangeAdministrator")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult ChangeAdministrator(RequestAdminActionsOnFriendJson request)
+        {
+            try
+            {
+                VerifyParameters(request);
+                _friendRule.ChangeAdministrator(request);
 
                 return Ok();
             }

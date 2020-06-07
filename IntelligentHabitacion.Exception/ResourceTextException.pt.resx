@@ -129,6 +129,9 @@
   <data name="CODE_INVALID" xml:space="preserve">
     <value>O código é inválido.</value>
   </data>
+  <data name="CODE_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Senha ou codigo de verificação inválido.</value>
+  </data>
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Solicite um código para alterar sua senha.</value>
   </data>

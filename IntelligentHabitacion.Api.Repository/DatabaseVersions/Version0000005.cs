@@ -10,6 +10,9 @@ namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
         {
             Alter.Table("User")
                 .AddColumn("PushNotificationId").AsString(2000).NotNullable();
+
+            Alter.Table("HomeAssociation")
+                .AddColumn("ExitOn").AsDateTime().Nullable();
         }
     }
 }

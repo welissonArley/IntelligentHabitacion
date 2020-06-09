@@ -143,5 +143,51 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 return HandleException(exception);
             }
         }
+
+        /// <summary>
+        /// This function will send one code to e-mail of the house's Administrator
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RequestCodeRemoveFriend")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult RequestCodeRemoveFriend()
+        {
+            try
+            {
+                _friendRule.RequestCodeRemoveFriend();
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will remove the friend
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RemoveFriend")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult RemoveFriend(RequestAdminActionsOnFriendJson request)
+        {
+            try
+            {
+                VerifyParameters(request);
+                _friendRule.RemoveFriend(request);
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
     }
 }

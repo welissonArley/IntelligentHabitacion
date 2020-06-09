@@ -42,6 +42,13 @@ namespace IntelligentHabitacion.Api.Repository.Repository
             return code;
         }
 
+        public Code GetByUserRemoveFriend(long id)
+        {
+            var code = ModelSet.FirstOrDefault(c => c.Active && c.UserId == id && c.Type == CodeType.RemoveFriend);
+            code?.Decrypt();
+            return code;
+        }
+
         public Code GetByUserResetPassword(long id)
         {
             var code = ModelSet.FirstOrDefault(c => c.Active && c.UserId == id && c.Type == CodeType.ResetPassword);

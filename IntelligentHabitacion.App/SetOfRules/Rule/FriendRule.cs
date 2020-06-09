@@ -42,6 +42,24 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _database.UpdateToken(response.Token);
         }
 
+        public async Task RemoveFriend(string code, string friendId, string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+                throw new PasswordEmptyException();
+
+            if (string.IsNullOrWhiteSpace(code))
+                throw new CodeEmptyException();
+
+            var response = await _httpClient.RemoveFriend(new RequestAdminActionsOnFriendJson
+            {
+                Code = code,
+                FriendId = friendId,
+                Password = password
+            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+        }
+
         public async Task<FriendModel> ChangeDateJoinOn(string friendId, DateTime date)
         {
             var response = await _httpClient.ChangeDateJoinHome(new RequestChangeDateJoinHomeJson
@@ -120,6 +138,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         public async Task RequestCodeToChangeAdministrator()
         {
             var response = await _httpClient.RequestCodeToChangeAdministrator(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+        }
+
+        public async Task RequestCodeToRemoveFriend()
+        {
+            var response = await _httpClient.RequestCodeToRemoveFriend(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _database.UpdateToken(response.Token);
         }

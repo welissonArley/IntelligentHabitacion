@@ -3,15 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
              x:Name="ChangeAdministratorContentPage"
-             x:Class="IntelligentHabitacion.App.View.Friends.ChangeAdministrator.ChangeAdministratorPage">
+             x:Class="IntelligentHabitacion.App.View.Friends.RemoveFriendFromHomePage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
         <customControl:LabelJustifyText>
             <customControl:LabelJustifyText.FormattedText>
                 <FormattedString>
-                    <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
-                    <Span Text=" " FontSize="22"></Span>
                     <Span FontFamily="{DynamicResource FontFamilyRalewayBold}" Text="{Binding FriendName}" TextColor="{x:StaticResource GreenDefault}" FontSize="22"></Span>
-                    <Span Text="." FontSize="22"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
                 </FormattedString>
             </customControl:LabelJustifyText.FormattedText>
         </customControl:LabelJustifyText>

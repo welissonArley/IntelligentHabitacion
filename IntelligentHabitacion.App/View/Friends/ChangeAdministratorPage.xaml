@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl" xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             x:Name="ChangeAdministratorContentPage"
+             x:Class="IntelligentHabitacion.App.View.Friends.ChangeAdministratorPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <customControl:LabelJustifyText>
+            <customControl:LabelJustifyText.FormattedText>
+                <FormattedString>
+                    <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span FontFamily="{DynamicResource FontFamilyRalewayBold}" Text="{Binding FriendName}" TextColor="{x:StaticResource GreenDefault}" FontSize="22"></Span>
+                    <Span Text="." FontSize="22"></Span>
+                </FormattedString>
+            </customControl:LabelJustifyText.FormattedText>
+        </customControl:LabelJustifyText>
+
+        <customControl:LabelJustifyText Margin="0,60,0,0" Style="{x:StaticResource LabelExtraBold}" Text="{x:Static resourceText:ResourceText.PHRASE_AREYOUSUREEXCUTETHISACTION}" FontSize="22" TextColor="{x:StaticResource RedDefault}"></customControl:LabelJustifyText>
+        
+        <StackLayout VerticalOptions="EndAndExpand">
+            <button:ConfirmDangerActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TappedButtonCommand="{Binding Path=BindingContext.ConfirmCommand, Source={x:Reference Name=ChangeAdministratorContentPage}}"></button:ConfirmDangerActionButton>
+            <Button Margin="0,50,0,0" Style="{x:StaticResource ButtonGreenDefault}" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" Command="{Binding CancelCommand}"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,5 +1,9 @@
-﻿using System.ComponentModel;
+﻿using Rg.Plugins.Popup.Extensions;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.View.Modal.MenuOptions
 {
@@ -8,22 +12,37 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
     {
         private readonly ICommand _changeDateOption;
         private readonly ICommand _changeAdministrator;
+        private readonly ICommand _removeFriendFromHome;
 
-        public AdministratorFriendDetailModal(ICommand changeDateOption, ICommand changeAdministrator)
+        public AdministratorFriendDetailModal(ICommand changeDateOption, ICommand changeAdministrator, ICommand removeFriendFromHome)
         {
             InitializeComponent();
 
             _changeDateOption = changeDateOption;
             _changeAdministrator = changeAdministrator;
+            _removeFriendFromHome = removeFriendFromHome;
         }
 
-        private void ChangeDate_Tapped(object sender, System.EventArgs e)
+        private async void ChangeDate_Tapped(object sender, System.EventArgs e)
         {
+            await CloseThisModal();
             _changeDateOption.Execute(null);
         }
-        private void ChangeAdministrator_Tapped(object sender, System.EventArgs e)
+        private async void ChangeAdministrator_Tapped(object sender, System.EventArgs e)
         {
+            await CloseThisModal();
             _changeAdministrator.Execute(null);
+        }
+        private async void RemoveFriendFromHome_Tapped(object sender, System.EventArgs e)
+        {
+            await CloseThisModal();
+            _removeFriendFromHome.Execute(null);
+        }
+
+        private async Task CloseThisModal()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PopPopupAsync();
         }
     }
 }

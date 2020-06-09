@@ -79,6 +79,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                 {
                     viewModel.Model = friend;
                     viewModel.RefreshCallback = new Command(RefreshList);
+                    viewModel.DeleteFriendCallback = new Command((friendId)=>
+                    {
+                        FriendRemoved(friendId.ToString());
+                    });
                 });
                 HideLoading();
             }
@@ -142,6 +146,16 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
             componentToEdit.Refresh();
+        }
+
+        private void FriendRemoved(string id)
+        {
+            var friend = FriendsList.First(c => c.Id.Equals(id));
+            FriendsList.Remove(friend);
+            FriendsListIsEmpty = _friendsList.Count == 0;
+            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+            OnPropertyChanged(new PropertyChangedEventArgs("FriendsListIsEmpty"));
+            Navigation.PopAsync();
         }
     }
 }

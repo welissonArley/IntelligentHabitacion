@@ -6,7 +6,6 @@ using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Friends.Add;
-using IntelligentHabitacion.App.View.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.MyFoods;
 using IntelligentHabitacion.App.View.RegisterHome;
@@ -96,6 +95,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<QrCodeToAddFriendPage, QrCodeToAddFriendViewModel>();
             ViewFactory.Register<AcceptNewFriendPage, AcceptNewFriendViewModel>();
             ViewFactory.Register<ChangeAdministratorPage, ChangeAdministratorViewModel>();
+            ViewFactory.Register<RemoveFriendFromHomePage, RemoveFriendFromHomeViewModel>();
             ViewFactory.Register<ApproveActionWithCodePasswordPage, ApproveActionWithCodePasswordViewModel>();
         }
 

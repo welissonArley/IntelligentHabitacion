@@ -79,6 +79,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to will be removed from association with Home. However, histories such as: payments, cleaning schedule, etc., will be stored for future consultations..
+        /// </summary>
+        internal static string DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The new member must go to the app, click on “Join a home” and read the QR Code below :).
         /// </summary>
         internal static string DESCRIPTION_ADDING_FRIEND {

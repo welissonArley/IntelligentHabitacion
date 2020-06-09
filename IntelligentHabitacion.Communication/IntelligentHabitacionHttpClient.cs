@@ -246,6 +246,24 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
+        public async Task<ResponseJson> RequestCodeToRemoveFriend(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Friend/RequestCodeRemoveFriend", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
+        }
+        public async Task<ResponseJson> RemoveFriend(RequestAdminActionsOnFriendJson request, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/RemoveFriend", request, token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
+        }
         #endregion
 
         #region MyFood

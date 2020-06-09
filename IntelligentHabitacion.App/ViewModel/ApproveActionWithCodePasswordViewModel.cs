@@ -7,7 +7,8 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public enum Action
     {
-        ChangeAdministrator = 0
+        ChangeAdministrator = 0,
+        RemoveFriend = 1
     }
 
     public class ApproveActionWithCodePasswordViewModel : BaseViewModel
@@ -18,6 +19,8 @@ namespace IntelligentHabitacion.App.ViewModel
         public string ConfirmationCode { get; set; }
         public string Password { get; set; }
         public ICommand ConfirmCommand { get; }
+
+        public ICommand FunctionCallbackCommand { get; set; }
 
         private readonly IFriendRule _friendRule;
 
@@ -41,6 +44,13 @@ namespace IntelligentHabitacion.App.ViewModel
                         {
                             await _friendRule.ChangeAdministrator(ConfirmationCode, FriendId, Password);
                             await Navigation.PopAsync();
+                        }
+                        break;
+                    case Action.RemoveFriend:
+                        {
+                            await _friendRule.RemoveFriend(ConfirmationCode, FriendId, Password);
+                            await Navigation.PopAsync();
+                            FunctionCallbackCommand?.Execute(FriendId);
                         }
                         break;
                 }

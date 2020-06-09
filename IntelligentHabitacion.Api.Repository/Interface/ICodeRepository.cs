@@ -9,5 +9,6 @@ namespace IntelligentHabitacion.Api.Repository.Interface
         Code GetByUserResetPassword(long id);
         Code GetByCode(string code);
         Code GetByUserChangeAdministrator(long id);
+        Code GetByUserRemoveFriend(long id);
     }
 }

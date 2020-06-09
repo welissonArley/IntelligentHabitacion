@@ -98,10 +98,13 @@
     <Compile Update="View\AboutThisAppPage.xaml.cs">
       <DependentUpon>AboutThisAppPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Friends\RemoveFriendFromHomePage.xaml.cs">
+      <DependentUpon>RemoveFriendFromHomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Friends\FriendDetailsPage.xaml.cs">
       <DependentUpon>FriendDetailsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\Friends\ChangeAdministrator\ChangeAdministratorPage.xaml.cs">
+    <Compile Update="View\Friends\ChangeAdministratorPage.xaml.cs">
       <DependentUpon>ChangeAdministratorPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\ApproveActionWithCodePasswordPage.xaml.cs">

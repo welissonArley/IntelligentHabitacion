@@ -96,28 +96,10 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
         public void ChangeAdministrator(RequestAdminActionsOnFriendJson request)
         {
-            var loggedUser = _loggedUser.User();
             var friendIdDecrypted = new User().DecryptedId(request.FriendId);
             var friend = _userRepository.GetById(friendIdDecrypted);
 
-            if (friend == null)
-                throw new FriendNotFoundException();
-
-            if (friend.HomeAssociation == null || friend.HomeAssociation.HomeId != loggedUser.HomeAssociation.HomeId)
-                throw new YouCannotPerformThisActionException();
-
-            if (!loggedUser.Password.Equals(_cryptography.Encrypt(request.Password)))
-                throw new CodeOrPasswordInvalidException();
-
-            var userCode = _codeRepository.GetByUserChangeAdministrator(loggedUser.Id);
-
-            if (userCode == null || !userCode.Value.Equals(request.Code.ToUpper()))
-                throw new CodeOrPasswordInvalidException();
-
-            if (userCode.CreateDate.AddMinutes(10) < DateTimeController.DateTimeNow())
-                throw new ExpiredCodeException();
-
-            _codeRepository.DeleteOnDatabase(userCode);
+            ValidateActionOnFriend(friend, request, CodeType.ChangeAdministrator);
 
             friend.HomeAssociation.Home.AdministratorId = friendIdDecrypted;
             var pushNotificationId = friend.PushNotificationId;
@@ -141,22 +123,88 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
         public void RequestCodeChangeAdministrator()
         {
             var loggedUser = _loggedUser.User();
+            var codeRandom = CreateCode(CodeType.ChangeAdministrator, loggedUser.Id);
+
+            _emailHelper.ChangeAdmin(loggedUser.Email, codeRandom, loggedUser.Name);
+        }
+
+        public void RequestCodeRemoveFriend()
+        {
+            var loggedUser = _loggedUser.User();
+            var codeRandom = CreateCode(CodeType.RemoveFriend, loggedUser.Id);
+
+            _emailHelper.RemoveFriend(loggedUser.Email, codeRandom, loggedUser.Name);
+        }
+
+        public void RemoveFriend(RequestAdminActionsOnFriendJson request)
+        {
+            var friendIdDecrypted = new User().DecryptedId(request.FriendId);
+            var friend = _userRepository.GetById(friendIdDecrypted);
+
+            ValidateActionOnFriend(friend, request, CodeType.RemoveFriend);
+
+            friend.HomeAssociationId = null;
+            friend.HomeAssociation.ExitOn = DateTimeController.DateTimeNow();
+            var pushNotificationId = friend.PushNotificationId;
+
+            _userRepository.Update(friend);
+
+            var titles = new Dictionary<string, string>
+            {
+                { "en", "You have been removed from Home" },
+                { "pt", "Você foi removido do Lar" }
+            };
+            var messages = new Dictionary<string, string>
+            {
+                { "en", "Good luck with your new journey 🚀" },
+                { "pt", "Boa sorte com sua nova jornada 🚀" }
+            };
+            var data = new Dictionary<string, string> { { EnumNotifications.RemovedFromHome, "1" } };
+
+            _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
+        }
+
+        private string CreateCode(CodeType codeType, long userId)
+        {
             var codeRandom = new CodeGenerator().Random6Chars();
 
-            var userCodes = _codeRepository.GetByUser(loggedUser.Id);
+            var userCodes = _codeRepository.GetByUser(userId);
             foreach (var code in userCodes)
                 _codeRepository.DeleteOnDatabase(code);
 
             _codeRepository.Create(new Code
             {
                 Active = true,
-                Type = CodeType.ChangeAdministrator,
+                Type = codeType,
                 CreateDate = DateTimeController.DateTimeNow(),
                 Value = codeRandom,
-                UserId = loggedUser.Id
+                UserId = userId
             });
 
-            _emailHelper.ChangeAdmin(loggedUser.Email, codeRandom, loggedUser.Name);
+            return codeRandom;
+        }
+        private void ValidateActionOnFriend(User friend, RequestAdminActionsOnFriendJson request, CodeType codeType)
+        {
+            var loggedUser = _loggedUser.User();
+
+            if (friend == null)
+                throw new FriendNotFoundException();
+
+            if (friend.HomeAssociation == null || friend.HomeAssociation.HomeId != loggedUser.HomeAssociation.HomeId)
+                throw new YouCannotPerformThisActionException();
+
+            if (!loggedUser.Password.Equals(_cryptography.Encrypt(request.Password)))
+                throw new CodeOrPasswordInvalidException();
+
+            var userCode = codeType == CodeType.ChangeAdministrator ? _codeRepository.GetByUserChangeAdministrator(loggedUser.Id) : _codeRepository.GetByUserRemoveFriend(loggedUser.Id);
+
+            if (userCode == null || !userCode.Value.Equals(request.Code.ToUpper()))
+                throw new CodeOrPasswordInvalidException();
+
+            if (userCode.CreateDate.AddMinutes(10) < DateTimeController.DateTimeNow())
+                throw new ExpiredCodeException();
+
+            _codeRepository.DeleteOnDatabase(userCode);
         }
     }
 }

@@ -7,7 +7,8 @@ namespace IntelligentHabitacion.Api.Repository.Model
     {
         ResetPassword = 1,
         AddFriend = 2,
-        ChangeAdministrator = 3
+        ChangeAdministrator = 3,
+        RemoveFriend = 4
     }
 
     [Table("Code")]

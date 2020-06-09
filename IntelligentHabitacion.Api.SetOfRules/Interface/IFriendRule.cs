@@ -11,5 +11,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
         void NotifyOrderHasArrived(string friendId);
         void ChangeAdministrator(RequestAdminActionsOnFriendJson request);
         void RequestCodeChangeAdministrator();
+        void RequestCodeRemoveFriend();
+        void RemoveFriend(RequestAdminActionsOnFriendJson request);
     }
 }

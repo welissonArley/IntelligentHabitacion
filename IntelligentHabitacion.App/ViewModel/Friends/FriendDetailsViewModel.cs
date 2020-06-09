@@ -24,9 +24,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
 
         private ICommand ChangeDateJoinOnCommand { set; get; }
         private ICommand ChangeAdministratorCommand { set; get; }
+        private ICommand RemoveFriendFromHomeCommand { set; get; }
 
         public FriendModel Model { get; set; }
         public ICommand RefreshCallback { get; set; }
+        public ICommand DeleteFriendCallback { get; set; }
 
         public FriendDetailsViewModel(IFriendRule friendRule)
         {
@@ -47,6 +49,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             {
                 await ChangeAdministrator();
             });
+            RemoveFriendFromHomeCommand = new Command(async () =>
+            {
+                await RemoveFriendFromHome();
+            });
 
             NotifyFriendOrderHasArrivedCommand = new Command(async() =>
             {
@@ -66,14 +72,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private async Task ShowAdministratorOptions()
         {
             var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new AdministratorFriendDetailModal(ChangeDateJoinOnCommand, ChangeAdministratorCommand));
+            await navigation.PushPopupAsync(new AdministratorFriendDetailModal(ChangeDateJoinOnCommand, ChangeAdministratorCommand, RemoveFriendFromHomeCommand));
         }
 
         private async Task ChangeDateOption()
         {
-            var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PopAllPopupAsync();
             await ShowLoading();
+            var navigation = Resolver.Resolve<INavigation>();
             await navigation.PushPopupAsync(new Calendar(Model.JoinedOn, OnDateSelected, maximumDate: DateTime.Today));
             HideLoading();
         }
@@ -81,13 +86,30 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PopAllPopupAsync();
                 await ShowLoading();
                 await Navigation.PushAsync<ChangeAdministratorViewModel>((viewModel, page) =>
                 {
                     viewModel.FriendName = Model.Name;
                     viewModel.FriendId = Model.Id;
+                });
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+        private async Task RemoveFriendFromHome()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<RemoveFriendFromHomeViewModel>((viewModel, page) =>
+                {
+                    viewModel.FriendName = Model.Name;
+                    viewModel.FriendId = Model.Id;
+                    viewModel.FunctionCallbackCommand = DeleteFriendCallback;
                 });
                 HideLoading();
             }

@@ -123,6 +123,9 @@
   <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
     <value>Ao executar este processo você está transferindo todos os privilégios de ser Admistrador para o seu amigo</value>
   </data>
+  <data name="DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME" xml:space="preserve">
+    <value>será removido da associação com a Home. Porém, históricos como por exemplo: pagamentos, cronograma de limpeza, etc, ficarão armazenados para futuras consultas.</value>
+  </data>
   <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
     <value>O novo integrante deve ir no app, clicar em “Participar de uma Lar” e ler o QR Code abaixo :)</value>
   </data>

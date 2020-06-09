@@ -1,10 +1,13 @@
 ﻿using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.Useful;
+using Rg.Plugins.Popup.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.OneSignalConfig
@@ -38,6 +41,21 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                     {
                         database.IsAdministrator();
                         RefreshHeader();
+                    }
+                    break;
+                case EnumNotifications.RemovedFromHome:
+                    {
+                        Task.Run(() => Device.BeginInvokeOnMainThread(async() =>
+                        {
+                            var navigation = Resolver.Resolve<INavigation>();
+                            var page = navigation.NavigationStack.FirstOrDefault();
+                            if (page is UserIsPartOfHomePage)
+                            {
+                                try { await navigation.PopAllPopupAsync(); } catch { }
+                                await navigation.PopToRootAsync();
+                                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                            }
+                        }));
                     }
                     break;
             }

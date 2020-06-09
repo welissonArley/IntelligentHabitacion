@@ -28,6 +28,8 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> ChangeDateJoinHome(RequestChangeDateJoinHomeJson request, string token, string language = null);
         Task<ResponseJson> NotifyFriendOrderHasArrived(string friendId, string token, string language = null);
         Task<ResponseJson> RequestCodeToChangeAdministrator(string token, string language = null);
+        Task<ResponseJson> RequestCodeToRemoveFriend(string token, string language = null);
         Task<ResponseJson> ChangeAdministrator(RequestAdminActionsOnFriendJson request, string token, string language = null);
+        Task<ResponseJson> RemoveFriend(RequestAdminActionsOnFriendJson request, string token, string language = null);
     }
 }

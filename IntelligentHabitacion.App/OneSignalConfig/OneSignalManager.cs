@@ -51,7 +51,7 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                             var page = navigation.NavigationStack.FirstOrDefault();
                             if (page is UserIsPartOfHomePage)
                             {
-                                try { await navigation.PopAllPopupAsync(); } catch { }
+                                try { await navigation.PopAllPopupAsync(); } catch { /* If one exception is throwed its beacous dont have any popup */ }
                                 await navigation.PopToRootAsync();
                                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
                             }

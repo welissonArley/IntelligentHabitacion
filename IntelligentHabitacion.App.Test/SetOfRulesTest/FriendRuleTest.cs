@@ -121,6 +121,46 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
             }
         }
 
+        [Fact]
+        public async void RequestCodeToRemoveFriendSucess()
+        {
+            try
+            {
+                await _friendRule.RequestCodeToRemoveFriend();
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
+        [Fact]
+        public async void RemoveFriendCodeEmpty()
+        {
+            await Assert.ThrowsAsync<CodeEmptyException>(() => _friendRule.RemoveFriend("", "1", "1"));
+        }
+
+        [Fact]
+        public async void RemoveFriendPasswordEmpty()
+        {
+            await Assert.ThrowsAsync<PasswordEmptyException>(() => _friendRule.RemoveFriend("1", "", ""));
+        }
+
+        [Fact]
+        public async void RemoveFriendSucess()
+        {
+            try
+            {
+                await _friendRule.RemoveFriend("1", "1", "1");
+                Assert.True(true);
+            }
+            catch
+            {
+                Assert.True(false);
+            }
+        }
+
         private IIntelligentHabitacionHttpClient GetMokIntelligentHabitacionHttpClient()
         {
             var mock = new Mock<IIntelligentHabitacionHttpClient>();
@@ -213,6 +253,16 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                 Response = null
             });
             mock.Setup(c => c.ChangeAdministrator(It.IsAny<RequestAdminActionsOnFriendJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "token",
+                Response = null
+            });
+            mock.Setup(c => c.RequestCodeToRemoveFriend(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
+            {
+                Token = "token",
+                Response = null
+            });
+            mock.Setup(c => c.RemoveFriend(It.IsAny<RequestAdminActionsOnFriendJson>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(new ResponseJson
             {
                 Token = "token",
                 Response = null

@@ -233,5 +233,59 @@ namespace IntelligentHabitacion.Api.Test.Controller
             });
             Assert.IsType<OkResult>(result);
         }
+
+        [Fact]
+        public void RemoveFriend_ExpiredCode()
+        {
+            var controller = new FriendController(new FriendFactoryFake().GetRuleLoggedUserAdministratorTokenExpired())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Friend/RemoveFriend/");
+            var result = controller.RemoveFriend(new RequestAdminActionsOnFriendJson
+            {
+                Password = "Password",
+                Code = "1234",
+                FriendId = new User() { Id = 2 }.EncryptedId()
+            });
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public void RequestCodeRemoveFriend_Error()
+        {
+            var controller = new FriendController(null)
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Friend/RemoveFriend/");
+            var result = controller.RequestCodeRemoveFriend();
+            Assert.IsType<ObjectResult>(result);
+        }
+
+        [Fact]
+        public void RequestCodeRemoveFriend_Sucess()
+        {
+            _controller.HttpContext.Request.Path = new PathString("/Friend/RemoveFriend/");
+            var result = _controller.RequestCodeRemoveFriend();
+            Assert.IsType<OkResult>(result);
+        }
+
+        [Fact]
+        public void RemoveFriend_Sucess()
+        {
+            var controller = new FriendController(new FriendFactoryFake().GetRuleLoggedUserAdministrator())
+            {
+                ControllerContext = GetHttpContext()
+            };
+            controller.HttpContext.Request.Path = new PathString("/Friend/RemoveFriend/");
+            var result = controller.RemoveFriend(new RequestAdminActionsOnFriendJson
+            {
+                Password = "Password",
+                Code = "1234",
+                FriendId = new User() { Id = 2 }.EncryptedId()
+            });
+            Assert.IsType<OkResult>(result);
+        }
     }
 }

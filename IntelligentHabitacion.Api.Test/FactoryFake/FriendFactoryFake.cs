@@ -28,6 +28,11 @@ namespace IntelligentHabitacion.Api.Test.FactoryFake
                 Value = "1234",
                 CreateDate = DateTime.UtcNow.AddHours(-8)
             });
+            mock.Setup(c => c.GetByUserRemoveFriend(1)).Returns(new Code
+            {
+                Value = "1234",
+                CreateDate = DateTime.UtcNow.AddHours(-8)
+            });
 
             return new FriendRule(GetLoggedUserAdministrator(), GetRepositoryUserAdministrator(), PushNotification(), mock.Object, EmailHelperMock(), GetCryptographyPassword());
         }

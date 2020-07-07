@@ -15,5 +15,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         Task Create(HomeModel model);
         Task<HomeModel> GetInformations();
         Task UpdateInformations(HomeModel model);
+        Task Delete(string code, string password);
+        Task RequestCodeDeleteHome();
     }
 }

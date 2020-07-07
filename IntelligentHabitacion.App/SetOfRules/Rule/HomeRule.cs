@@ -36,6 +36,17 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _database.IsAdministrator();
         }
 
+        public async Task Delete(string code, string password)
+        {
+            var response = await _httpClient.DeleteHome(new RequestAdminActionJson
+            {
+                Code = code,
+                Password = password
+            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
+        }
+
         public async Task<HomeModel> GetInformations()
         {
             var response = await _httpClient.GetHomesInformations(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
@@ -70,6 +81,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                     }
                 }
             };
+        }
+
+        public async Task RequestCodeDeleteHome()
+        {
+            var response = await _httpClient.RequestCodeToDeleteHome(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _database.UpdateToken(response.Token);
         }
 
         public async Task UpdateInformations(HomeModel model)

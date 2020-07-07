@@ -97,6 +97,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  all .
+        /// </summary>
+        internal static string DESCRIPTION_ALL {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Follow the Cleaning schedule to make the home clean and beautiful..
         /// </summary>
         internal static string DESCRIPTION_CLEAN_HOUSE {
@@ -111,6 +120,42 @@ namespace IntelligentHabitacion.App {
         internal static string DESCRIPTION_CREATE_HOME {
             get {
                 return ResourceManager.GetString("DESCRIPTION_CREATE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ATTENTION!!! Continuing with this process will result in the loss of .
+        /// </summary>
+        internal static string DESCRIPTION_DELETE_HOME_FIRST_PHRASE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_HOME_FIRST_PHRASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  possible to recover data after confirming this process..
+        /// </summary>
+        internal static string DESCRIPTION_DELETE_HOME_FOURTH_PHRASE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_HOME_FOURTH_PHRASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to information from Home, including history such as: payments, cleaning schedule, etc..
+        /// </summary>
+        internal static string DESCRIPTION_DELETE_HOME_SECOND_PHRASE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_HOME_SECOND_PHRASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember, .
+        /// </summary>
+        internal static string DESCRIPTION_DELETE_HOME_THIRD_PHRASE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_HOME_THIRD_PHRASE", resourceCulture);
             }
         }
         
@@ -1146,6 +1191,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_NEXT {
             get {
                 return ResourceManager.GetString("TITLE_NEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is not.
+        /// </summary>
+        internal static string TITLE_NOT {
+            get {
+                return ResourceManager.GetString("TITLE_NOT", resourceCulture);
             }
         }
         

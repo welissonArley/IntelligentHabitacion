@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Repository.DatabaseInformations;
 using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.Repository.Repository
@@ -24,12 +25,13 @@ namespace IntelligentHabitacion.Api.Repository.Repository
             return model;
         }
 
-        public IQueryable<MyFood> GetMyFoods(long userId)
+        public List<MyFood> GetMyFoods(long userId)
         {
             var models = IncludeModel().Where(c => c.UserId == userId);
             foreach (var model in models)
                 model.Decrypt();
-            return models;
+
+            return models.ToList();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> ChangePassword(RequestChangePasswordJson changePassword, string token, string language = null);
         Task<ResponseJson> CreateHome(RequestHomeJson registerHome, string token, string language = null);
         Task<ResponseJson> UpdateHome(RequestHomeJson registerHome, string token, string language = null);
+        Task<ResponseJson> DeleteHome(RequestAdminActionJson request, string token, string language = null);
         Task<ResponseJson> GetHomesInformations(string token, string language = null);
         Task<ResponseJson> GetHouseFriends(string token, string language = null);
         Task<ResponseJson> AddMyFood(RequestAddMyFoodJson myFood, string token, string language = null);
@@ -29,6 +30,7 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> NotifyFriendOrderHasArrived(string friendId, string token, string language = null);
         Task<ResponseJson> RequestCodeToChangeAdministrator(string token, string language = null);
         Task<ResponseJson> RequestCodeToRemoveFriend(string token, string language = null);
+        Task<ResponseJson> RequestCodeToDeleteHome(string token, string language = null);
         Task<ResponseJson> ChangeAdministrator(RequestAdminActionsOnFriendJson request, string token, string language = null);
         Task<ResponseJson> RemoveFriend(RequestAdminActionsOnFriendJson request, string token, string language = null);
     }

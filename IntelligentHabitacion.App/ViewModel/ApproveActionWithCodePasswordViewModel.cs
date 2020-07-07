@@ -8,7 +8,8 @@ namespace IntelligentHabitacion.App.ViewModel
     public enum Action
     {
         ChangeAdministrator = 0,
-        RemoveFriend = 1
+        RemoveFriend = 1,
+        DeleteHome = 2
     }
 
     public class ApproveActionWithCodePasswordViewModel : BaseViewModel
@@ -23,10 +24,12 @@ namespace IntelligentHabitacion.App.ViewModel
         public ICommand FunctionCallbackCommand { get; set; }
 
         private readonly IFriendRule _friendRule;
+        private readonly IHomeRule _homeRule;
 
-        public ApproveActionWithCodePasswordViewModel(IFriendRule friendRule)
+        public ApproveActionWithCodePasswordViewModel(IFriendRule friendRule, IHomeRule homeRule)
         {
             _friendRule = friendRule;
+            _homeRule = homeRule;
             ConfirmCommand = new Command(async () =>
             {
                 await Confirm();
@@ -53,6 +56,12 @@ namespace IntelligentHabitacion.App.ViewModel
                             FunctionCallbackCommand?.Execute(FriendId);
                         }
                         break;
+                    case Action.DeleteHome:
+                        {
+                            await _homeRule.Delete(ConfirmationCode, Password);
+                            FunctionCallbackCommand?.Execute(null);
+                        }
+                        break;
                 }
                 HideLoading();
             }
@@ -61,7 +70,6 @@ namespace IntelligentHabitacion.App.ViewModel
                 HideLoading();
                 await Exception(exeption);
             }
-            
         }
     }
 }

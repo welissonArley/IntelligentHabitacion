@@ -29,7 +29,7 @@
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.NetWork.Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
 
                 <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding UpdateInformationsTapped}"></Button>
-                <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_HOME}" IsVisible="{Binding IsAdministrator}"></templateButton:DeleteButton>
+                <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_HOME}" IsVisible="{Binding IsAdministrator}" TappedButtonCommand="{Binding DeleteHomeTapped}"></templateButton:DeleteButton>
             </StackLayout>
         </ScrollView>
     </StackLayout>

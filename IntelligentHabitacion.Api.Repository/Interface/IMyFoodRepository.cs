@@ -1,11 +1,11 @@
 ﻿using IntelligentHabitacion.Api.Repository.Model;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace IntelligentHabitacion.Api.Repository.Interface
 {
     public interface IMyFoodRepository : IBaseRepository<MyFood>
     {
-        IQueryable<MyFood> GetMyFoods(long userId);
+        List<MyFood> GetMyFoods(long userId);
         MyFood GetMyFood(long foodId, long userId);
     }
 }

@@ -97,6 +97,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<ChangeAdministratorPage, ChangeAdministratorViewModel>();
             ViewFactory.Register<RemoveFriendFromHomePage, RemoveFriendFromHomeViewModel>();
             ViewFactory.Register<ApproveActionWithCodePasswordPage, ApproveActionWithCodePasswordViewModel>();
+            ViewFactory.Register<DeleteHomePage, DeleteHomeViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

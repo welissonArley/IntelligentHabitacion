@@ -95,5 +95,12 @@ namespace IntelligentHabitacion.App.SQLite
             user.HasOrder = false;
             _dataBase.Update(user);
         }
+
+        public void IsNotPartOfHome()
+        {
+            UserSqlite user = GetWithoutDencryptToken();
+            user.IsPartOfOneHome = false;
+            _dataBase.Update(user);
+        }
     }
 }

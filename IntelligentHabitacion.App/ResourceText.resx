@@ -129,11 +129,26 @@
   <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
     <value>The new member must go to the app, click on “Join a home” and read the QR Code below :)</value>
   </data>
+  <data name="DESCRIPTION_ALL" xml:space="preserve">
+    <value> all </value>
+  </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Follow the Cleaning schedule to make the home clean and beautiful.</value>
   </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_FIRST_PHRASE" xml:space="preserve">
+    <value>ATTENTION!!! Continuing with this process will result in the loss of </value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_FOURTH_PHRASE" xml:space="preserve">
+    <value> possible to recover data after confirming this process.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_SECOND_PHRASE" xml:space="preserve">
+    <value>information from Home, including history such as: payments, cleaning schedule, etc.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_THIRD_PHRASE" xml:space="preserve">
+    <value>Remember, </value>
   </data>
   <data name="DESCRIPTION_FINANCES" xml:space="preserve">
     <value>Track your household income and expenses.</value>
@@ -479,6 +494,9 @@
   </data>
   <data name="TITLE_NEXT" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="TITLE_NOT" xml:space="preserve">
+    <value>is not</value>
   </data>
   <data name="TITLE_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
     <value>Notify that an order has arrived :)</value>

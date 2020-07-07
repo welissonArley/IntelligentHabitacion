@@ -56,7 +56,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("Informations")]
         [ProducesResponseType(typeof(ResponseHomeInformationsJson), StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserAttribute))]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public IActionResult Informations()
         {
             try
@@ -85,6 +85,50 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(updateHomeJson);
                 _homeRule.Update(updateHomeJson);
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will send one code to e-mail of the house's Administrator
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RequestCodeDeleteHome")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult RequestCodeDeleteHome()
+        {
+            try
+            {
+                _homeRule.RequestCodeDeleteHome();
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will delete the Home
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("Delete")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public IActionResult Delete(RequestAdminActionJson request)
+        {
+            try
+            {
+                VerifyParameters(request);
+                _homeRule.Delete(request);
                 return Ok();
             }
             catch (System.Exception exception)

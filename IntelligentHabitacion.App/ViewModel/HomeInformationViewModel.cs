@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel
     {
         private string _currentZipCode;
         private readonly IHomeRule _homeRule;
-
+        
         public bool IsAdministrator { get; set; }
 
         public HomeModel Model { get; set; }
@@ -19,12 +19,14 @@ namespace IntelligentHabitacion.App.ViewModel
         public System.EventHandler<FocusEventArgs> ZipCodeChangedUnfocused { get; set; }
 
         public ICommand UpdateInformationsTapped { get; }
+        public ICommand DeleteHomeTapped { get; }
 
         public HomeInformationViewModel(IHomeRule homeRule, ISqliteDatabase database)
         {
             IsAdministrator = database.Get().IsAdministrator;
             _homeRule = homeRule;
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
+            DeleteHomeTapped = new Command(async () => await ClickDeleteHome());
             ZipCodeChangedUnfocused += async (sender, e) =>
             {
                 await VerifyZipCode();
@@ -40,6 +42,19 @@ namespace IntelligentHabitacion.App.ViewModel
                 await ShowLoading();
                 await _homeRule.UpdateInformations(Model);
                 await Navigation.PopAsync();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+        private async Task ClickDeleteHome()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<DeleteHomeViewModel>();
                 HideLoading();
             }
             catch (System.Exception exeption)

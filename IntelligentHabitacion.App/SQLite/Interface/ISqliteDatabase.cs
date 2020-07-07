@@ -12,6 +12,7 @@ namespace IntelligentHabitacion.App.SQLite.Interface
         void IsAdministrator();
         void IsNotAdministrator();
         void IsPartOfHome();
+        void IsNotPartOfHome();
         void ReceivedOrder();
         void GotTheOrder();
     }

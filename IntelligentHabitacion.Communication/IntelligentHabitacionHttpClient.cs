@@ -198,6 +198,24 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
+        public async Task<ResponseJson> DeleteHome(RequestAdminActionJson request, string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Delete, $"{UrlIntelligentHabitacionApi}/Home/Delete", request, token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
+        }
+        public async Task<ResponseJson> RequestCodeToDeleteHome(string token, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/Home/RequestCodeDeleteHome", token: token, language: language);
+            return new ResponseJson
+            {
+                Response = null,
+                Token = GetToken(response)
+            };
+        }
         #endregion
 
         #region Friends

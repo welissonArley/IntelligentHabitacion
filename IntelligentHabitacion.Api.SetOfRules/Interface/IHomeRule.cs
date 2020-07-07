@@ -8,5 +8,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
         void Register(RequestHomeJson registerHomeJson);
         ResponseHomeInformationsJson GetInformations();
         void Update(RequestHomeJson updateHomeJson);
+        void Delete(RequestAdminActionJson request);
+        void RequestCodeDeleteHome();
     }
 }

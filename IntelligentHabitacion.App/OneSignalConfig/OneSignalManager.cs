@@ -44,9 +44,11 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                     }
                     break;
                 case EnumNotifications.RemovedFromHome:
-                    {
+                case EnumNotifications.HomeDeleted:
+                {
                         Task.Run(() => Device.BeginInvokeOnMainThread(async() =>
                         {
+                            database.IsNotPartOfHome();
                             var navigation = Resolver.Resolve<INavigation>();
                             var page = navigation.NavigationStack.FirstOrDefault();
                             if (page is UserIsPartOfHomePage)

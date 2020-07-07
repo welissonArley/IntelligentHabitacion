@@ -110,6 +110,9 @@
     <Compile Update="View\ApproveActionWithCodePasswordPage.xaml.cs">
       <DependentUpon>ApproveActionWithCodePasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\DeleteHomePage.xaml.cs">
+      <DependentUpon>DeleteHomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
       <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
     </Compile>

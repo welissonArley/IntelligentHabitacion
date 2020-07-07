@@ -10,5 +10,6 @@ namespace IntelligentHabitacion.Api.Repository.Interface
         Code GetByCode(string code);
         Code GetByUserChangeAdministrator(long id);
         Code GetByUserRemoveFriend(long id);
+        Code GetByUserDeleteHome(long id);
     }
 }

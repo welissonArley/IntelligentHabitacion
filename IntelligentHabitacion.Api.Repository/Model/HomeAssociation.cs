@@ -15,7 +15,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
 
         public override void Decrypt()
         {
-            Home.Decrypt();
+            Home?.Decrypt();
         }
 
         public override void Encrypt()

@@ -117,6 +117,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                 await navigation.PushPopupAsync(new ErrorModal(ResourceTextException.MONTHLYRENT_INVALID));
             else
             {
+                await ShowLoading();
                 await _webSocketAddFriendConnection.ApproveFriendCandidate(new Command(async () =>
                 {
                     await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
@@ -131,6 +132,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
                     JoinedOn = Model.EntryDate,
                     MonthlyRent = Model.MonthlyRent
                 });
+                HideLoading();
             }
         }
 

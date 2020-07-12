@@ -186,6 +186,9 @@
     <PackageReference Include="Xamarin.Forms.InputKit">
       <Version>3.3.1</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Plugins.Clipboard">
+      <Version>2.2.1</Version>
+    </PackageReference>
     <PackageReference Include="XLabs.IoC.TinyIoC">
       <Version>2.0.5782</Version>
     </PackageReference>
@@ -449,5 +452,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IconOrderHasArrived%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCopy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCopy%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCopy%403x.png" />
   </ItemGroup>
 </Project>

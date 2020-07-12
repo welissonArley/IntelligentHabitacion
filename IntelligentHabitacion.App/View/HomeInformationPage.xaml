@@ -26,7 +26,14 @@
                 </StackLayout>
                 
                 <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.NetWork.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NETWORK_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
-                <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.NetWork.Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <StackLayout Spacing="0" Orientation="Horizontal">
+                    <templateInputTextWithLabel:InputTextWithLabelComponent IconNet="True" IsEnabled="{Binding IsAdministrator}" PropertyToBindindEntry="Model.NetWork.Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False" HorizontalOptions="FillAndExpand"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                    <Image HorizontalOptions="End" Source="IconCopy" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CopyWifiPasswordTapped}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
 
                 <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding UpdateInformationsTapped}"></Button>
                 <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_HOME}" IsVisible="{Binding IsAdministrator}" TappedButtonCommand="{Binding DeleteHomeTapped}"></templateButton:DeleteButton>

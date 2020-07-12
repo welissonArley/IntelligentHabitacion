@@ -49,6 +49,14 @@ namespace IntelligentHabitacion.App.ViewModel
             _loadingContentView = null;
         }
 
+        protected async Task ShowQuickInformation(string message)
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PushPopupAsync(new QuickInformationModal(message));
+            await Task.Delay(1100);
+            await navigation.PopPopupAsync();
+        }
+
         #region Exceptions
 
         private async Task TargetInvocationException(System.Reflection.TargetInvocationException targetInvocationException, INavigation navigation)

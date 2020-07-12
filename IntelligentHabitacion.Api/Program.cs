@@ -11,10 +11,9 @@ namespace IntelligentHabitacion.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="args"></param>
-        public static void Main(string[] args)
+        public static void Main()
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(new string[0]).Build().Run();
         }
 
         /// <summary>

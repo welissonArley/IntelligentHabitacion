@@ -177,6 +177,9 @@
   <data name="FORMAT_DATE" xml:space="preserve">
     <value>MMMM dd, yyyy</value>
   </data>
+  <data name="INFORMATION_PASSWORD_COPIED_SUCCESSFULLY" xml:space="preserve">
+    <value>Password copied successfully</value>
+  </data>
   <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
     <value>must be fun and organized</value>
   </data>

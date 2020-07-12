@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SQLite.Interface;
+using Plugin.Clipboard;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -20,6 +21,7 @@ namespace IntelligentHabitacion.App.ViewModel
 
         public ICommand UpdateInformationsTapped { get; }
         public ICommand DeleteHomeTapped { get; }
+        public ICommand CopyWifiPasswordTapped { get; }
 
         public HomeInformationViewModel(IHomeRule homeRule, ISqliteDatabase database)
         {
@@ -27,6 +29,7 @@ namespace IntelligentHabitacion.App.ViewModel
             _homeRule = homeRule;
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
             DeleteHomeTapped = new Command(async () => await ClickDeleteHome());
+            CopyWifiPasswordTapped = new Command(async () => await ClickCopyWifiPassword());
             ZipCodeChangedUnfocused += async (sender, e) =>
             {
                 await VerifyZipCode();
@@ -35,6 +38,14 @@ namespace IntelligentHabitacion.App.ViewModel
             _currentZipCode = Model.ZipCode;
         }
 
+        private async Task ClickCopyWifiPassword()
+        {
+            if (!string.IsNullOrWhiteSpace(Model.NetWork.Password))
+            {
+                CrossClipboard.Current.SetText(Model.NetWork.Password);
+                await ShowQuickInformation(ResourceText.INFORMATION_PASSWORD_COPIED_SUCCESSFULLY);
+            }
+        }
         private async Task ClickUpdateInformations()
         {
             try

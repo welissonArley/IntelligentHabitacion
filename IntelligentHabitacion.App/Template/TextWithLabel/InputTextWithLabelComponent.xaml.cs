@@ -94,6 +94,7 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
         public string PlaceHolderText { set { Input.Placeholder = value; } get { return Input.Placeholder; } }
         public Keyboard Keyboard { set { Input.Keyboard = value; } get { return Input.Keyboard; } }
         public bool IsPassword { set { Input.IsPassword = value; } get { return Input.IsPassword; } }
+        public bool IconNet { set { Input.IconNet = value; } get { return Input.IconNet; } }
 
         public InputTextWithLabelComponent()
         {

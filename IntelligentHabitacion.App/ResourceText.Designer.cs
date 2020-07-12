@@ -241,6 +241,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password copied successfully.
+        /// </summary>
+        internal static string INFORMATION_PASSWORD_COPIED_SUCCESSFULLY {
+            get {
+                return ResourceManager.GetString("INFORMATION_PASSWORD_COPIED_SUCCESSFULLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to must be fun and organized.
         /// </summary>
         internal static string MUST_BE_FUN_AND_ORGANIZED {

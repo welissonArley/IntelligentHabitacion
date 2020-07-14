@@ -52,6 +52,7 @@ namespace IntelligentHabitacion.App.ViewModel
             {
                 await ShowLoading();
                 await _homeRule.UpdateInformations(Model);
+                HideLoading();
                 await Navigation.PopAsync();
             }
             catch (System.Exception exeption)

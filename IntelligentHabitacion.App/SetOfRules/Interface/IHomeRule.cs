@@ -10,6 +10,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void ValidadeCity(string city);
         void ValidadeAdress(string address);
         void ValidadeNumber(string number);
+        void ValidadeDeadlinePaymentRent(short? deadline);
         void ValidadeNeighborhood(string neighborhood);
         void ValidadeNetWorkInformation(string name, string password);
         Task Create(HomeModel model);

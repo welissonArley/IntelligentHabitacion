@@ -207,6 +207,9 @@
   <data name="PLACEHOLDER_CURRENT_PASSWORD" xml:space="preserve">
     <value>Current password</value>
   </data>
+  <data name="PLACEHOLDER_DEADLINE_PAYMENT_RENT" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="PLACEHOLDER_DUE_DATE" xml:space="preserve">
     <value>Due date</value>
   </data>
@@ -389,6 +392,12 @@
   </data>
   <data name="TITLE_DAYS" xml:space="preserve">
     <value>days</value>
+  </data>
+  <data name="TITLE_DEADLINE_PAYMENT_RENT" xml:space="preserve">
+    <value>Almost finished ... What is the deadline for paying the rent?</value>
+  </data>
+  <data name="TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS" xml:space="preserve">
+    <value>Deadline for rent payment:</value>
   </data>
   <data name="TITLE_DECLINED" xml:space="preserve">
     <value>Declined!</value>

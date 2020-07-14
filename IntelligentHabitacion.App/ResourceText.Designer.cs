@@ -331,6 +331,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 10.
+        /// </summary>
+        internal static string PLACEHOLDER_DEADLINE_PAYMENT_RENT {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_DEADLINE_PAYMENT_RENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Due date.
         /// </summary>
         internal static string PLACEHOLDER_DUE_DATE {
@@ -876,6 +885,24 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_DAYS {
             get {
                 return ResourceManager.GetString("TITLE_DAYS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Almost finished ... What is the deadline for paying the rent?.
+        /// </summary>
+        internal static string TITLE_DEADLINE_PAYMENT_RENT {
+            get {
+                return ResourceManager.GetString("TITLE_DEADLINE_PAYMENT_RENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deadline for rent payment:.
+        /// </summary>
+        internal static string TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS", resourceCulture);
             }
         }
         

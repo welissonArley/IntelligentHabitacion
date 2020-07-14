@@ -33,6 +33,7 @@ namespace IntelligentHabitacion.Api.Validators
                     context.AddFailure(ex.Message);
                 }
             });
+            RuleFor(x => x.DeadlinePaymentRent).Must(c => c >= 1 && c <= 28).WithMessage(ResourceTextException.DEADLINE_FOR_PAYMENT_OF_RENT_INVALID);
         }
     }
 }

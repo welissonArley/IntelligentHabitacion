@@ -22,6 +22,7 @@ namespace IntelligentHabitacion.Api.Repository.Model
         public string Number { get; set; }
         public string Complement { get; set; }
         public string Neighborhood { get; set; }
+        public short DeadlinePaymentRent { get; set; }
         public string NetworksName { get; set; }
         public string NetworksPassword { get; set; }
         public long AdministratorId { get; set; }

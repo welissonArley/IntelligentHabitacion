@@ -81,6 +81,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestNumberPage, RequestNumberViewModel>();
             ViewFactory.Register<RequestComplementPage, RequestComplementViewModel>();
             ViewFactory.Register<RequestNeighborhoodPage, RequestNeighborhoodViewModel>();
+            ViewFactory.Register<RequestDeadlinePaymentRentPage, RequestDeadlinePaymentRentViewModel>();
             ViewFactory.Register<RequestNetworkInformationPage, RequestNetworkInformationViewModel>();
             ViewFactory.Register<UpdateUserInformationPage, UpdateUserInformationViewModel>();
             ViewFactory.Register<ConfirmDeleteAccountPage, ConfirmDeleteAccountViewModel>();

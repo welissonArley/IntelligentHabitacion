@@ -160,6 +160,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The deadline for payment of rent must be between days 1 and 28..
+        /// </summary>
+        public static string DEADLINE_FOR_PAYMENT_OF_RENT_INVALID {
+            get {
+                return ResourceManager.GetString("DEADLINE_FOR_PAYMENT_OF_RENT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This email address has already been registered..
         /// </summary>
         public static string EMAIL_ALREADYBEENREGISTERED {

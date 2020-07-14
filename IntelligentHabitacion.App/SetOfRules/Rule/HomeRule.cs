@@ -29,6 +29,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidadeNeighborhood(model.Neighborhood);
             ValidadeNetWorkInformation(model.NetWork.Name, model.NetWork.Password);
             ValidadeNumber(model.Number);
+            ValidadeDeadlinePaymentRent(model.DeadlinePaymentRent);
 
             var response = await _httpClient.CreateHome(CreateRequestHomeJson(model), _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
@@ -62,6 +63,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Neighborhood = homeInformations.Neighborhood,
                 Number = homeInformations.Number,
                 ZipCode = homeInformations.ZipCode,
+                DeadlinePaymentRent = homeInformations.DeadlinePaymentRent,
                 NetWork = new WifiNetworkModel
                 {
                     Name = homeInformations.NetWork.Name,
@@ -97,6 +99,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidadeNeighborhood(model.Neighborhood);
             ValidadeNetWorkInformation(model.NetWork.Name, model.NetWork.Password);
             ValidadeNumber(model.Number);
+            ValidadeDeadlinePaymentRent(model.DeadlinePaymentRent);
 
             var response = await _httpClient.UpdateHome(CreateRequestHomeJson(model), _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
@@ -113,6 +116,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             if (string.IsNullOrWhiteSpace(city))
                 throw new CityEmptyException();
+        }
+
+        public void ValidadeDeadlinePaymentRent(short? deadline)
+        {
+            if(!deadline.HasValue || !(deadline >= 1 && deadline <= 28))
+                throw new DeadlinePaymentRentException();
         }
 
         public void ValidadeNeighborhood(string neighborhood)
@@ -180,7 +189,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Neighborhood = model.Neighborhood,
                 NetworksName = model.NetWork.Name,
                 NetworksPassword = model.NetWork.Password,
-                Number = model.Number
+                Number = model.Number,
+                DeadlinePaymentRent = model.DeadlinePaymentRent.Value
             };
         }
     }

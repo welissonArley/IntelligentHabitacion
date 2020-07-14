@@ -8,6 +8,7 @@
         public string Number { get; set; }
         public string Complement { get; set; }
         public string Neighborhood { get; set; }
+        public short DeadlinePaymentRent { get; set; }
         public ResponseStateJson State { get; set; }
         public ResponseWifiNetworkJson NetWork { get; set; }
     }

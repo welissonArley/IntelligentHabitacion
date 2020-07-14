@@ -159,6 +159,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             homeModel.NetworksPassword = updateHomeJson.NetworksPassword;
             homeModel.Number = updateHomeJson.Number;
             homeModel.ZipCode = updateHomeJson.ZipCode;
+            homeModel.DeadlinePaymentRent = updateHomeJson.DeadlinePaymentRent;
 
             var validation = new HomeValidator().Validate(homeModel);
 

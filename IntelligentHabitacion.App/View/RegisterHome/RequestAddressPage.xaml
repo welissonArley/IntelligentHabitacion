@@ -13,6 +13,7 @@
             <templateStep:IncompleteStep></templateStep:IncompleteStep>
             <templateStep:IncompleteStep></templateStep:IncompleteStep>
             <templateStep:IncompleteStep></templateStep:IncompleteStep>
+            <templateStep:IncompleteStep></templateStep:IncompleteStep>
             <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
         </StackLayout>
 

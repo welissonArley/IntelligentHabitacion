@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 {
-    public class RequestNeighborhoodViewModel : BaseViewModel
+    public class RequestDeadlinePaymentRentViewModel : BaseViewModel
     {
         private readonly IHomeRule _homeRule;
 
@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
 
         public HomeModel Model { get; set; }
 
-        public RequestNeighborhoodViewModel(IHomeRule homeRule)
+        public RequestDeadlinePaymentRentViewModel(IHomeRule homeRule)
         {
             _homeRule = homeRule;
             NextCommand = new Command(async () => await OnNext());
@@ -24,8 +24,8 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
         {
             try
             {
-                _homeRule.ValidadeNeighborhood(Model.Neighborhood);
-                await Navigation.PushAsync<RequestDeadlinePaymentRentViewModel>((viewModel, page) => viewModel.Model = Model);
+                _homeRule.ValidadeDeadlinePaymentRent(Model.DeadlinePaymentRent);
+                await Navigation.PushAsync<RequestNetworkInformationViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {

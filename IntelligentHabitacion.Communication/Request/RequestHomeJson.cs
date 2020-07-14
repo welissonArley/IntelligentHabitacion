@@ -10,6 +10,7 @@
         public string Neighborhood { get; set; }
         public string NetworksName { get; set; }
         public string NetworksPassword { get; set; }
+        public short DeadlinePaymentRent { get; set; }
     }
 
     public class RequestRegisterCityJson

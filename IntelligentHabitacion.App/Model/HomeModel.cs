@@ -40,6 +40,7 @@ namespace IntelligentHabitacion.App.Model
                 OnPropertyChanged(new PropertyChangedEventArgs("Neighborhood"));
             }
         }
+        public short? DeadlinePaymentRent { get; set; }
         public WifiNetworkModel NetWork { get; set; }
     }
 }

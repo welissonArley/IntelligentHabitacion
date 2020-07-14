@@ -19,6 +19,7 @@ namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
                 .WithColumn("Number").AsString().NotNullable()
                 .WithColumn("Complement").AsString().Nullable()
                 .WithColumn("Neighborhood").AsString().NotNullable()
+                .WithColumn("DeadlinePaymentRent").AsInt16().NotNullable()
                 .WithColumn("NetworksName").AsString().Nullable()
                 .WithColumn("NetworksPassword").AsString().Nullable()
                 .WithColumn("AdministratorId").AsInt64().NotNullable().ForeignKey("FK_Home_User_Id", "User", "Id");

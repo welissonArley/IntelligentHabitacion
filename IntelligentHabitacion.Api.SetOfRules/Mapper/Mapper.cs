@@ -61,7 +61,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 NetworksName = registerHomeJson.NetworksName,
                 NetworksPassword = registerHomeJson.NetworksPassword,
                 Number = registerHomeJson.Number,
-                ZipCode = registerHomeJson.ZipCode
+                ZipCode = registerHomeJson.ZipCode,
+                DeadlinePaymentRent = registerHomeJson.DeadlinePaymentRent
             };
         }
         public MyFood MapperJsonToModel(RequestAddMyFoodJson model)
@@ -131,6 +132,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Neighborhood = model.Neighborhood,
                 Number = model.Number,
                 ZipCode = model.ZipCode,
+                DeadlinePaymentRent = model.DeadlinePaymentRent,
                 NetWork = new ResponseWifiNetworkJson
                 {
                     Name = model.NetworksName,

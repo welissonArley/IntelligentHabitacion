@@ -61,6 +61,33 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This application was created with the intention of making life easier for people who share an apartment with friends..
+        /// </summary>
+        internal static string ABOUT_APP_FIRST_PART {
+            get {
+                return ResourceManager.GetString("ABOUT_APP_FIRST_PART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The App will assist in organizing and sending notifications for important matters, such as: notifications to remember the cleaning schedule; on the payment of the rent; notice of receipt of orders, and others..
+        /// </summary>
+        internal static string ABOUT_APP_SECOND_PART {
+            get {
+                return ResourceManager.GetString("ABOUT_APP_SECOND_PART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With an easy and creative design, I hope it will be useful for your home :).
+        /// </summary>
+        internal static string ABOUT_APP_THIRD_PART {
+            get {
+                return ResourceManager.GetString("ABOUT_APP_THIRD_PART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Because live with friends.
         /// </summary>
         internal static string BECAUSE_LIVE_WITH_FRIENDS {
@@ -1056,6 +1083,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_HOME_SWEET_HOME {
             get {
                 return ResourceManager.GetString("TITLE_HOME_SWEET_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon sources and Illustrations used:.
+        /// </summary>
+        internal static string TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS", resourceCulture);
             }
         }
         

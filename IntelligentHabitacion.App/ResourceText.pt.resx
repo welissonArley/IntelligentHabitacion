@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ABOUT_APP_FIRST_PART" xml:space="preserve">
+    <value>Este aplicativo foi criado com  a intenção de facilitar a vida de pessoas que dividem um apartamento com amigos.</value>
+  </data>
+  <data name="ABOUT_APP_SECOND_PART" xml:space="preserve">
+    <value>O App vai auxiliar na organização e enviar notificações para assuntos importantes, tais como: notificações para lembrar do cronograma de limpeza; sobre o pagamento do aluguel; aviso do recebimento de encomendas, entre outros.</value>
+  </data>
+  <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
+    <value>Com um design fácil e criativo, espero que seja útil para seu lar :)</value>
+  </data>
   <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
     <value>Porque morar com os amigos</value>
   </data>
@@ -449,6 +458,9 @@
   </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
+  </data>
+  <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
+    <value>Fontes dos icones e Ilustrações utilizadas:</value>
   </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>É triste ver você partir :((</value>

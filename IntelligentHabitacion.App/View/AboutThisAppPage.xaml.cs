@@ -12,6 +12,7 @@ namespace IntelligentHabitacion.App.View
         private readonly string _urlFreepick;
         private readonly string _urlUndraw;
         private readonly string _urlDrawkit;
+        private readonly string _urlPixelTrue_Tapped;
 
         public AboutThisAppPage()
         {
@@ -21,6 +22,7 @@ namespace IntelligentHabitacion.App.View
             _urlFreepick = "https://br.freepik.com";
             _urlUndraw = "https://undraw.co/illustrations";
             _urlDrawkit = "https://www.drawkit.io";
+            _urlPixelTrue_Tapped = "https://www.pixeltrue.com/free-illustrations";
         }
 
         private void Flaticon_Tapped(object sender, EventArgs e)
@@ -38,6 +40,10 @@ namespace IntelligentHabitacion.App.View
         private void Drawkit_Tapped(object sender, EventArgs e)
         {
             Launcher.OpenAsync(new Uri(_urlDrawkit));
+        }
+        private void PixelTrue_Tapped(object sender, EventArgs e)
+        {
+            Launcher.OpenAsync(new Uri(_urlPixelTrue_Tapped));
         }
     }
 }

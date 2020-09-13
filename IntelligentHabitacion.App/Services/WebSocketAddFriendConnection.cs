@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace IntelligentHabitacion.App.WebSocket
+namespace IntelligentHabitacion.App.Services
 {
     public class WebSocketAddFriendConnection
     {

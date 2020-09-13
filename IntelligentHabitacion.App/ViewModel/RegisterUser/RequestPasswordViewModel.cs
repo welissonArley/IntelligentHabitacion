@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.View;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,16 +12,16 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
     public class RequestPasswordViewModel : BaseViewModel
     {
         private readonly IUserRule _userRule;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
         public ICommand OnConcludeCommand { protected set; get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestPasswordViewModel(IUserRule userRule, ISqliteDatabase database)
+        public RequestPasswordViewModel(IUserRule userRule, UserPreferences userPreferences)
         {
             _userRule = userRule;
-            _database = database;
+            _userPreferences = userPreferences;
             OnConcludeCommand = new Command(async () => await OnConclude());
         }
 
@@ -35,15 +35,12 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
 
                 var response = await _userRule.Create(Model);
 
-                _database.Save(new SQLite.Model.UserSqlite
-                {
-                    Name = Model.Name,
-                    IsAdministrator = false,
-                    IsPartOfOneHome = false,
-                    Width = Application.Current.MainPage.Width,
-                    Token = response.Token,
-                    ProfileColor = response.Response.ToString()
-                });
+                _userPreferences.Name = Model.Name;
+                _userPreferences.IsAdministrator = false;
+                _userPreferences.IsPartOfOneHome = false;
+                _userPreferences.Width = Application.Current.MainPage.Width;
+                _userPreferences.Token = response.Token;
+                _userPreferences.ProfileColor = response.Response.ToString();
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 

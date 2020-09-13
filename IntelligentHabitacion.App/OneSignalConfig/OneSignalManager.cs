@@ -1,5 +1,5 @@
 ﻿using Com.OneSignal.Abstractions;
-using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.Useful;
@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.App.OneSignalConfig
 
         public static void Notification(OSNotification notification)
         {
-            var database = Resolver.Resolve<ISqliteDatabase>();
+            var userPreferences = Resolver.Resolve<UserPreferences>();
             var key = notification.payload.additionalData.Keys.FirstOrDefault();
             if (string.IsNullOrWhiteSpace(key))
                 return;
@@ -33,13 +33,13 @@ namespace IntelligentHabitacion.App.OneSignalConfig
             {
                 case EnumNotifications.OrderReceived:
                     {
-                        database.ReceivedOrder();
+                        userPreferences.HasOrder = true;
                         RefreshHeader();
                     }
                     break;
                 case EnumNotifications.NewAdmin:
                     {
-                        database.IsAdministrator();
+                        userPreferences.IsAdministrator = true;
                         RefreshHeader();
                     }
                     break;
@@ -48,7 +48,7 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                 {
                         Task.Run(() => Device.BeginInvokeOnMainThread(async() =>
                         {
-                            database.IsNotPartOfHome();
+                            userPreferences.IsPartOfOneHome = false;
                             var navigation = Resolver.Resolve<INavigation>();
                             var page = navigation.NavigationStack.FirstOrDefault();
                             if (page is UserIsPartOfHomePage)

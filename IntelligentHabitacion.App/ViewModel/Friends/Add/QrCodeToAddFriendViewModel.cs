@@ -1,6 +1,5 @@
-﻿using IntelligentHabitacion.App.SQLite.Interface;
+﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View.Modal;
-using IntelligentHabitacion.App.WebSocket;
 using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -23,10 +22,9 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
         public ICommand CancelOperationTapped { get; set; }
         public ICommand ApprovedOperation { get; set; }
 
-        public QrCodeToAddFriendViewModel(ISqliteDatabase database)
+        public QrCodeToAddFriendViewModel(UserPreferences userPreferences)
         {
-            var userSqlite = database.Get();
-            ProfileColor = userSqlite.ProfileColor;
+            ProfileColor = userPreferences.ProfileColor;
 
             CancelOperationTapped = new Command(async () =>
             {
@@ -52,7 +50,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
             _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, callbackTimeChanged);
-            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, userSqlite.Token)));
+            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, userPreferences.Token)));
         }
 
         private void OnCodeReceived(string code)

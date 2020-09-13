@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
@@ -65,7 +65,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private async Task MakeCall(string number)
         {
             await ShowLoading();
-            Phonecall.Make(number);
+            PhoneCall.MakeCall(number);
             HideLoading();
         }
 

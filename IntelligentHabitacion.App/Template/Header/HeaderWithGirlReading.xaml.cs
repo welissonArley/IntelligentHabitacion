@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.App.SQLite.Interface;
+﻿using IntelligentHabitacion.App.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,11 +21,10 @@ namespace IntelligentHabitacion.App.Template.Header
 
         public void FillInformations()
         {
-            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
+            var userPreferences = XLabs.Ioc.Resolver.Resolve<UserPreferences>();
 
-            var user = database.Get();
-            LabelUserName.Text = user.Name;
-            ImageKingCrown.IsVisible = user.IsAdministrator;
+            LabelUserName.Text = userPreferences.Name;
+            ImageKingCrown.IsVisible = userPreferences.IsAdministrator;
         }
     }
 }

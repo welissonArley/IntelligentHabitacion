@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -14,12 +14,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
     public class HomeRule : IHomeRule
     {
         private readonly IIntelligentHabitacionHttpClient _httpClient;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
-        public HomeRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, ISqliteDatabase database)
+        public HomeRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, UserPreferences userPreferences)
         {
             _httpClient = intelligentHabitacionHttpClient;
-            _database = database;
+            _userPreferences = userPreferences;
         }
 
         public async Task Create(HomeModel model)
@@ -31,10 +31,10 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidadeNumber(model.Number);
             ValidadeDeadlinePaymentRent(model.DeadlinePaymentRent);
 
-            var response = await _httpClient.CreateHome(CreateRequestHomeJson(model), _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.CreateHome(CreateRequestHomeJson(model), _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
-            _database.IsAdministrator();
+            _userPreferences.Token = response.Token;
+            _userPreferences.IsAdministrator = true;
         }
 
         public async Task Delete(string code, string password)
@@ -43,16 +43,16 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 Code = code,
                 Password = password
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public async Task<HomeModel> GetInformations()
         {
-            var response = await _httpClient.GetHomesInformations(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.GetHomesInformations(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
 
             var homeInformations = (ResponseHomeInformationsJson)response.Response;
 
@@ -87,9 +87,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task RequestCodeDeleteHome()
         {
-            var response = await _httpClient.RequestCodeToDeleteHome(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.RequestCodeToDeleteHome(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public async Task UpdateInformations(HomeModel model)
@@ -101,9 +101,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             ValidadeNumber(model.Number);
             ValidadeDeadlinePaymentRent(model.DeadlinePaymentRent);
 
-            var response = await _httpClient.UpdateHome(CreateRequestHomeJson(model), _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.UpdateHome(CreateRequestHomeJson(model), _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public void ValidadeAdress(string address)

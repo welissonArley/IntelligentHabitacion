@@ -1,5 +1,5 @@
-﻿using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
+﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using IntelligentHabitacion.Communication.Response;
@@ -13,7 +13,7 @@ namespace IntelligentHabitacion.App.ViewModel
     public class LoginViewModel : BaseViewModel
     {
         private readonly ILoginRule _loginRule;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
         public ICommand LoginCommand { protected set; get; }
         public ICommand RegisterCommand { protected set; get; }
@@ -22,9 +22,9 @@ namespace IntelligentHabitacion.App.ViewModel
         public string Email { get; set; }
         public string Password { get; set; }
         
-        public LoginViewModel(ILoginRule loginRule, ISqliteDatabase database)
+        public LoginViewModel(ILoginRule loginRule, UserPreferences userPreferences)
         {
-            _database = database;
+            _userPreferences = userPreferences;
             _loginRule = loginRule;
             LoginCommand = new Command(async () => await OnLogin());
             RegisterCommand = new Command(async () => await OnRegister());
@@ -41,15 +41,12 @@ namespace IntelligentHabitacion.App.ViewModel
 
                 var responseLogin = (ResponseLoginJson)response.Response;
 
-                _database.Save(new SQLite.Model.UserSqlite
-                {
-                    Name = responseLogin.Name,
-                    ProfileColor = responseLogin.ProfileColor,
-                    IsAdministrator = responseLogin.IsAdministrator,
-                    IsPartOfOneHome = responseLogin.IsPartOfOneHome,
-                    Width = Application.Current.MainPage.Width,
-                    Token = response.Token
-                });
+                _userPreferences.Name = responseLogin.Name;
+                _userPreferences.ProfileColor = responseLogin.ProfileColor;
+                _userPreferences.IsAdministrator = responseLogin.IsAdministrator;
+                _userPreferences.IsPartOfOneHome = responseLogin.IsPartOfOneHome;
+                _userPreferences.Width = Application.Current.MainPage.Width;
+                _userPreferences.Token = response.Token;
 
                 if (responseLogin.IsPartOfOneHome)
                     Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());

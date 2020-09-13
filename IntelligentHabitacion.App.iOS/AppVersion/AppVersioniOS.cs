@@ -1,11 +1,11 @@
 ﻿using Foundation;
-using IntelligentHabitacion.App.AppVersion;
 using IntelligentHabitacion.App.iOS.AppVersion;
+using IntelligentHabitacion.App.Services.Interface;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AppVersioniOS))]
 namespace IntelligentHabitacion.App.iOS.AppVersion
 {
-    public class AppVersioniOS : IVersaoApp
+    public class AppVersioniOS : IAppVersion
     {
         public string GetVersionNumber()
         {

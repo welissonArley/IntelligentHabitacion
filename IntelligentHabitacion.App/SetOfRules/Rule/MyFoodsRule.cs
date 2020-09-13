@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
@@ -13,12 +13,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
     public class MyFoodsRule : IMyFoodsRule
     {
         private readonly IIntelligentHabitacionHttpClient _httpClient;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
-        public MyFoodsRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, ISqliteDatabase database)
+        public MyFoodsRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, UserPreferences userPreferences)
         {
             _httpClient = intelligentHabitacionHttpClient;
-            _database = database;
+            _userPreferences = userPreferences;
         }
 
         public async Task<string> AddItem(FoodModel model)
@@ -32,25 +32,25 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Manufacturer = model.Manufacturer,
                 Name = model.Name,
                 Type = (Communication.Response.Type)model.Type
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
 
             return response.Response.ToString();
         }
 
         public async Task DeleteMyFood(string id)
         {
-            var response = await _httpClient.DeleteMyFood(id, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.DeleteMyFood(id, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public async Task<List<FoodModel>> GetMyFoods()
         {
-            var response = await _httpClient.GetMyFoods(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.GetMyFoods(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
 
             var responseFoods = (List<ResponseMyFoodJson>)response.Response;
 
@@ -71,9 +71,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 Id = model.Id,
                 Quantity = model.Quantity
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         private void ValidateItem(FoodModel model)
@@ -97,9 +97,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Manufacturer = model.Manufacturer,
                 Name = model.Name,
                 Type = (Communication.Response.Type)model.Type
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
     }
 }

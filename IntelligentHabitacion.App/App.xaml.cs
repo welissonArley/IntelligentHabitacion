@@ -1,7 +1,7 @@
 ﻿using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.OneSignalConfig;
-using IntelligentHabitacion.App.SQLite.Interface;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.Friends;
@@ -47,10 +47,10 @@ namespace IntelligentHabitacion.App
 
             RegisterViews();
 
-            var user = Resolver.Resolve<ISqliteDatabase>().Get();
-            if (user != null)
+            var userPreferences = Resolver.Resolve<UserPreferences>();
+            if (userPreferences.HasValue)
             {
-                if (user.IsPartOfOneHome)
+                if (userPreferences.IsPartOfOneHome)
                     MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
                 else
                     MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());

@@ -1,11 +1,11 @@
 ﻿using System;
 using Xamarin.Essentials;
 
-namespace IntelligentHabitacion.App.Useful
+namespace IntelligentHabitacion.App.Services
 {
-    public static class Phonecall
+    public class PhoneCall
     {
-        public static void Make(string number)
+        public static void MakeCall(string number)
         {
             Launcher.OpenAsync(new Uri($"tel:{number.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "")}"));
         }

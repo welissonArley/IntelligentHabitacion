@@ -1,5 +1,5 @@
-﻿using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
+﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -10,15 +10,15 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public class DeleteHomeViewModel : BaseViewModel
     {
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
         private readonly IHomeRule _homeRule;
 
         public ICommand CancelCommand { get; }
         public ICommand ConfirmCommand { get; }
 
-        public DeleteHomeViewModel(IHomeRule homeRule, ISqliteDatabase database)
+        public DeleteHomeViewModel(IHomeRule homeRule, UserPreferences userPreferences)
         {
-            _database = database;
+            _userPreferences = userPreferences;
             _homeRule = homeRule;
 
             CancelCommand = new Command(async () => await OnCancel());
@@ -50,8 +50,8 @@ namespace IntelligentHabitacion.App.ViewModel
                     {
                         await ShowLoading();
                         await Navigation.PopToRootAsync();
-                        _database.IsNotAdministrator();
-                        _database.IsNotPartOfHome();
+                        _userPreferences.IsAdministrator = false;
+                        _userPreferences.IsPartOfOneHome = false;
                         Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
                         HideLoading();
                     });

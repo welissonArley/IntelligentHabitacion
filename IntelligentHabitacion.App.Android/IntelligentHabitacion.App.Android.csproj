@@ -105,7 +105,6 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashScreenActivity.cs" />
-    <Compile Include="SQLite\SqliteDatabaseAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Raleway-Bold.ttf" />

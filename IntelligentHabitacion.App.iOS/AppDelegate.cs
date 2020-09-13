@@ -1,10 +1,6 @@
 ﻿using Com.OneSignal;
 using Foundation;
-using IntelligentHabitacion.App.iOS.SQLite;
 using IntelligentHabitacion.App.OneSignalConfig;
-using IntelligentHabitacion.App.SQLite.Interface;
-using System.Linq;
-using System.Reflection;
 using TinyIoC;
 using UIKit;
 using XLabs.Ioc;
@@ -42,8 +38,6 @@ namespace IntelligentHabitacion.App.iOS
 
                 Bootstrapper.Register(container);
                 Communication.Bootstrapper.Register(container);
-
-                container.Register<ISqliteConnection>(new SqliteDatabaseiOs());
 
                 container.Register<IDependencyContainer>(container);
 

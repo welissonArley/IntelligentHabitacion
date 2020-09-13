@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel
     public class UpdateUserInformationViewModel : BaseViewModel
     {
         private readonly IUserRule _userRule;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
         public ICommand DeleteAccountTapped { get; }
         public ICommand ChangePasswordTapped { get; }
@@ -20,9 +20,9 @@ namespace IntelligentHabitacion.App.ViewModel
 
         public UserInformationsModel Model { get; set; }
 
-        public UpdateUserInformationViewModel(IUserRule userRule, ISqliteDatabase database)
+        public UpdateUserInformationViewModel(IUserRule userRule, UserPreferences userPreferences)
         {
-            _database = database;
+            _userPreferences = userPreferences;
             _userRule = userRule;
 
             DeleteAccountTapped = new Command(async () => await ClickDeleteAccount());
@@ -61,7 +61,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                _database.Delete();
+                _userPreferences.ClearAll();
                 Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.LoginPage>());
                 await Navigation.PopToRootAsync();
             }

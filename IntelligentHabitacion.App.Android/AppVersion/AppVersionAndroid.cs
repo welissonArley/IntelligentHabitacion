@@ -1,10 +1,10 @@
-﻿using IntelligentHabitacion.App.AppVersion;
-using IntelligentHabitacion.App.Droid.AppVersion;
+﻿using IntelligentHabitacion.App.Droid.AppVersion;
+using IntelligentHabitacion.App.Services.Interface;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AppVersionAndroid))]
 namespace IntelligentHabitacion.App.Droid.AppVersion
 {
-    public class AppVersionAndroid : IVersaoApp
+    public class AppVersionAndroid : IAppVersion
     {
         public string GetVersionNumber()
         {

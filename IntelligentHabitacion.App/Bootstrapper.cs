@@ -1,7 +1,6 @@
-﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule;
-using IntelligentHabitacion.App.SQLite;
-using IntelligentHabitacion.App.SQLite.Interface;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App
@@ -10,7 +9,8 @@ namespace IntelligentHabitacion.App
     {
         public static void Register(IDependencyContainer container)
         {
-            container.Register<ISqliteDatabase, SqliteDatabase>();
+            container.Register(new UserPreferences());
+            container.Register<IFriendRule, FriendRule>();
             container.Register<IHomeRule, HomeRule>();
             container.Register<ILoginRule, LoginRule>();
             container.Register<IMyFoodsRule, MyFoodsRule>();

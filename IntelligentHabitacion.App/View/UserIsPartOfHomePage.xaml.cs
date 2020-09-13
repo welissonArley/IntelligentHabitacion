@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.App.SQLite.Interface;
+﻿using IntelligentHabitacion.App.Services;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -35,8 +35,8 @@ namespace IntelligentHabitacion.App.View
 
         private void UserGotOrder()
         {
-            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
-            database.GotTheOrder();
+            var userPreferences = XLabs.Ioc.Resolver.Resolve<UserPreferences>();
+            userPreferences.HasOrder = false;
             HeaderOrderHasArrived.IsVisible = false;
             HeaderGirlReading.IsVisible = true;
         }
@@ -45,8 +45,8 @@ namespace IntelligentHabitacion.App.View
         {
             HeaderGirlReading.FillInformations();
 
-            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
-            if (database.Get().HasOrder)
+            var userPreferences = XLabs.Ioc.Resolver.Resolve<UserPreferences>();
+            if (userPreferences.HasOrder)
             {
                 HeaderOrderHasArrived.IsVisible = true;
                 HeaderGirlReading.IsVisible = false;

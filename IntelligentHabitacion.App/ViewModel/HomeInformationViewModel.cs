@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using Plugin.Clipboard;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -23,9 +23,9 @@ namespace IntelligentHabitacion.App.ViewModel
         public ICommand DeleteHomeTapped { get; }
         public ICommand CopyWifiPasswordTapped { get; }
 
-        public HomeInformationViewModel(IHomeRule homeRule, ISqliteDatabase database)
+        public HomeInformationViewModel(IHomeRule homeRule, UserPreferences userPreferences)
         {
-            IsAdministrator = database.Get().IsAdministrator;
+            IsAdministrator = userPreferences.IsAdministrator;
             _homeRule = homeRule;
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
             DeleteHomeTapped = new Command(async () => await ClickDeleteHome());

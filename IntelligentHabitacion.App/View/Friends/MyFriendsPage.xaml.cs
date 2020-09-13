@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.App.SQLite.Interface;
+﻿using IntelligentHabitacion.App.Services;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -14,8 +14,8 @@ namespace IntelligentHabitacion.App.View.Friends
 
         protected override void OnAppearing()
         {
-            var database = XLabs.Ioc.Resolver.Resolve<ISqliteDatabase>();
-            if (!database.Get().IsAdministrator)
+            var userPreferences = XLabs.Ioc.Resolver.Resolve<UserPreferences>();
+            if (!userPreferences.IsAdministrator)
                 ButtonAddFriend.IsVisible = false;
 
             base.OnAppearing();

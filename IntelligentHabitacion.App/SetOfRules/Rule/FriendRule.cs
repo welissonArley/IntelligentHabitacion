@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -15,12 +15,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
     public class FriendRule : IFriendRule
     {
         private readonly IIntelligentHabitacionHttpClient _httpClient;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
-        public FriendRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, ISqliteDatabase database)
+        public FriendRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, UserPreferences userPreferences)
         {
             _httpClient = intelligentHabitacionHttpClient;
-            _database = database;
+            _userPreferences = userPreferences;
         }
 
         public async Task ChangeAdministrator(string code, string friendId, string password)
@@ -36,10 +36,10 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Code = code,
                 FriendId = friendId,
                 Password = password
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.IsNotAdministrator();
-            _database.UpdateToken(response.Token);
+            _userPreferences.IsAdministrator = false;
+            _userPreferences.Token = response.Token;
         }
 
         public async Task RemoveFriend(string code, string friendId, string password)
@@ -55,9 +55,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Code = code,
                 FriendId = friendId,
                 Password = password
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public async Task<FriendModel> ChangeDateJoinOn(string friendId, DateTime date)
@@ -66,9 +66,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 FriendId = friendId,
                 JoinOn = date
-            }, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
 
             var responseFriend = (ResponseFriendJson)response.Response;
 
@@ -98,9 +98,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task<List<FriendModel>> GetHouseFriends()
         {
-            var response = await _httpClient.GetHouseFriends(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.GetHouseFriends(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
 
             var responseFriends = (List<ResponseFriendJson>)response.Response;
 
@@ -130,23 +130,23 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task NotifyFriendOrderHasArrived(string friendId)
         {
-            var response = await _httpClient.NotifyFriendOrderHasArrived(friendId, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.NotifyFriendOrderHasArrived(friendId, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public async Task RequestCodeToChangeAdministrator()
         {
-            var response = await _httpClient.RequestCodeToChangeAdministrator(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.RequestCodeToChangeAdministrator(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
 
         public async Task RequestCodeToRemoveFriend()
         {
-            var response = await _httpClient.RequestCodeToRemoveFriend(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.RequestCodeToRemoveFriend(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
     }
 }

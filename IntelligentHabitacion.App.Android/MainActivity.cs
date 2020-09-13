@@ -3,11 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Com.OneSignal;
-using IntelligentHabitacion.App.Droid.SQLite;
 using IntelligentHabitacion.App.OneSignalConfig;
-using IntelligentHabitacion.App.SQLite.Interface;
-using System.Linq;
-using System.Reflection;
 using TinyIoC;
 using XLabs.Ioc;
 using XLabs.Ioc.TinyIOC;
@@ -54,8 +50,6 @@ namespace IntelligentHabitacion.App.Droid
                 
                 Bootstrapper.Register(container);
                 Communication.Bootstrapper.Register(container);
-
-                container.Register<ISqliteConnection>(new SqliteDatabaseAndroid());
 
                 container.Register<IDependencyContainer>(container);
 

@@ -1,9 +1,7 @@
 ﻿using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
-using IntelligentHabitacion.App.WebSocket;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,15 +15,15 @@ namespace IntelligentHabitacion.App.ViewModel
     public class UserWithoutPartOfHomeViewModel : BaseViewModel
     {
         private readonly WebSocketAddFriendConnection _webSocketAddFriendConnection;
-        private readonly ISqliteDatabase _sqliteDatabase;
+        private readonly UserPreferences _userPreferences;
 
         public ICommand CardCreateHomeTapped { get; }
         public ICommand CardMyInformationTapped { get; }
         public ICommand CardJoinHomeTapped { get; }
 
-        public UserWithoutPartOfHomeViewModel(ISqliteDatabase sqliteDatabase)
+        public UserWithoutPartOfHomeViewModel(UserPreferences userPreferences)
         {
-            _sqliteDatabase = sqliteDatabase;
+            _userPreferences = userPreferences;
 
             CardCreateHomeTapped = new Command(async () => await ClickOnCardCreateHome());
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
@@ -85,13 +83,13 @@ namespace IntelligentHabitacion.App.ViewModel
                     var callbackApproved = new Command(async () =>
                     {
                         await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
-                        _sqliteDatabase.IsPartOfHome();
+                        _userPreferences.IsPartOfOneHome = true;
                         Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
                         await Task.Delay(1100);
                         DisconnectFromSocket();
                         await navigation.PopAllPopupAsync();
                     });
-                    await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, _sqliteDatabase.Get().Token, result);
+                    await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, _userPreferences.Token, result);
                 }
             }
             catch (System.Exception exeption)

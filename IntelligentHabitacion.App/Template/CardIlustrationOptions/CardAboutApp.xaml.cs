@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.App.AppVersion;
+﻿using IntelligentHabitacion.App.Services.Interface;
 using IntelligentHabitacion.App.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.App.Template.CardIlustrationOptions
         {
             InitializeComponent();
 
-            LabelVersionNumber.Text = DependencyService.Get<IVersaoApp>().GetVersionNumber();
+            LabelVersionNumber.Text = DependencyService.Get<IAppVersion>().GetVersionNumber();
 
             GridCard.RowDefinitions.Clear();
             GridCard.RowDefinitions.Add(new RowDefinition { Height = Device.Idiom == TargetIdiom.Tablet ? 100 : 50 });

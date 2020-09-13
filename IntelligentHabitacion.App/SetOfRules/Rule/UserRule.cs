@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.OneSignalConfig;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SQLite.Interface;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -15,12 +15,12 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
     public class UserRule : IUserRule
     {
         private readonly IIntelligentHabitacionHttpClient _httpClient;
-        private readonly ISqliteDatabase _database;
+        private readonly UserPreferences _userPreferences;
 
-        public UserRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, ISqliteDatabase database)
+        public UserRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, UserPreferences userPreferences)
         {
             _httpClient = intelligentHabitacionHttpClient;
-            _database = database;
+            _userPreferences = userPreferences;
         }
 
         public async Task ValidateEmailAndVerifyIfAlreadyBeenRegistered(string email)
@@ -109,10 +109,10 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 });
             }
 
-            var response = await _httpClient.UpdateUsersInformations(updateUser, _database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.UpdateUsersInformations(updateUser, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateName(userInformations.Name);
-            _database.UpdateToken(response.Token);
+            _userPreferences.Name = userInformations.Name;
+            _userPreferences.Token = response.Token;
         }
 
         public async Task<ResponseJson> Create(RegisterUserModel userInformations)
@@ -158,9 +158,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task<UserInformationsModel> GetInformations()
         {
-            var response = await _httpClient.GetUsersInformations(_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.GetUsersInformations(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
 
             var userInformations = (ResponseUserInformationsJson)response.Response;
 
@@ -208,9 +208,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 CurrentPassword = currentPassword,
                 NewPassword = newPassword,
                 NewPasswordConfirmation = confirmationPassword
-            },_database.Get().Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            },_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _database.UpdateToken(response.Token);
+            _userPreferences.Token = response.Token;
         }
     }
 }

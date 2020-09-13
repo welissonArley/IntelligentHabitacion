@@ -51,20 +51,9 @@ namespace IntelligentHabitacion.App.Droid
             if (!Resolver.IsSet)
             {
                 var container = new TinyContainer(new TinyIoCContainer());
-
-                var listClassToUseDI = Assembly.Load("IntelligentHabitacion.App").GetExportedTypes().Where(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
-                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && (interfaces.Name.EndsWith("Rule") || interfaces.Name.EndsWith("Database"))));
-
-                foreach (var classDI in listClassToUseDI)
-                {
-                    var interfaceToRegister = classDI.GetInterfaces().Single(i => i.Name.StartsWith("I") && (i.Name.EndsWith("Rule") || i.Name.EndsWith("Database")));
-                    container.Register(interfaceToRegister, classDI);
-                }
-
-                var classHttpClientDI = Assembly.Load("IntelligentHabitacion.Communication").GetExportedTypes().First(tipo => !tipo.IsAbstract && !tipo.IsGenericType &&
-                        tipo.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.EndsWith("IIntelligentHabitacionHttpClient")));
-
-                container.Register(classHttpClientDI.GetInterfaces().Single(i => i.Name.Equals("IIntelligentHabitacionHttpClient")), classHttpClientDI);
+                
+                Bootstrapper.Register(container);
+                Communication.Bootstrapper.Register(container);
 
                 container.Register<ISqliteConnection>(new SqliteDatabaseAndroid());
 

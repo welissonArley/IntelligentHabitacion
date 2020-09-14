@@ -295,6 +295,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use the button below to add the products. So we can help you with expiration date, quantity, etc. :).
+        /// </summary>
+        internal static string PHRASE_YOU_HAVENT_ADDED_FOODS {
+            get {
+                return ResourceManager.GetString("PHRASE_YOU_HAVENT_ADDED_FOODS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Oh no, you haven&apos;t added any friends yet :(.
         /// </summary>
         internal static string PHRASE_YOU_HAVENT_ADDED_FRIENDS {

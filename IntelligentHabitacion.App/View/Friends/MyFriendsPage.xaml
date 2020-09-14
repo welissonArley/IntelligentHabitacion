@@ -4,7 +4,7 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
-             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
+             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
              x:Name="MyFriendsContentPage"
              x:Class="IntelligentHabitacion.App.View.Friends.MyFriendsPage">
@@ -14,7 +14,7 @@
     <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
         <StackLayout Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
             <Image Source="IlustrationDog"></Image>
-            <Label Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></Label>
+            <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
         </StackLayout>
         <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding FriendsListIsEmpty, Converter={StaticResource BoolInverseConverter}}">
             <Label Margin="20,20,20,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>

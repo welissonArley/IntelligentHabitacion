@@ -195,6 +195,9 @@
   <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
     <value>Você tem certeza que deseja executar esta ação?</value>
   </data>
+  <data name="PHRASE_YOU_HAVENT_ADDED_FOODS" xml:space="preserve">
+    <value>Use o botão abaixo para adicionar os produtos. Assim podemos te ajudar com data de vencimento, quantidade, etc :)</value>
+  </data>
   <data name="PHRASE_YOU_HAVENT_ADDED_FRIENDS" xml:space="preserve">
     <value>Oh no, você ainda não adicionou nenhum amigo :(</value>
   </data>

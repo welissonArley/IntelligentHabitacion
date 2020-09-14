@@ -2,22 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search" xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations" xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FOODS}"
              x:Name="MyFoodsContentPage"
              x:Class="IntelligentHabitacion.App.View.MyFoods.MyFoodsPage">
+    <ContentPage.Resources>
+        <converter:InverseBoolConverter x:Key="BoolInverseConverter"></converter:InverseBoolConverter>
+    </ContentPage.Resources>
     <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
-        <Label Margin="20,20,20,0" Text="{Binding FoodsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_PRODUCTS_AVALIABLES}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
-        <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFoodsContentPage}}"></component:SearchByNameComponent>
-        <ListView ItemTapped="ListView_ItemTapped" RowHeight="65" Margin="0,30,0,20" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding FoodsList}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <template:MyFoodsComponent Food="{Binding .}" TappedItemCommand="{Binding Path=BindingContext.TappedItemCommand, Source={x:Reference Name=MyFoodsContentPage}}" TappedChangeQuantityCommand="{Binding Path=BindingContext.TappedChangeQuantityCommand, Source={x:Reference Name=MyFoodsContentPage}}"></template:MyFoodsComponent>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FoodsListIsEmpty}">
+            <Image Source="IlustrationMyFood"></Image>
+            <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FOODS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
+        </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding FoodsListIsEmpty, Converter={StaticResource BoolInverseConverter}}">
+            <Label Margin="20,20,20,0" Text="{Binding FoodsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_PRODUCTS_AVALIABLES}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+            <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFoodsContentPage}}"></component:SearchByNameComponent>
+            <ListView ItemTapped="ListView_ItemTapped" RowHeight="65" Margin="0,30,0,20" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding FoodsList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <template:MyFoodsComponent Food="{Binding .}" TappedItemCommand="{Binding Path=BindingContext.TappedItemCommand, Source={x:Reference Name=MyFoodsContentPage}}" TappedChangeQuantityCommand="{Binding Path=BindingContext.TappedChangeQuantityCommand, Source={x:Reference Name=MyFoodsContentPage}}"></template:MyFoodsComponent>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
         <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddNewItemCommand}"></Button>
     </StackLayout>
 </ContentPage>

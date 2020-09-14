@@ -32,6 +32,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             componentToEdit = null;
 
             var foodsList = Task.Run(async () => await myFoodsRule.GetMyFoods()).Result;
+            FoodsListIsEmpty = foodsList.Count == 0;
             _foodsList = new ObservableCollection<FoodModel>(foodsList);
             FoodsList = new ObservableCollection<FoodModel>(foodsList);
 
@@ -69,6 +70,8 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 {
                     _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
                     FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
+                    FoodsListIsEmpty = _foodsList.Count == 0;
+                    OnPropertyChanged(new PropertyChangedEventArgs("FoodsListIsEmpty"));
                 }
                 HideLoading();
             }
@@ -87,7 +90,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 {
                     viewModel.CallbackSave = NewItemAdded;
                     viewModel.Title = ResourceText.TITLE_NEW_ITEM;
-                    viewModel.Model = new FoodModel { Quantity = 1 };
+                    viewModel.Model = new FoodModel { Quantity = 1.00m };
                 });
                 HideLoading();
             }
@@ -130,13 +133,17 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             _foodsList.Insert(0, model);
             FoodsList.Insert(0, model);
+            FoodsListIsEmpty = false;
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+            OnPropertyChanged(new PropertyChangedEventArgs("FoodsListIsEmpty"));
         }
         private void DeleteItem(FoodModel model)
         {
             _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
             FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
+            FoodsListIsEmpty = _foodsList.Count == 0;
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+            OnPropertyChanged(new PropertyChangedEventArgs("FoodsListIsEmpty"));
         }
 
         private void FillModelEdit(FoodModel copyTo, FoodModel from)

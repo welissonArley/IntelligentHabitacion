@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.App.Converter
              * This function is used in conjunction with DecimalBehavior.
              * We only need ConverterBack, to correctly convert the string to decimal for the Model.
              */
-            return value;
+            return decimal.Round((decimal)value, 2);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

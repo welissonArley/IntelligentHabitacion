@@ -84,7 +84,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 Model.Id = string.Empty;
                 Model.Name = "";
                 Model.Manufacturer = "";
-                Model.Quantity = 1;
+                Model.Quantity = 1.00m;
                 Model.DueDate = null;
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 HideLoading();

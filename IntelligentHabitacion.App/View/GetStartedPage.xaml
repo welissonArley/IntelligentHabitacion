@@ -17,6 +17,6 @@
             </Image.Margin>
         </Image>
 
-        <Button CornerRadius="16" HeightRequest="60" WidthRequest="160" BackgroundColor="{x:StaticResource YellowDefault}" Text="Get Started" TextColor="Black" Margin="0,0,35,50" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_GetStarted"></Button>
+        <Button CornerRadius="16" HeightRequest="60" WidthRequest="160" BackgroundColor="{x:StaticResource YellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_GET_STARTED}" TextColor="Black" Margin="0,0,35,50" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_GetStarted"></Button>
     </StackLayout>
 </ContentPage>

@@ -226,19 +226,22 @@
     <value>bruce@waynetech.com</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP" xml:space="preserve">
-    <value>Mãe</value>
+    <value>Grau de parentesco. Ex.: Mãe, irmã ...</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT1_NAME" xml:space="preserve">
-    <value>Martha Wayne</value>
+    <value>Nome do Contado: Ex.: Martha Wayne</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP" xml:space="preserve">
-    <value>Pai</value>
+    <value>Grau de parentesco. Ex.: Pai, irmão ...</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
-    <value>Thomas Wayne</value>
+    <value>Nome do Contado: Ex.: Thomas Wayne</value>
   </data>
   <data name="PLACEHOLDER_ENTRY_DATE" xml:space="preserve">
     <value>Data de entrada</value>
+  </data>
+  <data name="PLACEHOLDER_FAMILYRELATIONSHIP" xml:space="preserve">
+    <value>Grau de parentesco</value>
   </data>
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Fabricante</value>
@@ -272,9 +275,6 @@
   </data>
   <data name="PLACEHOLDER_QUANTITY" xml:space="preserve">
     <value>Quantidade</value>
-  </data>
-  <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
-    <value>Grau de parentesco</value>
   </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
@@ -366,20 +366,20 @@
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Concluir</value>
   </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 1:</value>
+  </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Telefone do contato 1:</value>
-  </data>
-  <data name="TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Parentesco com contato 1:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
     <value>Contato 1:</value>
   </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 2:</value>
+  </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Telefone do contato 2:</value>
-  </data>
-  <data name="TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Parentesco com contato 2:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
     <value>Contato 2:</value>
@@ -412,13 +412,13 @@
     <value>Recusado!</value>
   </data>
   <data name="TITLE_DELETE" xml:space="preserve">
-    <value>Excluir</value>
+    <value>Deletar</value>
   </data>
   <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
     <value>Deletar conta</value>
   </data>
   <data name="TITLE_DELETE_HOME" xml:space="preserve">
-    <value>Excluir lar</value>
+    <value>Deletar lar</value>
   </data>
   <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
     <value>Data vencimento:</value>
@@ -438,6 +438,9 @@
   <data name="TITLE_ENTRY_DATE_TWOPOINTS" xml:space="preserve">
     <value>Data de entrada:</value>
   </data>
+  <data name="TITLE_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco:</value>
+  </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finanças</value>
   </data>
@@ -455,6 +458,9 @@
   </data>
   <data name="TITLE_GENERATING_CODE" xml:space="preserve">
     <value>Gerando código ...</value>
+  </data>
+  <data name="TITLE_GET_STARTED" xml:space="preserve">
+    <value>Começar</value>
   </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
@@ -563,9 +569,6 @@
   </data>
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
     <value>Para finalizar :) As informações da rede Wi-fi (Opcional)</value>
-  </data>
-  <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Parentesco:</value>
   </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remover</value>

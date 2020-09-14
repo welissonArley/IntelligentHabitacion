@@ -385,7 +385,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mother.
+        ///   Looks up a localized string similar to Family relationship. E.g.: Mother, sister ....
         /// </summary>
         internal static string PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP {
             get {
@@ -394,7 +394,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Martha Wayne.
+        ///   Looks up a localized string similar to Contact name. E.g.: Martha Wayne.
         /// </summary>
         internal static string PLACEHOLDER_EMERGENCYCONTACT1_NAME {
             get {
@@ -403,7 +403,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Father.
+        ///   Looks up a localized string similar to Family relationship. E.g.: Father, brother ....
         /// </summary>
         internal static string PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP {
             get {
@@ -412,7 +412,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thomas Wayne.
+        ///   Looks up a localized string similar to Contact name. E.g.: Thomas Wayne.
         /// </summary>
         internal static string PLACEHOLDER_EMERGENCYCONTACT2_NAME {
             get {
@@ -426,6 +426,15 @@ namespace IntelligentHabitacion.App {
         internal static string PLACEHOLDER_ENTRY_DATE {
             get {
                 return ResourceManager.GetString("PLACEHOLDER_ENTRY_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Family Relationship.
+        /// </summary>
+        internal static string PLACEHOLDER_FAMILYRELATIONSHIP {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_FAMILYRELATIONSHIP", resourceCulture);
             }
         }
         
@@ -525,15 +534,6 @@ namespace IntelligentHabitacion.App {
         internal static string PLACEHOLDER_QUANTITY {
             get {
                 return ResourceManager.GetString("PLACEHOLDER_QUANTITY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Relationship.
-        /// </summary>
-        internal static string PLACEHOLDER_RELATIONSHIP {
-            get {
-                return ResourceManager.GetString("PLACEHOLDER_RELATIONSHIP", resourceCulture);
             }
         }
         
@@ -808,20 +808,20 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Family Relationship to contact 1:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact&apos;s 1 phone number:.
         /// </summary>
         internal static string TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Relationship to contact 1:.
-        /// </summary>
-        internal static string TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS {
-            get {
-                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -835,20 +835,20 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Family Relationship to contact 2:.
+        /// </summary>
+        internal static string TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact&apos;s 2 phone number:.
         /// </summary>
         internal static string TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Relationship to contact 2:.
-        /// </summary>
-        internal static string TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS {
-            get {
-                return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS", resourceCulture);
             }
         }
         
@@ -1024,6 +1024,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Family Relationship:.
+        /// </summary>
+        internal static string TITLE_FAMILYRELATIONSHIP_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_FAMILYRELATIONSHIP_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finances.
         /// </summary>
         internal static string TITLE_FINANCES {
@@ -1074,6 +1083,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_GENERATING_CODE {
             get {
                 return ResourceManager.GetString("TITLE_GENERATING_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Started.
+        /// </summary>
+        internal static string TITLE_GET_STARTED {
+            get {
+                return ResourceManager.GetString("TITLE_GET_STARTED", resourceCulture);
             }
         }
         
@@ -1398,15 +1416,6 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_REGISTER_NETWORK_INFORMATION {
             get {
                 return ResourceManager.GetString("TITLE_REGISTER_NETWORK_INFORMATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Relationship:.
-        /// </summary>
-        internal static string TITLE_RELATIONSHIP_TWOPOINTS {
-            get {
-                return ResourceManager.GetString("TITLE_RELATIONSHIP_TWOPOINTS", resourceCulture);
             }
         }
         

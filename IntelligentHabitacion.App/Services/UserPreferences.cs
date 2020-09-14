@@ -23,7 +23,11 @@ namespace IntelligentHabitacion.App.Services
         public bool IsAdministrator
         {
             get => Preferences.Get("ISADMINISTRATOR", false);
-            set => Preferences.Set("ISADMINISTRATOR", value);
+            set
+            {
+                Preferences.Set("ISADMINISTRATOR", value);
+                IsPartOfOneHome = true;
+            }
         }
         public string Token
         {

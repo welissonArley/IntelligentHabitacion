@@ -226,19 +226,22 @@
     <value>bruce@waynetech.com</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP" xml:space="preserve">
-    <value>Mother</value>
+    <value>Family relationship. E.g.: Mother, sister ...</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT1_NAME" xml:space="preserve">
-    <value>Martha Wayne</value>
+    <value>Contact name. E.g.: Martha Wayne</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP" xml:space="preserve">
-    <value>Father</value>
+    <value>Family relationship. E.g.: Father, brother ...</value>
   </data>
   <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
-    <value>Thomas Wayne</value>
+    <value>Contact name. E.g.: Thomas Wayne</value>
   </data>
   <data name="PLACEHOLDER_ENTRY_DATE" xml:space="preserve">
     <value>Entry date</value>
+  </data>
+  <data name="PLACEHOLDER_FAMILYRELATIONSHIP" xml:space="preserve">
+    <value>Family Relationship</value>
   </data>
   <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
     <value>Manufacturer</value>
@@ -272,9 +275,6 @@
   </data>
   <data name="PLACEHOLDER_QUANTITY" xml:space="preserve">
     <value>Quantity</value>
-  </data>
-  <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
-    <value>Relationship</value>
   </data>
   <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
     <value>31.275-972</value>
@@ -366,20 +366,20 @@
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Conclude</value>
   </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Family Relationship to contact 1:</value>
+  </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Contact's 1 phone number:</value>
-  </data>
-  <data name="TITLE_CONTACT_EMERGENCY_1_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Relationship to contact 1:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
     <value>Contact 1:</value>
   </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Family Relationship to contact 2:</value>
+  </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Contact's 2 phone number:</value>
-  </data>
-  <data name="TITLE_CONTACT_EMERGENCY_2_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Relationship to contact 2:</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
     <value>Contact 2:</value>
@@ -438,6 +438,9 @@
   <data name="TITLE_ENTRY_DATE_TWOPOINTS" xml:space="preserve">
     <value>Entry date:</value>
   </data>
+  <data name="TITLE_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Family Relationship:</value>
+  </data>
   <data name="TITLE_FINANCES" xml:space="preserve">
     <value>Finances</value>
   </data>
@@ -455,6 +458,9 @@
   </data>
   <data name="TITLE_GENERATING_CODE" xml:space="preserve">
     <value>Generating code ...</value>
+  </data>
+  <data name="TITLE_GET_STARTED" xml:space="preserve">
+    <value>Get Started</value>
   </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
@@ -563,9 +569,6 @@
   </data>
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
     <value>To finish :) Wi-fi network information (Optional)</value>
-  </data>
-  <data name="TITLE_RELATIONSHIP_TWOPOINTS" xml:space="preserve">
-    <value>Relationship:</value>
   </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remove</value>

@@ -19,7 +19,7 @@
 
         <StackLayout VerticalOptions="CenterAndExpand">
             <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Email" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email"></templateInputTextWithLabel:InputTextWithLabelComponent>
-            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="True"></templateInputTextWithLabel:InputTextWithLabelComponent>
+            <templateInputTextWithLabel:InputPasswordWithLabelComponent PropertyToBindindEntry="Password" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}"></templateInputTextWithLabel:InputPasswordWithLabelComponent>
 
             <Label Text="{x:Static resourceText:ResourceText.TITLE_FORGOT_PASSWORD}" HorizontalOptions="EndAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}" Margin="0,40,0,0">
                 <Label.GestureRecognizers>

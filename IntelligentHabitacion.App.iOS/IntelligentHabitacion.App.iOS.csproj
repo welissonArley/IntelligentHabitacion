@@ -461,4 +461,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconCopy%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconEye%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconEye%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconEyeHidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconEyeHidden%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconEyeHidden%403x.png" />
+  </ItemGroup>
 </Project>

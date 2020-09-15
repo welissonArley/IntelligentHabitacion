@@ -75,6 +75,9 @@
     <Compile Update="Template\Step\CompleteStep.xaml.cs">
       <DependentUpon>CompleteStep.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\TextWithLabel\InputPasswordWithLabelComponent.xaml.cs">
+      <DependentUpon>InputPasswordWithLabelComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
     </Compile>

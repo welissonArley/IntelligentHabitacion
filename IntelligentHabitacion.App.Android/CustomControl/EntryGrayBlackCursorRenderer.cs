@@ -23,15 +23,19 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
 
             if (Control != null)
             {
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-                    Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.ParseColor("#E5E5E5"));
+                var color = Android.Graphics.Color.ParseColor("#E5E5E5");
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
+                {
+                    Control.Background.SetColorFilter(new BlendModeColorFilter(color, BlendMode.SrcAtop));
+                    Control.SetTextCursorDrawable(Resource.Drawable.CursorEntryBlack);
+                }
                 else
-                    Control.Background.SetColorFilter(Android.Graphics.Color.ParseColor("#E5E5E5"), PorterDuff.Mode.SrcAtop);
-
-                IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
-                IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
-
-                JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, Resource.Drawable.CursorEntryBlack);
+                {
+                    Control.BackgroundTintList = ColorStateList.ValueOf(color);
+                    IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
+                    IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
+                    JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, Resource.Drawable.CursorEntryBlack);
+                }
             }
         }
     }

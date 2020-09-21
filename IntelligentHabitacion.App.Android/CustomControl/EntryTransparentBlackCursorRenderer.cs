@@ -23,15 +23,18 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
 
             if (Control != null)
             {
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-                    Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
+                {
+                    Control.Background.SetColorFilter(new BlendModeColorFilter(Android.Graphics.Color.Transparent, BlendMode.SrcAtop));
+                    Control.SetTextCursorDrawable(Resource.Drawable.CursorEntryBlack);
+                }
                 else
-                    Control.Background.SetColorFilter(Android.Graphics.Color.Transparent, PorterDuff.Mode.SrcAtop);
-
-                IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
-                IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
-
-                JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, Resource.Drawable.CursorEntryBlack);
+                {
+                    Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+                    IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
+                    IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
+                    JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, Resource.Drawable.CursorEntryBlack);
+                }
             }
         }
     }

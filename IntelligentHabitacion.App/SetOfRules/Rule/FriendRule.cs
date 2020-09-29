@@ -38,8 +38,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Password = password
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.IsAdministrator = false;
-            _userPreferences.Token = response.Token;
+            _userPreferences.UserIsAdministrator(false);
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task RemoveFriend(string code, string friendId, string password)
@@ -57,7 +57,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Password = password
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task<FriendModel> ChangeDateJoinOn(string friendId, DateTime date)
@@ -68,7 +68,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 JoinOn = date
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
 
             var responseFriend = (ResponseFriendJson)response.Response;
 
@@ -100,7 +100,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             var response = await _httpClient.GetHouseFriends(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
 
             var responseFriends = (List<ResponseFriendJson>)response.Response;
 
@@ -132,21 +132,21 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             var response = await _httpClient.NotifyFriendOrderHasArrived(friendId, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task RequestCodeToChangeAdministrator()
         {
             var response = await _httpClient.RequestCodeToChangeAdministrator(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task RequestCodeToRemoveFriend()
         {
             var response = await _httpClient.RequestCodeToRemoveFriend(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
     }
 }

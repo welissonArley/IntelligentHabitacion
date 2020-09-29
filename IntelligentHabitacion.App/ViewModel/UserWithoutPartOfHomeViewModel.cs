@@ -83,7 +83,7 @@ namespace IntelligentHabitacion.App.ViewModel
                     var callbackApproved = new Command(async () =>
                     {
                         await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
-                        _userPreferences.IsPartOfOneHome = true;
+                        _userPreferences.UserIsPartOfOneHome(true);
                         Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
                         await Task.Delay(1100);
                         DisconnectFromSocket();

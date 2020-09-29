@@ -61,7 +61,7 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                _userPreferences.ClearAll();
+                _userPreferences.Logout();
                 Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.LoginPage>());
                 await Navigation.PopToRootAsync();
             }
@@ -77,6 +77,7 @@ namespace IntelligentHabitacion.App.ViewModel
             {
                 await ShowLoading();
                 await _userRule.UpdateInformations(Model);
+                _userPreferences.SaveUserInformations(Model.Name, Model.Email);
                 await Navigation.PopAsync();
                 HideLoading();
             }

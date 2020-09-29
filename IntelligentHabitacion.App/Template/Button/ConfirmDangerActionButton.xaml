@@ -6,13 +6,13 @@
     <ContentView.Content>
         <Grid ColumnSpacing="30">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button x:Name="Button" Clicked="Button_OnTapped" Grid.Column="0" HeightRequest="40" Style="{x:StaticResource ButtonDangerActionDefault}"></Button>
+            <Button x:Name="Button" Clicked="Button_OnTapped" Grid.Column="0" HeightRequest="40" Style="{x:StaticResource ButtonDangerActionDefault}" Padding="15,0,15,0"></Button>
         </Grid>
     </ContentView.Content>
 </ContentView>

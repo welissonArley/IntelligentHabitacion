@@ -44,12 +44,17 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterUser
 
                 var response = await _userRule.Create(Model);
 
-                _userPreferences.Name = Model.Name;
-                _userPreferences.IsAdministrator = false;
-                _userPreferences.IsPartOfOneHome = false;
-                _userPreferences.Width = Application.Current.MainPage.Width;
-                _userPreferences.Token = response.Token;
-                _userPreferences.ProfileColor = response.Response.ToString();
+                _userPreferences.SaveUserInformations(new Dtos.UserPreferenceDto
+                {
+                    IsAdministrator = false,
+                    IsPartOfOneHome = false,
+                    ProfileColor = response.Response.ToString(),
+                    Name = Model.Name,
+                    Password = Model.Password,
+                    Token = response.Token,
+                    Email = Model.Email,
+                    Width = Application.Current.MainPage.Width
+                });
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 

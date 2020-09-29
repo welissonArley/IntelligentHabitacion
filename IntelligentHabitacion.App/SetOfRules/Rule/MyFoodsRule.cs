@@ -34,7 +34,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Type = (Communication.Response.Type)model.Type
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
 
             return response.Response.ToString();
         }
@@ -43,14 +43,14 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             var response = await _httpClient.DeleteMyFood(id, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task<List<FoodModel>> GetMyFoods()
         {
             var response = await _httpClient.GetMyFoods(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
 
             var responseFoods = (List<ResponseMyFoodJson>)response.Response;
 
@@ -73,7 +73,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Quantity = model.Quantity
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         private void ValidateItem(FoodModel model)
@@ -99,7 +99,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Type = (Communication.Response.Type)model.Type
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
     }
 }

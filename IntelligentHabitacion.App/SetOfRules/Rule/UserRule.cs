@@ -111,8 +111,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             var response = await _httpClient.UpdateUsersInformations(updateUser, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Name = userInformations.Name;
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task<ResponseJson> Create(RegisterUserModel userInformations)
@@ -160,7 +159,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             var response = await _httpClient.GetUsersInformations(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
 
             var userInformations = (ResponseUserInformationsJson)response.Response;
 
@@ -210,7 +209,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 NewPasswordConfirmation = confirmationPassword
             },_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
     }
 }

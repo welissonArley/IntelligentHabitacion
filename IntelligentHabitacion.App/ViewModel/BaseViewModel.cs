@@ -75,7 +75,7 @@ namespace IntelligentHabitacion.App.ViewModel
             var userPreferences = Resolver.Resolve<UserPreferences>();
 
             if (!string.IsNullOrWhiteSpace(responseException.Token))
-                userPreferences.Token = responseException.Token;
+                userPreferences.ChangeToken(responseException.Token);
 
             if (!((responseException.Exception as ErrorOnValidationException) is null))
             {
@@ -103,7 +103,7 @@ namespace IntelligentHabitacion.App.ViewModel
         private async Task SecurityTokenExpired(INavigation navigation)
         {
             var userPreferences = Resolver.Resolve<UserPreferences>();
-            userPreferences.ClearAll();
+            userPreferences.Logout();
             await navigation.PopAllPopupAsync();
             await navigation.PushPopupAsync(new ErrorModal(ResourceText.TITLE_PLEASE_LOGIN_AGAIN));
             Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());

@@ -50,8 +50,8 @@ namespace IntelligentHabitacion.App.ViewModel
                     {
                         await ShowLoading();
                         await Navigation.PopToRootAsync();
-                        _userPreferences.IsAdministrator = false;
-                        _userPreferences.IsPartOfOneHome = false;
+                        _userPreferences.UserIsAdministrator(false);
+                        _userPreferences.UserIsPartOfOneHome(false);
                         Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
                         HideLoading();
                     });

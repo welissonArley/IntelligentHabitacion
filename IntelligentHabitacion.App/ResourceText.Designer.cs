@@ -1159,11 +1159,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string TITLE_LOGIN {
+            get {
+                return ResourceManager.GetString("TITLE_LOGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login to continue.
         /// </summary>
         internal static string TITLE_LOGIN_TO_CONTINUE {
             get {
                 return ResourceManager.GetString("TITLE_LOGIN_TO_CONTINUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login with fingerprint access.
+        /// </summary>
+        internal static string TITLE_LOGIN_WITH_FINGERPRINT_ACCESS {
+            get {
+                return ResourceManager.GetString("TITLE_LOGIN_WITH_FINGERPRINT_ACCESS", resourceCulture);
             }
         }
         
@@ -1614,6 +1632,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_UNITY {
             get {
                 return ResourceManager.GetString("TITLE_UNITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can login using your fingerprint. Click here :).
+        /// </summary>
+        internal static string TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN {
+            get {
+                return ResourceManager.GetString("TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN", resourceCulture);
             }
         }
         

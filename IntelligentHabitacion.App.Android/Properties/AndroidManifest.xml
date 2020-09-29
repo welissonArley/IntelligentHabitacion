@@ -10,6 +10,7 @@
 			</intent-filter>
 		</receiver>
 	</application>
+	<uses-permission android:name="android.permission.USE_FINGERPRINT" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<permission android:name="com.welly.intelligenthabitacion.permission.C2D_MESSAGE" android:protectionLevel="signature" />

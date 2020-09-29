@@ -43,5 +43,7 @@
 		<string>Fonts/Raleway-ExtraBold.ttf</string>
 		<string>Fonts/Raleway-Italic.ttf</string>
 	</array>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Need your face to do login on the app</string>
 </dict>
 </plist>

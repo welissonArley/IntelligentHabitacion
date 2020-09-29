@@ -36,7 +36,7 @@ namespace IntelligentHabitacion.App.View
         private void UserGotOrder()
         {
             var userPreferences = XLabs.Ioc.Resolver.Resolve<UserPreferences>();
-            userPreferences.HasOrder = false;
+            userPreferences.UserHasOrder(false);
             HeaderOrderHasArrived.IsVisible = false;
             HeaderGirlReading.IsVisible = true;
         }

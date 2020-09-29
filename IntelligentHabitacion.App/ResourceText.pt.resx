@@ -483,8 +483,14 @@
   <data name="TITLE_KILOGRAM" xml:space="preserve">
     <value>Quilograma(s)</value>
   </data>
+  <data name="TITLE_LOGIN" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Faça login para continuar</value>
+  </data>
+  <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
+    <value>Login com acesso por impressão digital</value>
   </data>
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Fabricante:</value>
@@ -635,6 +641,9 @@
   </data>
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unidade(s)</value>
+  </data>
+  <data name="TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN" xml:space="preserve">
+    <value>Você pode entrar utilizando sua impressão digital. Clique aqui :)</value>
   </data>
   <data name="TITLE_VALIDATING_OPERATION" xml:space="preserve">
     <value>Validando operação ...</value>

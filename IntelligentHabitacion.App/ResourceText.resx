@@ -483,8 +483,14 @@
   <data name="TITLE_KILOGRAM" xml:space="preserve">
     <value>Kilogram(s)</value>
   </data>
+  <data name="TITLE_LOGIN" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
     <value>Login to continue</value>
+  </data>
+  <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
+    <value>Login with fingerprint access</value>
   </data>
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Manufacturer:</value>
@@ -635,6 +641,9 @@
   </data>
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unity(s)</value>
+  </data>
+  <data name="TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN" xml:space="preserve">
+    <value>You can login using your fingerprint. Click here :)</value>
   </data>
   <data name="TITLE_VALIDATING_OPERATION" xml:space="preserve">
     <value>Validating operation ...</value>

@@ -33,8 +33,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             var response = await _httpClient.CreateHome(CreateRequestHomeJson(model), _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
-            _userPreferences.IsAdministrator = true;
+            _userPreferences.ChangeToken(response.Token);
+            _userPreferences.UserIsAdministrator(true);
         }
 
         public async Task Delete(string code, string password)
@@ -45,14 +45,14 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Password = password
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task<HomeModel> GetInformations()
         {
             var response = await _httpClient.GetHomesInformations(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
 
             var homeInformations = (ResponseHomeInformationsJson)response.Response;
 
@@ -89,7 +89,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             var response = await _httpClient.RequestCodeToDeleteHome(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task UpdateInformations(HomeModel model)
@@ -103,7 +103,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             var response = await _httpClient.UpdateHome(CreateRequestHomeJson(model), _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
-            _userPreferences.Token = response.Token;
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public void ValidadeAdress(string address)

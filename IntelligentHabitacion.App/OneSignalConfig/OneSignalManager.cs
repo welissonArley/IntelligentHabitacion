@@ -33,13 +33,13 @@ namespace IntelligentHabitacion.App.OneSignalConfig
             {
                 case EnumNotifications.OrderReceived:
                     {
-                        userPreferences.HasOrder = true;
+                        userPreferences.UserHasOrder(true);
                         RefreshHeader();
                     }
                     break;
                 case EnumNotifications.NewAdmin:
                     {
-                        userPreferences.IsAdministrator = true;
+                        userPreferences.UserIsAdministrator(true);
                         RefreshHeader();
                     }
                     break;
@@ -48,7 +48,7 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                 {
                         Task.Run(() => Device.BeginInvokeOnMainThread(async() =>
                         {
-                            userPreferences.IsPartOfOneHome = false;
+                            userPreferences.UserIsPartOfOneHome(false);
                             var navigation = Resolver.Resolve<INavigation>();
                             var page = navigation.NavigationStack.FirstOrDefault();
                             if (page is UserIsPartOfHomePage)

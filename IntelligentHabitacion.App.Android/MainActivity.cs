@@ -4,6 +4,8 @@ using Android.OS;
 using Android.Runtime;
 using Com.OneSignal;
 using IntelligentHabitacion.App.OneSignalConfig;
+using Plugin.CurrentActivity;
+using Plugin.Fingerprint;
 using TinyIoC;
 using XLabs.Ioc;
 using XLabs.Ioc.TinyIOC;
@@ -32,6 +34,9 @@ namespace IntelligentHabitacion.App.Droid
             ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
             OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
             OneSignal.Current.RegisterForPushNotifications();
+            CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -18,6 +18,7 @@ using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
+using Plugin.Fingerprint;
 using Rg.Plugins.Popup.Extensions;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -48,7 +49,7 @@ namespace IntelligentHabitacion.App
             RegisterViews();
 
             var userPreferences = Resolver.Resolve<UserPreferences>();
-            if (userPreferences.HasValue)
+            if (userPreferences.HasAccessToken)
             {
                 if (userPreferences.IsPartOfOneHome)
                     MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
@@ -56,7 +57,11 @@ namespace IntelligentHabitacion.App
                     MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
             }
             else
-                MainPage = new GetStartedPage();
+            {
+                MainPage = new NavigationPage((Page)ViewFactory.CreatePage<GetStartedViewModel, GetStartedPage>());
+                if (userPreferences.AlreadySignedIn && CrossFingerprint.Current.IsAvailableAsync().GetAwaiter().GetResult())
+                    MainPage.Navigation.PushAsync((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());
+            }
 
             Resolver.Resolve<IDependencyContainer>()
                 .Register<INavigationService>(t => new NavigationService(MainPage.Navigation)) // New Xlabs nav service
@@ -65,6 +70,7 @@ namespace IntelligentHabitacion.App
 
         private void RegisterViews()
         {
+            ViewFactory.Register<GetStartedPage, GetStartedViewModel>();
             ViewFactory.Register<LoginPage, LoginViewModel>();
             ViewFactory.Register<View.ForgotPassword.RequestEmailPage, ViewModel.ForgotPassword.RequestEmailViewModel>();
             ViewFactory.Register<View.ForgotPassword.ResetPasswordPage, ViewModel.ForgotPassword.ResetPasswordViewModel>();

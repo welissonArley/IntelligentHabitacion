@@ -28,7 +28,7 @@ namespace IntelligentHabitacion.App.ViewModel
             CardCreateHomeTapped = new Command(async () => await ClickOnCardCreateHome());
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
             CardJoinHomeTapped = new Command(async () => await ClickOnCardJoinHome());
-
+            
             var callbackWhenAnErrorOccurs = new Command(async (message) =>
             {
                 await HandleException(message.ToString());

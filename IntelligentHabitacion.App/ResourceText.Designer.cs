@@ -88,15 +88,6 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Because live with friends.
-        /// </summary>
-        internal static string BECAUSE_LIVE_WITH_FRIENDS {
-            get {
-                return ResourceManager.GetString("BECAUSE_LIVE_WITH_FRIENDS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to By performing this process you are transferring all the privileges of being an Administrator to your friend.
         /// </summary>
         internal static string DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR {
@@ -273,15 +264,6 @@ namespace IntelligentHabitacion.App {
         internal static string INFORMATION_PASSWORD_COPIED_SUCCESSFULLY {
             get {
                 return ResourceManager.GetString("INFORMATION_PASSWORD_COPIED_SUCCESSFULLY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to must be fun and organized.
-        /// </summary>
-        internal static string MUST_BE_FUN_AND_ORGANIZED {
-            get {
-                return ResourceManager.GetString("MUST_BE_FUN_AND_ORGANIZED", resourceCulture);
             }
         }
         
@@ -1096,15 +1078,6 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get Started.
-        /// </summary>
-        internal static string TITLE_GET_STARTED {
-            get {
-                return ResourceManager.GetString("TITLE_GET_STARTED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Home, sweet home.
         /// </summary>
         internal static string TITLE_HOME_SWEET_HOME {
@@ -1123,11 +1096,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Intelligent Habitacion is your tool and a new way to organize your home..
+        /// </summary>
+        internal static string TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It&apos;s so sad see you go :((.
         /// </summary>
         internal static string TITLE_ITISSAD_SEEYOUGO {
             get {
                 return ResourceManager.GetString("TITLE_ITISSAD_SEEYOUGO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s great to see you here 😍.
+        /// </summary>
+        internal static string TITLE_ITS_GREATE_SEE_YOU_HERE {
+            get {
+                return ResourceManager.GetString("TITLE_ITS_GREATE_SEE_YOU_HERE", resourceCulture);
             }
         }
         

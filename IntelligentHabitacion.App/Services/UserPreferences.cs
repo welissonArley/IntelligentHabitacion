@@ -97,11 +97,15 @@ namespace IntelligentHabitacion.App.Services
         {
             IsPartOfOneHome = isPartOfOneHome;
         }
-        public bool HasValue
+        public bool AlreadySignedIn
         {
             get => !string.IsNullOrWhiteSpace(Task.Run(async() => await SecureStorage.GetAsync(_keyEmail)).Result)
                 &&
                 !string.IsNullOrWhiteSpace(Task.Run(async () => await SecureStorage.GetAsync(_keyPassword)).Result);
+        }
+        public bool HasAccessToken
+        {
+            get => !string.IsNullOrWhiteSpace(Task.Run(async () => await SecureStorage.GetAsync(_keyToken)).Result);
         }
         public void ClearAll()
         {

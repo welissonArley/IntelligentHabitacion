@@ -28,21 +28,27 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             _loginRule = loginRule;
             _userPreferences = userPreferences;
-            CanUseFigerprintToLogin = userPreferences.HasValue && CrossFingerprint.Current.IsAvailableAsync().GetAwaiter().GetResult();
+            CanUseFigerprintToLogin = userPreferences.AlreadySignedIn && CrossFingerprint.Current.IsAvailableAsync().GetAwaiter().GetResult();
 
             ForgotPasswordCommand = new Command(async () => await OnForgotPassword());
             ButtonLoginCommand = new Command(async () =>
             {
                 await DoLogin(Email, Password);
             });
-            UsingFigerprintToLoginCommand = new Command(async () =>
+            
+            if (CanUseFigerprintToLogin)
             {
-                var request = new AuthenticationRequestConfiguration(ResourceText.TITLE_LOGIN_WITH_FINGERPRINT_ACCESS, "");
-                var result = await CrossFingerprint.Current.AuthenticateAsync(request);
+                UsingFigerprintToLoginCommand = new Command(async () =>
+                {
+                    var request = new AuthenticationRequestConfiguration(ResourceText.TITLE_LOGIN_WITH_FINGERPRINT_ACCESS, "");
+                    var result = await CrossFingerprint.Current.AuthenticateAsync(request);
 
-                if (result.Authenticated)
-                    await DoLogin(userPreferences.Email, userPreferences.Password);
-            });
+                    if (result.Authenticated)
+                        await DoLogin(userPreferences.Email, userPreferences.Password);
+                });
+
+                UsingFigerprintToLoginCommand.Execute(null);
+            }
         }
 
         private async Task OnForgotPassword()
@@ -80,6 +86,8 @@ namespace IntelligentHabitacion.App.ViewModel
                     Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 
                 HideLoading();
+
+                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {

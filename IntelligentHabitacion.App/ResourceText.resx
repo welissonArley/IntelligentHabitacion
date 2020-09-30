@@ -126,9 +126,6 @@
   <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
     <value>With an easy and creative design, I hope it will be useful for your home :)</value>
   </data>
-  <data name="BECAUSE_LIVE_WITH_FRIENDS" xml:space="preserve">
-    <value>Because live with friends</value>
-  </data>
   <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
     <value>By performing this process you are transferring all the privileges of being an Administrator to your friend</value>
   </data>
@@ -188,9 +185,6 @@
   </data>
   <data name="INFORMATION_PASSWORD_COPIED_SUCCESSFULLY" xml:space="preserve">
     <value>Password copied successfully</value>
-  </data>
-  <data name="MUST_BE_FUN_AND_ORGANIZED" xml:space="preserve">
-    <value>must be fun and organized</value>
   </data>
   <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
     <value>Are you sure you want to perform this action?</value>
@@ -462,17 +456,20 @@
   <data name="TITLE_GENERATING_CODE" xml:space="preserve">
     <value>Generating code ...</value>
   </data>
-  <data name="TITLE_GET_STARTED" xml:space="preserve">
-    <value>Get Started</value>
-  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
   </data>
   <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
     <value>Icon sources and Illustrations used:</value>
   </data>
+  <data name="TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME" xml:space="preserve">
+    <value>Intelligent Habitacion is your tool and a new way to organize your home.</value>
+  </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>It's so sad see you go :((</value>
+  </data>
+  <data name="TITLE_ITS_GREATE_SEE_YOU_HERE" xml:space="preserve">
+    <value>It's great to see you here 😍</value>
   </data>
   <data name="TITLE_JOINED_ON" xml:space="preserve">
     <value>Joined on {0}</value>

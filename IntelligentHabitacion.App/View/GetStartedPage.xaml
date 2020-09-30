@@ -3,20 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              x:Class="IntelligentHabitacion.App.View.GetStartedPage">
-    <StackLayout Spacing="0">
-        <Label Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.BECAUSE_LIVE_WITH_FRIENDS}" FontSize="20" HorizontalOptions="CenterAndExpand" TextColor="Black"></Label>
-        <Label Text="{x:Static resourceText:ResourceText.MUST_BE_FUN_AND_ORGANIZED}" FontSize="16" HorizontalOptions="CenterAndExpand" TextColor="Black" Style="{x:StaticResource LabelThin}"></Label>
+    <StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand" Margin="20,100,20,0">
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_ITS_GREATE_SEE_YOU_HERE}" FontSize="30" HorizontalOptions="StartAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME}" FontSize="16" HorizontalOptions="StartAndExpand" TextColor="Black" Margin="0,25,0,0" Style="{x:StaticResource LabelLight}"></Label>
+        </StackLayout>
 
-        <Image Source="TelaSplash" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Image.Margin>
-                <OnPlatform x:TypeArguments="Thickness">
-                    <OnPlatform.Platforms>
-                        <On Platform="iOS" Value="0,30,0,0"></On>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Image.Margin>
-        </Image>
+        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
+            <Image Source="IlustrationWave" Aspect="AspectFill"></Image>
 
-        <Button CornerRadius="16" HeightRequest="60" WidthRequest="160" BackgroundColor="{x:StaticResource YellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_GET_STARTED}" TextColor="Black" Margin="0,0,35,50" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_GetStarted"></Button>
+            <Grid VerticalOptions="EndAndExpand" Margin="20,0,20,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="0" CornerRadius="16" BorderColor="White" BorderWidth="2" TextColor="White" BackgroundColor="{x:StaticResource YellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_REGISTER}" Command="{Binding RegisterCommand}"></Button>
+                <Button Grid.Row="0" Grid.Column="2" CornerRadius="16" BackgroundColor="White" Text="{x:Static resourceText:ResourceText.TITLE_LOGIN}" TextColor="Black" Command="{Binding LoginCommand}"></Button>
+            </Grid>
+        </Grid>
     </StackLayout>
 </ContentPage>

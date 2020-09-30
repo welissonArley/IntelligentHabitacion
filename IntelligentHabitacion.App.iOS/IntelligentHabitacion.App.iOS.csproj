@@ -488,4 +488,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconFingerprint%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationWave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationWave%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationWave%403x.png" />
+  </ItemGroup>
 </Project>

@@ -96,7 +96,6 @@ namespace IntelligentHabitacion.App.ViewModel
                 Model.City.Name = result.City;
                 Model.City.State.Name = result.State.Name;
                 Model.City.State.Country.Name = result.State.Country.Name;
-                Model.City.State.Country.Abbreviation = result.State.Country.Abbreviation;
 
                 HideLoading();
             }

@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel;
 using Xamarin.Forms;
 
-namespace IntelligentHabitacion.App.View.RegisterHome
+namespace IntelligentHabitacion.App.View.Home.Register.Brazil
 {
     [DesignTimeVisible(false)]
-    public partial class RequestAddressPage : ContentPage
+    public partial class RegisterHomePage : ContentPage
     {
-        public RequestAddressPage()
+        public RegisterHomePage()
         {
             InitializeComponent();
         }

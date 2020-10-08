@@ -1,25 +1,26 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.View;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 
-namespace IntelligentHabitacion.App.ViewModel.RegisterHome
+namespace IntelligentHabitacion.App.ViewModel.Home.Register.Brazil
 {
-    public class RequestNetworkInformationViewModel : BaseViewModel
+    public class RegisterHomeViewModel : BaseViewModel
     {
-        private readonly IHomeRule _homeRule;
-
-        public ICommand ConcludeCommand { protected set; get; }
+        private readonly IHomeBrazilRule _homeRule;
 
         public HomeModel Model { get; set; }
 
-        public RequestNetworkInformationViewModel(IHomeRule homeRule)
+        public ICommand OnConcludeCommand { protected set; get; }
+
+        public RegisterHomeViewModel(IHomeBrazilRule homeRule)
         {
+            OnConcludeCommand = new Command(async () => await OnConclude());
             _homeRule = homeRule;
-            ConcludeCommand = new Command(async () => await OnConclude());
         }
 
         private async Task OnConclude()
@@ -27,8 +28,6 @@ namespace IntelligentHabitacion.App.ViewModel.RegisterHome
             try
             {
                 await ShowLoading();
-
-                _homeRule.ValidadeNetWorkInformation(Model.NetWork.Name, Model.NetWork.Password);
 
                 await _homeRule.Create(Model);
 

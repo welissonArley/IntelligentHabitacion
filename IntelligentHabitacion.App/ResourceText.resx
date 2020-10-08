@@ -126,6 +126,9 @@
   <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
     <value>With an easy and creative design, I hope it will be useful for your home :)</value>
   </data>
+  <data name="CHOOSE_A_COUNTRY_BELOW" xml:space="preserve">
+    <value>Choose a country below:</value>
+  </data>
   <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
     <value>By performing this process you are transferring all the privileges of being an Administrator to your friend</value>
   </data>
@@ -195,17 +198,17 @@
   <data name="PHRASE_YOU_HAVENT_ADDED_FRIENDS" xml:space="preserve">
     <value>Oh no, you haven't added any friends yet :(</value>
   </data>
-  <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
-    <value>Rua Mountain Drive</value>
+  <data name="PLACEHOLDER_ADDITIONALADDRESSINFO" xml:space="preserve">
+    <value>Additional address</value>
   </data>
-  <data name="PLACEHOLDER_ADDRESSCOMPLEMENT" xml:space="preserve">
-    <value>7º Floor</value>
+  <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
+    <value>Street/Avenue</value>
   </data>
   <data name="PLACEHOLDER_ADDRESSNUMBER" xml:space="preserve">
-    <value>1007</value>
+    <value>Number</value>
   </data>
   <data name="PLACEHOLDER_CITY" xml:space="preserve">
-    <value>Gotham City</value>
+    <value>City</value>
   </data>
   <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
     <value>Code received in email</value>
@@ -214,7 +217,7 @@
     <value>Current password</value>
   </data>
   <data name="PLACEHOLDER_DEADLINE_PAYMENT_RENT" xml:space="preserve">
-    <value>10</value>
+    <value>Deadline for payment of rent (between days 1 and 28)</value>
   </data>
   <data name="PLACEHOLDER_DUE_DATE" xml:space="preserve">
     <value>Due date</value>
@@ -250,7 +253,7 @@
     <value>Bruce Wayne</value>
   </data>
   <data name="PLACEHOLDER_NEIGHBORHOOD" xml:space="preserve">
-    <value>Palisades</value>
+    <value>Neighborhood</value>
   </data>
   <data name="PLACEHOLDER_NETWORK_NAME" xml:space="preserve">
     <value>Network's name ...</value>
@@ -273,8 +276,11 @@
   <data name="PLACEHOLDER_QUANTITY" xml:space="preserve">
     <value>Quantity</value>
   </data>
-  <data name="PLACEHOLDER_ZIPCODE" xml:space="preserve">
-    <value>31.275-972</value>
+  <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
+    <value>Relationship</value>
+  </data>
+  <data name="PLACEHOLDER_STATE" xml:space="preserve">
+    <value>State</value>
   </data>
   <data name="TEXT_CHECK_YOUR_INTERNET_CONNECTION" xml:space="preserve">
     <value>Check your internet connection!</value>
@@ -291,17 +297,11 @@
   <data name="TITLE_ADDING_NEW_FRIEND" xml:space="preserve">
     <value>Adding new Friend</value>
   </data>
+  <data name="TITLE_ADDITIONALADDRESSINFO_TWOPOINTS" xml:space="preserve">
+    <value>Additional address info:</value>
+  </data>
   <data name="TITLE_ADDRESS" xml:space="preserve">
     <value>Now the address</value>
-  </data>
-  <data name="TITLE_ADDRESSCOMPLEMENT" xml:space="preserve">
-    <value>Any complement?</value>
-  </data>
-  <data name="TITLE_ADDRESSCOMPLEMENT_TWOPOINTS" xml:space="preserve">
-    <value>Complement:</value>
-  </data>
-  <data name="TITLE_ADDRESSNUMBER" xml:space="preserve">
-    <value>What is the number?</value>
   </data>
   <data name="TITLE_ADDRESSNUMBER_TWOPOINTS" xml:space="preserve">
     <value>Number:</value>
@@ -387,6 +387,12 @@
   <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
     <value>If you wish, you can inform me of a second emergency contact (optional)</value>
   </data>
+  <data name="TITLE_COUNTRY_AVALIABLE" xml:space="preserve">
+    <value>{0} countries available.</value>
+  </data>
+  <data name="TITLE_COUNTRY_TWOPOINTS" xml:space="preserve">
+    <value>Country:</value>
+  </data>
   <data name="TITLE_CREATE_HOME" xml:space="preserve">
     <value>Create a home</value>
   </data>
@@ -398,9 +404,6 @@
   </data>
   <data name="TITLE_DAYS" xml:space="preserve">
     <value>days</value>
-  </data>
-  <data name="TITLE_DEADLINE_PAYMENT_RENT" xml:space="preserve">
-    <value>Almost finished ... What is the deadline for paying the rent?</value>
   </data>
   <data name="TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS" xml:space="preserve">
     <value>Deadline for rent payment:</value>
@@ -574,7 +577,7 @@
     <value>Register</value>
   </data>
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
-    <value>To finish :) Wi-fi network information (Optional)</value>
+    <value>Wi-fi network information (Optional)</value>
   </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remove</value>
@@ -603,11 +606,11 @@
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>
   </data>
+  <data name="TITLE_STATE_TWOPOINTS" xml:space="preserve">
+    <value>State:</value>
+  </data>
   <data name="TITLE_SUNDAY_ABBREVIATED" xml:space="preserve">
     <value>Sun</value>
-  </data>
-  <data name="TITLE_TELLME_ZIPCODE" xml:space="preserve">
-    <value>Tell me the Zip Code :)</value>
   </data>
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>The City is:</value>
@@ -671,8 +674,5 @@
   </data>
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>Your name ;)</value>
-  </data>
-  <data name="TITLE_ZIPCODE_TWOPOINTS" xml:space="preserve">
-    <value>ZipCode:</value>
   </data>
 </root>

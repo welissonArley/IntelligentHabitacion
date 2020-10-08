@@ -11,7 +11,6 @@ namespace IntelligentHabitacion.App.Model
             NetWork = new WifiNetworkModel();
         }
         public string ZipCode { get; set; }
-        public CityModel City { get; set; }
         private string _address;
         public string Address
         {
@@ -26,7 +25,7 @@ namespace IntelligentHabitacion.App.Model
             }
         }
         public string Number { get; set; }
-        public string Complement { get; set; }
+        public string AdditionalAddressInfo { get; set; }
         private string _neighborhood;
         public string Neighborhood
         {
@@ -42,5 +41,6 @@ namespace IntelligentHabitacion.App.Model
         }
         public short? DeadlinePaymentRent { get; set; }
         public WifiNetworkModel NetWork { get; set; }
+        public CityModel City { get; set; }
     }
 }

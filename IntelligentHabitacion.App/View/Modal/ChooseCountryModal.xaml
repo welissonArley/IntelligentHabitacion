@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+    xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+    xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    BackgroundColor="White"
+    x:Class="IntelligentHabitacion.App.View.Modal.ChooseCountryModal">
+    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
+        <Label Margin="20,20,20,0" Text="{Binding CountryList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_COUNTRY_AVALIABLE}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+        <component:SearchByNameComponent x:Name="SearchByName"></component:SearchByNameComponent>
+        <Label Margin="20,30,0,0" Text="{x:Static resourceText:ResourceText.CHOOSE_A_COUNTRY_BELOW}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>
+        <ListView x:Name="List" ItemTapped="ListView_ItemTapped" RowHeight="40" Margin="20,30,0,0" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <template:CountryComponent Country="{Binding .}"></template:CountryComponent>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</pages:PopupPage>

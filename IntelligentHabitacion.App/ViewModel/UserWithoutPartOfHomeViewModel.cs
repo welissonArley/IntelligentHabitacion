@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.Modal;
-using IntelligentHabitacion.App.ViewModel.RegisterHome;
+using IntelligentHabitacion.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -42,7 +42,13 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                await Navigation.PushAsync<RequestZipCodeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel());
+                await ShowLoading();
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new ChooseCountryModal(new Command(async (value) =>
+                {
+                    await OnCountrySelectedAsync((CountryModel)value);
+                })));
+                HideLoading();
             }
             catch (System.Exception exeption)
             {
@@ -110,6 +116,22 @@ namespace IntelligentHabitacion.App.ViewModel
         public void DisconnectFromSocket()
         {
             Task.Run(async () => await _webSocketAddFriendConnection.StopConnection());
+        }
+
+        private async Task OnCountrySelectedAsync(CountryModel value)
+        {
+            if (value.Id == CountryEnum.BRAZIL)
+                await Navigation.PushAsync<Home.Register.Brazil.RequestZipCodeViewModel>((viewModel, page) => viewModel.Country = value);
+            else
+            {
+                await Navigation.PushAsync<Home.Register.Others.RegisterHomeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel
+                {
+                    City = new Model.CityModel
+                    {
+                        Country = value
+                    }
+                });
+            }
         }
     }
 }

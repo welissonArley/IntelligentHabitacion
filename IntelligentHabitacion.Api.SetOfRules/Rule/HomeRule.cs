@@ -150,10 +150,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             homeModel.UpdateDate = DateTimeController.DateTimeNow();
             homeModel.Address = updateHomeJson.Address;
             homeModel.City = updateHomeJson.City.Name;
-            homeModel.State = updateHomeJson.City.State.Name;
-            homeModel.Country = updateHomeJson.City.State.Country.Name;
-            homeModel.CountryAbbreviation = updateHomeJson.City.State.Country.Abbreviation;
-            homeModel.Complement = updateHomeJson.Complement;
+            homeModel.StateProvince = updateHomeJson.City.StateProvinceName;
+            homeModel.Country = updateHomeJson.City.Country;
+            homeModel.AdditionalAddressInfo = updateHomeJson.AdditionalAddressInfo;
             homeModel.Neighborhood = updateHomeJson.Neighborhood;
             homeModel.NetworksName = updateHomeJson.NetworksName;
             homeModel.NetworksPassword = updateHomeJson.NetworksPassword;

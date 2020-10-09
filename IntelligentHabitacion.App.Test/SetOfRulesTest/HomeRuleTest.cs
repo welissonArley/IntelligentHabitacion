@@ -202,7 +202,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                             }
                         }
                     },
-                    Complement = "",
+                    AdditionalAddressInfo = "",
                     Neighborhood = "Neighborhood",
                     NetWork = new Model.WifiNetworkModel
                     {
@@ -255,7 +255,7 @@ namespace IntelligentHabitacion.App.Test.SetOfRulesTest
                             }
                         }
                     },
-                    Complement = "",
+                    AdditionalAddressInfo = "",
                     Neighborhood = "Neighborhood",
                     NetWork = new Model.WifiNetworkModel
                     {

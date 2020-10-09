@@ -53,10 +53,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 CreateDate = DateTimeController.DateTimeNow(),
                 Address = registerHomeJson.Address,
                 City = registerHomeJson.City.Name,
-                State = registerHomeJson.City.State.Name,
-                Country = registerHomeJson.City.State.Country.Name,
-                CountryAbbreviation = registerHomeJson.City.State.Country.Abbreviation,
-                Complement = registerHomeJson.Complement,
+                StateProvince = registerHomeJson.City.StateProvinceName,
+                Country = registerHomeJson.City.Country,
+                AdditionalAddressInfo = registerHomeJson.AdditionalAddressInfo,
                 Neighborhood = registerHomeJson.Neighborhood,
                 NetworksName = registerHomeJson.NetworksName,
                 NetworksPassword = registerHomeJson.NetworksPassword,
@@ -128,7 +127,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
             {
                 Address = model.Address,
                 City = model.City,
-                Complement = model.Complement,
+                AdditionalAddressInfo = model.AdditionalAddressInfo,
                 Neighborhood = model.Neighborhood,
                 Number = model.Number,
                 ZipCode = model.ZipCode,
@@ -138,15 +137,8 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                     Name = model.NetworksName,
                     Password = model.NetworksPassword
                 },
-                State = new ResponseStateJson
-                {
-                    Name = model.State,
-                    Country = new ResponseCountryJson
-                    {
-                        Name = model.Country,
-                        Abbreviation = model.CountryAbbreviation
-                    }
-                }
+                StateProvince = model.StateProvince,
+                Country = Country.Countries.First(c => c.Id == model.Country)
             };
         }
         public ResponseFriendJson MapperModelToJsonFriend(User model, DateTime requestersJoinedOn)

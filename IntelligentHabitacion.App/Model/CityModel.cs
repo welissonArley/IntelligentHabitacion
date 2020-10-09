@@ -1,14 +1,11 @@
-﻿using System.ComponentModel;
+﻿using IntelligentHabitacion.Useful;
+using System.ComponentModel;
 using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
 {
     public class CityModel : ObservableObject
     {
-        public CityModel()
-        {
-            State = new StateModel();
-        }
         private string _name;
         public string Name
         {
@@ -22,6 +19,19 @@ namespace IntelligentHabitacion.App.Model
                 OnPropertyChanged(new PropertyChangedEventArgs("Name"));
             }
         }
-        public StateModel State { get; set; }
+        private string _stateProvinceName;
+        public string StateProvinceName
+        {
+            get
+            {
+                return _stateProvinceName;
+            }
+            set
+            {
+                _stateProvinceName = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("StateProvinceName"));
+            }
+        }
+        public CountryModel Country { get; set; }
     }
 }

@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="View\Home\Others\**" />
+    <EmbeddedResource Remove="View\Home\Others\**" />
+    <None Remove="View\Home\Others\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Com.OneSignal" Version="3.10.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />
     <PackageReference Include="Plugin.Fingerprint" Version="2.1.1" />
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Update="Template\Informations\MyFoodsComponent.xaml.cs">
       <DependentUpon>MyFoodsComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Informations\CountryComponent.xaml.cs">
+      <DependentUpon>CountryComponent.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Informations\PhonenumberToCallComponent.xaml.cs">
       <DependentUpon>PhonenumberToCallComponent.xaml</DependentUpon>
@@ -118,6 +127,15 @@
     <Compile Update="View\DeleteHomePage.xaml.cs">
       <DependentUpon>DeleteHomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Home\Informations\Others\HomeInformationPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="View\Home\Register\Others\RegisterHomePage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="View\Modal\ChooseCountryModal.xaml.cs">
+      <DependentUpon>ChooseCountryModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
       <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
     </Compile>
@@ -148,37 +166,19 @@
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\HomeInformationPage.xaml.cs">
+    <Compile Update="View\Home\Informations\Brazil\HomeInformationPage.xaml.cs">
       <DependentUpon>HomeInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\MyFoods\AddEditMyFoodsPage.xaml.cs">
       <DependentUpon>AddEditMyFoodsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterHome\RequestDeadlinePaymentRentPage.xaml.cs">
-      <DependentUpon>RequestDeadlinePaymentRentPage.xaml</DependentUpon>
+    <Compile Update="View\Home\Register\Brazil\RegisterHomePage.xaml.cs">
+      <DependentUpon>RegisterHomePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\UpdateUserInformationPage.xaml.cs">
       <DependentUpon>UpdateUserInformationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterHome\RequestNetworkInformationPage.xaml.cs">
-      <DependentUpon>RequestNetworkInformationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\RegisterHome\RequestNeighborhoodPage.xaml.cs">
-      <DependentUpon>RequestNeighborhoodPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\RegisterHome\RequestComplementPage.xaml.cs">
-      <DependentUpon>RequestComplementPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\RegisterHome\RequestNumberPage.xaml.cs">
-      <DependentUpon>RequestNumberPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\RegisterHome\RequestCityPage.xaml.cs">
-      <DependentUpon>RequestCityPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\RegisterHome\RequestAddressPage.xaml.cs">
-      <DependentUpon>RequestAddressPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\RegisterHome\RequestZipCodePage.xaml.cs">
+    <Compile Update="View\Home\Register\Brazil\RequestZipCodePage.xaml.cs">
       <DependentUpon>RequestZipCodePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\UserIsPartOfHomePage.xaml.cs">

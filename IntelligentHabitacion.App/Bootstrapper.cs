@@ -11,7 +11,8 @@ namespace IntelligentHabitacion.App
         {
             container.Register(new UserPreferences());
             container.Register<IFriendRule, FriendRule>();
-            container.Register<IHomeRule, HomeRule>();
+            container.Register<IHomeBrazilRule, HomeBrazilRule>();
+            container.Register<IHomeOthersCountryRule, HomeOthersCountryRule>();
             container.Register<ILoginRule, LoginRule>();
             container.Register<IMyFoodsRule, MyFoodsRule>();
             container.Register<IUserRule, UserRule>();

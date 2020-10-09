@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
+             Title="{x:Static resourceText:ResourceText.TITLE_REGISTER}"
+             x:Class="IntelligentHabitacion.App.View.Home.Register.Others.RegisterHomePage">
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+                <template:CountryComponent Country="{Binding Model.City.Country}" Margin="0,20,0,20"></template:CountryComponent>
+
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.ZipCode" TopMargin="False" LabelTitle="Zip code:" PlaceHolderText="Zip Code"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Address" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESS}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Number" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSNUMBER}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.AdditionalAddressInfo" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDITIONALADDRESSINFO_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDITIONALADDRESSINFO}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.DeadlinePaymentRent" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_DEADLINE_PAYMENT_RENT}" IsPassword="False" Keyboard="Numeric"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                <StackLayout Orientation="Horizontal" Margin="0,30,0,0">
+                    <Image Source="IconWifi" HeightRequest="16" WidthRequest="22" VerticalOptions="EndAndExpand"></Image>
+                    <Label Margin="10,0,0,0" VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_REGISTER_NETWORK_INFORMATION}" Style="{x:StaticResource LabelExtraBold}" FontSize="14" TextColor="{x:StaticResource YellowDefault}"></Label>
+                </StackLayout>
+
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.NetWork.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NETWORK_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.NetWork.Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                <Button Margin="0,30,0,30" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding OnConcludeCommand}"></Button>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

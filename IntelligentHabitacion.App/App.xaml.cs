@@ -8,7 +8,6 @@ using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Friends.Add;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.MyFoods;
-using IntelligentHabitacion.App.View.RegisterHome;
 using IntelligentHabitacion.App.View.RegisterUser;
 using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.DeleteAccount;
@@ -16,7 +15,6 @@ using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
-using IntelligentHabitacion.App.ViewModel.RegisterHome;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using Plugin.Fingerprint;
 using Rg.Plugins.Popup.Extensions;
@@ -81,20 +79,13 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
             ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomeViewModel>();
-            ViewFactory.Register<RequestZipCodePage, RequestZipCodeViewModel>();
-            ViewFactory.Register<RequestCityPage, RequestCityViewModel>();
-            ViewFactory.Register<RequestAddressPage, RequestAddressViewModel>();
-            ViewFactory.Register<RequestNumberPage, RequestNumberViewModel>();
-            ViewFactory.Register<RequestComplementPage, RequestComplementViewModel>();
-            ViewFactory.Register<RequestNeighborhoodPage, RequestNeighborhoodViewModel>();
-            ViewFactory.Register<RequestDeadlinePaymentRentPage, RequestDeadlinePaymentRentViewModel>();
-            ViewFactory.Register<RequestNetworkInformationPage, RequestNetworkInformationViewModel>();
             ViewFactory.Register<UpdateUserInformationPage, UpdateUserInformationViewModel>();
             ViewFactory.Register<ConfirmDeleteAccountPage, ConfirmDeleteAccountViewModel>();
             ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
             ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
-            ViewFactory.Register<HomeInformationPage, HomeInformationViewModel>();
+            ViewFactory.Register<View.Home.Informations.Brazil.HomeInformationPage, ViewModel.Home.Informations.Brazil.HomeInformationViewModel>();
+            ViewFactory.Register<View.Home.Informations.Others.HomeInformationPage, ViewModel.Home.Informations.Others.HomeInformationViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
             ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
             ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
@@ -105,6 +96,9 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RemoveFriendFromHomePage, RemoveFriendFromHomeViewModel>();
             ViewFactory.Register<ApproveActionWithCodePasswordPage, ApproveActionWithCodePasswordViewModel>();
             ViewFactory.Register<DeleteHomePage, DeleteHomeViewModel>();
+            ViewFactory.Register<View.Home.Register.Others.RegisterHomePage, ViewModel.Home.Register.Others.RegisterHomeViewModel>();
+            ViewFactory.Register<View.Home.Register.Brazil.RegisterHomePage, ViewModel.Home.Register.Brazil.RegisterHomeViewModel>();
+            ViewFactory.Register<View.Home.Register.Brazil.RequestZipCodePage, ViewModel.Home.Register.Brazil.RequestZipCodeViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

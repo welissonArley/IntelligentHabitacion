@@ -5,18 +5,16 @@
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
              Title="{x:Static resourceText:ResourceText.TITLE_REGISTER}"
-             x:Class="IntelligentHabitacion.App.View.Home.Register.Brazil.RegisterHomePage">
+             x:Class="IntelligentHabitacion.App.View.Home.Register.Others.RegisterHomePage">
     <StackLayout>
         <ScrollView>
             <StackLayout Style="{x:StaticResource MarginStyleDefault}">
                 <template:CountryComponent Country="{Binding Model.City.Country}" Margin="0,20,0,20"></template:CountryComponent>
 
-                <templateInputTextWithLabel:InputTextWithLabelComponent BackgroundColor="#e8e9eb" PropertyToBindindEntry="Model.ZipCode" TopMargin="False" LabelTitle="Cep:" PlaceHolderText="31.275-972" IsEnabled="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.ZipCode" TopMargin="False" LabelTitle="Zip code:" PlaceHolderText="Zip Code"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Address" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESS}"></templateInputTextWithLabel:InputTextWithLabelComponent>
-                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Neighborhood" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Number" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSNUMBER}"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.AdditionalAddressInfo" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDITIONALADDRESSINFO_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDITIONALADDRESSINFO}"></templateInputTextWithLabel:InputTextWithLabelComponent>
-                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.StateProvinceName" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_STATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_STATE}"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.DeadlinePaymentRent" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_DEADLINE_PAYMENT_RENT}" IsPassword="False" Keyboard="Numeric"></templateInputTextWithLabel:InputTextWithLabelComponent>
 

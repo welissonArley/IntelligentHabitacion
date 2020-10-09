@@ -19,7 +19,8 @@ namespace IntelligentHabitacion.Api.Validators
             });
             RuleFor(x => x.Address).NotEmpty().WithMessage(ResourceTextException.ADDRESS_EMPTY);
             RuleFor(x => x.Number).NotEmpty().WithMessage(ResourceTextException.NUMBER_EMPTY);
-            RuleFor(x => x.ZipCode).Custom((zipcode, context) =>
+            //TODO: alterar a forma de executar este validator para considerar pais, verificando assim, cep, estado, etc
+            /*RuleFor(x => x.ZipCode).Custom((zipcode, context) =>
             {
                 try
                 {
@@ -29,7 +30,7 @@ namespace IntelligentHabitacion.Api.Validators
                 {
                     context.AddFailure(ex.Message);
                 }
-            });
+            });*/
             RuleFor(x => x.DeadlinePaymentRent).Must(c => c >= 1 && c <= 28).WithMessage(ResourceTextException.DEADLINE_FOR_PAYMENT_OF_RENT_INVALID);
         }
     }

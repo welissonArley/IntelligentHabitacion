@@ -1,22 +1,23 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.Useful;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 
-namespace IntelligentHabitacion.App.ViewModel.Home.Register.Brazil
+namespace IntelligentHabitacion.App.ViewModel.Home.Register.Others
 {
     public class RegisterHomeViewModel : BaseViewModel
     {
-        private readonly IHomeBrazilRule _homeRule;
+        private readonly IHomeOthersCountryRule _homeRule;
 
         public HomeModel Model { get; set; }
 
         public ICommand OnConcludeCommand { protected set; get; }
 
-        public RegisterHomeViewModel(IHomeBrazilRule homeRule)
+        public RegisterHomeViewModel(IHomeOthersCountryRule homeRule)
         {
             OnConcludeCommand = new Command(async () => await OnConclude());
             _homeRule = homeRule;

@@ -1,8 +1,10 @@
-﻿using IntelligentHabitacion.App.ViewModel.Friends;
+﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel
 {
@@ -40,7 +42,25 @@ namespace IntelligentHabitacion.App.ViewModel
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<HomeInformationViewModel>();
+
+                /*
+                 Which business rule will call GetInformations doesn’t matter,
+                as its implementation doesn’t depend on the country, the API manages this for us.
+                 */
+                var homeRule = Resolver.Resolve<IHomeBrazilRule>();
+                var home = await homeRule.GetInformations();
+
+                if (home.IsBrazil())
+                {
+                    await Navigation.PushAsync<Home.Informations.Brazil.HomeInformationViewModel>((viewModel, page) =>
+                    {
+                        viewModel.Model = home;
+                        viewModel._currentZipCode = home.ZipCode;
+                    });
+                }
+                else
+                    await Navigation.PushAsync<Home.Informations.Others.HomeInformationViewModel>((viewModel, page) => viewModel.Model = home);
+
                 HideLoading();
             }
             catch (System.Exception exeption)

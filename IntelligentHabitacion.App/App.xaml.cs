@@ -6,7 +6,6 @@ using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.DeleteAccount;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Friends.Add;
-using IntelligentHabitacion.App.View.Home.Register.Brazil;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.MyFoods;
 using IntelligentHabitacion.App.View.RegisterUser;
@@ -15,7 +14,6 @@ using IntelligentHabitacion.App.ViewModel.DeleteAccount;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
-using IntelligentHabitacion.App.ViewModel.Home.Register.Brazil;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.RegisterUser;
 using Plugin.Fingerprint;
@@ -86,7 +84,8 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
             ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
-            ViewFactory.Register<HomeInformationPage, HomeInformationViewModel>();
+            ViewFactory.Register<View.Home.Informations.Brazil.HomeInformationPage, ViewModel.Home.Informations.Brazil.HomeInformationViewModel>();
+            ViewFactory.Register<View.Home.Informations.Others.HomeInformationPage, ViewModel.Home.Informations.Others.HomeInformationViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
             ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
             ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
@@ -97,8 +96,9 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RemoveFriendFromHomePage, RemoveFriendFromHomeViewModel>();
             ViewFactory.Register<ApproveActionWithCodePasswordPage, ApproveActionWithCodePasswordViewModel>();
             ViewFactory.Register<DeleteHomePage, DeleteHomeViewModel>();
-            ViewFactory.Register<RegisterHomePage, RegisterHomeViewModel>();
-            ViewFactory.Register<RequestZipCodePage, RequestZipCodeViewModel>();
+            ViewFactory.Register<View.Home.Register.Others.RegisterHomePage, ViewModel.Home.Register.Others.RegisterHomeViewModel>();
+            ViewFactory.Register<View.Home.Register.Brazil.RegisterHomePage, ViewModel.Home.Register.Brazil.RegisterHomeViewModel>();
+            ViewFactory.Register<View.Home.Register.Brazil.RequestZipCodePage, ViewModel.Home.Register.Brazil.RequestZipCodeViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

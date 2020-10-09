@@ -5,6 +5,7 @@ using IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Useful;
 using IntelligentHabitacion.Validators.Validator;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule

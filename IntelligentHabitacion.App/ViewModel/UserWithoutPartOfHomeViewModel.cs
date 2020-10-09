@@ -1,7 +1,6 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.Modal;
-using IntelligentHabitacion.App.ViewModel.Home.Register.Brazil;
 using IntelligentHabitacion.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.Generic;
@@ -122,7 +121,17 @@ namespace IntelligentHabitacion.App.ViewModel
         private async Task OnCountrySelectedAsync(CountryModel value)
         {
             if (value.Id == CountryEnum.BRAZIL)
-                await Navigation.PushAsync<RequestZipCodeViewModel>((viewModel, page) => viewModel.Country = value);
+                await Navigation.PushAsync<Home.Register.Brazil.RequestZipCodeViewModel>((viewModel, page) => viewModel.Country = value);
+            else
+            {
+                await Navigation.PushAsync<Home.Register.Others.RegisterHomeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel
+                {
+                    City = new Model.CityModel
+                    {
+                        Country = value
+                    }
+                });
+            }
         }
     }
 }

@@ -127,6 +127,12 @@
     <Compile Update="View\DeleteHomePage.xaml.cs">
       <DependentUpon>DeleteHomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Home\Informations\Others\HomeInformationPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="View\Home\Register\Others\RegisterHomePage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\ChooseCountryModal.xaml.cs">
       <DependentUpon>ChooseCountryModal.xaml</DependentUpon>
     </Compile>
@@ -160,7 +166,7 @@
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\HomeInformationPage.xaml.cs">
+    <Compile Update="View\Home\Informations\Brazil\HomeInformationPage.xaml.cs">
       <DependentUpon>HomeInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\MyFoods\AddEditMyFoodsPage.xaml.cs">
@@ -243,9 +249,5 @@
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Useful\IntelligentHabitacion.Useful.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Validators\IntelligentHabitacion.Validators.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="View\Home\Register\Others\" />
   </ItemGroup>
 </Project>

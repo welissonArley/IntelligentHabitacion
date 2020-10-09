@@ -42,5 +42,10 @@ namespace IntelligentHabitacion.App.Model
         public short? DeadlinePaymentRent { get; set; }
         public WifiNetworkModel NetWork { get; set; }
         public CityModel City { get; set; }
+
+        public bool IsBrazil()
+        {
+            return City.Country.Id == IntelligentHabitacion.Useful.CountryEnum.BRAZIL;
+        }
     }
 }

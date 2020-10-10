@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.View.Login;
+using IntelligentHabitacion.App.ViewModel.Login;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;

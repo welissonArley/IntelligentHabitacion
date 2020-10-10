@@ -13,11 +13,33 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
 {
     public class AddEditMyFoodsViewModel : BaseViewModel
     {
+        #region CheckBox
+        public bool IsCheckedUnity
+        { 
+            set { if (value) Model.Type = IntelligentHabitacion.App.Model.Type.Unity;}
+            get { return Model.Type == IntelligentHabitacion.App.Model.Type.Unity; }
+        }
+        public bool IsCheckedBox
+        {
+            set { if(value) Model.Type = IntelligentHabitacion.App.Model.Type.Box; }
+            get { return Model.Type == IntelligentHabitacion.App.Model.Type.Box; }
+        }
+        public bool IsCheckedPackage
+        {
+            set { if (value) Model.Type = IntelligentHabitacion.App.Model.Type.Package; }
+            get { return Model.Type == IntelligentHabitacion.App.Model.Type.Package; }
+        }
+        public bool IsCheckedKilogram
+        {
+            set { if (value) Model.Type = IntelligentHabitacion.App.Model.Type.Kilogram; }
+            get { return Model.Type == IntelligentHabitacion.App.Model.Type.Kilogram; }
+        }
+        #endregion
+
         public ICommand SelectDueDateTapped { get; }
         public ICommand SaveCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand SaveAndNewCommand { get; }
-        public ICommand SelectedTypeItemCommand { get; }
 
         private readonly IMyFoodsRule _myFoodsRule;
 
@@ -46,10 +68,6 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             DeleteCommand = new Command(async () =>
             {
                 await OnDeleteItem();
-            });
-            SelectedTypeItemCommand = new Command((parameter) =>
-            {
-                Model.Type = (Model.Type)((Plugin.InputKit.Shared.Controls.RadioButtonGroupView)parameter).SelectedIndex;
             });
         }
 

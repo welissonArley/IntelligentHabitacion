@@ -94,19 +94,19 @@
     <Compile Update="Template\Step\IncompleteStep.xaml.cs">
       <DependentUpon>IncompleteStep.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\DeleteAccount\DeleteAccountPage.xaml.cs">
+    <Compile Update="View\User\Delete\DeleteAccountPage.xaml.cs">
       <DependentUpon>DeleteAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\DeleteAccount\ConfirmDeleteAccountPage.xaml.cs">
+    <Compile Update="View\User\Delete\ConfirmDeleteAccountPage.xaml.cs">
       <DependentUpon>ConfirmDeleteAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\ForgotPassword\ResetPasswordPage.xaml.cs">
+    <Compile Update="View\User\ForgotPassword\ResetPasswordPage.xaml.cs">
       <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\ForgotPassword\RequestEmailPage.xaml.cs">
+    <Compile Update="View\User\ForgotPassword\RequestEmailPage.xaml.cs">
       <DependentUpon>RequestEmailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\ChangePasswordPage.xaml.cs">
+    <Compile Update="View\User\Update\ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\AboutThisAppPage.xaml.cs">
@@ -124,7 +124,7 @@
     <Compile Update="View\ApproveActionWithCodePasswordPage.xaml.cs">
       <DependentUpon>ApproveActionWithCodePasswordPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\DeleteHomePage.xaml.cs">
+    <Compile Update="View\Home\Delete\DeleteHomePage.xaml.cs">
       <DependentUpon>DeleteHomePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Home\Informations\Others\HomeInformationPage.xaml.cs">
@@ -175,19 +175,19 @@
     <Compile Update="View\Home\Register\Brazil\RegisterHomePage.xaml.cs">
       <DependentUpon>RegisterHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\UpdateUserInformationPage.xaml.cs">
-      <DependentUpon>UpdateUserInformationPage.xaml</DependentUpon>
+    <Compile Update="View\User\Update\UserInformationPage.xaml.cs">
+      <DependentUpon>UserInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Home\Register\Brazil\RequestZipCodePage.xaml.cs">
       <DependentUpon>RequestZipCodePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\UserIsPartOfHomePage.xaml.cs">
+    <Compile Update="View\Login\UserIsPartOfHomePage.xaml.cs">
       <DependentUpon>UserIsPartOfHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\UserWithoutPartOfHomePage.xaml.cs">
+    <Compile Update="View\Login\UserWithoutPartOfHomePage.xaml.cs">
       <DependentUpon>UserWithoutPartOfHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\LoginPage.xaml.cs">
+    <Compile Update="View\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\GetStartedPage.xaml.cs">
@@ -196,22 +196,22 @@
     <Compile Update="View\Modal\ErrorModal.xaml.cs">
       <DependentUpon>ErrorModal.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterUser\RequestPasswordPage.xaml.cs">
+    <Compile Update="View\User\Register\RequestPasswordPage.xaml.cs">
       <DependentUpon>RequestPasswordPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterUser\RequestEmergencyContact2Page.xaml.cs">
+    <Compile Update="View\User\Register\RequestEmergencyContact2Page.xaml.cs">
       <DependentUpon>RequestEmergencyContact2Page.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterUser\RequestEmergencyContact1Page.xaml.cs">
+    <Compile Update="View\User\Register\RequestEmergencyContact1Page.xaml.cs">
       <DependentUpon>RequestEmergencyContact1Page.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterUser\RequestEmailPage.xaml.cs">
+    <Compile Update="View\User\Register\RequestEmailPage.xaml.cs">
       <DependentUpon>RequestEmailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterUser\RequestPhoneNumberPage.xaml.cs">
+    <Compile Update="View\User\Register\RequestPhoneNumberPage.xaml.cs">
       <DependentUpon>RequestPhoneNumberPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\RegisterUser\RequestNamePage.xaml.cs">
+    <Compile Update="View\User\Register\RequestNamePage.xaml.cs">
       <DependentUpon>RequestNamePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

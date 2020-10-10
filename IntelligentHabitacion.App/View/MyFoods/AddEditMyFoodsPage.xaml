@@ -30,34 +30,18 @@
                     <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource DecimalConverter}" PropertyToBindindEntry="Model.Quantity" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_QUANTITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_QUANTITY}" IsPassword="False" Keyboard="Numeric" ></templateInputTextWithLabel:InputTextWithLabelComponent>
 
                     <Label Text="{x:Static resourceText:ResourceText.TITLE_TYPE_TWOPOINTS}" FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}" Margin="0,20,0,0"></Label>
-                    <InputKit:RadioButtonGroupView Margin="0,10,0,0" SelectedItemChangedCommand="{Binding SelectedTypeItemCommand}">
-                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_UNITY}" Margin="0,10,0,0">
-                            <InputKit:RadioButton.Triggers>
-                                <DataTrigger TargetType="InputKit:RadioButton" Binding="{Binding Model.Type}" Value="0">
-                                    <Setter Property="IsChecked" Value="True"></Setter>
-                                </DataTrigger>
-                            </InputKit:RadioButton.Triggers>
+                    <InputKit:RadioButtonGroupView Margin="0,10,0,0">
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_UNITY}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedUnity, Mode=TwoWay}">
+                            
                         </InputKit:RadioButton>
-                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_BOX}" Margin="0,10,0,0">
-                            <InputKit:RadioButton.Triggers>
-                                <DataTrigger TargetType="InputKit:RadioButton" Binding="{Binding Model.Type}" Value="1">
-                                    <Setter Property="IsChecked" Value="True"></Setter>
-                                </DataTrigger>
-                            </InputKit:RadioButton.Triggers>
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_BOX}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedBox, Mode=TwoWay}">
+                            
                         </InputKit:RadioButton>
-                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_PACKAGE}" Margin="0,10,0,0">
-                            <InputKit:RadioButton.Triggers>
-                                <DataTrigger TargetType="InputKit:RadioButton" Binding="{Binding Model.Type}" Value="2">
-                                    <Setter Property="IsChecked" Value="True"></Setter>
-                                </DataTrigger>
-                            </InputKit:RadioButton.Triggers>
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_PACKAGE}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedPackage, Mode=TwoWay}">
+                            
                         </InputKit:RadioButton>
-                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_KILOGRAM}" Margin="0,10,0,0">
-                            <InputKit:RadioButton.Triggers>
-                                <DataTrigger TargetType="InputKit:RadioButton" Binding="{Binding Model.Type}" Value="3">
-                                    <Setter Property="IsChecked" Value="True"></Setter>
-                                </DataTrigger>
-                            </InputKit:RadioButton.Triggers>
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_KILOGRAM}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedKilogram, Mode=TwoWay}">
+                            
                         </InputKit:RadioButton>
                     </InputKit:RadioButtonGroupView>
                 </StackLayout>

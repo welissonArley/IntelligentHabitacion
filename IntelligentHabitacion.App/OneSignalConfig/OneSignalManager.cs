@@ -1,7 +1,7 @@
 ﻿using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.View;
-using IntelligentHabitacion.App.ViewModel;
+using IntelligentHabitacion.App.View.Login;
+using IntelligentHabitacion.App.ViewModel.Login;
 using IntelligentHabitacion.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Linq;

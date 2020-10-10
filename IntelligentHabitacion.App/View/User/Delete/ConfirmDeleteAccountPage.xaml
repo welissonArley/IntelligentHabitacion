@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             x:Name="ConfirmDeleteAccountContentPage"
+             Title="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}"
+             x:Class="IntelligentHabitacion.App.View.User.Delete.ConfirmDeleteAccountPage">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <customcontrol:LabelJustifyText FontSize="22" Margin="0,20,0,0">
+            <customcontrol:LabelJustifyText.FormattedText>
+                <FormattedString>
+                    <Span Text="Ao executar este processo" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span Text="todas" TextColor="{x:StaticResource RedDefault}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewayBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span Text="as suas informações pessoais serão perdidas e" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span Text="não" TextColor="{x:StaticResource RedDefault}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewayBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span Text="poderão ser recuperadas." TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                    <Span Text="{x:Static system:Environment.NewLine}" FontSize="12"></Span>
+                    <Span Text="{x:Static system:Environment.NewLine}" FontSize="12"></Span>
+                    <Span Text="Apenas" TextColor="{x:StaticResource RedDefault}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewayBold}"></Span>
+                    <Span Text=" " FontSize="22"></Span>
+                    <Span FontFamily="{DynamicResource FontFamilyRalewaySemiBold}" Text="históricos como, por exemplo: pagamentos, cronograma de limpeza, etc, ficarão armazenados para consultas do Administrador das Repúblicas que você fez parte." TextColor="Black" FontSize="22"></Span>
+                </FormattedString>
+            </customcontrol:LabelJustifyText.FormattedText>
+        </customcontrol:LabelJustifyText>
+
+        <customcontrol:LabelJustifyText Style="{x:StaticResource LabelExtraBold}" FontSize="22" Margin="0,40,0,0" TextColor="{x:StaticResource RedDefault}" Text="{x:Static resourceText:ResourceText.PHRASE_AREYOUSUREEXCUTETHISACTION}"></customcontrol:LabelJustifyText>
+
+        <button:ConfirmDangerActionButton VerticalOptions="EndAndExpand" TitleButton="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TappedButtonCommand="{Binding Path=BindingContext.ConfirmCommand, Source={x:Reference Name=ConfirmDeleteAccountContentPage}}"></button:ConfirmDangerActionButton>
+
+        <Button Command="{Binding CancelCommand}" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" Style="{x:StaticResource ButtonGreenDefault}" VerticalOptions="EndAndExpand"></Button>
+    </StackLayout>
+</ContentPage>

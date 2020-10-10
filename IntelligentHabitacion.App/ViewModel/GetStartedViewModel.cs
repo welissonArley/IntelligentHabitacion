@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.ViewModel.RegisterUser;
+using IntelligentHabitacion.App.ViewModel.Login;
+using IntelligentHabitacion.App.ViewModel.User.Register;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;

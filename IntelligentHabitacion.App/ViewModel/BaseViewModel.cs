@@ -1,7 +1,8 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Template.Loading;
-using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.App.ViewModel.Login;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Plugin.Connectivity;

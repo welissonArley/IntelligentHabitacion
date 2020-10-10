@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.ViewModel.Home.Delete;
 using Plugin.Clipboard;
 using System.Threading.Tasks;
 using System.Windows.Input;

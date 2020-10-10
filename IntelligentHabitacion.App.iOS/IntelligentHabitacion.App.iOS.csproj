@@ -66,7 +66,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AppVersion\AppVersioniOS.cs" />
-    <Compile Include="CustomControl\EntryTransparentBlackCursorRenderer.cs" />
+    <Compile Include="CustomControl\EntryForSearchByNameBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

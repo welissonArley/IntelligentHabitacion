@@ -15,7 +15,6 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
         public string CurrentPassword { get; set; }
         public string NewPassword { get; set; }
-        public string PasswordConfirmation { get; set; }
 
         public ChangePasswordViewModel(IUserRule userRule, UserPreferences userPreferences)
         {
@@ -29,7 +28,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
             try
             {
                 await ShowLoading();
-                await _userRule.ChangePassword(CurrentPassword, NewPassword, PasswordConfirmation);
+                await _userRule.ChangePassword(CurrentPassword, NewPassword);
                 _userPreferences.ChangePassword(NewPassword);
                 await Navigation.PopAsync();
                 HideLoading();

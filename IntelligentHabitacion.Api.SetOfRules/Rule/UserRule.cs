@@ -30,7 +30,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
         public void ChangePassword(RequestChangePasswordJson changePasswordJson)
         {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(changePasswordJson.NewPassword, changePasswordJson.NewPasswordConfirmation);
+            new PasswordValidator().IsValidaPasswordAndConfirmation(changePasswordJson.NewPassword);
 
             var loggedUser = _loggedUser.User();
 
@@ -64,7 +64,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
 
         public string Register(RequestRegisterUserJson registerUserJson)
         {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(registerUserJson.Password, registerUserJson.PasswordConfirmation);
+            new PasswordValidator().IsValidaPasswordAndConfirmation(registerUserJson.Password);
             if (EmailAlreadyBeenRegistered(registerUserJson.Email).Value)
                 throw new EmailAlreadyBeenRegisteredException();
 

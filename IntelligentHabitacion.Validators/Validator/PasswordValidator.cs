@@ -4,13 +4,10 @@ namespace IntelligentHabitacion.Validators.Validator
 {
     public class PasswordValidator
     {
-        public void IsValidaPasswordAndConfirmation(string password, string passwordConfirmation)
+        public void IsValidaPasswordAndConfirmation(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
                 throw new PasswordEmptyException();
-
-            if (!password.Equals(passwordConfirmation))
-                throw new PasswordIsNotSameConfirmationException();
 
             if (password.Length < 6)
                 throw new InvalidPasswordException();

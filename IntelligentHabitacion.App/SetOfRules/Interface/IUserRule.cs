@@ -11,11 +11,11 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void ValidateEmail(string email);
         void ValidatePhoneNumber(string phoneNumber1, string phoneNumber2);
         void ValidateEmergencyContact(string name, string phoneNumber, string relationship);
-        void ValidatePassword(string password, string confirmationPassword);
+        void ValidatePassword(string password);
         void DeleteAccount(string codeReceived, string password);
         Task<ResponseJson> Create(RegisterUserModel userInformations);
         Task UpdateInformations(UserInformationsModel userInformations);
         Task<UserInformationsModel> GetInformations();
-        Task ChangePassword(string currentPassword, string newPassword, string confirmationPassword);
+        Task ChangePassword(string currentPassword, string newPassword);
     }
 }

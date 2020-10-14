@@ -5,7 +5,7 @@
              x:Class="IntelligentHabitacion.App.View.GetStartedPage">
     <StackLayout>
         <StackLayout VerticalOptions="FillAndExpand" Margin="20,100,20,0">
-            <Label Text="{x:Static resourceText:ResourceText.TITLE_ITS_GREATE_SEE_YOU_HERE}" FontSize="30" HorizontalOptions="StartAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_ITS_GREAT_SEE_YOU_HERE}" FontSize="30" HorizontalOptions="StartAndExpand" TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
             <Label Text="{x:Static resourceText:ResourceText.TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME}" FontSize="16" HorizontalOptions="StartAndExpand" TextColor="Black" Margin="0,25,0,0" Style="{x:StaticResource LabelLight}"></Label>
         </StackLayout>
 

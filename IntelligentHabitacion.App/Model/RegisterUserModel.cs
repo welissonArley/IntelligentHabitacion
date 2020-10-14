@@ -17,6 +17,5 @@ namespace IntelligentHabitacion.App.Model
         public EmergencyContactModel EmergencyContact1 { get; set; }
         public EmergencyContactModel EmergencyContact2 { get; set; }
         public string Password { get; set; }
-        public string PasswordConfirmation { get; set; }
     }
 }

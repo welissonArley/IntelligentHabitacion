@@ -41,7 +41,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             {
                 await ShowLoading();
 
-                _userRule.ValidatePassword(Model.Password, Model.PasswordConfirmation);
+                _userRule.ValidatePassword(Model.Password);
 
                 var response = await _userRule.Create(Model);
 

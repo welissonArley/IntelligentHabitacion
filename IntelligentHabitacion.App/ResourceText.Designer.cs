@@ -1125,9 +1125,9 @@ namespace IntelligentHabitacion.App {
         /// <summary>
         ///   Looks up a localized string similar to It&apos;s great to see you here 😍.
         /// </summary>
-        internal static string TITLE_ITS_GREATE_SEE_YOU_HERE {
+        internal static string TITLE_ITS_GREAT_SEE_YOU_HERE {
             get {
-                return ResourceManager.GetString("TITLE_ITS_GREATE_SEE_YOU_HERE", resourceCulture);
+                return ResourceManager.GetString("TITLE_ITS_GREAT_SEE_YOU_HERE", resourceCulture);
             }
         }
         

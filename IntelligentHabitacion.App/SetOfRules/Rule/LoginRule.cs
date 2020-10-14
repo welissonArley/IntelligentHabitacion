@@ -25,14 +25,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             if (string.IsNullOrWhiteSpace(model.CodeReceived))
                 throw new CodeEmptyException();
 
-            ValidatePasswordAndPasswordConfirmation(model.NewPassword, model.PasswordConfirmation);
+            ValidatePasswordAndPasswordConfirmation(model.NewPassword);
 
             await _httpClient.ChangePasswordForgotPassword(new RequestResetYourPasswordJson
             {
                 Email = model.Email,
                 Code = model.CodeReceived,
                 Password = model.NewPassword,
-                PasswordConfirmation = model.PasswordConfirmation
             }, System.Globalization.CultureInfo.CurrentCulture.ToString());
         }
 
@@ -63,9 +62,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             new EmailValidator().IsValid(email);
         }
 
-        private void ValidatePasswordAndPasswordConfirmation(string newPassword, string confirmationPassword)
+        private void ValidatePasswordAndPasswordConfirmation(string newPassword)
         {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(newPassword, confirmationPassword);
+            new PasswordValidator().IsValidaPasswordAndConfirmation(newPassword);
         }
     }
 }

@@ -15,7 +15,6 @@ namespace IntelligentHabitacion.Communication.Request
         public List<string> Phonenumbers { get; set; }
         public List<RequestEmergencyContactJson> EmergencyContacts { get; set; }
         public string Password { get; set; }
-        public string PasswordConfirmation { get; set; }
         public string PushNotificationId { get; set; }
     }
 }

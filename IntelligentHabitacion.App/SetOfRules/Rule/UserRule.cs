@@ -50,9 +50,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 throw new NameEmptyException();
         }
 
-        public void ValidatePassword(string password, string confirmationPassword)
+        public void ValidatePassword(string password)
         {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(password, confirmationPassword);
+            new PasswordValidator().IsValidaPasswordAndConfirmation(password);
         }
 
         public void ValidatePhoneNumber(string phoneNumber1, string phoneNumber2)
@@ -117,8 +117,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         public async Task<ResponseJson> Create(RegisterUserModel userInformations)
         {
             ValidateName(userInformations.Name);
-            await ValidateEmailAndVerifyIfAlreadyBeenRegistered(userInformations.Email);
-            ValidatePassword(userInformations.Password, userInformations.PasswordConfirmation);
+            ValidatePassword(userInformations.Password);
             ValidatePhoneNumber(userInformations.PhoneNumber1, userInformations.PhoneNumber2);
             ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.Relationship);
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
@@ -129,7 +128,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Name = userInformations.Name,
                 Email = userInformations.Email,
                 Password = userInformations.Password,
-                PasswordConfirmation = userInformations.PasswordConfirmation,
                 PushNotificationId = OneSignalManager.MyOneSignalId
             };
             user.Phonenumbers.Add(userInformations.PhoneNumber1);
@@ -195,18 +193,17 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             return userInformationsModel;
         }
 
-        public async Task ChangePassword(string currentPassword, string newPassword, string confirmationPassword)
+        public async Task ChangePassword(string currentPassword, string newPassword)
         {
             if (string.IsNullOrWhiteSpace(currentPassword))
                 throw new CurrentPasswordEmptyException();
 
-            ValidatePassword(newPassword, confirmationPassword);
+            ValidatePassword(newPassword);
 
             var response = await _httpClient.ChangePassword(new RequestChangePasswordJson
             {
                 CurrentPassword = currentPassword,
                 NewPassword = newPassword,
-                NewPasswordConfirmation = confirmationPassword
             },_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _userPreferences.ChangeToken(response.Token);

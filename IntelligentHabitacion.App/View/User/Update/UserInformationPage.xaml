@@ -31,8 +31,8 @@
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.EmergencyContact2.Relationship" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
 
                 <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding UpdateInformationsTapped}"></Button>
-                <templateButton:SecondaryActionButton Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_CHANGE_PASSWORD}" TappedButtonCommand="{Binding Path=BindingContext.ChangePasswordTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:SecondaryActionButton>
-                <templateButton:DeleteButton Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
+                <templateButton:SecondaryActionButton Margin="0,50,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_CHANGE_PASSWORD}" TappedButtonCommand="{Binding Path=BindingContext.ChangePasswordTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:SecondaryActionButton>
+                <templateButton:DeleteButton IsVisible="False" Margin="0,150,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
             </StackLayout>
         </ScrollView>
     </StackLayout>

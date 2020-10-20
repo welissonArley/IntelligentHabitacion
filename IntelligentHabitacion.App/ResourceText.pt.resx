@@ -180,6 +180,21 @@
   <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
     <value>Vai ao Supermercado? Dê uma olhadinha na lista de compras.</value>
   </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_ADDRESS" xml:space="preserve">
+    <value>O Endereço do lar está disponível APENAS para as pessoas que habitam o mesmo lar que você. As informações de Wi-fi também. O objetivo é facilitar que os moradores obtenham as informações de forma rápida e simples. Seu amigo pode conferir o endereço para comprar o novo MAC e usar as informações do Wi-fi para conecta-lo a rede :)</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_CEP" xml:space="preserve">
+    <value>Aqui o CEP é importante para ajudar a preencher o endereço no proximo passo. O Endereço do lar está disponível APENAS para as pessoas que habitam o mesmo lar que você.</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_EMAIL" xml:space="preserve">
+    <value>Seu e-mail será usado para fazer o login no App e atráves dele nós podemos te enviar links para recuperar sua senha, códigos de segurança para você excluir informações importantes, etc. HEY, te enviaremos APENAS conteudo importantes, portanto não se preocupe :)</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_EMERGENCY_CONTACT" xml:space="preserve">
+    <value>Esta informação será compartilhada APENAS com as pessoas que habitam o mesmo lar que você. O objetivo é ajudar na comunicação dos seus amigos com alguém importante para você caso algum imprevisto venha a acontecer.</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER" xml:space="preserve">
+    <value>Seu telefone será compartilhado APENAS com as pessoas que habitam o mesmo lar que você. A intenção é facilitar a comunicação entre os moradores.</value>
+  </data>
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
     <value>Seu pedido chegou e esta esperando por você ;)</value>
   </data>
@@ -462,6 +477,9 @@
   <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
     <value>Fontes dos icones e Ilustrações utilizadas:</value>
   </data>
+  <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
+    <value>Sua informação é salva com criptografia e nos não vamos compartilhar com ninguem. Você pode editar ou excluir quando quiser.</value>
+  </data>
   <data name="TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME" xml:space="preserve">
     <value>O Intelligent Habitacion é sua ferramenta e um novo jeito de organizar sua casa.</value>
   </data>
@@ -656,6 +674,9 @@
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_WHY_NEED_FILL_THIS_INFORMATION" xml:space="preserve">
+    <value>Por que preciso preencher esta informação?</value>
   </data>
   <data name="TITLE_YEAR" xml:space="preserve">
     <value>ano</value>

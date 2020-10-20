@@ -250,6 +250,51 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Home Address is available ONLY to people who live in the same home as you. Wi-fi information too. The goal is to make it easier for residents to obtain information quickly and simply. Your friend can check the address to buy the new MAC and use the Wi-Fi information to connect it to the network :).
+        /// </summary>
+        internal static string DESCRIPTION_WHY_WE_NEED_YOUR_ADDRESS {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_WHY_WE_NEED_YOUR_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Here the zip code is important to help fill in the address in the next step. The Home Address is available ONLY to people who live in the same home as you..
+        /// </summary>
+        internal static string DESCRIPTION_WHY_WE_NEED_YOUR_CEP {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_WHY_WE_NEED_YOUR_CEP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your email will be used to login to the App and through it we can send you links to recover your password, security codes for you to delete important information, etc. HEY, we will send you ONLY important content, so don&apos;t worry :).
+        /// </summary>
+        internal static string DESCRIPTION_WHY_WE_NEED_YOUR_EMAIL {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_WHY_WE_NEED_YOUR_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This information will ONLY be shared with people who live in the same home as you. The goal is to help your friends communicate with someone important to you in case something unforeseen happens..
+        /// </summary>
+        internal static string DESCRIPTION_WHY_WE_NEED_YOUR_EMERGENCY_CONTACT {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_WHY_WE_NEED_YOUR_EMERGENCY_CONTACT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your phone will ONLY be shared with people who live in the same home as you. The intention is to facilitate communication between residents..
+        /// </summary>
+        internal static string DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your order has arrived and is waiting for you ;).
         /// </summary>
         internal static string DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU {
@@ -1105,6 +1150,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your information is saved with encryption and we will not share it with anyone. You can edit or delete at any time..
+        /// </summary>
+        internal static string TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION {
+            get {
+                return ResourceManager.GetString("TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Intelligent Habitacion is your tool and a new way to organize your home..
         /// </summary>
         internal static string TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME {
@@ -1695,6 +1749,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_WELCOME {
             get {
                 return ResourceManager.GetString("TITLE_WELCOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Why do I need to fill this information?.
+        /// </summary>
+        internal static string TITLE_WHY_NEED_FILL_THIS_INFORMATION {
+            get {
+                return ResourceManager.GetString("TITLE_WHY_NEED_FILL_THIS_INFORMATION", resourceCulture);
             }
         }
         

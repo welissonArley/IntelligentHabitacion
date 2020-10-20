@@ -497,4 +497,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\IlustrationWave%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconQuestion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconQuestion%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconQuestion%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationHalfCircle.png" />
+  </ItemGroup>
 </Project>

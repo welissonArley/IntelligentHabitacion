@@ -94,6 +94,9 @@
     <Compile Update="Template\Step\IncompleteStep.xaml.cs">
       <DependentUpon>IncompleteStep.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\LgpdModal.xaml.cs">
+      <DependentUpon>LgpdModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\User\Delete\DeleteAccountPage.xaml.cs">
       <DependentUpon>DeleteAccountPage.xaml</DependentUpon>
     </Compile>

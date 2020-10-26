@@ -7,5 +7,6 @@ namespace IntelligentHabitacion.Api.Repository.Interface
     {
         List<MyFood> GetMyFoods(long userId);
         MyFood GetMyFood(long foodId, long userId);
+        List<MyFood> GetExpiredOrCloseToDueDate();
     }
 }

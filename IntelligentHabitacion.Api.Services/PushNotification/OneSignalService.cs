@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Services.Interface;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -33,15 +34,23 @@ namespace IntelligentHabitacion.Api.Services.PushNotification
             SendRequest(bodyMensage);
         }
 
-        public void Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds)
+        public void Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds, DateTime? time = null)
         {
-            var bodyMensage = JsonConvert.SerializeObject(new
+            var body = new MessageBody
             {
                 app_id = _appId,
                 include_player_ids = usersIds,
                 contents = messageForEachLanguage,
                 headings = titleForEachLanguage
-            });
+            };
+            
+            if (time.HasValue)
+            {
+                body.delayed_option = "timezone";
+                body.delivery_time_of_day = time.Value.ToString("HH:mm:ss");
+            }
+
+            var bodyMensage = JsonConvert.SerializeObject(body);
 
             SendRequest(bodyMensage);
         }
@@ -57,5 +66,15 @@ namespace IntelligentHabitacion.Api.Services.PushNotification
             var tarefa = SendAsync(request);
             tarefa.Wait();
         }
+    }
+
+    public class MessageBody
+    {
+        public string app_id { get; set; }
+        public List<string> include_player_ids { get; set; }
+        public Dictionary<string, string> contents { get; set; }
+        public Dictionary<string, string> headings { get; set; }
+        public string delayed_option { get; set; }
+        public string delivery_time_of_day { get; set; }
     }
 }

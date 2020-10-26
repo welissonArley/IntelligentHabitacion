@@ -1,7 +1,9 @@
-﻿using IntelligentHabitacion.Api.Configuration.Swagger;
+﻿using IntelligentHabitacion.Api.Application;
+using IntelligentHabitacion.Api.Configuration.Swagger;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.DatabaseInformations;
+using IntelligentHabitacion.Api.Services;
 using IntelligentHabitacion.Api.Services.Interface;
 using IntelligentHabitacion.Api.Services.JWT;
 using IntelligentHabitacion.Api.Services.PushNotification;
@@ -84,6 +86,8 @@ namespace IntelligentHabitacion.Api
                 options.IncludeXmlComments("IntelligentHabitacion.Api.xml");
             });
 
+            services.AddUseCases();
+
             RegisterSetOfRules(services);
             RegisterRepository(services);
 
@@ -108,6 +112,8 @@ namespace IntelligentHabitacion.Api
             {
                 return new OneSignalService(_appSettingsManager.OneSignalAppId(), _appSettingsManager.OneSignalApiKey());
             });
+
+            services.AddHostedService<NotifyUserProductDueDate>();
         }
 
         /// <summary>

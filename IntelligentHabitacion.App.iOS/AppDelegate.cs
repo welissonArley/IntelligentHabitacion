@@ -21,6 +21,7 @@ namespace IntelligentHabitacion.App.iOS
             RoundedBoxView.Forms.Plugin.iOSUnified.RoundedBoxViewRenderer.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
+            Messier16.Forms.iOS.Controls.Messier16Controls.InitAll();
 
             LoadApplication(new App());
 

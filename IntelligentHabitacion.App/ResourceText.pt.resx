@@ -177,6 +177,9 @@
   <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
     <value>Utilize esta opção para visualizar e/ou editar suas informações de cadastro.</value>
   </data>
+  <data name="DESCRIPTION_SCHEDULE_CLEAR_HOUSE" xml:space="preserve">
+    <value>Abaixo você vai encontrar informações das tarefas realizadas em cada mês :)</value>
+  </data>
   <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
     <value>Vai ao Supermercado? Dê uma olhadinha na lista de compras.</value>
   </data>
@@ -432,6 +435,9 @@
   <data name="TITLE_DELETE_HOME" xml:space="preserve">
     <value>Deletar lar</value>
   </data>
+  <data name="TITLE_DETAILS" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
   <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
     <value>Data vencimento:</value>
   </data>
@@ -588,6 +594,12 @@
   <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
     <value>Quantidade:</value>
   </data>
+  <data name="TITLE_RATE" xml:space="preserve">
+    <value>Avaliar</value>
+  </data>
+  <data name="TITLE_RATING" xml:space="preserve">
+    <value>Avaliação</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
@@ -599,6 +611,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
+  </data>
+  <data name="TITLE_ROOMS_IN_THE_HOUSE" xml:space="preserve">
+    <value>Cômodos da casa</value>
   </data>
   <data name="TITLE_SATURDAY_ABBREVIATED" xml:space="preserve">
     <value>Sáb</value>

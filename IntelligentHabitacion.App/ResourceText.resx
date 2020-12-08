@@ -177,6 +177,9 @@
   <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
     <value>Use this option to see and/or edit your registry information.</value>
   </data>
+  <data name="DESCRIPTION_SCHEDULE_CLEAR_HOUSE" xml:space="preserve">
+    <value>Below you will find information on the tasks performed each month :)</value>
+  </data>
   <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
     <value>Going to the Supermarket? Take a look at the shopping list.</value>
   </data>
@@ -435,6 +438,9 @@
   <data name="TITLE_DELETE_HOME" xml:space="preserve">
     <value>Delete home</value>
   </data>
+  <data name="TITLE_DETAILS" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
     <value>Due date:</value>
   </data>
@@ -591,6 +597,12 @@
   <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
     <value>Quantity:</value>
   </data>
+  <data name="TITLE_RATE" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="TITLE_RATING" xml:space="preserve">
+    <value>Rating</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -602,6 +614,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>
+  </data>
+  <data name="TITLE_ROOMS_IN_THE_HOUSE" xml:space="preserve">
+    <value>Rooms in the house</value>
   </data>
   <data name="TITLE_SATURDAY_ABBREVIATED" xml:space="preserve">
     <value>Sat</value>

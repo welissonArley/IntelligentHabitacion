@@ -3,6 +3,7 @@ using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.View.CleanHouse;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Friends.Add;
 using IntelligentHabitacion.App.View.Home.Delete;
@@ -13,6 +14,7 @@ using IntelligentHabitacion.App.View.User.Delete;
 using IntelligentHabitacion.App.View.User.Register;
 using IntelligentHabitacion.App.View.User.Update;
 using IntelligentHabitacion.App.ViewModel;
+using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
@@ -105,6 +107,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<View.Home.Register.Others.RegisterHomePage, ViewModel.Home.Register.Others.RegisterHomeViewModel>();
             ViewFactory.Register<View.Home.Register.Brazil.RegisterHomePage, ViewModel.Home.Register.Brazil.RegisterHomeViewModel>();
             ViewFactory.Register<View.Home.Register.Brazil.RequestZipCodePage, ViewModel.Home.Register.Brazil.RequestZipCodeViewModel>();
+            ViewFactory.Register<UserSchedulePage, UserScheduleViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

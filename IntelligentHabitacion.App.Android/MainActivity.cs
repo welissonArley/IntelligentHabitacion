@@ -36,6 +36,7 @@ namespace IntelligentHabitacion.App.Droid
             OneSignal.Current.RegisterForPushNotifications();
             CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            Messier16.Forms.Android.Controls.Messier16Controls.InitAll();
 
             LoadApplication(new App());
         }

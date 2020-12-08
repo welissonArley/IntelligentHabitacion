@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+             x:Class="IntelligentHabitacion.App.Template.Informations.ScheduleCleanHomeTemplate">
+  <ContentView.Content>
+      <StackLayout Margin="0,20,0,0">
+            <Label x:Name="DateLabel" TextColor="Black" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+
+            <Label x:Name="RoomLabel" Margin="0,25,0,0" TextColor="Black" FontSize="14"></Label>
+            
+            <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_RATING}" HorizontalOptions="FillAndExpand" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelThin}" FontSize="14"></Label>
+                <Label x:Name="LabelWithouRate" HorizontalOptions="EndAndExpand" Text="-" TextColor="{x:StaticResource YellowDefault}" Style="{x:StaticResource LabelBold}" FontSize="14"></Label>
+                <messier16:RatingBar x:Name="RatingStars" HorizontalOptions="FillAndExpand" IsEnabled="False" WidthRequest="10" FilledImage="IconStarFilled" Image="IconStar" MaxRating="5" FillColor="{x:StaticResource YellowDefault}" HeightRequest="15"></messier16:RatingBar>
+            </StackLayout>
+
+            <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5"></BoxView>
+
+            <Button x:Name="ButtonToRate" Text="{x:Static resourceText:ResourceText.TITLE_RATE}" Style="{x:StaticResource ButtonGreenDefault}" CornerRadius="0"></Button>
+
+            <Button HorizontalOptions="End" x:Name="SeeDetailsLabel" Text="{x:Static resourceText:ResourceText.TITLE_DETAILS}" CornerRadius="0" BackgroundColor="White" TextColor="{x:StaticResource GreenDefault}"></Button>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

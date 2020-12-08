@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
@@ -15,6 +16,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         public ICommand CardHomesInformationsTapped { get; }
         public ICommand CardMyFriendsTapped { get; }
         public ICommand CardMyFoodsTapped { get; }
+        public ICommand CardCleanHouseTapped { get; }
 
         public UserIsPartOfHomeViewModel()
         {
@@ -22,6 +24,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             CardHomesInformationsTapped = new Command(async () => await ClickOnCardHomesInformations());
             CardMyFriendsTapped = new Command(async () => await ClickOnCardMyFriends());
             CardMyFoodsTapped = new Command(async () => await ClickOnCardMyFoods());
+            CardCleanHouseTapped = new Command(async () => await ClickOnCardCleanHouse());
         }
 
         private async Task ClickOnCardMyInformations()
@@ -90,6 +93,20 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             {
                 await ShowLoading();
                 await Navigation.PushAsync<MyFoodsViewModel>();
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+        private async Task ClickOnCardCleanHouse()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<UserScheduleViewModel>();
                 HideLoading();
             }
             catch (System.Exception exeption)

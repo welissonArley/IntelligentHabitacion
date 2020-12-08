@@ -241,6 +241,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Below you will find information on the tasks performed each month :).
+        /// </summary>
+        internal static string DESCRIPTION_SCHEDULE_CLEAR_HOUSE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_SCHEDULE_CLEAR_HOUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Going to the Supermarket? Take a look at the shopping list..
         /// </summary>
         internal static string DESCRIPTION_SHOPPING {
@@ -1015,6 +1024,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        internal static string TITLE_DETAILS {
+            get {
+                return ResourceManager.GetString("TITLE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Due date:.
         /// </summary>
         internal static string TITLE_DUEDATE_TWOPOINTS {
@@ -1483,6 +1501,24 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        internal static string TITLE_RATE {
+            get {
+                return ResourceManager.GetString("TITLE_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating.
+        /// </summary>
+        internal static string TITLE_RATING {
+            get {
+                return ResourceManager.GetString("TITLE_RATING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string TITLE_REGISTER {
@@ -1515,6 +1551,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_RETURN {
             get {
                 return ResourceManager.GetString("TITLE_RETURN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rooms in the house.
+        /// </summary>
+        internal static string TITLE_ROOMS_IN_THE_HOUSE {
+            get {
+                return ResourceManager.GetString("TITLE_ROOMS_IN_THE_HOUSE", resourceCulture);
             }
         }
         

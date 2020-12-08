@@ -42,6 +42,18 @@ namespace IntelligentHabitacion.App.Template.Informations
                     component.ButtonToRate.IsVisible = false;
                     component.SeeDetailsLabel.IsVisible = true;
                 }
+
+                if(scheduleModel.RatingStars == -1)
+                {
+                    component.LabelWithouRate.IsVisible = true;
+                    component.RatingStars.IsVisible = false;
+                }
+                else
+                {
+                    component.LabelWithouRate.IsVisible = false;
+                    component.RatingStars.IsVisible = true;
+                    component.RatingStars.Rating = scheduleModel.RatingStars;
+                }
             }
         }
 

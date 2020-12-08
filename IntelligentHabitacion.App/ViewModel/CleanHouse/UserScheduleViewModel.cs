@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     {
                         Date = DateTime.Today,
                         Room = "Área de Serviço",
-                        RatingStars = 4,
+                        RatingStars = -1,
                         CanBeRate = true
                     },
                     new ScheduleModel

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="Com.OneSignal" Version="3.10.1" />
+    <PackageReference Include="Messier16.Forms.Controls" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />
     <PackageReference Include="Plugin.Fingerprint" Version="2.1.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.5" />

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.UserSchedulePage">
+    <ContentPage.Resources>
+        <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+        <converter:MonthYearStringConverter x:Key="MonthYearConverter"></converter:MonthYearStringConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <StackLayout Orientation="Horizontal" Margin="0,0,20,0">
+                <template:CircleWithTextComponent VerticalOptions="StartAndExpand" Color="{Binding ProfileColor}" Text="{Binding Model.User, Converter={StaticResource ShortNameConverter}}"></template:CircleWithTextComponent>
+                <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
+                    <Label Text="{Binding Model.User}" TextColor="Black" FontSize="18"></Label>
+                    <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_SCHEDULE_CLEAR_HOUSE}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="EndAndExpand" HeightRequest="50">
+                <Label Text="{Binding Model.Month, Converter={StaticResource MonthYearConverter}}" TextColor="Black" VerticalOptions="CenterAndExpand" FontSize="14"></Label>
+            </StackLayout>
+
+            <ListView x:Name="List" ItemTapped="ListView_ItemTapped" RowHeight="170" Margin="0,10,0,20" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding Model.Schedules}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <template:ScheduleCleanHomeTemplate ScheduleUser="{Binding .}"></template:ScheduleCleanHomeTemplate>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -77,6 +77,9 @@
     <Compile Update="Template\Informations\MyFriendsComponent.xaml.cs">
       <DependentUpon>MyFriendsComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\TextAreaTemplate.xaml.cs">
+      <DependentUpon>TextAreaTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Loading\LoadingContentView.xaml.cs">
       <DependentUpon>LoadingContentView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,9 @@
     </Compile>
     <Compile Update="Template\Step\IncompleteStep.xaml.cs">
       <DependentUpon>IncompleteStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\CleanHouse\RatingCleaningPage.xaml.cs">
+      <DependentUpon>RatingCleaningPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\LgpdModal.xaml.cs">
       <DependentUpon>LgpdModal.xaml</DependentUpon>

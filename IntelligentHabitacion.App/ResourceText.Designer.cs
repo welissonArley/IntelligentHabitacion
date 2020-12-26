@@ -151,6 +151,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cleaning performed on {0} ({1}) by {2}.
+        /// </summary>
+        internal static string DESCRIPTION_DATE_CLEANING_BY_FRIEND {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DATE_CLEANING_BY_FRIEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ATTENTION!!! Continuing with this process will result in the loss of .
         /// </summary>
         internal static string DESCRIPTION_DELETE_HOME_FIRST_PHRASE {
@@ -300,6 +309,15 @@ namespace IntelligentHabitacion.App {
         internal static string DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER {
             get {
                 return ResourceManager.GetString("DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t worry, your name will not be displayed in the rating when your friend views it :).
+        /// </summary>
+        internal static string DESCRIPTION_YOUR_EVALUATION {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_YOUR_EVALUATION", resourceCulture);
             }
         }
         
@@ -817,6 +835,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose your rating from 1 to 5 stars;).
+        /// </summary>
+        internal static string TITLE_CHOOSE_YOUR_RATING {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_YOUR_RATING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City:.
         /// </summary>
         internal static string TITLE_CITY_TWOPOINTS {
@@ -1231,6 +1258,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If you want you can leave a comment.
+        /// </summary>
+        internal static string TITLE_LEAVE_COMMENT_IF_YOU_WANTE {
+            get {
+                return ResourceManager.GetString("TITLE_LEAVE_COMMENT_IF_YOU_WANTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string TITLE_LOGIN {
@@ -1461,6 +1497,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_PHONENUMBER_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_PHONENUMBER_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Optional) Leave your feedback ....
+        /// </summary>
+        internal static string TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK {
+            get {
+                return ResourceManager.GetString("TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK", resourceCulture);
             }
         }
         
@@ -1798,6 +1843,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What did you think of the cleaning?.
+        /// </summary>
+        internal static string TITLE_WHAT_THINK_CLEANING {
+            get {
+                return ResourceManager.GetString("TITLE_WHAT_THINK_CLEANING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Why do I need to fill this information?.
         /// </summary>
         internal static string TITLE_WHY_NEED_FILL_THIS_INFORMATION {
@@ -1830,6 +1884,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_YES_IAMSURE {
             get {
                 return ResourceManager.GetString("TITLE_YES_IAMSURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your evaluation.
+        /// </summary>
+        internal static string TITLE_YOUR_EVALUATION {
+            get {
+                return ResourceManager.GetString("TITLE_YOUR_EVALUATION", resourceCulture);
             }
         }
         

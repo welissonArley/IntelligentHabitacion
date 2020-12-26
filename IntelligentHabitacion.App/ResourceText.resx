@@ -147,6 +147,9 @@
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
   </data>
+  <data name="DESCRIPTION_DATE_CLEANING_BY_FRIEND" xml:space="preserve">
+    <value>Cleaning performed on {0} ({1}) by {2}</value>
+  </data>
   <data name="DESCRIPTION_DELETE_HOME_FIRST_PHRASE" xml:space="preserve">
     <value>ATTENTION!!! Continuing with this process will result in the loss of </value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER" xml:space="preserve">
     <value>Your phone will ONLY be shared with people who live in the same home as you. The intention is to facilitate communication between residents.</value>
+  </data>
+  <data name="DESCRIPTION_YOUR_EVALUATION" xml:space="preserve">
+    <value>Don't worry, your name will not be displayed in the rating when your friend views it :)</value>
   </data>
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
     <value>Your order has arrived and is waiting for you ;)</value>
@@ -369,6 +375,9 @@
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Choose your friend</value>
   </data>
+  <data name="TITLE_CHOOSE_YOUR_RATING" xml:space="preserve">
+    <value>Choose your rating from 1 to 5 stars;)</value>
+  </data>
   <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
     <value>City:</value>
   </data>
@@ -507,6 +516,9 @@
   <data name="TITLE_KILOGRAM" xml:space="preserve">
     <value>Kilogram(s)</value>
   </data>
+  <data name="TITLE_LEAVE_COMMENT_IF_YOU_WANTE" xml:space="preserve">
+    <value>If you want you can leave a comment</value>
+  </data>
   <data name="TITLE_LOGIN" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -584,6 +596,9 @@
   </data>
   <data name="TITLE_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Phonenumber:</value>
+  </data>
+  <data name="TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK" xml:space="preserve">
+    <value>(Optional) Leave your feedback ...</value>
   </data>
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>For security reasons, please log in again.</value>
@@ -696,6 +711,9 @@
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Welcome :)</value>
   </data>
+  <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
+    <value>What did you think of the cleaning?</value>
+  </data>
   <data name="TITLE_WHY_NEED_FILL_THIS_INFORMATION" xml:space="preserve">
     <value>Why do I need to fill this information?</value>
   </data>
@@ -707,6 +725,9 @@
   </data>
   <data name="TITLE_YES_IAMSURE" xml:space="preserve">
     <value>Yes, I'm sure</value>
+  </data>
+  <data name="TITLE_YOUR_EVALUATION" xml:space="preserve">
+    <value>Your evaluation</value>
   </data>
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>Your name ;)</value>

@@ -147,6 +147,9 @@
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Utilize esta opção para criar um lar e ser o administrador do mesmo.</value>
   </data>
+  <data name="DESCRIPTION_DATE_CLEANING_BY_FRIEND" xml:space="preserve">
+    <value>Limpeza realizada em {0} ({1}) por {2}</value>
+  </data>
   <data name="DESCRIPTION_DELETE_HOME_FIRST_PHRASE" xml:space="preserve">
     <value>ATENÇÃO!!! Continuar com esse processo vai resultar na perda de </value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER" xml:space="preserve">
     <value>Seu telefone será compartilhado APENAS com as pessoas que habitam o mesmo lar que você. A intenção é facilitar a comunicação entre os moradores.</value>
+  </data>
+  <data name="DESCRIPTION_YOUR_EVALUATION" xml:space="preserve">
+    <value>Não se preocupe, seu nome não será exibido na avaliação  quando seu amigo(a) visualiza-la :)</value>
   </data>
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
     <value>Seu pedido chegou e esta esperando por você ;)</value>
@@ -366,6 +372,9 @@
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Escolha seu amigo</value>
   </data>
+  <data name="TITLE_CHOOSE_YOUR_RATING" xml:space="preserve">
+    <value>Escolha a sua nota de 1 a 5 estrelas ;)</value>
+  </data>
   <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
     <value>Cidade:</value>
   </data>
@@ -504,6 +513,9 @@
   <data name="TITLE_KILOGRAM" xml:space="preserve">
     <value>Quilograma(s)</value>
   </data>
+  <data name="TITLE_LEAVE_COMMENT_IF_YOU_WANTE" xml:space="preserve">
+    <value>Se quiser você pode deixar um comentário</value>
+  </data>
   <data name="TITLE_LOGIN" xml:space="preserve">
     <value>Entrar</value>
   </data>
@@ -581,6 +593,9 @@
   </data>
   <data name="TITLE_PHONENUMBER_TWOPOINTS" xml:space="preserve">
     <value>Telefone:</value>
+  </data>
+  <data name="TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK" xml:space="preserve">
+    <value>(Opcional) Deixe seu feedback ...</value>
   </data>
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>Por razões de segurança, faça login novamente.</value>
@@ -690,6 +705,9 @@
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
   </data>
+  <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
+    <value>O que achou da limpeza?</value>
+  </data>
   <data name="TITLE_WHY_NEED_FILL_THIS_INFORMATION" xml:space="preserve">
     <value>Por que preciso preencher esta informação?</value>
   </data>
@@ -701,6 +719,9 @@
   </data>
   <data name="TITLE_YES_IAMSURE" xml:space="preserve">
     <value>Sim, eu tenho certeza</value>
+  </data>
+  <data name="TITLE_YOUR_EVALUATION" xml:space="preserve">
+    <value>Sua avaliação</value>
   </data>
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>O seu nome ;)</value>

@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="AppVersion\AppVersionAndroid.cs" />
     <Compile Include="CustomControl\ButtonAllCapsFalseRenderer.cs" />
+    <Compile Include="CustomControl\EditorEntryWhiteBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryForSearchByNameBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryWhiteBlackCursorRenderer.cs" />

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             x:Class="IntelligentHabitacion.App.Template.Informations.TextAreaTemplate">
+  <ContentView.Content>
+      <StackLayout Margin="0,20,0,0">
+            <Frame Padding="0" HasShadow="False" BorderColor="{x:StaticResource GrayDefault}">
+                <customControl:EditorEntryWhiteBlackCursor x:Name="Input" PlaceholderColor="{x:StaticResource GrayDefault}" HeightRequest="110" FontSize="12"></customControl:EditorEntryWhiteBlackCursor>
+            </Frame>
+            <Label x:Name="LabelCount" Text="0/255" TextColor="Black" FontSize="14" HorizontalOptions="EndAndExpand"></Label>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

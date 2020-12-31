@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    BackgroundColor="Transparent"
+    x:Class="IntelligentHabitacion.App.View.Modal.CalendarMonth">
+    <Frame HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+        <StackLayout Margin="20,20,20,30">
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <ImageButton x:Name="ButtonPreviousYear" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousYear"></ImageButton>
+                <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" x:Name="LabelYear" TextColor="Black" Style="{x:StaticResource LabelBold}" FontSize="18"></Label>
+                <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
+            </StackLayout>
+
+            <Grid Margin="0,20,0,0" ColumnSpacing="1" x:Name="MonthContent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Button Padding="0" HeightRequest="30" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" TextColor="{x:StaticResource RedDefault}" BackgroundColor="White" Clicked="Button_Cancel" FontSize="16"></Button>
+                <Button Padding="0" HeightRequest="30" Text="Ok" TextColor="{x:StaticResource GreenDefault}" BackgroundColor="White" FontSize="16" Clicked="Button_Ok"></Button>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

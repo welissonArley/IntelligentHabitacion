@@ -5,7 +5,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
              mc:Ignorable="d"
-             x:Class="IntelligentHabitacion.App.Template.Date.ColumnDayTemplete">
+             x:Class="IntelligentHabitacion.App.Template.Date.ColumnMonthTemplate">
   <ContentView.Content>
         <Grid HorizontalOptions="FillAndExpand" x:Name="DayContent">
             <Grid.GestureRecognizers>
@@ -15,10 +15,10 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
-            <circleBoxview:RoundedBoxView IsVisible="False" x:Name="SelectComponent" CornerRadius="15" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="30" BackgroundColor="{x:StaticResource GreenDefault}"></circleBoxview:RoundedBoxView>
-            <Label x:Name="LabelDay" TextColor="Black" Style="{x:StaticResource LabelMedium}" FontSize="18" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            <circleBoxview:RoundedBoxView IsVisible="False" x:Name="SelectComponent" CornerRadius="25" HeightRequest="50" HorizontalOptions="CenterAndExpand" WidthRequest="50" BackgroundColor="{x:StaticResource GreenDefault}"></circleBoxview:RoundedBoxView>
+            <Label x:Name="LabelMonth" TextColor="Black" Style="{x:StaticResource LabelMedium}" FontSize="18" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
         </Grid>
     </ContentView.Content>
 </ContentView>

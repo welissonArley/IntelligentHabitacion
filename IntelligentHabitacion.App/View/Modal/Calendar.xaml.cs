@@ -97,7 +97,7 @@ namespace IntelligentHabitacion.App.View.Modal
                     dayUnavailable = maximumDate.Year == _date.Year && _date.Month == maximumDate.Month && day > maximumDate.Day;
                 }
 
-                DaysContent.Children.Add(new ColumnDayTemplete(day, DaySelected, dayUnavailable, day == _date.Day), column++, row);
+                DaysContent.Children.Add(new ColumnDayTemplate(day, DaySelected, dayUnavailable, day == _date.Day), column++, row);
 
                 if (column == 7)
                 {
@@ -109,7 +109,7 @@ namespace IntelligentHabitacion.App.View.Modal
 
         private void DaySelected(int day)
         {
-            var selectedDayemplate = (ColumnDayTemplete)DaysContent.Children.ElementAt(6+ _date.Day);
+            var selectedDayemplate = (ColumnDayTemplate)DaysContent.Children.ElementAt(6+ _date.Day);
             selectedDayemplate.DeselectDay();
             _date = new DateTime(_date.Year, _date.Month, day);
         }

@@ -5,11 +5,11 @@ using Xamarin.Forms.Xaml;
 namespace IntelligentHabitacion.App.Template.Date
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ColumnDayTemplete : ContentView
+    public partial class ColumnDayTemplate : ContentView
     {
         private readonly Action<int> _callbackDaySelected;
 
-        public ColumnDayTemplete(int day, Action<int> callbackDaySelected, bool dayUnavailable, bool selected = false)
+        public ColumnDayTemplate(int day, Action<int> callbackDaySelected, bool dayUnavailable, bool selected = false)
         {
             InitializeComponent();
             _callbackDaySelected = callbackDaySelected;

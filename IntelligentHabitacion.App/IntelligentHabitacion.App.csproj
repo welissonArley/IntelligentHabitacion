@@ -56,6 +56,12 @@
     <Compile Update="Template\CardIlustrationOptions\CardIlustrationOptions.xaml.cs">
       <DependentUpon>CardIlustrationOptions.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Date\ColumnDayTemplate.xaml.cs">
+      <DependentUpon>ColumnDayTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Date\ColumnMonthTemplate.xaml.cs">
+      <DependentUpon>ColumnMonthTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Header\HeaderOrderHasArrived.xaml.cs">
       <DependentUpon>HeaderOrderHasArrived.xaml</DependentUpon>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <Compile Update="View\CleanHouse\RatingCleaningPage.xaml.cs">
       <DependentUpon>RatingCleaningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Modal\CalendarMonth.xaml.cs">
+      <DependentUpon>CalendarMonth.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\LgpdModal.xaml.cs">
       <DependentUpon>LgpdModal.xaml</DependentUpon>
@@ -234,7 +243,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\Date\ColumnDayTemplete.xaml">
+    <EmbeddedResource Update="Template\Date\ColumnDayTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Template\Informations\CircleWithTextComponent.xaml">

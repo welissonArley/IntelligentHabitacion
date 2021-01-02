@@ -531,4 +531,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconStarFilled%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDogSearching.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDogSearching%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDogSearching%403x.png" />
+  </ItemGroup>
 </Project>

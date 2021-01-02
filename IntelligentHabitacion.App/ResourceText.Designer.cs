@@ -331,6 +331,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Looking for the schedule settings, right? At this time, the schedule will be automatically set every 1st of every month. But don&apos;t worry, the administrator will have full control over this configuration very soon :).
+        /// </summary>
+        internal static string DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE {
+            get {
+                return ResourceManager.GetString("DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MMMM dd, yyyy.
         /// </summary>
         internal static string FORMAT_DATE {
@@ -1632,6 +1641,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SAVE_AND_NEW {
             get {
                 return ResourceManager.GetString("TITLE_SAVE_AND_NEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedule setting.
+        /// </summary>
+        internal static string TITLE_SCHEDULE_SETTING {
+            get {
+                return ResourceManager.GetString("TITLE_SCHEDULE_SETTING", resourceCulture);
             }
         }
         

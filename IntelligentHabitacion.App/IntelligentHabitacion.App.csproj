@@ -107,6 +107,9 @@
     <Compile Update="View\CleanHouse\RatingCleaningPage.xaml.cs">
       <DependentUpon>RatingCleaningPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\CleanHouse\SettingSchedulePage.xaml.cs">
+      <DependentUpon>SettingSchedulePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
     </Compile>

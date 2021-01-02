@@ -207,6 +207,9 @@
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
     <value>Seu pedido chegou e esta esperando por você ;)</value>
   </data>
+  <data name="DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE" xml:space="preserve">
+    <value>Procurando pelas configurações do cronograma, certo? Neste momento o cronograma será automaticamente configurado todo dia 1 de cada mês. Mas não se preocupe, em breve o administrador vai ter total controle sobre esta configuração :)</value>
+  </data>
   <data name="FORMAT_DATE" xml:space="preserve">
     <value>dd MMMM yyyy</value>
   </data>
@@ -638,6 +641,9 @@
   </data>
   <data name="TITLE_SAVE_AND_NEW" xml:space="preserve">
     <value>Salvar e novo</value>
+  </data>
+  <data name="TITLE_SCHEDULE_SETTING" xml:space="preserve">
+    <value>Configuração do cronograma</value>
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Busque por nome</value>

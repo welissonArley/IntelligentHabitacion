@@ -207,6 +207,9 @@
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
     <value>Your order has arrived and is waiting for you ;)</value>
   </data>
+  <data name="DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE" xml:space="preserve">
+    <value>Looking for the schedule settings, right? At this time, the schedule will be automatically set every 1st of every month. But don't worry, the administrator will have full control over this configuration very soon :)</value>
+  </data>
   <data name="FORMAT_DATE" xml:space="preserve">
     <value>MMMM dd, yyyy</value>
   </data>
@@ -641,6 +644,9 @@
   </data>
   <data name="TITLE_SAVE_AND_NEW" xml:space="preserve">
     <value>Save and new</value>
+  </data>
+  <data name="TITLE_SCHEDULE_SETTING" xml:space="preserve">
+    <value>Schedule setting</value>
   </data>
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Search by name</value>

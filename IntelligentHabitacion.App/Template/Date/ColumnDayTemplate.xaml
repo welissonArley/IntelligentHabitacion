@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+             mc:Ignorable="d"
+             x:Class="IntelligentHabitacion.App.Template.Date.ColumnDayTemplate">
+  <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand" x:Name="DayContent">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SelectedDay"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <circleBoxview:RoundedBoxView IsVisible="False" x:Name="SelectComponent" CornerRadius="15" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="30" BackgroundColor="{x:StaticResource GreenDefault}"></circleBoxview:RoundedBoxView>
+            <Label x:Name="LabelDay" TextColor="Black" Style="{x:StaticResource LabelMedium}" FontSize="18" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

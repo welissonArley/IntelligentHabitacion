@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             Title="{x:Static resourceText:ResourceText.TITLE_SCHEDULE_SETTING}"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.SettingSchedulePage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE}" TextColor="Black" FontSize="16"></customControl:LabelJustifyText>
+
+            <Image x:Name="Ilustration" VerticalOptions="EndAndExpand" Source="IllustrationDogSearching"></Image>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

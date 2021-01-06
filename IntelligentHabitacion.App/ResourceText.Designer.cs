@@ -214,6 +214,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Below you can see which rooms in the house were cleaned, who cleaned and on which days of the selected month..
+        /// </summary>
+        internal static string DESCRIPTION_HOUSEWORK {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_HOUSEWORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use this option to be part of a home already created..
         /// </summary>
         internal static string DESCRIPTION_JOIN_HOME {
@@ -754,6 +763,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assign tasks.
+        /// </summary>
+        internal static string TITLE_ASSIGN_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_ASSIGN_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Box(es).
         /// </summary>
         internal static string TITLE_BOX {
@@ -1186,6 +1204,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Housework.
+        /// </summary>
+        internal static string TITLE_HOUSEWORK {
+            get {
+                return ResourceManager.GetString("TITLE_HOUSEWORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icon sources and Illustrations used:.
         /// </summary>
         internal static string TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS {
@@ -1416,6 +1443,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_NEXT {
             get {
                 return ResourceManager.GetString("TITLE_NEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No tasks this month.
+        /// </summary>
+        internal static string TITLE_NO_TASKS_THIS_MONTH {
+            get {
+                return ResourceManager.GetString("TITLE_NO_TASKS_THIS_MONTH", resourceCulture);
             }
         }
         

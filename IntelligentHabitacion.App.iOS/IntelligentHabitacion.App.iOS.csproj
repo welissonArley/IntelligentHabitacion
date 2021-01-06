@@ -531,4 +531,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconStarFilled%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCalendar%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCalendar%403x.png" />
+  </ItemGroup>
 </Project>

@@ -20,8 +20,9 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout HorizontalOptions="EndAndExpand" HeightRequest="50">
-                <Label Text="{Binding Model.Month, Converter={StaticResource MonthYearConverter}}" TextColor="Black" VerticalOptions="CenterAndExpand" FontSize="14"></Label>
+            <StackLayout HorizontalOptions="EndAndExpand" HeightRequest="50" Orientation="Horizontal">
+                <Label Text="{Binding Model.Month, Converter={StaticResource MonthYearConverter}}" TextColor="{x:StaticResource GreenDefault}" Style="{x:StaticResource LabelBold}" FontSize="14"></Label>
+                <Image Source="IconCalendar" WidthRequest="17" HeightRequest="15" Margin="4,0,0,0"></Image>
             </StackLayout>
 
             <ListView x:Name="List" ItemTapped="ListView_ItemTapped" RowHeight="170" Margin="0,10,0,20" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding Model.Schedules}">

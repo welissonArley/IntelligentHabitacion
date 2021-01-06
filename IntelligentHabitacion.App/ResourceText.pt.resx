@@ -168,6 +168,9 @@
   <data name="DESCRIPTION_HOME_SWEET_HOME" xml:space="preserve">
     <value>Veja informações uteis sobre os dados do lar.</value>
   </data>
+  <data name="DESCRIPTION_HOUSEWORK" xml:space="preserve">
+    <value>Abaixo você pode ver quais comôdos da casa foram limpados, quem limpou e em quais dias do mês selecionado.</value>
+  </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Utilize esta opção para fazer parte de um republica já criada.</value>
   </data>
@@ -345,6 +348,9 @@
   <data name="TITLE_APPROACH_CAMERA_READ_QRCODE" xml:space="preserve">
     <value>Aproxime a câmera do QRCode para realizar a leitura.</value>
   </data>
+  <data name="TITLE_ASSIGN_TASKS" xml:space="preserve">
+    <value>Atribuir tarefas</value>
+  </data>
   <data name="TITLE_BOX" xml:space="preserve">
     <value>Caixa(s)</value>
   </data>
@@ -489,6 +495,9 @@
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
   </data>
+  <data name="TITLE_HOUSEWORK" xml:space="preserve">
+    <value>Tarefas de limpeza</value>
+  </data>
   <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
     <value>Fontes dos icones e Ilustrações utilizadas:</value>
   </data>
@@ -575,6 +584,9 @@
   </data>
   <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
     <value>Agora seu número de telefone</value>
+  </data>
+  <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
+    <value>Sem tarefas para este mês</value>
   </data>
   <data name="TITLE_PACKAGE" xml:space="preserve">
     <value>Pacote(s)</value>

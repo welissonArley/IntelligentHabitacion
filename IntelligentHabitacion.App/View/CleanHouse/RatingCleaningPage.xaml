@@ -6,7 +6,6 @@
              xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
-             x:Name="CleanHouseRatingCleaningPage"
              x:Class="IntelligentHabitacion.App.View.CleanHouse.RatingCleaningPage">
     <ContentPage.Resources>
         <converter:DescriptionRatingCleaningConverter x:Key="DescriptionCleaningRatingConverter"></converter:DescriptionRatingCleaningConverter>

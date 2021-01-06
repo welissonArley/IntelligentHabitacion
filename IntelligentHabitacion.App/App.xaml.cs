@@ -109,6 +109,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<View.Home.Register.Brazil.RequestZipCodePage, ViewModel.Home.Register.Brazil.RequestZipCodeViewModel>();
             ViewFactory.Register<UserSchedulePage, UserScheduleViewModel>();
             ViewFactory.Register<RatingCleaningPage, RatingCleaningViewModel>();
+            ViewFactory.Register<CleanHousePage, CleanHouseViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             x:Class="IntelligentHabitacion.App.Template.Informations.CleanHomeViewMonthScheduleTemplate">
+  <ContentView.Content>
+        <StackLayout Margin="0,20,20,0">
+            <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,20,0,0"></BoxView>
+            <Label x:Name="FriendNameLabel" Style="{x:StaticResource LabelBold}" FontSize="14" TextColor="Black" Margin="0,5,0,0"></Label>
+
+            <StackLayout x:Name="ContentWithoutTasks">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_NO_TASKS_THIS_MONTH}" Style="{x:StaticResource LabelBold}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Margin="0,5,0,0"></Label>
+                <Button x:Name="ButtonAssignTask" Style="{x:StaticResource ButtonYellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_ASSIGN_TASKS}"></Button>
+                <Frame x:Name="FrameNoTask" Margin="0,5,0,0" Padding="0" HasShadow="False" BorderColor="{x:StaticResource YellowDefault}" HeightRequest="40">
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_NO_TASKS_THIS_MONTH}" Style="{x:StaticResource LabelBold}" FontSize="14" HorizontalOptions="CenterAndExpand" TextColor="{x:StaticResource YellowDefault}" VerticalOptions="CenterAndExpand"></Label>
+                </Frame>
+                <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,10,0,1"></BoxView>
+            </StackLayout>
+
+            <StackLayout x:Name="ContentWithTasks">
+                <Label x:Name="RoomLabel" Style="{x:StaticResource LabelMedium}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Margin="0,5,0,0"></Label>
+
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout x:Name="Days" Orientation="Horizontal"></StackLayout>
+                </ScrollView>
+
+                <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,10,0,1"></BoxView>
+
+                <Button x:Name="DetailButton" HorizontalOptions="End" Text="{x:Static resourceText:ResourceText.TITLE_DETAILS}" CornerRadius="0" BackgroundColor="White"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

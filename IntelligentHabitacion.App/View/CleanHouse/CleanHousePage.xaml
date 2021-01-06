@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+             Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.CleanHousePage">
+    <ContentPage.Resources>
+        <converter:MonthYearStringConverter x:Key="MonthYearToStringConverter"></converter:MonthYearStringConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
+            <StackLayout Orientation="Horizontal" Margin="0,0,20,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <circleBoxview:RoundedBoxView BorderColor="#344A5E" BorderThickness="2" BackgroundColor="#e8f7fe" Grid.Column="0" Grid.Row="0" CornerRadius="40" HeightRequest="80" WidthRequest="80"></circleBoxview:RoundedBoxView>
+                    <Image HeightRequest="50" WidthRequest="50" Source="IlustrationSweetHome" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                </Grid>
+                <StackLayout Margin="10,0,0,0">
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_HOUSEWORK}" FontSize="18" TextColor="Black"></Label>
+                    <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_HOUSEWORK}" FontSize="14" TextColor="{StaticResource GrayDefault}"></customControl:LabelJustifyText>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="0,40,20,0" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding Model.Month, Converter={StaticResource MonthYearToStringConverter}}" FontSize="14" TextColor="{x:StaticResource GreenDefault}" Style="{x:StaticResource LabelBold}"></Label>
+                <Image Source="IconCalendar" WidthRequest="17" HeightRequest="15" Margin="4,0,0,0"></Image>
+            </StackLayout>
+
+            <ListView RowHeight="180" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected" ItemsSource="{Binding Model.FriendSchedules}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <template:CleanHomeViewMonthScheduleTemplate Schedule="{Binding .}"></template:CleanHomeViewMonthScheduleTemplate>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

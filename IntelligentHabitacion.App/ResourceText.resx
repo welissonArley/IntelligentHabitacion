@@ -168,6 +168,9 @@
   <data name="DESCRIPTION_HOME_SWEET_HOME" xml:space="preserve">
     <value>See useful information about home data.</value>
   </data>
+  <data name="DESCRIPTION_HOUSEWORK" xml:space="preserve">
+    <value>Below you can see which rooms in the house were cleaned, who cleaned and on which days of the selected month.</value>
+  </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Use this option to be part of a home already created.</value>
   </data>
@@ -351,6 +354,9 @@
   <data name="TITLE_APPROACH_CAMERA_READ_QRCODE" xml:space="preserve">
     <value>Move the camera closer to the QRCode to read.</value>
   </data>
+  <data name="TITLE_ASSIGN_TASKS" xml:space="preserve">
+    <value>Assign tasks</value>
+  </data>
   <data name="TITLE_BOX" xml:space="preserve">
     <value>Box(es)</value>
   </data>
@@ -495,6 +501,9 @@
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
   </data>
+  <data name="TITLE_HOUSEWORK" xml:space="preserve">
+    <value>Housework</value>
+  </data>
   <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
     <value>Icon sources and Illustrations used:</value>
   </data>
@@ -581,6 +590,9 @@
   </data>
   <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
     <value>Now your phone number</value>
+  </data>
+  <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
+    <value>No tasks this month</value>
   </data>
   <data name="TITLE_PACKAGE" xml:space="preserve">
     <value>Package(s)</value>

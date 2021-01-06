@@ -83,6 +83,9 @@
     <Compile Update="Template\Informations\MyFriendsComponent.xaml.cs">
       <DependentUpon>MyFriendsComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\CleanHomeViewMonthScheduleTemplate.xaml.cs">
+      <DependentUpon>CleanHomeViewMonthScheduleTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\TextAreaTemplate.xaml.cs">
       <DependentUpon>TextAreaTemplate.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,9 @@
     </Compile>
     <Compile Update="Template\Step\IncompleteStep.xaml.cs">
       <DependentUpon>IncompleteStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\CleanHouse\CleanHousePage.xaml.cs">
+      <DependentUpon>CleanHousePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\CleanHouse\RatingCleaningPage.xaml.cs">
       <DependentUpon>RatingCleaningPage.xaml</DependentUpon>

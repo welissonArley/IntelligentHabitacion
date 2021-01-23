@@ -106,7 +106,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<CleanHouseViewModel>();
+                await Navigation.PushAsync<SeeDetailsRatingCleaningViewModel>();
                 HideLoading();
             }
             catch (System.Exception exeption)

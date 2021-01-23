@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls" xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.SeeDetailsRatingCleaningPage">
+    <ContentPage.Resources>
+        <converter:DescriptionRatingCleaningConverter x:Key="DescriptionCleaningRatingConverter"></converter:DescriptionRatingCleaningConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <CarouselView ItemsSource="{Binding ModelList}" IndicatorView="indicatorView" Margin="0,20,0,0" Loop="False">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Style="{x:StaticResource MarginStyleDefault}" IsEnabled="False">
+                            <Label Text="{x:Static resourceText:ResourceText.TITLE_RATING}" FontSize="18" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></Label>
+
+                            <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,20,0,0"></BoxView>
+
+                            <Label Text="{Binding Room}" Margin="0,8,0,0" FontSize="14" TextColor="Black"></Label>
+                            <customControl:LabelJustifyText Style="{x:StaticResource LabelThin}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Margin="0,10,0,0">
+                                <customControl:LabelJustifyText.Text>
+                                    <MultiBinding Converter="{StaticResource DescriptionCleaningRatingConverter}">
+                                        <Binding Path="Date"></Binding>
+                                        <Binding Path="Name"></Binding>
+                                    </MultiBinding>
+                                </customControl:LabelJustifyText.Text>
+                            </customControl:LabelJustifyText>
+
+                            <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,15,0,0"></BoxView>
+
+                            <messier16:RatingBar Rating="{Binding RatingStars}" HorizontalOptions="FillAndExpand" FilledImage="IconStarFilled" Image="IconStar" MaxRating="5" FillColor="{x:StaticResource YellowDefault}" HeightRequest="40" Margin="0,40,0,0"></messier16:RatingBar>
+
+                            <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.TITLE_COMMENT}" TextColor="Black" FontSize="14" Margin="0,40,0,0"></customControl:LabelJustifyText>
+
+                            <Frame Padding="0" HasShadow="False" BorderColor="{x:StaticResource GrayDefault}" Margin="0,20,0,0">
+                                <customControl:EditorEntryWhiteBlackCursor Text="{Binding Comment}" Placeholder="{x:Static resourceText:ResourceText.TITLE_NO_COMMENTS}" HeightRequest="110" FontSize="12"></customControl:EditorEntryWhiteBlackCursor>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="#b2dddf"
+                   SelectedIndicatorColor="{StaticResource GreenDefault}"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

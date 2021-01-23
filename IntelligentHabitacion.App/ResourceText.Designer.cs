@@ -898,6 +898,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        internal static string TITLE_COMMENT {
+            get {
+                return ResourceManager.GetString("TITLE_COMMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conclude.
         /// </summary>
         internal static string TITLE_CONCLUDE {
@@ -1452,6 +1461,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_NEXT {
             get {
                 return ResourceManager.GetString("TITLE_NEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No comments.
+        /// </summary>
+        internal static string TITLE_NO_COMMENTS {
+            get {
+                return ResourceManager.GetString("TITLE_NO_COMMENTS", resourceCulture);
             }
         }
         

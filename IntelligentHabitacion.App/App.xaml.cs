@@ -111,6 +111,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RatingCleaningPage, RatingCleaningViewModel>();
             ViewFactory.Register<CleanHousePage, CleanHouseViewModel>();
             ViewFactory.Register<SettingSchedulePage, SettingScheduleViewModel>();
+            ViewFactory.Register<SeeDetailsRatingCleaningPage, SeeDetailsRatingCleaningViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

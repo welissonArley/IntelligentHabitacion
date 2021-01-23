@@ -21,7 +21,7 @@
             <Label Text="{Binding Model.Room}" Margin="0,8,0,0" FontSize="14" TextColor="Black"></Label>
             <customControl:LabelJustifyText Style="{x:StaticResource LabelThin}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Margin="0,10,0,0">
                 <customControl:LabelJustifyText.Text>
-                    <MultiBinding Converter="{StaticResource DescriptionCleaningRatingConverter}" ConverterParameter="We">
+                    <MultiBinding Converter="{StaticResource DescriptionCleaningRatingConverter}">
                         <Binding Path="Model.Date"></Binding>
                         <Binding Path="Model.Name"></Binding>
                     </MultiBinding>
@@ -38,7 +38,7 @@
             <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.TITLE_LEAVE_COMMENT_IF_YOU_WANTE}" TextColor="Black" FontSize="14" Margin="0,20,0,0"></customControl:LabelJustifyText>
 
             <template:TextAreaTemplate PlaceHolderText="{x:Static resourceText:ResourceText.TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK}"></template:TextAreaTemplate>
-            
+
             <Button VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}"></Button>
         </StackLayout>
     </ContentPage.Content>

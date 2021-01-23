@@ -106,6 +106,9 @@
     <Compile Update="Template\Step\IncompleteStep.xaml.cs">
       <DependentUpon>IncompleteStep.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\CleanHouse\SeeDetailsRatingCleaningPage.xaml.cs">
+      <DependentUpon>SeeDetailsRatingCleaningPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\CleanHouse\CleanHousePage.xaml.cs">
       <DependentUpon>CleanHousePage.xaml</DependentUpon>
     </Compile>

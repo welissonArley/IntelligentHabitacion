@@ -8,5 +8,6 @@ namespace IntelligentHabitacion.App.Model
         public DateTime Date { get; set; }
         public string Room { get; set; }
         public sbyte RatingStars { get; set; }
+        public string Comment { get; set; }
     }
 }

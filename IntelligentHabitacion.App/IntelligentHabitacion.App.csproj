@@ -17,18 +17,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Com.OneSignal" Version="3.10.1" />
+    <PackageReference Include="Com.OneSignal" Version="3.10.3" />
     <PackageReference Include="Messier16.Forms.Controls" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />
-    <PackageReference Include="Plugin.Fingerprint" Version="2.1.1" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.5" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Plugin.Fingerprint" Version="2.1.3" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugins.Forms.RoundedBoxView" Version="1.0.0.7" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.4.1" />
-    <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.2.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1905" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.4.4" />
+    <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.3.0" />
     <PackageReference Include="XLabs.Forms" Version="2.0.5782" />
     <PackageReference Include="XLabs.IoC" Version="2.0.5782" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />

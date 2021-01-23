@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.App.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Services", "IntelligentHabitacion.Api.Services\IntelligentHabitacion.Api.Services.csproj", "{49192592-14C0-440A-B5C5-CD147562EA37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.Api.Application", "IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj", "{D9E1B95D-B219-4304-BD4A-5B17E427BF02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Application", "IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj", "{D9E1B95D-B219-4304-BD4A-5B17E427BF02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:expander="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Header"
+             xmlns:segmented="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.MyTasksPage">
+    <ContentPage.Resources>
+        <converter:MonthYearStringConverter x:Key="MonthYearToStringConverter"></converter:MonthYearStringConverter>
+        <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
+            <template:CircleWithTextAndDescriptionComponent CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Title="{Binding Model.Name}" CircleColor="{Binding Model.ProfileColor}" Text="Abaixo você vai encontrar informações das suas tarefas realizadas em cada mês :)" Margin="0,0,20,0"></template:CircleWithTextAndDescriptionComponent>
+            <StackLayout Margin="0,40,20,0" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding Model.Month, Converter={StaticResource MonthYearToStringConverter}}" FontSize="14" TextColor="{x:StaticResource GreenDefault}" Style="{x:StaticResource LabelBold}"></Label>
+                <Image Source="IconCalendar" WidthRequest="17" HeightRequest="15" Margin="4,0,0,0"></Image>
+            </StackLayout>
+
+            <CollectionView ItemsSource="{Binding Model.MyTasksForTheMonth}" Margin="0,40,0,0" HeightRequest="120">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <BoxView HeightRequest="1" Color="{StaticResource GrayDefault}" Opacity="0.2"></BoxView>
+                            <Label Text="{Binding Room}" FontSize="14" TextColor="Black"/>
+                            <Label Text="Até o momento esta tarefa ainda não foi concluída." TextColor="{StaticResource GrayDefault}" FontSize="14" Style="{StaticResource LabelThin}" />
+                            <BoxView HeightRequest="1" Color="{StaticResource GrayDefault}" Opacity="0.2"></BoxView>
+
+                            <button:SecondaryActionButton HorizontalOptions="EndAndExpand" Margin="0,10,0,0" TitleButton="Concluir tarefa"></button:SecondaryActionButton>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <ScrollView>
+                <expander:Expander IsExpanded="False">
+                    <expander:Expander.Header>
+                        <Grid ColumnDefinitions="*" RowDefinitions="30" Margin="0,0,0,20">
+                            <Label Style="{StaticResource LabelBold}" TextColor="{StaticResource GreenDefault}" VerticalOptions="CenterAndExpand" Text="Histórico deste mês" HorizontalOptions="StartAndExpand" FontSize="14"></Label>
+                            <Image Source="IconSquareDirection" HorizontalOptions="End" Rotation="0">
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type expander:Expander}}, Path=IsExpanded}" Value="True">
+                                        <Setter Property="Rotation" Value="180"></Setter>
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+                        </Grid>
+                    </expander:Expander.Header>
+                    <expander:Expander.ContentTemplate>
+                        <DataTemplate>
+                            <CollectionView ItemsSource="{Binding Model.Historics}" IsGrouped="True">
+                                <CollectionView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <Label Text="{Binding Date}" Style="{StaticResource LabelSemiBold}" TextColor="Black" FontSize="14"></Label>
+                                    </DataTemplate>
+                                </CollectionView.GroupHeaderTemplate>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Label Text="Teste"></Label>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </DataTemplate>
+                    </expander:Expander.ContentTemplate>
+                </expander:Expander>
+            </ScrollView>
+
+            <segmented:SegmentedControl VerticalOptions="EndAndExpand" TitleOption1="Minhas tarefas" TitleOption2="Tarefas dos amigos"></segmented:SegmentedControl>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

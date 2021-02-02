@@ -8,7 +8,7 @@
             <Frame Padding="0" HasShadow="False" BorderColor="{x:StaticResource GrayDefault}">
                 <customControl:EditorEntryWhiteBlackCursor x:Name="Input" PlaceholderColor="{x:StaticResource GrayDefault}" HeightRequest="110" FontSize="12"></customControl:EditorEntryWhiteBlackCursor>
             </Frame>
-            <Label x:Name="LabelCount" Text="0/255" TextColor="Black" FontSize="14" HorizontalOptions="EndAndExpand"></Label>
+            <Label x:Name="LabelCount" Text="0/255" FontSize="14" HorizontalOptions="EndAndExpand"></Label>
         </StackLayout>
   </ContentView.Content>
 </ContentView>

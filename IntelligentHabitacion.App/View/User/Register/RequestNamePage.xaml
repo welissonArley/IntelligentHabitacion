@@ -6,13 +6,7 @@
              xmlns:templateStep="clr-namespace:IntelligentHabitacion.App.Template.Step"
              x:Class="IntelligentHabitacion.App.View.User.Register.RequestNamePage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:IncompleteStep></templateStep:IncompleteStep>
-            <templateStep:IncompleteStep></templateStep:IncompleteStep>
-            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
-        </StackLayout>
+        <templateStep:Steps AmountCompleteSteps="2" AmountIncompleteSteps="3"></templateStep:Steps>
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_YOUR_NAME}" Style="{x:StaticResource LabelTitle}"></Label>
 

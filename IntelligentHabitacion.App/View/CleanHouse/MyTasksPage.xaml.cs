@@ -10,11 +10,5 @@ namespace IntelligentHabitacion.App.View.CleanHouse
         {
             InitializeComponent();
         }
-
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            ((ListView)sender).SelectedItem = null;
-            ((ListView)sender).BackgroundColor = Color.Transparent;
-        }
     }
 }

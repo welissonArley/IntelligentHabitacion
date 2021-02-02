@@ -36,23 +36,29 @@
                 <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="True" ></Setter>
             </Style>
 
-            <Style TargetType="Label">
+            <Style TargetType="Label" ApplyToDerivedTypes="True">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayRegular}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelThin">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelSemiBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelMedium">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelLight">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelTitle">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
@@ -64,6 +70,7 @@
             </Style>
             <Style TargetType="Label" x:Key="LabelExtraBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayExtraBold}"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
             </Style>
             
             <Style TargetType="Button">
@@ -110,10 +117,6 @@
                 <Setter Property="Margin" Value="20,0,20,30"></Setter>
                 <Setter Property="Spacing" Value="0"></Setter>
             </Style>
-            <Style TargetType="StackLayout" x:Key="MarginStyleDefaultWithScroll">
-                <Setter Property="Margin" Value="20,30,0,30"></Setter>
-                <Setter Property="Spacing" Value="0"></Setter>
-            </Style>
 
             <Style TargetType="Entry" ApplyToDerivedTypes="True">
                 <Setter Property="PlaceholderColor" Value="{DynamicResource GrayDefault}"></Setter>
@@ -129,6 +132,21 @@
                 <Setter Property="CircleColor" Value="Black"></Setter>
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
                 <Setter Property="Color" Value="{x:StaticResource YellowDefault}"></Setter>
+            </Style>
+
+            <Style TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:date="clr-namespace:IntelligentHabitacion.App.Template.Date"
+             xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.SeeScheduleAllFriendsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
+            <header:CircleWithTextAndDescriptionComponent Text="{x:Static resourceText:ResourceText.DESCRIPTION_HOUSEWORK}" Title="{x:Static resourceText:ResourceText.TITLE_HOUSEWORK}" CircleColor="#e8f7fe" CircleText="IlustrationSweetHome"></header:CircleWithTextAndDescriptionComponent>
+
+            <date:MonthSelectorTemplate Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
+
+            <CollectionView ItemsSource="{Binding Model.FriendSchedules}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <template:CleanHomeViewMonthScheduleTemplate></template:CleanHomeViewMonthScheduleTemplate>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

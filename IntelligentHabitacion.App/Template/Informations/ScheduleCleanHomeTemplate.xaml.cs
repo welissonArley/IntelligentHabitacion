@@ -8,6 +8,7 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScheduleCleanHomeTemplate : ContentView
     {
+        /*
         public ScheduleModel ScheduleUser
         {
             get => (ScheduleModel)GetValue(ScheduleUserProperty);
@@ -56,7 +57,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                 }
             }
         }
-
+        */
         public ScheduleCleanHomeTemplate()
         {
             InitializeComponent();

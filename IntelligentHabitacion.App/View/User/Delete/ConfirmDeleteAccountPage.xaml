@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              x:Name="ConfirmDeleteAccountContentPage"
              Title="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}"
              x:Class="IntelligentHabitacion.App.View.User.Delete.ConfirmDeleteAccountPage">

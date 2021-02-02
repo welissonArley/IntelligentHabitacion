@@ -2,19 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
              xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:templateStep="clr-namespace:IntelligentHabitacion.App.Template.Step"
-             xmlns:behavior="clr-namespace:IntelligentHabitacion.App.Behavior"
              x:Class="IntelligentHabitacion.App.View.Home.Register.Brazil.RequestZipCodePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
-        </StackLayout>
+        <templateStep:Steps AmountCompleteSteps="2" AmountIncompleteSteps="1"></templateStep:Steps>
 
         <Label Text="CEP:" Style="{x:StaticResource LabelTitle}"></Label>
 

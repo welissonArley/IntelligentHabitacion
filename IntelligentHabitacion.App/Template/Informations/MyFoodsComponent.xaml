@@ -7,9 +7,9 @@
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Item_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="20,10,20,10" Spacing="-3">
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0,10,5,10" Spacing="-3">
                 <Label x:Name="DueDateController" IsVisible="False"></Label>
-                <Label x:Name="Product" Style="{x:StaticResource LabelMedium}" FontSize="15" TextColor="Black">
+                <Label x:Name="Product" Style="{x:StaticResource LabelMedium}" FontSize="15">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference DueDateController}, Path=Text}" Value="0">
                             <Setter Property="TextColor" Value="{x:StaticResource RedDefault}"></Setter>
@@ -34,14 +34,7 @@
                             </Label.Triggers>
                         </Label>
                     </StackLayout>
-                    <Grid HorizontalOptions="End" ColumnSpacing="15" VerticalOptions="CenterAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30"></ColumnDefinition>
-                            <ColumnDefinition Width="30"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+                    <Grid HorizontalOptions="End" ColumnSpacing="15" VerticalOptions="CenterAndExpand" RowDefinitions="20" ColumnDefinitions="30,30">
                         <Button Grid.Row="0" Grid.Column="0" Text="-1" BackgroundColor="White" BorderWidth="2" BorderColor="{x:StaticResource RedDefault}" TextColor="{x:StaticResource RedDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_SubtractOne"></Button>
                         <Button Grid.Row="0" Grid.Column="1" Text="+1" BackgroundColor="White" BorderWidth="2" BorderColor="{x:StaticResource GreenDefault}" TextColor="{x:StaticResource GreenDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_AddOne"></Button>
                     </Grid>

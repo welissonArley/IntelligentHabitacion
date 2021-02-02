@@ -10,23 +10,12 @@
         <StackLayout Margin="20,20,20,30">
             <StackLayout Orientation="Horizontal" Spacing="0">
                 <ImageButton x:Name="ButtonPreviousYear" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousYear"></ImageButton>
-                <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" x:Name="LabelYear" TextColor="Black" Style="{x:StaticResource LabelBold}" FontSize="18"></Label>
+                <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" x:Name="LabelYear" Style="{x:StaticResource LabelBold}" FontSize="18"></Label>
                 <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
             </StackLayout>
 
-            <Grid Margin="0,20,0,0" ColumnSpacing="1" x:Name="MonthContent">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+            <Grid Margin="0,20,0,0" ColumnSpacing="1" x:Name="MonthContent" RowDefinitions="50,50,50,30"
+                  ColumnDefinitions="*,*,*,*">
             </Grid>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">

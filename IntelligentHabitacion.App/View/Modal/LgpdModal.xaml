@@ -7,10 +7,7 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="#192846"
     x:Class="IntelligentHabitacion.App.View.Modal.LgpdModal">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <Grid ColumnDefinitions="*">
         <Image Grid.Column="0" Source="IlustrationHalfCircle" HorizontalOptions="End"></Image>
         <StackLayout Grid.Column="0" Style="{x:StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resourceText:ResourceText.TITLE_WHY_NEED_FILL_THIS_INFORMATION}" Margin="0,20,0,0" HorizontalTextAlignment="Start" Style="{x:StaticResource LabelExtraBold}" TextColor="{x:StaticResource YellowDefault}" FontSize="30"></Label>
@@ -19,16 +16,7 @@
 
             <StackLayout VerticalOptions="EndAndExpand">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION}" HorizontalTextAlignment="Center" Style="{x:StaticResource LabelExtraBold}" TextColor="{x:StaticResource YellowDefault}" FontSize="14"></Label>
-                <Grid Margin="0,60,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="10"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                    </Grid.RowDefinitions>
-
+                <Grid Margin="0,60,0,0" ColumnDefinitions="*,10,*" RowDefinitions="50">
                     <Button Grid.Row="0" Grid.Column="2" CornerRadius="16" BackgroundColor="White" Text="Ok" TextColor="Black" Clicked="OnButton_Clicked"></Button>
                 </Grid>
             </StackLayout>

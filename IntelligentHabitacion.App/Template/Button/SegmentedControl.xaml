@@ -6,7 +6,7 @@
     <ContentView.Content>
         <Grid ColumnDefinitions="*,*" RowDefinitions="30" ColumnSpacing="0" Margin="0,0,20,0">
             <Frame BackgroundColor="{StaticResource GreenDefault}" Grid.Column="0" Padding="0" HasShadow="False" CornerRadius="0">
-                <Label x:Name="LabelOption1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black" FontSize="16" Style="{StaticResource LabelMedium}"></Label>
+                <Label x:Name="LabelOption1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Style="{StaticResource LabelMedium}"></Label>
             </Frame>
 
             <Frame BackgroundColor="White" Grid.Column="1" Padding="0" HasShadow="False" BorderColor="{StaticResource GreenDefault}" CornerRadius="0">

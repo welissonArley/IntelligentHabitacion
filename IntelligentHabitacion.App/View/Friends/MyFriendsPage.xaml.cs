@@ -20,11 +20,5 @@ namespace IntelligentHabitacion.App.View.Friends
 
             base.OnAppearing();
         }
-
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            ((ListView)sender).SelectedItem = null;
-            ((ListView)sender).BackgroundColor = Color.Transparent;
-        }
     }
 }

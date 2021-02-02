@@ -3,33 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
-             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
              x:Name="MyFriendsContentPage"
              x:Class="IntelligentHabitacion.App.View.Friends.MyFriendsPage">
     <ContentPage.Resources>
         <converter:InverseBoolConverter x:Key="BoolInverseConverter"></converter:InverseBoolConverter>
     </ContentPage.Resources>
-    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
-        <StackLayout Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
             <Image Source="IlustrationDog"></Image>
             <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
         </StackLayout>
         <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding FriendsListIsEmpty, Converter={StaticResource BoolInverseConverter}}">
-            <Label Margin="20,20,20,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+            <Label Margin="0,20,0,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
             <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFriendsContentPage}}"></component:SearchByNameComponent>
-            <Label Margin="20,30,20,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_YOUR_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
-            <ListView x:Name="List" ItemTapped="ListView_ItemTapped" RowHeight="70" Margin="0,30,0,20" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding FriendsList}">
-                <ListView.ItemTemplate>
+            <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_YOUR_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+            <CollectionView x:Name="List" Margin="0,30,0,0" VerticalOptions="FillAndExpand" ItemsSource="{Binding FriendsList}">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <Grid>
                             <template:MyFriendsComponent TappedItemCommand="{Binding Path=BindingContext.DetailFriendCommand, Source={x:Reference Name=List}}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=List}}" Friend="{Binding .}"></template:MyFriendsComponent>
-                        </ViewCell>
+                        </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <template:EmptyTemplate></template:EmptyTemplate>
+                    </ContentView>
+                </CollectionView.EmptyView>
+            </CollectionView>
         </StackLayout>
-        <Button Margin="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddFriendCommand}" x:Name="ButtonAddFriend"></Button>
+        <Button Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddFriendCommand}" x:Name="ButtonAddFriend"></Button>
     </StackLayout>
 </ContentPage>

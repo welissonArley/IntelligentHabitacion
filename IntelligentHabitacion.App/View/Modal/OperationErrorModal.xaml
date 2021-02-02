@@ -2,8 +2,9 @@
 <pages:PopupPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="#BE3232"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
     x:Class="IntelligentHabitacion.App.View.Modal.OperationErrorModal">
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0">
         <Image Source="IconError" HeightRequest="150" WidthRequest="150"></Image>

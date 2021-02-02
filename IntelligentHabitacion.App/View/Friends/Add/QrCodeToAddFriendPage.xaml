@@ -4,9 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
-             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
              xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              mc:Ignorable="d"
@@ -22,7 +21,7 @@
                     </DataTrigger>
                 </StackLayout.Triggers>
                 <ActivityIndicator Color="{x:StaticResource GreenDefault}" IsRunning="True"></ActivityIndicator>
-                <Label Text="{x:Static resourceText:ResourceText.TITLE_GENERATING_CODE}" TextColor="Black" Style="{x:StaticResource LabelMedium}"></Label>
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_GENERATING_CODE}" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
             <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="-3">
                 <StackLayout.Triggers>
@@ -30,24 +29,13 @@
                         <Setter Property="IsVisible" Value="True"></Setter>
                     </DataTrigger>
                 </StackLayout.Triggers>
-                <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
-                    <template:CircleWithTextComponent VerticalOptions="StartAndExpand" Color="{Binding ProfileColor}" Text="?"></template:CircleWithTextComponent>
-                    <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
-                        <Label Text="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" TextColor="Black" FontSize="18"></Label>
-                        <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelThin}"></customControl:LabelJustifyText>
-                    </StackLayout>
-                </StackLayout>
+
+                <header:CircleWithTextAndDescriptionComponent Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" Title="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" CircleText="?" CircleColor="{Binding ProfileColor}"></header:CircleWithTextAndDescriptionComponent>
                 
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label Text="QR Code" TextColor="Black" FontSize="17" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"></Label>
+                    <Label Text="QR Code" FontSize="17" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"></Label>
 
-                    <Grid HorizontalOptions="CenterAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="180"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="180"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+                    <Grid HorizontalOptions="CenterAndExpand" RowDefinitions="180" ColumnDefinitions="180">
                         <BoxView BackgroundColor="Black" Grid.Column="0" Grid.Row="0"></BoxView>
 
                         <zxing:ZXingBarcodeImageView x:Name="BarcodeView" WidthRequest="170" HeightRequest="170" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" BarcodeValue="{Binding QrCode}">

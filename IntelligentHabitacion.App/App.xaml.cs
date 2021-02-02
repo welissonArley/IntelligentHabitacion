@@ -107,12 +107,12 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<View.Home.Register.Others.RegisterHomePage, ViewModel.Home.Register.Others.RegisterHomeViewModel>();
             ViewFactory.Register<View.Home.Register.Brazil.RegisterHomePage, ViewModel.Home.Register.Brazil.RegisterHomeViewModel>();
             ViewFactory.Register<View.Home.Register.Brazil.RequestZipCodePage, ViewModel.Home.Register.Brazil.RequestZipCodeViewModel>();
-            ViewFactory.Register<UserSchedulePage, UserScheduleViewModel>();
-            ViewFactory.Register<RatingCleaningPage, RatingCleaningViewModel>();
-            ViewFactory.Register<CleanHousePage, CleanHouseViewModel>();
-            ViewFactory.Register<SettingSchedulePage, SettingScheduleViewModel>();
-            ViewFactory.Register<SeeDetailsRatingCleaningPage, SeeDetailsRatingCleaningViewModel>();
+            ViewFactory.Register<FriendSchedulePage, FriendScheduleViewModel>();
             ViewFactory.Register<MyTasksPage, MyTasksViewModel>();
+            ViewFactory.Register<RatingCleaningPage, RatingCleaningViewModel>();
+            ViewFactory.Register<SeeDetailsRatingCleaningPage, SeeDetailsRatingCleaningViewModel>();
+            ViewFactory.Register<SeeScheduleAllFriendsPage, SeeScheduleAllFriendsViewModel>();
+            ViewFactory.Register<SettingSchedulePage, SettingScheduleViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

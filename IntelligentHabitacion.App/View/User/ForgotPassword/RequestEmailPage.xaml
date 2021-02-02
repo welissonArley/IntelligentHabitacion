@@ -6,10 +6,7 @@
              xmlns:templateStep="clr-namespace:IntelligentHabitacion.App.Template.Step"
              x:Class="IntelligentHabitacion.App.View.User.ForgotPassword.RequestEmailPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
-        </StackLayout>
+        <templateStep:Steps AmountCompleteSteps="1" AmountIncompleteSteps="1"></templateStep:Steps>
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_EMAIL_RECOVER_PASSAWORD}" Style="{x:StaticResource LabelTitle}"></Label>
 

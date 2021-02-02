@@ -24,7 +24,6 @@ namespace IntelligentHabitacion.App.Droid
 
             ConfigureDI();
 
-            RoundedBoxView.Forms.Plugin.Droid.RoundedBoxViewRenderer.Init();
             Rg.Plugins.Popup.Popup.Init(this);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

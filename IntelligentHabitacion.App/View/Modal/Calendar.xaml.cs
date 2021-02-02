@@ -109,9 +109,12 @@ namespace IntelligentHabitacion.App.View.Modal
 
         private void DaySelected(int day)
         {
-            var selectedDayemplate = (ColumnDayTemplate)DaysContent.Children.ElementAt(6+ _date.Day);
-            selectedDayemplate.DeselectDay();
-            _date = new DateTime(_date.Year, _date.Month, day);
+            if (day != _date.Day)
+            {
+                var selectedDayemplate = (ColumnDayTemplate)DaysContent.Children.ElementAt(6 + _date.Day);
+                selectedDayemplate.DeselectDay();
+                _date = new DateTime(_date.Year, _date.Month, day);
+            }
         }
 
         private void ValidateMinimumAndMaximumDate()

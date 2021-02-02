@@ -10,11 +10,5 @@ namespace IntelligentHabitacion.App.View.MyFoods
         {
             InitializeComponent();
         }
-
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            ((ListView)sender).SelectedItem = null;
-            ((ListView)sender).BackgroundColor = Color.Transparent;
-        }
     }
 }

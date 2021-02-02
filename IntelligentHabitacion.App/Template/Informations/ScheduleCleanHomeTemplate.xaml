@@ -6,9 +6,9 @@
              x:Class="IntelligentHabitacion.App.Template.Informations.ScheduleCleanHomeTemplate">
   <ContentView.Content>
       <StackLayout Margin="0,20,0,0">
-            <Label x:Name="DateLabel" TextColor="Black" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+            <Label x:Name="DateLabel" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
 
-            <Label x:Name="RoomLabel" Margin="0,25,0,0" TextColor="Black" FontSize="14"></Label>
+            <Label x:Name="RoomLabel" Margin="0,25,0,0" FontSize="14"></Label>
             
             <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_RATING}" HorizontalOptions="FillAndExpand" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelThin}" FontSize="14"></Label>

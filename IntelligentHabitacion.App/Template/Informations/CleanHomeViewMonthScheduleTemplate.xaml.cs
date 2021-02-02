@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CleanHomeViewMonthScheduleTemplate : ContentView
     {
-        public FriendSchedule Schedule
+        /*public FriendSchedule Schedule
         {
             get => (FriendSchedule)GetValue(ScheduleProperty);
             set => SetValue(ScheduleProperty, value);
@@ -76,7 +76,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                     new ColumnDefinition { Width = 15 }
                 }
             };
-
+            /*
             grid.Children.Add(new RoundedBoxView.Forms.Plugin.Abstractions.RoundedBoxView
             {
                 HeightRequest = 15,
@@ -98,7 +98,7 @@ namespace IntelligentHabitacion.App.Template.Informations
 
             return grid;
         }
-
+*/
         public CleanHomeViewMonthScheduleTemplate()
         {
             InitializeComponent();

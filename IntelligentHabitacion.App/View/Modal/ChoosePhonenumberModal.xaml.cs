@@ -3,6 +3,7 @@ using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -37,12 +38,11 @@ namespace IntelligentHabitacion.App.View.Modal
             };
         }
 
-        private void NumbersList_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((ListView)sender).SelectedItem = null;
-            ((ListView)sender).BackgroundColor = Xamarin.Forms.Color.Transparent;
+            NumbersContact current = (e.CurrentSelection.FirstOrDefault() as NumbersContact);
             Navigation.PopPopupAsync();
-            _callbackPhonenumberSelected(((NumbersContact)e.Item).Number);
+            _callbackPhonenumberSelected(current.Number);
         }
     }
 

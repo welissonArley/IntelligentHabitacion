@@ -23,10 +23,9 @@
     <PackageReference Include="Plugin.Fingerprint" Version="2.1.3" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
-    <PackageReference Include="Xam.Plugins.Forms.RoundedBoxView" Version="1.0.0.7" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.2" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1905" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.4.4" />
     <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.3.0" />
     <PackageReference Include="XLabs.Forms" Version="2.0.5782" />
@@ -59,11 +58,17 @@
     <Compile Update="Template\CardIlustrationOptions\CardIlustrationOptions.xaml.cs">
       <DependentUpon>CardIlustrationOptions.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Date\MonthSelectorTemplate.xaml.cs">
+      <DependentUpon>MonthSelectorTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Date\ColumnDayTemplate.xaml.cs">
       <DependentUpon>ColumnDayTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Date\ColumnMonthTemplate.xaml.cs">
       <DependentUpon>ColumnMonthTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Header\CenterCircleWithTextComponent.xaml.cs">
+      <DependentUpon>CenterCircleWithTextComponent.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Header\HeaderOrderHasArrived.xaml.cs">
       <DependentUpon>HeaderOrderHasArrived.xaml</DependentUpon>
@@ -92,6 +97,9 @@
     <Compile Update="Template\Informations\CleanHomeViewMonthScheduleTemplate.xaml.cs">
       <DependentUpon>CleanHomeViewMonthScheduleTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\EmptyTemplate.xaml.cs">
+      <DependentUpon>EmptyTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\TextAreaTemplate.xaml.cs">
       <DependentUpon>TextAreaTemplate.xaml</DependentUpon>
     </Compile>
@@ -101,8 +109,8 @@
     <Compile Update="Template\Search\SearchByNameComponent.xaml.cs">
       <DependentUpon>SearchByNameComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\Step\CompleteStep.xaml.cs">
-      <DependentUpon>CompleteStep.xaml</DependentUpon>
+    <Compile Update="Template\Step\Steps.xaml.cs">
+      <DependentUpon>Steps.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\TextWithLabel\InputPasswordWithLabelComponent.xaml.cs">
       <DependentUpon>InputPasswordWithLabelComponent.xaml</DependentUpon>
@@ -110,23 +118,23 @@
     <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\Step\IncompleteStep.xaml.cs">
-      <DependentUpon>IncompleteStep.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\CleanHouse\MyTasksPage.xaml.cs">
       <DependentUpon>MyTasksPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\CleanHouse\SeeDetailsRatingCleaningPage.xaml.cs">
       <DependentUpon>SeeDetailsRatingCleaningPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\CleanHouse\CleanHousePage.xaml.cs">
-      <DependentUpon>CleanHousePage.xaml</DependentUpon>
+    <Compile Update="View\CleanHouse\SeeScheduleAllFriendsPage.xaml.cs">
+      <DependentUpon>SeeScheduleAllFriendsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\CleanHouse\RatingCleaningPage.xaml.cs">
       <DependentUpon>RatingCleaningPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\CleanHouse\SettingSchedulePage.xaml.cs">
       <DependentUpon>SettingSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\CleanHouse\FriendSchedulePage.xaml.cs">
+      <DependentUpon>FriendSchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
@@ -267,16 +275,10 @@
     <EmbeddedResource Update="Template\Date\ColumnDayTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\Informations\CircleWithTextComponent.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Template\Informations\ScheduleCleanHomeTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\Step\CompleteStep.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="View\CleanHouse\UserSchedulePage.xaml">
+    <EmbeddedResource Update="View\CleanHouse\FriendSchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Friends\Add\AcceptNewFriendPage.xaml">

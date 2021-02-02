@@ -8,18 +8,23 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="White"
     x:Class="IntelligentHabitacion.App.View.Modal.ChooseCountryModal">
-    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}">
-        <Label Margin="20,20,20,0" Text="{Binding CountryList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_COUNTRY_AVALIABLE}}" TextColor="Black" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+        <Label x:Name="LabelAmountItens" Margin="20,20,20,0" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
         <component:SearchByNameComponent x:Name="SearchByName"></component:SearchByNameComponent>
         <Label Margin="20,30,0,0" Text="{x:Static resourceText:ResourceText.CHOOSE_A_COUNTRY_BELOW}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>
-        <ListView x:Name="List" ItemTapped="ListView_ItemTapped" RowHeight="40" Margin="20,30,0,0" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
+        <CollectionView x:Name="List" Margin="20,30,0,0" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <Grid>
                         <template:CountryComponent Country="{Binding .}"></template:CountryComponent>
-                    </ViewCell>
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <ContentView>
+                    <template:EmptyTemplate></template:EmptyTemplate>
+                </ContentView>
+            </CollectionView.EmptyView>
+        </CollectionView>
     </StackLayout>
 </pages:PopupPage>

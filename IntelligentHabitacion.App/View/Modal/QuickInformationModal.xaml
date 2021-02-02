@@ -5,11 +5,8 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="Transparent"
     x:Class="IntelligentHabitacion.App.View.Modal.QuickInformationModal">
-    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="280"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ColumnDefinitions="280">
         <Frame Grid.Column="0" CornerRadius="10" HasShadow="True" Padding="0" HeightRequest="50" BackgroundColor="White" Opacity="0.5"></Frame>
-        <Label x:Name="MessageLabel" Grid.Column="0" TextColor="Black" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="15"></Label>
+        <Label x:Name="MessageLabel" Grid.Column="0" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="15"></Label>
     </Grid>
 </pages:PopupPage>

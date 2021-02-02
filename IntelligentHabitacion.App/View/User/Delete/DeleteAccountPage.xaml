@@ -9,7 +9,7 @@
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
         <Label Style="{x:StaticResource LabelTitle}" Text="{x:Static resourceText:ResourceText.TITLE_ITISSAD_SEEYOUGO}"></Label>
 
-        <customcontrol:LabelJustifyText FontSize="22" Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL}" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></customcontrol:LabelJustifyText>
+        <customcontrol:LabelJustifyText FontSize="22" Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL}" Style="{x:StaticResource LabelSemiBold}"></customcontrol:LabelJustifyText>
         
         <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="ConfirmationCode" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CODE_RECEIVED_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CODE_RECEIVED}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
         <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Password" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="True"></templateInputTextWithLabel:InputTextWithLabelComponent>

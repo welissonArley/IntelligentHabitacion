@@ -312,6 +312,9 @@
   <data name="PLACEHOLDER_STATE" xml:space="preserve">
     <value>Estado</value>
   </data>
+  <data name="SUBTITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
+    <value>Tente um novo filtro :)</value>
+  </data>
   <data name="TEXT_CHECK_YOUR_INTERNET_CONNECTION" xml:space="preserve">
     <value>Verifique sua conexão de internet!</value>
   </data>
@@ -593,6 +596,9 @@
   </data>
   <data name="TITLE_NO_COMMENTS" xml:space="preserve">
     <value>Sem comentários</value>
+  </data>
+  <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
+    <value>Seu filtro não encontrou nenhum resultado.</value>
   </data>
   <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
     <value>Sem tarefas para este mês</value>

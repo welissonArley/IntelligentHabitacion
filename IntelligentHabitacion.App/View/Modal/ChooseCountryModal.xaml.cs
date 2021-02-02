@@ -19,27 +19,37 @@ namespace IntelligentHabitacion.App.View.Modal
         {
             InitializeComponent();
 
-            _listCountry = Country.Countries;
-            List.ItemsSource = new ObservableCollection<CountryModel>(_listCountry);
             SearchByName.EntryTextChanged = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);
             });
 
+            _listCountry = Country.Countries;
+
             _onCountrySelectedCommand = onCountrySelectedCommand;
+
+            List.ItemsSource = new ObservableCollection<CountryModel>(_listCountry);
+            List.SelectionChanged += OnCollectionViewSelectionChanged;
+            AmountItens();
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((ListView)sender).SelectedItem = null;
-            ((ListView)sender).BackgroundColor = Xamarin.Forms.Color.Transparent;
+            CountryModel current = (e.CurrentSelection.FirstOrDefault() as CountryModel);
             Navigation.PopPopupAsync();
-            _onCountrySelectedCommand.Execute(e.Item);
+            _onCountrySelectedCommand.Execute(current);
         }
 
         private void OnSearchTextChanged(string value)
         {
             List.ItemsSource = new ObservableCollection<CountryModel>(_listCountry.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
+            AmountItens();
+        }
+
+        private void AmountItens()
+        {
+            var itens = (ObservableCollection<CountryModel>)List.ItemsSource;
+            LabelAmountItens.Text = string.Format(ResourceText.TITLE_COUNTRY_AVALIABLE, itens.Count);
         }
     }
 }

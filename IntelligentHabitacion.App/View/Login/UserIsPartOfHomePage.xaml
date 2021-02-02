@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:templateHeader="clr-namespace:IntelligentHabitacion.App.Template.Header"
              xmlns:templateCard="clr-namespace:IntelligentHabitacion.App.Template.CardIlustrationOptions"
+             xmlns:templateHeader="clr-namespace:IntelligentHabitacion.App.Template.Header"
              NavigationPage.HasNavigationBar="False"
              x:Name="UserPartOfAHomeContentPage"
              x:Class="IntelligentHabitacion.App.View.Login.UserIsPartOfHomePage">
@@ -12,12 +12,7 @@
             <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
             <templateHeader:HeaderOrderHasArrived x:Name="HeaderOrderHasArrived"></templateHeader:HeaderOrderHasArrived>
 
-            <Grid Margin="20,30,20,20" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
+            <Grid Margin="20,30,20,20" ColumnDefinitions="*,*" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
                 <!--<templateCard:CardIlustrationOptions IsVisible="False" Grid.Column="0" Grid.Row="0" Ilustration="IlustrationFinances" IlustrationMargin="23,10,22,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_FINANCES}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_FINANCES}"></templateCard:CardIlustrationOptions>
                 <templateCard:CardIlustrationOptions IsVisible="False" Grid.Column="1" Grid.Row="0" Ilustration="IlustrationShopping" IlustrationMargin="11,10,10,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_SHOPPING}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_SHOPPING}"></templateCard:CardIlustrationOptions>-->
                 <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" Ilustration="IlustrationCleanHouse" IlustrationMargin="8,10,9,5" TitleCard="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CLEAN_HOUSE}" TappedCardCommand="{Binding Path=BindingContext.CardCleanHouseTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>

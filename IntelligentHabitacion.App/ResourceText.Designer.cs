@@ -646,6 +646,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try another filter :).
+        /// </summary>
+        internal static string SUBTITLE_NO_RESULTS_MATCHED_FILTER {
+            get {
+                return ResourceManager.GetString("SUBTITLE_NO_RESULTS_MATCHED_FILTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check your internet connection!.
         /// </summary>
         internal static string TEXT_CHECK_YOUR_INTERNET_CONNECTION {
@@ -1470,6 +1479,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_NO_COMMENTS {
             get {
                 return ResourceManager.GetString("TITLE_NO_COMMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results matched your filter..
+        /// </summary>
+        internal static string TITLE_NO_RESULTS_MATCHED_FILTER {
+            get {
+                return ResourceManager.GetString("TITLE_NO_RESULTS_MATCHED_FILTER", resourceCulture);
             }
         }
         

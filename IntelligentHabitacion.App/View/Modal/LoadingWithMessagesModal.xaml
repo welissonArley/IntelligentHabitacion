@@ -2,11 +2,12 @@
 <pages:PopupPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="White"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
     x:Class="IntelligentHabitacion.App.View.Modal.LoadingWithMessagesModal">
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <ActivityIndicator IsRunning="True" Color="{x:StaticResource GreenDefault}"></ActivityIndicator>
-        <customControl:LabelJustifyText Margin="0,20,0,0" FontSize="24" Text="{Binding Operation}" TextColor="Black" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></customControl:LabelJustifyText>
+        <customControl:LabelJustifyText Margin="0,20,0,0" FontSize="24" Text="{Binding Operation}" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></customControl:LabelJustifyText>
     </StackLayout>
 </pages:PopupPage>

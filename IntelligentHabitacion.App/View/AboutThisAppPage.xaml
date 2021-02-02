@@ -6,7 +6,7 @@
              xmlns:system="clr-namespace:System;assembly=netstandard"
              x:Class="IntelligentHabitacion.App.View.AboutThisAppPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <customControl:LabelJustifyText Style="{x:StaticResource LabelMedium}" TextColor="Black" Margin="0,20,0,0">
+        <customControl:LabelJustifyText Style="{x:StaticResource LabelMedium}" Margin="0,20,0,0">
             <customControl:LabelJustifyText.FontSize>
                 <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="28"></OnIdiom>
             </customControl:LabelJustifyText.FontSize>

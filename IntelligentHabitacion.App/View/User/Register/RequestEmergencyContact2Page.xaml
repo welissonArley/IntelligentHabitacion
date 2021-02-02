@@ -10,13 +10,7 @@
         <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:CompleteStep></templateStep:CompleteStep>
-            <templateStep:IncompleteStep RemoveMargin="True"></templateStep:IncompleteStep>
-        </StackLayout>
+        <templateStep:Steps AmountCompleteSteps="4" AmountIncompleteSteps="1"></templateStep:Steps>
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL}" Style="{x:StaticResource LabelTitle}"></Label>
 

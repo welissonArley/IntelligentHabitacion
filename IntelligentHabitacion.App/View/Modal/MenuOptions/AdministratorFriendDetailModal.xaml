@@ -14,7 +14,7 @@
                         <TapGestureRecognizer Tapped="ChangeDate_Tapped"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
                     <StackLayout VerticalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resourceText:ResourceText.TITLE_CHANGE_JOINED_DATE}" FontSize="14" Style="{x:StaticResource LabelMedium}" TextColor="Black"></Label>
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_CHANGE_JOINED_DATE}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
                         <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
                     </StackLayout>
                 </StackLayout>
@@ -23,7 +23,7 @@
                         <TapGestureRecognizer Tapped="RemoveFriendFromHome_Tapped"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
                     <StackLayout VerticalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resourceText:ResourceText.TITLE_REMOVE}" FontSize="14" Style="{x:StaticResource LabelMedium}" TextColor="Black"></Label>
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_REMOVE}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
                         <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
                     </StackLayout>
                 </StackLayout>
@@ -32,7 +32,7 @@
                         <TapGestureRecognizer Tapped="ChangeAdministrator_Tapped"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
                     <StackLayout VerticalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resourceText:ResourceText.TITLE_SET_AS_ADMINISTRATOR}" FontSize="14" Style="{x:StaticResource LabelMedium}" TextColor="Black"></Label>
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_SET_AS_ADMINISTRATOR}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
                         <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
                     </StackLayout>
                 </StackLayout>

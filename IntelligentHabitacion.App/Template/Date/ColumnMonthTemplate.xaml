@@ -1,24 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:circleBoxview="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
-             mc:Ignorable="d"
              x:Class="IntelligentHabitacion.App.Template.Date.ColumnMonthTemplate">
   <ContentView.Content>
-        <Grid HorizontalOptions="FillAndExpand" x:Name="DayContent">
+        <Grid HorizontalOptions="FillAndExpand" x:Name="DayContent" ColumnDefinitions="*" RowDefinitions="50">
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="SelectedDay"></TapGestureRecognizer>
             </Grid.GestureRecognizers>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-            </Grid.RowDefinitions>
-            <circleBoxview:RoundedBoxView IsVisible="False" x:Name="SelectComponent" CornerRadius="25" HeightRequest="50" HorizontalOptions="CenterAndExpand" WidthRequest="50" BackgroundColor="{x:StaticResource GreenDefault}"></circleBoxview:RoundedBoxView>
-            <Label x:Name="LabelMonth" TextColor="Black" Style="{x:StaticResource LabelMedium}" FontSize="18" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            <Ellipse IsVisible="False" x:Name="SelectComponent" HeightRequest="50" HorizontalOptions="CenterAndExpand" WidthRequest="50">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{StaticResource GreenDefault}"></SolidColorBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label x:Name="LabelMonth" Style="{x:StaticResource LabelMedium}" FontSize="18" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
         </Grid>
     </ContentView.Content>
 </ContentView>

@@ -5,14 +5,10 @@
     xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
     x:Class="IntelligentHabitacion.App.Template.CardIlustrationOptions.CardAboutApp">
     <ContentView.Content>
-        <Grid ColumnSpacing="30" x:Name="GridCard">
+        <Grid ColumnSpacing="30" x:Name="GridCard" ColumnDefinitions="*,*">
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Card_OnTapped"></TapGestureRecognizer>
             </Grid.GestureRecognizers>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
             <Frame HasShadow="True" CornerRadius="5" Padding="0" Grid.Column="0" Grid.Row="0">
                 <StackLayout Spacing="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Image Source="IconInformation">
@@ -30,12 +26,12 @@
                             </Label.FontSize>
                         </Label>
                         <StackLayout Orientation="Horizontal" Spacing="4">
-                            <Label VerticalOptions="CenterAndExpand" TextColor="Black" Text="{x:Static resourceText:ResourceText.TITLE_VERSION}" Style="{x:StaticResource LabelLight}">
+                            <Label VerticalOptions="CenterAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_VERSION}" Style="{x:StaticResource LabelLight}">
                                 <Label.FontSize>
                                     <OnIdiom x:TypeArguments="x:Double" Phone="8" Tablet="16"></OnIdiom>
                                 </Label.FontSize>
                             </Label>
-                            <Label x:Name="LabelVersionNumber" VerticalOptions="CenterAndExpand" TextColor="Black" Style="{x:StaticResource LabelBold}">
+                            <Label x:Name="LabelVersionNumber" VerticalOptions="CenterAndExpand" Style="{x:StaticResource LabelBold}">
                                 <Label.FontSize>
                                     <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="28"></OnIdiom>
                                 </Label.FontSize>

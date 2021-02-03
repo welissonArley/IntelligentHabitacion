@@ -4,12 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="IntelligentHabitacion.App.Template.Button.SegmentedControl">
     <ContentView.Content>
-        <Grid ColumnDefinitions="*,*" RowDefinitions="30" ColumnSpacing="0" Margin="0,0,20,0">
+        <Grid ColumnDefinitions="*,*" RowDefinitions="30" ColumnSpacing="0">
             <Frame BackgroundColor="{StaticResource GreenDefault}" Grid.Column="0" Padding="0" HasShadow="False" CornerRadius="0">
                 <Label x:Name="LabelOption1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Style="{StaticResource LabelMedium}"></Label>
             </Frame>
 
             <Frame BackgroundColor="White" Grid.Column="1" Padding="0" HasShadow="False" BorderColor="{StaticResource GreenDefault}" CornerRadius="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Option2_Tapped"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
                 <Label x:Name="LabelOption2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="{StaticResource GreenDefault}" FontSize="16" Style="{StaticResource LabelMedium}"></Label>
             </Frame>
         </Grid>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             x:Class="IntelligentHabitacion.App.Template.Informations.MyTaskCleanHouseComponent">
+    <ContentView.Content>
+        <StackLayout HeightRequest="120">
+            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></BoxView>
+            <Label x:Name="LabelRoom" Style="{StaticResource LabelBold}" FontSize="14"></Label>
+            <Label x:Name="LabelRecord" Style="{StaticResource LabelMedium}" TextColor="{StaticResource GrayDefault}" FontSize="14"></Label>
+            <Label x:Name="LabelLastRecord" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GrayDefault}" FontSize="12"></Label>
+            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></BoxView>
+            <Grid ColumnDefinitions="*,*,*">
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_VIEW_HISTORY}" Grid.Column="1" Grid.Row="0" BackgroundColor="White" TextColor="{StaticResource GreenDefault}" FontFamily="{DynamicResource FontFamilyRalewayMedium}"></Button>
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_COMPLETED_TODAY}" Grid.Column="2" Grid.Row="0" BackgroundColor="White" TextColor="{StaticResource YellowDefault}" FontFamily="{DynamicResource FontFamilyRalewayExtraBold}"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

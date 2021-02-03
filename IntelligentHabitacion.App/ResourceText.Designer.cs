@@ -259,6 +259,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Below you will find information about your tasks performed each month :).
+        /// </summary>
+        internal static string DESCRIPTION_MY_TASKS_CLEANHOUSE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_MY_TASKS_CLEANHOUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Below you will find information on the tasks performed each month :).
         /// </summary>
         internal static string DESCRIPTION_SCHEDULE_CLEAR_HOUSE {
@@ -898,6 +907,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cleaning records: {0}.
+        /// </summary>
+        internal static string TITLE_CLEANING_RECORDS {
+            get {
+                return ResourceManager.GetString("TITLE_CLEANING_RECORDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code received:.
         /// </summary>
         internal static string TITLE_CODE_RECEIVED_TWOPOINTS {
@@ -912,6 +930,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_COMMENT {
             get {
                 return ResourceManager.GetString("TITLE_COMMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed today.
+        /// </summary>
+        internal static string TITLE_COMPLETED_TODAY {
+            get {
+                return ResourceManager.GetString("TITLE_COMPLETED_TODAY", resourceCulture);
             }
         }
         
@@ -1213,6 +1240,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friend&apos;s tasks.
+        /// </summary>
+        internal static string TITLE_FRIENDS_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_FRIENDS_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generating code ....
         /// </summary>
         internal static string TITLE_GENERATING_CODE {
@@ -1308,6 +1344,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_KILOGRAM {
             get {
                 return ResourceManager.GetString("TITLE_KILOGRAM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last record: {0}.
+        /// </summary>
+        internal static string TITLE_LAST_RECORD {
+            get {
+                return ResourceManager.GetString("TITLE_LAST_RECORD", resourceCulture);
             }
         }
         
@@ -1416,6 +1461,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_MY_INFORMATIONS {
             get {
                 return ResourceManager.GetString("TITLE_MY_INFORMATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Tasks.
+        /// </summary>
+        internal static string TITLE_MY_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_MY_TASKS", resourceCulture);
             }
         }
         
@@ -1893,6 +1947,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_VERSION {
             get {
                 return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View history.
+        /// </summary>
+        internal static string TITLE_VIEW_HISTORY {
+            get {
+                return ResourceManager.GetString("TITLE_VIEW_HISTORY", resourceCulture);
             }
         }
         

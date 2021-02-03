@@ -183,6 +183,9 @@
   <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
     <value>Use this option to see and/or edit your registry information.</value>
   </data>
+  <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
+    <value>Below you will find information about your tasks performed each month :)</value>
+  </data>
   <data name="DESCRIPTION_SCHEDULE_CLEAR_HOUSE" xml:space="preserve">
     <value>Below you will find information on the tasks performed each month :)</value>
   </data>
@@ -393,6 +396,9 @@
   <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
     <value>City:</value>
   </data>
+  <data name="TITLE_CLEANING_RECORDS" xml:space="preserve">
+    <value>Cleaning records: {0}</value>
+  </data>
   <data name="TITLE_CLEAN_HOUSE" xml:space="preserve">
     <value>Clean house</value>
   </data>
@@ -401,6 +407,9 @@
   </data>
   <data name="TITLE_COMMENT" xml:space="preserve">
     <value>Comment</value>
+  </data>
+  <data name="TITLE_COMPLETED_TODAY" xml:space="preserve">
+    <value>Completed today</value>
   </data>
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Conclude</value>
@@ -501,6 +510,9 @@
   <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
     <value>{0} friends available.</value>
   </data>
+  <data name="TITLE_FRIENDS_TASKS" xml:space="preserve">
+    <value>Friend's tasks</value>
+  </data>
   <data name="TITLE_GENERATING_CODE" xml:space="preserve">
     <value>Generating code ...</value>
   </data>
@@ -533,6 +545,9 @@
   </data>
   <data name="TITLE_KILOGRAM" xml:space="preserve">
     <value>Kilogram(s)</value>
+  </data>
+  <data name="TITLE_LAST_RECORD" xml:space="preserve">
+    <value>Last record: {0}</value>
   </data>
   <data name="TITLE_LEAVE_COMMENT_IF_YOU_WANTE" xml:space="preserve">
     <value>If you want you can leave a comment</value>
@@ -569,6 +584,9 @@
   </data>
   <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
     <value>My informations</value>
+  </data>
+  <data name="TITLE_MY_TASKS" xml:space="preserve">
+    <value>My Tasks</value>
   </data>
   <data name="TITLE_NAME_TWOPOINTS" xml:space="preserve">
     <value>Name:</value>
@@ -728,6 +746,9 @@
   </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Version:</value>
+  </data>
+  <data name="TITLE_VIEW_HISTORY" xml:space="preserve">
+    <value>View history</value>
   </data>
   <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
     <value>Waiting for Administrator ...</value>

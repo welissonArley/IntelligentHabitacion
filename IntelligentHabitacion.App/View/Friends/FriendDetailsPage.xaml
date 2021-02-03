@@ -12,11 +12,11 @@
         <converter:ObjectIsNullOrEmptyConverter x:Key="ObjectNullEmptyConverter"></converter:ObjectIsNullOrEmptyConverter>
         <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
     </ContentPage.Resources>
-    <StackLayout Style="{x:StaticResource MarginStyleDefaultWithScroll}" Spacing="-3">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3">
         <header:CircleWithTextAndDescriptionComponent CircleColor="{Binding Model.ProfileColor}" Text="{Binding Model.DescriptionDateJoined}" Title="{Binding Model.Name}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CircleWithTextAndDescriptionComponent>
         
         <ScrollView Margin="0,30,0,0" VerticalOptions="FillAndExpand">
-            <StackLayout Margin="20,0,20,0" VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="FillAndExpand" Spacing="-3">
                     <template:PhonenumberToCallComponent TitleLabel="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_1_TWOPOINTS}" PhoneNumber="{Binding Model.Phonenumber1}" ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}"></template:PhonenumberToCallComponent>
                     <template:PhonenumberToCallComponent Margin="0,20,0,0" TitleLabel="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_2_TWOPOINTS}" PhoneNumber="{Binding Model.Phonenumber2}" ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendDetailsContent}}">

@@ -24,9 +24,27 @@ namespace IntelligentHabitacion.App.Template.Button
             get { return LabelOption2.Text; }
         }
 
+        public static readonly BindableProperty TappedButtonCommandProperty = BindableProperty.Create(propertyName: "TappedButtonCommand",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(SecondaryActionButton),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
+        public ICommand TappedButtonCommand
+        {
+            get => (ICommand)GetValue(TappedButtonCommandProperty);
+            set => SetValue(TappedButtonCommandProperty, value);
+        }
+
         public SegmentedControl()
         {
             InitializeComponent();
+        }
+
+        private void Option2_Tapped(object sender, System.EventArgs e)
+        {
+            TappedButtonCommand?.Execute(null);
         }
     }
 }

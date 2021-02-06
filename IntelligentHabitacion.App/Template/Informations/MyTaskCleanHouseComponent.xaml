@@ -10,10 +10,7 @@
             <Label x:Name="LabelRecord" Style="{StaticResource LabelMedium}" TextColor="{StaticResource GrayDefault}" FontSize="14"></Label>
             <Label x:Name="LabelLastRecord" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GrayDefault}" FontSize="12"></Label>
             <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></BoxView>
-            <Grid ColumnDefinitions="*,*,*">
-                <Button Text="{x:Static resourceText:ResourceText.TITLE_VIEW_HISTORY}" Grid.Column="1" Grid.Row="0" BackgroundColor="White" TextColor="{StaticResource GreenDefault}" FontFamily="{DynamicResource FontFamilyRalewayMedium}"></Button>
-                <Button Text="{x:Static resourceText:ResourceText.TITLE_COMPLETED_TODAY}" Grid.Column="2" Grid.Row="0" BackgroundColor="White" TextColor="{StaticResource YellowDefault}" FontFamily="{DynamicResource FontFamilyRalewayExtraBold}"></Button>
-            </Grid>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_COMPLETED_TODAY}" HorizontalOptions="EndAndExpand" BackgroundColor="White" TextColor="{StaticResource YellowDefault}" FontFamily="{DynamicResource FontFamilyRalewayExtraBold}"></Button>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

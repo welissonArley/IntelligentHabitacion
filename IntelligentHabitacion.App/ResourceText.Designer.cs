@@ -1789,6 +1789,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to See more details.
+        /// </summary>
+        internal static string TITLE_SEE_MORE_DETAILS {
+            get {
+                return ResourceManager.GetString("TITLE_SEE_MORE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sending QRCode ....
         /// </summary>
         internal static string TITLE_SENDING_QRCODE {
@@ -1956,15 +1965,6 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_VERSION {
             get {
                 return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View history.
-        /// </summary>
-        internal static string TITLE_VIEW_HISTORY {
-            get {
-                return ResourceManager.GetString("TITLE_VIEW_HISTORY", resourceCulture);
             }
         }
         

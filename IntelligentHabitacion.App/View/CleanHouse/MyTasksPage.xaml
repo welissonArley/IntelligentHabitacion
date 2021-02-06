@@ -18,7 +18,7 @@
             <template:CircleWithTextAndDescriptionComponent CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Title="{Binding Model.Name}" CircleColor="{Binding ProfileColor}" Text="{x:Static resourceText:ResourceText.DESCRIPTION_MY_TASKS_CLEANHOUSE}" Margin="0,0,20,0"></template:CircleWithTextAndDescriptionComponent>
             <date:MonthSelectorTemplate Margin="0,50,0,0" Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
 
-            <CollectionView ItemsSource="{Binding Model.Tasks}" Margin="0,40,0,20">
+            <CollectionView ItemsSource="{Binding Model.Tasks}" Margin="0,40,0,0">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -27,6 +27,8 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Button Command="{Binding SeeDetailsMyTasksCommand}" Margin="0,0,0,50" HorizontalOptions="End" Padding="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_SEE_MORE_DETAILS}" Style="{StaticResource ButtonSecondaryActionDefault}" BorderColor="{StaticResource GreenDefault}"></Button>
 
             <segmented:SegmentedControl TitleOption1="{x:Static resourceText:ResourceText.TITLE_MY_TASKS}" TitleOption2="{x:Static resourceText:ResourceText.TITLE_FRIENDS_TASKS}" TappedButtonCommand="{Binding Path=BindingContext.SeeFriendsTaskCommand, Source={x:Reference Name=MyTasksContentPage}}"></segmented:SegmentedControl>
         </StackLayout>

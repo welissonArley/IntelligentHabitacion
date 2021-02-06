@@ -13,12 +13,15 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public MyTasksCleanHouseModel Model { get; set; }
 
         public ICommand SeeFriendsTaskCommand { get; private set; }
+        public ICommand SeeDetailsMyTasksCommand { get; private set; }
 
         public MyTasksViewModel(UserPreferences userPreferences)
         {
             ProfileColor = userPreferences.ProfileColor;
 
             SeeFriendsTaskCommand = new Command(async () => await SeeFriendsTaskSelected());
+
+            SeeDetailsMyTasksCommand = new Command(async () => await SeeMyTasksDetails());
 
             Model = new MyTasksCleanHouseModel
             {
@@ -48,6 +51,21 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
                 await Navigation.PushAsync<SeeScheduleAllFriendsViewModel>();
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        private async Task SeeMyTasksDetails()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<DetailsUserScheduleViewModel>();
                 HideLoading();
             }
             catch (System.Exception exeption)

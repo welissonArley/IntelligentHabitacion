@@ -690,6 +690,9 @@
   <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
     <value>Busque por nome</value>
   </data>
+  <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
+    <value>Ver mais detalhes</value>
+  </data>
   <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
     <value>Enviando o QRCode ...</value>
   </data>
@@ -743,9 +746,6 @@
   </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Versão:</value>
-  </data>
-  <data name="TITLE_VIEW_HISTORY" xml:space="preserve">
-    <value>Ver histórico</value>
   </data>
   <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
     <value>Aguardando o Administrador ...</value>

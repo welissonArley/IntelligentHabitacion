@@ -1,9 +1,13 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.View.Modal;
+using Rg.Plugins.Popup.Extensions;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
@@ -14,6 +18,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
         public ICommand SeeFriendsTaskCommand { get; private set; }
         public ICommand SeeDetailsMyTasksCommand { get; private set; }
+        public ICommand CompletedTodayTaskCommand { get; private set; }
 
         public MyTasksViewModel(UserPreferences userPreferences)
         {
@@ -23,6 +28,8 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
             SeeDetailsMyTasksCommand = new Command(async () => await SeeMyTasksDetails());
 
+            CompletedTodayTaskCommand = new Command(async (id) => await CompletedTaskTodaySelected(id.ToString()));
+
             Model = new MyTasksCleanHouseModel
             {
                 Name = "Pablo Henrique",
@@ -31,18 +38,27 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 {
                     new TasksForTheMonth
                     {
+                        Id = "1",
                         Room = "Área de Serviço",
                         CleaningRecords = 5,
                         LastRecord = DateTime.Today
                     },
                     new TasksForTheMonth
                     {
+                        Id = "2",
                         Room = "Banheiro",
                         CleaningRecords = 0,
                         LastRecord = null
                     }
                 }
             };
+        }
+
+        private async Task CompletedTaskTodaySelected(string id)
+        {
+            var task = Model.Tasks.First(c => c.Id.Equals(id));
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PushPopupAsync(new ConfirmAction(string.Format(ResourceText.TITLE_ROOM_CLEANED, task.Room), ResourceText.DESCRIPTION_ROOM_CLEANED, View.Modal.Type.Green, new Command(async() => { await ClompletedTaskToday(id); })));
         }
 
         private async Task SeeFriendsTaskSelected()
@@ -73,6 +89,11 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 HideLoading();
                 await Exception(exeption);
             }
+        }
+    
+        private async Task ClompletedTaskToday(string id)
+        {
+
         }
     }
 }

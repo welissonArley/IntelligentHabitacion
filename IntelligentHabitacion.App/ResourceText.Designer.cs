@@ -268,6 +268,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your friends will receive a notification and can evaluate your work. Do you confirm this?.
+        /// </summary>
+        internal static string DESCRIPTION_ROOM_CLEANED {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ROOM_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Below you will find information on the tasks performed each month :).
         /// </summary>
         internal static string DESCRIPTION_SCHEDULE_CLEAR_HOUSE {
@@ -1731,6 +1740,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_RETURN {
             get {
                 return ResourceManager.GetString("TITLE_RETURN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} cleaned :).
+        /// </summary>
+        internal static string TITLE_ROOM_CLEANED {
+            get {
+                return ResourceManager.GetString("TITLE_ROOM_CLEANED", resourceCulture);
             }
         }
         

@@ -22,7 +22,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <informations:MyTaskCleanHouseComponent Task="{Binding .}"></informations:MyTaskCleanHouseComponent>
+                            <informations:MyTaskCleanHouseComponent Task="{Binding .}" ConcludeTodayCommand="{Binding Path=BindingContext.CompletedTodayTaskCommand, Source={x:Reference Name=MyTasksContentPage}}"></informations:MyTaskCleanHouseComponent>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

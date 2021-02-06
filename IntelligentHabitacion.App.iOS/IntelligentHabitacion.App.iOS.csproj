@@ -543,4 +543,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IllustrationDogSearching%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCheck%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCheck%403x.png" />
+  </ItemGroup>
 </Project>

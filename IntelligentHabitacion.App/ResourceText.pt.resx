@@ -186,6 +186,9 @@
   <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
     <value>Abaixo você vai encontrar informações das suas tarefas realizadas em cada mês :)</value>
   </data>
+  <data name="DESCRIPTION_ROOM_CLEANED" xml:space="preserve">
+    <value>Seus amigos vão receber uma notificação e podem avaliar seu trabalho. Você confirma isto?</value>
+  </data>
   <data name="DESCRIPTION_SCHEDULE_CLEAR_HOUSE" xml:space="preserve">
     <value>Abaixo você vai encontrar informações das tarefas realizadas em cada mês :)</value>
   </data>
@@ -674,6 +677,9 @@
   </data>
   <data name="TITLE_ROOMS_IN_THE_HOUSE" xml:space="preserve">
     <value>Cômodos da casa</value>
+  </data>
+  <data name="TITLE_ROOM_CLEANED" xml:space="preserve">
+    <value>{0} limpo(a) :)</value>
   </data>
   <data name="TITLE_SATURDAY_ABBREVIATED" xml:space="preserve">
     <value>Sáb</value>

@@ -135,6 +135,9 @@
     <Compile Update="View\CleanHouse\DetailsUserSchedulePage.xaml.cs">
       <DependentUpon>DetailsUserSchedulePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\ConfirmAction.xaml.cs">
+      <DependentUpon>ConfirmAction.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
     </Compile>

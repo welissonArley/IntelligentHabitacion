@@ -10,7 +10,7 @@
             <Label x:Name="LabelRecord" Style="{StaticResource LabelMedium}" TextColor="{StaticResource GrayDefault}" FontSize="14"></Label>
             <Label x:Name="LabelLastRecord" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GrayDefault}" FontSize="12"></Label>
             <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></BoxView>
-            <Button Text="{x:Static resourceText:ResourceText.TITLE_COMPLETED_TODAY}" HorizontalOptions="EndAndExpand" BackgroundColor="White" TextColor="{StaticResource YellowDefault}" FontFamily="{DynamicResource FontFamilyRalewayExtraBold}"></Button>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_COMPLETED_TODAY}" HorizontalOptions="EndAndExpand" BackgroundColor="White" TextColor="{StaticResource YellowDefault}" FontFamily="{DynamicResource FontFamilyRalewayExtraBold}" Clicked="CompletedToday_Clicked"></Button>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

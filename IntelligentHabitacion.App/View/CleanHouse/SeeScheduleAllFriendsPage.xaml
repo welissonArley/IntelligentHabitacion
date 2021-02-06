@@ -3,21 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:date="clr-namespace:IntelligentHabitacion.App.Template.Date"
-             xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
              Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
+             x:Name="SeeScheduleAllFriendsContentPage"
              x:Class="IntelligentHabitacion.App.View.CleanHouse.SeeScheduleAllFriendsPage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-            
-            <date:MonthSelectorTemplate Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
+            <Label Margin="0,20,0,0" Text="{Binding Model.FriendsTasks.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+            <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=SeeScheduleAllFriendsContentPage}}"></component:SearchByNameComponent>
 
-            <CollectionView ItemsSource="{Binding Model.FriendSchedules}">
+            <date:MonthSelectorTemplate Margin="0,50,0,10" Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
+
+            <CollectionView ItemsSource="{Binding Model.FriendsTasks}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
+                            <template:ScheduleAllFriendsTemplate FriendTask="{Binding .}" TappedSeeDetailsCommand="{Binding Path=BindingContext.TappedSeeDetailsCommand, Source={x:Reference Name=SeeScheduleAllFriendsContentPage}}"></template:ScheduleAllFriendsTemplate>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <template:EmptyTemplate></template:EmptyTemplate>
+                    </ContentView>
+                </CollectionView.EmptyView>
             </CollectionView>
         </StackLayout>
     </ContentPage.Content>

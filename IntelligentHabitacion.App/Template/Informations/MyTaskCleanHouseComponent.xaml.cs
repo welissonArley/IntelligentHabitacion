@@ -7,15 +7,15 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyTaskCleanHouseComponent : ContentView
     {
-        public MyTasksForTheMonth Task
+        public TasksForTheMonth Task
         {
-            get => (MyTasksForTheMonth)GetValue(TaskProperty);
+            get => (TasksForTheMonth)GetValue(TaskProperty);
             set => SetValue(TaskProperty, value);
         }
 
         public static readonly BindableProperty TaskProperty = BindableProperty.Create(
                                                         propertyName: "Task",
-                                                        returnType: typeof(MyTasksForTheMonth),
+                                                        returnType: typeof(TasksForTheMonth),
                                                         declaringType: typeof(MyTaskCleanHouseComponent),
                                                         defaultValue: null,
                                                         defaultBindingMode: BindingMode.TwoWay,
@@ -25,7 +25,7 @@ namespace IntelligentHabitacion.App.Template.Informations
         {
             if (newValue != null)
             {
-                var model = (MyTasksForTheMonth)newValue;
+                var model = (TasksForTheMonth)newValue;
                 var component = ((MyTaskCleanHouseComponent)bindable);
                 component.LabelRoom.Text = model.Room;
                 component.LabelRecord.Text = $"{string.Format(ResourceText.TITLE_CLEANING_RECORDS, model.CleaningRecords)}";

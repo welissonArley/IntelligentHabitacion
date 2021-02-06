@@ -64,7 +64,7 @@ namespace IntelligentHabitacion.App.Template.Step
             {
                 HeightRequest = 16,
                 WidthRequest = 16,
-                Fill = new SolidColorBrush(Color.FromHex("#FEBF3B"))
+                Fill = new SolidColorBrush((Color)Application.Current.Resources["YellowDefault"])
             };
         }
         private static Shape CreateEllipseIncompleteStep()

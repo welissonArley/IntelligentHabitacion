@@ -1888,6 +1888,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total: {0}.
+        /// </summary>
+        internal static string TITLE_TOTAL {
+            get {
+                return ResourceManager.GetString("TITLE_TOTAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Touch the screen to focus..
         /// </summary>
         internal static string TITLE_TOUCH_SCREEN_TO_FOCUS {

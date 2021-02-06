@@ -6,7 +6,7 @@
              xmlns:date="clr-namespace:IntelligentHabitacion.App.Template.Date"
              xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
-             x:Class="IntelligentHabitacion.App.View.CleanHouse.FriendSchedulePage">
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.DetailsUserSchedulePage">
     <ContentPage.Resources>
         <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
     </ContentPage.Resources>

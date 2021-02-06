@@ -7,13 +7,6 @@ namespace IntelligentHabitacion.App.Model
     {
         public string Name { get; set; }
         public DateTime Month { get; set; }
-        public ObservableCollection<MyTasksForTheMonth> Tasks { get; set; }
-    }
-
-    public class MyTasksForTheMonth
-    {
-        public string Room { get; set; }
-        public int CleaningRecords { get; set; }
-        public DateTime? LastRecord { get; set; }
+        public ObservableCollection<TasksForTheMonth> Tasks { get; set; }
     }
 }

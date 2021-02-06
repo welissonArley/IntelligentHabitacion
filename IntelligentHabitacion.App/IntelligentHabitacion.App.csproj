@@ -78,6 +78,9 @@
     <Compile Update="Template\Header\CircleWithTextAndDescriptionComponent.xaml.cs">
       <DependentUpon>CircleWithTextAndDescriptionComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\ScheduleAllFriendsTemplate.xaml.cs">
+      <DependentUpon>ScheduleAllFriendsTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\MyTaskCleanHouseComponent.xaml.cs">
       <DependentUpon>MyTaskCleanHouseComponent.xaml</DependentUpon>
     </Compile>
@@ -129,8 +132,8 @@
     <Compile Update="View\CleanHouse\SettingSchedulePage.xaml.cs">
       <DependentUpon>SettingSchedulePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\CleanHouse\FriendSchedulePage.xaml.cs">
-      <DependentUpon>FriendSchedulePage.xaml</DependentUpon>
+    <Compile Update="View\CleanHouse\DetailsUserSchedulePage.xaml.cs">
+      <DependentUpon>DetailsUserSchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
@@ -274,7 +277,7 @@
     <EmbeddedResource Update="Template\Informations\ScheduleCleanHomeTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\CleanHouse\FriendSchedulePage.xaml">
+    <EmbeddedResource Update="View\CleanHouse\DetailsUserSchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\CleanHouse\SeeScheduleAllFriendsPage.xaml">

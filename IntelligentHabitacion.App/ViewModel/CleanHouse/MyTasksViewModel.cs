@@ -24,15 +24,15 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 Name = "Pablo Henrique",
                 Month = DateTime.Today,
-                Tasks = new System.Collections.ObjectModel.ObservableCollection<MyTasksForTheMonth>
+                Tasks = new System.Collections.ObjectModel.ObservableCollection<TasksForTheMonth>
                 {
-                    new MyTasksForTheMonth
+                    new TasksForTheMonth
                     {
                         Room = "Área de Serviço",
                         CleaningRecords = 5,
                         LastRecord = DateTime.Today
                     },
-                    new MyTasksForTheMonth
+                    new TasksForTheMonth
                     {
                         Room = "Banheiro",
                         CleaningRecords = 0,

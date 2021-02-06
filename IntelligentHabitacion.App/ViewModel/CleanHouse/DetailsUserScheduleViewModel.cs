@@ -1,6 +1,6 @@
 ﻿namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
-    public class FriendScheduleViewModel : BaseViewModel
+    public class DetailsUserScheduleViewModel : BaseViewModel
     {
     }
 }

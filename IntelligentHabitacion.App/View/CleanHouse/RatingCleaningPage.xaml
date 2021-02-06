@@ -18,7 +18,7 @@
 
             <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,20,0,0"></BoxView>
 
-            <Label Text="{Binding Model.Room}" Margin="0,8,0,0" FontSize="14" TextColor="Black"></Label>
+            <Label Text="{Binding Model.Room}" Margin="0,8,0,0" FontSize="14"></Label>
             <customControl:LabelJustifyText Style="{x:StaticResource LabelThin}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Margin="0,10,0,0">
                 <customControl:LabelJustifyText.Text>
                     <MultiBinding Converter="{StaticResource DescriptionCleaningRatingConverter}">

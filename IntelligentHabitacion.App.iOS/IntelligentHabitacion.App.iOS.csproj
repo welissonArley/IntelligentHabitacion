@@ -552,4 +552,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconCheck%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationWomanManCleaningHouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationWomanManCleaningHouse%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationWomanManCleaningHouse%403x.png" />
+  </ItemGroup>
 </Project>

@@ -102,6 +102,9 @@
     <Compile Update="Template\Informations\EmptyTemplate.xaml.cs">
       <DependentUpon>EmptyTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\DetailsUserScheduleCleanHomeTemplate.xaml.cs">
+      <DependentUpon>DetailsUserScheduleCleanHomeTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\TextAreaTemplate.xaml.cs">
       <DependentUpon>TextAreaTemplate.xaml</DependentUpon>
     </Compile>
@@ -277,7 +280,7 @@
     <EmbeddedResource Update="Template\Date\ColumnDayTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\Informations\ScheduleCleanHomeTemplate.xaml">
+    <EmbeddedResource Update="Template\Informations\DetailsUserScheduleCleanHomeTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\CleanHouse\DetailsUserSchedulePage.xaml">

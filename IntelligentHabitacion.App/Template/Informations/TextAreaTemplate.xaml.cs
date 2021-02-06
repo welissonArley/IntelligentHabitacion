@@ -7,6 +7,31 @@ namespace IntelligentHabitacion.App.Template.Informations
     public partial class TextAreaTemplate : ContentView
     {
         public string PlaceHolderText { set => Input.Placeholder = value; }
+        public string PropertyToBindindEntry
+        {
+            get => (string)GetValue(PropertyToBindindEntryProperty);
+            set => SetValue(PropertyToBindindEntryProperty, value);
+        }
+
+        public static readonly BindableProperty PropertyToBindindEntryProperty = BindableProperty.Create(
+                                                        propertyName: "PropertyToBindindEntry",
+                                                        returnType: typeof(string),
+                                                        declaringType: typeof(TextAreaTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: PropertyToBindindEntryChanged);
+
+        private static void PropertyToBindindEntryChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            Binding binding = new Binding(newValue.ToString())
+            {
+                Mode = BindingMode.TwoWay
+            };
+
+            var bindableComponent = ((TextAreaTemplate)bindable);
+
+            bindableComponent.Input.SetBinding(Entry.TextProperty, binding);
+        }
 
         public TextAreaTemplate()
         {

@@ -4,6 +4,7 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
              xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
              Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
              x:Class="IntelligentHabitacion.App.View.CleanHouse.SeeDetailsRatingCleaningPage">
@@ -36,9 +37,7 @@
 
                             <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.TITLE_COMMENT}" TextColor="Black" FontSize="14" Margin="0,40,0,0"></customControl:LabelJustifyText>
 
-                            <Frame Padding="0" HasShadow="False" BorderColor="{x:StaticResource GrayDefault}" Margin="0,20,0,0">
-                                <customControl:EditorEntryWhiteBlackCursor Text="{Binding Comment}" Placeholder="{x:Static resourceText:ResourceText.TITLE_NO_COMMENTS}" HeightRequest="110" FontSize="12"></customControl:EditorEntryWhiteBlackCursor>
-                            </Frame>
+                            <template:TextAreaTemplate PropertyToBindindEntry="Feedback" PlaceHolderText="{x:Static resourceText:ResourceText.TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK}"></template:TextAreaTemplate>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>

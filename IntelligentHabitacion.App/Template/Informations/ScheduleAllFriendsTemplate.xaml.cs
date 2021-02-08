@@ -52,7 +52,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                 }
                 else
                 {
-                    component.Content.Children.Add(ComponentWithoutTask(taskModel.CanAssignTasks));
+                    component.Content.Children.Add(ComponentWithoutTask());
                     component.ButtonDetails.IsVisible = false;
                 }
             }
@@ -101,9 +101,9 @@ namespace IntelligentHabitacion.App.Template.Informations
             };
         }
     
-        private static StackLayout ComponentWithoutTask(bool canAssignTasks)
+        private static StackLayout ComponentWithoutTask()
         {
-            var stackLayout = new StackLayout
+            return new StackLayout
             {
                 Children =
                 {
@@ -122,19 +122,6 @@ namespace IntelligentHabitacion.App.Template.Informations
                     }
                 }
             };
-
-            if (canAssignTasks)
-            {
-                stackLayout.Children.Insert(1, new Xamarin.Forms.Button
-                {
-                    Style = (Style)Application.Current.Resources["ButtonYellowDefault"],
-                    Text = ResourceText.TITLE_ASSIGN_TASKS,
-                    CornerRadius = 0,
-                    HeightRequest = 30
-                });
-            }
-
-            return stackLayout;
         }
 
         private void ButtonDetails_Clicked(object sender, System.EventArgs e)

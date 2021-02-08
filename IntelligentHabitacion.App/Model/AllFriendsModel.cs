@@ -14,7 +14,6 @@ namespace IntelligentHabitacion.App.Model
         public string Id { get; set; }
         public string Name { get; set; }
         public string ProfileColor { get; set; }
-        public bool CanAssignTasks { get; set; }
         public ObservableCollection<TasksForTheMonth> Tasks { get; set; }
     }
 }

@@ -39,14 +39,12 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     {
                         Name = "Matheus Gomes",
                         ProfileColor = "#65BCBF",
-                        CanAssignTasks = true,
                         Tasks = new ObservableCollection<TasksForTheMonth>()
                     },
                     new AllFriendsGroup
                     {
                         Name = "William Rodrigues",
                         ProfileColor = "#65BCBF",
-                        CanAssignTasks = false,
                         Tasks = new ObservableCollection<TasksForTheMonth>
                         {
                             new TasksForTheMonth
@@ -60,7 +58,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     {
                         Name = "Anilton Barbosa",
                         ProfileColor = "#657EBF",
-                        CanAssignTasks = false,
                         Tasks = new ObservableCollection<TasksForTheMonth>
                         {
                             new TasksForTheMonth
@@ -79,7 +76,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     {
                         Name = "Pablo Henrique",
                         ProfileColor = "#BF658B",
-                        CanAssignTasks = false,
                         Tasks = new ObservableCollection<TasksForTheMonth>
                         {
                             new TasksForTheMonth

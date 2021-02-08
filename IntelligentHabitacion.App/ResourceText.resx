@@ -354,6 +354,9 @@
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Add product</value>
   </data>
+  <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
+    <value>The Administrator must configure the cleaning schedule.</value>
+  </data>
   <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
     <value>Ok, I received!</value>
   </data>
@@ -449,6 +452,9 @@
   </data>
   <data name="TITLE_CREATE_HOME" xml:space="preserve">
     <value>Create a home</value>
+  </data>
+  <data name="TITLE_CREATE_SCHEDULE_NOW" xml:space="preserve">
+    <value>Create schedule now</value>
   </data>
   <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Current password:</value>

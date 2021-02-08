@@ -772,6 +772,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Administrator must configure the cleaning schedule..
+        /// </summary>
+        internal static string TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE {
+            get {
+                return ResourceManager.GetString("TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok, I received!.
         /// </summary>
         internal static string TITLE_ALREADY_RECEIVED {
@@ -1056,6 +1065,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CREATE_HOME {
             get {
                 return ResourceManager.GetString("TITLE_CREATE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create schedule now.
+        /// </summary>
+        internal static string TITLE_CREATE_SCHEDULE_NOW {
+            get {
+                return ResourceManager.GetString("TITLE_CREATE_SCHEDULE_NOW", resourceCulture);
             }
         }
         

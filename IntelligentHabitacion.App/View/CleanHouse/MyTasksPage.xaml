@@ -12,25 +12,34 @@
              x:Class="IntelligentHabitacion.App.View.CleanHouse.MyTasksPage">
     <ContentPage.Resources>
         <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+        <converter:InverseBoolConverter x:Key="BoolInverseConverter"></converter:InverseBoolConverter>
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-            <template:CircleWithTextAndDescriptionComponent CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Title="{Binding Model.Name}" CircleColor="{Binding ProfileColor}" Text="{x:Static resourceText:ResourceText.DESCRIPTION_MY_TASKS_CLEANHOUSE}" Margin="0,0,20,0"></template:CircleWithTextAndDescriptionComponent>
-            <date:MonthSelectorTemplate Margin="0,50,0,0" Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
+            <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding ScheduleCreated, Converter={StaticResource BoolInverseConverter}}">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="25" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GreenDefault}"></Label>
+                <Button x:Name="ButtonCreateSchedule" Command="{Binding CreateScheduleCommand}" VerticalOptions="End" Text="{x:Static resourceText:ResourceText.TITLE_CREATE_SCHEDULE_NOW}" Style="{StaticResource ButtonYellowDefault}"></Button>
+            </StackLayout>
 
-            <CollectionView ItemsSource="{Binding Model.Tasks}" Margin="0,40,0,0">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <informations:MyTaskCleanHouseComponent Task="{Binding .}" ConcludeTodayCommand="{Binding Path=BindingContext.CompletedTodayTaskCommand, Source={x:Reference Name=MyTasksContentPage}}"></informations:MyTaskCleanHouseComponent>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
 
-            <Button Command="{Binding SeeDetailsMyTasksCommand}" Margin="0,0,0,50" HorizontalOptions="End" Padding="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_SEE_MORE_DETAILS}" Style="{StaticResource ButtonSecondaryActionDefault}" BorderColor="{StaticResource GreenDefault}"></Button>
+            <StackLayout IsVisible="{Binding ScheduleCreated}">
+                <template:CircleWithTextAndDescriptionComponent CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Title="{Binding Model.Name}" CircleColor="{Binding ProfileColor}" Text="{x:Static resourceText:ResourceText.DESCRIPTION_MY_TASKS_CLEANHOUSE}" Margin="0,0,20,0"></template:CircleWithTextAndDescriptionComponent>
+                <date:MonthSelectorTemplate Margin="0,50,0,0" Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
 
-            <segmented:SegmentedControl TitleOption1="{x:Static resourceText:ResourceText.TITLE_MY_TASKS}" TitleOption2="{x:Static resourceText:ResourceText.TITLE_FRIENDS_TASKS}" TappedButtonCommand="{Binding Path=BindingContext.SeeFriendsTaskCommand, Source={x:Reference Name=MyTasksContentPage}}"></segmented:SegmentedControl>
+                <CollectionView ItemsSource="{Binding Model.Tasks}" Margin="0,40,0,0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <informations:MyTaskCleanHouseComponent Task="{Binding .}" ConcludeTodayCommand="{Binding Path=BindingContext.CompletedTodayTaskCommand, Source={x:Reference Name=MyTasksContentPage}}"></informations:MyTaskCleanHouseComponent>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Button Command="{Binding SeeDetailsMyTasksCommand}" Margin="0,0,0,50" HorizontalOptions="End" Padding="20,0,20,0" Text="{x:Static resourceText:ResourceText.TITLE_SEE_MORE_DETAILS}" Style="{StaticResource ButtonSecondaryActionDefault}" BorderColor="{StaticResource GreenDefault}"></Button>
+
+                <segmented:SegmentedControl TitleOption1="{x:Static resourceText:ResourceText.TITLE_MY_TASKS}" TitleOption2="{x:Static resourceText:ResourceText.TITLE_FRIENDS_TASKS}" TappedButtonCommand="{Binding Path=BindingContext.SeeFriendsTaskCommand, Source={x:Reference Name=MyTasksContentPage}}"></segmented:SegmentedControl>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

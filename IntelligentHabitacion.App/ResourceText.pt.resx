@@ -351,6 +351,9 @@
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Adicionar produto</value>
   </data>
+  <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
+    <value>O Administrador deve configurar o cronograma de limpeza.</value>
+  </data>
   <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
     <value>Ok, já recebi!</value>
   </data>
@@ -446,6 +449,9 @@
   </data>
   <data name="TITLE_CREATE_HOME" xml:space="preserve">
     <value>Criar um lar</value>
+  </data>
+  <data name="TITLE_CREATE_SCHEDULE_NOW" xml:space="preserve">
+    <value>Criar cronograma agora</value>
   </data>
   <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Senha atual:</value>

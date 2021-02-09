@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             x:Name="DetailsUserScheduleContentPage"
+             x:Class="IntelligentHabitacion.App.View.CleanHouse.CreateSchedulePage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <header:CircleWithTextAndDescriptionComponent Text="{x:Static resourceText:ResourceText.DESCRIPTION_MANAGE_SCHEDULE}" Title="{x:Static resourceText:ResourceText.TITLE_MANAGE_SCHEDULE}" CircleColor="#A1A1A1" CircleText="!"></header:CircleWithTextAndDescriptionComponent>
+
+            <CollectionView Margin="0,50,0,30" VerticalOptions="FillAndExpand" ItemsSource="{Binding Model.UserTasks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <template:ManageScheduleTemplate UserTask="{Binding .}"></template:ManageScheduleTemplate>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonGreenDefault}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

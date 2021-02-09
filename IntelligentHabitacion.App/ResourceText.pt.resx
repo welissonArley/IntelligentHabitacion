@@ -174,6 +174,9 @@
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Utilize esta opção para fazer parte de um republica já criada.</value>
   </data>
+  <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
+    <value>Selecione as tarefas para cada um dos moradores da casa. Não se preocupe, você pode alterar isso quando quiser :)</value>
+  </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
     <value>Acompanhe os alimentos que você, com quantidade e data de vencimento.</value>
   </data>
@@ -566,6 +569,9 @@
   </data>
   <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
     <value>Login com acesso por impressão digital</value>
+  </data>
+  <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
+    <value>Gerenciar cronograma</value>
   </data>
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Fabricante:</value>

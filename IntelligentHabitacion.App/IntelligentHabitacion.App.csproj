@@ -78,6 +78,9 @@
     <Compile Update="Template\Header\CircleWithTextAndDescriptionComponent.xaml.cs">
       <DependentUpon>CircleWithTextAndDescriptionComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\ManageScheduleTemplate.xaml.cs">
+      <DependentUpon>ManageScheduleTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\ScheduleAllFriendsTemplate.xaml.cs">
       <DependentUpon>ScheduleAllFriendsTemplate.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
     </Compile>
     <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\CleanHouse\CreateSchedulePage.xaml.cs">
+      <DependentUpon>CreateSchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\CleanHouse\MyTasksPage.xaml.cs">
       <DependentUpon>MyTasksPage.xaml</DependentUpon>

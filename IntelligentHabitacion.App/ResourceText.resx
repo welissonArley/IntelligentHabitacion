@@ -174,6 +174,9 @@
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Use this option to be part of a home already created.</value>
   </data>
+  <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
+    <value>Select the tasks for each of the household's residents. Don't worry, you can change this whenever you want :)</value>
+  </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
     <value>Track the foods you have, with quantity and expiration date.</value>
   </data>
@@ -569,6 +572,9 @@
   </data>
   <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
     <value>Login with fingerprint access</value>
+  </data>
+  <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
+    <value>Manage schedule</value>
   </data>
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Manufacturer:</value>

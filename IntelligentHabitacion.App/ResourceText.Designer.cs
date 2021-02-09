@@ -232,6 +232,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select the tasks for each of the household&apos;s residents. Don&apos;t worry, you can change this whenever you want :).
+        /// </summary>
+        internal static string DESCRIPTION_MANAGE_SCHEDULE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_MANAGE_SCHEDULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Track the foods you have, with quantity and expiration date..
         /// </summary>
         internal static string DESCRIPTION_MY_FOOD {
@@ -1416,6 +1425,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_LOGIN_WITH_FINGERPRINT_ACCESS {
             get {
                 return ResourceManager.GetString("TITLE_LOGIN_WITH_FINGERPRINT_ACCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage schedule.
+        /// </summary>
+        internal static string TITLE_MANAGE_SCHEDULE {
+            get {
+                return ResourceManager.GetString("TITLE_MANAGE_SCHEDULE", resourceCulture);
             }
         }
         

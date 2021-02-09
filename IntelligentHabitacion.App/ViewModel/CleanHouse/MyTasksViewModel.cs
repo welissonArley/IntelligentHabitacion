@@ -84,12 +84,14 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
 
+                await Navigation.PushAsync<CreateScheduleViewModel>();
+                /*
                 ScheduleCreated = true;
                 GetSchedule();
 
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 OnPropertyChanged(new PropertyChangedEventArgs("ScheduleCreated"));
-
+                */
                 HideLoading();
             }
             catch (System.Exception exeption)

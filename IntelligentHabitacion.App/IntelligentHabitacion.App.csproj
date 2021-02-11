@@ -156,6 +156,9 @@
     <Compile Update="View\Modal\LgpdModal.xaml.cs">
       <DependentUpon>LgpdModal.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\MenuOptions\AdministratorMyTasksModal.xaml.cs">
+      <DependentUpon>AdministratorMyTasksModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\User\Delete\DeleteAccountPage.xaml.cs">
       <DependentUpon>DeleteAccountPage.xaml</DependentUpon>
     </Compile>

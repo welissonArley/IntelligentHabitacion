@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public string ProfileColor { get; set; }
         public MyTasksCleanHouseModel Model { get; set; }
 
+        public ICommand MenuOptionsCommand { protected set; get; }
         public ICommand SeeFriendsTaskCommand { get; private set; }
         public ICommand SeeDetailsMyTasksCommand { get; private set; }
         public ICommand CompletedTodayTaskCommand { get; private set; }
@@ -34,6 +36,11 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             SeeDetailsMyTasksCommand = new Command(async () => await SeeMyTasksDetails());
 
             CompletedTodayTaskCommand = new Command(async (id) => await CompletedTaskTodaySelected(id.ToString()));
+
+            MenuOptionsCommand = new Command(async () =>
+            {
+                await ShowAdministratorOptions();
+            });
         }
 
         private async Task CompletedTaskTodaySelected(string id)
@@ -129,6 +136,32 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     }
                 }
             };
+        }
+
+        private async Task ShowAdministratorOptions()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PushPopupAsync(new AdministratorMyTasksModal(CreateScheduleCommand, new Command(async () =>
+            {
+                await ShowConfigurationsSchedule();
+            })));
+        }
+
+        private async Task ShowConfigurationsSchedule()
+        {
+            try
+            {
+                await ShowLoading();
+
+                await Navigation.PushAsync<SettingScheduleViewModel>();
+
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
     }
 }

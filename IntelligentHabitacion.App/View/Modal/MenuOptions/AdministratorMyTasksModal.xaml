@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    BackgroundColor="Transparent"
+    x:Class="IntelligentHabitacion.App.View.Modal.MenuOptions.AdministratorMyTasksModal">
+    <Frame VerticalOptions="Start" HorizontalOptions="End" HasShadow="True" WidthRequest="210" HeightRequest="80" Padding="0" Margin="0,50,20,0">
+        <StackLayout Spacing="-3">
+            <StackLayout Margin="10,10,10,10" Spacing="-3">
+                <StackLayout Spacing="-3" HeightRequest="40">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ManageSchedule_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_MANAGE_SCHEDULE}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
+                        <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Spacing="-3" HeightRequest="40">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Settings_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_SCHEDULE_SETTING}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
+                        <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

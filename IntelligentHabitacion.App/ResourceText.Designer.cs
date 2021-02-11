@@ -133,6 +133,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Below you can choose one or more rooms to be cleaned in the month..
+        /// </summary>
+        internal static string DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Follow the Cleaning schedule to make the home clean and beautiful..
         /// </summary>
         internal static string DESCRIPTION_CLEAN_HOUSE {
@@ -1722,6 +1731,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_QUANTITY_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_QUANTITY_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Random assignment.
+        /// </summary>
+        internal static string TITLE_RANDOM_ASSIGNMENT {
+            get {
+                return ResourceManager.GetString("TITLE_RANDOM_ASSIGNMENT", resourceCulture);
             }
         }
         

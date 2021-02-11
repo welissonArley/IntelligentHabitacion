@@ -9,7 +9,7 @@
             <StackLayout x:Name="Content">
                 
             </StackLayout>
-            <Button Padding="25,0,0,0" x:Name="ButtonChange" Text="{x:Static resourceText:ResourceText.TITLE_CHANGE}" HorizontalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="30" Clicked="ButtonDetails_Clicked"></Button>
+            <Button Padding="25,0,0,0" x:Name="ButtonChange" Text="{x:Static resourceText:ResourceText.TITLE_CHANGE}" HorizontalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="30" Clicked="ButtonChange_Clicked"></Button>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

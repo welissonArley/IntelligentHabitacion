@@ -114,6 +114,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<SeeScheduleAllFriendsPage, SeeScheduleAllFriendsViewModel>();
             ViewFactory.Register<SettingSchedulePage, SettingScheduleViewModel>();
             ViewFactory.Register<CreateSchedulePage, CreateScheduleViewModel>();
+            ViewFactory.Register<SelectTaskCleaningSchedulePage, SelectTaskCleaningScheduleViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

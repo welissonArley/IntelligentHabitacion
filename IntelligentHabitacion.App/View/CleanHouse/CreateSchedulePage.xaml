@@ -2,25 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
-             xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
+             xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
-             x:Name="DetailsUserScheduleContentPage"
+             x:Name="CreateScheduleContentPage"
              x:Class="IntelligentHabitacion.App.View.CleanHouse.CreateSchedulePage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-            <header:CircleWithTextAndDescriptionComponent Text="{x:Static resourceText:ResourceText.DESCRIPTION_MANAGE_SCHEDULE}" Title="{x:Static resourceText:ResourceText.TITLE_MANAGE_SCHEDULE}" CircleColor="#A1A1A1" CircleText="!"></header:CircleWithTextAndDescriptionComponent>
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_MANAGE_SCHEDULE}" FontSize="18"></Label>
+            <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_MANAGE_SCHEDULE}" Style="{StaticResource LabelLight}" FontSize="14" TextColor="{StaticResource GrayDefault}"></customControl:LabelJustifyText>
 
-            <CollectionView Margin="0,50,0,30" VerticalOptions="FillAndExpand" ItemsSource="{Binding Model.UserTasks}">
+            <CollectionView Margin="0,30,0,30" VerticalOptions="FillAndExpand" ItemsSource="{Binding Model.UserTasks}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <template:ManageScheduleTemplate UserTask="{Binding .}"></template:ManageScheduleTemplate>
+                            <template:ManageScheduleTemplate UserTask="{Binding .}" TappedChangeTasksCommand="{Binding Path=BindingContext.ManageTasksCommand, Source={x:Reference Name=CreateScheduleContentPage}}"></template:ManageScheduleTemplate>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonGreenDefault}"></Button>
+            <templateButton:SecondaryActionButton Margin="0,0,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_RANDOM_ASSIGNMENT}" TappedButtonCommand="{Binding Path=BindingContext.RandomAssignmentCommand, Source={x:Reference Name=CreateScheduleContentPage}}"></templateButton:SecondaryActionButton>
+
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonGreenDefault}" Command="{Binding ConcludeCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

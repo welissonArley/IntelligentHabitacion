@@ -141,6 +141,9 @@
   <data name="DESCRIPTION_ALL" xml:space="preserve">
     <value> all </value>
   </data>
+  <data name="DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED" xml:space="preserve">
+    <value>Below you can choose one or more rooms to be cleaned in the month.</value>
+  </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Follow the Cleaning schedule to make the home clean and beautiful.</value>
   </data>
@@ -671,6 +674,9 @@
   </data>
   <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
     <value>Quantity:</value>
+  </data>
+  <data name="TITLE_RANDOM_ASSIGNMENT" xml:space="preserve">
+    <value>Random assignment</value>
   </data>
   <data name="TITLE_RATE" xml:space="preserve">
     <value>Rate</value>

@@ -126,6 +126,9 @@
     <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\CleanHouse\SelectTaskCleaningSchedulePage.xaml.cs">
+      <DependentUpon>SelectTaskCleaningSchedulePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\CleanHouse\CreateSchedulePage.xaml.cs">
       <DependentUpon>CreateSchedulePage.xaml</DependentUpon>
     </Compile>

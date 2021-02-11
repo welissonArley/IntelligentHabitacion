@@ -45,14 +45,18 @@ namespace IntelligentHabitacion.App.Template.Informations
                 component.LabelName.Text = taskModel.Name;
                 component.ButtonChange.TextColor = Color.FromHex(taskModel.ProfileColor);
 
+                component.Content.Children.Clear();
+
                 if (taskModel.Tasks.Any())
                 {
                     foreach (var task in taskModel.Tasks)
                         component.Content.Children.Add(ComponentRoom(task.Room));
+
+                    component.ButtonChange.IsVisible = true;
                 }
                 else
                 {
-                    component.Content.Children.Add(ComponentWithoutTask());
+                    component.Content.Children.Add(ComponentWithoutTask(bindable));
                     component.ButtonChange.IsVisible = false;
                 }
             }
@@ -87,8 +91,24 @@ namespace IntelligentHabitacion.App.Template.Informations
             };
         }
     
-        private static StackLayout ComponentWithoutTask()
+        private static StackLayout ComponentWithoutTask(BindableObject bindable)
         {
+            var button = new Xamarin.Forms.Button
+            {
+                TextColor = (Color)Application.Current.Resources["YellowDefault"],
+                Text = ResourceText.TITLE_ASSIGN_TASKS,
+                HorizontalOptions = LayoutOptions.End,
+                CornerRadius = 0,
+                BackgroundColor = Color.White,
+                HeightRequest = 30
+            };
+
+            button.Clicked += (sender, args) =>
+            {
+                var component = ((ManageScheduleTemplate)bindable);
+                component.TappedChangeTasksCommand?.Execute(component.UserTask.Id);
+            };
+
             return new StackLayout
             {
                 Children =
@@ -100,13 +120,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                         TextColor = (Color)Application.Current.Resources["GrayDefault"],
                         Style = (Style)Application.Current.Resources["LabelBold"]
                     },
-                    new Xamarin.Forms.Button
-                    {
-                        Style = (Style)Application.Current.Resources["ButtonYellowDefault"],
-                        Text = ResourceText.TITLE_ASSIGN_TASKS,
-                        CornerRadius = 0,
-                        HeightRequest = 30
-                    },
+                    button,
                     new BoxView
                     {
                         HeightRequest = 1,
@@ -117,7 +131,7 @@ namespace IntelligentHabitacion.App.Template.Informations
             };
         }
 
-        private void ButtonDetails_Clicked(object sender, System.EventArgs e)
+        private void ButtonChange_Clicked(object sender, System.EventArgs e)
         {
             TappedChangeTasksCommand?.Execute(UserTask.Id);
         }

@@ -141,6 +141,9 @@
   <data name="DESCRIPTION_ALL" xml:space="preserve">
     <value> todas </value>
   </data>
+  <data name="DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED" xml:space="preserve">
+    <value>Abaixo você pode escolher um ou mais comôdos para serem limpados no mês.</value>
+  </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Acompanhe o cronograma de Limpeza para deixar o lar limpo e lindo.</value>
   </data>
@@ -668,6 +671,9 @@
   </data>
   <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
     <value>Quantidade:</value>
+  </data>
+  <data name="TITLE_RANDOM_ASSIGNMENT" xml:space="preserve">
+    <value>Atribuição aleatória</value>
   </data>
   <data name="TITLE_RATE" xml:space="preserve">
     <value>Avaliar</value>

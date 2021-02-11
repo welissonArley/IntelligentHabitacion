@@ -84,14 +84,18 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
 
-                await Navigation.PushAsync<CreateScheduleViewModel>();
-                /*
-                ScheduleCreated = true;
-                GetSchedule();
+                await Navigation.PushAsync<CreateScheduleViewModel>((viewModel, page) =>
+                {
+                    viewModel.CallbackOnCreateScheduleCommand = new Command(async () =>
+                    {
+                        ScheduleCreated = true;
+                        await GetSchedule();
 
-                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
-                OnPropertyChanged(new PropertyChangedEventArgs("ScheduleCreated"));
-                */
+                        OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                        OnPropertyChanged(new PropertyChangedEventArgs("ScheduleCreated"));
+                    });
+                });
+
                 HideLoading();
             }
             catch (System.Exception exeption)
@@ -101,7 +105,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             }
         }
 
-        private void GetSchedule()
+        private async Task GetSchedule()
         {
             Model = new MyTasksCleanHouseModel
             {

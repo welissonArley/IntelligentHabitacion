@@ -669,9 +669,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\IlustrationWave.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\IlustrationHalfCircle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\IconQuestion.png" />
   </ItemGroup>
   <ItemGroup>

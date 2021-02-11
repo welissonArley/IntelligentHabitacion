@@ -505,9 +505,6 @@
     <BundleResource Include="Resources\IconQuestion%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IlustrationHalfCircle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IconStar.png" />
   </ItemGroup>
   <ItemGroup>

@@ -23,6 +23,7 @@
     <PackageReference Include="Plugin.Fingerprint" Version="2.1.3" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugin.TabView" Version="1.1.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.4.4" />
@@ -41,6 +42,9 @@
     </Compile>
     <Compile Update="Template\Button\ConfirmDangerActionButton.xaml.cs">
       <DependentUpon>ConfirmDangerActionButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Button\TabsView.xaml.cs">
+      <DependentUpon>TabsView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Button\SegmentedControl.xaml.cs">
       <DependentUpon>SegmentedControl.xaml</DependentUpon>

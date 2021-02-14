@@ -558,4 +558,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IllustrationWomanManCleaningHouse%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconTabEmergency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconTabUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconTabPhone.png" />
+  </ItemGroup>
 </Project>

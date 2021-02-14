@@ -9,6 +9,25 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
         public bool TopMargin { get; set; }
         public IValueConverter ConverterToEntry { get; set; }
 
+        public object BindingEntry
+        {
+            get => GetValue(BindindEntryProperty);
+            set => SetValue(BindindEntryProperty, value);
+        }
+        public static readonly BindableProperty BindindEntryProperty = BindableProperty.Create(
+                                                        propertyName: "BindingEntry",
+                                                        returnType: typeof(object),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: BindindEntryChanged);
+
+        private static void BindindEntryChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var bindableComponent = ((InputTextWithLabelComponent)bindable);
+            bindableComponent.Input.SetBinding(Entry.TextProperty, (Binding)newValue);
+        }
+
         public Xamarin.Forms.Behavior EntryBehavior
         {
             get => (Xamarin.Forms.Behavior)GetValue(EntryBehaviorProperty);
@@ -95,7 +114,7 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
         public Keyboard Keyboard { set { Input.Keyboard = value; } get { return Input.Keyboard; } }
         public bool IsPassword { set { Input.IsPassword = value; } get { return Input.IsPassword; } }
         public bool IconNet { set { Input.IconNet = value; } get { return Input.IconNet; } }
-
+        
         public InputTextWithLabelComponent()
         {
             InitializeComponent();

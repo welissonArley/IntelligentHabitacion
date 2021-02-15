@@ -6,7 +6,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
 {
     public interface IUserRule
     {
-        string Register(RequestRegisterUserJson registerUserJson);
         BooleanJson EmailAlreadyBeenRegistered(string email);
         void Update(RequestUpdateUserJson updateUserJson);
         void ChangePassword(RequestChangePasswordJson changePasswordJson);

@@ -1,4 +1,4 @@
-﻿namespace IntelligentHabitacion.Api.Application.Interfaces.UseCases
+﻿namespace IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate
 {
     public interface IProcessFoodsNextToDueDate
     {

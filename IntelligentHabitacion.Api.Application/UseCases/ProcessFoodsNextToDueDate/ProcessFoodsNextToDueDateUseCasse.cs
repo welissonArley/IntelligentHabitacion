@@ -1,12 +1,11 @@
-﻿using IntelligentHabitacion.Api.Application.Interfaces.UseCases;
-using IntelligentHabitacion.Api.Repository.Interface;
+﻿using IntelligentHabitacion.Api.Repository.Interface;
 using IntelligentHabitacion.Api.Repository.Model;
 using IntelligentHabitacion.Api.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace IntelligentHabitacion.Api.Application.UseCases
+namespace IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate
 {
     public class ProcessFoodsNextToDueDateUseCasse : IProcessFoodsNextToDueDate
     {

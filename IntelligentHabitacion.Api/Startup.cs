@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application;
 using IntelligentHabitacion.Api.Configuration.Swagger;
 using IntelligentHabitacion.Api.Filter;
+using IntelligentHabitacion.Api.Infrastructure;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Repository.DatabaseInformations;
 using IntelligentHabitacion.Api.Services;
@@ -54,6 +55,8 @@ namespace IntelligentHabitacion.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Application.Services.AutoMapper.AutoMapping));
+
             services.AddSignalR();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -86,7 +89,15 @@ namespace IntelligentHabitacion.Api
                 options.IncludeXmlComments("IntelligentHabitacion.Api.xml");
             });
 
-            services.AddUseCases();
+            services
+                .AddUseCases()
+                .AddRepositories();
+
+            services.AddHttpContextAccessor();
+            services.AddHostedService<NotifyUserProductDueDate>();
+
+
+
 
             RegisterSetOfRules(services);
             RegisterRepository(services);
@@ -96,7 +107,7 @@ namespace IntelligentHabitacion.Api
                 return new CryptographyPassword(_appSettingsManager.KeyAdditionalCryptography());
             });
 
-            services.AddHttpContextAccessor();
+            
 
             services.AddScoped<AuthenticationUserAttribute>();
             services.AddScoped<AuthenticationUserIsPartOfHomeAttribute>();
@@ -113,7 +124,7 @@ namespace IntelligentHabitacion.Api
                 return new OneSignalService(_appSettingsManager.OneSignalAppId(), _appSettingsManager.OneSignalApiKey());
             });
 
-            services.AddHostedService<NotifyUserProductDueDate>();
+            
         }
 
         /// <summary>
@@ -138,7 +149,7 @@ namespace IntelligentHabitacion.Api
                     c.SwaggerEndpoint($"../swagger/{description.GroupName}/swagger.json", "IntelligentHabitacion.Api - " + description.GroupName.ToUpperInvariant());
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthorization();

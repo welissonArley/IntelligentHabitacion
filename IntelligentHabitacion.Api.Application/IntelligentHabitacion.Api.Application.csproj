@@ -5,10 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IntelligentHabitacion.Api.Domain\IntelligentHabitacion.Api.Domain.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.Repository\IntelligentHabitacion.Api.Repository.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.Services\IntelligentHabitacion.Api.Services.csproj" />
   </ItemGroup>

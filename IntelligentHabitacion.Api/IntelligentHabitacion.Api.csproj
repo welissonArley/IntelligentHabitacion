@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj" />
+    <ProjectReference Include="..\IntelligentHabitacion.Api.Infrastructure\IntelligentHabitacion.Api.Infrastructure.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.Services\IntelligentHabitacion.Api.Services.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.SetOfRules\IntelligentHabitacion.Api.SetOfRules.csproj" />
   </ItemGroup>

@@ -62,25 +62,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             return new Mapper.Mapper().MapperModelToJson(loggedUser);
         }
 
-        public string Register(RequestRegisterUserJson registerUserJson)
-        {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(registerUserJson.Password);
-            if (EmailAlreadyBeenRegistered(registerUserJson.Email).Value)
-                throw new EmailAlreadyBeenRegisteredException();
-
-            var userModel = new Mapper.Mapper().MapperJsonToModel(registerUserJson);
-            userModel.Password = _cryptography.Encrypt(userModel.Password);
-
-            var validation = new UserValidator().Validate(userModel);
-
-            if (validation.IsValid)
-                _userRepository.Create(userModel);
-            else
-                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
-
-            return userModel.ProfileColor;
-        }
-
         public void Update(RequestUpdateUserJson updateUserJson)
         {
             var loggedUser = _loggedUser.User();

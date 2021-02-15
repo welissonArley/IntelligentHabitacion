@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;
@@ -29,18 +30,21 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function verify if the user's informations is correct and save the informations on database
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="registerUserJson"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [Route("Register")]
-        public IActionResult Register(RequestRegisterUserJson registerUserJson)
+        public IActionResult Register(
+            [FromServices] IRegisterUserUseCase useCase,
+            [FromBody] RequestRegisterUserJson registerUserJson)
         {
             try
             {
                 VerifyParameters(registerUserJson);
 
-                var profileColor = _userRule.Register(registerUserJson);
+                var profileColor = useCase.Execute(registerUserJson);
                 return Created(string.Empty, profileColor);
             }
             catch (System.Exception exception)

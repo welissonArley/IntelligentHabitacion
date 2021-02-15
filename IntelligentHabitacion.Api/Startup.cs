@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application;
 using IntelligentHabitacion.Api.Configuration.Swagger;
+using IntelligentHabitacion.Api.Configuration.Token;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Infrastructure;
 using IntelligentHabitacion.Api.Middleware;
@@ -91,7 +92,8 @@ namespace IntelligentHabitacion.Api
 
             services
                 .AddUseCases()
-                .AddRepositories();
+                .AddRepositories(Configuration)
+                .AddTokenController(Configuration);
 
             services.AddHttpContextAccessor();
             services.AddHostedService<NotifyUserProductDueDate>();

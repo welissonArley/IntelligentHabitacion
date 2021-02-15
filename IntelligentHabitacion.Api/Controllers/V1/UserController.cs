@@ -44,8 +44,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(registerUserJson);
 
-                var profileColor = useCase.Execute(registerUserJson);
-                return Created(string.Empty, profileColor);
+                var response = useCase.Execute(registerUserJson);
+
+                WriteAutenticationHeader(response);
+                return Created(string.Empty, response.ResponseJson);
             }
             catch (System.Exception exception)
             {

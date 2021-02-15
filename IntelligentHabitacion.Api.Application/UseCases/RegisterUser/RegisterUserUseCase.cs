@@ -12,15 +12,18 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
         private IUserWriteOnlyRepository _repository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
 
-        public RegisterUserUseCase(IMapper mapper, IUnitOfWork unitOfWork, IUserWriteOnlyRepository repository)
+        public RegisterUserUseCase(IMapper mapper, IUnitOfWork unitOfWork,
+            IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUserWriteOnlyRepository repository)
         {
-            _repository = repository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
+            _repository = repository;
         }
 
-        public string Execute(RequestRegisterUserJson registerUserJson)
+        public ResponseOutput Execute(RequestRegisterUserJson registerUserJson)
         {
             var validation = new RegisterUserValidation().Validate(registerUserJson);
 
@@ -35,7 +38,11 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
                 _repository.Add(userModel);
                 _unitOfWork.Commit();
 
-                return userModel.ProfileColor;
+                var response = _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, userModel.ProfileColor);
+                
+                _unitOfWork.Commit();
+
+                return response;
             }
             else
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());

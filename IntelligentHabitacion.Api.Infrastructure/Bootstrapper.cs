@@ -1,23 +1,26 @@
 ﻿using IntelligentHabitacion.Api.Application.Services;
+using IntelligentHabitacion.Api.Domain.Repository.Token;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Api.Infrastructure.DataAccess;
 using IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace IntelligentHabitacion.Api.Infrastructure
 {
     public static class Bootstrapper
     {
-        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<IntelligentHabitacionContext>(options =>
-                options.UseMySql("Server=localhost;Database=intelligenthabitacion;Uid=root;Pwd=@Ioasys;"));
+                options.UseMySql(configuration.GetValue<string>("Settings:DefaultConnection")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services
-                .AddScoped<IUserWriteOnlyRepository, UserRepository>();
+                .AddScoped<IUserWriteOnlyRepository, UserRepository>()
+                .AddScoped<ITokenWriteOnlyRepository, TokenRepository>();
         }
     }
 }

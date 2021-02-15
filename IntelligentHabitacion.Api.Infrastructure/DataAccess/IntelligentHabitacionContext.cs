@@ -9,6 +9,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess
         public IntelligentHabitacionContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Token> Tokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

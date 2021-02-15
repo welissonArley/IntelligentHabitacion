@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Validators;
+using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.Validators;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
@@ -9,7 +10,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
 {
     public class RegisterUserValidation : AbstractValidator<RequestRegisterUserJson>
     {
-        public RegisterUserValidation()
+        public RegisterUserValidation(IEmailAlreadyBeenRegisteredUseCase registeredUseCase)
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage(ResourceTextException.NAME_EMPTY);
             RuleFor(x => x.Email).NotEmpty().WithMessage(ResourceTextException.EMAIL_EMPTY);
@@ -17,6 +18,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
             When(x => !string.IsNullOrWhiteSpace(x.Email), () =>
             {
                 RuleFor(x => x.Email).EmailAddress().WithMessage(ResourceTextException.EMAIL_INVALID);
+                RuleFor(x => x.Email).Must(c => !registeredUseCase.Execute(c).Value).WithMessage(ResourceTextException.EMAIL_ALREADYBEENREGISTERED);
             });
             RuleFor(x => x.Password).Custom((password, context) =>
             {

@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+﻿using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
+using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Boolean;
@@ -58,18 +59,21 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function verify if the e-mail address has already been registered.
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="email"></param>
         /// <returns></returns>
         [HttpGet]
         [Route("EmailAlreadyBeenRegistered/{email}")]
         [ProducesResponseType(typeof(BooleanJson), StatusCodes.Status200OK)]
-        public IActionResult EmailAlreadyBeenRegistered(string email)
+        public IActionResult EmailAlreadyBeenRegistered(
+            [FromServices] IEmailAlreadyBeenRegisteredUseCase useCase,
+            [FromRoute] string email)
         {
             try
             {
                 VerifyParameters(email);
 
-                var response = _userRule.EmailAlreadyBeenRegistered(email);
+                var response = useCase.Execute(email);
                 return Ok(response);
             }
             catch (System.Exception exception)

@@ -12,6 +12,8 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
 
             CreateMap<string, Domain.Entity.Phonenumber>()
                 .ForMember(c => c.Number, opt => opt.MapFrom(src => src));
+
+            CreateMap<Communication.Request.RequestEmergencyContactJson, Domain.Entity.EmergencyContact>();
         }
     }
 }

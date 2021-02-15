@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using IntelligentHabitacion.Api.Application.Services;
+using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -9,29 +10,29 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
 {
     public class RegisterUserUseCase : IRegisterUserUseCase
     {
-        private IUserWriteOnlyRepository _repository;
+        private readonly IEmailAlreadyBeenRegisteredUseCase _registeredUseCase;
+        private readonly IUserWriteOnlyRepository _repository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
 
         public RegisterUserUseCase(IMapper mapper, IUnitOfWork unitOfWork,
-            IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUserWriteOnlyRepository repository)
+            IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUserWriteOnlyRepository repository,
+            IEmailAlreadyBeenRegisteredUseCase registeredUseCase)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
             _repository = repository;
+            _registeredUseCase = registeredUseCase;
         }
 
         public ResponseOutput Execute(RequestRegisterUserJson registerUserJson)
         {
-            var validation = new RegisterUserValidation().Validate(registerUserJson);
+            var validation = new RegisterUserValidation(_registeredUseCase).Validate(registerUserJson);
 
             if (validation.IsValid)
             {
-                /*if (EmailAlreadyBeenRegistered(registerUserJson.Email).Value)
-                    throw new EmailAlreadyBeenRegisteredException();*/
-
                 var userModel = _mapper.Map<Domain.Entity.User>(registerUserJson);
                 //userModel.Password = _cryptography.Encrypt(userModel.Password);
 

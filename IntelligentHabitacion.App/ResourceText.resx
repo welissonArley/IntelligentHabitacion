@@ -346,7 +346,7 @@
     <value>Additional address info:</value>
   </data>
   <data name="TITLE_ADDRESS" xml:space="preserve">
-    <value>Now the address</value>
+    <value>Address</value>
   </data>
   <data name="TITLE_ADDRESSNUMBER_TWOPOINTS" xml:space="preserve">
     <value>Number:</value>
@@ -425,6 +425,9 @@
   </data>
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Conclude</value>
+  </data>
+  <data name="TITLE_CONTACTS" xml:space="preserve">
+    <value>Contacts</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
     <value>Family Relationship to contact 1:</value>
@@ -594,6 +597,9 @@
   <data name="TITLE_MONTHS" xml:space="preserve">
     <value>months</value>
   </data>
+  <data name="TITLE_MY_DATA" xml:space="preserve">
+    <value>My data</value>
+  </data>
   <data name="TITLE_MY_FOODS" xml:space="preserve">
     <value>My foods</value>
   </data>
@@ -651,6 +657,9 @@
   <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Password:</value>
   </data>
+  <data name="TITLE_PHONENUMBERS" xml:space="preserve">
+    <value>Phonenumbers</value>
+  </data>
   <data name="TITLE_PHONENUMBER_1_TWOPOINTS" xml:space="preserve">
     <value>Phone number 1:</value>
   </data>
@@ -695,6 +704,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Return</value>
+  </data>
+  <data name="TITLE_ROOMS" xml:space="preserve">
+    <value>Rooms</value>
   </data>
   <data name="TITLE_ROOMS_IN_THE_HOUSE" xml:space="preserve">
     <value>Rooms in the house</value>

@@ -763,7 +763,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Now the address.
+        ///   Looks up a localized string similar to Address.
         /// </summary>
         internal static string TITLE_ADDRESS {
             get {
@@ -1056,6 +1056,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacts.
+        /// </summary>
+        internal static string TITLE_CONTACTS {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACTS", resourceCulture);
             }
         }
         
@@ -1492,6 +1501,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My data.
+        /// </summary>
+        internal static string TITLE_MY_DATA {
+            get {
+                return ResourceManager.GetString("TITLE_MY_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My foods.
         /// </summary>
         internal static string TITLE_MY_FOODS {
@@ -1690,6 +1708,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phonenumbers.
+        /// </summary>
+        internal static string TITLE_PHONENUMBERS {
+            get {
+                return ResourceManager.GetString("TITLE_PHONENUMBERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to (Optional) Leave your feedback ....
         /// </summary>
         internal static string TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK {
@@ -1803,6 +1830,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_ROOM_CLEANED {
             get {
                 return ResourceManager.GetString("TITLE_ROOM_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rooms.
+        /// </summary>
+        internal static string TITLE_ROOMS {
+            get {
+                return ResourceManager.GetString("TITLE_ROOMS", resourceCulture);
             }
         }
         

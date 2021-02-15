@@ -352,15 +352,6 @@
     <BundleResource Include="Resources\IlustrationTheFriends%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconWifi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconWifi%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconWifi%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>
@@ -566,5 +557,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IconTabPhone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconTabAddress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconTabHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconTabWifi.png" />
   </ItemGroup>
 </Project>

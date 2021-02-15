@@ -345,6 +345,9 @@
   <data name="TITLE_ADDITIONALADDRESSINFO_TWOPOINTS" xml:space="preserve">
     <value>Informação complementar:</value>
   </data>
+  <data name="TITLE_ADDRESS" xml:space="preserve">
+    <value>Endereço</value>
+  </data>
   <data name="TITLE_ADDRESSNUMBER_TWOPOINTS" xml:space="preserve">
     <value>Número:</value>
   </data>
@@ -422,6 +425,9 @@
   </data>
   <data name="TITLE_CONCLUDE" xml:space="preserve">
     <value>Concluir</value>
+  </data>
+  <data name="TITLE_CONTACTS" xml:space="preserve">
+    <value>Contatos</value>
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
     <value>Parentesco com contato 1:</value>
@@ -591,6 +597,9 @@
   <data name="TITLE_MONTHS" xml:space="preserve">
     <value>mêses</value>
   </data>
+  <data name="TITLE_MY_DATA" xml:space="preserve">
+    <value>Meus dados</value>
+  </data>
   <data name="TITLE_MY_FOODS" xml:space="preserve">
     <value>My foods</value>
   </data>
@@ -648,6 +657,9 @@
   <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
     <value>Senha:</value>
   </data>
+  <data name="TITLE_PHONENUMBERS" xml:space="preserve">
+    <value>Telefones</value>
+  </data>
   <data name="TITLE_PHONENUMBER_1_TWOPOINTS" xml:space="preserve">
     <value>Telefone 1:</value>
   </data>
@@ -692,6 +704,9 @@
   </data>
   <data name="TITLE_RETURN" xml:space="preserve">
     <value>Voltar</value>
+  </data>
+  <data name="TITLE_ROOMS" xml:space="preserve">
+    <value>Comôdos</value>
   </data>
   <data name="TITLE_ROOMS_IN_THE_HOUSE" xml:space="preserve">
     <value>Cômodos da casa</value>

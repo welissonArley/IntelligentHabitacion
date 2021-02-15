@@ -50,7 +50,7 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
         private static void TopMarginPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if ((bool)newValue)
-                ((InputTextWithLabelComponent)bindable).component.Margin = new Thickness(0, 20, 0, 0);
+                ((InputTextWithLabelComponent)bindable).component.Margin = new Thickness(0, 15, 0, 0);
         }
 
         public static readonly BindableProperty EntryBehaviorProperty = BindableProperty.Create(

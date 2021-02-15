@@ -17,7 +17,7 @@
     <StackLayout Style="{StaticResource MarginStyleDefault}">
         <templateButton:TabsView VerticalOptions="FillAndExpand">
             <templateButton:TabsView.TabItems>
-                <templateButton:TabItem Title="Informações" UnselectedIcon="IconTabUser.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_MY_DATA}" UnselectedIcon="IconTabUser.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout>
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Name, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
@@ -28,7 +28,7 @@
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>
 
-                <templateButton:TabItem Title="Telefone" UnselectedIcon="IconTabPhone.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" UnselectedIcon="IconTabPhone.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout>
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.PhoneNumber1, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_1_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorPhoneNumber}"></templateInputTextWithLabel:InputTextWithLabelComponent>
@@ -37,7 +37,7 @@
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>
 
-                <templateButton:TabItem Title="Contatos" UnselectedIcon="IconTabEmergency.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_CONTACTS}" UnselectedIcon="IconTabEmergency.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout>
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact1.Name, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>

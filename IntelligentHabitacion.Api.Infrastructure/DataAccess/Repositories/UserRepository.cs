@@ -7,7 +7,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
     {
         private readonly IntelligentHabitacionContext _context;
 
-        public UserRepository(IntelligentHabitacionContext context) => this._context = context;
+        public UserRepository(IntelligentHabitacionContext context) => _context = context;
 
         public void Add(User user)
         {

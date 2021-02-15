@@ -4,6 +4,6 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
 {
     public interface IRegisterUserUseCase
     {
-        string Execute(RequestRegisterUserJson registerUserJson);
+        ResponseOutput Execute(RequestRegisterUserJson registerUserJson);
     }
 }

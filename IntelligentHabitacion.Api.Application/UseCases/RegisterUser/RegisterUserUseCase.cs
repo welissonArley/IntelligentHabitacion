@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using IntelligentHabitacion.Api.Application.Services;
+using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
+using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -15,16 +16,18 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
+        private readonly PasswordEncripter _cryptography;
 
         public RegisterUserUseCase(IMapper mapper, IUnitOfWork unitOfWork,
             IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUserWriteOnlyRepository repository,
-            IEmailAlreadyBeenRegisteredUseCase registeredUseCase)
+            IEmailAlreadyBeenRegisteredUseCase registeredUseCase, PasswordEncripter cryptography)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
             _repository = repository;
             _registeredUseCase = registeredUseCase;
+            _cryptography = cryptography;
         }
 
         public ResponseOutput Execute(RequestRegisterUserJson registerUserJson)
@@ -34,7 +37,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
             if (validation.IsValid)
             {
                 var userModel = _mapper.Map<Domain.Entity.User>(registerUserJson);
-                //userModel.Password = _cryptography.Encrypt(userModel.Password);
+                userModel.Password = _cryptography.Encrypt(userModel.Password);
 
                 _repository.Add(userModel);
                 _unitOfWork.Commit();

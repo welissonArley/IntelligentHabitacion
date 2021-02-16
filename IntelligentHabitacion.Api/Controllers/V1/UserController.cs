@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
+﻿using IntelligentHabitacion.Api.Application.UseCases.ChangePassword;
+using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
@@ -116,18 +117,23 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will update the password
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="changePasswordJson"></param>
         /// <returns></returns>
         [HttpPut]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("ChangePassword")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ChangePassword(RequestChangePasswordJson changePasswordJson)
+        public IActionResult ChangePassword(
+            [FromServices] IChangePasswordUseCase useCase,
+            [FromBody] RequestChangePasswordJson changePasswordJson)
         {
             try
             {
                 VerifyParameters(changePasswordJson);
-                _userRule.ChangePassword(changePasswordJson);
+                var response = useCase.Execute(changePasswordJson);
+
+                WriteAutenticationHeader(response);
                 return Ok();
             }
             catch (System.Exception exception)

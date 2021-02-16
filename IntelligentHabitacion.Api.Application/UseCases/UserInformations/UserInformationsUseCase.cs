@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using IntelligentHabitacion.Api.Application.Services;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
+using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Communication.Response;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.UserInformations

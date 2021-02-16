@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using IntelligentHabitacion.Api.Application.Services;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Domain.Entity;
+using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;

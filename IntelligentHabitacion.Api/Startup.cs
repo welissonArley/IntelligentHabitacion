@@ -91,7 +91,7 @@ namespace IntelligentHabitacion.Api
             });
 
             services
-                .AddUseCases()
+                .AddUseCases(Configuration)
                 .AddRepositories(Configuration)
                 .AddTokenController(Configuration);
 

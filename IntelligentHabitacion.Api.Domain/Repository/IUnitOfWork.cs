@@ -1,4 +1,4 @@
-﻿namespace IntelligentHabitacion.Api.Application.Services
+﻿namespace IntelligentHabitacion.Api.Domain.Repository
 {
     public interface IUnitOfWork
     {

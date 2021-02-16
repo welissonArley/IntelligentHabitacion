@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.Api.Application.Services;
+﻿using IntelligentHabitacion.Api.Domain.Repository;
 using System;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess

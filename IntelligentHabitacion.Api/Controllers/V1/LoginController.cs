@@ -73,17 +73,22 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// Use this function to reset the password
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="resetYourPasswordJson"></param>
         /// <returns></returns>
         [HttpPut]
         [Route("ResetYourPassword")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ResetYourPassword(RequestResetYourPasswordJson resetYourPasswordJson)
+        public IActionResult ResetYourPassword(
+            [FromServices] IResetPasswordUseCase useCase,
+            [FromBody] RequestResetYourPasswordJson resetYourPasswordJson)
         {
             try
             {
                 VerifyParameters(resetYourPasswordJson);
-                _loginRule.ResetYourPassword(resetYourPasswordJson);
+
+                useCase.Execute(resetYourPasswordJson);
+
                 return Ok();
             }
             catch (System.Exception exception)

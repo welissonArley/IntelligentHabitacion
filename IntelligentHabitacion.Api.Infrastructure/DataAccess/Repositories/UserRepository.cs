@@ -30,6 +30,12 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 .FirstOrDefault(c => c.Email.Equals(email));
         }
 
+        public User GetByEmail_Update(string email)
+        {
+            return _context.Users
+                .FirstOrDefault(c => c.Email.Equals(email));
+        }
+
         public User GetById_Update(long id)
         {
             return _context.Users

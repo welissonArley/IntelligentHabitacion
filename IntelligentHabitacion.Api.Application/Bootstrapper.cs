@@ -27,7 +27,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>()
                 .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>()
                 .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
-                .AddScoped<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>();
+                .AddScoped<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>()
+                .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>();
         }
     }
 }

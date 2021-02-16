@@ -3,5 +3,6 @@
     public interface ICodeWriteOnlyRepository
     {
         void Add(Entity.Code code);
+        void DeleteAllFromTheUser(long userId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
+using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -28,17 +29,23 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// Function to do Login on API
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="loginJson"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(ResponseLoginJson), StatusCodes.Status200OK)]
-        public IActionResult Login(RequestLoginJson loginJson)
+        public IActionResult Login(
+            [FromServices] ILoginUseCase useCase,
+            [FromBody] RequestLoginJson loginJson)
         {
             try
             {
                 VerifyParameters(loginJson);
-                var response = _loginRule.DoLogin(loginJson);
-                return Ok(response);
+                
+                var response = useCase.Execute(loginJson);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

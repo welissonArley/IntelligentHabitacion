@@ -4,5 +4,6 @@
     {
         bool ExistActiveUserWithEmail(string email);
         Entity.User GetByEmail(string email);
+        Entity.User GetByEmailPassword(string email, string password);
     }
 }

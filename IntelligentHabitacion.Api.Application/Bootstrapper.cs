@@ -4,6 +4,7 @@ using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.ChangePassword;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
+using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
@@ -28,7 +29,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>()
                 .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
                 .AddScoped<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>()
-                .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>();
+                .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>()
+                .AddScoped<ILoginUseCase, LoginUseCase>();
         }
     }
 }

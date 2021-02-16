@@ -27,7 +27,9 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Domain.Entity.User, Communication.Response.ResponseUserInformationsJson>();
             CreateMap<Domain.Entity.Phonenumber, Communication.Response.ResponsePhonenumberJson>();
             CreateMap<Domain.Entity.EmergencyContact, Communication.Response.ResponseEmergencyContactJson>();
-            
+            CreateMap<Domain.Entity.User, Communication.Response.ResponseLoginJson>()
+                .ForMember(c => c.IsPartOfOneHome, opt => opt.MapFrom(w => w.HomeAssociationId.HasValue))
+                .ForMember(c => c.IsAdministrator, opt => opt.MapFrom(w => w.HomeAssociation != null && w.HomeAssociation.Home.AdministratorId == w.Id));
         }
     }
 }

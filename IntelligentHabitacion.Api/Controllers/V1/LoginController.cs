@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.SetOfRules.Interface;
+﻿using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
+using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -52,12 +53,15 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("RequestCodeResetPassword/{email}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult RequestCodeResetPassword(string email)
+        public IActionResult RequestCodeResetPassword(
+            [FromServices] IRequestCodeResetPasswordUseCase useCase,
+            [FromRoute] string email)
         {
             try
             {
                 VerifyParameters(email);
-                _loginRule.RequestCodeToResetPassword(email);
+                useCase.Execute(email);
+
                 return Ok();
             }
             catch (System.Exception exception)

@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +19,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IProcessFoodsNextToDueDate, ProcessFoodsNextToDueDateUseCasse>()
                 .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>()
                 .AddScoped<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
-                .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>();
+                .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>()
+                .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>();
         }
     }
 }

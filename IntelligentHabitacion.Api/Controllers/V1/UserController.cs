@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
@@ -86,19 +87,24 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will update the logged user's personal informations
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="updateUserJson"></param>
         /// <returns></returns>
         [HttpPut]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult Update(RequestUpdateUserJson updateUserJson)
+        public IActionResult Update(
+            [FromServices] IUpdateUserInformationsUseCase useCase,
+            [FromBody] RequestUpdateUserJson updateUserJson)
         {
             try
             {
                 VerifyParameters(updateUserJson);
 
-                _userRule.Update(updateUserJson);
+                var response = useCase.Execute(updateUserJson);
+                WriteAutenticationHeader(response);
+
                 return Ok();
             }
             catch (System.Exception exception)

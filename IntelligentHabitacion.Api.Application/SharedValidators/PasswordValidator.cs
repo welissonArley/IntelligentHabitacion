@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Validators;
 using IntelligentHabitacion.Exception;
 
-namespace IntelligentHabitacion.Api.Application.Validators
+namespace IntelligentHabitacion.Api.Application.SharedValidators
 {
     public class PasswordValidator
     {

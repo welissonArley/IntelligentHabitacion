@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases
             _tokenController = tokenController;
         }
 
-        public ResponseOutput CreateResponse(string email, long userId, object response)
+        public ResponseOutput CreateResponse(string email, long userId, object response = null)
         {
             return new ResponseOutput
             {

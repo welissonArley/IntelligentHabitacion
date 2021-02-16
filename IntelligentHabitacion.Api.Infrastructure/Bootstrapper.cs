@@ -21,6 +21,7 @@ namespace IntelligentHabitacion.Api.Infrastructure
             return services
                 .AddScoped<IUserWriteOnlyRepository, UserRepository>()
                 .AddScoped<IUserReadOnlyRepository, UserRepository>()
+                .AddScoped<IUserUpdateOnlyRepository, UserRepository>()
                 .AddScoped<ITokenWriteOnlyRepository, TokenRepository>()
                 .AddScoped<ITokenReadOnlyRepository, TokenRepository>();
         }

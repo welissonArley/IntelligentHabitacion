@@ -13,6 +13,9 @@ namespace IntelligentHabitacion.Api.Domain.Entity
         public string ProfileColor { get; set; }
         public string PushNotificationId { get; set; }
         public ICollection<Phonenumber> Phonenumbers { get; set; }
-        public ICollection<EmergencyContact> EmergecyContacts { get; set; }
+        public ICollection<EmergencyContact> EmergencyContacts { get; set; }
+
+        public long? HomeAssociationId { get; set; }
+        public HomeAssociation HomeAssociation { get; set; }
     }
 }

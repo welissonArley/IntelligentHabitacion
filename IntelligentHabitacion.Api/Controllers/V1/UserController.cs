@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Boolean;
@@ -137,12 +138,14 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("Informations")]
         [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
-        public IActionResult Informations()
+        public IActionResult Informations([FromServices] IUserInformationsUseCase useCase)
         {
             try
             {
-                var informations = _userRule.GetInformations();
-                return Ok(informations);
+                var response = useCase.Execute();
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

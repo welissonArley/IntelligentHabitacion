@@ -7,6 +7,12 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
     {
         public AutoMapping()
         {
+            RequestToDomain();
+            DomainToResponse();
+        }
+
+        private void RequestToDomain()
+        {
             CreateMap<Communication.Request.RequestRegisterUserJson, Domain.Entity.User>()
                 .ForMember(c => c.ProfileColor, opt => opt.MapFrom(src => new Color().RandomColor()));
 
@@ -14,6 +20,14 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
                 .ForMember(c => c.Number, opt => opt.MapFrom(src => src));
 
             CreateMap<Communication.Request.RequestEmergencyContactJson, Domain.Entity.EmergencyContact>();
+        }
+
+        private void DomainToResponse()
+        {
+            CreateMap<Domain.Entity.User, Communication.Response.ResponseUserInformationsJson>();
+            CreateMap<Domain.Entity.Phonenumber, Communication.Response.ResponsePhonenumberJson>();
+            CreateMap<Domain.Entity.EmergencyContact, Communication.Response.ResponseEmergencyContactJson>();
+            
         }
     }
 }

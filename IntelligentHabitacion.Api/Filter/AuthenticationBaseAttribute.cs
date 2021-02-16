@@ -1,6 +1,6 @@
-﻿using IntelligentHabitacion.Api.Repository.Interface;
-using IntelligentHabitacion.Api.Repository.Model;
-using IntelligentHabitacion.Api.Services.Interface;
+﻿using IntelligentHabitacion.Api.Application.Services.Token;
+using IntelligentHabitacion.Api.Domain.Entity;
+using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
@@ -15,15 +15,15 @@ namespace IntelligentHabitacion.Api.Filter
     /// </summary>
     public class AuthenticationBaseAttribute : Attribute
     {
-        private readonly IUserRepository _userRepository;
-        private readonly ITokenController _tokenController;
+        private readonly IUserReadOnlyRepository _userRepository;
+        private readonly TokenController _tokenController;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userRepository"></param>
         /// <param name="tokenController"></param>
-        public AuthenticationBaseAttribute(IUserRepository userRepository, ITokenController tokenController)
+        public AuthenticationBaseAttribute(IUserReadOnlyRepository userRepository, TokenController tokenController)
         {
             _userRepository = userRepository;
             _tokenController = tokenController;
@@ -73,7 +73,7 @@ namespace IntelligentHabitacion.Api.Filter
             if (string.IsNullOrEmpty(authentication))
                 throw new IntelligentHabitacionException("");
 
-            return authentication.Substring("Basic ".Length).Trim();
+            return authentication["Basic ".Length..].Trim();
         }
     }
 }

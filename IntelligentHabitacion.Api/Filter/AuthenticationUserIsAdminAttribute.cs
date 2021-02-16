@@ -1,6 +1,6 @@
-﻿using IntelligentHabitacion.Api.Repository.Interface;
-using IntelligentHabitacion.Api.Repository.Token;
-using IntelligentHabitacion.Api.Services.Interface;
+﻿using IntelligentHabitacion.Api.Application.Services.Token;
+using IntelligentHabitacion.Api.Domain.Repository.Token;
+using IntelligentHabitacion.Api.Domain.Repository.User;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,7 +11,7 @@ namespace IntelligentHabitacion.Api.Filter
     /// </summary>
     public class AuthenticationUserIsAdminAttribute : AuthenticationBaseAttribute, IActionFilter
     {
-        private readonly ITokenRepository _tokenRepository;
+        private readonly ITokenReadOnlyRepository _tokenRepository;
 
         /// <summary>
         /// 
@@ -19,7 +19,7 @@ namespace IntelligentHabitacion.Api.Filter
         /// <param name="userRepository"></param>
         /// <param name="tokenRepository"></param>
         /// <param name="tokenController"></param>
-        public AuthenticationUserIsAdminAttribute(IUserRepository userRepository, ITokenRepository tokenRepository, ITokenController tokenController) : base(userRepository, tokenController)
+        public AuthenticationUserIsAdminAttribute(IUserReadOnlyRepository userRepository, ITokenReadOnlyRepository tokenRepository, TokenController tokenController) : base(userRepository, tokenController)
         {
             _tokenRepository = tokenRepository;
         }
@@ -42,11 +42,11 @@ namespace IntelligentHabitacion.Api.Filter
             try
             {
                 var user = GetUser(context);
-                if (user == null || user.HomeAssociationId == null || user.HomeAssociation.Home.AdministratorId != user.Id)
+                if (user == null || user.HomeAssociationId.HasValue || user.HomeAssociation.Home.AdministratorId != user.Id)
                     UserDoesNotHaveAccess(context);
                 else
                 {
-                    var token = _tokenRepository.Get(user.Id);
+                    var token = _tokenRepository.GetByUserId(user.Id);
                     var tokenRequest = TokenOnRequest(context);
                     if (!token.Value.Equals(tokenRequest))
                         UserDoesNotHaveAccess(context);

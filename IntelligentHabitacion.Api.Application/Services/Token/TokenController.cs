@@ -38,10 +38,31 @@ namespace IntelligentHabitacion.Api.Application.Services.Token
             return tokenHandler.WriteToken(securityToken);
         }
 
+        public string User(string token)
+        {
+            var tokenContent = ValidateToken(token);
+            return tokenContent.FindFirst(EmailAlias).Value;
+        }
+
         private SymmetricSecurityKey SimetricKey()
         {
             var symmetricKey = Convert.FromBase64String(_signingKey);
             return new SymmetricSecurityKey(symmetricKey);
+        }
+        private ClaimsPrincipal ValidateToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var validationParameters = new TokenValidationParameters()
+            {
+                RequireExpirationTime = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                IssuerSigningKey = SimetricKey(),
+                ClockSkew = new TimeSpan(0)
+            };
+            var principal = tokenHandler.ValidateToken(token, validationParameters, out _);
+            return principal;
         }
     }
 }

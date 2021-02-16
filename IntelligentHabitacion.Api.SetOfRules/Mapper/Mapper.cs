@@ -102,7 +102,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Name = model.Name,
                 Email = model.Email,
                 Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
-                EmergencyContactc = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList()
+                EmergencyContacts = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList()
             };
         }
         public ResponsePhonenumberJson MapperModelToJson(Phonenumber model)

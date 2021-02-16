@@ -171,7 +171,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             if (userInformations.Phonenumbers.Count > 1)
                 userInformationsModel.PhoneNumber2 = userInformations.Phonenumbers[1].Number;
 
-            var emergencyContact = userInformations.EmergencyContactc.First();
+            var emergencyContact = userInformations.EmergencyContacts.First();
             userInformationsModel.EmergencyContact1 = new EmergencyContactModel
             {
                 Name = emergencyContact.Name,
@@ -179,9 +179,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 PhoneNumber = emergencyContact.Phonenumber
             };
 
-            if(userInformations.EmergencyContactc.Count > 1)
+            if(userInformations.EmergencyContacts.Count > 1)
             {
-                emergencyContact = userInformations.EmergencyContactc[1];
+                emergencyContact = userInformations.EmergencyContacts[1];
                 userInformationsModel.EmergencyContact2 = new EmergencyContactModel
                 {
                     Name = emergencyContact.Name,

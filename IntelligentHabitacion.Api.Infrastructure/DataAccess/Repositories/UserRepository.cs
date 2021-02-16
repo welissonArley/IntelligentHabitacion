@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.User;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
@@ -18,6 +19,15 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         public bool ExistActiveUserWithEmail(string email)
         {
             return _context.Users.Any(c => c.Email.Equals(email) && c.Active);
+        }
+
+        public User GetByEmail(string email)
+        {
+            return _context.Users
+                .Include(c => c.Phonenumbers)
+                .Include(c => c.EmergencyContacts)
+                .AsNoTracking()
+                .FirstOrDefault(c => c.Email.Equals(email));
         }
     }
 }

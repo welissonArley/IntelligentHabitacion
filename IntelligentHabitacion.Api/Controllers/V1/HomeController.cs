@@ -1,9 +1,11 @@
-﻿using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
+using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -28,19 +30,24 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function verify if the homes's informations is correct and save the informations on database
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="registerHomeJson"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [Route("Register")]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
-        public IActionResult Register(RequestHomeJson registerHomeJson)
+        public async Task<IActionResult> Register(
+            [FromServices] IRegisterHomeUseCase useCase,
+            [FromBody] RequestRegisterHomeJson registerHomeJson)
         {
             try
             {
                 VerifyParameters(registerHomeJson);
 
-                _homeRule.Register(registerHomeJson);
+                var response = await useCase.Execute(registerHomeJson);
+                WriteAutenticationHeader(response);
+
                 return Created(string.Empty, string.Empty);
             }
             catch (System.Exception exception)
@@ -85,50 +92,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(updateHomeJson);
                 _homeRule.Update(updateHomeJson);
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
-
-        /// <summary>
-        /// This function will send one code to e-mail of the house's Administrator
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("RequestCodeDeleteHome")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult RequestCodeDeleteHome()
-        {
-            try
-            {
-                _homeRule.RequestCodeDeleteHome();
-
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
-
-        /// <summary>
-        /// This function will delete the Home
-        /// </summary>
-        /// <returns></returns>
-        [HttpDelete]
-        [Route("Delete")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult Delete(RequestAdminActionJson request)
-        {
-            try
-            {
-                VerifyParameters(request);
-                _homeRule.Delete(request);
                 return Ok();
             }
             catch (System.Exception exception)

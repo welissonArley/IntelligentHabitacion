@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using IntelligentHabitacion.App.Useful;
+using System.ComponentModel;
 using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
@@ -45,7 +46,7 @@ namespace IntelligentHabitacion.App.Model
 
         public bool IsBrazil()
         {
-            return City.Country.Id == IntelligentHabitacion.Useful.CountryEnum.BRAZIL;
+            return City.Country.Id == CountryEnum.BRAZIL;
         }
     }
 }

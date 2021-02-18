@@ -394,6 +394,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The State must be entered..
+        /// </summary>
+        public static string STATEPROVINCE_EMPTY {
+            get {
+                return ResourceManager.GetString("STATEPROVINCE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Emergency contact&apos;s name {0} must be entered..
         /// </summary>
         public static string THE_NAME_EMERGENCY_CONTACT_INVALID {

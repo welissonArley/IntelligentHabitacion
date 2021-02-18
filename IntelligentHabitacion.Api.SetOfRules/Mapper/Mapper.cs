@@ -52,16 +52,12 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Active = true,
                 CreateDate = DateTimeController.DateTimeNow(),
                 Address = registerHomeJson.Address,
-                City = registerHomeJson.City.Name,
-                StateProvince = registerHomeJson.City.StateProvinceName,
-                Country = registerHomeJson.City.Country,
                 AdditionalAddressInfo = registerHomeJson.AdditionalAddressInfo,
                 Neighborhood = registerHomeJson.Neighborhood,
                 NetworksName = registerHomeJson.NetworksName,
                 NetworksPassword = registerHomeJson.NetworksPassword,
                 Number = registerHomeJson.Number,
-                ZipCode = registerHomeJson.ZipCode,
-                DeadlinePaymentRent = registerHomeJson.DeadlinePaymentRent
+                ZipCode = registerHomeJson.ZipCode
             };
         }
         public MyFood MapperJsonToModel(RequestAddMyFoodJson model)
@@ -137,8 +133,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                     Name = model.NetworksName,
                     Password = model.NetworksPassword
                 },
-                StateProvince = model.StateProvince,
-                Country = Country.Countries.First(c => c.Id == model.Country)
+                StateProvince = model.StateProvince
             };
         }
         public ResponseFriendJson MapperModelToJsonFriend(User model, DateTime requestersJoinedOn)

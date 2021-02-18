@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Useful;
+﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace IntelligentHabitacion.App.View.Modal
     [DesignTimeVisible(false)]
     public partial class ChooseCountryModal : Rg.Plugins.Popup.Pages.PopupPage
     {
-        private readonly List<CountryModel> _listCountry;
+        private readonly IList<CountryModel> _listCountry;
         private readonly ICommand _onCountrySelectedCommand;
 
         public ChooseCountryModal(ICommand onCountrySelectedCommand)
@@ -24,7 +25,7 @@ namespace IntelligentHabitacion.App.View.Modal
                 OnSearchTextChanged((string)value);
             });
 
-            _listCountry = Country.Countries;
+            _listCountry = new CoutriesAvaliables().Get();
 
             _onCountrySelectedCommand = onCountrySelectedCommand;
 

@@ -1,4 +1,6 @@
-﻿using IntelligentHabitacion.App.Services;
+﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.User.Update;

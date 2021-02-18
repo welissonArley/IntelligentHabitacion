@@ -228,6 +228,9 @@
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>One code to reset the password is requerid.</value>
   </data>
+  <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
+    <value>The State must be entered.</value>
+  </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Emergency contact's name {0} must be entered.</value>
   </data>

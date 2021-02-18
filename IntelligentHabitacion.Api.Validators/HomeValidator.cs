@@ -11,7 +11,6 @@ namespace IntelligentHabitacion.Api.Validators
         public HomeValidator()
         {
             RuleFor(x => x.City).NotEmpty().WithMessage(ResourceTextException.CITY_EMPTY);
-            RuleFor(x => x.Country).IsInEnum().WithMessage(ResourceTextException.COUNTRY_EMPTY);
             RuleFor(x => x).Custom((home, context) =>
             {
                 if ((string.IsNullOrWhiteSpace(home.NetworksName) && !string.IsNullOrWhiteSpace(home.NetworksPassword)) || (!string.IsNullOrWhiteSpace(home.NetworksName) && string.IsNullOrWhiteSpace(home.NetworksPassword)))

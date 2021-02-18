@@ -64,8 +64,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 City = new CityModel
                 {
                     Name = homeInformations.City,
-                    StateProvinceName = homeInformations.City,
-                    Country = homeInformations.Country
+                    StateProvinceName = homeInformations.City
                 }
             };
         }

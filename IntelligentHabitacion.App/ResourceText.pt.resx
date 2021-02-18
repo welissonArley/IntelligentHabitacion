@@ -126,6 +126,12 @@
   <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
     <value>Com um design fácil e criativo, espero que seja útil para seu lar :)</value>
   </data>
+  <data name="BRAZIL" xml:space="preserve">
+    <value>Brasil</value>
+  </data>
+  <data name="CANADA" xml:space="preserve">
+    <value>Canadá</value>
+  </data>
   <data name="CHOOSE_A_COUNTRY_BELOW" xml:space="preserve">
     <value>Escolha um país abaixo:</value>
   </data>
@@ -228,8 +234,35 @@
   <data name="FORMAT_DATE" xml:space="preserve">
     <value>dd MMMM yyyy</value>
   </data>
+  <data name="FRANCE" xml:space="preserve">
+    <value>França</value>
+  </data>
+  <data name="HONG_KONG" xml:space="preserve">
+    <value>Hong Kong</value>
+  </data>
   <data name="INFORMATION_PASSWORD_COPIED_SUCCESSFULLY" xml:space="preserve">
     <value>Senha copiada com sucesso!</value>
+  </data>
+  <data name="ITALY" xml:space="preserve">
+    <value>Itália</value>
+  </data>
+  <data name="JAPAN" xml:space="preserve">
+    <value>Japão</value>
+  </data>
+  <data name="LUXEMBOURG" xml:space="preserve">
+    <value>Luxemburgo</value>
+  </data>
+  <data name="MALDIVES" xml:space="preserve">
+    <value>Maldivas</value>
+  </data>
+  <data name="MONACO" xml:space="preserve">
+    <value>Mônaco</value>
+  </data>
+  <data name="NETHERLANDS" xml:space="preserve">
+    <value>Países Baixos</value>
+  </data>
+  <data name="NEW_ZEALAND" xml:space="preserve">
+    <value>Nova Zelândia</value>
   </data>
   <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
     <value>Você tem certeza que deseja executar esta ação?</value>
@@ -324,8 +357,20 @@
   <data name="PLACEHOLDER_STATE" xml:space="preserve">
     <value>Estado</value>
   </data>
+  <data name="PORTUGAL" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="PUERTO_RICO" xml:space="preserve">
+    <value>Porto Rico</value>
+  </data>
+  <data name="SPAIN" xml:space="preserve">
+    <value>Espanha</value>
+  </data>
   <data name="SUBTITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>Tente um novo filtro :)</value>
+  </data>
+  <data name="SWITZERLAND" xml:space="preserve">
+    <value>Suíça</value>
   </data>
   <data name="TEXT_CHECK_YOUR_INTERNET_CONNECTION" xml:space="preserve">
     <value>Verifique sua conexão de internet!</value>
@@ -818,5 +863,11 @@
   </data>
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>O seu nome ;)</value>
+  </data>
+  <data name="UNITED_KINGDOM" xml:space="preserve">
+    <value>Reino Unido</value>
+  </data>
+  <data name="UNITED_STATES" xml:space="preserve">
+    <value>Estados Unidos</value>
   </data>
 </root>

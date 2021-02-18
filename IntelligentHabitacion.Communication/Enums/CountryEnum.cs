@@ -1,4 +1,4 @@
-﻿namespace IntelligentHabitacion.Api.Domain.ValueObjects
+﻿namespace IntelligentHabitacion.Communication.Enums
 {
     public enum CountryEnum
     {
@@ -21,8 +21,6 @@
         PORTUGAL = 17,
         UNITED_KINGDOM = 18,
         RUSSIA = 19,
-        IRELAND = 20,
-        NEW_ZEALAND = 21,
-        SWITZERLAND = 22
+        IRELAND = 20
     }
 }

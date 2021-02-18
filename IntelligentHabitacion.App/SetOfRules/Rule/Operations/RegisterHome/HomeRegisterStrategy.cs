@@ -6,26 +6,20 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome
 {
     public abstract class HomeRegisterStrategy
     {
-        public abstract RequestHomeJson CreateRequestHomeJson(HomeModel model);
+        public abstract RequestRegisterHomeJson CreateRequest(HomeModel model);
 
-        protected RequestHomeJson RequestHomeJson(HomeModel model)
+        protected RequestRegisterHomeJson RequestHomeJson(HomeModel model)
         {
-            return new RequestHomeJson
+            return new RequestRegisterHomeJson
             {
                 Address = model.Address,
-                City = new RequestRegisterCityJson
-                {
-                    Name = model.City.Name,
-                    StateProvinceName = model.City.StateProvinceName,
-                    Country = model.City.Country.Id
-                },
+                City = model.City.Name,
+                StateProvince = model.City.StateProvinceName,
+                Country = (Communication.Enums.CountryEnum)model.City.Country.Id,
                 AdditionalAddressInfo = model.AdditionalAddressInfo,
                 ZipCode = model.ZipCode,
                 Neighborhood = model.Neighborhood,
-                Number = model.Number,
-                DeadlinePaymentRent = model.DeadlinePaymentRent.Value,
-                NetworksName = model.NetWork.Name,
-                NetworksPassword = model.NetWork.Password,
+                Number = model.Number
             };
         }
 

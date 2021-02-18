@@ -6,7 +6,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome
 {
     public class BrazilHomeRegisterStrategy : HomeRegisterStrategy
     {
-        public override RequestHomeJson CreateRequestHomeJson(HomeModel model)
+        public override RequestRegisterHomeJson CreateRequest(HomeModel model)
         {
             ValidateBase(model);
             ValidadeNeighborhood(model.Neighborhood);

@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async override Task Create(HomeModel model)
         {
-            var requestHomeJson = new BrazilHomeRegisterStrategy().CreateRequestHomeJson(model);
+            var requestHomeJson = new BrazilHomeRegisterStrategy().CreateRequest(model);
 
             var response = await _httpClient.CreateHome(requestHomeJson, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
             _userPreferences.ChangeToken(response.Token);
@@ -33,7 +33,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async override Task UpdateInformations(HomeModel model)
         {
-            var requestHomeJson = new BrazilHomeRegisterStrategy().CreateRequestHomeJson(model);
+            var requestHomeJson = new BrazilHomeRegisterStrategy().CreateRequest(model);
 
             var response = await _httpClient.UpdateHome(requestHomeJson, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 

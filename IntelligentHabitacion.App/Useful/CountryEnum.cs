@@ -1,4 +1,4 @@
-﻿namespace IntelligentHabitacion.Api.Domain.ValueObjects
+﻿namespace IntelligentHabitacion.App.Useful
 {
     public enum CountryEnum
     {

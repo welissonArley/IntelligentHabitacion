@@ -11,6 +11,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<Code> Codes { get; set; }
+        public DbSet<Home> Homes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

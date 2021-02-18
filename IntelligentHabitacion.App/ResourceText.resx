@@ -126,6 +126,18 @@
   <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
     <value>With an easy and creative design, I hope it will be useful for your home :)</value>
   </data>
+  <data name="AUSTRALIA" xml:space="preserve">
+    <value>Australia</value>
+  </data>
+  <data name="BELGIUM" xml:space="preserve">
+    <value>Belgium</value>
+  </data>
+  <data name="BRAZIL" xml:space="preserve">
+    <value>Brazil</value>
+  </data>
+  <data name="CANADA" xml:space="preserve">
+    <value>Canada</value>
+  </data>
   <data name="CHOOSE_A_COUNTRY_BELOW" xml:space="preserve">
     <value>Choose a country below:</value>
   </data>
@@ -228,8 +240,41 @@
   <data name="FORMAT_DATE" xml:space="preserve">
     <value>MMMM dd, yyyy</value>
   </data>
+  <data name="FRANCE" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="HONG_KONG" xml:space="preserve">
+    <value>Hong Kong</value>
+  </data>
   <data name="INFORMATION_PASSWORD_COPIED_SUCCESSFULLY" xml:space="preserve">
     <value>Password copied successfully</value>
+  </data>
+  <data name="IRELAND" xml:space="preserve">
+    <value>Ireland</value>
+  </data>
+  <data name="ITALY" xml:space="preserve">
+    <value>Italy</value>
+  </data>
+  <data name="JAPAN" xml:space="preserve">
+    <value>Japan</value>
+  </data>
+  <data name="LUXEMBOURG" xml:space="preserve">
+    <value>Luxembourg</value>
+  </data>
+  <data name="MALDIVES" xml:space="preserve">
+    <value>Maldives</value>
+  </data>
+  <data name="MEXICO" xml:space="preserve">
+    <value>Mexico</value>
+  </data>
+  <data name="MONACO" xml:space="preserve">
+    <value>Monaco</value>
+  </data>
+  <data name="NETHERLANDS" xml:space="preserve">
+    <value>Netherlands</value>
+  </data>
+  <data name="NEW_ZEALAND" xml:space="preserve">
+    <value>New Zealand</value>
   </data>
   <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
     <value>Are you sure you want to perform this action?</value>
@@ -324,8 +369,23 @@
   <data name="PLACEHOLDER_STATE" xml:space="preserve">
     <value>State</value>
   </data>
+  <data name="PORTUGAL" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="PUERTO_RICO" xml:space="preserve">
+    <value>Puerto Rico</value>
+  </data>
+  <data name="RUSSIA" xml:space="preserve">
+    <value>Russia</value>
+  </data>
+  <data name="SPAIN" xml:space="preserve">
+    <value>Spain</value>
+  </data>
   <data name="SUBTITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>Try another filter :)</value>
+  </data>
+  <data name="SWITZERLAND" xml:space="preserve">
+    <value>Switzerland</value>
   </data>
   <data name="TEXT_CHECK_YOUR_INTERNET_CONNECTION" xml:space="preserve">
     <value>Check your internet connection!</value>
@@ -821,5 +881,11 @@
   </data>
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>Your name ;)</value>
+  </data>
+  <data name="UNITED_KINGDOM" xml:space="preserve">
+    <value>United Kingdom</value>
+  </data>
+  <data name="UNITED_STATES" xml:space="preserve">
+    <value>United States</value>
   </data>
 </root>

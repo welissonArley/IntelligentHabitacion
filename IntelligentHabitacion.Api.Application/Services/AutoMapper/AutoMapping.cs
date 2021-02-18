@@ -20,6 +20,8 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
                 .ForMember(c => c.Number, opt => opt.MapFrom(src => src));
 
             CreateMap<Communication.Request.RequestEmergencyContactJson, Domain.Entity.EmergencyContact>();
+
+            CreateMap<Communication.Request.RequestRegisterHomeJson, Domain.Entity.Home>();
         }
 
         private void DomainToResponse()

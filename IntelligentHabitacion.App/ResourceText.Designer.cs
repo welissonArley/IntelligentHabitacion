@@ -88,6 +88,42 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Australia.
+        /// </summary>
+        internal static string AUSTRALIA {
+            get {
+                return ResourceManager.GetString("AUSTRALIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Belgium.
+        /// </summary>
+        internal static string BELGIUM {
+            get {
+                return ResourceManager.GetString("BELGIUM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brazil.
+        /// </summary>
+        internal static string BRAZIL {
+            get {
+                return ResourceManager.GetString("BRAZIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canada.
+        /// </summary>
+        internal static string CANADA {
+            get {
+                return ResourceManager.GetString("CANADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose a country below:.
         /// </summary>
         internal static string CHOOSE_A_COUNTRY_BELOW {
@@ -394,11 +430,110 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to France.
+        /// </summary>
+        internal static string FRANCE {
+            get {
+                return ResourceManager.GetString("FRANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hong Kong.
+        /// </summary>
+        internal static string HONG_KONG {
+            get {
+                return ResourceManager.GetString("HONG_KONG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password copied successfully.
         /// </summary>
         internal static string INFORMATION_PASSWORD_COPIED_SUCCESSFULLY {
             get {
                 return ResourceManager.GetString("INFORMATION_PASSWORD_COPIED_SUCCESSFULLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ireland.
+        /// </summary>
+        internal static string IRELAND {
+            get {
+                return ResourceManager.GetString("IRELAND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italy.
+        /// </summary>
+        internal static string ITALY {
+            get {
+                return ResourceManager.GetString("ITALY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Japan.
+        /// </summary>
+        internal static string JAPAN {
+            get {
+                return ResourceManager.GetString("JAPAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Luxembourg.
+        /// </summary>
+        internal static string LUXEMBOURG {
+            get {
+                return ResourceManager.GetString("LUXEMBOURG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maldives.
+        /// </summary>
+        internal static string MALDIVES {
+            get {
+                return ResourceManager.GetString("MALDIVES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mexico.
+        /// </summary>
+        internal static string MEXICO {
+            get {
+                return ResourceManager.GetString("MEXICO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monaco.
+        /// </summary>
+        internal static string MONACO {
+            get {
+                return ResourceManager.GetString("MONACO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Netherlands.
+        /// </summary>
+        internal static string NETHERLANDS {
+            get {
+                return ResourceManager.GetString("NETHERLANDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Zealand.
+        /// </summary>
+        internal static string NEW_ZEALAND {
+            get {
+                return ResourceManager.GetString("NEW_ZEALAND", resourceCulture);
             }
         }
         
@@ -682,11 +817,56 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Portugal.
+        /// </summary>
+        internal static string PORTUGAL {
+            get {
+                return ResourceManager.GetString("PORTUGAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Puerto Rico.
+        /// </summary>
+        internal static string PUERTO_RICO {
+            get {
+                return ResourceManager.GetString("PUERTO_RICO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Russia.
+        /// </summary>
+        internal static string RUSSIA {
+            get {
+                return ResourceManager.GetString("RUSSIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spain.
+        /// </summary>
+        internal static string SPAIN {
+            get {
+                return ResourceManager.GetString("SPAIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Try another filter :).
         /// </summary>
         internal static string SUBTITLE_NO_RESULTS_MATCHED_FILTER {
             get {
                 return ResourceManager.GetString("SUBTITLE_NO_RESULTS_MATCHED_FILTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switzerland.
+        /// </summary>
+        internal static string SWITZERLAND {
+            get {
+                return ResourceManager.GetString("SWITZERLAND", resourceCulture);
             }
         }
         
@@ -2172,6 +2352,24 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_YOUR_NAME {
             get {
                 return ResourceManager.GetString("TITLE_YOUR_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to United Kingdom.
+        /// </summary>
+        internal static string UNITED_KINGDOM {
+            get {
+                return ResourceManager.GetString("UNITED_KINGDOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to United States.
+        /// </summary>
+        internal static string UNITED_STATES {
+            get {
+                return ResourceManager.GetString("UNITED_STATES", resourceCulture);
             }
         }
     }

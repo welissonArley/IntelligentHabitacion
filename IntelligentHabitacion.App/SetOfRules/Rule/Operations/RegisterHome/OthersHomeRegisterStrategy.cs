@@ -5,7 +5,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome
 {
     public class OthersHomeRegisterStrategy : HomeRegisterStrategy
     {
-        public override RequestHomeJson CreateRequestHomeJson(HomeModel model)
+        public override RequestRegisterHomeJson CreateRequest(HomeModel model)
         {
             ValidateBase(model);
             return RequestHomeJson(model);

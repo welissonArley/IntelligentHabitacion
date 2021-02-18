@@ -35,7 +35,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome
             ValidadeCity(model.City.Name);
             ValidadeNetWorkInformation(model.NetWork.Name, model.NetWork.Password);
             ValidadeNumber(model.Number);
-            ValidadeDeadlinePaymentRent(model.DeadlinePaymentRent);
         }
         private void ValidadeNumber(string number)
         {
@@ -56,11 +55,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome
         {
             if (string.IsNullOrWhiteSpace(city))
                 throw new CityEmptyException();
-        }
-        private void ValidadeDeadlinePaymentRent(short? deadline)
-        {
-            if (!deadline.HasValue || !(deadline >= 1 && deadline <= 28))
-                throw new DeadlinePaymentRentException();
         }
     }
 }

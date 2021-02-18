@@ -46,7 +46,7 @@ namespace IntelligentHabitacion.Api.Filter
                     UserDoesNotHaveAccess(context);
                 else
                 {
-                    var token = _tokenRepository.GetByUserId(user.Id);
+                    var token = _tokenRepository.GetByUserId(user.Id).ConfigureAwait(false).GetAwaiter().GetResult();
                     var tokenRequest = TokenOnRequest(context);
                     if (!token.Value.Equals(tokenRequest))
                         UserDoesNotHaveAccess(context);

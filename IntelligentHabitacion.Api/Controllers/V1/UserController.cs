@@ -10,6 +10,7 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -40,7 +41,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [Route("Register")]
-        public IActionResult Register(
+        public async Task<IActionResult> Register(
             [FromServices] IRegisterUserUseCase useCase,
             [FromBody] RequestRegisterUserJson registerUserJson)
         {
@@ -48,7 +49,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(registerUserJson);
 
-                var response = useCase.Execute(registerUserJson);
+                var response = await useCase.Execute(registerUserJson);
 
                 WriteAutenticationHeader(response);
                 return Created(string.Empty, response.ResponseJson);
@@ -68,7 +69,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("EmailAlreadyBeenRegistered/{email}")]
         [ProducesResponseType(typeof(BooleanJson), StatusCodes.Status200OK)]
-        public IActionResult EmailAlreadyBeenRegistered(
+        public async Task<IActionResult> EmailAlreadyBeenRegistered(
             [FromServices] IEmailAlreadyBeenRegisteredUseCase useCase,
             [FromRoute] string email)
         {
@@ -76,7 +77,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(email);
 
-                var response = useCase.Execute(email);
+                var response = await useCase.Execute(email);
                 return Ok(response);
             }
             catch (System.Exception exception)
@@ -95,7 +96,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult Update(
+        public async Task<IActionResult> Update(
             [FromServices] IUpdateUserInformationsUseCase useCase,
             [FromBody] RequestUpdateUserJson updateUserJson)
         {
@@ -103,7 +104,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(updateUserJson);
 
-                var response = useCase.Execute(updateUserJson);
+                var response = await useCase.Execute(updateUserJson);
                 WriteAutenticationHeader(response);
 
                 return Ok();
@@ -124,14 +125,14 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("ChangePassword")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ChangePassword(
+        public async Task<IActionResult> ChangePassword(
             [FromServices] IChangePasswordUseCase useCase,
             [FromBody] RequestChangePasswordJson changePasswordJson)
         {
             try
             {
                 VerifyParameters(changePasswordJson);
-                var response = useCase.Execute(changePasswordJson);
+                var response = await useCase.Execute(changePasswordJson);
 
                 WriteAutenticationHeader(response);
                 return Ok();
@@ -150,11 +151,11 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("Informations")]
         [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
-        public IActionResult Informations([FromServices] IUserInformationsUseCase useCase)
+        public async Task<IActionResult> Informations([FromServices] IUserInformationsUseCase useCase)
         {
             try
             {
-                var response = useCase.Execute();
+                var response = await useCase.Execute();
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);

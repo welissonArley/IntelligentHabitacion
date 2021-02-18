@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Communication.Request;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations
 {
     public interface IUpdateUserInformationsUseCase
     {
-        ResponseOutput Execute(RequestUpdateUserJson updateUserJson);
+        Task<ResponseOutput> Execute(RequestUpdateUserJson updateUserJson);
     }
 }

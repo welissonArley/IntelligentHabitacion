@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Communication.Request;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
 {
     public interface IResetPasswordUseCase
     {
-        void Execute(RequestResetYourPasswordJson resetYourPasswordJson);
+        Task Execute(RequestResetYourPasswordJson resetYourPasswordJson);
     }
 }

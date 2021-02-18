@@ -45,14 +45,14 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
 				</div>";
 		}
 
-        public void Send(EmailContent content)
+        public async Task Send(EmailContent content)
         {
             var to = new EmailAddress(content.SendToEmail, content.Subject);
             var plainTextContent = content.PlainText;
             var htmlContent = $"{EmailHeader()}{content.HtmlText}";
             var msg = MailHelper.CreateSingleEmail(_from, to, content.Subject, plainTextContent, htmlContent);
 
-            Task.Run(async () => await _client.SendEmailAsync(msg)).ConfigureAwait(false);
+            await _client.SendEmailAsync(msg);
         }
     }
 }

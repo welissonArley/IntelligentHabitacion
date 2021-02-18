@@ -1,8 +1,10 @@
-﻿namespace IntelligentHabitacion.Api.Domain.Repository.Code
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Domain.Repository.Code
 {
     public interface ICodeWriteOnlyRepository
     {
-        void Add(Entity.Code code);
+        Task Add(Entity.Code code);
         void DeleteAllFromTheUser(long userId);
     }
 }

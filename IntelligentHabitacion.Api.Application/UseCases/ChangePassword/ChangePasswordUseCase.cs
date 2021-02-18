@@ -3,9 +3,9 @@ using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
-using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.ChangePassword
 {
@@ -28,19 +28,19 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ChangePassword
             _cryptography = cryptography;
         }
 
-        public ResponseOutput Execute(RequestChangePasswordJson changePasswordJson)
+        public async Task<ResponseOutput> Execute(RequestChangePasswordJson changePasswordJson)
         {
-            var loggedUser = _loggedUser.User();
+            var loggedUser = await _loggedUser.User();
 
             Validate(changePasswordJson, loggedUser);
 
-            var userToUpdate = _repository.GetById_Update(loggedUser.Id);
+            var userToUpdate = await _repository.GetById_Update(loggedUser.Id);
             userToUpdate.Password = _cryptography.Encrypt(changePasswordJson.NewPassword);
 
             _repository.Update(userToUpdate);
-            var response = _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
+            var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             return response;
         }

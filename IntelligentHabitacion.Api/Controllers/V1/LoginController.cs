@@ -5,6 +5,7 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -34,7 +35,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(ResponseLoginJson), StatusCodes.Status200OK)]
-        public IActionResult Login(
+        public async Task<IActionResult> Login(
             [FromServices] ILoginUseCase useCase,
             [FromBody] RequestLoginJson loginJson)
         {
@@ -42,7 +43,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(loginJson);
                 
-                var response = useCase.Execute(loginJson);
+                var response = await useCase.Execute(loginJson);
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);
@@ -60,14 +61,14 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpGet]
         [Route("RequestCodeResetPassword/{email}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult RequestCodeResetPassword(
+        public async Task<IActionResult> RequestCodeResetPassword(
             [FromServices] IRequestCodeResetPasswordUseCase useCase,
             [FromRoute] string email)
         {
             try
             {
                 VerifyParameters(email);
-                useCase.Execute(email);
+                await useCase.Execute(email);
 
                 return Ok();
             }
@@ -86,7 +87,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [HttpPut]
         [Route("ResetYourPassword")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ResetYourPassword(
+        public async Task<IActionResult> ResetYourPassword(
             [FromServices] IResetPasswordUseCase useCase,
             [FromBody] RequestResetYourPasswordJson resetYourPasswordJson)
         {
@@ -94,7 +95,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 VerifyParameters(resetYourPasswordJson);
 
-                useCase.Execute(resetYourPasswordJson);
+                await useCase.Execute(resetYourPasswordJson);
 
                 return Ok();
             }

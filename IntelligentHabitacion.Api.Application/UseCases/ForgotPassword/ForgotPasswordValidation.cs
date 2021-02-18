@@ -21,7 +21,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
                     context.AddFailure(ResourceTextException.INVALID_USER);
                 else
                 {
-                    var code = codeRepository.GetByUserId(user.Id);
+                    var code = codeRepository.GetByUserId(user.Id).ConfigureAwait(false).GetAwaiter().GetResult();
                     if (code == null)
                         context.AddFailure(ResourceTextException.CODE_RESET_PASSWORD_REQUIRED);
                     else

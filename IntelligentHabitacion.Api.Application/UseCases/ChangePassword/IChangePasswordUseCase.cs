@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Communication.Request;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.ChangePassword
 {
     public interface IChangePasswordUseCase
     {
-        ResponseOutput Execute(RequestChangePasswordJson changePasswordJson);
+        Task<ResponseOutput> Execute(RequestChangePasswordJson changePasswordJson);
     }
 }

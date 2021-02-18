@@ -1,7 +1,9 @@
-﻿namespace IntelligentHabitacion.Api.Domain.Repository.Token
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Domain.Repository.Token
 {
     public interface ITokenWriteOnlyRepository
     {
-        void Add(Entity.Token token);
+        Task Add(Entity.Token token);
     }
 }

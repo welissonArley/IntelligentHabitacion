@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Boolean;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered
 {
@@ -12,11 +13,11 @@ namespace IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegiste
             _repository = repository;
         }
 
-        public BooleanJson Execute(string email)
+        public async Task<BooleanJson> Execute(string email)
         {
             return new BooleanJson
             {
-                Value = _repository.ExistActiveUserWithEmail(email)
+                Value = await _repository.ExistActiveUserWithEmail(email)
             };
         }
     }

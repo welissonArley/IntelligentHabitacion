@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
@@ -11,45 +11,45 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
         public UserRepository(IntelligentHabitacionContext context) => _context = context;
 
-        public void Add(User user)
+        public async Task Add(User user)
         {
-            _context.Users.Add(user);
+            await _context.Users.AddAsync(user);
         }
 
-        public bool ExistActiveUserWithEmail(string email)
+        public async Task<bool> ExistActiveUserWithEmail(string email)
         {
-            return _context.Users.Any(c => c.Email.Equals(email) && c.Active);
+            return await _context.Users.AnyAsync(c => c.Email.Equals(email) && c.Active);
         }
 
-        public User GetByEmail(string email)
+        public async Task<User> GetByEmail(string email)
         {
-            return _context.Users
+            return await _context.Users
                 .Include(c => c.Phonenumbers)
                 .Include(c => c.EmergencyContacts)
                 .AsNoTracking()
-                .FirstOrDefault(c => c.Email.Equals(email));
+                .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Active);
         }
 
-        public User GetByEmailPassword(string email, string password)
+        public async Task<User> GetByEmailPassword(string email, string password)
         {
-            return _context.Users
+            return await _context.Users
                 .Include(c => c.HomeAssociation).ThenInclude(c => c.Home)
                 .AsNoTracking()
-                .FirstOrDefault(c => c.Email.Equals(email) && c.Password.Equals(password));
+                .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Password.Equals(password) && c.Active);
         }
 
-        public User GetByEmail_Update(string email)
+        public async Task<User> GetByEmail_Update(string email)
         {
-            return _context.Users
-                .FirstOrDefault(c => c.Email.Equals(email));
+            return await _context.Users
+                .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Active);
         }
 
-        public User GetById_Update(long id)
+        public async Task<User> GetById_Update(long id)
         {
-            return _context.Users
+            return await _context.Users
                 .Include(c => c.Phonenumbers)
                 .Include(c => c.EmergencyContacts)
-                .FirstOrDefault(c => c.Id == id);
+                .FirstOrDefaultAsync(c => c.Id == id && c.Active);
         }
 
         public void Update(User user)

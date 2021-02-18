@@ -59,7 +59,7 @@ namespace IntelligentHabitacion.Api.Filter
         {
             var tokenRequest = TokenOnRequest(context);
             var email = _tokenController.User(tokenRequest);
-            return _userRepository.GetByEmail(email);
+            return _userRepository.GetByEmail(email).ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
 {
@@ -30,7 +31,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
             _cryptography = cryptography;
         }
 
-        public ResponseOutput Execute(RequestRegisterUserJson registerUserJson)
+        public async Task<ResponseOutput> Execute(RequestRegisterUserJson registerUserJson)
         {
             var validation = new RegisterUserValidation(_registeredUseCase).Validate(registerUserJson);
 
@@ -39,12 +40,12 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
                 var userModel = _mapper.Map<Domain.Entity.User>(registerUserJson);
                 userModel.Password = _cryptography.Encrypt(userModel.Password);
 
-                _repository.Add(userModel);
-                _unitOfWork.Commit();
+                await _repository.Add(userModel);
+                await _unitOfWork.Commit();
 
-                var response = _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, userModel.ProfileColor);
+                var response = await _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, userModel.ProfileColor);
                 
-                _unitOfWork.Commit();
+                await _unitOfWork.Commit();
 
                 return response;
             }

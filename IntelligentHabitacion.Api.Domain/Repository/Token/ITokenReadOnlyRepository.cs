@@ -1,7 +1,9 @@
-﻿namespace IntelligentHabitacion.Api.Domain.Repository.Token
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Domain.Repository.Token
 {
     public interface ITokenReadOnlyRepository
     {
-        Entity.Token GetByUserId(long id);
+        Task<Entity.Token> GetByUserId(long id);
     }
 }

@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Communication.Request;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.Login
 {
     public interface ILoginUseCase
     {
-        ResponseOutput Execute(RequestLoginJson loginJson);
+        Task<ResponseOutput> Execute(RequestLoginJson loginJson);
     }
 }

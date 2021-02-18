@@ -8,6 +8,7 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations
 {
@@ -32,13 +33,13 @@ namespace IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations
             _registeredUseCase = registeredUseCase;
         }
 
-        public ResponseOutput Execute(RequestUpdateUserJson updateUserJson)
+        public async Task<ResponseOutput> Execute(RequestUpdateUserJson updateUserJson)
         {
-            var loggedUser = _loggedUser.User();
+            var loggedUser = await _loggedUser.User();
 
             Validate(updateUserJson, loggedUser);
 
-            var userToUpdate = _repository.GetById_Update(loggedUser.Id);
+            var userToUpdate = await _repository.GetById_Update(loggedUser.Id);
 
             userToUpdate.Name = updateUserJson.Name;
             userToUpdate.Email = updateUserJson.Email;
@@ -49,9 +50,9 @@ namespace IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations
             userToUpdate.EmergencyContacts = updateUserJson.EmergencyContacts.Select(c => _mapper.Map<EmergencyContact>(c)).ToList();
 
             _repository.Update(userToUpdate);
-            var response = _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
+            var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             return response;
         }
@@ -60,7 +61,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations
         {
             var validation = new UpdateUserInformationsValidation().Validate(updateUserJson);
 
-            if (!userDataNow.Email.Equals(updateUserJson.Email) && _registeredUseCase.Execute(updateUserJson.Email).Value)
+            if (!userDataNow.Email.Equals(updateUserJson.Email) && _registeredUseCase.Execute(updateUserJson.Email).ConfigureAwait(false).GetAwaiter().GetResult().Value)
                 validation.Errors.Add(new FluentValidation.Results.ValidationFailure("", ResourceTextException.EMAIL_ALREADYBEENREGISTERED));
 
             if (!validation.IsValid)

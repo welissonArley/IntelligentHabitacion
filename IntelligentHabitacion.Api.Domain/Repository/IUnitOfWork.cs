@@ -1,7 +1,9 @@
-﻿namespace IntelligentHabitacion.Api.Domain.Repository
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Domain.Repository
 {
     public interface IUnitOfWork
     {
-        void Commit();
+        Task Commit();
     }
 }

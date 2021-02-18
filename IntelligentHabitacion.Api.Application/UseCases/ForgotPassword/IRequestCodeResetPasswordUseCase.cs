@@ -1,7 +1,9 @@
-﻿namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
 {
     public interface IRequestCodeResetPasswordUseCase
     {
-        void Execute(string email);
+        Task Execute(string email);
     }
 }

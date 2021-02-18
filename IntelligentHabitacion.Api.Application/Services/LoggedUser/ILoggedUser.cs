@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.Services.LoggedUser
 {
     public interface ILoggedUser
     {
-        User User();
+        Task<User> User();
     }
 }

@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Communication.Request;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
 {
     public interface IRegisterUserUseCase
     {
-        ResponseOutput Execute(RequestRegisterUserJson registerUserJson);
+        Task<ResponseOutput> Execute(RequestRegisterUserJson registerUserJson);
     }
 }

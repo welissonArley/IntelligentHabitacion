@@ -5,6 +5,7 @@ using IntelligentHabitacion.Api.Domain.Repository.Code;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Api.Domain.Services;
 using IntelligentHabitacion.Api.Domain.ValueObjects;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
 {
@@ -24,14 +25,14 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
             _unitOfWork = unitOfWork;
         }
 
-        public void Execute(string email)
+        public async Task Execute(string email)
         {
-            var user = _userRepository.GetByEmail(email);
+            var user = await _userRepository.GetByEmail(email);
             if (user != null)
             {
                 var codeRandom = new CodeGenerator().Random6Chars();
 
-                _repository.Add(new Code
+                await _repository.Add(new Code
                 {
                     Active = true,
                     Type = CodeType.ResetPassword,
@@ -39,7 +40,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
                     UserId = user.Id
                 });
 
-                _emailHelper.Send(new EmailContent
+                await _emailHelper.Send(new EmailContent
                 {
                     SendToEmail = user.Email,
                     Subject = "Recuperar Senha",
@@ -47,7 +48,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
                     PlainText = BodyPlainText(user.Name, codeRandom)
                 });
 
-                _unitOfWork.Commit();
+                await _unitOfWork.Commit();
             }
         }
 

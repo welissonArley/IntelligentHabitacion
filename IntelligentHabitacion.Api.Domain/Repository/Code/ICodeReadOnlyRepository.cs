@@ -1,7 +1,9 @@
-﻿namespace IntelligentHabitacion.Api.Domain.Repository.Code
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Domain.Repository.Code
 {
     public interface ICodeReadOnlyRepository
     {
-        Entity.Code GetByUserId(long userId);
+        Task<Entity.Code> GetByUserId(long userId);
     }
 }

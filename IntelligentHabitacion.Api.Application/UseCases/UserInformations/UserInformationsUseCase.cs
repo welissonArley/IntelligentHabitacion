@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Communication.Response;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.UserInformations
 {
@@ -21,15 +22,15 @@ namespace IntelligentHabitacion.Api.Application.UseCases.UserInformations
             _mapper = mapper;
         }
 
-        public ResponseOutput Execute()
+        public async Task<ResponseOutput> Execute()
         {
-            var user = _loggedUser.User();
+            var user = await _loggedUser.User();
 
             var json = _mapper.Map<ResponseUserInformationsJson>(user);
 
-            var response = _intelligentHabitacionUseCase.CreateResponse(user.Email, user.Id, json);
+            var response = await _intelligentHabitacionUseCase.CreateResponse(user.Email, user.Id, json);
 
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             return response;
         }

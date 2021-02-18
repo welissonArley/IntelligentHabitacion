@@ -5,6 +5,7 @@ using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception.ExceptionsBase;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.Login
 {
@@ -26,16 +27,16 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Login
             _unitOfWork = unitOfWork;
         }
 
-        public ResponseOutput Execute(RequestLoginJson loginJson)
+        public async Task<ResponseOutput> Execute(RequestLoginJson loginJson)
         {
-            var user = _repository.GetByEmailPassword(loginJson.User, _cryptography.Encrypt(loginJson.Password));
+            var user = await _repository.GetByEmailPassword(loginJson.User, _cryptography.Encrypt(loginJson.Password));
 
             if (user == null)
                 throw new InvalidLoginException();
 
             var json = _mapper.Map<ResponseLoginJson>(user);
-            var response = _intelligentHabitacionUseCase.CreateResponse(user.Email, user.Id, json);
-            _unitOfWork.Commit();
+            var response = await _intelligentHabitacionUseCase.CreateResponse(user.Email, user.Id, json);
+            await _unitOfWork.Commit();
 
             return response;
         }

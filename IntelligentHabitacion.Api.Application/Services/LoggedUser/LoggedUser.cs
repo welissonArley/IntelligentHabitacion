@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.Services.LoggedUser
 {
@@ -22,7 +23,7 @@ namespace IntelligentHabitacion.Api.Application.Services.LoggedUser
             user = null;
         }
 
-        public User User()
+        public async Task<User> User()
         {
             if (user != null)
                 return user;
@@ -33,7 +34,7 @@ namespace IntelligentHabitacion.Api.Application.Services.LoggedUser
 
             var email = _tokenController.User(token);
 
-            user = _repository.GetByEmail(email);
+            user = await _repository.GetByEmail(email);
 
             return user;
         }

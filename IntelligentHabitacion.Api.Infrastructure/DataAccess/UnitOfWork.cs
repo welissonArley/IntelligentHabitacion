@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Domain.Repository;
 using System;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess
 {
@@ -10,9 +11,9 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess
 
         public UnitOfWork(IntelligentHabitacionContext context) => _context = context;
 
-        public void Commit()
+        public async Task Commit()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public void Dispose()

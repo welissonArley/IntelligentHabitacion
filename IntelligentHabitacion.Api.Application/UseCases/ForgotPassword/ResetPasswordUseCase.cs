@@ -5,6 +5,7 @@ using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
 {
@@ -29,20 +30,20 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ForgotPassword
             _unitOfWork = unitOfWork;
         }
 
-        public void Execute(RequestResetYourPasswordJson resetYourPasswordJson)
+        public async Task Execute(RequestResetYourPasswordJson resetYourPasswordJson)
         {
             var validation = new ForgotPasswordValidation(_codeRepository, _userReadOnlyRepository).Validate(resetYourPasswordJson);
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
 
-            var user = _repository.GetByEmail_Update(resetYourPasswordJson.Email);
+            var user = await _repository.GetByEmail_Update(resetYourPasswordJson.Email);
             user.Password = _cryptography.Encrypt(resetYourPasswordJson.Password);
 
             _repository.Update(user);
             _codeWriteOnlyRepository.DeleteAllFromTheUser(user.Id);
 
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.Token;
 using IntelligentHabitacion.Api.Domain.Repository.Token;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases
 {
@@ -14,20 +15,20 @@ namespace IntelligentHabitacion.Api.Application.UseCases
             _tokenController = tokenController;
         }
 
-        public ResponseOutput CreateResponse(string email, long userId, object response = null)
+        public async Task<ResponseOutput> CreateResponse(string email, long userId, object response = null)
         {
             return new ResponseOutput
             {
-                Token = GenerateNewToken(email, userId),
+                Token = await GenerateNewToken(email, userId),
                 ResponseJson = response
             };
         }
 
-        private string GenerateNewToken(string email, long userId)
+        private async Task<string> GenerateNewToken(string email, long userId)
         {
             var token = _tokenController.Generate(email);
 
-            _tokenRepository.Add(new Domain.Entity.Token
+            await _tokenRepository.Add(new Domain.Entity.Token
             {
                 Value = token,
                 UserId = userId

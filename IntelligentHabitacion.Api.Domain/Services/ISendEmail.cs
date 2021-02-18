@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Api.Domain.ValueObjects;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Domain.Services
 {
     public interface ISendEmail
     {
-        void Send(EmailContent content);
+        Task Send(EmailContent content);
     }
 }

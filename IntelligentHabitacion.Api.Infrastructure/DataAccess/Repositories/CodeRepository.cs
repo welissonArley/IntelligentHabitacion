@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.Code;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
@@ -10,11 +12,11 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
         public CodeRepository(IntelligentHabitacionContext context) => _context = context;
 
-        public void Add(Code code)
+        public async Task Add(Code code)
         {
             DeleteAll(code.UserId);
 
-            _context.Codes.Add(code);
+            await _context.Codes.AddAsync(code);
         }
 
         public void DeleteAllFromTheUser(long userId)
@@ -22,9 +24,9 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             DeleteAll(userId);
         }
 
-        public Code GetByUserId(long userId)
+        public async Task<Code> GetByUserId(long userId)
         {
-            return _context.Codes.FirstOrDefault(c => c.UserId == userId);
+            return await _context.Codes.FirstOrDefaultAsync(c => c.UserId == userId && c.Active);
         }
 
         private void DeleteAll(long userId)

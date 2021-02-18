@@ -1,7 +1,9 @@
-﻿namespace IntelligentHabitacion.Api.Application.UseCases.UserInformations
+﻿using System.Threading.Tasks;
+
+namespace IntelligentHabitacion.Api.Application.UseCases.UserInformations
 {
     public interface IUserInformationsUseCase
     {
-        ResponseOutput Execute();
+        Task<ResponseOutput> Execute();
     }
 }

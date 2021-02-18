@@ -1,7 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.Token;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
@@ -11,12 +11,12 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
         public TokenRepository(IntelligentHabitacionContext context) => _context = context;
 
-        public void Add(Token token)
+        public async Task Add(Token token)
         {
-            var tokenDatabase = _context.Tokens.FirstOrDefault(c => c.UserId == token.UserId);
+            var tokenDatabase = await _context.Tokens.FirstOrDefaultAsync(c => c.UserId == token.UserId);
 
             if(tokenDatabase == null)
-                _context.Tokens.Add(token);
+                await _context.Tokens.AddAsync(token);
             else
             {
                 tokenDatabase.Value = token.Value;
@@ -24,9 +24,9 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             }
         }
 
-        public Token GetByUserId(long userId)
+        public async Task<Token> GetByUserId(long userId)
         {
-            return _context.Tokens.AsNoTracking().FirstOrDefault(c => c.UserId == userId);
+            return await _context.Tokens.AsNoTracking().FirstOrDefaultAsync(c => c.UserId == userId);
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule
@@ -55,7 +57,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Neighborhood = homeInformations.Neighborhood,
                 Number = homeInformations.Number,
                 ZipCode = homeInformations.ZipCode,
-                DeadlinePaymentRent = homeInformations.DeadlinePaymentRent,
                 NetWork = new WifiNetworkModel
                 {
                     Name = homeInformations.NetWork.Name,
@@ -64,7 +65,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 City = new CityModel
                 {
                     Name = homeInformations.City,
-                    StateProvinceName = homeInformations.City
+                    StateProvinceName = homeInformations.City,
+                    Country = new CoutriesAvaliables().Get().First(c => c.Id == (CountryEnum)homeInformations.Country)
                 }
             };
         }

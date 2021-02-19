@@ -127,7 +127,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Neighborhood = model.Neighborhood,
                 Number = model.Number,
                 ZipCode = model.ZipCode,
-                DeadlinePaymentRent = model.DeadlinePaymentRent,
                 NetWork = new ResponseWifiNetworkJson
                 {
                     Name = model.NetworksName,

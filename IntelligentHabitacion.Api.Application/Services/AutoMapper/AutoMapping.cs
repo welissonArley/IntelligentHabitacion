@@ -32,6 +32,10 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Domain.Entity.User, Communication.Response.ResponseLoginJson>()
                 .ForMember(c => c.IsPartOfOneHome, opt => opt.MapFrom(w => w.HomeAssociationId.HasValue))
                 .ForMember(c => c.IsAdministrator, opt => opt.MapFrom(w => w.HomeAssociation != null && w.HomeAssociation.Home.AdministratorId == w.Id));
+
+            CreateMap<Domain.Entity.Home, Communication.Response.ResponseHomeInformationsJson>()
+                .ForMember(c => c.NetWork, opt => opt.MapFrom(w => new Communication.Response.ResponseWifiNetworkJson
+                { Name = w.NetworksName, Password = w.NetworksPassword }));
         }
     }
 }

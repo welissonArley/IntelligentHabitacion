@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
+﻿using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
+using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
@@ -64,12 +65,14 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [Route("Informations")]
         [ProducesResponseType(typeof(ResponseHomeInformationsJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public IActionResult Informations()
+        public async Task<IActionResult> Informations([FromServices] IHomeInformationsUseCase useCase)
         {
             try
             {
-                var informations = _homeRule.GetInformations();
-                return Ok(informations);
+                var response = await useCase.Execute();
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

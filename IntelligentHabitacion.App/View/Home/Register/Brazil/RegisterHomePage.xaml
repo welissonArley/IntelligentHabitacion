@@ -10,7 +10,7 @@
         <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <ScrollView>
+        <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout Style="{x:StaticResource MarginStyleDefault}">
                 <template:CountryComponent Country="{Binding Model.City.Country}" Margin="0,20,0,20"></template:CountryComponent>
 
@@ -22,7 +22,7 @@
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.StateProvinceName" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_STATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_STATE}"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 
-                <Button Margin="0,30,0,30" VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding OnConcludeCommand}"></Button>
+                <Button VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding OnConcludeCommand}"></Button>
             </StackLayout>
         </ScrollView>
     </StackLayout>

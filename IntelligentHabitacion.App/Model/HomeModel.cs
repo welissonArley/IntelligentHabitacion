@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Useful;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using XLabs.Data;
 
@@ -43,6 +44,7 @@ namespace IntelligentHabitacion.App.Model
         public short? DeadlinePaymentRent { get; set; }
         public WifiNetworkModel NetWork { get; set; }
         public CityModel City { get; set; }
+        public ObservableCollection<RoomModel> Rooms { get; set; }
 
         public bool IsBrazil()
         {

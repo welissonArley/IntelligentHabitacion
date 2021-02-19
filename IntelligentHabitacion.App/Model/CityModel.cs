@@ -1,5 +1,4 @@
-﻿using IntelligentHabitacion.Useful;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model

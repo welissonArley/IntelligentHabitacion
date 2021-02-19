@@ -925,6 +925,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a room.
+        /// </summary>
+        internal static string TITLE_ADD_ROOM {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adding new Friend.
         /// </summary>
         internal static string TITLE_ADDING_NEW_FRIEND {

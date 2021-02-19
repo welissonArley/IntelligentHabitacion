@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Communication.Enums;
+using System.Collections.Generic;
 
 namespace IntelligentHabitacion.Communication.Response
 {
@@ -13,5 +14,6 @@ namespace IntelligentHabitacion.Communication.Response
         public string StateProvince { get; set; }
         public CountryEnum Country { get; set; }
         public ResponseWifiNetworkJson NetWork { get; set; }
+        public IList<ResponseRoomJson> Rooms { get; set; }
     }
 }

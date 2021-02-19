@@ -405,6 +405,9 @@
   <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
     <value>Adicionar produto</value>
   </data>
+  <data name="TITLE_ADD_ROOM" xml:space="preserve">
+    <value>Adicione um cômodo</value>
+  </data>
   <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
     <value>O Administrador deve configurar o cronograma de limpeza.</value>
   </data>

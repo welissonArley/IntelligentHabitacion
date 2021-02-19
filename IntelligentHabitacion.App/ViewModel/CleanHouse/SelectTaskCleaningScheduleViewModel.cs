@@ -8,7 +8,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
     public class SelectTaskCleaningScheduleViewModel : BaseViewModel
     {
         public AllFriendsGroup Model { get; set; }
-        public ObservableCollection<RoomModel> RoomsAvaliables { get; set; }
+        public ObservableCollection<RoomScheduleModel> RoomsAvaliables { get; set; }
         public ICommand ConcludeCommand { get; set; }
         public ICommand CallbackManageTasksCommand { get; set; }
 

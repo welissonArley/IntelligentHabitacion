@@ -57,6 +57,13 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Neighborhood = homeInformations.Neighborhood,
                 Number = homeInformations.Number,
                 ZipCode = homeInformations.ZipCode,
+                Rooms = new System.Collections.ObjectModel.ObservableCollection<RoomModel>
+                (
+                    homeInformations.Rooms.Select(c => new RoomModel
+                    {
+                        Id = c.Id, Room = c.Room
+                    }).ToList()
+                ),
                 NetWork = new WifiNetworkModel
                 {
                     Name = homeInformations.NetWork.Name,

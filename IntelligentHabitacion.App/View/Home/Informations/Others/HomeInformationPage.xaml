@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:informations="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
              Title="{x:Static resourceText:ResourceText.TITLE_HOME_SWEET_HOME}"
              x:Name="UpdateHomeInformationContentPage"
@@ -41,8 +42,8 @@
 
                     <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ROOMS}" UnselectedIcon="IconTabHome.png">
                         <templateButton:TabItem.TabContent>
-                            <StackLayout IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
-
+                            <StackLayout>
+                                <informations:HomeInformationsRoomTemplate Rooms="{Binding Path=BindingContext.Model.Rooms, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></informations:HomeInformationsRoomTemplate>
                             </StackLayout>
                         </templateButton:TabItem.TabContent>
                     </templateButton:TabItem>

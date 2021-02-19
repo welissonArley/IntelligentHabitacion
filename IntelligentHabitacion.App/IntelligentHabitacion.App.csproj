@@ -112,6 +112,9 @@
     <Compile Update="Template\Informations\DetailsUserScheduleCleanHomeTemplate.xaml.cs">
       <DependentUpon>DetailsUserScheduleCleanHomeTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\HomeInformationsRoomTemplate.xaml.cs">
+      <DependentUpon>HomeInformationsRoomTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\TextAreaTemplate.xaml.cs">
       <DependentUpon>TextAreaTemplate.xaml</DependentUpon>
     </Compile>

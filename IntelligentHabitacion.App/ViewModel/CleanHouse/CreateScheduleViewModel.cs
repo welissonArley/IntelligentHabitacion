@@ -36,15 +36,15 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
             Model = new ManageScheduleModel
             {
-                RoomsAvaliables = new ObservableCollection<RoomModel>
+                RoomsAvaliables = new ObservableCollection<RoomScheduleModel>
                 {
-                    new RoomModel
+                    new RoomScheduleModel
                     {
                         Assigned = false,
                         Id = "5",
                         Room = "Sala de Jantar"
                     },
-                    new RoomModel
+                    new RoomScheduleModel
                     {
                         Assigned = false,
                         Id = "6",
@@ -123,7 +123,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
 
-                var newAvaliables = Model.UserTasks.SelectMany(c => c.Tasks).Select(c => new RoomModel
+                var newAvaliables = Model.UserTasks.SelectMany(c => c.Tasks).Select(c => new RoomScheduleModel
                 {
                     Id = c.Id,
                     Room = c.Room,
@@ -161,7 +161,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     newAvaliables.RemoveAt(index);
                 }
 
-                Model.RoomsAvaliables = new ObservableCollection<RoomModel>(newAvaliables);
+                Model.RoomsAvaliables = new ObservableCollection<RoomScheduleModel>(newAvaliables);
 
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 HideLoading();
@@ -180,7 +180,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 await ShowLoading();
                 await Navigation.PushAsync<SelectTaskCleaningScheduleViewModel>((viewModel, page) =>
                 {
-                    var avaliables = userGroup.Tasks.Select(c => new RoomModel
+                    var avaliables = userGroup.Tasks.Select(c => new RoomScheduleModel
                     {
                         Id = c.Id,
                         Assigned = true,
@@ -190,15 +190,15 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     avaliables.AddRange(Model.RoomsAvaliables);
 
                     viewModel.Model = userGroup;
-                    viewModel.RoomsAvaliables = new ObservableCollection<RoomModel>(avaliables.OrderBy(c => c.Room));
+                    viewModel.RoomsAvaliables = new ObservableCollection<RoomScheduleModel>(avaliables.OrderBy(c => c.Room));
 
                     viewModel.CallbackManageTasksCommand = new Command(async (RoomsAvaliables) =>
                     {
                         await ShowLoading();
 
-                        var roomsAvaliables = RoomsAvaliables as ObservableCollection<RoomModel>;
+                        var roomsAvaliables = RoomsAvaliables as ObservableCollection<RoomScheduleModel>;
 
-                        Model.RoomsAvaliables = new ObservableCollection<RoomModel>(roomsAvaliables.Where(c => !c.Assigned));
+                        Model.RoomsAvaliables = new ObservableCollection<RoomScheduleModel>(roomsAvaliables.Where(c => !c.Assigned));
 
                         var index = Model.UserTasks.IndexOf(userGroup);
                         Model.UserTasks.RemoveAt(index);

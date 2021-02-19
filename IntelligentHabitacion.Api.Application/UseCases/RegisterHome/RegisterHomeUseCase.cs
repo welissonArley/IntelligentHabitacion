@@ -2,11 +2,10 @@
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository;
-using IntelligentHabitacion.Api.Domain.Repository.User;
+using IntelligentHabitacion.Api.Domain.Repository.Home;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,15 +16,15 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterHome
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
         private readonly IMapper _mapper;
         private readonly ILoggedUser _loggedUser;
-        private readonly IUserUpdateOnlyRepository _userRepository;
+        private readonly IHomeWriteOnlyRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public RegisterHomeUseCase(IUserUpdateOnlyRepository userRepository, IUnitOfWork unitOfWork,
+        public RegisterHomeUseCase(IHomeWriteOnlyRepository repository, IUnitOfWork unitOfWork,
             ILoggedUser loggedUser, IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase)
         {
             _mapper = mapper;
             _loggedUser = loggedUser;
-            _userRepository = userRepository;
+            _repository = repository;
             _unitOfWork = unitOfWork;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
         }
@@ -38,13 +37,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterHome
             var homeModel = _mapper.Map<Home>(registerHomeJson);
             homeModel.AdministratorId = loggedUser.Id;
 
-            var userToUpdate = await _userRepository.GetById_Update(loggedUser.Id);
-            userToUpdate.HomeAssociation = new HomeAssociation
-            {
-                JoinedOn = DateTime.UtcNow,
-                Home = homeModel
-            };
-            _userRepository.Update(userToUpdate);
+            await _repository.Add(loggedUser, homeModel);
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.Code;
+using IntelligentHabitacion.Api.Domain.Repository.Home;
 using IntelligentHabitacion.Api.Domain.Repository.Token;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Api.Domain.Services;
@@ -37,7 +38,8 @@ namespace IntelligentHabitacion.Api.Infrastructure
                 .AddScoped<ITokenWriteOnlyRepository, TokenRepository>()
                 .AddScoped<ITokenReadOnlyRepository, TokenRepository>()
                 .AddScoped<ICodeReadOnlyRepository, CodeRepository>()
-                .AddScoped<ICodeWriteOnlyRepository, CodeRepository>();
+                .AddScoped<ICodeWriteOnlyRepository, CodeRepository>()
+                .AddScoped<IHomeWriteOnlyRepository, HomeRepository>();
         }
     }
 }

@@ -9,6 +9,7 @@ using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
+using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
@@ -38,7 +39,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IRegisterHomeUseCase, RegisterHomeUseCase>()
                 .AddScoped<IHomeInformationsUseCase, HomeInformationsUseCase>()
                 .AddScoped<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>()
-                .AddScoped<IGetMyFoodsUseCase, GetMyFoodsUseCase>();
+                .AddScoped<IGetMyFoodsUseCase, GetMyFoodsUseCase>()
+                .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>();
         }
     }
 }

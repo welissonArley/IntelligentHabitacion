@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
-    public class MyFoodsRepository : IMyFoodsReadOnlyRepository
+    public class MyFoodsRepository : IMyFoodsReadOnlyRepository, IMyFoodsWriteOnlyRepository
     {
         private readonly IntelligentHabitacionContext _context;
 
@@ -18,6 +18,11 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             return await _context.MyFoods
                 .AsNoTracking()
                 .Where(c => c.UserId == userId && c.Active).ToListAsync();
+        }
+
+        public async Task Add(MyFood myFood)
+        {
+            await _context.MyFoods.AddAsync(myFood);
         }
     }
 }

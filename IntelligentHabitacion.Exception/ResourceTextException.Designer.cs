@@ -169,6 +169,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The duedate must be grater than today..
+        /// </summary>
+        public static string DUEDATE_MUST_BE_GRATER_THAN_TODAY {
+            get {
+                return ResourceManager.GetString("DUEDATE_MUST_BE_GRATER_THAN_TODAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This email address has already been registered..
         /// </summary>
         public static string EMAIL_ALREADYBEENREGISTERED {

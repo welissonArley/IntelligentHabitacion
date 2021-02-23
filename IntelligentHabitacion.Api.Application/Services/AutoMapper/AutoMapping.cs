@@ -26,6 +26,8 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
 
             CreateMap<Communication.Request.RequestUpdateHomeJson, Domain.Entity.Home>()
                 .ForMember(c => c.Rooms, opt => opt.MapFrom(w => w.Rooms.Distinct().Where(k => !string.IsNullOrWhiteSpace(k)).Select(k => new Domain.Entity.Room { Name = k })));
+
+            CreateMap<Communication.Request.RequestAddMyFoodJson, Domain.Entity.MyFood>();
         }
 
         private void DomainToResponse()

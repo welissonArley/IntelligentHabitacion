@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
+using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
@@ -57,19 +58,24 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will add one food and return the Id
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="requestMyFood"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("AddFood")]
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
-        public IActionResult AddFood(RequestAddMyFoodJson requestMyFood)
+        public async Task<IActionResult> AddFood(
+            [FromServices] IRegisterMyFoodUseCase useCase,
+            [FromBody] RequestAddMyFoodJson requestMyFood)
         {
             try
             {
                 VerifyParameters(requestMyFood);
-                var id = _myFoodRule.Create(requestMyFood);
 
-                return Created(string.Empty, id);
+                var response = await useCase.Execute(requestMyFood);
+                WriteAutenticationHeader(response);
+
+                return Created(string.Empty, response.ResponseJson);
             }
             catch (System.Exception exception)
             {

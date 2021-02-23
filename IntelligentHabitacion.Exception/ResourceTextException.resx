@@ -153,6 +153,9 @@
   <data name="DEADLINE_FOR_PAYMENT_OF_RENT_INVALID" xml:space="preserve">
     <value>The deadline for payment of rent must be between days 1 and 28.</value>
   </data>
+  <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
+    <value>The duedate must be grater than today.</value>
+  </data>
   <data name="EMAIL_ALREADYBEENREGISTERED" xml:space="preserve">
     <value>This email address has already been registered.</value>
   </data>

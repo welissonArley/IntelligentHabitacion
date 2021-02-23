@@ -42,6 +42,7 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
                 { Name = w.NetworksName, Password = w.NetworksPassword }));
 
             CreateMap<Domain.Entity.Room, Communication.Response.ResponseRoomJson>();
+            CreateMap<Domain.Entity.MyFood, Communication.Response.ResponseMyFoodJson>();
         }
     }
 }

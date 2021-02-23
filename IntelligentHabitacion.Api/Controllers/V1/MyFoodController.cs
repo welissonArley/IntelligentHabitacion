@@ -1,10 +1,13 @@
-﻿using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
+using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -32,16 +35,18 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpGet]
         [Route("MyFoods")]
-        [ProducesResponseType(typeof(List<ResponseProductJson>), StatusCodes.Status200OK)]
-        public IActionResult MyFoods()
+        [ProducesResponseType(typeof(List<ResponseMyFoodJson>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> MyFoods([FromServices] IGetMyFoodsUseCase useCase)
         {
             try
             {
-                var list = _myFoodRule.GetMyFoods();
-                if (list.Count == 0)
+                var response = await useCase.Execute();
+                WriteAutenticationHeader(response);
+
+                if (!((List<ResponseMyFoodJson>)response.ResponseJson).Any())
                     return NoContent();
 
-                return Ok(list);
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

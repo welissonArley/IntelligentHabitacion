@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
-    public class HomeRepository : IHomeWriteOnlyRepository
+    public class HomeRepository : IHomeWriteOnlyRepository, IHomeUpdateOnlyRepository
     {
         private readonly IntelligentHabitacionContext _context;
 
@@ -27,6 +27,18 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             };
 
             _context.Users.Update(userToBeAdministrator);
+        }
+
+        public async Task<Home> GetById_Update(long homeId)
+        {
+            return await _context.Homes
+                .Include(c => c.Rooms)
+                .FirstOrDefaultAsync(c => c.Id == homeId);
+        }
+
+        public void Update(Home home)
+        {
+            _context.Homes.Update(home);
         }
     }
 }

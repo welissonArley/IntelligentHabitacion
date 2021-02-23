@@ -189,7 +189,7 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
-        public async Task<ResponseJson> UpdateHome(RequestRegisterHomeJson registerHome, string token, string language = null)
+        public async Task<ResponseJson> UpdateHome(RequestUpdateHomeJson registerHome, string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/Home/Update", registerHome, token: token, language: language);
             return new ResponseJson

@@ -354,6 +354,9 @@
   <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
     <value>Grau de parentesco</value>
   </data>
+  <data name="PLACEHOLDER_ROOM" xml:space="preserve">
+    <value>Cozinha</value>
+  </data>
   <data name="PLACEHOLDER_STATE" xml:space="preserve">
     <value>Estado</value>
   </data>
@@ -422,6 +425,9 @@
   </data>
   <data name="TITLE_ASSIGN_TASKS" xml:space="preserve">
     <value>Atribuir tarefas</value>
+  </data>
+  <data name="TITLE_BATHROOM" xml:space="preserve">
+    <value>Banheiro</value>
   </data>
   <data name="TITLE_BOX" xml:space="preserve">
     <value>Caixa(s)</value>
@@ -540,6 +546,9 @@
   <data name="TITLE_DETAILS" xml:space="preserve">
     <value>Detalhes</value>
   </data>
+  <data name="TITLE_DINING_ROOM" xml:space="preserve">
+    <value>Sala de jantar</value>
+  </data>
   <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
     <value>Data vencimento:</value>
   </data>
@@ -612,11 +621,20 @@
   <data name="TITLE_KILOGRAM" xml:space="preserve">
     <value>Quilograma(s)</value>
   </data>
+  <data name="TITLE_KITCHEN" xml:space="preserve">
+    <value>Cozinha</value>
+  </data>
   <data name="TITLE_LAST_RECORD" xml:space="preserve">
     <value>Último registro em: {0}</value>
   </data>
+  <data name="TITLE_LAUNDRY" xml:space="preserve">
+    <value>Área de serviço</value>
+  </data>
   <data name="TITLE_LEAVE_COMMENT_IF_YOU_WANTE" xml:space="preserve">
     <value>Se quiser você pode deixar um comentário</value>
+  </data>
+  <data name="TITLE_LIVING_ROOM" xml:space="preserve">
+    <value>Sala de estar</value>
   </data>
   <data name="TITLE_LOGIN" xml:space="preserve">
     <value>Entrar</value>
@@ -696,6 +714,9 @@
   <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
     <value>Sem tarefas para este mês</value>
   </data>
+  <data name="TITLE_OFFICE" xml:space="preserve">
+    <value>Escritório</value>
+  </data>
   <data name="TITLE_PACKAGE" xml:space="preserve">
     <value>Pacote(s)</value>
   </data>
@@ -741,6 +762,9 @@
   <data name="TITLE_RATING" xml:space="preserve">
     <value>Avaliação</value>
   </data>
+  <data name="TITLE_RECOMMENDED_TWOPOINTS" xml:space="preserve">
+    <value>Recomendado:</value>
+  </data>
   <data name="TITLE_REGISTER" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
@@ -761,6 +785,9 @@
   </data>
   <data name="TITLE_ROOM_CLEANED" xml:space="preserve">
     <value>{0} limpo(a) :)</value>
+  </data>
+  <data name="TITLE_ROOM_TWOPOINTS" xml:space="preserve">
+    <value>Cômodo:</value>
   </data>
   <data name="TITLE_SATURDAY_ABBREVIATED" xml:space="preserve">
     <value>Sáb</value>

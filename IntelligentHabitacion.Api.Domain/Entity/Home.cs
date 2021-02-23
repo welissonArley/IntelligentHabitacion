@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Domain.ValueObjects;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Domain.Entity
@@ -18,5 +19,6 @@ namespace IntelligentHabitacion.Api.Domain.Entity
         public string NetworksName { get; set; }
         public string NetworksPassword { get; set; }
         public long AdministratorId { get; set; }
+        public ObservableCollection<Room> Rooms { get; set; }
     }
 }

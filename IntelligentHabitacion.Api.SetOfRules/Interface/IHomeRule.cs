@@ -5,9 +5,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
 {
     public interface IHomeRule
     {
-        void Register(RequestHomeJson registerHomeJson);
+        void Register(RequestUpdateHomeJson registerHomeJson);
         ResponseHomeInformationsJson GetInformations();
-        void Update(RequestHomeJson updateHomeJson);
+        void Update(RequestUpdateHomeJson updateHomeJson);
         void Delete(RequestAdminActionJson request);
         void RequestCodeDeleteHome();
     }

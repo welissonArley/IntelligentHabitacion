@@ -42,7 +42,7 @@ namespace IntelligentHabitacion.Api.Filter
             try
             {
                 var user = GetUser(context);
-                if (user == null || user.HomeAssociationId == null)
+                if (user == null || !user.HomeAssociationId.HasValue)
                     UserDoesNotHaveAccess(context);
                 else
                 {

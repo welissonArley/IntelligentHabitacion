@@ -61,7 +61,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 (
                     homeInformations.Rooms.Select(c => new RoomModel
                     {
-                        Id = c.Id, Room = c.Room
+                        Id = c.Id, Room = c.Name
                     }).ToList()
                 ),
                 NetWork = new WifiNetworkModel

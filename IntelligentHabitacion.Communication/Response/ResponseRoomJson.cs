@@ -3,6 +3,6 @@
     public class ResponseRoomJson
     {
         public string Id { get; set; }
-        public string Room { get; set; }
+        public string Name { get; set; }
     }
 }

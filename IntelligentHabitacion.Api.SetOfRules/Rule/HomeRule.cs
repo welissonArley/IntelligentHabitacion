@@ -92,7 +92,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             return new Mapper.Mapper().MapperModelToJson(loggedUser.HomeAssociation.Home);
         }
 
-        public void Register(RequestHomeJson registerHomeJson)
+        public void Register(RequestUpdateHomeJson registerHomeJson)
         {
             var loggedUser = _loggedUser.User();
             if (loggedUser.HomeAssociationId != null)
@@ -142,7 +142,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _emailHelper.DeleteHome(loggedUser.Email, codeRandom, loggedUser.Name);
         }
 
-        public void Update(RequestHomeJson updateHomeJson)
+        public void Update(RequestUpdateHomeJson updateHomeJson)
         {
             var loggedUser = _loggedUser.User();
             var homeModel = _homeRepository.GetById(loggedUser.HomeAssociation.HomeId);

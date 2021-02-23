@@ -39,7 +39,8 @@ namespace IntelligentHabitacion.Api.Infrastructure
                 .AddScoped<ITokenReadOnlyRepository, TokenRepository>()
                 .AddScoped<ICodeReadOnlyRepository, CodeRepository>()
                 .AddScoped<ICodeWriteOnlyRepository, CodeRepository>()
-                .AddScoped<IHomeWriteOnlyRepository, HomeRepository>();
+                .AddScoped<IHomeWriteOnlyRepository, HomeRepository>()
+                .AddScoped<IHomeUpdateOnlyRepository, HomeRepository>();
         }
     }
 }

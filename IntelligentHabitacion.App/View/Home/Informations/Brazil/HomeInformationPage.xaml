@@ -17,7 +17,7 @@
             <templateButton:TabsView.TabItems>
                 <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ADDRESS}" UnselectedIcon="IconTabAddress.png">
                     <templateButton:TabItem.TabContent>
-                        <StackLayout IsEnabled="{Binding IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
+                        <StackLayout IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.ZipCode, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="Cep:" PlaceHolderText="Cep" IsPassword="False" EntryBehavior="{x:StaticResource BehaviorZipCode}" EntryUnfocused="{Binding ZipCodeChangedUnfocused}" Keyboard="Numeric"></templateInputTextWithLabel:InputTextWithLabelComponent>
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Address, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESS}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Neighborhood, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
@@ -30,10 +30,10 @@
 
                 <templateButton:TabItem Title="Wifi" UnselectedIcon="IconTabWifi.png">
                     <templateButton:TabItem.TabContent>
-                        <StackLayout IsEnabled="{Binding IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
-                            <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.NetWork.Name, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NETWORK_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                        <StackLayout>
+                            <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}" BindingEntry="{Binding Path=BindingContext.Model.NetWork.Name, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NETWORK_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                             <StackLayout Spacing="0" Orientation="Horizontal">
-                                <templateInputTextWithLabel:InputTextWithLabelComponent IconNet="True" BindingEntry="{Binding Path=BindingContext.Model.NetWork.Password, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False" HorizontalOptions="FillAndExpand"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}" IconNet="True" BindingEntry="{Binding Path=BindingContext.Model.NetWork.Password, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False" HorizontalOptions="FillAndExpand"></templateInputTextWithLabel:InputTextWithLabelComponent>
                                 <Image HorizontalOptions="End" Source="IconCopy" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.CopyWifiPasswordTapped, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></TapGestureRecognizer>
@@ -47,7 +47,7 @@
                 <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ROOMS}" UnselectedIcon="IconTabHome.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout>
-                            <informations:HomeInformationsRoomTemplate Rooms="{Binding Path=BindingContext.Model.Rooms, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></informations:HomeInformationsRoomTemplate>
+                            <informations:HomeInformationsRoomTemplate RemoveRoomCommand="{Binding Path=BindingContext.RemoveRoomTapped, Source={x:Reference Name=UpdateHomeInformationContentPage}}" AddRoomCommand="{Binding Path=BindingContext.AddRoomTapped, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Rooms="{Binding Path=BindingContext.Model.Rooms, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></informations:HomeInformationsRoomTemplate>
                         </StackLayout>
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>

@@ -7,6 +7,7 @@ using IntelligentHabitacion.App.View.CleanHouse;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Friends.Add;
 using IntelligentHabitacion.App.View.Home.Delete;
+using IntelligentHabitacion.App.View.Home.Informations;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.MyFoods;
@@ -19,6 +20,7 @@ using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.ViewModel.Home.Delete;
+using IntelligentHabitacion.App.ViewModel.Home.Informations;
 using IntelligentHabitacion.App.ViewModel.Login;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Delete;
@@ -115,6 +117,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<SettingSchedulePage, SettingScheduleViewModel>();
             ViewFactory.Register<CreateSchedulePage, CreateScheduleViewModel>();
             ViewFactory.Register<SelectTaskCleaningSchedulePage, SelectTaskCleaningScheduleViewModel>();
+            ViewFactory.Register<InsertRoomPage, InsertRoomViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

@@ -9,6 +9,7 @@ using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using Microsoft.Extensions.Configuration;
@@ -34,7 +35,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>()
                 .AddScoped<ILoginUseCase, LoginUseCase>()
                 .AddScoped<IRegisterHomeUseCase, RegisterHomeUseCase>()
-                .AddScoped<IHomeInformationsUseCase, HomeInformationsUseCase>();
+                .AddScoped<IHomeInformationsUseCase, HomeInformationsUseCase>()
+                .AddScoped<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>();
         }
     }
 }

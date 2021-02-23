@@ -26,7 +26,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             return await _context.Users
                 .Include(c => c.Phonenumbers)
                 .Include(c => c.EmergencyContacts)
-                .Include(c => c.HomeAssociation).ThenInclude(c => c.Home)
+                .Include(c => c.HomeAssociation).ThenInclude(c => c.Home).ThenInclude(c => c.Rooms)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Active);
         }

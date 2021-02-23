@@ -36,6 +36,13 @@ namespace IntelligentHabitacion.App.ViewModel
                 UnknownError();
         }
 
+        protected async Task Exception(string exception)
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+
+            await navigation.PushPopupAsync(new ErrorModal(exception));
+        }
+
         protected async Task ShowLoading()
         {
             _loadingContentView = new LoadingContentView();

@@ -808,6 +808,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kitchen.
+        /// </summary>
+        internal static string PLACEHOLDER_ROOM {
+            get {
+                return ResourceManager.GetString("PLACEHOLDER_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         internal static string PLACEHOLDER_STATE {
@@ -1020,6 +1029,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_ASSIGN_TASKS {
             get {
                 return ResourceManager.GetString("TITLE_ASSIGN_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bathroom.
+        /// </summary>
+        internal static string TITLE_BATHROOM {
+            get {
+                return ResourceManager.GetString("TITLE_BATHROOM", resourceCulture);
             }
         }
         
@@ -1375,6 +1393,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dining room.
+        /// </summary>
+        internal static string TITLE_DINING_ROOM {
+            get {
+                return ResourceManager.GetString("TITLE_DINING_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Due date:.
         /// </summary>
         internal static string TITLE_DUEDATE_TWOPOINTS {
@@ -1591,6 +1618,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kitchen.
+        /// </summary>
+        internal static string TITLE_KITCHEN {
+            get {
+                return ResourceManager.GetString("TITLE_KITCHEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last record: {0}.
         /// </summary>
         internal static string TITLE_LAST_RECORD {
@@ -1600,11 +1636,29 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Laundry.
+        /// </summary>
+        internal static string TITLE_LAUNDRY {
+            get {
+                return ResourceManager.GetString("TITLE_LAUNDRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If you want you can leave a comment.
         /// </summary>
         internal static string TITLE_LEAVE_COMMENT_IF_YOU_WANTE {
             get {
                 return ResourceManager.GetString("TITLE_LEAVE_COMMENT_IF_YOU_WANTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Living room.
+        /// </summary>
+        internal static string TITLE_LIVING_ROOM {
+            get {
+                return ResourceManager.GetString("TITLE_LIVING_ROOM", resourceCulture);
             }
         }
         
@@ -1843,6 +1897,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Office.
+        /// </summary>
+        internal static string TITLE_OFFICE {
+            get {
+                return ResourceManager.GetString("TITLE_OFFICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Package(s).
         /// </summary>
         internal static string TITLE_PACKAGE {
@@ -1978,6 +2041,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recommended:.
+        /// </summary>
+        internal static string TITLE_RECOMMENDED_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_RECOMMENDED_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string TITLE_REGISTER {
@@ -2019,6 +2091,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_ROOM_CLEANED {
             get {
                 return ResourceManager.GetString("TITLE_ROOM_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room:.
+        /// </summary>
+        internal static string TITLE_ROOM_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ROOM_TWOPOINTS", resourceCulture);
             }
         }
         

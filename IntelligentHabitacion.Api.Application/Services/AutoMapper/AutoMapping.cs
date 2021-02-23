@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using IntelligentHabitacion.Api.Domain.ValueObjects;
+using System.Linq;
 
 namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
 {
@@ -22,6 +23,9 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Communication.Request.RequestEmergencyContactJson, Domain.Entity.EmergencyContact>();
 
             CreateMap<Communication.Request.RequestRegisterHomeJson, Domain.Entity.Home>();
+
+            CreateMap<Communication.Request.RequestUpdateHomeJson, Domain.Entity.Home>()
+                .ForMember(c => c.Rooms, opt => opt.MapFrom(w => w.Rooms.Distinct().Where(k => !string.IsNullOrWhiteSpace(k)).Select(k => new Domain.Entity.Room { Name = k })));
         }
 
         private void DomainToResponse()
@@ -36,6 +40,8 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Domain.Entity.Home, Communication.Response.ResponseHomeInformationsJson>()
                 .ForMember(c => c.NetWork, opt => opt.MapFrom(w => new Communication.Response.ResponseWifiNetworkJson
                 { Name = w.NetworksName, Password = w.NetworksPassword }));
+
+            CreateMap<Domain.Entity.Room, Communication.Response.ResponseRoomJson>();
         }
     }
 }

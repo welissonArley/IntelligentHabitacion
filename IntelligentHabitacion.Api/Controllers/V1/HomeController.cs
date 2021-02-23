@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
@@ -83,18 +84,24 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will update the Home's informations
         /// </summary>
+        /// <param name="useCase"></param>
         /// <param name="updateHomeJson"></param>
         /// <returns></returns>
         [HttpPut]
         [Route("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult Update(RequestHomeJson updateHomeJson)
+        public async Task<IActionResult> Update(
+            [FromServices] IUpdateHomeInformationsUseCase useCase,
+            RequestUpdateHomeJson updateHomeJson)
         {
             try
             {
                 VerifyParameters(updateHomeJson);
-                _homeRule.Update(updateHomeJson);
+                
+                var response = await useCase.Execute(updateHomeJson);
+                WriteAutenticationHeader(response);
+
                 return Ok();
             }
             catch (System.Exception exception)

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
+using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
@@ -86,17 +87,16 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will delete one user's food
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("Delete/{id}")]
+        [Route("Delete/{id:hashids}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DeleteFoods(string id)
+        public IActionResult DeleteFoods([FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
         {
             try
             {
                 VerifyParameters(id);
-                _myFoodRule.Delete(id);
+                //_myFoodRule.Delete(id);
 
                 return Ok();
             }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HashidsNet;
 using IntelligentHabitacion.Api.Domain.ValueObjects;
 using System.Linq;
 
@@ -6,8 +7,12 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
 {
     public class AutoMapping : Profile
     {
-        public AutoMapping()
+        private readonly IHashids _hashids;
+
+        public AutoMapping(IHashids hashids)
         {
+            _hashids = hashids;
+
             RequestToDomain();
             DomainToResponse();
         }
@@ -43,8 +48,11 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
                 .ForMember(c => c.NetWork, opt => opt.MapFrom(w => new Communication.Response.ResponseWifiNetworkJson
                 { Name = w.NetworksName, Password = w.NetworksPassword }));
 
-            CreateMap<Domain.Entity.Room, Communication.Response.ResponseRoomJson>();
-            CreateMap<Domain.Entity.MyFood, Communication.Response.ResponseMyFoodJson>();
+            CreateMap<Domain.Entity.Room, Communication.Response.ResponseRoomJson>()
+                .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
+
+            CreateMap<Domain.Entity.MyFood, Communication.Response.ResponseMyFoodJson>()
+                .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
         }
     }
 }

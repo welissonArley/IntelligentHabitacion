@@ -56,7 +56,16 @@ namespace IntelligentHabitacion.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Application.Services.AutoMapper.AutoMapping));
+            services.AddHashids(setup =>
+            {
+                setup.Salt = Configuration.GetValue<string>("Settings:IdCryptographySalt");
+                setup.MinHashLength = 3;
+            });
+
+            services.AddScoped(provider => new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new Application.Services.AutoMapper.AutoMapping(provider.GetService<HashidsNet.IHashids>()));
+            }).CreateMapper());
 
             services.AddSignalR();
 
@@ -88,6 +97,7 @@ namespace IntelligentHabitacion.Api
                 options.SchemaFilter<SwaggerSubtypeOfAttributeFilter>();
                 options.SchemaFilter<EnumSchemaFilter>();
                 options.IncludeXmlComments("IntelligentHabitacion.Api.xml");
+                options.OperationFilter<HashidsOperationFilter>();
             });
 
             services

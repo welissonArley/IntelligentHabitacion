@@ -4,9 +4,9 @@ using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
 using IntelligentHabitacion.Exception;
 using System.Threading.Tasks;
 
-namespace IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProduct
+namespace IntelligentHabitacion.Api.Application.UseCases.DeleteMyFood
 {
-    public class ChangeQuantityOfOneProductUseCase : IChangeQuantityOfOneProductUseCase
+    public class DeleteMyFoodUseCase : IDeleteMyFoodUseCase
     {
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
         private readonly IUnitOfWork _unitOfWork;
@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProd
         private readonly IMyFoodsReadOnlyRepository _repositoryReadOnly;
         private readonly IMyFoodsWriteOnlyRepository _repository;
 
-        public ChangeQuantityOfOneProductUseCase(IMyFoodsReadOnlyRepository repositoryReadOnly,
+        public DeleteMyFoodUseCase(IMyFoodsReadOnlyRepository repositoryReadOnly,
             IMyFoodsWriteOnlyRepository repository, IUnitOfWork unitOfWork, IntelligentHabitacionUseCase intelligentHabitacionUseCase,
             ILoggedUser loggedUser)
         {
@@ -25,19 +25,16 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProd
             _loggedUser = loggedUser;
         }
 
-        public async Task<ResponseOutput> Execute(long id, decimal amount)
+        public async Task<ResponseOutput> Execute(long myFoodId)
         {
             var loggedUser = await _loggedUser.User();
-            
-            var model = await _repositoryReadOnly.GetById(id, loggedUser.Id);
+
+            var model = await _repositoryReadOnly.GetById(myFoodId, loggedUser.Id);
             if (model is null)
                 throw new ProductNotFoundException();
 
-            if (amount <= 0)
-                _repository.Delete(model);
-            else
-                await _repository.ChangeAmount(model.Id, amount);
-            
+            _repository.Delete(model);
+
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
             await _unitOfWork.Commit();

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HashidsNet;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository;
@@ -12,6 +13,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood
 {
     public class RegisterMyFoodUseCase : IRegisterMyFoodUseCase
     {
+        private readonly IHashids _hashIds;
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
         private readonly IMapper _mapper;
         private readonly ILoggedUser _loggedUser;
@@ -19,13 +21,15 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood
         private readonly IUnitOfWork _unitOfWork;
 
         public RegisterMyFoodUseCase(IMyFoodsWriteOnlyRepository repository, IUnitOfWork unitOfWork,
-            ILoggedUser loggedUser, IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase)
+            ILoggedUser loggedUser, IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase,
+            IHashids hashIds)
         {
             _mapper = mapper;
             _loggedUser = loggedUser;
             _repository = repository;
             _unitOfWork = unitOfWork;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
+            _hashIds = hashIds;
         }
 
         public async Task<ResponseOutput> Execute(RequestAddMyFoodJson requestMyFood)
@@ -43,7 +47,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood
 
             await _unitOfWork.Commit();
 
-            response.ResponseJson = foodModel.Id;
+            response.ResponseJson = _hashIds.EncodeLong(foodModel.Id);
 
             return response;
         }

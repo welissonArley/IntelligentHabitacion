@@ -19,8 +19,8 @@ namespace IntelligentHabitacion.Api.Configuration.Token
         {
             return services.AddScoped(ServiceProvider =>
             {
-                return new TokenController(configuration.GetValue<double>("Settings:JwtExpiresMinutes"),
-                    configuration.GetValue<string>("Settings:SigningKey"));
+                return new TokenController(configuration.GetValue<double>("Settings:Jwt:ExpiresMinutes"),
+                    configuration.GetValue<string>("Settings:Jwt:SigningKey"));
             });
         }
     }

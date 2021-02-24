@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
+﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProduct;
+using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
@@ -109,17 +110,22 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will change the quantity of one product. If the quantity is less or equals 0, the product will be deleted
         /// </summary>
-        /// <param name="changeQuantity"></param>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("ChangeQuantity")]
+        [Route("ChangeQuantity/{id:hashids}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult ChangeQuantity(RequestChangeQuantityMyFoodJson changeQuantity)
+        public async Task<IActionResult> ChangeQuantity(
+            [FromServices] IChangeQuantityOfOneProductUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+            [FromBody] RequestChangeQuantityMyFoodJson request)
         {
             try
             {
-                VerifyParameters(changeQuantity);
-                _myFoodRule.ChangeQuantity(changeQuantity);
+                var response = await useCase.Execute(id, request.Amount);
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }

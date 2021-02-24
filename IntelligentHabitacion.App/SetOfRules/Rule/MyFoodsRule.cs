@@ -67,11 +67,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task ChangeQuantity(FoodModel model)
         {
-            var response = await _httpClient.ChangeQuantityMyFood(new Communication.Request.RequestChangeQuantityMyFoodJson
-            {
-                Id = model.Id,
-                Quantity = model.Quantity
-            }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.ChangeQuantityMyFood(model.Id, model.Quantity, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _userPreferences.ChangeToken(response.Token);
         }

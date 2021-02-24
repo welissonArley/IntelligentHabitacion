@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.ChangePassword;
+using IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProduct;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
@@ -40,7 +41,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IHomeInformationsUseCase, HomeInformationsUseCase>()
                 .AddScoped<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>()
                 .AddScoped<IGetMyFoodsUseCase, GetMyFoodsUseCase>()
-                .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>();
+                .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>()
+                .AddScoped<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>();
         }
     }
 }

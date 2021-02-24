@@ -24,9 +24,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _myFoodRepository = myFoodRepository;
         }
 
-        public void ChangeQuantity(RequestChangeQuantityMyFoodJson changeQuantity)
+        public void ChangeQuantity(decimal changeQuantity)
         {
-            var decriptedId = new MyFood().DecryptedId(changeQuantity.Id);
+            /*var decriptedId = new MyFood().DecryptedId(changeQuantity.Id);
             var model = _myFoodRepository.GetMyFood(decriptedId, _loggedUser.User().Id);
             if (model is null)
                 throw new ProductNotFoundException();
@@ -37,7 +37,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             {
                 model.Quantity = changeQuantity.Quantity;
                 _myFoodRepository.Update(model);
-            }
+            }*/
         }
 
         public string Create(RequestAddMyFoodJson requestMyFood)

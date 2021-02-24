@@ -313,9 +313,9 @@ namespace IntelligentHabitacion.Communication
             };
         }
 
-        public async Task<ResponseJson> ChangeQuantityMyFood(RequestChangeQuantityMyFoodJson myFood, string token, string language = null)
+        public async Task<ResponseJson> ChangeQuantityMyFood(string myFoodId, decimal amount, string token, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/MyFood/ChangeQuantity/", myFood, token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/MyFood/ChangeQuantity/{myFoodId}", new RequestChangeQuantityMyFoodJson { Amount = amount}, token: token, language: language);
             return new ResponseJson
             {
                 Token = GetToken(response)

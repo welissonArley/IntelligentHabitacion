@@ -9,7 +9,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
         List<ResponseMyFoodJson> GetMyFoods();
         string Create(RequestAddMyFoodJson requestMyFood);
         void Delete(string encryptedId);
-        void ChangeQuantity(RequestChangeQuantityMyFoodJson changeQuantity);
+        void ChangeQuantity(decimal changeQuantity);
         void Edit(RequestEditMyFoodJson editMyFood);
     }
 }

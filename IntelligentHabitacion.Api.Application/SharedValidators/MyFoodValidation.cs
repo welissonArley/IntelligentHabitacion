@@ -3,11 +3,11 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using System;
 
-namespace IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood
+namespace IntelligentHabitacion.Api.Application.SharedValidators
 {
-    public class RegisterFoodValidation : AbstractValidator<RequestAddMyFoodJson>
+    public class MyFoodValidation : AbstractValidator<RequestProductJson>
     {
-        public RegisterFoodValidation()
+        public MyFoodValidation()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage(ResourceTextException.PRODUCT_NAME_EMPTY);
             RuleFor(x => x.Quantity).GreaterThan(0).WithMessage(ResourceTextException.QUANTITY_PRODUCTS_INVALID);

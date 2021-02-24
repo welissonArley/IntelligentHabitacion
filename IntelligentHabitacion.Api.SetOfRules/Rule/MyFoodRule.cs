@@ -40,7 +40,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             }*/
         }
 
-        public string Create(RequestAddMyFoodJson requestMyFood)
+        public string Create(RequestProductJson requestMyFood)
         {
             var model = new Mapper.Mapper().MapperJsonToModel(requestMyFood);
             model.UserId = _loggedUser.User().Id;
@@ -65,9 +65,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _myFoodRepository.DeleteOnDatabase(model);
         }
 
-        public void Edit(RequestEditMyFoodJson editMyFood)
+        public void Edit(RequestProductJson editMyFood)
         {
-            var decriptedId = new MyFood().DecryptedId(editMyFood.Id);
+            /*var decriptedId = new MyFood().DecryptedId(editMyFood.Id);
             var model = _myFoodRepository.GetMyFood(decriptedId, _loggedUser.User().Id);
             if (model is null)
                 throw new ProductNotFoundException();
@@ -84,7 +84,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             if (validation.IsValid)
                 _myFoodRepository.Update(model);
             else
-                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
+                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());*/
         }
 
         public List<ResponseMyFoodJson> GetMyFoods()

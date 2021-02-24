@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Application.UseCases.DeleteMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
@@ -69,7 +70,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         public async Task<IActionResult> AddFood(
             [FromServices] IRegisterMyFoodUseCase useCase,
-            [FromBody] RequestAddMyFoodJson requestMyFood)
+            [FromBody] RequestProductJson requestMyFood)
         {
             try
             {
@@ -143,17 +144,24 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
         /// <param name="editMyFood"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("EditFood")]
+        [Route("EditFood/{id:hashids}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult EditFood(RequestEditMyFoodJson editMyFood)
+        public async Task<IActionResult> EditFood(
+            [FromServices] IUpdateMyFoodUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+            RequestProductJson editMyFood)
         {
             try
             {
                 VerifyParameters(editMyFood);
-                _myFoodRule.Edit(editMyFood);
+
+                var response = await useCase.Execute(id, editMyFood);
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }

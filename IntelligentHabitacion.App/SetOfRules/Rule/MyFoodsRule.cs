@@ -25,7 +25,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             ValidateItem(model);
 
-            var response = await _httpClient.AddMyFood(new Communication.Request.RequestAddMyFoodJson
+            var response = await _httpClient.AddMyFood(new Communication.Request.RequestProductJson
             {
                 Quantity = model.Quantity,
                 DueDate = model.DueDate,
@@ -85,9 +85,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             ValidateItem(model);
 
-            var response = await _httpClient.EditMyFood(new Communication.Request.RequestEditMyFoodJson
+            var response = await _httpClient.EditMyFood(model.Id, new Communication.Request.RequestProductJson
             {
-                Id = model.Id,
                 Quantity = model.Quantity,
                 DueDate = model.DueDate,
                 Manufacturer = model.Manufacturer,

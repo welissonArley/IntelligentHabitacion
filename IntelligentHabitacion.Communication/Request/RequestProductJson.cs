@@ -8,5 +8,6 @@ namespace IntelligentHabitacion.Communication.Request
         public decimal Quantity { get; set; }
         public string Manufacturer { get; set; }
         public Type Type { get; set; }
+        public System.DateTime? DueDate { get; set; }
     }
 }

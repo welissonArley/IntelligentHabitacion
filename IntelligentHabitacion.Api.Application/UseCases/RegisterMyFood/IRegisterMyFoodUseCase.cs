@@ -5,6 +5,6 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood
 {
     public interface IRegisterMyFoodUseCase
     {
-        Task<ResponseOutput> Execute(RequestAddMyFoodJson requestMyFood);
+        Task<ResponseOutput> Execute(RequestProductJson requestMyFood);
     }
 }

@@ -14,6 +14,7 @@ using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using Microsoft.Extensions.Configuration;
@@ -44,7 +45,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IGetMyFoodsUseCase, GetMyFoodsUseCase>()
                 .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>()
                 .AddScoped<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>()
-                .AddScoped<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>();
+                .AddScoped<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>()
+                .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
         }
     }
 }

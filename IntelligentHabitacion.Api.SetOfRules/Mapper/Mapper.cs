@@ -60,7 +60,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 ZipCode = registerHomeJson.ZipCode
             };
         }
-        public MyFood MapperJsonToModel(RequestAddMyFoodJson model)
+        public MyFood MapperJsonToModel(RequestProductJson model)
         {
             return new MyFood
             {

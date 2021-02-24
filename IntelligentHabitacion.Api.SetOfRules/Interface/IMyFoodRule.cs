@@ -7,9 +7,9 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
     public interface IMyFoodRule
     {
         List<ResponseMyFoodJson> GetMyFoods();
-        string Create(RequestAddMyFoodJson requestMyFood);
+        string Create(RequestProductJson requestMyFood);
         void Delete(string encryptedId);
         void ChangeQuantity(decimal changeQuantity);
-        void Edit(RequestEditMyFoodJson editMyFood);
+        void Edit(RequestProductJson editMyFood);
     }
 }

@@ -1,54 +1,51 @@
 ﻿using AutoMapper;
-using HashidsNet;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.SharedValidators;
-using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood
+namespace IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood
 {
-    public class RegisterMyFoodUseCase : IRegisterMyFoodUseCase
+    public class UpdateMyFoodUseCase : IUpdateMyFoodUseCase
     {
-        private readonly IHashids _hashIds;
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
-        private readonly IMapper _mapper;
-        private readonly ILoggedUser _loggedUser;
-        private readonly IMyFoodsWriteOnlyRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILoggedUser _loggedUser;
+        private readonly IMyFoodsUpdateOnlyRepository _repository;
+        private readonly IMapper _mapper;
 
-        public RegisterMyFoodUseCase(IMyFoodsWriteOnlyRepository repository, IUnitOfWork unitOfWork,
-            ILoggedUser loggedUser, IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase,
-            IHashids hashIds)
+        public UpdateMyFoodUseCase(IMyFoodsUpdateOnlyRepository repository, IUnitOfWork unitOfWork, IntelligentHabitacionUseCase intelligentHabitacionUseCase,
+            ILoggedUser loggedUser, IMapper mapper)
         {
-            _mapper = mapper;
-            _loggedUser = loggedUser;
             _repository = repository;
             _unitOfWork = unitOfWork;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
-            _hashIds = hashIds;
+            _loggedUser = loggedUser;
+            _mapper = mapper;
         }
 
-        public async Task<ResponseOutput> Execute(RequestProductJson requestMyFood)
+        public async Task<ResponseOutput> Execute(long myFoodId, RequestProductJson editMyFood)
         {
-            Validate(requestMyFood);
+            Validate(editMyFood);
 
             var loggedUser = await _loggedUser.User();
 
-            var foodModel = _mapper.Map<MyFood>(requestMyFood);
-            foodModel.UserId = loggedUser.Id;
+            var model = await _repository.GetById_Update(myFoodId, loggedUser.Id);
+            if (model is null)
+                throw new ProductNotFoundException();
 
-            await _repository.Add(foodModel);
+            _mapper.Map(editMyFood, model);
+
+            _repository.Update(model);
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
             await _unitOfWork.Commit();
-
-            response.ResponseJson = _hashIds.EncodeLong(foodModel.Id);
 
             return response;
         }

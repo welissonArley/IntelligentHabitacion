@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
-    public class MyFoodsRepository : IMyFoodsReadOnlyRepository, IMyFoodsWriteOnlyRepository
+    public class MyFoodsRepository : IMyFoodsReadOnlyRepository, IMyFoodsWriteOnlyRepository, IMyFoodsUpdateOnlyRepository
     {
         private readonly IntelligentHabitacionContext _context;
 
@@ -43,6 +43,17 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             foodModel.Quantity = amount;
 
             _context.Update(foodModel);
+        }
+
+        public async Task<MyFood> GetById_Update(long myFoodId, long userId)
+        {
+            return await _context.MyFoods
+                .FirstOrDefaultAsync(c => c.UserId == userId && c.Active && c.Id == myFoodId);
+        }
+
+        public void Update(MyFood myFood)
+        {
+            _context.MyFoods.Update(myFood);
         }
     }
 }

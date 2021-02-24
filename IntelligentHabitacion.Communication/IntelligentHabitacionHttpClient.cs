@@ -285,7 +285,7 @@ namespace IntelligentHabitacion.Communication
         #endregion
 
         #region MyFood
-        public async Task<ResponseJson> AddMyFood(RequestAddMyFoodJson myFood, string token, string language = null)
+        public async Task<ResponseJson> AddMyFood(RequestProductJson myFood, string token, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/MyFood/AddFood", myFood, token: token, language: language);
             return new ResponseJson
@@ -295,9 +295,9 @@ namespace IntelligentHabitacion.Communication
             };
         }
 
-        public async Task<ResponseJson> EditMyFood(RequestEditMyFoodJson myFood, string token, string language = null)
+        public async Task<ResponseJson> EditMyFood(string myFoodId, RequestProductJson myFood, string token, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/MyFood/EditFood", myFood, token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/MyFood/EditFood/{myFoodId}", myFood, token: token, language: language);
             return new ResponseJson
             {
                 Token = GetToken(response)

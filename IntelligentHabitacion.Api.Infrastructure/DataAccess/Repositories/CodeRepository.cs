@@ -24,6 +24,11 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             DeleteAll(userId);
         }
 
+        public async Task<Code> GetByCode(string code)
+        {
+            return await _context.Codes.FirstOrDefaultAsync(c => c.Value.Equals(code));
+        }
+
         public async Task<Code> GetByUserId(long userId)
         {
             return await _context.Codes.FirstOrDefaultAsync(c => c.UserId == userId && c.Active);

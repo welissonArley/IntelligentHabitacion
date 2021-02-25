@@ -78,6 +78,7 @@ namespace IntelligentHabitacion.App.Services
         public async Task StopConnection()
         {
             await _connection.StopAsync();
+            await _connection.DisposeAsync();
         }
     }
 }

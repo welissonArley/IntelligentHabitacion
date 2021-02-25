@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
+using IntelligentHabitacion.Api.Application.UseCases.AddFriends;
 using IntelligentHabitacion.Api.Application.UseCases.ChangePassword;
 using IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProduct;
 using IntelligentHabitacion.Api.Application.UseCases.DeleteMyFood;
@@ -48,7 +49,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>()
                 .AddScoped<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>()
                 .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>()
-                .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>();
+                .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
+                .AddScoped<IAddFriendUseCase, AddFriendUseCase>();
         }
     }
 }

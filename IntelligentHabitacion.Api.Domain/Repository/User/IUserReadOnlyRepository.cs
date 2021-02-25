@@ -9,5 +9,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.User
         Task<Entity.User> GetByEmail(string email);
         Task<Entity.User> GetByEmailPassword(string email, string password);
         Task<IList<Entity.User>> GetByHome(long homeId);
+        Task<Entity.User> GetById(long userId);
     }
 }

@@ -57,8 +57,8 @@ namespace IntelligentHabitacion.App.Template.Informations
                 var component = ((MyFriendsComponent)bindable);
                 component.LabelFriendsName.Text = friendModel.Name;
                 component.LabelShortName.Text = Name.ShortNameConverter(friendModel.Name);
-                component.BackgroundShortName.BackgroundColor = Xamarin.Forms.Color.FromHex(friendModel.ProfileColor);
-                component.BackgroundCall.BackgroundColor = Xamarin.Forms.Color.FromHex(friendModel.ProfileColor);
+                component.BackgroundShortName.Fill = new SolidColorBrush(Xamarin.Forms.Color.FromHex(friendModel.ProfileColor));;
+                component.BackgroundCall.Fill = new SolidColorBrush(Xamarin.Forms.Color.FromHex(friendModel.ProfileColor));
                 component.LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, friendModel.JoinedOn.ToString(ResourceText.FORMAT_DATE));
             }
         }

@@ -14,6 +14,7 @@ using IntelligentHabitacion.Api.SetOfRules.Cryptography;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper;
 using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
 using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
+using IntelligentHabitacion.Api.WebSocket.AddFriend;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -169,7 +170,7 @@ namespace IntelligentHabitacion.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<WebSocketAddFriendHub>("/addNewFriend");
+                endpoints.MapHub<AddFriendHub>("/addNewFriend");
             });
         }
 

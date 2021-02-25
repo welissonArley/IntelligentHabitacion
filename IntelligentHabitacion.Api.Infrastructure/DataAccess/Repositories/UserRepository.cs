@@ -57,6 +57,16 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 .Where(c => c.HomeAssociationId.HasValue && c.HomeAssociation.HomeId == homeId).ToListAsync();
         }
 
+        public async Task<User> GetById(long userId)
+        {
+            return await _context.Users
+                .Include(c => c.Phonenumbers)
+                .Include(c => c.EmergencyContacts)
+                .Include(c => c.HomeAssociation).ThenInclude(c => c.Home).ThenInclude(c => c.Rooms)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == userId && c.Active);
+        }
+
         public async Task<User> GetById_Update(long id)
         {
             return await _context.Users

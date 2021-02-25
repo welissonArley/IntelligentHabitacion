@@ -44,7 +44,7 @@ namespace IntelligentHabitacion.Api.Services.WebSocket.AddFriend
                 Id = user.EncryptedId(),
                 Name = user.Name,
                 Phonenumbers = user.Phonenumbers.Select(c => new ResponsePhonenumberJson { Number = c.Number }).ToList(),
-                EmergencyContact = user.EmergecyContacts.Select(c => new ResponseEmergencyContactJson
+                EmergencyContacts = user.EmergecyContacts.Select(c => new ResponseEmergencyContactJson
                 { Name = c.Name, Relationship = c.Relationship, Phonenumber = c.Phonenumber }).ToList(),
                 ProfileColor = user.ProfileColor,
                 AdminId = admin.EncryptedId()

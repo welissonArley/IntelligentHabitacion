@@ -142,7 +142,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Mapper
                 Id = model.EncryptedId(),
                 Name = model.Name,
                 Phonenumbers = model.Phonenumbers.Select(c => MapperModelToJson(c)).ToList(),
-                EmergencyContact = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),
+                EmergencyContacts = model.EmergecyContacts.Select(c => MapperModelToJson(c)).ToList(),
                 ProfileColor = model.ProfileColor,
                 JoinedOn = model.HomeAssociation.JoinedOn,
                 DescriptionDateJoined = string.Format(ResourceText.DESCRIPTION_DATE_JOINED_THE_HOUSE, DateTimeController.DateToStringYearMonthAndDay(DateTime.Compare(requestersJoinedOn, model.HomeAssociation.JoinedOn) == 1 ? requestersJoinedOn : model.HomeAssociation.JoinedOn))

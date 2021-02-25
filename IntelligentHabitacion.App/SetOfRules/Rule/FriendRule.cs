@@ -83,15 +83,15 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Phonenumber2 = responseFriend.Phonenumbers.Count > 1 ? responseFriend.Phonenumbers[1].Number : null,
                 EmergencyContact1 = new EmergencyContactModel
                 {
-                    Name = responseFriend.EmergencyContact[0].Name,
-                    Relationship = responseFriend.EmergencyContact[0].Relationship,
-                    PhoneNumber = responseFriend.EmergencyContact[0].Phonenumber
+                    Name = responseFriend.EmergencyContacts[0].Name,
+                    Relationship = responseFriend.EmergencyContacts[0].Relationship,
+                    PhoneNumber = responseFriend.EmergencyContacts[0].Phonenumber
                 },
-                EmergencyContact2 = responseFriend.EmergencyContact.Count > 1 ? new EmergencyContactModel
+                EmergencyContact2 = responseFriend.EmergencyContacts.Count > 1 ? new EmergencyContactModel
                 {
-                    Name = responseFriend.EmergencyContact[1].Name,
-                    Relationship = responseFriend.EmergencyContact[1].Relationship,
-                    PhoneNumber = responseFriend.EmergencyContact[1].Phonenumber
+                    Name = responseFriend.EmergencyContacts[1].Name,
+                    Relationship = responseFriend.EmergencyContacts[1].Relationship,
+                    PhoneNumber = responseFriend.EmergencyContacts[1].Phonenumber
                 } : null
             };
         }
@@ -115,15 +115,15 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Phonenumber2 = c.Phonenumbers.Count > 1 ? c.Phonenumbers[1].Number : null,
                 EmergencyContact1 = new EmergencyContactModel
                 {
-                    Name = c.EmergencyContact[0].Name,
-                    Relationship = c.EmergencyContact[0].Relationship,
-                    PhoneNumber = c.EmergencyContact[0].Phonenumber
+                    Name = c.EmergencyContacts[0].Name,
+                    Relationship = c.EmergencyContacts[0].Relationship,
+                    PhoneNumber = c.EmergencyContacts[0].Phonenumber
                 },
-                EmergencyContact2 = c.EmergencyContact.Count > 1 ? new EmergencyContactModel
+                EmergencyContact2 = c.EmergencyContacts.Count > 1 ? new EmergencyContactModel
                 {
-                    Name = c.EmergencyContact[1].Name,
-                    Relationship = c.EmergencyContact[1].Relationship,
-                    PhoneNumber = c.EmergencyContact[1].Phonenumber
+                    Name = c.EmergencyContacts[1].Name,
+                    Relationship = c.EmergencyContacts[1].Relationship,
+                    PhoneNumber = c.EmergencyContacts[1].Phonenumber
                 } : null
             }).ToList();
         }

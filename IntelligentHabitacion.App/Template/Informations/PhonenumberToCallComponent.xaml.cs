@@ -58,7 +58,7 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private static void ProfileColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            ((PhonenumberToCallComponent)bindable).BackgroundIlustrationPhone.BackgroundColor = Color.FromHex(newValue.ToString());
+            ((PhonenumberToCallComponent)bindable).BackgroundIlustrationPhone.Fill = new SolidColorBrush(Color.FromHex(newValue.ToString()));
         }
         private static void PhoneNumberPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {

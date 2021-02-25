@@ -110,15 +110,15 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                         Phonenumber2 = json.Phonenumbers.Count > 1 ? json.Phonenumbers[1].Number : null,
                         EmergencyContact1 = new EmergencyContactModel
                         {
-                            Name = json.EmergencyContact[0].Name,
-                            Relationship = json.EmergencyContact[0].Relationship,
-                            PhoneNumber = json.EmergencyContact[0].Phonenumber
+                            Name = json.EmergencyContacts[0].Name,
+                            Relationship = json.EmergencyContacts[0].Relationship,
+                            PhoneNumber = json.EmergencyContacts[0].Phonenumber
                         },
-                        EmergencyContact2 = json.EmergencyContact.Count == 1 ? null : new EmergencyContactModel
+                        EmergencyContact2 = json.EmergencyContacts.Count == 1 ? null : new EmergencyContactModel
                         {
-                            Name = json.EmergencyContact[1].Name,
-                            Relationship = json.EmergencyContact[1].Relationship,
-                            PhoneNumber = json.EmergencyContact[1].Phonenumber
+                            Name = json.EmergencyContacts[1].Name,
+                            Relationship = json.EmergencyContacts[1].Relationship,
+                            PhoneNumber = json.EmergencyContacts[1].Phonenumber
                         }
                     };
                     _friendsList.Add(model);

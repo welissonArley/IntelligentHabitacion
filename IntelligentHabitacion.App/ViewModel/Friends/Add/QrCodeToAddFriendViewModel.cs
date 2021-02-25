@@ -50,7 +50,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
             _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, callbackTimeChanged);
-            Task.Run(() => Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, userPreferences.Token)));
+            
+            Device.BeginInvokeOnMainThread(async () => await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, userPreferences.Token));
         }
 
         private void OnCodeReceived(string code)
@@ -115,7 +116,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
 
         public void DisconnectFromSocket()
         {
-            Task.Run(async () => await _webSocketAddFriendConnection.StopConnection());
+            _webSocketAddFriendConnection.StopConnection().ConfigureAwait(false).GetAwaiter();
         }
     }
 }

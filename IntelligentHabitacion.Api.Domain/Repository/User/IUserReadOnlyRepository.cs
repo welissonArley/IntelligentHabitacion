@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Domain.Repository.User
 {
@@ -7,5 +8,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.User
         Task<bool> ExistActiveUserWithEmail(string email);
         Task<Entity.User> GetByEmail(string email);
         Task<Entity.User> GetByEmailPassword(string email, string password);
+        Task<IList<Entity.User>> GetByHome(long homeId);
     }
 }

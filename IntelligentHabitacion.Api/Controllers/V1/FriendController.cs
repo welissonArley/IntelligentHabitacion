@@ -1,10 +1,13 @@
-﻿using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
+using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -34,15 +37,17 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [Route("Friends")]
         [ProducesResponseType(typeof(List<ResponseFriendJson>), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public IActionResult Friends()
+        public async Task<IActionResult> Friends([FromServices] IGetMyFriendsUseCase useCase)
         {
             try
             {
-                var list = _friendRule.GetFriends();
-                if (list.Count == 0)
+                var response = await useCase.Execute();
+                WriteAutenticationHeader(response);
+
+                if (!((List<ResponseFriendJson>)response.ResponseJson).Any())
                     return NoContent();
 
-                return Ok(list);
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

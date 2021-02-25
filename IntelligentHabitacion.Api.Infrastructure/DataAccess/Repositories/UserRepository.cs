@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
@@ -43,6 +45,16 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         {
             return await _context.Users
                 .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Active);
+        }
+
+        public async Task<IList<User>> GetByHome(long homeId)
+        {
+            return await _context.Users
+                .AsNoTracking()
+                .Include(c => c.Phonenumbers)
+                .Include(c => c.EmergencyContacts)
+                .Include(c => c.HomeAssociation)
+                .Where(c => c.HomeAssociationId.HasValue && c.HomeAssociation.HomeId == homeId).ToListAsync();
         }
 
         public async Task<User> GetById_Update(long id)

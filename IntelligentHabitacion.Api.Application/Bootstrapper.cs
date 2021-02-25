@@ -7,6 +7,7 @@ using IntelligentHabitacion.Api.Application.UseCases.DeleteMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
+using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
 using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
@@ -46,7 +47,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>()
                 .AddScoped<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>()
                 .AddScoped<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>()
-                .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
+                .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>()
+                .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>();
         }
     }
 }

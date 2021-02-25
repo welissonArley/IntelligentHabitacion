@@ -1,37 +1,42 @@
-﻿using IntelligentHabitacion.Api.Repository.Interface;
-using IntelligentHabitacion.Api.Repository.Model;
-using IntelligentHabitacion.Api.Services.Interface;
+﻿using IntelligentHabitacion.Api.Domain.Entity;
+using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
+using IntelligentHabitacion.Api.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate
 {
     public class ProcessFoodsNextToDueDateUseCasse : IProcessFoodsNextToDueDate
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IMyFoodRepository _myFoodRepository;
+        private readonly IMyFoodsWriteOnlyRepository _myFoodWriteRepository;
+        private readonly IMyFoodsReadOnlyRepository _myFoodReadOnlyRepository;
         private readonly IPushNotificationService _pushNotificationService;
 
-        public ProcessFoodsNextToDueDateUseCasse(IUserRepository userRepository, IMyFoodRepository myFoodRepository,
+        public ProcessFoodsNextToDueDateUseCasse(IMyFoodsWriteOnlyRepository myFoodWriteRepository,
+            IMyFoodsReadOnlyRepository myFoodReadOnlyRepository,
             IPushNotificationService pushNotificationService)
         {
-            _userRepository = userRepository;
-            _myFoodRepository = myFoodRepository;
+            _myFoodWriteRepository = myFoodWriteRepository;
+            _myFoodReadOnlyRepository = myFoodReadOnlyRepository;
             _pushNotificationService = pushNotificationService;
         }
 
-        public void Execute()
+        public async Task Execute()
         {
-            var query = _myFoodRepository.GetExpiredOrCloseToDueDate().GroupBy(c => c.UserId);
+            var query = await _myFoodReadOnlyRepository.GetExpiredOrCloseToDueDate();
+
+            var group = query.GroupBy(c => c.UserId);
+
+            var users = query.Select(c => c.User).Distinct();
+
             if (query.Count() > 0)
             {
-                foreach (var result in query)
+                foreach (var result in group)
                 {
-                    var userId = result.Key;
-                    var user = _userRepository.GetById(userId);
                     var foodList = result.ToList();
-                    ProcessFoodList(user, foodList);
+                    ProcessFoodList(users.First(c => c.Id == result.Key), foodList);
                 }
             }
         }
@@ -143,7 +148,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDa
                                 { "en", $"Your {food.Name} product has been deleted: it has been expired for more than two days." },
                                 { "pt", $"Seu produto {food.Name} foi excluido: estava vencido há mais de dois dias." }
                             };
-                            _myFoodRepository.DeleteOnDatabase(food);
+                            _myFoodWriteRepository.Delete(food);
                         }
                         break;
                 }

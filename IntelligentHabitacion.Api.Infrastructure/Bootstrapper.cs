@@ -31,6 +31,15 @@ namespace IntelligentHabitacion.Api.Infrastructure
                     Email = configuration.GetValue<string>("Settings:SendEmailSettings:FromEmail")
                 });
             });
+            services.AddScoped<IPushNotificationService, OneSignalService>(options =>
+            {
+                return new OneSignalService(new Domain.ValueObjects.OneSignalConfig
+                {
+                    AppId = configuration.GetValue<string>("Settings:OneSignal:AppId"),
+                    Url = configuration.GetValue<string>("Settings:OneSignal:Url"),
+                    Key = configuration.GetValue<string>("Settings:OneSignal:Key")
+                });
+            });
 
             return services
                 .AddScoped<IUserWriteOnlyRepository, UserRepository>()

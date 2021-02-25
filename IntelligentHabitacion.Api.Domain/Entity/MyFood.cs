@@ -13,5 +13,6 @@ namespace IntelligentHabitacion.Api.Domain.Entity
         public Enums.Type Type { get; set; }
         public DateTime? DueDate { get; set; }
         public long UserId { get; set; }
+        public User User { get; set; }
     }
 }

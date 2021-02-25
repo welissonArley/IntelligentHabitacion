@@ -7,5 +7,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.MyFoods
     {
         Task<IList<Entity.MyFood>> GetByUserId(long userId);
         Task<Entity.MyFood> GetById(long myFoodId, long userId);
+        Task<IList<Entity.MyFood>> GetExpiredOrCloseToDueDate();
     }
 }

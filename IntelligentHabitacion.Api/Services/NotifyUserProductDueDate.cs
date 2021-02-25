@@ -50,7 +50,7 @@ namespace IntelligentHabitacion.Api.Services
 
                 if (!cancellationToken.IsCancellationRequested)
                 {
-                    Execute();
+                    await Execute();
                     await ScheduleJob(cancellationToken);
                 }
 
@@ -63,11 +63,11 @@ namespace IntelligentHabitacion.Api.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        private void Execute()
+        private async Task Execute()
         {
             using var scope = _serviceProvider.CreateScope();
             var useCase = scope.ServiceProvider.GetRequiredService<IProcessFoodsNextToDueDate>();
-            useCase.Execute();
+            await useCase.Execute();
         }
 
         /// <summary>

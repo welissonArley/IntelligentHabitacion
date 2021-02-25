@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -54,6 +55,19 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         public void Update(MyFood myFood)
         {
             _context.MyFoods.Update(myFood);
+        }
+
+        public async Task<IList<MyFood>> GetExpiredOrCloseToDueDate()
+        {
+            var today = DateTime.UtcNow.Date;
+
+            var list = await _context.MyFoods.AsNoTracking()
+                .Include(c => c.User)
+                .Where(c => c.DueDate.HasValue && c.DueDate.Value.Date <= today.Date.AddDays(7)).ToListAsync();
+
+            return list.Where(c => (c.DueDate.Value - today).TotalDays == 7
+                || (c.DueDate.Value - today).TotalDays == 3
+                || (c.DueDate.Value - today).TotalDays <= 1).ToList();
         }
     }
 }

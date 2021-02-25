@@ -160,6 +160,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The date must be less than {0}..
+        /// </summary>
+        public static string DATE_MUST_BE_LESS_THAN {
+            get {
+                return ResourceManager.GetString("DATE_MUST_BE_LESS_THAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The deadline for payment of rent must be between days 1 and 28..
         /// </summary>
         public static string DEADLINE_FOR_PAYMENT_OF_RENT_INVALID {

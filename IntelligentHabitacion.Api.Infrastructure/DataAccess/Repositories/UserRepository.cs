@@ -72,6 +72,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             return await _context.Users
                 .Include(c => c.Phonenumbers)
                 .Include(c => c.EmergencyContacts)
+                .Include(c => c.HomeAssociation).ThenInclude(c => c.Home)
                 .FirstOrDefaultAsync(c => c.Id == id && c.Active);
         }
 

@@ -150,6 +150,9 @@
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>A senha atual é inválida.</value>
   </data>
+  <data name="DATE_MUST_BE_LESS_THAN" xml:space="preserve">
+    <value>A data deve ser menor que {0}.</value>
+  </data>
   <data name="DEADLINE_FOR_PAYMENT_OF_RENT_INVALID" xml:space="preserve">
     <value>A data limite para o pagamento do aluguel deve estar entre os dias 1 e 28.</value>
   </data>

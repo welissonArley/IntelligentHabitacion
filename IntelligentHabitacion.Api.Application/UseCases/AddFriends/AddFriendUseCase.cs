@@ -9,7 +9,9 @@ using IntelligentHabitacion.Api.Domain.ValueObjects;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
+using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -43,6 +45,9 @@ namespace IntelligentHabitacion.Api.Application.UseCases.AddFriends
             if (requestApprove.MonthlyRent <= 0)
                 throw new MonthlyRentInvalidException();
 
+            if (DateTime.Compare(requestApprove.JoinedOn.Date, DateTime.UtcNow.Date) > 0)
+                throw new InvalidDateException(DateTime.UtcNow);
+
             var admin = await _userRepository.GetById(_hashIds.DecodeLong(adminId).First());
 
             var friend = await _userUpdateRepository.GetById_Update(_hashIds.DecodeLong(friendId).First());
@@ -51,7 +56,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.AddFriends
             {
                 HomeId = admin.HomeAssociation.HomeId,
                 MonthlyRent = requestApprove.MonthlyRent,
-                JoinedOn = requestApprove.JoinedOn
+                JoinedOn = requestApprove.JoinedOn.Date
             };
 
             _userUpdateRepository.Update(friend);

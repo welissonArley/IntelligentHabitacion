@@ -1,4 +1,6 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
+﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHome;
+using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
+using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
@@ -58,20 +60,27 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will change the date when the friend joined at home
         /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("ChangeDateJoinHome")]
+        [Route("ChangeDateJoinHome/{id:hashids}")]
         [ProducesResponseType(typeof(ResponseFriendJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult ChangeDateJoinHome(RequestChangeDateJoinHomeJson request)
+        public async Task<IActionResult> ChangeDateJoinHome(
+            [FromServices] IChangeDateFriendJoinHomeUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+            [FromBody] RequestChangeDateJoinHomeJson request)
         {
             try
             {
                 VerifyParameters(request);
-                var response = _friendRule.ChangeDateJoinHome(request);
 
-                return Ok(response);
+                var response = await useCase.Execute(id, request);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

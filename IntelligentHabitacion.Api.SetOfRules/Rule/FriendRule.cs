@@ -51,7 +51,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
         public ResponseFriendJson ChangeDateJoinHome(RequestChangeDateJoinHomeJson request)
         {
             var loggedUser = _loggedUser.User();
-            var friend = _userRepository.GetById(new User().DecryptedId(request.FriendId));
+            var friend = _userRepository.GetById(new User().DecryptedId(""));
 
             if (friend == null)
                 throw new FriendNotFoundException();

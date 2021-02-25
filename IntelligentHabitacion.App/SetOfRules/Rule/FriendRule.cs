@@ -62,9 +62,8 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task<FriendModel> ChangeDateJoinOn(string friendId, DateTime date)
         {
-            var response = await _httpClient.ChangeDateJoinHome(new RequestChangeDateJoinHomeJson
+            var response = await _httpClient.ChangeDateJoinHome(friendId, new RequestChangeDateJoinHomeJson
             {
-                FriendId = friendId,
                 JoinOn = date
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 

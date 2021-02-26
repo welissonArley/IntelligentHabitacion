@@ -2,7 +2,6 @@
 using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Filter;
-using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -18,17 +17,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class HomeController : BaseController
     {
-        private readonly IHomeRule _homeRule;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="homeRule"></param>
-        public HomeController(IHomeRule homeRule)
-        {
-            _homeRule = homeRule;
-        }
-
         /// <summary>
         /// This function verify if the homes's informations is correct and save the informations on database
         /// </summary>

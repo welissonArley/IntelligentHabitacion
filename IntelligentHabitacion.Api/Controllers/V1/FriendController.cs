@@ -5,7 +5,6 @@ using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
 using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
-using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -23,17 +22,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class FriendController : BaseController
     {
-        private readonly IFriendRule _friendRule;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="friendRule"></param>
-        public FriendController(IFriendRule friendRule)
-        {
-            _friendRule = friendRule;
-        }
-
         /// <summary>
         /// This function will return the list of friends
         /// </summary>

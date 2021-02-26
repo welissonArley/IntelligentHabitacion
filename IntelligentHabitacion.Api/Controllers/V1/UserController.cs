@@ -4,7 +4,6 @@ using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using IntelligentHabitacion.Api.Filter;
-using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -21,17 +20,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class UserController : BaseController
     {
-        private readonly IUserRule _userRule;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userRule"></param>
-        public UserController(IUserRule userRule)
-        {
-            _userRule = userRule;
-        }
-
         /// <summary>
         /// This function verify if the user's informations is correct and save the informations on database
         /// </summary>

@@ -5,7 +5,6 @@ using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
-using IntelligentHabitacion.Api.SetOfRules.Interface;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -24,16 +23,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
     public class MyFoodController : BaseController
     {
-        private readonly IMyFoodRule _myFoodRule;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public MyFoodController(IMyFoodRule myFoodRule)
-        {
-            _myFoodRule = myFoodRule;
-        }
-
         /// <summary>
         /// This function will return the list of foods
         /// </summary>

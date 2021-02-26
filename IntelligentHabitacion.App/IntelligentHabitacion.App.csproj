@@ -325,6 +325,5 @@
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
-    <ProjectReference Include="..\IntelligentHabitacion.Validators\IntelligentHabitacion.Validators.csproj" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,8 @@
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome;
+using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Communication;
-using IntelligentHabitacion.Validators.Validator;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule

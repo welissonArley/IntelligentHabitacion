@@ -1,10 +1,10 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
-using IntelligentHabitacion.Validators.Validator;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule

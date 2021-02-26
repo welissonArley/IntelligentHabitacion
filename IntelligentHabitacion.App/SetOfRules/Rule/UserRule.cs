@@ -2,11 +2,11 @@
 using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
-using IntelligentHabitacion.Validators.Validator;
 using System.Linq;
 using System.Threading.Tasks;
 

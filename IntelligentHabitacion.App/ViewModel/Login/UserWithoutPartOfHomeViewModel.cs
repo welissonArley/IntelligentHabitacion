@@ -87,7 +87,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                         await navigation.PushPopupAsync(new OperationErrorModal(ResourceText.TITLE_DECLINED));
                         await Task.Delay(1100);
                         await navigation.PopAllPopupAsync();
-                        DisconnectFromSocket();
+                        await DisconnectFromSocket();
                     });
                     var callbackApproved = new Command(async () =>
                     {
@@ -95,7 +95,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                         _userPreferences.UserIsPartOfOneHome(true);
                         Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
                         await Task.Delay(1100);
-                        DisconnectFromSocket();
+                        await DisconnectFromSocket();
                         await navigation.PopAllPopupAsync();
                     });
                     await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, _userPreferences.Token, result);
@@ -110,15 +110,15 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         private async Task HandleException(string message)
         {
-            DisconnectFromSocket();
+            await DisconnectFromSocket();
             var navigation = Resolver.Resolve<INavigation>();
             await navigation.PopAllPopupAsync();
             await navigation.PushPopupAsync(new ErrorModal(message));
         }
 
-        public void DisconnectFromSocket()
+        public async Task DisconnectFromSocket()
         {
-            Task.Run(async () => await _webSocketAddFriendConnection.StopConnection());
+            await _webSocketAddFriendConnection.StopConnection().ConfigureAwait(false);
         }
 
         private async Task OnCountrySelectedAsync(CountryModel value)

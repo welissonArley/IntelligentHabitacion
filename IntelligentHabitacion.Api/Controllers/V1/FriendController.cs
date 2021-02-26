@@ -194,18 +194,25 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will remove the friend
         /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("RemoveFriend")]
+        [Route("RemoveFriend/{id:hashids}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult RemoveFriend([FromBody] RequestAdminActionJson request)
+        public async Task<IActionResult> RemoveFriend(
+            [FromServices] IRemoveFriendUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+            [FromBody] RequestAdminActionJson request)
         {
             try
             {
                 VerifyParameters(request);
-                //_friendRule.RemoveFriend(request);
+
+                var response = await useCase.Execute(id, request);
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }

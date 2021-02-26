@@ -56,10 +56,13 @@ namespace IntelligentHabitacion.Api.Application.UseCases.AddFriends
             {
                 HomeId = admin.HomeAssociation.HomeId,
                 MonthlyRent = requestApprove.MonthlyRent,
-                JoinedOn = requestApprove.JoinedOn.Date
+                JoinedOn = requestApprove.JoinedOn.Date,
+                UserIdentity = friend.Id
             };
 
             _userUpdateRepository.Update(friend);
+
+            _codeWriteRepository.DeleteAllFromTheUser(admin.Id);
 
             await _unitOfWork.Commit();
         }

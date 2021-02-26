@@ -23,7 +23,8 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             userToBeAdministrator.HomeAssociation = new HomeAssociation
             {
                 JoinedOn = DateTime.UtcNow,
-                Home = home
+                Home = home,
+                UserIdentity = administrator.Id
             };
 
             _context.Users.Update(userToBeAdministrator);

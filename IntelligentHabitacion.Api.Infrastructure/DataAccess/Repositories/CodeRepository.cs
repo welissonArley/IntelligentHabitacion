@@ -38,7 +38,8 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         {
             var codes = _context.Codes.Where(c => c.UserId == userId);
 
-            _context.Codes.RemoveRange(codes);
+            if(codes.Any())
+                _context.Codes.RemoveRange(codes);
         }
     }
 }

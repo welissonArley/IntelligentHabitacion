@@ -23,7 +23,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3">
-            <header:CenterCircleWithTextComponent CircleColor="{Binding Model.ProfileColor}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CenterCircleWithTextComponent>
+            <header:CenterCircleWithTextComponent Margin="0,30,0,0" CircleColor="{Binding Model.ProfileColor}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CenterCircleWithTextComponent>
             <Label Margin="0,20,0,0" Text="{Binding Model.Name}" FontSize="24" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></Label>
             
             <StackLayout VerticalOptions="FillAndExpand" Margin="0,50,0,0">

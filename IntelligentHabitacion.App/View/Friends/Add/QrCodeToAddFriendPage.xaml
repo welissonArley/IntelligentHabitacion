@@ -23,7 +23,7 @@
                 <ActivityIndicator Color="{x:StaticResource GreenDefault}" IsRunning="True"></ActivityIndicator>
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_GENERATING_CODE}" Style="{x:StaticResource LabelMedium}"></Label>
             </StackLayout>
-            <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="-3">
+            <StackLayout Margin="0,30,0,0" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="-3">
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding ReceivedCode}" Value="true">
                         <Setter Property="IsVisible" Value="True"></Setter>

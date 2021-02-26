@@ -13,5 +13,6 @@ namespace IntelligentHabitacion.Api.Domain.Entity
         public DateTime JoinedOn { get; set; }
         public DateTime? ExitOn { get; set; }
         public decimal MonthlyRent { get; set; }
+        public long UserIdentity { get; set; }
     }
 }

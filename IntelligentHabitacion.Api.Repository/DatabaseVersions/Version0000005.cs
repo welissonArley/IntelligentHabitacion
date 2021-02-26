@@ -12,7 +12,8 @@ namespace IntelligentHabitacion.Api.Repository.DatabaseVersions
                 .AddColumn("PushNotificationId").AsString(2000).NotNullable();
 
             Alter.Table("HomeAssociation")
-                .AddColumn("ExitOn").AsDateTime().Nullable();
+                .AddColumn("ExitOn").AsDateTime().Nullable()
+                .AddColumn("UserIdentity").AsInt64().NotNullable();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
+using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
@@ -120,11 +121,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [Route("RequestCodeChangeAdministrator")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult RequestCodeChangeAdministrator()
+        public async Task<IActionResult> RequestCodeChangeAdministrator([FromServices] IRequestCodeChangeAdministratorUseCase useCase)
         {
             try
             {
-                _friendRule.RequestCodeChangeAdministrator();
+                var response = await useCase.Execute();
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }

@@ -16,6 +16,7 @@ using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
+using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
@@ -52,7 +53,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>()
                 .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
                 .AddScoped<IAddFriendUseCase, AddFriendUseCase>()
-                .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>();
+                .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
+                .AddScoped<IRequestCodeChangeAdministratorUseCase, RequestCodeChangeAdministratorUseCase>();
         }
     }
 }

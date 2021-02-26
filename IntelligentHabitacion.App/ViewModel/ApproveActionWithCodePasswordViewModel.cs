@@ -24,12 +24,11 @@ namespace IntelligentHabitacion.App.ViewModel
         public ICommand FunctionCallbackCommand { get; set; }
 
         private readonly IFriendRule _friendRule;
-        private readonly IHomeRule _homeRule;
 
-        public ApproveActionWithCodePasswordViewModel(IFriendRule friendRule, IHomeRule homeRule)
+        public ApproveActionWithCodePasswordViewModel(IFriendRule friendRule)
         {
             _friendRule = friendRule;
-            _homeRule = homeRule;
+
             ConfirmCommand = new Command(async () =>
             {
                 await Confirm();
@@ -58,8 +57,8 @@ namespace IntelligentHabitacion.App.ViewModel
                         break;
                     case Action.DeleteHome:
                         {
-                            await _homeRule.Delete(ConfirmationCode, Password);
-                            FunctionCallbackCommand?.Execute(null);
+                            //await _homeRule.Delete(ConfirmationCode, Password);
+                            //FunctionCallbackCommand?.Execute(null);
                         }
                         break;
                 }

@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.Api.Repository.Cryptography;
-using IntelligentHabitacion.Useful;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Repository.Model

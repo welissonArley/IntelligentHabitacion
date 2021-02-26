@@ -4,7 +4,6 @@ using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.User.Update;
-using IntelligentHabitacion.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;

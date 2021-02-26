@@ -1,5 +1,4 @@
-﻿using IntelligentHabitacion.Useful;
-using Rg.Plugins.Popup.Extensions;
+﻿using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -19,9 +18,9 @@ namespace IntelligentHabitacion.App.View.Modal
             InitializeComponent();
 
             _callbackPhonenumberSelected = callbackPhonenumberSelected;
-            ShortName.Text = Name.ShortNameConverter(name);
-            BackgroundShortName.BackgroundColor = Xamarin.Forms.Color.FromHex(color);
-            BackgroundCallTo.BackgroundColor = Xamarin.Forms.Color.FromHex(color);
+            ShortName.Text = new Useful.ShortNameConverter().Converter(name);
+            BackgroundShortName.BackgroundColor = Color.FromHex(color);
+            BackgroundCallTo.BackgroundColor = Color.FromHex(color);
             LabelBackgroundCallTo.Text = string.Format(ResourceText.TITLE_CALL_TO_TWOPOINTS, name);
             NumbersList.ItemsSource = new ObservableCollection<NumbersContact>
             {

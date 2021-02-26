@@ -1,7 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
-using IntelligentHabitacion.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Threading.Tasks;
 using System.Windows.Input;

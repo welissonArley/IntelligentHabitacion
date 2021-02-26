@@ -1,5 +1,4 @@
-﻿using IntelligentHabitacion.Useful;
-using System;
+﻿using System;
 using System.Globalization;
 using Xamarin.Forms;
 
@@ -9,7 +8,7 @@ namespace IntelligentHabitacion.App.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return Name.ShortNameConverter(value.ToString());
+            return new Useful.ShortNameConverter().Converter(value.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

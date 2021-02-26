@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
-    <ProjectReference Include="..\IntelligentHabitacion.Useful\IntelligentHabitacion.Useful.csproj" />
   </ItemGroup>
 
 </Project>

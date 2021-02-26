@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.Useful;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -56,9 +55,9 @@ namespace IntelligentHabitacion.App.Template.Informations
                 var friendModel = (FriendModel)newValue;
                 var component = ((MyFriendsComponent)bindable);
                 component.LabelFriendsName.Text = friendModel.Name;
-                component.LabelShortName.Text = Name.ShortNameConverter(friendModel.Name);
-                component.BackgroundShortName.Fill = new SolidColorBrush(Xamarin.Forms.Color.FromHex(friendModel.ProfileColor));;
-                component.BackgroundCall.Fill = new SolidColorBrush(Xamarin.Forms.Color.FromHex(friendModel.ProfileColor));
+                component.LabelShortName.Text = new Useful.ShortNameConverter().Converter(friendModel.Name);
+                component.BackgroundShortName.Fill = new SolidColorBrush(Color.FromHex(friendModel.ProfileColor));;
+                component.BackgroundCall.Fill = new SolidColorBrush(Color.FromHex(friendModel.ProfileColor));
                 component.LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, friendModel.JoinedOn.ToString(ResourceText.FORMAT_DATE));
             }
         }
@@ -81,9 +80,9 @@ namespace IntelligentHabitacion.App.Template.Informations
         public void Refresh()
         {
             LabelFriendsName.Text = Friend.Name;
-            LabelShortName.Text = Name.ShortNameConverter(Friend.Name);
-            BackgroundShortName.Fill = new SolidColorBrush(Xamarin.Forms.Color.FromHex(Friend.ProfileColor));
-            BackgroundCall.Fill = new SolidColorBrush(Xamarin.Forms.Color.FromHex(Friend.ProfileColor));
+            LabelShortName.Text = new Useful.ShortNameConverter().Converter(Friend.Name);
+            BackgroundShortName.Fill = new SolidColorBrush(Color.FromHex(Friend.ProfileColor));
+            BackgroundCall.Fill = new SolidColorBrush(Color.FromHex(Friend.ProfileColor));
             LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, Friend.JoinedOn.ToString(ResourceText.FORMAT_DATE));
         }
     }

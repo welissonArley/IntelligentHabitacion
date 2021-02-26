@@ -2,7 +2,6 @@
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.ViewModel.Login;
-using IntelligentHabitacion.Useful;
 using Rg.Plugins.Popup.Extensions;
 using System.Linq;
 using System.Threading.Tasks;

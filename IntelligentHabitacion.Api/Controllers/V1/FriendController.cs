@@ -1,6 +1,8 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHome;
+﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
+using IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
-using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
+using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
+using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.SetOfRules.Interface;
@@ -11,7 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -93,18 +94,21 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will notify one friend that one order has arrived
         /// </summary>
-        /// <param name="friendId"></param>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("NotifyOrderReceived")]
+        [Route("NotifyOrderReceived/{id:hashids}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public IActionResult NotifyOrderReceived(string friendId)
+        public async Task<IActionResult> NotifyOrderReceived(
+            [FromServices] INotifyOrderReceivedUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
         {
             try
             {
-                VerifyParameters(friendId);
-                _friendRule.NotifyOrderHasArrived(friendId);
+                var response = await useCase.Execute(id);
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }

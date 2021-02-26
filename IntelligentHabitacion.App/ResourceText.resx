@@ -204,6 +204,9 @@
   <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
     <value>Below you will find information about your tasks performed each month :)</value>
   </data>
+  <data name="DESCRIPTION_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
+    <value>We will send a notification to let {0} know that an order has arrived. Do you confirm this?</value>
+  </data>
   <data name="DESCRIPTION_ROOM_CLEANED" xml:space="preserve">
     <value>Your friends will receive a notification and can evaluate your work. Do you confirm this?</value>
   </data>

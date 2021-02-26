@@ -239,7 +239,7 @@ namespace IntelligentHabitacion.Communication
         }
         public async Task<ResponseJson> NotifyFriendOrderHasArrived(string friendId, string token, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/NotifyOrderReceived?friendId={friendId}", token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/NotifyOrderReceived/{friendId}", token: token, language: language);
             return new ResponseJson
             {
                 Response = null,

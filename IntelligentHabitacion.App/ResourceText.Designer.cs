@@ -322,6 +322,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We will send a notification to let {0} know that an order has arrived. Do you confirm this?.
+        /// </summary>
+        internal static string DESCRIPTION_NOTIFY_ORDER_ARRIVED {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_NOTIFY_ORDER_ARRIVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your friends will receive a notification and can evaluate your work. Do you confirm this?.
         /// </summary>
         internal static string DESCRIPTION_ROOM_CLEANED {

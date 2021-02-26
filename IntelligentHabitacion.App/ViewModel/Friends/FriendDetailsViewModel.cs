@@ -144,7 +144,8 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             try
             {
                 await ShowLoading();
-                await _friendRule.NotifyFriendOrderHasArrived(Model.Id);
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new ConfirmAction(ResourceText.TITLE_NOTIFY_ORDER_ARRIVED, string.Format(ResourceText.DESCRIPTION_NOTIFY_ORDER_ARRIVED, Model.Name), View.Modal.Type.Green, new Command(async () => { await _friendRule.NotifyFriendOrderHasArrived(Model.Id); })));
                 HideLoading();
             }
             catch (System.Exception exeption)

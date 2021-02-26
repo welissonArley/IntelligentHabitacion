@@ -1,8 +1,10 @@
-﻿using IntelligentHabitacion.Api.Application;
+﻿using FluentMigrator.Runner;
+using IntelligentHabitacion.Api.Application;
 using IntelligentHabitacion.Api.Configuration.Swagger;
 using IntelligentHabitacion.Api.Configuration.Token;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Infrastructure;
+using IntelligentHabitacion.Api.Infrastructure.Migrations;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Services;
 using IntelligentHabitacion.Api.WebSocket.AddFriend;
@@ -100,6 +102,12 @@ namespace IntelligentHabitacion.Api
             services.AddScoped<AuthenticationUserAttribute>();
             services.AddScoped<AuthenticationUserIsPartOfHomeAttribute>();
             services.AddScoped<AuthenticationUserIsAdminAttribute>();
+
+            services.AddFluentMigratorCore()
+                .ConfigureRunner(c => c
+                    .AddMySql5()
+                    .WithGlobalConnectionString($"{Configuration.GetConnectionString("Connection")}Database={Configuration.GetConnectionString("DatabaseName")};")
+                    .ScanIn(Assembly.Load("IntelligentHabitacion.Api.Infrastructure")).For.All());
         }
 
         /// <summary>
@@ -134,6 +142,10 @@ namespace IntelligentHabitacion.Api
                 endpoints.MapControllers();
                 endpoints.MapHub<AddFriendHub>("/addNewFriend");
             });
+
+            Database.EnsureDatabase(Configuration.GetConnectionString("Connection"), Configuration.GetConnectionString("DatabaseName"));
+
+            app.Migrate();
         }
     }
 }

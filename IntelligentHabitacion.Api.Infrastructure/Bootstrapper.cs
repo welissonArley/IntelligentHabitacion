@@ -19,7 +19,7 @@ namespace IntelligentHabitacion.Api.Infrastructure
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<IntelligentHabitacionContext>(options =>
-                options.UseMySql(configuration.GetValue<string>("Settings:DefaultConnection")));
+                options.UseMySql($"{configuration.GetConnectionString("Connection")}Database={configuration.GetConnectionString("DatabaseName")};"));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ISendEmail, SendEmail>(options =>

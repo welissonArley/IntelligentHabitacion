@@ -4,16 +4,7 @@ using IntelligentHabitacion.Api.Configuration.Token;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Infrastructure;
 using IntelligentHabitacion.Api.Middleware;
-using IntelligentHabitacion.Api.Repository.DatabaseInformations;
 using IntelligentHabitacion.Api.Services;
-using IntelligentHabitacion.Api.Services.Interface;
-using IntelligentHabitacion.Api.Services.JWT;
-using IntelligentHabitacion.Api.Services.PushNotification;
-using IntelligentHabitacion.Api.Services.WebSocket.AddFriend;
-using IntelligentHabitacion.Api.SetOfRules.Cryptography;
-using IntelligentHabitacion.Api.SetOfRules.EmailHelper;
-using IntelligentHabitacion.Api.SetOfRules.EmailHelper.Interface;
-using IntelligentHabitacion.Api.SetOfRules.LoggedUser;
 using IntelligentHabitacion.Api.WebSocket.AddFriend;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,17 +29,14 @@ namespace IntelligentHabitacion.Api
         /// 
         /// </summary>
         public IConfiguration Configuration { get; }
-        private AppSettingsManager _appSettingsManager { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="configuration"></param>
-        /// <param name="environment"></param>
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _appSettingsManager = new AppSettingsManager(environment);
         }
 
         /// <summary>
@@ -109,35 +97,9 @@ namespace IntelligentHabitacion.Api
             services.AddHttpContextAccessor();
             services.AddHostedService<NotifyUserProductDueDate>();
 
-
-
-
-            RegisterSetOfRules(services);
-            RegisterRepository(services);
-
-            services.AddScoped<ICryptographyPassword, CryptographyPassword>(ServiceProvider =>
-            {
-                return new CryptographyPassword(_appSettingsManager.KeyAdditionalCryptography());
-            });
-
-            
-
             services.AddScoped<AuthenticationUserAttribute>();
             services.AddScoped<AuthenticationUserIsPartOfHomeAttribute>();
             services.AddScoped<AuthenticationUserIsAdminAttribute>();
-            services.AddScoped<ILoggedUser, LoggedUser>();
-            services.AddScoped<IAddFriendRule, AddFriendRule>();
-            services.AddScoped<IEmailHelper, EmailHelper>();
-            services.AddScoped<ITokenController, TokenController>(ServiceProvider =>
-            {
-                return new TokenController(_appSettingsManager.ExpirationTimeMinutes());
-            });
-            services.AddSingleton<IPushNotificationService, OneSignalService>(ServiceProvider =>
-            {
-                return new OneSignalService(_appSettingsManager.OneSignalAppId(), _appSettingsManager.OneSignalApiKey());
-            });
-
-            
         }
 
         /// <summary>
@@ -172,35 +134,6 @@ namespace IntelligentHabitacion.Api
                 endpoints.MapControllers();
                 endpoints.MapHub<AddFriendHub>("/addNewFriend");
             });
-        }
-
-        private void RegisterSetOfRules(IServiceCollection services)
-        {
-            var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.SetOfRules").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
-                    type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Rule"))).ToList();
-
-            foreach (var classRule in listClassIntelligentHabitacionRules)
-            {
-                var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Rule"));
-                services.AddScoped(interfaceToRegister, classRule);
-            }
-        }
-
-        private void RegisterRepository(IServiceCollection services)
-        {
-            services.AddScoped<IDatabaseInformations, DatabaseInformations>(ServiceProvider =>
-            {
-                return new DatabaseInformations(_appSettingsManager.ConnectionString(), DatabaseType.MySql);
-            });
-
-            var listClassIntelligentHabitacionRules = Assembly.Load("IntelligentHabitacion.Api.Repository").GetExportedTypes().Where(type => !type.IsAbstract && !type.IsGenericType &&
-                    type.GetInterfaces().Any(interfaces => !string.IsNullOrEmpty(interfaces.Name) && interfaces.Name.StartsWith("I") && interfaces.Name.EndsWith("Repository") && !interfaces.Name.Equals("IBaseRepository") && !interfaces.Name.Equals("IDatabaseTypeRepository"))).ToList();
-
-            foreach (var classRule in listClassIntelligentHabitacionRules)
-            {
-                var interfaceToRegister = classRule.GetInterfaces().Single(i => i.Name.StartsWith("I") && i.Name.EndsWith("Repository"));
-                services.AddTransient(interfaceToRegister, classRule);
-            }
         }
     }
 }

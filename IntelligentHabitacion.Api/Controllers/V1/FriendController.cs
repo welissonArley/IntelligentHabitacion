@@ -139,18 +139,25 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <summary>
         /// This function will change the house's Administrator
         /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("ChangeAdministrator")]
+        [Route("ChangeAdministrator/{id:hashids}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult ChangeAdministrator(RequestAdminActionsOnFriendJson request)
+        public async Task<IActionResult> ChangeAdministrator(
+            [FromServices] IChangeAdministratorUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+            [FromBody] RequestAdminActionJson request)
         {
             try
             {
                 VerifyParameters(request);
-                _friendRule.ChangeAdministrator(request);
+
+                var response = await useCase.Execute(id, request);
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }
@@ -191,12 +198,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [Route("RemoveFriend")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult RemoveFriend(RequestAdminActionsOnFriendJson request)
+        public IActionResult RemoveFriend([FromBody] RequestAdminActionJson request)
         {
             try
             {
                 VerifyParameters(request);
-                _friendRule.RemoveFriend(request);
+                //_friendRule.RemoveFriend(request);
 
                 return Ok();
             }

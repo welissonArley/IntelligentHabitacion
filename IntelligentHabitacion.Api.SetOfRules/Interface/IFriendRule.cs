@@ -9,9 +9,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Interface
         List<ResponseFriendJson> GetFriends();
         ResponseFriendJson ChangeDateJoinHome(RequestChangeDateJoinHomeJson request);
         void NotifyOrderHasArrived(string friendId);
-        void ChangeAdministrator(RequestAdminActionsOnFriendJson request);
         void RequestCodeChangeAdministrator();
         void RequestCodeRemoveFriend();
-        void RemoveFriend(RequestAdminActionsOnFriendJson request);
     }
 }

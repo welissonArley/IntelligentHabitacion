@@ -94,32 +94,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _pushNotificationService.Send(titles, messages, new List<string> { friend.PushNotificationId }, data);
         }
 
-        public void ChangeAdministrator(RequestAdminActionsOnFriendJson request)
-        {
-            var friendIdDecrypted = new User().DecryptedId(request.FriendId);
-            var friend = _userRepository.GetById(friendIdDecrypted);
-
-            ValidateActionOnFriend(friend, request, CodeType.ChangeAdministrator);
-
-            friend.HomeAssociation.Home.AdministratorId = friendIdDecrypted;
-            var pushNotificationId = friend.PushNotificationId;
-            _userRepository.Update(friend);
-
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "Congratulations new Admin 🦁" },
-                { "pt", "Parabéns novo Admin 🦁" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", "You are now the new administrator. Good luck 🏁" },
-                { "pt", "Você agora é o novo Administrador. Boa sorte 🏁" }
-            };
-            var data = new Dictionary<string, string> { { EnumNotifications.NewAdmin, "1" } };
-
-            _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
-        }
-
         public void RequestCodeChangeAdministrator()
         {
             var loggedUser = _loggedUser.User();
@@ -136,7 +110,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             _emailHelper.RemoveFriend(loggedUser.Email, codeRandom, loggedUser.Name);
         }
 
-        public void RemoveFriend(RequestAdminActionsOnFriendJson request)
+        /*public void RemoveFriend(RequestAdminActionsOnFriendJson request)
         {
             var friendIdDecrypted = new User().DecryptedId(request.FriendId);
             var friend = _userRepository.GetById(friendIdDecrypted);
@@ -162,7 +136,7 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             var data = new Dictionary<string, string> { { EnumNotifications.RemovedFromHome, "1" } };
 
             _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
-        }
+        }*/
 
         private string CreateCode(CodeType codeType, long userId)
         {
@@ -182,29 +156,6 @@ namespace IntelligentHabitacion.Api.SetOfRules.Rule
             });
 
             return codeRandom;
-        }
-        private void ValidateActionOnFriend(User friend, RequestAdminActionsOnFriendJson request, CodeType codeType)
-        {
-            var loggedUser = _loggedUser.User();
-
-            if (friend == null)
-                throw new FriendNotFoundException();
-
-            if (friend.HomeAssociation == null || friend.HomeAssociation.HomeId != loggedUser.HomeAssociation.HomeId)
-                throw new YouCannotPerformThisActionException();
-
-            if (!loggedUser.Password.Equals(_cryptography.Encrypt(request.Password)))
-                throw new CodeOrPasswordInvalidException();
-
-            var userCode = codeType == CodeType.ChangeAdministrator ? _codeRepository.GetByUserChangeAdministrator(loggedUser.Id) : _codeRepository.GetByUserRemoveFriend(loggedUser.Id);
-
-            if (userCode == null || !userCode.Value.Equals(request.Code.ToUpper()))
-                throw new CodeOrPasswordInvalidException();
-
-            if (userCode.CreateDate.AddMinutes(10) < DateTimeController.DateTimeNow())
-                throw new ExpiredCodeException();
-
-            _codeRepository.DeleteOnDatabase(userCode);
         }
     }
 }

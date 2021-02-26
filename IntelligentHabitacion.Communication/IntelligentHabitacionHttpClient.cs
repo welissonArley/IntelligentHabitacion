@@ -255,9 +255,9 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
-        public async Task<ResponseJson> ChangeAdministrator(RequestAdminActionsOnFriendJson request, string token, string language = null)
+        public async Task<ResponseJson> ChangeAdministrator(string friendId, RequestAdminActionJson request, string token, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/ChangeAdministrator", request, token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/ChangeAdministrator/{friendId}", request, token: token, language: language);
             return new ResponseJson
             {
                 Response = null,
@@ -273,9 +273,9 @@ namespace IntelligentHabitacion.Communication
                 Token = GetToken(response)
             };
         }
-        public async Task<ResponseJson> RemoveFriend(RequestAdminActionsOnFriendJson request, string token, string language = null)
+        public async Task<ResponseJson> RemoveFriend(string friendId, RequestAdminActionJson request, string token, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/RemoveFriend", request, token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/Friend/RemoveFriend/{friendId}", request, token: token, language: language);
             return new ResponseJson
             {
                 Response = null,

@@ -31,10 +31,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             if (string.IsNullOrWhiteSpace(password))
                 throw new PasswordEmptyException();
 
-            var response = await _httpClient.ChangeAdministrator(new RequestAdminActionsOnFriendJson
+            var response = await _httpClient.ChangeAdministrator(friendId, new RequestAdminActionJson
             {
                 Code = code,
-                FriendId = friendId,
                 Password = password
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
@@ -50,10 +49,9 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             if (string.IsNullOrWhiteSpace(code))
                 throw new CodeEmptyException();
 
-            var response = await _httpClient.RemoveFriend(new RequestAdminActionsOnFriendJson
+            var response = await _httpClient.RemoveFriend(friendId, new RequestAdminActionJson
             {
                 Code = code,
-                FriendId = friendId,
                 Password = password
             }, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
 

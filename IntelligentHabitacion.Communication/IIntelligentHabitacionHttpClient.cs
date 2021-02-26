@@ -31,7 +31,7 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> RequestCodeToChangeAdministrator(string token, string language = null);
         Task<ResponseJson> RequestCodeToRemoveFriend(string token, string language = null);
         Task<ResponseJson> RequestCodeToDeleteHome(string token, string language = null);
-        Task<ResponseJson> ChangeAdministrator(RequestAdminActionsOnFriendJson request, string token, string language = null);
-        Task<ResponseJson> RemoveFriend(RequestAdminActionsOnFriendJson request, string token, string language = null);
+        Task<ResponseJson> ChangeAdministrator(string friendId, RequestAdminActionJson request, string token, string language = null);
+        Task<ResponseJson> RemoveFriend(string friendId, RequestAdminActionJson request, string token, string language = null);
     }
 }

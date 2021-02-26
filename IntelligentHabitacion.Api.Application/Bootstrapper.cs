@@ -54,7 +54,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
                 .AddScoped<IAddFriendUseCase, AddFriendUseCase>()
                 .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
-                .AddScoped<IRequestCodeChangeAdministratorUseCase, RequestCodeChangeAdministratorUseCase>();
+                .AddScoped<IRequestCodeChangeAdministratorUseCase, RequestCodeChangeAdministratorUseCase>()
+                .AddScoped<IChangeAdministratorUseCase, ChangeAdministratorUseCase>();
         }
     }
 }

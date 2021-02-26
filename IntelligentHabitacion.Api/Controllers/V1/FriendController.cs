@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
 {
@@ -175,11 +176,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [Route("RequestCodeRemoveFriend")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public IActionResult RequestCodeRemoveFriend()
+        public async Task<IActionResult> RequestCodeRemoveFriend([FromServices] IRequestCodeToRemoveFriendUseCase useCase)
         {
             try
             {
-                _friendRule.RequestCodeRemoveFriend();
+                var response = await useCase.Execute();
+                WriteAutenticationHeader(response);
 
                 return Ok();
             }

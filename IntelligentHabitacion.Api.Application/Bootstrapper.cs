@@ -23,6 +23,7 @@ using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
 
 namespace IntelligentHabitacion.Api.Application
 {
@@ -55,7 +56,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IAddFriendUseCase, AddFriendUseCase>()
                 .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
                 .AddScoped<IRequestCodeChangeAdministratorUseCase, RequestCodeChangeAdministratorUseCase>()
-                .AddScoped<IChangeAdministratorUseCase, ChangeAdministratorUseCase>();
+                .AddScoped<IChangeAdministratorUseCase, ChangeAdministratorUseCase>()
+                .AddScoped<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>();
         }
     }
 }

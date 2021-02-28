@@ -9,7 +9,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         void ValidateName(string name);
         Task ValidateEmailAndVerifyIfAlreadyBeenRegistered(string email);
         void ValidateEmail(string email);
-        void ValidatePhoneNumber(string phoneNumber1, string phoneNumber2);
         void ValidateEmergencyContact(string name, string phoneNumber, string relationship);
         void ValidatePassword(string password);
         void DeleteAccount(string codeReceived, string password);

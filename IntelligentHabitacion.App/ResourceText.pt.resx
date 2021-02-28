@@ -346,7 +346,7 @@
     <value>Confirmação de senha</value>
   </data>
   <data name="PLACEHOLDER_PHONENUMBER" xml:space="preserve">
-    <value>(31) 9 0000-0000 </value>
+    <value>+55 (31) 9 0000-0000</value>
   </data>
   <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
     <value>Produto</value>

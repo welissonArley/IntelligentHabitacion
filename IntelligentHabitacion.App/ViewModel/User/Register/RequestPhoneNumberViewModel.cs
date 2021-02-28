@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.Exception;
 using Rg.Plugins.Popup.Extensions;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -32,7 +33,8 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                _userRule.ValidatePhoneNumber(Model.PhoneNumber1, Model.PhoneNumber2);
+                if (string.IsNullOrWhiteSpace(Model.PhoneNumber1))
+                    throw new PhoneNumberEmptyException();
 
                 await Navigation.PushAsync<RequestEmergencyContact1ViewModel>((viewModel, page) => viewModel.Model = Model);
             }

@@ -39,9 +39,11 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         public void ValidateEmergencyContact(string name, string phoneNumber, string relationship)
         {
             ValidateName(name);
-            ValidatePhoneNumber(phoneNumber, null);
             if (string.IsNullOrWhiteSpace(relationship))
                 throw new RelationshipToEmptyException();
+
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                throw new PhoneNumberEmptyException();
         }
 
         public void ValidateName(string name)
@@ -53,16 +55,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         public void ValidatePassword(string password)
         {
             new PasswordValidator().IsValidaPasswordAndConfirmation(password);
-        }
-
-        public void ValidatePhoneNumber(string phoneNumber1, string phoneNumber2)
-        {
-            var phoneNumberValidator = new PhoneNumberValidator();
-
-            phoneNumberValidator.IsValid(phoneNumber1);
-
-            if (!string.IsNullOrWhiteSpace(phoneNumber2))
-                phoneNumberValidator.IsValid(phoneNumber2);
         }
 
         public void DeleteAccount(string codeReceived, string password)
@@ -78,7 +70,10 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             ValidateName(userInformations.Name);
             ValidateEmail(userInformations.Email);
-            ValidatePhoneNumber(userInformations.PhoneNumber1, userInformations.PhoneNumber2);
+
+            if (string.IsNullOrWhiteSpace(userInformations.PhoneNumber1))
+                throw new PhoneNumberEmptyException();
+
             ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.Relationship);
             if(!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
                 ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.Relationship);
@@ -118,7 +113,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
         {
             ValidateName(userInformations.Name);
             ValidatePassword(userInformations.Password);
-            ValidatePhoneNumber(userInformations.PhoneNumber1, userInformations.PhoneNumber2);
             ValidateEmergencyContact(userInformations.EmergencyContact1.Name, userInformations.EmergencyContact1.PhoneNumber, userInformations.EmergencyContact1.Relationship);
             if (!string.IsNullOrWhiteSpace(userInformations.EmergencyContact2.Name))
                 ValidateEmergencyContact(userInformations.EmergencyContact2.Name, userInformations.EmergencyContact2.PhoneNumber, userInformations.EmergencyContact2.Relationship);

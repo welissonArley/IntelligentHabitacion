@@ -781,7 +781,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (31) 9 0000-0000 .
+        ///   Looks up a localized string similar to +1 (555) 555-1234.
         /// </summary>
         internal static string PLACEHOLDER_PHONENUMBER {
             get {

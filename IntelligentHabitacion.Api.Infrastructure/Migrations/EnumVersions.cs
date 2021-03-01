@@ -7,6 +7,7 @@
         RegisterUsersFood = 3,
         RegisterFinances = 4,
         PushNotification = 5,
-        RegisterRooms = 6
+        RegisterRooms = 6,
+        CleaningSchedule = 7
     }
 }

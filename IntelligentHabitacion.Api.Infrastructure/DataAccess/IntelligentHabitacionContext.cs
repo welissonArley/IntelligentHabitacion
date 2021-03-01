@@ -13,6 +13,10 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess
         public DbSet<Code> Codes { get; set; }
         public DbSet<Home> Homes { get; set; }
         public DbSet<MyFood> MyFoods { get; set; }
+        public DbSet<CleaningSchedule> CleaningSchedules { get; set; }
+        public DbSet<CleaningTasksCompleted> CleaningTasksCompleteds { get; set; }
+        public DbSet<CleaningRating> CleaningRatings { get; set; }
+        public DbSet<CleaningRatingUser> CleaningRatingUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -30,14 +30,14 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHom
             _loggedUser = loggedUser;
         }
 
-        public async Task<ResponseOutput> Execute(long myFriendId, RequestChangeDateJoinHomeJson request)
+        public async Task<ResponseOutput> Execute(long myFriendId, RequestDateJson request)
         {
             var loggedUser = await _loggedUser.User();
             var friend = await _repository.GetById_Update(myFriendId);
 
-            Validate(friend, loggedUser, request.JoinOn);
+            Validate(friend, loggedUser, request.Date);
 
-            friend.HomeAssociation.JoinedOn = request.JoinOn.Date;
+            friend.HomeAssociation.JoinedOn = request.Date.Date;
 
             _repository.Update(friend);
 

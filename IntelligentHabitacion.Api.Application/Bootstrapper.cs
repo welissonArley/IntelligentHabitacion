@@ -2,29 +2,30 @@
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.AddFriends;
+using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
 using IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.Api.Application.UseCases.ChangePassword;
 using IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProduct;
 using IntelligentHabitacion.Api.Application.UseCases.DeleteMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
+using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
 using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.Login;
+using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
 using IntelligentHabitacion.Api.Application.UseCases.ProcessFoodsNextToDueDate;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
-using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
+using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
-using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
 
 namespace IntelligentHabitacion.Api.Application
 {
@@ -60,7 +61,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IChangeAdministratorUseCase, ChangeAdministratorUseCase>()
                 .AddScoped<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>()
                 .AddScoped<IRemoveFriendUseCase, RemoveFriendUseCase>()
-                .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>();
+                .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
+                .AddScoped<IGetCleaningScheduleUseCase, GetCleaningScheduleUseCase>();
         }
     }
 }

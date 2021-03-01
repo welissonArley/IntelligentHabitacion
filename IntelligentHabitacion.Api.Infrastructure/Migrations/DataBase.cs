@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace IntelligentHabitacion.Api.Infrastructure.Migrations

@@ -5,6 +5,6 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHom
 {
     public interface IChangeDateFriendJoinHomeUseCase
     {
-        Task<ResponseOutput> Execute(long myFriendId, RequestChangeDateJoinHomeJson editMyFood);
+        Task<ResponseOutput> Execute(long myFriendId, RequestDateJson editMyFood);
     }
 }

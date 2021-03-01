@@ -62,7 +62,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         public async Task<IActionResult> ChangeDateJoinHome(
             [FromServices] IChangeDateFriendJoinHomeUseCase useCase,
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
-            [FromBody] RequestChangeDateJoinHomeJson request)
+            [FromBody] RequestDateJson request)
         {
             try
             {

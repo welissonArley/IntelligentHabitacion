@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:segmented="clr-namespace:IntelligentHabitacion.App.Template.Button"
              xmlns:date="clr-namespace:IntelligentHabitacion.App.Template.Date"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Header"
@@ -17,10 +18,8 @@
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
             <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding ScheduleCreated, Converter={StaticResource BoolInverseConverter}}">
-                <Label Text="{x:Static resourceText:ResourceText.TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="25" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GreenDefault}"></Label>
-                <Button x:Name="ButtonCreateSchedule" Command="{Binding CreateScheduleCommand}" VerticalOptions="End" Text="{x:Static resourceText:ResourceText.TITLE_CREATE_SCHEDULE_NOW}" Style="{StaticResource ButtonYellowDefault}"></Button>
+                <customcontrol:LabelJustifyText Text="{Binding InfoMessage}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="25" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GreenDefault}"></customcontrol:LabelJustifyText>
             </StackLayout>
-
 
             <StackLayout IsVisible="{Binding ScheduleCreated}">
                 <template:CircleWithTextAndDescriptionComponent CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Title="{Binding Model.Name}" CircleColor="{Binding ProfileColor}" Text="{x:Static resourceText:ResourceText.DESCRIPTION_MY_TASKS_CLEANHOUSE}" Margin="0,0,20,0"></template:CircleWithTextAndDescriptionComponent>

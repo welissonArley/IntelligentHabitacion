@@ -30,8 +30,6 @@ namespace IntelligentHabitacion.App.View.CleanHouse
 
                 ToolbarItems.Add(itemToolbar);
             }
-            else
-                ButtonCreateSchedule.IsVisible = false;
 
             base.OnAppearing();
         }

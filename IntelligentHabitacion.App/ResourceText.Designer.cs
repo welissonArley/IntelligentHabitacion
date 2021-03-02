@@ -466,6 +466,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You cannot perform this action for now..
+        /// </summary>
+        internal static string INFORMATION_YOU_CAN_NOT_PERFORM_THIS_ACTION {
+            get {
+                return ResourceManager.GetString("INFORMATION_YOU_CAN_NOT_PERFORM_THIS_ACTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ireland.
         /// </summary>
         internal static string IRELAND {
@@ -948,6 +957,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_ADD_ROOM {
             get {
                 return ResourceManager.GetString("TITLE_ADD_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Rooms in the house.
+        /// </summary>
+        internal static string TITLE_ADD_ROOMS_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_ROOMS_HOME", resourceCulture);
             }
         }
         

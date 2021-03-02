@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
+using IntelligentHabitacion.Communication.Enums;
 using Rg.Plugins.Popup.Extensions;
-using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,20 +17,26 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
     public class MyTasksViewModel : BaseViewModel
     {
         public bool ScheduleCreated { get; set; }
+        public string InfoMessage { get; set; }
+        public NeedActionEnum? Action { get; set; }
+
+        public string Name { get; private set; }
         public string ProfileColor { get; set; }
         public MyTasksCleanHouseModel Model { get; set; }
+
+        public ICleaningScheduleRule _rule { get; private set;}
 
         public ICommand MenuOptionsCommand { protected set; get; }
         public ICommand SeeFriendsTaskCommand { get; private set; }
         public ICommand SeeDetailsMyTasksCommand { get; private set; }
         public ICommand CompletedTodayTaskCommand { get; private set; }
-        public ICommand CreateScheduleCommand { get; private set; }
 
-        public MyTasksViewModel(UserPreferences userPreferences)
+        public MyTasksViewModel(UserPreferences userPreferences, ICleaningScheduleRule rule)
         {
-            ProfileColor = userPreferences.ProfileColor;
+            _rule = rule;
 
-            CreateScheduleCommand = new Command(async () => await CreateCleanSchedule());
+            Name = userPreferences.Name;
+            ProfileColor = userPreferences.ProfileColor;
 
             SeeFriendsTaskCommand = new Command(async () => await SeeFriendsTaskSelected());
 
@@ -85,6 +92,44 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
         }
 
+        private async Task ShowAdministratorOptions()
+        {
+            var navigation = Resolver.Resolve<INavigation>();
+
+            if (Action == NeedActionEnum.RegisterRoom)
+                await ShowQuickInformation(ResourceText.INFORMATION_YOU_CAN_NOT_PERFORM_THIS_ACTION);
+            else
+            {
+                await navigation.PushPopupAsync(new AdministratorMyTasksModal(
+                    new Command(async () =>
+                    {
+                        await CreateCleanSchedule();
+                    }),
+                    new Command(async () =>
+                    {
+                        await ShowConfigurationsSchedule();
+                    }))
+                );
+            }
+        }
+
+        private async Task ShowConfigurationsSchedule()
+        {
+            try
+            {
+                await ShowLoading();
+
+                await Navigation.PushAsync<SettingScheduleViewModel>();
+
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
         private async Task CreateCleanSchedule()
         {
             try
@@ -96,6 +141,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     viewModel.CallbackOnCreateScheduleCommand = new Command(async () =>
                     {
                         ScheduleCreated = true;
+
                         await GetSchedule();
 
                         OnPropertyChanged(new PropertyChangedEventArgs("Model"));
@@ -114,54 +160,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
         private async Task GetSchedule()
         {
-            Model = new MyTasksCleanHouseModel
-            {
-                Name = "Pablo Henrique",
-                Month = DateTime.Today,
-                Tasks = new System.Collections.ObjectModel.ObservableCollection<TasksForTheMonth>
-                {
-                    new TasksForTheMonth
-                    {
-                        Id = "1",
-                        Room = "Área de Serviço",
-                        CleaningRecords = 5,
-                        LastRecord = DateTime.Today
-                    },
-                    new TasksForTheMonth
-                    {
-                        Id = "2",
-                        Room = "Banheiro",
-                        CleaningRecords = 0,
-                        LastRecord = null
-                    }
-                }
-            };
-        }
-
-        private async Task ShowAdministratorOptions()
-        {
-            var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new AdministratorMyTasksModal(CreateScheduleCommand, new Command(async () =>
-            {
-                await ShowConfigurationsSchedule();
-            })));
-        }
-
-        private async Task ShowConfigurationsSchedule()
-        {
-            try
-            {
-                await ShowLoading();
-
-                await Navigation.PushAsync<SettingScheduleViewModel>();
-
-                HideLoading();
-            }
-            catch (System.Exception exeption)
-            {
-                HideLoading();
-                await Exception(exeption);
-            }
+            
         }
     }
 }

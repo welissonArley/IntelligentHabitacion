@@ -19,11 +19,13 @@ namespace IntelligentHabitacion.Api.Infrastructure.Migrations.Versions
                 .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_CleaningTasksCompleted_CleaningSchedule_Id", "CleaningSchedule", "Id");
 
             Create.Table("CleaningRating")
+                .WithColumn("Id").AsGuid().NotNullable()
                 .WithColumn("Rating").AsInt32().NotNullable()
                 .WithColumn("Feedback").AsString().Nullable()
                 .WithColumn("CleaningTaskCompletedId").AsInt64().NotNullable().ForeignKey("FK_CleaningRating_CleaningTasksCompleted_Id", "CleaningTasksCompleted", "Id");
 
             Create.Table("CleaningRatingUser")
+                .WithColumn("Id").AsGuid().NotNullable()
                 .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_CleaningRatingUser_User_Id", "User", "Id")
                 .WithColumn("CleaningTaskCompletedId").AsInt64().NotNullable().ForeignKey("FK_CleaningRatingUser_CleaningTasksCompleted_Id", "CleaningTasksCompleted", "Id");
         }

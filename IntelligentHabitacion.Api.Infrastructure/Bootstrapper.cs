@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Domain.Repository;
+using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
 using IntelligentHabitacion.Api.Domain.Repository.Code;
 using IntelligentHabitacion.Api.Domain.Repository.Home;
 using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
@@ -53,7 +54,8 @@ namespace IntelligentHabitacion.Api.Infrastructure
                 .AddScoped<IHomeUpdateOnlyRepository, HomeRepository>()
                 .AddScoped<IMyFoodsReadOnlyRepository, MyFoodsRepository>()
                 .AddScoped<IMyFoodsUpdateOnlyRepository, MyFoodsRepository>()
-                .AddScoped<IMyFoodsWriteOnlyRepository, MyFoodsRepository>();
+                .AddScoped<IMyFoodsWriteOnlyRepository, MyFoodsRepository>()
+                .AddScoped<ICleaningScheduleReadOnlyRepository, CleaningScheduleRepository>();
         }
     }
 }

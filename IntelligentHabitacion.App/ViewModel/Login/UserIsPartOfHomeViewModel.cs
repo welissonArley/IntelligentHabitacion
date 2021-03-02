@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
+using IntelligentHabitacion.Communication.Response;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -106,7 +107,33 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<MyTasksViewModel>();
+
+                var cleaningScheduleRule = Resolver.Resolve<ICleaningScheduleRule>();
+                var response = await cleaningScheduleRule.GetMyTasks();
+
+                await Navigation.PushAsync<MyTasksViewModel>((viewModel, page) =>
+                {
+                    if (!(response as ResponseNeedActionJson is null))
+                    {
+                        var action = (ResponseNeedActionJson)response;
+
+                        viewModel.ScheduleCreated = false;
+                        viewModel.InfoMessage = action.Message;
+                        viewModel.Action = action.Action;
+                    }
+                    else
+                    {
+                        viewModel.ScheduleCreated = true;
+                        viewModel.Action = null;
+
+                        viewModel.Model = new Model.MyTasksCleanHouseModel
+                        {
+                            Name = viewModel.Name,
+                            Month = System.DateTime.UtcNow,
+                            Tasks = new System.Collections.ObjectModel.ObservableCollection<Model.TasksForTheMonth>()
+                        };
+                    }
+                });
                 HideLoading();
             }
             catch (System.Exception exeption)

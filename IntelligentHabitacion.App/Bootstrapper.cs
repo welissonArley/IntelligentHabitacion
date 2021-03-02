@@ -16,6 +16,7 @@ namespace IntelligentHabitacion.App
             container.Register<ILoginRule, LoginRule>();
             container.Register<IMyFoodsRule, MyFoodsRule>();
             container.Register<IUserRule, UserRule>();
+            container.Register<ICleaningScheduleRule, CleaningScheduleRule>();
         }
     }
 }

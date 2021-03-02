@@ -2,6 +2,7 @@
 {
     public enum NeedActionEnum
     {
-        GoHome = 0
+        RegisterRoom = 0,
+        CreateTheCleaningSchedule = 1
     }
 }

@@ -252,6 +252,9 @@
   <data name="INFORMATION_PASSWORD_COPIED_SUCCESSFULLY" xml:space="preserve">
     <value>Password copied successfully</value>
   </data>
+  <data name="INFORMATION_YOU_CAN_NOT_PERFORM_THIS_ACTION" xml:space="preserve">
+    <value>You cannot perform this action for now.</value>
+  </data>
   <data name="IRELAND" xml:space="preserve">
     <value>Ireland</value>
   </data>
@@ -428,6 +431,9 @@
   </data>
   <data name="TITLE_ADD_ROOM" xml:space="preserve">
     <value>Add a room</value>
+  </data>
+  <data name="TITLE_ADD_ROOMS_HOME" xml:space="preserve">
+    <value>Add Rooms in the house</value>
   </data>
   <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
     <value>The Administrator must configure the cleaning schedule.</value>

@@ -20,24 +20,27 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// If the cleaning schedule dont exist, this function will return an another objet with the message and the action to do
         /// </summary>
         /// <param name="useCase"></param>
-        /// <param name="date"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("Friends")]
-        [ProducesResponseType(typeof(ResponseMyTasksCleaningCleanHouseJson), StatusCodes.Status200OK)]
+        [HttpPost]
+        [Route("MyCleaningSchedule")]
+        [ProducesResponseType(typeof(ResponseMyTasksCleaningScheduleJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseNeedActionJson), StatusCodes.Status206PartialContent)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public async Task<IActionResult> GetMyCleaningSchedule([FromServices] IGetCleaningScheduleUseCase useCase,
-            [FromBody] RequestDateJson date)
+            [FromBody] RequestDateJson request)
         {
             try
             {
-                VerifyParameters(date);
+                VerifyParameters(request);
 
-                var response = await useCase.Execute();
+                var response = await useCase.Execute(request.Date);
                 WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
+                if (response.ResponseJson as ResponseNeedActionJson is null)
+                    return Ok(response.ResponseJson);
+
+                return StatusCode(StatusCodes.Status206PartialContent, response.ResponseJson);
             }
             catch (System.Exception exception)
             {

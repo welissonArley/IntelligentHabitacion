@@ -2,7 +2,10 @@
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.Communication;
+using IntelligentHabitacion.Communication.Response;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Rule
@@ -25,6 +28,28 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _userPreferences.ChangeToken(response.Token);
 
             return response.Response;
+        }
+
+        public async Task<ManageScheduleModel> GetSchedule()
+        {
+            var response = await _httpClient.GetCleaningSchedule(_userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
+
+            var json = (ResponseManageScheduleJson)response.Response;
+
+            return new ManageScheduleModel
+            {
+                RoomsAvaliables = new ObservableCollection<RoomScheduleModel>(json.RoomsAvaliables.Select(c => new RoomScheduleModel
+                {
+                    Assigned = false, Id = c.Id, Room = c.Name
+                })),
+                UserTasks = new ObservableCollection<AllFriendsGroup>(json.UserTasks.Select(c => new AllFriendsGroup
+                {
+                    Id = c.Id, Name = c.Name, ProfileColor = c.ProfileColor,
+                    Tasks = new ObservableCollection<TasksForTheMonth>()
+                }))
+            };
         }
     }
 }

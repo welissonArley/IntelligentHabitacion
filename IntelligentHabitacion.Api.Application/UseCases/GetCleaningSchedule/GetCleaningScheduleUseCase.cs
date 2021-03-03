@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
-using IntelligentHabitacion.Api.Domain;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
+using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Response;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,56 +16,47 @@ namespace IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule
         private readonly IMapper _mapper;
         private readonly ILoggedUser _loggedUser;
         private readonly ICleaningScheduleReadOnlyRepository _repository;
+        private readonly IUserReadOnlyRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
 
         public GetCleaningScheduleUseCase(ICleaningScheduleReadOnlyRepository repository, ILoggedUser loggedUser,
-            IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUnitOfWork unitOfWork)
+            IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUnitOfWork unitOfWork,
+            IUserReadOnlyRepository userRepository)
         {
             _mapper = mapper;
             _loggedUser = loggedUser;
             _repository = repository;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
             _unitOfWork = unitOfWork;
+            _userRepository = userRepository;
         }
 
-        public async Task<ResponseOutput> Execute(DateTime date)
+        public async Task<ResponseOutput> Execute()
         {
             var loggedUser = await _loggedUser.User();
 
-            if (!loggedUser.HomeAssociation.Home.Rooms.Any())
+            var schedules = await _repository.GetCurrentScheduleForHome(loggedUser.HomeAssociation.HomeId);
+
+            var responseJson = new ResponseManageScheduleJson
             {
-                return await CreateResponse(loggedUser, new ResponseNeedActionJson
-                {
-                    Action = Communication.Enums.NeedActionEnum.RegisterRoom,
-                    Message = ResourceText.MESSAGE_REGISTER_ROOM
-                });
-            }
-
-            var homeHasCleaningSchedule = await _repository.HomeHasCleaningScheduleCreated(loggedUser.HomeAssociation.HomeId);
-
-            if (!homeHasCleaningSchedule)
-            {
-                return await CreateResponse(loggedUser, new ResponseNeedActionJson
-                {
-                    Action = Communication.Enums.NeedActionEnum.CreateTheCleaningSchedule,
-                    Message = ResourceText.DESCRIPTION_CREATE_CLEANING_SCHEDULE
-                });
-            }
-
-            var cleaningSchedules = await _repository.GetTasksUser(loggedUser.Id, loggedUser.HomeAssociation.HomeId, date);
-
-            var json = new ResponseMyTasksCleaningScheduleJson
-            {
-                Month = date,
-                Tasks = _mapper.Map<List<ResponseTasksForTheMonthJson>>(cleaningSchedules)
+                RoomsAvaliables = _mapper.Map<List<ResponseRoomJson>>(loggedUser.HomeAssociation.Home.Rooms.Where(c => !schedules.Any(k => k.Room.Equals(c.Name))))
             };
 
-            return await CreateResponse(loggedUser, json);
-        }
+            var usersWithTasks = schedules.Select(c => c.User).Distinct();
 
-        private async Task<ResponseOutput> CreateResponse(Domain.Entity.User loggedUser, object json)
-        {
-            var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id, json);
+            foreach(var user in usersWithTasks)
+            {
+                var usersTasksJson = _mapper.Map<ResponseAllFriendsTasksScheduleJson>(user);
+                usersTasksJson.Tasks = _mapper.Map<List<ResponseTasksForTheMonthJson>>(schedules.Where(c => c.UserId == user.Id));
+
+                responseJson.UserTasks.Add(usersTasksJson);
+            }
+
+            var userAtHome = await _userRepository.GetByHome(loggedUser.HomeAssociation.HomeId);
+            var usersWithoutTasks = _mapper.Map<List<ResponseAllFriendsTasksScheduleJson>>(userAtHome.Where(c => !usersWithTasks.Any(k => k.Id == c.Id)));
+            responseJson.UserTasks = responseJson.UserTasks.Concat(usersWithoutTasks).ToList();
+
+            var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id, responseJson);
 
             await _unitOfWork.Commit();
 

@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -16,7 +17,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     public class CleaningScheduleController : BaseController
     {
         /// <summary>
-        /// This function will return an object with the cleaning schedule for the data.
+        /// This function will return an object with the user's tasks for the date.
         /// If the cleaning schedule dont exist, this function will return an another objet with the message and the action to do
         /// </summary>
         /// <param name="useCase"></param>
@@ -27,7 +28,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ProducesResponseType(typeof(ResponseMyTasksCleaningScheduleJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseNeedActionJson), StatusCodes.Status206PartialContent)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> MyTasks([FromServices] IGetCleaningScheduleUseCase useCase,
+        public async Task<IActionResult> MyTasks([FromServices] IGetMyTasksCleaningScheduleUseCase useCase,
             [FromBody] RequestDateJson request)
         {
             try
@@ -41,6 +42,31 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                     return Ok(response.ResponseJson);
 
                 return StatusCode(StatusCodes.Status206PartialContent, response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will return an object with the current cleaning schedule.
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("CleaningSchedule")]
+        [ProducesResponseType(typeof(ResponseMyTasksCleaningScheduleJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseNeedActionJson), StatusCodes.Status206PartialContent)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public async Task<IActionResult> GetCleaningSchedule([FromServices] IGetCleaningScheduleUseCase useCase)
+        {
+            try
+            {
+                var response = await useCase.Execute();
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

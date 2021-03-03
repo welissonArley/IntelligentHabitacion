@@ -34,5 +34,6 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> ChangeAdministrator(string friendId, RequestAdminActionJson request, string token, string language = null);
         Task<ResponseJson> RemoveFriend(string friendId, RequestAdminActionJson request, string token, string language = null);
         Task<ResponseJson> GetMyTasksCleaningSchedule(string token, RequestDateJson date, string language = null);
+        Task<ResponseJson> GetCleaningSchedule(string token, string language = null);
     }
 }

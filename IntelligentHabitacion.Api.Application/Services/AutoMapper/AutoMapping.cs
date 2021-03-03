@@ -58,6 +58,12 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Domain.Entity.User, Communication.Response.ResponseFriendJson>()
                 .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)))
                 .ForMember(c => c.JoinedOn, opt => opt.MapFrom(c => c.HomeAssociation.JoinedOn));
+
+            CreateMap<Domain.Entity.User, Communication.Response.ResponseAllFriendsTasksScheduleJson>()
+                .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
+
+            CreateMap<Domain.Entity.CleaningSchedule, Communication.Response.ResponseTasksForTheMonthJson>()
+                .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
         }
 
         private void DtoToResponse()

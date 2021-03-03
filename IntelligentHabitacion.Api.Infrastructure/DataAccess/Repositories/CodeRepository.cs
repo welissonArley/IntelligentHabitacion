@@ -26,12 +26,12 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
         public async Task<Code> GetByCode(string code)
         {
-            return await _context.Codes.FirstOrDefaultAsync(c => c.Value.ToUpper().Equals(code.ToUpper()));
+            return await _context.Codes.AsNoTracking().FirstOrDefaultAsync(c => c.Value.ToUpper().Equals(code.ToUpper()));
         }
 
         public async Task<Code> GetByUserId(long userId)
         {
-            return await _context.Codes.FirstOrDefaultAsync(c => c.UserId == userId && c.Active);
+            return await _context.Codes.AsNoTracking().FirstOrDefaultAsync(c => c.UserId == userId && c.Active);
         }
 
         private void DeleteAll(long userId)

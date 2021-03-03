@@ -9,7 +9,9 @@ namespace IntelligentHabitacion.Api.Domain.Entity
     {
         public DateTime ScheduleStartAt { get; set; }
         public DateTime? ScheduleFinishAt { get; set; }
+        [ForeignKey("UserId")]
         public long UserId { get; set; }
+        public User User { get; set; }
         public long HomeId { get; set; }
         public string Room { get; set; }
     }

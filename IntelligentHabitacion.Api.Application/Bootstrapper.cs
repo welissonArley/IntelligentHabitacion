@@ -12,6 +12,7 @@ using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
 using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
+using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
@@ -62,6 +63,7 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>()
                 .AddScoped<IRemoveFriendUseCase, RemoveFriendUseCase>()
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
+                .AddScoped<IGetMyTasksCleaningScheduleUseCase, GetMyTasksCleaningScheduleUseCase>()
                 .AddScoped<IGetCleaningScheduleUseCase, GetCleaningScheduleUseCase>();
         }
     }

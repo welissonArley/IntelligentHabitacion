@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule
 {
     public interface IGetCleaningScheduleUseCase
     {
-        Task<ResponseOutput> Execute(DateTime date);
+        Task<ResponseOutput> Execute();
     }
 }

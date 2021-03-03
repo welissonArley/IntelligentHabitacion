@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -17,8 +18,12 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public ICommand CallbackOnCreateScheduleCommand { get; set; }
         public ICommand ConcludeCommand { get; set; }
 
-        public CreateScheduleViewModel()
+        public ICleaningScheduleRule _rule { get; private set; }
+
+        public CreateScheduleViewModel(ICleaningScheduleRule rule)
         {
+            _rule = rule;
+
             ManageTasksCommand = new Command(async (userId) =>
             {
                 await OnManageTasks(Model.UserTasks.First(c => c.Id.Equals(userId.ToString())));
@@ -34,81 +39,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 await OnRandomAssignment();
             });
 
-            Model = new ManageScheduleModel
-            {
-                RoomsAvaliables = new ObservableCollection<RoomScheduleModel>
-                {
-                    new RoomScheduleModel
-                    {
-                        Assigned = false,
-                        Id = "5",
-                        Room = "Sala de Jantar"
-                    },
-                    new RoomScheduleModel
-                    {
-                        Assigned = false,
-                        Id = "6",
-                        Room = "Corredor"
-                    }
-                },
-                UserTasks = new ObservableCollection<AllFriendsGroup>
-                {
-                    new AllFriendsGroup
-                    {
-                        Id = "1",
-                        Name = "Matheus Gomes",
-                        ProfileColor = "#000000",
-                        Tasks = new ObservableCollection<TasksForTheMonth>()
-                    },
-                    new AllFriendsGroup
-                    {
-                        Id = "2",
-                        Name = "William Rodrigues",
-                        ProfileColor = "#65BCBF",
-                        Tasks = new ObservableCollection<TasksForTheMonth>
-                        {
-                            new TasksForTheMonth
-                            {
-                                Id = "1",
-                                Room = "Área de serviço"
-                            }
-                        }
-                    },
-                    new AllFriendsGroup
-                    {
-                        Id = "3",
-                        Name = "Anilton Barbosa",
-                        ProfileColor = "#657EBF",
-                        Tasks = new ObservableCollection<TasksForTheMonth>
-                        {
-                            new TasksForTheMonth
-                            {
-                                Id = "2",
-                                Room = "Banheiro"
-                            }
-                        }
-                    },
-                    new AllFriendsGroup
-                    {
-                        Id = "4",
-                        Name = "Pablo Henrique",
-                        ProfileColor = "#BF658B",
-                        Tasks = new ObservableCollection<TasksForTheMonth>
-                        {
-                            new TasksForTheMonth
-                            {
-                                Id = "3",
-                                Room = "Escritório"
-                            },
-                            new TasksForTheMonth
-                            {
-                                Id = "4",
-                                Room = "Cozinha"
-                            }
-                        }
-                    }
-                }
-            };
+            Model = Task.Run(async() => await _rule.GetSchedule()).Result;
         }
 
         private async Task OnConclude()

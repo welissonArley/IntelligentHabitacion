@@ -1,6 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.Communication.Enums;
@@ -24,17 +23,13 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public string ProfileColor { get; set; }
         public MyTasksCleanHouseModel Model { get; set; }
 
-        public ICleaningScheduleRule _rule { get; private set;}
-
         public ICommand MenuOptionsCommand { protected set; get; }
         public ICommand SeeFriendsTaskCommand { get; private set; }
         public ICommand SeeDetailsMyTasksCommand { get; private set; }
         public ICommand CompletedTodayTaskCommand { get; private set; }
 
-        public MyTasksViewModel(UserPreferences userPreferences, ICleaningScheduleRule rule)
+        public MyTasksViewModel(UserPreferences userPreferences)
         {
-            _rule = rule;
-
             Name = userPreferences.Name;
             ProfileColor = userPreferences.ProfileColor;
 
@@ -136,7 +131,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
 
-                await Navigation.PushAsync<CreateScheduleViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<CreateScheduleViewModel>(async (viewModel, page) =>
                 {
                     viewModel.CallbackOnCreateScheduleCommand = new Command(async () =>
                     {

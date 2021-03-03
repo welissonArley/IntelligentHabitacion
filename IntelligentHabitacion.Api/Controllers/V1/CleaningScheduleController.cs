@@ -23,11 +23,11 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("MyCleaningSchedule")]
+        [Route("MyTasks")]
         [ProducesResponseType(typeof(ResponseMyTasksCleaningScheduleJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseNeedActionJson), StatusCodes.Status206PartialContent)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> GetMyCleaningSchedule([FromServices] IGetCleaningScheduleUseCase useCase,
+        public async Task<IActionResult> MyTasks([FromServices] IGetCleaningScheduleUseCase useCase,
             [FromBody] RequestDateJson request)
         {
             try

@@ -336,9 +336,9 @@ namespace IntelligentHabitacion.Communication
 
         #region CleaningSchedule
 
-        public async Task<ResponseJson> GetMyCleaningSchedule(string token, RequestDateJson date, string language = null)
+        public async Task<ResponseJson> GetMyTasksCleaningSchedule(string token, RequestDateJson date, string language = null)
         {
-            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/MyCleaningSchedule/", date, token: token, language: language);
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/MyTasks/", date, token: token, language: language);
             var responseJson = new ResponseJson
             {
                 Token = GetToken(response)

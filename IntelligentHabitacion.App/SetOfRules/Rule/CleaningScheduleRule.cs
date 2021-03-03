@@ -20,7 +20,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public async Task<object> GetMyTasks(DateTime? date = null)
         {
-            var response = await _httpClient.GetMyCleaningSchedule(_userPreferences.Token, new Communication.Request.RequestDateJson { Date = date ?? DateTime.UtcNow }, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.GetMyTasksCleaningSchedule(_userPreferences.Token, new Communication.Request.RequestDateJson { Date = date ?? DateTime.UtcNow }, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _userPreferences.ChangeToken(response.Token);
 

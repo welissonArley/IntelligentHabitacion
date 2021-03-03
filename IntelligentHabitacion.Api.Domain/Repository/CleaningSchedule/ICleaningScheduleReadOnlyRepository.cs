@@ -6,7 +6,7 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
 {
     public interface ICleaningScheduleReadOnlyRepository
     {
-        Task<IList<Dto.MyTasksCleaningScheduleDto>> GetMyTasksCleaningSchedule(long userId, long homeId, DateTime date);
+        Task<IList<Dto.MyTasksCleaningScheduleDto>> GetTasksUser(long userId, long homeId, DateTime date);
         Task<bool> HomeHasCleaningScheduleCreated(long homeId);
     }
 }

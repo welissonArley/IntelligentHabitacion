@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
         public CleaningScheduleRepository(IntelligentHabitacionContext context) => _context = context;
 
-        public async Task<IList<MyTasksCleaningScheduleDto>> GetMyTasksCleaningSchedule(long userId, long homeId, DateTime date)
+        public async Task<IList<MyTasksCleaningScheduleDto>> GetTasksUser(long userId, long homeId, DateTime date)
         {
             var response = _context.CleaningSchedules.Where(c => c.Active && c.UserId == userId
                 && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue);

@@ -53,7 +53,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule
                 });
             }
 
-            var cleaningSchedules = await _repository.GetMyTasksCleaningSchedule(loggedUser.Id, loggedUser.HomeAssociation.HomeId, date);
+            var cleaningSchedules = await _repository.GetTasksUser(loggedUser.Id, loggedUser.HomeAssociation.HomeId, date);
 
             var json = new ResponseMyTasksCleaningScheduleJson
             {

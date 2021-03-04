@@ -35,7 +35,7 @@
                     <ContentView>
                         <StackLayout Margin="0,-70,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                             <Image Source="IllustrationWomanManCleaningHouse" HeightRequest="220"></Image>
-                            <Label Margin="0,10,0,0" Text="Nenhuma tarefa para este mês" FontSize="14" HorizontalOptions="CenterAndExpand"></Label>
+                            <Label Margin="0,10,0,0" Text="{x:Static resourceText:ResourceText.TITLE_NO_TASKS_FOR_THIS_MONTH}" FontSize="14" HorizontalOptions="CenterAndExpand"></Label>
                         </StackLayout>
                     </ContentView>
                 </CollectionView.EmptyView>

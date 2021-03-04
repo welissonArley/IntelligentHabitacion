@@ -120,6 +120,9 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>The address must be entered.</value>
   </data>
+  <data name="ALL_USER_WITHOUT_CLEANING_TASKS" xml:space="preserve">
+    <value>It is not possible to leave the cleaning schedule with ALL users without tasks.</value>
+  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>The City's name must be entered.</value>
   </data>
@@ -234,6 +237,9 @@
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>One code to reset the password is requerid.</value>
   </data>
+  <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
+    <value>Room does not exist in Home</value>
+  </data>
   <data name="ROOM_EMPTY" xml:space="preserve">
     <value>The room's name must be entered.</value>
   </data>
@@ -242,6 +248,15 @@
   </data>
   <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
     <value>The State must be entered.</value>
+  </data>
+  <data name="THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS" xml:space="preserve">
+    <value>There are tasks associated with several users.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
+    <value>There are duplicate users in the request.</value>
+  </data>
+  <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
+    <value>There are users with duplicate tasks in the request.</value>
   </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Emergency contact's name {0} must be entered.</value>

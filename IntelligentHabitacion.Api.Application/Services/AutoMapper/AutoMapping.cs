@@ -16,6 +16,7 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             RequestToDomain();
             DomainToResponse();
             DtoToResponse();
+            RequestToDto();
         }
 
         private void RequestToDomain()
@@ -70,6 +71,12 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
         {
             CreateMap<Domain.Dto.MyTasksCleaningScheduleDto, Communication.Response.ResponseTasksForTheMonthJson>()
                 .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
+        }
+
+        private void RequestToDto()
+        {
+            CreateMap<Communication.Request.RequestUpdateCleaningScheduleJson, Domain.Dto.UpdateCleaningScheduleDto>()
+                .ForMember(c => c.UserId, opt => opt.MapFrom(c => _hashids.DecodeLong(c.UserId).First()));
         }
     }
 }

@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.Communication;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using System;
 using System.Collections.ObjectModel;
@@ -42,14 +43,34 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             {
                 RoomsAvaliables = new ObservableCollection<RoomScheduleModel>(json.RoomsAvaliables.Select(c => new RoomScheduleModel
                 {
-                    Assigned = false, Id = c.Id, Room = c.Name
+                    Assigned = false, Room = c.Name
                 })),
                 UserTasks = new ObservableCollection<AllFriendsGroup>(json.UserTasks.Select(c => new AllFriendsGroup
                 {
-                    Id = c.Id, Name = c.Name, ProfileColor = c.ProfileColor,
-                    Tasks = new ObservableCollection<TasksForTheMonth>()
+                    Id = c.Id,
+                    Name = c.Name,
+                    ProfileColor = c.ProfileColor,
+                    Tasks = new ObservableCollection<TasksForTheMonth>(c.Tasks.Select(k => new TasksForTheMonth
+                    {
+                        Room = k.Room,
+                        CleaningRecords = k.CleaningRecords,
+                        LastRecord = k.LastRecord
+                    }))
                 }))
             };
+        }
+
+        public async Task UpdateSchedule(ManageScheduleModel model)
+        {
+            var json = model.UserTasks.Select(c => new RequestUpdateCleaningScheduleJson
+            {
+                UserId = c.Id,
+                Rooms = c.Tasks.Select(k => k.Room).ToList()
+            }).ToList();
+
+            var response = await _httpClient.UpdateCleaningSchedule(_userPreferences.Token, json, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
         }
     }
 }

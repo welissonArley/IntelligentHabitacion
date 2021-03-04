@@ -16,7 +16,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.Migrations.Versions
                 .WithColumn("Room").AsString().NotNullable();
 
             BaseVersion.CreateDefaultColumns(Create.Table("CleaningTasksCompleted"))
-                .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_CleaningTasksCompleted_CleaningSchedule_Id", "CleaningSchedule", "Id");
+                .WithColumn("CleaningScheduleId").AsInt64().NotNullable().ForeignKey("FK_CleaningTasksCompleted_CleaningSchedule_Id", "CleaningSchedule", "Id");
 
             Create.Table("CleaningRating")
                 .WithColumn("Id").AsGuid().NotNullable()

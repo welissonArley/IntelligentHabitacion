@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Communication
@@ -35,5 +36,6 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> RemoveFriend(string friendId, RequestAdminActionJson request, string token, string language = null);
         Task<ResponseJson> GetMyTasksCleaningSchedule(string token, RequestDateJson date, string language = null);
         Task<ResponseJson> GetCleaningSchedule(string token, string language = null);
+        Task<ResponseJson> UpdateCleaningSchedule(string token, IList<RequestUpdateCleaningScheduleJson> request, string language = null);
     }
 }

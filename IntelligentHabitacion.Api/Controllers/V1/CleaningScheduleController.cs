@@ -1,10 +1,12 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
@@ -56,8 +58,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpGet]
         [Route("CleaningSchedule")]
-        [ProducesResponseType(typeof(ResponseMyTasksCleaningScheduleJson), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseNeedActionJson), StatusCodes.Status206PartialContent)]
+        [ProducesResponseType(typeof(ResponseManageScheduleJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
         public async Task<IActionResult> GetCleaningSchedule([FromServices] IGetCleaningScheduleUseCase useCase)
         {
@@ -67,6 +68,33 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will update the current cleaning schedule
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("CleaningSchedule")]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public async Task<IActionResult> UpdateCleaningSchedule([FromServices] IUpdateCleaningScheduleUseCase useCase,
+            [FromBody] List<RequestUpdateCleaningScheduleJson> request)
+        {
+            try
+            {
+                VerifyParameters(request);
+
+                var response = await useCase.Execute(request);
+                WriteAutenticationHeader(response);
+
+                return Ok();
             }
             catch (System.Exception exception)
             {

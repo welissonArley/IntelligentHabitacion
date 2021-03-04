@@ -9,11 +9,26 @@ using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 {
-    public class CleaningScheduleRepository : ICleaningScheduleReadOnlyRepository
+    public class CleaningScheduleRepository : ICleaningScheduleReadOnlyRepository, ICleaningScheduleWriteOnlyRepository
     {
         private readonly IntelligentHabitacionContext _context;
 
         public CleaningScheduleRepository(IntelligentHabitacionContext context) => _context = context;
+
+        public async Task Add(IEnumerable<CleaningSchedule> schedules)
+        {
+            await _context.CleaningSchedules.AddRangeAsync(schedules);
+        }
+
+        public void FinishSchedules(IList<long> scheduleIds)
+        {
+            var schedules = _context.CleaningSchedules.Where(c => scheduleIds.Contains(c.Id));
+            foreach(var schedule in schedules)
+                schedule.ScheduleFinishAt = DateTime.UtcNow;
+
+            if (schedules.Any())
+                _context.CleaningSchedules.UpdateRange(schedules);
+        }
 
         public async Task<IList<CleaningSchedule>> GetCurrentScheduleForHome(long homeId)
         {
@@ -21,10 +36,16 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 .Where(c => c.Active && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue).ToListAsync();
         }
 
+        public async Task<IList<CleaningSchedule>> GetCurrentUserSchedules(long userId, long homeId)
+        {
+            return await _context.CleaningSchedules.AsNoTracking().Where(c => c.Active && c.UserId == userId
+                && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue).ToListAsync();
+        }
+
         public async Task<IList<MyTasksCleaningScheduleDto>> GetTasksUser(long userId, long homeId, DateTime date)
         {
             var response = _context.CleaningSchedules.AsNoTracking().Where(c => c.Active && c.UserId == userId
-                && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue);
+                && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue && c.ScheduleStartAt.Year == date.Year && c.ScheduleStartAt.Month == date.Month);
             
             return await response.Select(c => new MyTasksCleaningScheduleDto
             {

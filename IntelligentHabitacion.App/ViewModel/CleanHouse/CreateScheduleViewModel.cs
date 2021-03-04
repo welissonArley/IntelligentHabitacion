@@ -44,8 +44,22 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
         private async Task OnConclude()
         {
-            CallbackOnCreateScheduleCommand.Execute(null);
-            await Navigation.PopAsync();
+            try
+            {
+                await ShowLoading();
+
+                await _rule.UpdateSchedule(Model);
+
+                CallbackOnCreateScheduleCommand.Execute(null);
+                await Navigation.PopAsync();
+
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
 
         private async Task OnRandomAssignment()
@@ -56,7 +70,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
                 var newAvaliables = Model.UserTasks.SelectMany(c => c.Tasks).Select(c => new RoomScheduleModel
                 {
-                    Id = c.Id,
                     Room = c.Room,
                     Assigned = false
                 }).ToList();
@@ -82,7 +95,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     {
                         new TasksForTheMonth
                         {
-                            Id = newAvaliables.ElementAt(index).Id,
                             Room = newAvaliables.ElementAt(index).Room
                         }
                     };
@@ -113,7 +125,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 {
                     var avaliables = userGroup.Tasks.Select(c => new RoomScheduleModel
                     {
-                        Id = c.Id,
                         Assigned = true,
                         Room = c.Room
                     }).ToList();
@@ -141,7 +152,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                             ProfileColor = userGroup.ProfileColor,
                             Tasks = new ObservableCollection<TasksForTheMonth>(roomsAvaliables.Where(c => c.Assigned).Select(c => new TasksForTheMonth
                             {
-                                Id = c.Id,
                                 Room = c.Room
                             }))
                         });

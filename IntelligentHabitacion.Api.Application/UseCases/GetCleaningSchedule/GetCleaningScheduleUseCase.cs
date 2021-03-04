@@ -42,18 +42,18 @@ namespace IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule
                 RoomsAvaliables = _mapper.Map<List<ResponseRoomJson>>(loggedUser.HomeAssociation.Home.Rooms.Where(c => !schedules.Any(k => k.Room.Equals(c.Name))))
             };
 
-            var usersWithTasks = schedules.Select(c => c.User).Distinct();
+            var usersIdsWithTasks = schedules.Select(c => c.UserId).Distinct();
 
-            foreach(var user in usersWithTasks)
+            foreach(var userId in usersIdsWithTasks)
             {
-                var usersTasksJson = _mapper.Map<ResponseAllFriendsTasksScheduleJson>(user);
-                usersTasksJson.Tasks = _mapper.Map<List<ResponseTasksForTheMonthJson>>(schedules.Where(c => c.UserId == user.Id));
+                var usersTasksJson = _mapper.Map<ResponseAllFriendsTasksScheduleJson>(schedules.Select(c => c.User).First(c => c.Id == userId));
+                usersTasksJson.Tasks = _mapper.Map<List<ResponseTasksForTheMonthJson>>(schedules.Where(c => c.UserId == userId));
 
                 responseJson.UserTasks.Add(usersTasksJson);
             }
 
             var userAtHome = await _userRepository.GetByHome(loggedUser.HomeAssociation.HomeId);
-            var usersWithoutTasks = _mapper.Map<List<ResponseAllFriendsTasksScheduleJson>>(userAtHome.Where(c => !usersWithTasks.Any(k => k.Id == c.Id)));
+            var usersWithoutTasks = _mapper.Map<List<ResponseAllFriendsTasksScheduleJson>>(userAtHome.Where(c => !usersIdsWithTasks.Any(k => k == c.Id)));
             responseJson.UserTasks = responseJson.UserTasks.Concat(usersWithoutTasks).ToList();
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id, responseJson);

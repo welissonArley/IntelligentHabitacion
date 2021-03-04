@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using IntelligentHabitacion.Communication.Response;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -123,6 +124,8 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                     }
                     else
                     {
+                        var action = (ResponseMyTasksCleaningScheduleJson)response;
+
                         viewModel.ScheduleCreated = true;
                         viewModel.Action = null;
 
@@ -130,7 +133,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                         {
                             Name = viewModel.Name,
                             Month = System.DateTime.UtcNow,
-                            Tasks = new System.Collections.ObjectModel.ObservableCollection<Model.TasksForTheMonth>()
+                            Tasks = new System.Collections.ObjectModel.ObservableCollection<Model.TasksForTheMonth>(action.Tasks.Select(c => new Model.TasksForTheMonth
+                            {
+                                Room = c.Room, CleaningRecords = c.CleaningRecords, LastRecord = c.LastRecord
+                            }))
                         };
                     }
                 });

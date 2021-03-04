@@ -9,5 +9,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task<IList<Dto.MyTasksCleaningScheduleDto>> GetTasksUser(long userId, long homeId, DateTime date);
         Task<IList<Entity.CleaningSchedule>> GetCurrentScheduleForHome(long homeId);
         Task<bool> HomeHasCleaningScheduleCreated(long homeId);
+        Task<IList<Entity.CleaningSchedule>> GetCurrentUserSchedules(long userId, long homeId);
     }
 }

@@ -364,6 +364,17 @@ namespace IntelligentHabitacion.Communication
             return responseJson;
         }
 
+        public async Task<ResponseJson> UpdateCleaningSchedule(string token, IList<RequestUpdateCleaningScheduleJson> request, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/CleaningSchedule/", request, token: token, language: language);
+            var responseJson = new ResponseJson
+            {
+                Token = GetToken(response)
+            };
+
+            return responseJson;
+        }
+
         #endregion
     }
 }

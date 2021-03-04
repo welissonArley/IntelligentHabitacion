@@ -735,6 +735,9 @@
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>No results matched your filter.</value>
   </data>
+  <data name="TITLE_NO_TASKS_FOR_THIS_MONTH" xml:space="preserve">
+    <value>No task for this month.</value>
+  </data>
   <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
     <value>No tasks this month</value>
   </data>

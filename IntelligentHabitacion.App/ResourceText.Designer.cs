@@ -1888,6 +1888,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No task for this month..
+        /// </summary>
+        internal static string TITLE_NO_TASKS_FOR_THIS_MONTH {
+            get {
+                return ResourceManager.GetString("TITLE_NO_TASKS_FOR_THIS_MONTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No tasks this month.
         /// </summary>
         internal static string TITLE_NO_TASKS_THIS_MONTH {

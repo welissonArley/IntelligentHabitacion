@@ -120,6 +120,9 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>O logradouro deve ser informado.</value>
   </data>
+  <data name="ALL_USER_WITHOUT_CLEANING_TASKS" xml:space="preserve">
+    <value>Não é possivel deixar o Cronograma de limpeza com TODOS os usuários sem tarefas.</value>
+  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>O nome da cidade deve ser informado.</value>
   </data>
@@ -234,6 +237,9 @@
   <data name="REQUERED_CODE_RESET_PASSWORD" xml:space="preserve">
     <value>Um código para alterar a senha é necessário.</value>
   </data>
+  <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
+    <value>Cômodo não existe na Home</value>
+  </data>
   <data name="ROOM_EMPTY" xml:space="preserve">
     <value>O nome do cômo deve ser informado.</value>
   </data>
@@ -242,6 +248,15 @@
   </data>
   <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
     <value>O Estado deve ser informado.</value>
+  </data>
+  <data name="THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS" xml:space="preserve">
+    <value>Há tarefas associadas a varios usuários.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
+    <value>Há usuários duplicados na requisição.</value>
+  </data>
+  <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
+    <value>Há usuários com tarefas duplicadas na requisição.</value>
   </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>O nome do Contato de emergência {0} deve ser informado.</value>

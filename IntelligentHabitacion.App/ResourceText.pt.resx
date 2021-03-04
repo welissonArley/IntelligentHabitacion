@@ -720,6 +720,9 @@
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>Seu filtro não encontrou nenhum resultado.</value>
   </data>
+  <data name="TITLE_NO_TASKS_FOR_THIS_MONTH" xml:space="preserve">
+    <value>Nenhuma tarefa para este mês.</value>
+  </data>
   <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
     <value>Sem tarefas para este mês</value>
   </data>

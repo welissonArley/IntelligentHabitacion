@@ -70,6 +70,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It is not possible to leave the cleaning schedule with ALL users without tasks..
+        /// </summary>
+        public static string ALL_USER_WITHOUT_CLEANING_TASKS {
+            get {
+                return ResourceManager.GetString("ALL_USER_WITHOUT_CLEANING_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The City&apos;s name must be entered..
         /// </summary>
         public static string CITY_EMPTY {
@@ -412,6 +421,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Room does not exist in Home.
+        /// </summary>
+        public static string ROOM_DOES_NOT_EXIST_HOME {
+            get {
+                return ResourceManager.GetString("ROOM_DOES_NOT_EXIST_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The room&apos;s name must be entered..
         /// </summary>
         public static string ROOM_EMPTY {
@@ -462,6 +480,33 @@ namespace IntelligentHabitacion.Exception {
         public static string THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID {
             get {
                 return ResourceManager.GetString("THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are duplicate users in the request..
+        /// </summary>
+        public static string THERE_ARE_DUPLICATE_USERS_REQUEST {
+            get {
+                return ResourceManager.GetString("THERE_ARE_DUPLICATE_USERS_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are users with duplicate tasks in the request..
+        /// </summary>
+        public static string THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST {
+            get {
+                return ResourceManager.GetString("THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are tasks associated with several users..
+        /// </summary>
+        public static string THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS {
+            get {
+                return ResourceManager.GetString("THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS", resourceCulture);
             }
         }
         

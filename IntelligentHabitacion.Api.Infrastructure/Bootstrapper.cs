@@ -55,7 +55,8 @@ namespace IntelligentHabitacion.Api.Infrastructure
                 .AddScoped<IMyFoodsReadOnlyRepository, MyFoodsRepository>()
                 .AddScoped<IMyFoodsUpdateOnlyRepository, MyFoodsRepository>()
                 .AddScoped<IMyFoodsWriteOnlyRepository, MyFoodsRepository>()
-                .AddScoped<ICleaningScheduleReadOnlyRepository, CleaningScheduleRepository>();
+                .AddScoped<ICleaningScheduleReadOnlyRepository, CleaningScheduleRepository>()
+                .AddScoped<ICleaningScheduleWriteOnlyRepository, CleaningScheduleRepository>();
         }
     }
 }

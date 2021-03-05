@@ -23,7 +23,7 @@
 
             <StackLayout IsVisible="{Binding ScheduleCreated}">
                 <template:CircleWithTextAndDescriptionComponent CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}" Title="{Binding Model.Name}" CircleColor="{Binding ProfileColor}" Text="{x:Static resourceText:ResourceText.DESCRIPTION_MY_TASKS_CLEANHOUSE}" Margin="0,0,20,0"></template:CircleWithTextAndDescriptionComponent>
-                <date:MonthSelectorTemplate Margin="0,50,0,0" Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
+                <date:MonthSelectorTemplate Margin="0,50,0,0" Month="{Binding Model.Month}" OnMonthSelected="{Binding Path=BindingContext.MonthChangedCommand, Source={x:Reference Name=MyTasksContentPage}}"></date:MonthSelectorTemplate>
 
                 <CollectionView ItemsSource="{Binding Model.Tasks}" Margin="0,40,0,0">
                     <CollectionView.ItemTemplate>

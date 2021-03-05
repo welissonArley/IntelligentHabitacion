@@ -32,6 +32,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public ICommand SeeFriendsTaskCommand { get; private set; }
         public ICommand SeeDetailsMyTasksCommand { get; private set; }
         public ICommand CompletedTodayTaskCommand { get; private set; }
+        public ICommand MonthChangedCommand { get; private set; }
 
         public MyTasksViewModel(UserPreferences userPreferences, ICleaningScheduleRule rule)
         {
@@ -45,6 +46,8 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             SeeDetailsMyTasksCommand = new Command(async () => await SeeMyTasksDetails());
 
             CompletedTodayTaskCommand = new Command(async (id) => await CompletedTaskTodaySelected(id.ToString()));
+
+            MonthChangedCommand = new Command(async (date) => await GetSchedule((DateTime)date));
 
             MenuOptionsCommand = new Command(async () =>
             {
@@ -170,7 +173,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                     {
                         ScheduleCreated = true;
 
-                        await GetSchedule();
+                        await GetSchedule(DateTime.Today);
 
                         OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                         OnPropertyChanged(new PropertyChangedEventArgs("ScheduleCreated"));
@@ -186,22 +189,36 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             }
         }
 
-        private async Task GetSchedule()
+        private async Task GetSchedule(DateTime date)
         {
-            var response = await _rule.GetMyTasks();
-            var action = (ResponseMyTasksCleaningScheduleJson)response;
-            Model = new MyTasksCleanHouseModel
+            try
             {
-                Name = Name,
-                Month = System.DateTime.UtcNow,
-                Tasks = new System.Collections.ObjectModel.ObservableCollection<TasksForTheMonth>(action.Tasks.Select(c => new TasksForTheMonth
+                await ShowLoading();
+
+                var response = await _rule.GetMyTasks(date);
+                var action = (ResponseMyTasksCleaningScheduleJson)response;
+                Model = new MyTasksCleanHouseModel
                 {
-                    Id = c.Id,
-                    Room = c.Room,
-                    CleaningRecords = c.CleaningRecords,
-                    LastRecord = c.LastRecord
-                }))
-            };
+                    Name = Name,
+                    Month = action.Month,
+                    Tasks = new System.Collections.ObjectModel.ObservableCollection<TasksForTheMonth>(action.Tasks.Select(c => new TasksForTheMonth
+                    {
+                        Id = c.Id,
+                        Room = c.Room,
+                        CleaningRecords = c.CleaningRecords,
+                        LastRecord = c.LastRecord
+                    }))
+                };
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
     }
 }

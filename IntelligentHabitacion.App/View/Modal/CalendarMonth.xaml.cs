@@ -3,6 +3,7 @@ using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace IntelligentHabitacion.App.View.Modal
 {
@@ -10,12 +11,15 @@ namespace IntelligentHabitacion.App.View.Modal
     public partial class CalendarMonth : Rg.Plugins.Popup.Pages.PopupPage
     {
         private DateTime _date;
+        private readonly ICommand _onSelectedDate;
 
-        public CalendarMonth()
+        public CalendarMonth(DateTime date, ICommand onSelectedDate)
         {
             InitializeComponent();
 
-            _date = DateTime.Now;
+            _onSelectedDate = onSelectedDate;
+
+            _date = date;
 
             FillModal();
         }
@@ -37,6 +41,7 @@ namespace IntelligentHabitacion.App.View.Modal
         private void Button_Ok(object sender, EventArgs e)
         {
             Navigation.PopPopupAsync();
+            _onSelectedDate.Execute(_date);
         }
 
         private void FillModal()

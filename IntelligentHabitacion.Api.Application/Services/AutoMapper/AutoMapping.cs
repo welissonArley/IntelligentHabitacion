@@ -43,8 +43,12 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Domain.Entity.Phonenumber, Communication.Response.ResponsePhonenumberJson>();
             CreateMap<Domain.Entity.EmergencyContact, Communication.Response.ResponseEmergencyContactJson>();
             CreateMap<Domain.Entity.User, Communication.Response.ResponseLoginJson>()
+                .ForMember(c => c.Id, opt => opt.MapFrom(w => _hashids.EncodeLong(w.Id)))
                 .ForMember(c => c.IsPartOfOneHome, opt => opt.MapFrom(w => w.HomeAssociationId.HasValue))
                 .ForMember(c => c.IsAdministrator, opt => opt.MapFrom(w => w.HomeAssociation != null && w.HomeAssociation.Home.AdministratorId == w.Id));
+
+            CreateMap<Domain.Entity.User, Communication.Response.ResponseUserRegisteredJson>()
+                .ForMember(c => c.Id, opt => opt.MapFrom(w => _hashids.EncodeLong(w.Id)));
 
             CreateMap<Domain.Entity.Home, Communication.Response.ResponseHomeInformationsJson>()
                 .ForMember(c => c.NetWork, opt => opt.MapFrom(w => new Communication.Response.ResponseWifiNetworkJson

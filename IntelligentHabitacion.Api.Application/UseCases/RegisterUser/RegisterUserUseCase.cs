@@ -4,6 +4,7 @@ using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,7 +44,9 @@ namespace IntelligentHabitacion.Api.Application.UseCases.RegisterUser
                 await _repository.Add(userModel);
                 await _unitOfWork.Commit();
 
-                var response = await _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, userModel.ProfileColor);
+                var json = _mapper.Map<ResponseUserRegisteredJson>(userModel);
+
+                var response = await _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, json);
                 
                 await _unitOfWork.Commit();
 

@@ -77,7 +77,8 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                 {
                     Email = email, Token = response.Token, Password = password, Name = responseLogin.Name,
                     IsAdministrator = responseLogin.IsAdministrator, ProfileColor = responseLogin.ProfileColor,
-                    IsPartOfOneHome = responseLogin.IsPartOfOneHome, Width = Application.Current.MainPage.Width
+                    IsPartOfOneHome = responseLogin.IsPartOfOneHome, Width = Application.Current.MainPage.Width,
+                    Id = responseLogin.Id
                 });
 
                 if (responseLogin.IsPartOfOneHome)

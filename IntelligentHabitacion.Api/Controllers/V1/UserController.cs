@@ -27,7 +27,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <param name="registerUserJson"></param>
         /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseUserRegisteredJson), StatusCodes.Status201Created)]
         [Route("Register")]
         public async Task<IActionResult> Register(
             [FromServices] IRegisterUserUseCase useCase,

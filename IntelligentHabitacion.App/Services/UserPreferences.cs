@@ -9,6 +9,7 @@ namespace IntelligentHabitacion.App.Services
         private readonly string _keyEmail = "IHeml";
         private readonly string _keyPassword = "IHpawd";
         private readonly string _keyToken = "IHtkn";
+        private readonly string _keyId = "IHidy";
 
         public string Name
         {
@@ -24,6 +25,11 @@ namespace IntelligentHabitacion.App.Services
         {
             get => Task.Run(async () => await SecureStorage.GetAsync(_keyPassword)).Result;
             private set => SecureStorage.SetAsync(_keyPassword, value);
+        }
+        public string Id
+        {
+            get => Task.Run(async () => await SecureStorage.GetAsync(_keyId)).Result;
+            private set => SecureStorage.SetAsync(_keyId, value);
         }
         public string ProfileColor
         {
@@ -71,6 +77,7 @@ namespace IntelligentHabitacion.App.Services
             IsPartOfOneHome = userPreference.IsPartOfOneHome;
             Token = userPreference.Token;
             Width = userPreference.Width;
+            Id = userPreference.Id;
         }
         public void SaveUserInformations(string name, string email)
         {

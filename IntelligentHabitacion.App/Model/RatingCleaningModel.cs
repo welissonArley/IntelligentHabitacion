@@ -1,8 +1,9 @@
 ﻿using System;
+using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
 {
-    public class RatingCleaningModel
+    public class RatingCleaningModel : ObservableObject
     {
         public string Id { get; set; }
         public string Name { get; set; }

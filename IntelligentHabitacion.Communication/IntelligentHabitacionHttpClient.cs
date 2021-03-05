@@ -375,6 +375,17 @@ namespace IntelligentHabitacion.Communication
             return responseJson;
         }
 
+        public async Task<ResponseJson> TaskCompletedToday(string token, string id, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/TaskCompleted/{id}", token: token, language: language);
+            var responseJson = new ResponseJson
+            {
+                Token = GetToken(response)
+            };
+
+            return responseJson;
+        }
+
         #endregion
     }
 }

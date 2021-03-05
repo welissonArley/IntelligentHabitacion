@@ -135,7 +135,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                             Month = System.DateTime.UtcNow,
                             Tasks = new System.Collections.ObjectModel.ObservableCollection<Model.TasksForTheMonth>(action.Tasks.Select(c => new Model.TasksForTheMonth
                             {
-                                Room = c.Room, CleaningRecords = c.CleaningRecords, LastRecord = c.LastRecord
+                                Room = c.Room, CleaningRecords = c.CleaningRecords, LastRecord = c.LastRecord, Id = c.Id
                             }))
                         };
                     }

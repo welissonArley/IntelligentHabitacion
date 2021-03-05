@@ -54,7 +54,7 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private void CompletedToday_Clicked(object sender, System.EventArgs e)
         {
-            //ConcludeTodayCommand?.Execute(Task.Id);
+            ConcludeTodayCommand?.Execute(Task.Id);
         }
     }
 }

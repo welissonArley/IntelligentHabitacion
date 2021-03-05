@@ -21,6 +21,7 @@ using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
 using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
 using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
+using IntelligentHabitacion.Api.Application.UseCases.TaskCompletedToday;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
@@ -66,7 +67,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
                 .AddScoped<IGetMyTasksCleaningScheduleUseCase, GetMyTasksCleaningScheduleUseCase>()
                 .AddScoped<IGetCleaningScheduleUseCase, GetCleaningScheduleUseCase>()
-                .AddScoped<IUpdateCleaningScheduleUseCase, UpdateCleaningScheduleUseCase>();
+                .AddScoped<IUpdateCleaningScheduleUseCase, UpdateCleaningScheduleUseCase>()
+                .AddScoped<ITaskCompletedTodayUseCase, TaskCompletedTodayUseCase>();
         }
     }
 }

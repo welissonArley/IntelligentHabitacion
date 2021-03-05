@@ -1,10 +1,12 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.Communication.Enums;
 using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,9 +54,9 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
         private async Task CompletedTaskTodaySelected(string id)
         {
-            //var task = Model.Tasks.First(c => c.Id.Equals(id));
-            //var navigation = Resolver.Resolve<INavigation>();
-            //await navigation.PushPopupAsync(new ConfirmAction(string.Format(ResourceText.TITLE_ROOM_CLEANED, task.Room), ResourceText.DESCRIPTION_ROOM_CLEANED, View.Modal.Type.Green, new Command(async() => { await ClompletedTaskToday(id); })));
+            var task = Model.Tasks.First(c => c.Id.Equals(id));
+            var navigation = Resolver.Resolve<INavigation>();
+            await navigation.PushPopupAsync(new ConfirmAction(string.Format(ResourceText.TITLE_ROOM_CLEANED, task.Room), ResourceText.DESCRIPTION_ROOM_CLEANED, View.Modal.Type.Green, new Command(async() => { await ClompletedTaskToday(id); })));
         }
 
         private async Task SeeFriendsTaskSelected()
@@ -89,7 +91,33 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
     
         private async Task ClompletedTaskToday(string id)
         {
+            try
+            {
+                await ShowLoading();
+                await _rule.TaskCompletedToday(id);
 
+                var model = Model.Tasks.First(c => c.Id.Equals(id));
+                var index = Model.Tasks.IndexOf(model);
+                Model.Tasks.RemoveAt(index);
+
+                Model.Tasks.Insert(index, new TasksForTheMonth
+                {
+                    Id = model.Id,
+                    Room = model.Room,
+                    CleaningRecords = model.CleaningRecords + 1,
+                    LastRecord = DateTime.UtcNow
+                });
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Model.Tasks"));
+
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
 
         private async Task ShowAdministratorOptions()
@@ -168,6 +196,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 Month = System.DateTime.UtcNow,
                 Tasks = new System.Collections.ObjectModel.ObservableCollection<TasksForTheMonth>(action.Tasks.Select(c => new TasksForTheMonth
                 {
+                    Id = c.Id,
                     Room = c.Room,
                     CleaningRecords = c.CleaningRecords,
                     LastRecord = c.LastRecord

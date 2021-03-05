@@ -52,12 +52,20 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                     ProfileColor = c.ProfileColor,
                     Tasks = new ObservableCollection<TasksForTheMonth>(c.Tasks.Select(k => new TasksForTheMonth
                     {
+                        Id = c.Id,
                         Room = k.Room,
                         CleaningRecords = k.CleaningRecords,
                         LastRecord = k.LastRecord
                     }))
                 }))
             };
+        }
+
+        public async Task TaskCompletedToday(string id)
+        {
+            var response = await _httpClient.TaskCompletedToday(_userPreferences.Token, id, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
         }
 
         public async Task UpdateSchedule(ManageScheduleModel model)

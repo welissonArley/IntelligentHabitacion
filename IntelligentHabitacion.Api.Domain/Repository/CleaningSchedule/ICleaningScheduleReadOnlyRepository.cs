@@ -10,5 +10,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task<IList<Entity.CleaningSchedule>> GetCurrentScheduleForHome(long homeId);
         Task<bool> HomeHasCleaningScheduleCreated(long homeId);
         Task<IList<Entity.CleaningSchedule>> GetCurrentUserSchedules(long userId, long homeId);
+        Task<Entity.CleaningSchedule> GetTaskById(long taskId, long userId, long homeId, bool isFinished = false);
     }
 }

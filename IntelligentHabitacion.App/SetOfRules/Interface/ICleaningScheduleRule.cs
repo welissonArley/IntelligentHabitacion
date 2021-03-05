@@ -9,5 +9,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         Task<object> GetMyTasks(DateTime? date = null);
         Task<ManageScheduleModel> GetSchedule();
         Task UpdateSchedule(ManageScheduleModel model);
+        Task TaskCompletedToday(string id);
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using XLabs.Data;
 
 namespace IntelligentHabitacion.App.Model
 {
-    public class DetailsUserScheduleModel
+    public class DetailsUserScheduleModel : ObservableObject
     {
         public string Name { get; set; }
         public DateTime Month { get; set; }
@@ -21,7 +22,7 @@ namespace IntelligentHabitacion.App.Model
         }
     }
 
-    public class TaskForTheMonthDetails
+    public class TaskForTheMonthDetails : ObservableObject
     {
         public string Id { get; set; }
         public string Room { get; set; }

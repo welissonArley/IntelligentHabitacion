@@ -37,23 +37,28 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
 
         public void Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds, DateTime? time = null)
         {
-            var body = new MessageBodyOneSignal
+            string bodyMessage = JsonConvert.SerializeObject(new
             {
                 app_id = _appId,
                 include_player_ids = usersIds,
                 contents = messageForEachLanguage,
                 headings = titleForEachLanguage
-            };
+            });
 
             if (time.HasValue)
             {
-                body.delayed_option = "timezone";
-                body.delivery_time_of_day = time.Value.ToString("HH:mm");
+                bodyMessage = JsonConvert.SerializeObject(new
+                {
+                    app_id = _appId,
+                    include_player_ids = usersIds,
+                    contents = messageForEachLanguage,
+                    headings = titleForEachLanguage,
+                    delayed_option = "timezone",
+                    delivery_time_of_day = time.Value.ToString("HH:mm")
+                });
             }
 
-            var bodyMensage = JsonConvert.SerializeObject(body);
-
-            SendRequest(bodyMensage);
+            SendRequest(bodyMessage);
         }
 
         private void SendRequest(string body)

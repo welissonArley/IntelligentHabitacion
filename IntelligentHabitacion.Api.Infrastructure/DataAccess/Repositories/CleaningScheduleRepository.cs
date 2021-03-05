@@ -20,6 +20,14 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             await _context.CleaningSchedules.AddRangeAsync(schedules);
         }
 
+        public async Task CompletedTask(long taskScheduleId)
+        {
+            await _context.CleaningTasksCompleteds.AddAsync(new CleaningTasksCompleted
+            {
+                CleaningScheduleId = taskScheduleId
+            });
+        }
+
         public void FinishSchedules(IList<long> scheduleIds)
         {
             var schedules = _context.CleaningSchedules.Where(c => scheduleIds.Contains(c.Id));
@@ -40,6 +48,12 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         {
             return await _context.CleaningSchedules.AsNoTracking().Where(c => c.Active && c.UserId == userId
                 && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue).ToListAsync();
+        }
+
+        public async Task<CleaningSchedule> GetTaskById(long taskId, long userId, long homeId, bool isFinished = false)
+        {
+            return await _context.CleaningSchedules.AsNoTracking().FirstOrDefaultAsync(c => c.Active && c.Id == taskId
+                && c.UserId == userId && c.HomeId == homeId && c.ScheduleFinishAt.HasValue == isFinished);
         }
 
         public async Task<IList<MyTasksCleaningScheduleDto>> GetTasksUser(long userId, long homeId, DateTime date)

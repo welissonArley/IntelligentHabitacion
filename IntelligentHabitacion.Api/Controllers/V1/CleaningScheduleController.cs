@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.TaskCompletedToday;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
@@ -83,6 +84,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPost]
         [Route("CleaningSchedule")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
         public async Task<IActionResult> UpdateCleaningSchedule([FromServices] IUpdateCleaningScheduleUseCase useCase,
             [FromBody] List<RequestUpdateCleaningScheduleJson> request)
@@ -92,6 +94,33 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 VerifyParameters(request);
 
                 var response = await useCase.Execute(request);
+                WriteAutenticationHeader(response);
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will save one register to confirm that the user cleaned today the room received as parameter
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("TaskCompleted/{id:hashids}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> TaskCompletedToday(
+            [FromServices] ITaskCompletedTodayUseCase useCase,
+            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
+        {
+            try
+            {
+                var response = await useCase.Execute(id);
                 WriteAutenticationHeader(response);
 
                 return Ok();

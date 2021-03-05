@@ -44,14 +44,14 @@ namespace IntelligentHabitacion.App.View.Modal
             }
         }
 
-        private void Button_Cancel(object sender, EventArgs e)
+        private async void Button_Cancel(object sender, EventArgs e)
         {
-            Navigation.PopPopupAsync();
+            await Navigation.PopPopupAsync();
         }
-        private void Button_Ok(object sender, EventArgs e)
+        private async void Button_Ok(object sender, EventArgs e)
         {
+            await Navigation.PopPopupAsync();
             _action.Execute(null);
-            Navigation.PopPopupAsync();
         }
     }
 }

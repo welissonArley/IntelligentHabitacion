@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
@@ -151,6 +152,33 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             try
             {
                 var response = await useCase.Execute(id, request.Date);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FriendsTasks")]
+        [ProducesResponseType(typeof(List<ResponseAllFriendsTasksScheduleJson>), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> GetFriendsTasks(
+            [FromServices] IGetFriendsTasksUseCase useCase,
+            [FromBody] RequestDateJson request)
+        {
+            try
+            {
+                var response = await useCase.Execute(request.Date);
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);

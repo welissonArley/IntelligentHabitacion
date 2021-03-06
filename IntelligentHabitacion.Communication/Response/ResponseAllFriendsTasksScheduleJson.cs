@@ -12,6 +12,6 @@ namespace IntelligentHabitacion.Communication.Response
         public string Id { get; set; }
         public string Name { get; set; }
         public string ProfileColor { get; set; }
-        public IList<ResponseTasksForTheMonthJson> Tasks { get; set; }
+        public List<ResponseTasksForTheMonthJson> Tasks { get; set; }
     }
 }

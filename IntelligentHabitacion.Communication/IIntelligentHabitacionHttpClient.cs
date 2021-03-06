@@ -39,5 +39,6 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> UpdateCleaningSchedule(string token, IList<RequestUpdateCleaningScheduleJson> request, string language = null);
         Task<ResponseJson> TaskCompletedToday(string token, string id, string language = null);
         Task<ResponseJson> GetUsersTaskDetails(string token, string id, RequestDateJson dateJson, string language = null);
+        Task<ResponseJson> GetFriendsTasks(string token, RequestDateJson date, string language = null);
     }
 }

@@ -13,7 +13,7 @@
             <Label Margin="0,20,0,0" Text="{Binding Model.FriendsTasks.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
             <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=SeeScheduleAllFriendsContentPage}}"></component:SearchByNameComponent>
 
-            <date:MonthSelectorTemplate Margin="0,50,0,10" Month="{Binding Model.Month}"></date:MonthSelectorTemplate>
+            <date:MonthSelectorTemplate Margin="0,50,0,10" Month="{Binding Model.Month}" OnMonthSelected="{Binding Path=BindingContext.MonthChangedCommand, Source={x:Reference Name=SeeScheduleAllFriendsContentPage}}"></date:MonthSelectorTemplate>
 
             <CollectionView ItemsSource="{Binding Model.FriendsTasks}">
                 <CollectionView.ItemTemplate>

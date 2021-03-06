@@ -5,6 +5,7 @@ using IntelligentHabitacion.Communication;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -105,6 +106,32 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             var response = await _httpClient.UpdateCleaningSchedule(_userPreferences.Token, json, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _userPreferences.ChangeToken(response.Token);
+        }
+
+        public async Task<AllFriendsTasksModel> GetFriendsTasks(DateTime date)
+        {
+            var response = await _httpClient.GetFriendsTasks(_userPreferences.Token, new RequestDateJson { Date = date }, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
+
+            var json = (List<ResponseAllFriendsTasksScheduleJson>)response.Response;
+
+            return new AllFriendsTasksModel
+            {
+                Month = date,
+                FriendsTasks = new ObservableCollection<AllFriendsGroup>(json.Select(c => new AllFriendsGroup
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    ProfileColor = c.ProfileColor,
+                    Tasks = new ObservableCollection<TasksForTheMonth>(c.Tasks.Select(k => new TasksForTheMonth
+                    {
+                        Id = k.Id,
+                        Room = k.Room,
+                        CleaningRecords = k.CleaningRecords
+                    }))
+                }))
+            };
         }
     }
 }

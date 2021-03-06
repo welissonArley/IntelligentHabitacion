@@ -398,6 +398,18 @@ namespace IntelligentHabitacion.Communication
             return responseJson;
         }
 
+        public async Task<ResponseJson> GetFriendsTasks(string token, RequestDateJson date, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/FriendsTasks", date, token: token, language: language);
+            var responseJson = new ResponseJson
+            {
+                Token = GetToken(response),
+                Response = JsonConvert.DeserializeObject<List<ResponseAllFriendsTasksScheduleJson>>(await response.Content.ReadAsStringAsync())
+            };
+
+            return responseJson;
+        }
+
         #endregion
     }
 }

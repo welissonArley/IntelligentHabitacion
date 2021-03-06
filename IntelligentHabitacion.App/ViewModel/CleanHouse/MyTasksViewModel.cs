@@ -67,7 +67,14 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<SeeScheduleAllFriendsViewModel>();
+
+                var response = await _rule.GetFriendsTasks(DateTime.UtcNow);
+
+                await Navigation.PushAsync<SeeScheduleAllFriendsViewModel>((viewModel, page) =>
+                {
+                    viewModel.Model = response;
+                    viewModel.FriendsTasksToSearch();
+                });
                 HideLoading();
             }
             catch (System.Exception exeption)

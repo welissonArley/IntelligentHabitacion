@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
@@ -70,7 +71,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IGetCleaningScheduleUseCase, GetCleaningScheduleUseCase>()
                 .AddScoped<IUpdateCleaningScheduleUseCase, UpdateCleaningScheduleUseCase>()
                 .AddScoped<ITaskCompletedTodayUseCase, TaskCompletedTodayUseCase>()
-                .AddScoped<IGetUsersTaskDetailsUseCase, GetUsersTaskDetailsUseCase>();
+                .AddScoped<IGetUsersTaskDetailsUseCase, GetUsersTaskDetailsUseCase>()
+                .AddScoped<IGetFriendsTasksUseCase, GetFriendsTasksUseCase>();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,15 +12,21 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class SeeScheduleAllFriendsViewModel : BaseViewModel
     {
+        private readonly ICleaningScheduleRule _rule;
+
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedSeeDetailsCommand { protected set; get; }
+
+        public ICommand MonthChangedCommand { get; private set; }
 
         public AllFriendsTasksModel Model { get; set; }
 
         private ObservableCollection<AllFriendsGroup> _friendsTask { get; set; }
 
-        public SeeScheduleAllFriendsViewModel()
+        public SeeScheduleAllFriendsViewModel(ICleaningScheduleRule rule)
         {
+            _rule = rule;
+
             SearchTextChangedCommand = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);
@@ -30,65 +37,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 await SeeFriendTasksDetails((string)value);
             });
 
-            Model = new AllFriendsTasksModel
-            {
-                Month = DateTime.Today,
-                FriendsTasks = new ObservableCollection<AllFriendsGroup>
-                {
-                    new AllFriendsGroup
-                    {
-                        Name = "Matheus Gomes",
-                        ProfileColor = "#65BCBF",
-                        Tasks = new ObservableCollection<TasksForTheMonth>()
-                    },
-                    new AllFriendsGroup
-                    {
-                        Name = "William Rodrigues",
-                        ProfileColor = "#65BCBF",
-                        Tasks = new ObservableCollection<TasksForTheMonth>
-                        {
-                            new TasksForTheMonth
-                            {
-                                CleaningRecords = 5,
-                                Room = "Área de Serviço"
-                            }
-                        }
-                    },
-                    new AllFriendsGroup
-                    {
-                        Name = "Anilton Barbosa",
-                        ProfileColor = "#657EBF",
-                        Tasks = new ObservableCollection<TasksForTheMonth>
-                        {
-                            new TasksForTheMonth
-                            {
-                                CleaningRecords = 4,
-                                Room = "Banheiro"
-                            },
-                            new TasksForTheMonth
-                            {
-                                CleaningRecords = 2,
-                                Room = "Sala"
-                            }
-                        }
-                    },
-                    new AllFriendsGroup
-                    {
-                        Name = "Pablo Henrique",
-                        ProfileColor = "#BF658B",
-                        Tasks = new ObservableCollection<TasksForTheMonth>
-                        {
-                            new TasksForTheMonth
-                            {
-                                CleaningRecords = 3,
-                                Room = "Cozinha"
-                            }
-                        }
-                    }
-                }
-            };
-
-            _friendsTask = Model.FriendsTasks;
+            MonthChangedCommand = new Command(async (date) => await GetSchedule((DateTime)date));
         }
 
         private void OnSearchTextChanged(string value)
@@ -104,6 +53,30 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
                 await Navigation.PushAsync<DetailsUserScheduleViewModel>();
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        public void FriendsTasksToSearch()
+        {
+            _friendsTask = Model.FriendsTasks;
+        }
+
+        private async Task GetSchedule(DateTime date)
+        {
+            try
+            {
+                await ShowLoading();
+
+                Model = await _rule.GetFriendsTasks(date);
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+
                 HideLoading();
             }
             catch (System.Exception exeption)

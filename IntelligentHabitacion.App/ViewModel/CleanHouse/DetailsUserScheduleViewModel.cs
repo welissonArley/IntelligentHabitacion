@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,52 +12,22 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class DetailsUserScheduleViewModel : BaseViewModel
     {
+        private ICleaningScheduleRule _rule { get; set; }
+
+        public string UserId { get; set; }
         public DetailsUserScheduleModel Model { get; set; }
 
         public ICommand SeeDetailsRatingCommand { get; private set; }
         public ICommand RatingFriendCommand { get; private set; }
+        public ICommand MonthChangedCommand { get; private set; }
 
-        public DetailsUserScheduleViewModel()
+        public DetailsUserScheduleViewModel(ICleaningScheduleRule rule)
         {
-            Model = new DetailsUserScheduleModel
-            {
-                Name = "Welisson Arley",
-                Month = DateTime.Today,
-                ProfileColor = "#000000",
-                Tasks = new ObservableCollection<TaskForTheMonthDetailsGroup>
-                {
-                    new TaskForTheMonthDetailsGroup(new DateTime(DateTime.Today.Year, DateTime.Today.Month, 5), new ObservableCollection<TaskForTheMonthDetails>
-                    {
-                        new TaskForTheMonthDetails
-                        {
-                            Id = "1",
-                            CanBeRate = true,
-                            RatingStars = 4,
-                            Room = "Área de Serviço"
-                        }
-                    }),
-                    new TaskForTheMonthDetailsGroup(new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1), new ObservableCollection<TaskForTheMonthDetails>
-                    {
-                        new TaskForTheMonthDetails
-                        {
-                            Id = "2",
-                            CanBeRate = false,
-                            RatingStars = -1,
-                            Room = "Área de Serviço"
-                        },
-                        new TaskForTheMonthDetails
-                        {
-                            Id = "3",
-                            CanBeRate = false,
-                            RatingStars = 3,
-                            Room = "Banheiro"
-                        }
-                    })
-                }
-            };
+            _rule = rule;
 
             RatingFriendCommand = new Command(async () => { await RatingFriendTask(); });
             SeeDetailsRatingCommand = new Command(async () => { await SeeDatailsRatingTask(); });
+            MonthChangedCommand = new Command(async (date) => await GetDetails((DateTime)date));
         }
 
         private async Task RatingFriendTask()
@@ -120,6 +91,27 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             Model.Tasks.Insert(index, new TaskForTheMonthDetailsGroup(taskGroup.Date, new ObservableCollection<TaskForTheMonthDetails>(newList)));
 
             OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+        }
+
+        private async Task GetDetails(DateTime date)
+        {
+            try
+            {
+                await ShowLoading();
+
+                var response = await _rule.GetDetailsAllTasksUserForAMonth(UserId, date);
+
+                Model = response;
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
         }
     }
 }

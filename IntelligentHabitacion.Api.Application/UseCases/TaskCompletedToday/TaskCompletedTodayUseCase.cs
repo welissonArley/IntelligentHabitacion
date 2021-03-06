@@ -3,7 +3,7 @@ using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Api.Domain.Services;
-using System;
+using IntelligentHabitacion.Exception.API;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,7 +40,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.TaskCompletedToday
 
             var task = await _repositoryReadOnly.GetTaskById(taskId, loggedUser.Id, loggedUser.HomeAssociation.HomeId);
             if (task == null)
-                throw new System.Exception();
+                throw new InvalidTaskException();
 
             await _repositoryWriteOnly.CompletedTask(task.Id);
 

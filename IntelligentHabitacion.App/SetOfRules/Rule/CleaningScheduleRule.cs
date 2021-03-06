@@ -22,9 +22,35 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
             _userPreferences = userPreferences;
         }
 
+        public async Task<DetailsUserScheduleModel> GetDetailsAllTasksUserForAMonth(string id, DateTime date)
+        {
+            var response = await _httpClient.GetUsersTaskDetails(_userPreferences.Token, id, new RequestDateJson { Date = date }, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
+
+            var json = (ResponseDetailsUserScheduleJson)response.Response;
+
+            var group = json.Tasks.GroupBy(c => c.Date.Date);
+
+            return new DetailsUserScheduleModel
+            {
+                Month = json.Month,
+                Name = json.Name,
+                ProfileColor = json.ProfileColor,
+                Tasks = new ObservableCollection<TaskForTheMonthDetailsGroup>(
+                    group.Select(c => new TaskForTheMonthDetailsGroup(c.Key, c.Select(k => new TaskForTheMonthDetails
+                    {
+                        CanBeRate = k.CanBeRate,
+                        Id = k.Id,
+                        RatingStars = k.AverageRating,
+                        Room = k.Room
+                    }).ToList())))
+            };
+        }
+
         public async Task<object> GetMyTasks(DateTime? date = null)
         {
-            var response = await _httpClient.GetMyTasksCleaningSchedule(_userPreferences.Token, new Communication.Request.RequestDateJson { Date = date ?? DateTime.UtcNow }, System.Globalization.CultureInfo.CurrentCulture.ToString());
+            var response = await _httpClient.GetMyTasksCleaningSchedule(_userPreferences.Token, new RequestDateJson { Date = date ?? DateTime.UtcNow }, System.Globalization.CultureInfo.CurrentCulture.ToString());
 
             _userPreferences.ChangeToken(response.Token);
 

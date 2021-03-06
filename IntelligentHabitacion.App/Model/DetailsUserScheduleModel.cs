@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using XLabs.Data;
 
@@ -16,7 +17,7 @@ namespace IntelligentHabitacion.App.Model
     {
         public DateTime Date { get; set; }
 
-        public TaskForTheMonthDetailsGroup(DateTime date, ObservableCollection<TaskForTheMonthDetails> tasks) : base(tasks)
+        public TaskForTheMonthDetailsGroup(DateTime date, IEnumerable<TaskForTheMonthDetails> tasks) : base(new ObservableCollection<TaskForTheMonthDetails>(tasks))
         {
             Date = date;
         }

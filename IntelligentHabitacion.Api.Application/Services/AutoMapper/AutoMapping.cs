@@ -69,6 +69,8 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
 
             CreateMap<Domain.Entity.CleaningSchedule, Communication.Response.ResponseTasksForTheMonthJson>()
                 .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
+
+            CreateMap<Domain.Entity.User, Communication.Response.ResponseDetailsUserScheduleJson>();
         }
 
         private void DtoToResponse()

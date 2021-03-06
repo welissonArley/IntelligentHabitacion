@@ -250,6 +250,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Task invalid..
+        /// </summary>
+        public static string INVALID_TASK {
+            get {
+                return ResourceManager.GetString("INVALID_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid user..
         /// </summary>
         public static string INVALID_USER {

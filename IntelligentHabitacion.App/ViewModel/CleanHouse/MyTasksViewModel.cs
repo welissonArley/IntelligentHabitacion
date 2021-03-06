@@ -43,7 +43,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 
             SeeFriendsTaskCommand = new Command(async () => await SeeFriendsTaskSelected());
 
-            SeeDetailsMyTasksCommand = new Command(async () => await SeeMyTasksDetails());
+            SeeDetailsMyTasksCommand = new Command(async () => await SeeMyTasksDetails(userPreferences.Id));
 
             CompletedTodayTaskCommand = new Command(async (id) => await CompletedTaskTodaySelected(id.ToString()));
 
@@ -77,12 +77,17 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             }
         }
 
-        private async Task SeeMyTasksDetails()
+        private async Task SeeMyTasksDetails(string userId)
         {
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<DetailsUserScheduleViewModel>();
+                var response = await _rule.GetDetailsAllTasksUserForAMonth(userId, DateTime.UtcNow);
+                await Navigation.PushAsync<DetailsUserScheduleViewModel>((viewModel, page) =>
+                {
+                    viewModel.Model = response;
+                    viewModel.UserId = userId;
+                });
                 HideLoading();
             }
             catch (System.Exception exeption)

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Domain.ValueObjects;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntelligentHabitacion.Api.Domain.Entity
@@ -14,5 +15,6 @@ namespace IntelligentHabitacion.Api.Domain.Entity
         public User User { get; set; }
         public long HomeId { get; set; }
         public string Room { get; set; }
+        public IList<CleaningTasksCompleted> CleaningTasksCompleteds { get; set; }
     }
 }

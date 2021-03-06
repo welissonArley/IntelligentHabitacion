@@ -56,7 +56,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 && c.UserId == userId && c.HomeId == homeId && c.ScheduleFinishAt.HasValue == isFinished);
         }
 
-        public async Task<IList<MyTasksCleaningScheduleDto>> GetTasksUser(long userId, long homeId, DateTime date)
+        public async Task<IList<MyTasksCleaningScheduleDto>> GetMyTasksSimplifiedUser(long userId, long homeId, DateTime date)
         {
             var response = _context.CleaningSchedules.AsNoTracking().Where(c => c.Active && c.UserId == userId
                 && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue && c.ScheduleStartAt.Year == date.Year && c.ScheduleStartAt.Month == date.Month);
@@ -72,6 +72,15 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         public async Task<bool> HomeHasCleaningScheduleCreated(long homeId)
         {
             return await _context.CleaningSchedules.AnyAsync(c => c.HomeId == homeId);
+        }
+
+        public async Task<IList<CleaningSchedule>> GetAllTasksUser(long userId, long homeId, DateTime date)
+        {
+            return await _context.CleaningSchedules.AsNoTracking()
+                .Include(c => c.CleaningTasksCompleteds).ThenInclude(c => c.Ratings)
+                .Where(c => c.Active && c.UserId == userId
+                && c.HomeId == homeId && c.ScheduleStartAt.Year == date.Year && c.ScheduleStartAt.Month == date.Month)
+                .ToListAsync();
         }
     }
 }

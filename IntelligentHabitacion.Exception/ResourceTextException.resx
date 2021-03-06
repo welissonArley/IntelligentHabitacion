@@ -180,6 +180,9 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
+  <data name="INVALID_TASK" xml:space="preserve">
+    <value>Task invalid.</value>
+  </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Invalid user.</value>
   </data>

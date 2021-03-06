@@ -386,6 +386,18 @@ namespace IntelligentHabitacion.Communication
             return responseJson;
         }
 
+        public async Task<ResponseJson> GetUsersTaskDetails(string token, string id, RequestDateJson date, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/UserTaskDetails/{id}", date, token: token, language: language);
+            var responseJson = new ResponseJson
+            {
+                Token = GetToken(response),
+                Response = JsonConvert.DeserializeObject<ResponseDetailsUserScheduleJson>(await response.Content.ReadAsStringAsync())
+            };
+
+            return responseJson;
+        }
+
         #endregion
     }
 }

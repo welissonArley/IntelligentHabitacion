@@ -16,7 +16,7 @@
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
             <header:CircleWithTextAndDescriptionComponent Text="{x:Static resourceText:ResourceText.DESCRIPTION_SCHEDULE_CLEAR_HOUSE}" Title="{Binding Model.Name}" CircleColor="{Binding Model.ProfileColor}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CircleWithTextAndDescriptionComponent>
 
-            <date:MonthSelectorTemplate Month="{Binding Model.Month}" Margin="0,50,0,0"></date:MonthSelectorTemplate>
+            <date:MonthSelectorTemplate Month="{Binding Model.Month}" Margin="0,50,0,0" OnMonthSelected="{Binding Path=BindingContext.MonthChangedCommand, Source={x:Reference Name=DetailsUserScheduleContentPage}}"></date:MonthSelectorTemplate>
 
             <CollectionView Margin="0,30,0,0" VerticalOptions="FillAndExpand" ItemsSource="{Binding Model.Tasks}" IsGrouped="True">
                 <CollectionView.GroupHeaderTemplate>

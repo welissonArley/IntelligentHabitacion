@@ -180,6 +180,9 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>A senha deve ter pelo menos 6 caracteres.</value>
   </data>
+  <data name="INVALID_TASK" xml:space="preserve">
+    <value>Tarefa inválida.</value>
+  </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Usuário inválido</value>
   </data>

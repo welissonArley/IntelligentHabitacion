@@ -13,6 +13,7 @@ using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.GetUsersTaskDetails;
 using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
 using IntelligentHabitacion.Api.Application.UseCases.Login;
 using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
@@ -68,7 +69,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IGetMyTasksCleaningScheduleUseCase, GetMyTasksCleaningScheduleUseCase>()
                 .AddScoped<IGetCleaningScheduleUseCase, GetCleaningScheduleUseCase>()
                 .AddScoped<IUpdateCleaningScheduleUseCase, UpdateCleaningScheduleUseCase>()
-                .AddScoped<ITaskCompletedTodayUseCase, TaskCompletedTodayUseCase>();
+                .AddScoped<ITaskCompletedTodayUseCase, TaskCompletedTodayUseCase>()
+                .AddScoped<IGetUsersTaskDetailsUseCase, GetUsersTaskDetailsUseCase>();
         }
     }
 }

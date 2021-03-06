@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.GetUsersTaskDetails;
 using IntelligentHabitacion.Api.Application.UseCases.TaskCompletedToday;
 using IntelligentHabitacion.Api.Application.UseCases.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Filter;
@@ -124,6 +125,35 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 WriteAutenticationHeader(response);
 
                 return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will return the object with datails to each task of a user
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("UserTaskDetails/{id:hashids}")]
+        [ProducesResponseType(typeof(ResponseDetailsUserScheduleJson), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> GetUsersTaskDetails(
+            [FromServices] IGetUsersTaskDetailsUseCase useCase,
+            [FromBody] RequestDateJson request,
+            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
+        {
+            try
+            {
+                var response = await useCase.Execute(id, request.Date);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

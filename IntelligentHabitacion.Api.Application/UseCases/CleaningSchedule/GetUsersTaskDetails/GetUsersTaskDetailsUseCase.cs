@@ -60,6 +60,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUse
                 })).ToList();
             }
 
+            resultJson.Tasks = resultJson.Tasks.OrderByDescending(c => c.Date).ThenBy(c => c.Room).ToList();
+
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id, resultJson);
 
             await _unitOfWork.Commit();

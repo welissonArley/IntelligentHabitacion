@@ -61,12 +61,14 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             var response = _context.CleaningSchedules.AsNoTracking().Where(c => c.Active && c.UserId == userId
                 && c.HomeId == homeId && !c.ScheduleFinishAt.HasValue && c.ScheduleStartAt.Year == date.Year && c.ScheduleStartAt.Month == date.Month);
             
-            return await response.Select(c => new MyTasksCleaningScheduleDto
+            var dto = await response.Select(c => new MyTasksCleaningScheduleDto
             {
                 Id = c.Id, Room = c.Room,
                 CleaningRecords = _context.CleaningTasksCompleteds.Where(w => w.CleaningScheduleId == c.Id).Count(),
                 LastRecord = _context.CleaningTasksCompleteds.Where(w => w.CleaningScheduleId == c.Id).OrderBy(c => c.CreateDate).LastOrDefault().CreateDate
             }).ToListAsync();
+
+            return dto.OrderByDescending(c => c.CleaningRecords).ThenBy(c => c.Room).ToList();
         }
 
         public async Task<bool> HomeHasCleaningScheduleCreated(long homeId)
@@ -80,6 +82,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 .Include(c => c.CleaningTasksCompleteds).ThenInclude(c => c.Ratings)
                 .Where(c => c.Active && c.UserId == userId
                 && c.HomeId == homeId && c.ScheduleStartAt.Year == date.Year && c.ScheduleStartAt.Month == date.Month)
+                .OrderBy(c => c.Room)
                 .ToListAsync();
         }
     }

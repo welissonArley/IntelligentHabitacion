@@ -24,6 +24,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public string InfoMessage { get; set; }
         public NeedActionEnum? Action { get; set; }
 
+        public DateTime Date { get; set; }
         public string Name { get; private set; }
         public string ProfileColor { get; set; }
         public MyTasksCleanHouseModel Model { get; set; }
@@ -37,6 +38,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         public MyTasksViewModel(UserPreferences userPreferences, ICleaningScheduleRule rule)
         {
             _rule = rule;
+            Date = DateTime.UtcNow;
 
             Name = userPreferences.Name;
             ProfileColor = userPreferences.ProfileColor;
@@ -89,7 +91,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             try
             {
                 await ShowLoading();
-                var response = await _rule.GetDetailsAllTasksUserForAMonth(userId, DateTime.UtcNow);
+                var response = await _rule.GetDetailsAllTasksUserForAMonth(userId, Date);
                 await Navigation.PushAsync<DetailsUserScheduleViewModel>((viewModel, page) =>
                 {
                     viewModel.Model = response;
@@ -205,6 +207,8 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         {
             try
             {
+                Date = date;
+
                 await ShowLoading();
 
                 var response = await _rule.GetMyTasks(date);

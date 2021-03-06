@@ -1,8 +1,8 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeAdministrator;
-using IntelligentHabitacion.Api.Application.UseCases.ChangeDateFriendJoinHome;
-using IntelligentHabitacion.Api.Application.UseCases.GetMyFriends;
-using IntelligentHabitacion.Api.Application.UseCases.NotifyOrderReceived;
-using IntelligentHabitacion.Api.Application.UseCases.RemoveFriend;
+﻿using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeAdministrator;
+using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeDateFriendJoinHome;
+using IntelligentHabitacion.Api.Application.UseCases.Friends.GetMyFriends;
+using IntelligentHabitacion.Api.Application.UseCases.Friends.NotifyOrderReceived;
+using IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;

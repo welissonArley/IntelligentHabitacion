@@ -1,5 +1,5 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.ForgotPassword;
-using IntelligentHabitacion.Api.Application.UseCases.Login;
+﻿using IntelligentHabitacion.Api.Application.UseCases.Login.DoLogin;
+using IntelligentHabitacion.Api.Application.UseCases.Login.ForgotPassword;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;

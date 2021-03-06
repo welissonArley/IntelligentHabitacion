@@ -1,8 +1,8 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.ChangePassword;
-using IntelligentHabitacion.Api.Application.UseCases.EmailAlreadyBeenRegistered;
-using IntelligentHabitacion.Api.Application.UseCases.RegisterUser;
-using IntelligentHabitacion.Api.Application.UseCases.UpdateUserInformations;
-using IntelligentHabitacion.Api.Application.UseCases.UserInformations;
+﻿using IntelligentHabitacion.Api.Application.UseCases.User.ChangePassword;
+using IntelligentHabitacion.Api.Application.UseCases.User.EmailAlreadyBeenRegistered;
+using IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser;
+using IntelligentHabitacion.Api.Application.UseCases.User.UpdateUserInformations;
+using IntelligentHabitacion.Api.Application.UseCases.User.UserInformations;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Boolean;
 using IntelligentHabitacion.Communication.Request;

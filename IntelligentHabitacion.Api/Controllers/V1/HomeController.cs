@@ -1,6 +1,6 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.HomeInformations;
-using IntelligentHabitacion.Api.Application.UseCases.RegisterHome;
-using IntelligentHabitacion.Api.Application.UseCases.UpdateHomeInformations;
+﻿using IntelligentHabitacion.Api.Application.UseCases.Home.HomeInformations;
+using IntelligentHabitacion.Api.Application.UseCases.Home.RegisterHome;
+using IntelligentHabitacion.Api.Application.UseCases.Home.UpdateHomeInformations;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;

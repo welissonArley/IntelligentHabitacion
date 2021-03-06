@@ -1,4 +1,4 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.AddFriends;
+﻿using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;

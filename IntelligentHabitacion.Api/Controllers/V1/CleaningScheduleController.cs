@@ -1,8 +1,8 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.GetCleaningSchedule;
-using IntelligentHabitacion.Api.Application.UseCases.GetMyTasksCleaningSchedule;
-using IntelligentHabitacion.Api.Application.UseCases.GetUsersTaskDetails;
-using IntelligentHabitacion.Api.Application.UseCases.TaskCompletedToday;
-using IntelligentHabitacion.Api.Application.UseCases.UpdateCleaningSchedule;
+﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;

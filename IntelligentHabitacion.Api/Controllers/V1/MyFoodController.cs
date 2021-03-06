@@ -1,8 +1,8 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.ChangeQuantityOfOneProduct;
-using IntelligentHabitacion.Api.Application.UseCases.DeleteMyFood;
-using IntelligentHabitacion.Api.Application.UseCases.GetMyFoods;
-using IntelligentHabitacion.Api.Application.UseCases.RegisterMyFood;
-using IntelligentHabitacion.Api.Application.UseCases.UpdateMyFood;
+﻿using IntelligentHabitacion.Api.Application.UseCases.MyFoods.ChangeQuantityOfOneProduct;
+using IntelligentHabitacion.Api.Application.UseCases.MyFoods.DeleteMyFood;
+using IntelligentHabitacion.Api.Application.UseCases.MyFoods.GetMyFoods;
+using IntelligentHabitacion.Api.Application.UseCases.MyFoods.RegisterMyFood;
+using IntelligentHabitacion.Api.Application.UseCases.MyFoods.UpdateMyFood;
 using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;

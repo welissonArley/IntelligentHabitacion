@@ -12,5 +12,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         Task TaskCompletedToday(string id);
         Task<DetailsUserScheduleModel> GetDetailsAllTasksUserForAMonth(string id, DateTime date);
         Task<AllFriendsTasksModel> GetFriendsTasks(DateTime date);
+        Task<int> RateFriendTask(RatingCleaningModel model);
     }
 }

@@ -234,6 +234,12 @@
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>The quantity of products is invalid.</value>
   </data>
+  <data name="RATE_SCORE_BETWEEN_ZERO_FIVE" xml:space="preserve">
+    <value>You must rate the task with a score between 0 and 5.</value>
+  </data>
+  <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
+    <value>You can only rate tasks on the current month's schedule.</value>
+  </data>
   <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
     <value>Relationship must be entered.</value>
   </data>
@@ -291,8 +297,14 @@
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>You do not have permission to access this resource.</value>
   </data>
+  <data name="YOU_ALREADY_RATE_THIS_TASK" xml:space="preserve">
+    <value>You have already rate this task.</value>
+  </data>
   <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
     <value>You cannot perform this action.</value>
+  </data>
+  <data name="YOU_CANNOT_RATE_YOUR_OWN_TASK" xml:space="preserve">
+    <value>You can not rate your own task.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>

@@ -50,14 +50,18 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUse
 
             foreach(var schedule in schedules)
             {
-                resultJson.Tasks = resultJson.Tasks.Concat(schedule.CleaningTasksCompleteds.Select(c => new ResponseTaskForTheMonthDetailsJson
+                var list = schedule.CleaningTasksCompleteds.Select(async c => new ResponseTaskForTheMonthDetailsJson
                 {
                     Room = schedule.Room,
                     Date = c.CreateDate,
                     AverageRating = c.AverageRating,
-                    CanBeRate = schedule.UserId != loggedUser.Id && DateTime.Compare(resultJson.Month, new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1).Date) == 0,
+                    CanBeRate = schedule.UserId != loggedUser.Id
+                        && DateTime.Compare(resultJson.Month, new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1).Date) == 0
+                        && !(await _scheduleReadOnlyRepository.UserAlreadyRatedTheTask(loggedUser.Id, c.Id)),
                     Id = _hashids.EncodeLong(c.Id)
-                })).ToList();
+                }).Select(c => c.Result).ToList();
+
+                resultJson.Tasks.AddRange(list);
             }
 
             resultJson.Tasks = resultJson.Tasks.OrderByDescending(c => c.Date).ThenBy(c => c.Room).ToList();

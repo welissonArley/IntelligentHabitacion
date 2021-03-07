@@ -85,5 +85,29 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 .OrderBy(c => c.Room)
                 .ToListAsync();
         }
+
+        public async Task<bool> UserAlreadyRatedTheTask(long userId, long taskCompletedId)
+        {
+            return await _context.CleaningRatingUsers.AnyAsync(c => c.UserId == userId && c.CleaningTaskCompletedId == taskCompletedId);
+        }
+
+        public async Task<CleaningSchedule> GetTaskByCompletedId(long completedId)
+        {
+            return await _context.CleaningSchedules.AsNoTracking().Include(c => c.User).ThenInclude(c => c.HomeAssociation)
+                .FirstOrDefaultAsync(c => c.Active && c.CleaningTasksCompleteds.Any(k => k.Id == completedId));
+        }
+
+        public async Task<int> AddRateTask_ReturnAverageRating(CleaningRating rate, long userIdWhoRateTheTask)
+        {
+            await _context.CleaningRatings.AddAsync(rate);
+
+            await _context.CleaningRatingUsers.AddAsync(new CleaningRatingUser
+            {
+                CleaningTaskCompletedId = rate.CleaningTaskCompletedId,
+                UserId = userIdWhoRateTheTask
+            });
+
+            return (await _context.CleaningTasksCompleteds.FirstAsync(c => c.Id == rate.CleaningTaskCompletedId)).AverageRating;
+        }
     }
 }

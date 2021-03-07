@@ -40,5 +40,6 @@ namespace IntelligentHabitacion.Communication
         Task<ResponseJson> TaskCompletedToday(string token, string id, string language = null);
         Task<ResponseJson> GetUsersTaskDetails(string token, string id, RequestDateJson dateJson, string language = null);
         Task<ResponseJson> GetFriendsTasks(string token, RequestDateJson date, string language = null);
+        Task<ResponseJson> RateFriendTask(string token, string taskId, RequestRateTaskJson request, string language = null);
     }
 }

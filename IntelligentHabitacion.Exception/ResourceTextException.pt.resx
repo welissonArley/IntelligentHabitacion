@@ -234,6 +234,12 @@
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>A quantidade de produtos é inválida.</value>
   </data>
+  <data name="RATE_SCORE_BETWEEN_ZERO_FIVE" xml:space="preserve">
+    <value>Você deve avaliar a tarefa com uma nota entre 0 e 5.</value>
+  </data>
+  <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
+    <value>Você pode apenas avaliar tarefas no cronograma do mês atual.</value>
+  </data>
   <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
     <value>O grau de parentesco deve ser informado.</value>
   </data>
@@ -291,8 +297,14 @@
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>Você não possui permissão para acessar este recurso.</value>
   </data>
+  <data name="YOU_ALREADY_RATE_THIS_TASK" xml:space="preserve">
+    <value>Você já avaliou esta tarefa.</value>
+  </data>
   <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
     <value>Você não pode executar esta ação.</value>
+  </data>
+  <data name="YOU_CANNOT_RATE_YOUR_OWN_TASK" xml:space="preserve">
+    <value>Você não pode avaliar sua propria tarefa.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>O CEP deve ser informado.</value>

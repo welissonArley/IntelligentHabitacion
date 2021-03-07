@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -7,12 +8,16 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class RatingCleaningViewModel : BaseViewModel
     {
+        private readonly ICleaningScheduleRule _rule;
+
         public ICommand OnConcludeCommand { protected set; get; }
         public ICommand CallbackOnConcludeCommand { set; get; }
         public RatingCleaningModel Model { get; set; }
 
-        public RatingCleaningViewModel()
+        public RatingCleaningViewModel(ICleaningScheduleRule rule)
         {
+            _rule = rule;
+
             OnConcludeCommand = new Command(async () => await OnConclude());
         }
 
@@ -22,10 +27,12 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             {
                 await ShowLoading();
 
+                var averageRating = await _rule.RateFriendTask(Model);
+
                 CallbackOnConcludeCommand?.Execute(new TaskForTheMonthDetails
                 {
                     CanBeRate = false,
-                    RatingStars = 5,
+                    RatingStars = averageRating,
                     Room = Model.Room,
                     Id = Model.Id
                 });

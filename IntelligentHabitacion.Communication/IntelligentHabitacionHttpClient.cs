@@ -410,6 +410,18 @@ namespace IntelligentHabitacion.Communication
             return responseJson;
         }
 
+        public async Task<ResponseJson> RateFriendTask(string token, string taskId, RequestRateTaskJson request, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Put, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/RateTask/{taskId}", request, token: token, language: language);
+            var responseJson = new ResponseJson
+            {
+                Token = GetToken(response),
+                Response = JsonConvert.DeserializeObject<ResponseAverageRatingJson>(await response.Content.ReadAsStringAsync())
+            };
+
+            return responseJson;
+        }
+
         #endregion
     }
 }

@@ -412,6 +412,24 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must rate the task with a score between 0 and 5..
+        /// </summary>
+        public static string RATE_SCORE_BETWEEN_ZERO_FIVE {
+            get {
+                return ResourceManager.GetString("RATE_SCORE_BETWEEN_ZERO_FIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can only rate tasks on the current month&apos;s schedule..
+        /// </summary>
+        public static string RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE {
+            get {
+                return ResourceManager.GetString("RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relationship must be entered..
         /// </summary>
         public static string RELATIONSHIPTO_EMPTY {
@@ -583,11 +601,29 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have already rate this task..
+        /// </summary>
+        public static string YOU_ALREADY_RATE_THIS_TASK {
+            get {
+                return ResourceManager.GetString("YOU_ALREADY_RATE_THIS_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You cannot perform this action..
         /// </summary>
         public static string YOU_CANNNOT_PERMORM_THIS_ACTION {
             get {
                 return ResourceManager.GetString("YOU_CANNNOT_PERMORM_THIS_ACTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can not rate your own task..
+        /// </summary>
+        public static string YOU_CANNOT_RATE_YOUR_OWN_TASK {
+            get {
+                return ResourceManager.GetString("YOU_CANNOT_RATE_YOUR_OWN_TASK", resourceCulture);
             }
         }
         

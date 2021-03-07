@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Filter;
@@ -163,7 +164,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         }
 
         /// <summary>
-        /// 
+        /// This function return one array with the all friend's tasks
         /// </summary>
         /// <param name="useCase"></param>
         /// <param name="request"></param>
@@ -179,6 +180,37 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             try
             {
                 var response = await useCase.Execute(request.Date);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// One user can rate un friend's task completed and return the new average rating
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("RateTask/{id:hashids}")]
+        [ProducesResponseType(typeof(ResponseAverageRatingJson), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> RateTaskCompleted(
+            [FromServices] IRateTaskUseCase useCase,
+            [FromBody] RequestRateTaskJson request,
+            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
+        {
+            try
+            {
+                VerifyParameters(request);
+
+                var response = await useCase.Execute(id, request);
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);

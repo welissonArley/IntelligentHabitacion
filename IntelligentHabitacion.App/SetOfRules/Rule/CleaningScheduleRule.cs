@@ -133,5 +133,16 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 }))
             };
         }
+
+        public async Task<int> RateFriendTask(RatingCleaningModel model)
+        {
+            var response = await _httpClient.RateFriendTask(_userPreferences.Token, model.Id, new RequestRateTaskJson { FeedBack = model.Feedback, Rating = model.RatingStars }, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
+
+            var json = (ResponseAverageRatingJson)response.Response;
+
+            return json.AverageRating;
+        }
     }
 }

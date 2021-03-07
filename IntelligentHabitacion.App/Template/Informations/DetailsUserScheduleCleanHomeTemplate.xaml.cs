@@ -90,7 +90,7 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private void ButtonToRate_Clicked(object sender, System.EventArgs e)
         {
-            RateCommand?.Execute(null);
+            RateCommand?.Execute(ScheduleUser);
         }
 
         private void SeeDetailsLabel_Clicked(object sender, System.EventArgs e)

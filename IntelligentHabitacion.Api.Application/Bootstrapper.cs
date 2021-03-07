@@ -5,6 +5,7 @@ using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleanin
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
@@ -72,7 +73,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IUpdateCleaningScheduleUseCase, UpdateCleaningScheduleUseCase>()
                 .AddScoped<ITaskCompletedTodayUseCase, TaskCompletedTodayUseCase>()
                 .AddScoped<IGetUsersTaskDetailsUseCase, GetUsersTaskDetailsUseCase>()
-                .AddScoped<IGetFriendsTasksUseCase, GetFriendsTasksUseCase>();
+                .AddScoped<IGetFriendsTasksUseCase, GetFriendsTasksUseCase>()
+                .AddScoped<IRateTaskUseCase, RateTaskUseCase>();
         }
     }
 }

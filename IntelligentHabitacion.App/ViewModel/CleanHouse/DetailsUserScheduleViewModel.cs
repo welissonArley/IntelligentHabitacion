@@ -25,24 +25,28 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
         {
             _rule = rule;
 
-            RatingFriendCommand = new Command(async () => { await RatingFriendTask(); });
+            RatingFriendCommand = new Command(async (taskForTheMonth) => { await RatingFriendTask((TaskForTheMonthDetails)taskForTheMonth); });
             SeeDetailsRatingCommand = new Command(async () => { await SeeDatailsRatingTask(); });
             MonthChangedCommand = new Command(async (date) => await GetDetails((DateTime)date));
         }
 
-        private async Task RatingFriendTask()
+        private async Task RatingFriendTask(TaskForTheMonthDetails taskForTheMonth)
         {
             try
             {
                 await ShowLoading();
+
+                var tempList = Model.Tasks.Select(c => c.IndexOf(taskForTheMonth)).ToList();
+                var index = tempList.IndexOf(tempList.First(c => c != -1));
+
                 await Navigation.PushAsync<RatingCleaningViewModel>((viewModel, page) =>
                 {
                     viewModel.Model = new RatingCleaningModel
                     {
-                        Id = "1",
-                        Date = DateTime.Today,
-                        Name = "Welisson Arley",
-                        Room = "Banheiro"
+                        Id = taskForTheMonth.Id,
+                        Date = Model.Tasks.ElementAt(index).Date,
+                        Name = Model.Name,
+                        Room = taskForTheMonth.Room
                     };
                     viewModel.CallbackOnConcludeCommand = new Command((response) => { CallbackRatingFriendTask(response as TaskForTheMonthDetails); });
                 });

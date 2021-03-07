@@ -10,6 +10,6 @@ namespace IntelligentHabitacion.Api.Domain.Entity
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
         public long UserId { get; set; }
-        public long CleaningTasksCompletedId { get; set; }
+        public long CleaningTaskCompletedId { get; set; }
     }
 }

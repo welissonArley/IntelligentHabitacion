@@ -13,6 +13,6 @@ namespace IntelligentHabitacion.Communication.Response
         public string Name { get; set; }
         public DateTime Month { get; set; }
         public string ProfileColor { get; set; }
-        public IList<ResponseTaskForTheMonthDetailsJson> Tasks { get; set; }
+        public List<ResponseTaskForTheMonthDetailsJson> Tasks { get; set; }
     }
 }

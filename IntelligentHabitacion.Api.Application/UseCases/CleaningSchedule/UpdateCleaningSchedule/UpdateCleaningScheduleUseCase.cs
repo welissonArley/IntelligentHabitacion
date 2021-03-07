@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
-using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
+using IntelligentHabitacion.Api.Domain.Repository.User;
+using IntelligentHabitacion.Api.Domain.Services;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
+using IntelligentHabitacion.Exception.API;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System;
 using System.Collections.Generic;
@@ -15,16 +17,19 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
 {
     public class UpdateCleaningScheduleUseCase : IUpdateCleaningScheduleUseCase
     {
+        private readonly IPushNotificationService _pushNotificationService;
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
         private readonly IMapper _mapper;
         private readonly ILoggedUser _loggedUser;
         private readonly ICleaningScheduleWriteOnlyRepository _repository;
         private readonly ICleaningScheduleReadOnlyRepository _repositoryCleaningScheduleReadOnly;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserReadOnlyRepository _userReadOnlyRepository;
 
         public UpdateCleaningScheduleUseCase(ICleaningScheduleWriteOnlyRepository repository, ILoggedUser loggedUser,
             IMapper mapper, IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUnitOfWork unitOfWork,
-            ICleaningScheduleReadOnlyRepository repositoryCleaningScheduleReadOnly)
+            ICleaningScheduleReadOnlyRepository repositoryCleaningScheduleReadOnly,
+            IUserReadOnlyRepository userReadOnlyRepository, IPushNotificationService pushNotificationService)
         {
             _mapper = mapper;
             _loggedUser = loggedUser;
@@ -32,19 +37,21 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
             _unitOfWork = unitOfWork;
             _repositoryCleaningScheduleReadOnly = repositoryCleaningScheduleReadOnly;
+            _userReadOnlyRepository = userReadOnlyRepository;
+            _pushNotificationService = pushNotificationService;
         }
 
         public async Task<ResponseOutput> Execute(List<RequestUpdateCleaningScheduleJson> request)
         {
-            var validation = new UpdateCleaningScheduleValidation().Validate(request);
-            if (!validation.IsValid)
-                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
-
             var loggedUser = await _loggedUser.User();
 
             var tasksDto = _mapper.Map<List<Domain.Dto.UpdateCleaningScheduleDto>>(request);
 
-            foreach(var dto in tasksDto)
+            await Validate(request, tasksDto, loggedUser.HomeAssociation.HomeId);
+
+            bool changedSomething = false;
+
+            foreach (var dto in tasksDto)
             {
                 var schedules = dto.Rooms.Select(c => CreateSchedule(loggedUser.HomeAssociation.HomeId, dto.UserId, c)).ToList();
 
@@ -60,12 +67,23 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
                     throw new ErrorOnValidationException(new List<string> { ResourceTextException.ROOM_DOES_NOT_EXIST_HOME });
 
                 await _repository.Add(schedules);
-                _repository.FinishSchedules(scheduleToFinish.Select(c => c.Id).ToList());
+
+                var scheduleToFinishOnDatabase = scheduleToFinish.Select(c => c.Id).ToList();
+                _repository.FinishSchedules(scheduleToFinishOnDatabase);
+
+                if (schedules.Any() || scheduleToFinishOnDatabase.Any())
+                    changedSomething = true;
             }
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
             await _unitOfWork.Commit();
+
+            if (changedSomething)
+            {
+                var friends = await _userReadOnlyRepository.GetByHome(loggedUser.HomeAssociation.HomeId);
+                SendNotification(friends.Where(c => c.Id != loggedUser.Id).Select(c => c.PushNotificationId).ToList());
+            }
 
             return response;
         }
@@ -79,6 +97,34 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
                 UserId = userId,
                 Room = room
             };
+        }
+
+        private async Task Validate(List<RequestUpdateCleaningScheduleJson> request, List<Domain.Dto.UpdateCleaningScheduleDto> tasksDto, long homeId)
+        {
+            var validation = new UpdateCleaningScheduleValidation().Validate(request);
+            if (!validation.IsValid)
+                throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
+
+            var friends = await _userReadOnlyRepository.GetByHome(homeId);
+
+            if (!tasksDto.All(c => friends.Any(k => k.Id == c.UserId)))
+                throw new YouCannotPerformThisActionException();
+        }
+
+        private void SendNotification(List<string> pushNotificationIds)
+        {
+            var titles = new Dictionary<string, string>
+            {
+                { "en", "Cleaning Schedule updated 🏡" },
+                { "pt", "Cronograma de limpeza atualizado 🏡" }
+            };
+            var messages = new Dictionary<string, string>
+            {
+                { "en", "Enter in the app and check" },
+                { "pt", "Entre no app e confira ;)" }
+            };
+
+            _pushNotificationService.Send(titles, messages, pushNotificationIds);
         }
     }
 }

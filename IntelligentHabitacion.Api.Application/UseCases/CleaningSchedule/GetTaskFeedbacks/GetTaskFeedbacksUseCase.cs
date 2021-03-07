@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
 using IntelligentHabitacion.Communication.Response;
+using IntelligentHabitacion.Exception.API;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,9 +32,12 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
         {
             var loggedUser = await _loggedUser.User();
 
-            var ratesList = await _repository.GetRates(taskCompletedId);
-
             var task = await _repository.GetTaskByCompletedId(taskCompletedId);
+
+            if (task.HomeId != loggedUser.HomeAssociation.HomeId)
+                throw new YouCannotPerformThisActionException();
+
+            var ratesList = await _repository.GetRates(taskCompletedId);
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id,
                 new ResponseRateTaskJson

@@ -37,11 +37,12 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUse
 
         public async Task<ResponseOutput> Execute(long userId, DateTime date)
         {
-            var loggedUser = await _loggedUser.User();
-
             var user = await _userReadOnlyRepository.GetById(userId);
 
-            Validate(loggedUser, user);
+            if (user == null)
+                throw new InvalidUserException();
+
+            var loggedUser = await _loggedUser.User();
 
             var resultJson = _mapper.Map<ResponseDetailsUserScheduleJson>(user);
             resultJson.Month = new DateTime(date.Year, date.Month, 1).Date;
@@ -55,8 +56,9 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUse
                     Room = schedule.Room,
                     Date = c.CreateDate,
                     AverageRating = c.AverageRating,
-                    CanBeRate = schedule.UserId != loggedUser.Id
+                    CanBeRate = userId != loggedUser.Id
                         && DateTime.Compare(resultJson.Month, new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1).Date) == 0
+                        && user.HomeAssociation.HomeId == loggedUser.HomeAssociation.HomeId
                         && !(await _scheduleReadOnlyRepository.UserAlreadyRatedTheTask(loggedUser.Id, c.Id)),
                     Id = _hashids.EncodeLong(c.Id)
                 }).Select(c => c.Result).ToList();
@@ -71,12 +73,6 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUse
             await _unitOfWork.Commit();
 
             return response;
-        }
-
-        public void Validate(Domain.Entity.User loggedUser, Domain.Entity.User userToResponse)
-        {
-            if (userToResponse == null || loggedUser.HomeAssociation.HomeId != userToResponse.HomeAssociation.HomeId)
-                throw new InvalidUserException();
         }
     }
 }

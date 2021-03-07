@@ -3,7 +3,6 @@ using HashidsNet;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
-using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Response;
 using System;
 using System.Collections.Generic;
@@ -19,19 +18,17 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFri
         private readonly ILoggedUser _loggedUser;
         private readonly ICleaningScheduleReadOnlyRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IUserReadOnlyRepository _userReadOnlyRepository;
         private readonly IHashids _hashids;
 
         public GetFriendsTasksUseCase(IntelligentHabitacionUseCase intelligentHabitacionUseCase, IMapper mapper,
             ILoggedUser loggedUser, ICleaningScheduleReadOnlyRepository repository, IUnitOfWork unitOfWork,
-            IUserReadOnlyRepository userReadOnlyRepository, IHashids hashids)
+            IHashids hashids)
         {
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
             _mapper = mapper;
             _loggedUser = loggedUser;
             _repository = repository;
             _unitOfWork = unitOfWork;
-            _userReadOnlyRepository = userReadOnlyRepository;
             _hashids = hashids;
         }
 
@@ -39,21 +36,24 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFri
         {
             var loggedUser = await _loggedUser.User();
 
-            var friends = (await _userReadOnlyRepository.GetByHome(loggedUser.HomeAssociation.HomeId)).Where(c => c.Id != loggedUser.Id);
-
             var responseJson = new List<ResponseAllFriendsTasksScheduleJson>();
 
-            foreach(var friend in friends)
-            {
-                var schedule = await _repository.GetAllTasksUser(friend.Id, friend.HomeAssociation.HomeId, date);
+            var schedules = await _repository.GetAllTasks(loggedUser.HomeAssociation.HomeId, date);
 
+            var friendIds = schedules.Select(c => c.UserId).Where(c => c != loggedUser.Id).Distinct();
+
+            foreach(var friendId in friendIds)
+            {
+                var friend = schedules.First(c => c.UserId == friendId).User;
                 var userResponse = _mapper.Map<ResponseAllFriendsTasksScheduleJson>(friend);
-                userResponse.Tasks.AddRange(schedule.Select(c => new ResponseTasksForTheMonthJson
-                {
-                    Id = _hashids.EncodeLong(c.Id),
-                    Room = c.Room,
-                    CleaningRecords = c.CleaningTasksCompleteds.Count
-                }));
+
+                userResponse.Tasks.AddRange(schedules.Where(c => c.UserId == friendId)
+                    .Select(c => new ResponseTasksForTheMonthJson
+                    {
+                        Id = _hashids.EncodeLong(c.Id),
+                        Room = c.Room,
+                        CleaningRecords = c.CleaningTasksCompleteds.Count
+                    }));
 
                 responseJson.Add(userResponse);
             }

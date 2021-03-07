@@ -114,5 +114,15 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         {
             return await _context.CleaningRatings.AsNoTracking().Where(c => c.CleaningTaskCompletedId == completedId).ToListAsync();
         }
+
+        public async Task<IList<CleaningSchedule>> GetAllTasks(long homeId, DateTime date)
+        {
+            return await _context.CleaningSchedules.AsNoTracking()
+                .Include(c => c.CleaningTasksCompleteds).ThenInclude(c => c.Ratings)
+                .Include(c => c.User)
+                .Where(c => c.HomeId == homeId && c.ScheduleStartAt.Year == date.Year && c.ScheduleStartAt.Month == date.Month)
+                .OrderBy(c => c.Room)
+                .ToListAsync();
+        }
     }
 }

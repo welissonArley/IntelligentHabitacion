@@ -110,10 +110,10 @@ namespace IntelligentHabitacion.Communication
         public async Task<ResponseJson> CreateUser(RequestRegisterUserJson registerUser, string language = null)
         {
             var response = await SendRequisition(HttpMethod.Post, $"{UrlIntelligentHabitacionApi}/User/Register", registerUser, language: language);
-            var profileColor = await response.Content.ReadAsStringAsync();
+
             return new ResponseJson
             {
-                Response = profileColor,
+                Response = JsonConvert.DeserializeObject<ResponseUserRegisteredJson>(await response.Content.ReadAsStringAsync()),
                 Token = GetToken(response)
             };
         }

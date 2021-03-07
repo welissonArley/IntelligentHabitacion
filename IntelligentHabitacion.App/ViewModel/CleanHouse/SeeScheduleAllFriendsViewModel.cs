@@ -52,7 +52,12 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<DetailsUserScheduleViewModel>();
+                var response = await _rule.GetDetailsAllTasksUserForAMonth(id, Model.Month);
+                await Navigation.PushAsync<DetailsUserScheduleViewModel>((viewModel, page) =>
+                {
+                    viewModel.Model = response;
+                    viewModel.UserId = id;
+                });
                 HideLoading();
             }
             catch (System.Exception exeption)

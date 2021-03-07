@@ -95,7 +95,7 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         private void SeeDetailsLabel_Clicked(object sender, System.EventArgs e)
         {
-            SeeDetailsCommand?.Execute(null);
+            SeeDetailsCommand?.Execute(ScheduleUser);
         }
     }
 }

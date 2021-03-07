@@ -93,7 +93,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
         public async Task<CleaningSchedule> GetTaskByCompletedId(long completedId)
         {
-            return await _context.CleaningSchedules.AsNoTracking().Include(c => c.User).ThenInclude(c => c.HomeAssociation)
+            return await _context.CleaningSchedules.AsNoTracking().Include(c => c.CleaningTasksCompleteds).Include(c => c.User).ThenInclude(c => c.HomeAssociation)
                 .FirstOrDefaultAsync(c => c.Active && c.CleaningTasksCompleteds.Any(k => k.Id == completedId));
         }
 
@@ -108,6 +108,11 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             });
 
             return (await _context.CleaningTasksCompleteds.FirstAsync(c => c.Id == rate.CleaningTaskCompletedId)).AverageRating;
+        }
+
+        public async Task<List<CleaningRating>> GetRates(long completedId)
+        {
+            return await _context.CleaningRatings.AsNoTracking().Where(c => c.CleaningTaskCompletedId == completedId).ToListAsync();
         }
     }
 }

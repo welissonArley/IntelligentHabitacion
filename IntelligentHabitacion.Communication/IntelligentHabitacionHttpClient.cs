@@ -422,6 +422,18 @@ namespace IntelligentHabitacion.Communication
             return responseJson;
         }
 
+        public async Task<ResponseJson> GetRatesTask(string token, string taskId, string language = null)
+        {
+            var response = await SendRequisition(HttpMethod.Get, $"{UrlIntelligentHabitacionApi}/CleaningSchedule/Feedbacks/{taskId}", token: token, language: language);
+            var responseJson = new ResponseJson
+            {
+                Token = GetToken(response),
+                Response = JsonConvert.DeserializeObject<ResponseRateTaskJson>(await response.Content.ReadAsStringAsync())
+            };
+
+            return responseJson;
+        }
+
         #endregion
     }
 }

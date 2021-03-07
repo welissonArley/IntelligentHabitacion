@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.SetOfRules.Interface
@@ -13,5 +14,6 @@ namespace IntelligentHabitacion.App.SetOfRules.Interface
         Task<DetailsUserScheduleModel> GetDetailsAllTasksUserForAMonth(string id, DateTime date);
         Task<AllFriendsTasksModel> GetFriendsTasks(DateTime date);
         Task<int> RateFriendTask(RatingCleaningModel model);
+        Task<IList<RatingCleaningModel>> GetRateTask(string taskId);
     }
 }

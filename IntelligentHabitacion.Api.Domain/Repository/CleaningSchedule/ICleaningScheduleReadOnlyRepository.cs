@@ -14,5 +14,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task<Entity.CleaningSchedule> GetTaskById(long taskId, long userId, long homeId, bool isFinished = false);
         Task<bool> UserAlreadyRatedTheTask(long userId, long taskCompletedId);
         Task<Entity.CleaningSchedule> GetTaskByCompletedId(long completedId);
+        Task<List<Entity.CleaningRating>> GetRates(long completedId);
     }
 }

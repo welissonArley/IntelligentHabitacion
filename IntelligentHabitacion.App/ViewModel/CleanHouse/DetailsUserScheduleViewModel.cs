@@ -26,7 +26,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
             _rule = rule;
 
             RatingFriendCommand = new Command(async (taskForTheMonth) => { await RatingFriendTask((TaskForTheMonthDetails)taskForTheMonth); });
-            SeeDetailsRatingCommand = new Command(async () => { await SeeDatailsRatingTask(); });
+            SeeDetailsRatingCommand = new Command(async (taskForTheMonth) => { await SeeDatailsRatingTask((TaskForTheMonthDetails)taskForTheMonth); });
             MonthChangedCommand = new Command(async (date) => await GetDetails((DateTime)date));
         }
 
@@ -58,12 +58,18 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 await Exception(exeption);
             }
         }
-        private async Task SeeDatailsRatingTask()
+        private async Task SeeDatailsRatingTask(TaskForTheMonthDetails taskForTheMonth)
         {
             try
             {
                 await ShowLoading();
-                await Navigation.PushAsync<SeeDetailsRatingCleaningViewModel>();
+
+                var response = await _rule.GetRateTask(taskForTheMonth.Id);
+
+                await Navigation.PushAsync<SeeDetailsRatingCleaningViewModel>((viewModel, page) =>
+                {
+                    viewModel.ModelList = new ObservableCollection<RatingCleaningModel>(response);
+                });
                 HideLoading();
             }
             catch (System.Exception exeption)

@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTaskFeedbacks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
@@ -211,6 +212,33 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 VerifyParameters(request);
 
                 var response = await useCase.Execute(id, request);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will return one list with all task's rate
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Feedbacks/{id:hashids}")]
+        [ProducesResponseType(typeof(ResponseRateTaskJson), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> GetFeedbacks(
+            [FromServices] IGetTaskFeedbacksUseCase useCase,
+            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
+        {
+            try
+            {
+                var response = await useCase.Execute(id);
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);

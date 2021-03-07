@@ -144,5 +144,23 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
             return json.AverageRating;
         }
+
+        public async Task<IList<RatingCleaningModel>> GetRateTask(string taskId)
+        {
+            var response = await _httpClient.GetRatesTask(_userPreferences.Token, taskId, System.Globalization.CultureInfo.CurrentCulture.ToString());
+
+            _userPreferences.ChangeToken(response.Token);
+
+            var json = (ResponseRateTaskJson)response.Response;
+
+            return json.Rates.Select(c => new RatingCleaningModel
+            {
+                RatingStars = c.RatingStars,
+                Name = json.CleanedBy,
+                Feedback = c.Feedback,
+                Room = json.Room,
+                Date = json.CleanedAt
+            }).ToList();
+        }
     }
 }

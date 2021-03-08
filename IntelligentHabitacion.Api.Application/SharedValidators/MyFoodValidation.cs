@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.Api.Application.SharedValidators
             RuleFor(x => x.Type).IsInEnum().WithMessage(ResourceTextException.TYPE_PRODUCTS_INVALID);
             When(x => x.DueDate.HasValue, () =>
             {
-                RuleFor(x => x.DueDate).Must(c => DateTime.Compare(c.Value, DateTime.UtcNow) > 0).WithMessage(ResourceTextException.DUEDATE_MUST_BE_GRATER_THAN_TODAY);
+                RuleFor(x => x.DueDate).Must(c => DateTime.Compare(c.Value.Date, DateTime.UtcNow.Date) > 0).WithMessage(ResourceTextException.DUEDATE_MUST_BE_GRATER_THAN_TODAY);
             });
         }
     }

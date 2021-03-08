@@ -4,16 +4,17 @@ using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Error;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Filter
 {
     /// <summary>
     /// 
     /// </summary>
-    public class AuthenticationBaseAttribute : Attribute
+    public class AuthenticationBaseAttribute : AuthorizeAttribute
     {
         private readonly IUserReadOnlyRepository _userRepository;
         private readonly TokenController _tokenController;
@@ -33,7 +34,7 @@ namespace IntelligentHabitacion.Api.Filter
         /// 
         /// </summary>
         /// <param name="context"></param>
-        protected void UserDoesNotHaveAccess(ActionExecutingContext context)
+        protected void UserDoesNotHaveAccess(AuthorizationFilterContext context)
         {
             context.Result = new UnauthorizedObjectResult(new IntelligentHabitacionException(ResourceTextException.USER_WITHOUT_PERMISSION_ACCESS_RESOURCE));
         }
@@ -42,7 +43,7 @@ namespace IntelligentHabitacion.Api.Filter
         /// 
         /// </summary>
         /// <param name="context"></param>
-        protected void TokenExpired(ActionExecutingContext context)
+        protected void TokenExpired(AuthorizationFilterContext context)
         {
             context.Result = new UnauthorizedObjectResult(new ErrorJson
             {
@@ -55,11 +56,11 @@ namespace IntelligentHabitacion.Api.Filter
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        protected User GetUser(ActionExecutingContext context)
+        protected async Task<User> GetUser(AuthorizationFilterContext context)
         {
             var tokenRequest = TokenOnRequest(context);
             var email = _tokenController.User(tokenRequest);
-            return _userRepository.GetByEmail(email).ConfigureAwait(false).GetAwaiter().GetResult();
+            return await _userRepository.GetByEmail(email);
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace IntelligentHabitacion.Api.Filter
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        protected string TokenOnRequest(ActionExecutingContext context)
+        protected string TokenOnRequest(AuthorizationFilterContext context)
         {
             var authentication = context.HttpContext.Request.Headers["Authorization"].ToString();
             if (string.IsNullOrEmpty(authentication))

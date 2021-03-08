@@ -16,7 +16,13 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser
             When(x => !string.IsNullOrWhiteSpace(x.Email), () =>
             {
                 RuleFor(x => x.Email).EmailAddress().WithMessage(ResourceTextException.EMAIL_INVALID);
-                RuleFor(x => x.Email).Must(c => !registeredUseCase.Execute(c).ConfigureAwait(false).GetAwaiter().GetResult().Value).WithMessage(ResourceTextException.EMAIL_ALREADYBEENREGISTERED);
+                RuleFor(x => x.Email).MustAsync(async (email, cancelation) =>
+                {
+                    var exists = await registeredUseCase.Execute(email);
+
+                    return !exists.Value;
+
+                }).WithMessage(ResourceTextException.EMAIL_ALREADYBEENREGISTERED);
             });
             RuleFor(x => x.Password).Custom((password, context) =>
             {

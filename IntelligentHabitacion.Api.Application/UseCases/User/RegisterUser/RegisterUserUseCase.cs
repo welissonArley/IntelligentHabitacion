@@ -34,7 +34,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser
 
         public async Task<ResponseOutput> Execute(RequestRegisterUserJson registerUserJson)
         {
-            var validation = new RegisterUserValidation(_registeredUseCase).Validate(registerUserJson);
+            var validation = await new RegisterUserValidation(_registeredUseCase).ValidateAsync(registerUserJson);
 
             if (validation.IsValid)
             {

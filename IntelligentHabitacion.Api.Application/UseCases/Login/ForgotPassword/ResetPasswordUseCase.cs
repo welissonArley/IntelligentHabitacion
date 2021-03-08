@@ -32,7 +32,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Login.ForgotPassword
 
         public async Task Execute(RequestResetYourPasswordJson resetYourPasswordJson)
         {
-            var validation = new ForgotPasswordValidation(_codeRepository, _userReadOnlyRepository).Validate(resetYourPasswordJson);
+            var validation = await new ForgotPasswordValidation(_codeRepository, _userReadOnlyRepository).ValidateAsync(resetYourPasswordJson);
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());

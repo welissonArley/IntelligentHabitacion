@@ -36,12 +36,12 @@ namespace IntelligentHabitacion.Api.Application.UseCases.MyFoods.ProcessFoodsNex
                 foreach (var result in group)
                 {
                     var foodList = result.ToList();
-                    ProcessFoodList(users.First(c => c.Id == result.Key), foodList);
+                    await ProcessFoodList(users.First(c => c.Id == result.Key), foodList);
                 }
             }
         }
 
-        private void ProcessFoodList(Domain.Entity.User user, List<MyFood> listFoods)
+        private async Task ProcessFoodList(Domain.Entity.User user, List<MyFood> listFoods)
         {
             var today = DateTime.UtcNow.Date;
             Dictionary<string, string> titles;
@@ -153,18 +153,18 @@ namespace IntelligentHabitacion.Api.Application.UseCases.MyFoods.ProcessFoodsNex
                         break;
                 }
                 
-                SendNotification(user, titles, messages);
+                await SendNotification(user, titles, messages);
             }
         }
 
-        private void SendNotification(Domain.Entity.User user, Dictionary<string, string> titles, Dictionary<string, string> messages)
+        private async Task SendNotification(Domain.Entity.User user, Dictionary<string, string> titles, Dictionary<string, string> messages)
         {
             var random = new Random();
 
             var today = DateTime.Today.Date;
             var ts = new TimeSpan(random.Next(7, 11), random.Next(0, 59), 0);
 
-            _pushNotificationService.Send(titles, messages, new List<string> { user.PushNotificationId }, today + ts);
+            await _pushNotificationService.Send(titles, messages, new List<string> { user.PushNotificationId }, today + ts);
         }
     }
 }

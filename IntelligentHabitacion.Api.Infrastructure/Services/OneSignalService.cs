@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Infrastructure.Services
 {
@@ -21,7 +22,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
             _url = config.Url;
         }
 
-        public void Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds, Dictionary<string, string> data)
+        public async Task Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds, Dictionary<string, string> data)
         {
             var bodyMensage = JsonConvert.SerializeObject(new
             {
@@ -32,10 +33,10 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
                 data
             });
 
-            SendRequest(bodyMensage);
+            await SendRequest(bodyMensage);
         }
 
-        public void Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds, DateTime? time = null)
+        public async Task Send(Dictionary<string, string> titleForEachLanguage, Dictionary<string, string> messageForEachLanguage, List<string> usersIds, DateTime? time = null)
         {
             string bodyMessage = JsonConvert.SerializeObject(new
             {
@@ -58,10 +59,10 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
                 });
             }
 
-            SendRequest(bodyMessage);
+            await SendRequest(bodyMessage);
         }
 
-        private void SendRequest(string body)
+        private async Task SendRequest(string body)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, _url);
 
@@ -69,8 +70,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
 
             request.Content = new StringContent(body, Encoding.UTF8, "application/json");
 
-            var tarefa = SendAsync(request);
-            tarefa.ConfigureAwait(false).GetAwaiter().GetResult();
+            await SendAsync(request);
         }
     }
 }

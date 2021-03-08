@@ -39,7 +39,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.NotifyOrderRece
             if (friend.HomeAssociation == null || friend.HomeAssociation.HomeId != loggedUser.HomeAssociation.HomeId)
                 throw new YouCannotPerformThisActionException();
 
-            SendNotification(friend.PushNotificationId);
+            await SendNotification(friend.PushNotificationId);
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
@@ -48,7 +48,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.NotifyOrderRece
             return response;
         }
 
-        private void SendNotification(string pushNotificationId)
+        private async Task SendNotification(string pushNotificationId)
         {
             var titles = new Dictionary<string, string>
             {
@@ -62,7 +62,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.NotifyOrderRece
             };
             var data = new Dictionary<string, string> { { EnumNotifications.OrderReceived, "1" } };
 
-            _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
+            await _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
         }
     }
 }

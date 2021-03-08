@@ -82,7 +82,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
             if (changedSomething)
             {
                 var friends = await _userReadOnlyRepository.GetByHome(loggedUser.HomeAssociation.HomeId);
-                SendNotification(friends.Where(c => c.Id != loggedUser.Id).Select(c => c.PushNotificationId).ToList());
+                await SendNotification(friends.Where(c => c.Id != loggedUser.Id).Select(c => c.PushNotificationId).ToList());
             }
 
             return response;
@@ -111,7 +111,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
                 throw new YouCannotPerformThisActionException();
         }
 
-        private void SendNotification(List<string> pushNotificationIds)
+        private async Task SendNotification(List<string> pushNotificationIds)
         {
             var titles = new Dictionary<string, string>
             {
@@ -124,7 +124,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Update
                 { "pt", "Entre no app e confira ;)" }
             };
 
-            _pushNotificationService.Send(titles, messages, pushNotificationIds);
+            await _pushNotificationService.Send(titles, messages, pushNotificationIds);
         }
     }
 }

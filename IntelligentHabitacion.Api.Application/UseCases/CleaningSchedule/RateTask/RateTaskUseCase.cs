@@ -52,7 +52,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTa
 
             await _unitOfWork.Commit();
 
-            SendNotification(task.Room, task.User.PushNotificationId);
+            await SendNotification(task.Room, task.User.PushNotificationId);
 
             return response;
         }
@@ -79,7 +79,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTa
                 throw new UserAlreadyRateTaskException();
         }
 
-        private void SendNotification(string room, string pushNotificationId)
+        private async Task SendNotification(string room, string pushNotificationId)
         {
             var titles = new Dictionary<string, string>
             {
@@ -92,7 +92,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTa
                 { "pt", string.Format("Sua tarefa de limpeza ({0}) foi avaliada :) Entre no app e confira ✔️", room) }
             };
 
-            _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId });
+            await _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId });
         }
     }
 }

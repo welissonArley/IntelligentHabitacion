@@ -50,12 +50,12 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCo
 
             var friends = (await _userReadOnlyRepository.GetByHome(loggedUser.HomeAssociation.HomeId)).Where(c => c.Id != loggedUser.Id);
 
-            SendNotification(loggedUser.Name, task.Room, friends.Select(c => c.PushNotificationId).ToList());
+            await SendNotification(loggedUser.Name, task.Room, friends.Select(c => c.PushNotificationId).ToList());
 
             return response;
         }
 
-        private void SendNotification(string userName, string room, List<string> pushNotificationIds)
+        private async Task SendNotification(string userName, string room, List<string> pushNotificationIds)
         {
             var titles = new Dictionary<string, string>
             {
@@ -68,7 +68,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCo
                 { "pt", string.Format("{0} limpou a(o) {1}, uhuu. Você já pode ir no App e avaliar a tarefa ✔️", userName, room) }
             };
 
-            _pushNotificationService.Send(titles, messages, pushNotificationIds);
+            await _pushNotificationService.Send(titles, messages, pushNotificationIds);
         }
     }
 }

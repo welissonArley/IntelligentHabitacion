@@ -60,12 +60,12 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend
 
             await _unitOfWork.Commit();
 
-            SendNotification(pushNotificationId);
+            await SendNotification(pushNotificationId);
 
             return response;
         }
 
-        private void SendNotification(string pushNotificationId)
+        private async Task SendNotification(string pushNotificationId)
         {
             var titles = new Dictionary<string, string>
             {
@@ -79,7 +79,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend
             };
             var data = new Dictionary<string, string> { { EnumNotifications.RemovedFromHome, "1" } };
 
-            _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
+            await _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);
         }
 
         private async Task ValidateActionOnFriend(Domain.Entity.User loggedUser, Domain.Entity.User friend, RequestAdminActionJson request)

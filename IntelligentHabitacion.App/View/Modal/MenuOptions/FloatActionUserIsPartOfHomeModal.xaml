@@ -18,7 +18,7 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,15,0,0">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer ></TapGestureRecognizer>
+                        <TapGestureRecognizer Tapped="AddNewItem_Tapped"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
                     <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
                     <Image Source="ActionButtonAddFood" HeightRequest="40" WidthRequest="40"></Image>

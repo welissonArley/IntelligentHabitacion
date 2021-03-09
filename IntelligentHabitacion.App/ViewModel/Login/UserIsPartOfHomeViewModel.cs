@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.Services;
+﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.CleanHouse;
@@ -28,11 +29,13 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         public ICommand FloatActionCommand { get; }
 
         public ICommand LoggoutCommand { get; }
+        public ICommand AddNewItemCommand { get; }
 
         public UserIsPartOfHomeViewModel(UserPreferences userPreferences)
         {
             _userPreferences = userPreferences;
             LoggoutCommand = new Command(async () => { await ClickLogoutAccount(); });
+            AddNewItemCommand = new Command(async () => { await OnAddNewItem(); });
 
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
             CardHomesInformationsTapped = new Command(async () => await ClickOnCardHomesInformations());
@@ -43,7 +46,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal(LoggoutCommand));
+                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal(LoggoutCommand, AddNewItemCommand));
             });
         }
 
@@ -176,6 +179,24 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             }
             catch (System.Exception exeption)
             {
+                await Exception(exeption);
+            }
+        }
+        private async Task OnAddNewItem()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, page) =>
+                {
+                    viewModel.Title = ResourceText.TITLE_NEW_ITEM;
+                    viewModel.Model = new FoodModel { Quantity = 1.00m };
+                });
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
                 await Exception(exeption);
             }
         }

@@ -11,12 +11,14 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
     public partial class FloatActionUserIsPartOfHomeModal : Rg.Plugins.Popup.Pages.PopupPage
     {
         private ICommand LoggoutCommand { get; }
+        private ICommand AddNewItemCommand { get; }
 
-        public FloatActionUserIsPartOfHomeModal(ICommand loggoutCommand)
+        public FloatActionUserIsPartOfHomeModal(ICommand loggoutCommand, ICommand addNewItemCommand)
         {
             InitializeComponent();
 
             LoggoutCommand = loggoutCommand;
+            AddNewItemCommand = addNewItemCommand;
         }
 
         private async Task CloseThisModal()
@@ -29,6 +31,11 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
         {
             await CloseThisModal();
             LoggoutCommand.Execute(null);
+        }
+        private async void AddNewItem_Tapped(object sender, System.EventArgs e)
+        {
+            await CloseThisModal();
+            AddNewItemCommand.Execute(null);
         }
     }
 }

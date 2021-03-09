@@ -82,7 +82,8 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
                 else
                     await _myFoodsRule.EditItem(Model);
 
-                CallbackSave(Model);
+                CallbackSave?.Invoke(Model);
+
                 HideLoading();
                 await Navigation.PopAsync();
             }
@@ -98,7 +99,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             {
                 await ShowLoading();
                 Model.Id = await _myFoodsRule.AddItem(Model);
-                CallbackSave(Model);
+                CallbackSave?.Invoke(Model);
                 Model.Id = string.Empty;
                 Model.Name = "";
                 Model.Manufacturer = "";

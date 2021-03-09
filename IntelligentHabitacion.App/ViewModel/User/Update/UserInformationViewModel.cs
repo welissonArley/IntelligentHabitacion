@@ -16,7 +16,6 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
         public ICommand DeleteAccountTapped { get; }
         public ICommand ChangePasswordTapped { get; }
-        public ICommand LogoutTapped { get; }
         public ICommand UpdateInformationsTapped { get; }
 
         public UserInformationsModel Model { get; set; }
@@ -28,7 +27,6 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
             DeleteAccountTapped = new Command(async () => await ClickDeleteAccount());
             ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
-            LogoutTapped = new Command(async () => await ClickLogoutAccount());
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
 
             Model = Task.Run(async () => await _userRule.GetInformations()).Result;
@@ -51,20 +49,6 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
             try
             {
                 await Navigation.PushAsync<ChangePasswordViewModel>();
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
-        }
-
-        private async Task ClickLogoutAccount()
-        {
-            try
-            {
-                _userPreferences.Logout();
-                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.Login.LoginPage>());
-                await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {

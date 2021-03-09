@@ -26,9 +26,12 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         public ICommand FloatActionCommand { get; }
 
+        public ICommand LoggoutCommand { get; }
+
         public UserWithoutPartOfHomeViewModel(UserPreferences userPreferences)
         {
             _userPreferences = userPreferences;
+            LoggoutCommand = new Command(async () => { await ClickLogoutAccount(); });
 
             CardCreateHomeTapped = new Command(async () => await ClickOnCardCreateHome());
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
@@ -45,7 +48,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionUserWithoutHomeModal());
+                await navigation.PushPopupAsync(new FloatActionUserWithoutHomeModal(LoggoutCommand));
             });
         }
 
@@ -142,6 +145,19 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                         Country = value
                     }
                 });
+            }
+        }
+
+        private async Task ClickLogoutAccount()
+        {
+            try
+            {
+                _userPreferences.Logout();
+                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.Login.LoginPage>());
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
             }
         }
     }

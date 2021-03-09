@@ -123,6 +123,7 @@ namespace IntelligentHabitacion.App.Services
         {
             Preferences.Clear();
             SecureStorage.Remove(_keyToken);
+            SecureStorage.Remove(_keyId);
         }
         #endregion
     }

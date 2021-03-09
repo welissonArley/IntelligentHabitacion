@@ -28,6 +28,6 @@
             </StackLayout>
         </ScrollView>
 
-        <button:FloatActionButton Grid.Row="0" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></button:FloatActionButton>
+        <button:FloatActionButton HorizontalOptions="End" VerticalOptions="End" Grid.Row="0" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></button:FloatActionButton>
     </Grid>
 </ContentPage>

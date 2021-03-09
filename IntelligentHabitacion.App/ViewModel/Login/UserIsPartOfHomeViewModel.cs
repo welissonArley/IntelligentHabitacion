@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
@@ -16,6 +17,8 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 {
     public class UserIsPartOfHomeViewModel : BaseViewModel
     {
+        private readonly UserPreferences _userPreferences;
+
         public ICommand CardMyInformationTapped { get; }
         public ICommand CardHomesInformationsTapped { get; }
         public ICommand CardMyFriendsTapped { get; }
@@ -24,8 +27,13 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         public ICommand FloatActionCommand { get; }
 
-        public UserIsPartOfHomeViewModel()
+        public ICommand LoggoutCommand { get; }
+
+        public UserIsPartOfHomeViewModel(UserPreferences userPreferences)
         {
+            _userPreferences = userPreferences;
+            LoggoutCommand = new Command(async () => { await ClickLogoutAccount(); });
+
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
             CardHomesInformationsTapped = new Command(async () => await ClickOnCardHomesInformations());
             CardMyFriendsTapped = new Command(async () => await ClickOnCardMyFriends());
@@ -35,7 +43,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal());
+                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal(LoggoutCommand));
             });
         }
 
@@ -155,6 +163,19 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             catch (System.Exception exeption)
             {
                 HideLoading();
+                await Exception(exeption);
+            }
+        }
+
+        private async Task ClickLogoutAccount()
+        {
+            try
+            {
+                _userPreferences.Logout();
+                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.Login.LoginPage>());
+            }
+            catch (System.Exception exeption)
+            {
                 await Exception(exeption);
             }
         }

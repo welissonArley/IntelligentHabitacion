@@ -137,5 +137,15 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                             (c.CleaningTasksCompleteds.Any() && c.CleaningTasksCompleteds.OrderByDescending(k => k.CreateDate).First().CreateDate.Date < todayLess8days))
                 .ToListAsync();
         }
+
+        public void FinishAllFromTheUser(long userId, long homeId)
+        {
+            var schedules = _context.CleaningSchedules.Where(c => c.UserId == userId && c.HomeId == homeId);
+            foreach (var schedule in schedules)
+                schedule.ScheduleFinishAt = DateTime.UtcNow;
+
+            if (schedules.Any())
+                _context.CleaningSchedules.UpdateRange(schedules);
+        }
     }
 }

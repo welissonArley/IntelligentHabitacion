@@ -9,5 +9,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         void FinishSchedules(IList<long> scheduleIds);
         Task CompletedTask(long taskScheduleId);
         Task<int> AddRateTask_ReturnAverageRating(Entity.CleaningRating rate, long userIdWhoRateTheTask);
+        void FinishAllFromTheUser(long userId, long homeId);
     }
 }

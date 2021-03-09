@@ -1,9 +1,10 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
-using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Enums;
 using IntelligentHabitacion.Api.Domain.Repository;
+using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
 using IntelligentHabitacion.Api.Domain.Repository.Code;
+using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Api.Domain.Services;
 using IntelligentHabitacion.Communication.Request;
@@ -24,11 +25,14 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend
         private readonly ICodeWriteOnlyRepository _codeRepository;
         private readonly PasswordEncripter _cryptography;
         private readonly ICodeReadOnlyRepository _codeReadOnlyRepository;
+        private readonly IMyFoodsWriteOnlyRepository _myFoodsRepository;
+        private readonly ICleaningScheduleWriteOnlyRepository _scheduleRepository;
 
         public RemoveFriendUseCase(ILoggedUser loggedUser, IPushNotificationService pushNotificationService,
             IUnitOfWork unitOfWork, ICodeWriteOnlyRepository codeRepository, PasswordEncripter cryptography,
             IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUserUpdateOnlyRepository repository,
-            ICodeReadOnlyRepository codeReadOnlyRepository)
+            ICodeReadOnlyRepository codeReadOnlyRepository, IMyFoodsWriteOnlyRepository myFoodsRepository,
+            ICleaningScheduleWriteOnlyRepository scheduleRepository)
         {
             _loggedUser = loggedUser;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
@@ -38,6 +42,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend
             _codeRepository = codeRepository;
             _cryptography = cryptography;
             _codeReadOnlyRepository = codeReadOnlyRepository;
+            _myFoodsRepository = myFoodsRepository;
+            _scheduleRepository = scheduleRepository;
         }
 
         public async Task<ResponseOutput> Execute(long friendId, RequestAdminActionJson request)
@@ -55,6 +61,9 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend
             _repository.Update(friend);
 
             _codeRepository.DeleteAllFromTheUser(loggedUser.Id);
+
+            _myFoodsRepository.DeleteAllFromTheUser(friend.Id);
+            _scheduleRepository.FinishAllFromTheUser(friend.Id, loggedUser.HomeAssociation.HomeId);
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 

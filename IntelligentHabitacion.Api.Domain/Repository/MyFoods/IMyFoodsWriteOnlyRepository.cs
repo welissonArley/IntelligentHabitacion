@@ -8,5 +8,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.MyFoods
         Task Add(MyFood myFood);
         void Delete(MyFood myFood);
         Task ChangeAmount(long myFoodId, decimal amount);
+        void DeleteAllFromTheUser(long userId);
     }
 }

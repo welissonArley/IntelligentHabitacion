@@ -69,5 +69,12 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 || (c.DueDate.Value - today).TotalDays == 3
                 || (c.DueDate.Value - today).TotalDays <= 1).ToList();
         }
+
+        public void DeleteAllFromTheUser(long userId)
+        {
+            var list = _context.MyFoods.Where(c => c.UserId == userId);
+
+            _context.MyFoods.RemoveRange(list);
+        }
     }
 }

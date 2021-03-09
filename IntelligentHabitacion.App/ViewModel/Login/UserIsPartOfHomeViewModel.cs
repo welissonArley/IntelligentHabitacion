@@ -1,9 +1,11 @@
 ﻿using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using IntelligentHabitacion.Communication.Response;
+using Rg.Plugins.Popup.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,6 +22,8 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         public ICommand CardMyFoodsTapped { get; }
         public ICommand CardCleanHouseTapped { get; }
 
+        public ICommand FloatActionCommand { get; }
+
         public UserIsPartOfHomeViewModel()
         {
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
@@ -27,6 +31,12 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             CardMyFriendsTapped = new Command(async () => await ClickOnCardMyFriends());
             CardMyFoodsTapped = new Command(async () => await ClickOnCardMyFoods());
             CardCleanHouseTapped = new Command(async () => await ClickOnCardCleanHouse());
+
+            FloatActionCommand = new Command(async () =>
+            {
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal());
+            });
         }
 
         private async Task ClickOnCardMyInformations()

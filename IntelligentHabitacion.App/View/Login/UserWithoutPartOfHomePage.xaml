@@ -2,22 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
              xmlns:templateCard="clr-namespace:IntelligentHabitacion.App.Template.CardIlustrationOptions"
              xmlns:templateHeader="clr-namespace:IntelligentHabitacion.App.Template.Header"
              NavigationPage.HasNavigationBar="False"
              x:Name="UserWithoutPartOfHomeContentPage"
              x:Class="IntelligentHabitacion.App.View.Login.UserWithoutPartOfHomePage">
-    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <StackLayout Spacing="0">
-            <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
+    <Grid RowDefinitions="*">
+        <ScrollView Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Spacing="0">
+                <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
 
-            <Grid Margin="20,30,20,20" ColumnDefinitions="*,*" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
-                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardJoinHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationFriendsSharingHome" IlustrationMargin="8,28,8,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_JOIN_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_JOIN_HOME}"></templateCard:CardIlustrationOptions>
-                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardCreateHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationCreateHome" IlustrationMargin="12,4,12,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_CREATE_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CREATE_HOME}"></templateCard:CardIlustrationOptions>
-                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" TappedCardCommand="{Binding Path=BindingContext.CardMyInformationTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationMyInformation" IlustrationMargin="33,7,33,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}"></templateCard:CardIlustrationOptions>
-            </Grid>
+                <Grid Margin="20,30,20,20" ColumnDefinitions="*,*" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
+                    <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardJoinHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationFriendsSharingHome" IlustrationMargin="8,28,8,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_JOIN_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_JOIN_HOME}"></templateCard:CardIlustrationOptions>
+                    <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardCreateHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationCreateHome" IlustrationMargin="12,4,12,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_CREATE_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CREATE_HOME}"></templateCard:CardIlustrationOptions>
+                    <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" TappedCardCommand="{Binding Path=BindingContext.CardMyInformationTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationMyInformation" IlustrationMargin="33,7,33,0" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}"></templateCard:CardIlustrationOptions>
+                </Grid>
 
-            <templateCard:CardAboutApp Margin="20,110,20,30"></templateCard:CardAboutApp>
-        </StackLayout>
-    </ScrollView>
+                <templateCard:CardAboutApp Margin="20,110,20,30"></templateCard:CardAboutApp>
+            </StackLayout>
+        </ScrollView>
+
+        <button:FloatActionButton Grid.Row="0" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}"></button:FloatActionButton>
+    </Grid>
 </ContentPage>

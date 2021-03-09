@@ -40,6 +40,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="Template\Button\FloatActionButton.xaml.cs">
+      <DependentUpon>FloatActionButton.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Button\ConfirmDangerActionButton.xaml.cs">
       <DependentUpon>ConfirmDangerActionButton.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,12 @@
     </Compile>
     <Compile Update="View\Modal\LgpdModal.xaml.cs">
       <DependentUpon>LgpdModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Modal\MenuOptions\FloatActionUserWithoutHomeModal.xaml.cs">
+      <DependentUpon>FloatActionUserWithoutHomeModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Modal\MenuOptions\FloatActionUserIsPartOfHomeModal.xaml.cs">
+      <DependentUpon>FloatActionUserIsPartOfHomeModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\MenuOptions\AdministratorMyTasksModal.xaml.cs">
       <DependentUpon>AdministratorMyTasksModal.xaml</DependentUpon>

@@ -906,6 +906,9 @@
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>O seu nome ;)</value>
   </data>
+  <data name="TITULO_LOGGOUT" xml:space="preserve">
+    <value>Sair</value>
+  </data>
   <data name="UNITED_KINGDOM" xml:space="preserve">
     <value>Reino Unido</value>
   </data>

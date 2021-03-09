@@ -7,9 +7,6 @@
              Title="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}"
              x:Name="UpdateUserInformationContentPage"
              x:Class="IntelligentHabitacion.App.View.User.Update.UserInformationPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconLogout" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding LogoutTapped}"></ToolbarItem>
-    </ContentPage.ToolbarItems>
     <StackLayout Style="{StaticResource MarginStyleDefault}">
         <templateButton:TabsView VerticalOptions="FillAndExpand">
             <templateButton:TabsView.TabItems>

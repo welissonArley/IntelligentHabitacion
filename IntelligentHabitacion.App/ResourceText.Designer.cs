@@ -2482,6 +2482,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sair.
+        /// </summary>
+        internal static string TITULO_LOGGOUT {
+            get {
+                return ResourceManager.GetString("TITULO_LOGGOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to United Kingdom.
         /// </summary>
         internal static string UNITED_KINGDOM {

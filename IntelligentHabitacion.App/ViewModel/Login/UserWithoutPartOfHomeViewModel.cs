@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using Rg.Plugins.Popup.Extensions;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         public ICommand CardMyInformationTapped { get; }
         public ICommand CardJoinHomeTapped { get; }
 
+        public ICommand FloatActionCommand { get; }
+
         public UserWithoutPartOfHomeViewModel(UserPreferences userPreferences)
         {
             _userPreferences = userPreferences;
@@ -38,6 +41,12 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
             _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, null);
+
+            FloatActionCommand = new Command(async () =>
+            {
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new FloatActionUserWithoutHomeModal());
+            });
         }
 
         private async Task ClickOnCardCreateHome()

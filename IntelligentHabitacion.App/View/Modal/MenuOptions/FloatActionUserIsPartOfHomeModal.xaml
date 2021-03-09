@@ -9,9 +9,9 @@
     <Frame BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="End" HasShadow="True" WidthRequest="200" HeightRequest="160" Padding="0" Margin="0,0,20,100">
         <StackLayout>
             <StackLayout Margin="0,10,10,10" Spacing="-6">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <StackLayout x:Name="OptionAddFriend" Orientation="Horizontal" HorizontalOptions="End">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer ></TapGestureRecognizer>
+                        <TapGestureRecognizer Tapped="AddNewFriend_Tapped"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
                     <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
                     <Image Source="ActionButtonAddFriend" HeightRequest="40" WidthRequest="40"></Image>

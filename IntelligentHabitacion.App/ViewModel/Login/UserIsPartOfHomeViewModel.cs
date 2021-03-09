@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
+using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using IntelligentHabitacion.Communication.Response;
@@ -30,12 +31,14 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         public ICommand LoggoutCommand { get; }
         public ICommand AddNewItemCommand { get; }
+        public ICommand AddNewFriendCommand { get; }
 
         public UserIsPartOfHomeViewModel(UserPreferences userPreferences)
         {
             _userPreferences = userPreferences;
-            LoggoutCommand = new Command(async () => { await ClickLogoutAccount(); });
-            AddNewItemCommand = new Command(async () => { await OnAddNewItem(); });
+            LoggoutCommand = new Command(async () => { await ClickLogoutAccount_FloatActionButton(); });
+            AddNewItemCommand = new Command(async () => { await OnAddNewItem_FloatActionButton(); });
+            AddNewFriendCommand = new Command(async () => { await AddFriends_FloatActionButton(); });
 
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
             CardHomesInformationsTapped = new Command(async () => await ClickOnCardHomesInformations());
@@ -46,7 +49,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal(LoggoutCommand, AddNewItemCommand));
+                await navigation.PushPopupAsync(new FloatActionUserIsPartOfHomeModal(LoggoutCommand, AddNewItemCommand, AddNewFriendCommand));
             });
         }
 
@@ -170,7 +173,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             }
         }
 
-        private async Task ClickLogoutAccount()
+        private async Task ClickLogoutAccount_FloatActionButton()
         {
             try
             {
@@ -182,7 +185,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                 await Exception(exeption);
             }
         }
-        private async Task OnAddNewItem()
+        private async Task OnAddNewItem_FloatActionButton()
         {
             try
             {
@@ -192,6 +195,20 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                     viewModel.Title = ResourceText.TITLE_NEW_ITEM;
                     viewModel.Model = new FoodModel { Quantity = 1.00m };
                 });
+                HideLoading();
+            }
+            catch (System.Exception exeption)
+            {
+                HideLoading();
+                await Exception(exeption);
+            }
+        }
+        private async Task AddFriends_FloatActionButton()
+        {
+            try
+            {
+                await ShowLoading();
+                await Navigation.PushAsync<QrCodeToAddFriendViewModel>();
                 HideLoading();
             }
             catch (System.Exception exeption)

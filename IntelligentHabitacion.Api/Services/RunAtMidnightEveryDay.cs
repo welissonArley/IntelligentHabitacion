@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate;
+﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using IntelligentHabitacion.Api.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -10,7 +11,7 @@ namespace IntelligentHabitacion.Api.Services
     /// <summary>
     /// 
     /// </summary>
-    public class NotifyUserProductDueDate : IHostedService, IDisposable
+    public class RunAtMidnightEveryDay : IHostedService, IDisposable
     {
         private System.Timers.Timer _timer;
         private IServiceProvider _serviceProvider;
@@ -19,7 +20,7 @@ namespace IntelligentHabitacion.Api.Services
         /// 
         /// </summary>
         /// <param name="serviceProvider"></param>
-        public NotifyUserProductDueDate(IServiceProvider serviceProvider)
+        public RunAtMidnightEveryDay(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
@@ -50,7 +51,9 @@ namespace IntelligentHabitacion.Api.Services
 
                 if (!cancellationToken.IsCancellationRequested)
                 {
-                    await Execute();
+                    await NotifyUserProductNextToDueDate();
+                    await NotifyUserReminderOfCleaningTasks();
+
                     await ScheduleJob(cancellationToken);
                 }
 
@@ -63,10 +66,20 @@ namespace IntelligentHabitacion.Api.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        private async Task Execute()
+        private async Task NotifyUserProductNextToDueDate()
         {
             using var scope = _serviceProvider.CreateScope();
             var useCase = scope.ServiceProvider.GetRequiredService<IProcessFoodsNextToDueDate>();
+            await useCase.Execute();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private async Task NotifyUserReminderOfCleaningTasks()
+        {
+            using var scope = _serviceProvider.CreateScope();
+            var useCase = scope.ServiceProvider.GetRequiredService<IProcessRemindersOfCleaningTasksUseCase>();
             await useCase.Execute();
         }
 

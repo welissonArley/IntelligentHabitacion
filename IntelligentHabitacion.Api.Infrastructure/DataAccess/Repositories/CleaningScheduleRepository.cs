@@ -124,5 +124,18 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 .OrderBy(c => c.Room)
                 .ToListAsync();
         }
+
+        public async Task<List<CleaningSchedule>> GetTasksWithMoreThan8daysWithoutClompleted()
+        {
+            var todayLess8days = DateTime.UtcNow.Date.AddDays(-8);
+
+            return await _context.CleaningSchedules.AsNoTracking()
+                .Include(c => c.CleaningTasksCompleteds)
+                .Include(c => c.User)
+                .Where(c => !c.ScheduleFinishAt.HasValue && c.HomeId == c.User.HomeAssociation.HomeId)
+                .Where(c => (!c.CleaningTasksCompleteds.Any() && c.ScheduleStartAt.Date < todayLess8days) || 
+                            (c.CleaningTasksCompleteds.Any() && c.CleaningTasksCompleteds.OrderByDescending(k => k.CreateDate).First().CreateDate.Date < todayLess8days))
+                .ToListAsync();
+        }
     }
 }

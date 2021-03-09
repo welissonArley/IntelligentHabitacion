@@ -63,7 +63,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
             var list = await _context.MyFoods.AsNoTracking()
                 .Include(c => c.User)
-                .Where(c => c.DueDate.HasValue && c.DueDate.Value.Date <= today.Date.AddDays(7)).ToListAsync();
+                .Where(c => c.DueDate.HasValue && c.DueDate.Value.Date <= today.AddDays(7)).ToListAsync();
 
             return list.Where(c => (c.DueDate.Value - today).TotalDays == 7
                 || (c.DueDate.Value - today).TotalDays == 3

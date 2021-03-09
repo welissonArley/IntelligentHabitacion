@@ -97,7 +97,7 @@ namespace IntelligentHabitacion.Api
                 .AddTokenController(Configuration);
 
             services.AddHttpContextAccessor();
-            services.AddHostedService<NotifyUserProductDueDate>();
+            services.AddHostedService<RunAtMidnightEveryDay>();
 
             services.AddScoped<AuthenticationUserAttribute>();
             services.AddScoped<AuthenticationUserIsPartOfHomeAttribute>();

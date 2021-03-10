@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DESCRIPTION_CREATE_CLEANING_SCHEDULE" xml:space="preserve">
-    <value>Hey Administrador, clique no menu acima e selecione a opção “Gerenciar Cronograma” e crie o primeiro Cronograma de Limpeza;)</value>
+    <value>Hey Administrador, clique no menu acima e selecione a opção “Gerenciar Cronograma” e crie o primeiro Cronograma de Limpeza ;)</value>
   </data>
   <data name="DESCRIPTION_DATE_JOINED_THE_HOUSE" xml:space="preserve">
     <value>Hoje fazem exatamente {0} que vocês compartilham um lar :)</value>

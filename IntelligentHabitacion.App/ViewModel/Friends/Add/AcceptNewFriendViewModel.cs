@@ -64,10 +64,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends.Add
             });
 
             /*
-             * In position two it will always be the QrCodeToAddFriendPage
+             * In the last position it will always be the QrCodeToAddFriendPage
              */
             var navigation = Resolver.Resolve<INavigation>();
-            navigation.RemovePage(navigation.NavigationStack[2]);
+            navigation.RemovePage(navigation.NavigationStack[navigation.NavigationStack.Count - 1]);
         }
 
         private async Task OnChangedTime(int timer)

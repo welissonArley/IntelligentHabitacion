@@ -7,7 +7,7 @@
     BackgroundColor="Transparent"
     x:Class="IntelligentHabitacion.App.View.Modal.MenuOptions.FloatActionUserIsPartOfHomeModal">
     <Frame BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="End" HasShadow="True" WidthRequest="200" HeightRequest="160" Padding="0" Margin="0,0,20,100">
-        <StackLayout>
+        <StackLayout VerticalOptions="End">
             <StackLayout Margin="0,10,10,10" Spacing="-6">
                 <StackLayout x:Name="OptionAddFriend" Orientation="Horizontal" HorizontalOptions="End">
                     <StackLayout.GestureRecognizers>

@@ -45,7 +45,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Proces
 
             foreach (var task in schedules)
             {
-                var totalDays = (today - (task.CleaningTasksCompleteds.Any() ? task.CleaningTasksCompleteds.OrderByDescending(c => c.CreateDate).First().CreateDate : task.ScheduleStartAt)).TotalDays;
+                var totalDays = Convert.ToInt32((today - (task.CleaningTasksCompleteds.Any() ? task.CleaningTasksCompleteds.OrderByDescending(c => c.CreateDate).First().CreateDate : task.ScheduleStartAt)).TotalDays);
 
                 titles = new Dictionary<string, string>
                 {

@@ -24,7 +24,7 @@ namespace IntelligentHabitacion.App.UseCases
             return _baseAddres;
         }
 
-        protected string GetToken(HttpResponseHeaders headers)
+        protected string GetTokenOnHeaderRequest(HttpResponseHeaders headers)
         {
             return headers.Contains("Tvih") ? headers.GetValues("Tvih")?.First() : null;
         }

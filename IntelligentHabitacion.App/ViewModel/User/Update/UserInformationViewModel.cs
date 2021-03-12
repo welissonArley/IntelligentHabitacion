@@ -1,8 +1,9 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.ViewModel.Login;
+using IntelligentHabitacion.App.UseCases.User.UserInformations;
 using IntelligentHabitacion.App.ViewModel.User.Delete;
+using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -11,8 +12,10 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 {
     public class UserInformationViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
+        private Lazy<IUserInformationsUseCase> useCase;
+        private IUserInformationsUseCase _useCase => useCase.Value;
 
         public ICommand DeleteAccountTapped { get; }
         public ICommand ChangePasswordTapped { get; }
@@ -20,16 +23,14 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
         public UserInformationsModel Model { get; set; }
 
-        public UserInformationViewModel(IUserRule userRule, UserPreferences userPreferences)
+        public UserInformationViewModel(Lazy<IUserInformationsUseCase> useCase, Lazy<UserPreferences> userPreferences)
         {
-            _userPreferences = userPreferences;
-            _userRule = userRule;
+            this.userPreferences = userPreferences;
+            this.useCase = useCase;
 
             DeleteAccountTapped = new Command(async () => await ClickDeleteAccount());
             ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
-
-            Model = Task.Run(async () => await _userRule.GetInformations()).Result;
         }
 
         private async Task ClickDeleteAccount()
@@ -61,7 +62,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
             try
             {
                 await ShowLoading();
-                await _userRule.UpdateInformations(Model);
+                //await _userRule.UpdateInformations(Model);
                 _userPreferences.SaveUserInformations(Model.Name, Model.Email);
                 await Navigation.PopAsync();
                 HideLoading();
@@ -71,6 +72,12 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
                 HideLoading();
                 await Exception(exeption);
             }
+        }
+
+        public async Task Initialize()
+        {
+            Model = await _useCase.Execute();
+            OnPropertyChanged(new PropertyChangedEventArgs("Model"));
         }
     }
 }

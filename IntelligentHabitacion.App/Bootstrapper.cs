@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule;
+using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
+using IntelligentHabitacion.App.UseCases.User.RegisterUser;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App
@@ -17,6 +19,9 @@ namespace IntelligentHabitacion.App
             container.Register<IMyFoodsRule, MyFoodsRule>();
             container.Register<IUserRule, UserRule>();
             container.Register<ICleaningScheduleRule, CleaningScheduleRule>();
+
+            container.Register<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>();
+            container.Register<IRegisterUserUseCase, RegisterUserUseCase>();
         }
     }
 }

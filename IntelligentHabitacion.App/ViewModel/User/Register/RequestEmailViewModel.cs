@@ -1,7 +1,8 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.App.View.Modal;
 using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -11,16 +12,18 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
     public class RequestEmailViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        public ICommand NextCommand { protected set; get; }
+        private readonly Lazy<IEmailAlreadyBeenRegisteredUseCase> useCase;
+        private IEmailAlreadyBeenRegisteredUseCase _useCase => useCase.Value;
 
-        public ICommand WhyINeedFillThisInformationCommand { protected set; get; }
+        public ICommand NextCommand { get; }
+        public ICommand WhyINeedFillThisInformationCommand { get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestEmailViewModel(IUserRule userRule)
+        public RequestEmailViewModel(Lazy<IEmailAlreadyBeenRegisteredUseCase> useCase)
         {
-            _userRule = userRule;
+            this.useCase = useCase;
+
             NextCommand = new Command(async () => await OnNext());
             WhyINeedFillThisInformationCommand = new Command(async () =>
             {
@@ -34,7 +37,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             try
             {
                 await ShowLoading();
-                await _userRule.ValidateEmailAndVerifyIfAlreadyBeenRegistered(Model.Email);
+                await _useCase.Execute(Model.Email);
                 HideLoading();
                 await Navigation.PushAsync<RequestNameViewModel>((viewModel, page) => viewModel.Model = Model);
             }

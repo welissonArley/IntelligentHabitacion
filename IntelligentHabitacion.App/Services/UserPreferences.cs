@@ -16,21 +16,6 @@ namespace IntelligentHabitacion.App.Services
             get => Preferences.Get("NAME", null);
             private set => Preferences.Set("NAME", value);
         }
-        public string Email
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyEmail)).Result;
-            private set => SecureStorage.SetAsync(_keyEmail, value);
-        }
-        public string Password
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyPassword)).Result;
-            private set => SecureStorage.SetAsync(_keyPassword, value);
-        }
-        public string Id
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyId)).Result;
-            private set => SecureStorage.SetAsync(_keyId, value);
-        }
         public string ProfileColor
         {
             get => Preferences.Get("PROFILECOLOR", null);
@@ -50,11 +35,29 @@ namespace IntelligentHabitacion.App.Services
                 IsPartOfOneHome = true;
             }
         }
+        #region asyncToRemove
         public string Token
         {
-            get => Task.Run(async() => await SecureStorage.GetAsync(_keyToken)).Result;
+            get => Task.Run(async () => await SecureStorage.GetAsync(_keyToken)).Result;
             private set => SecureStorage.SetAsync(_keyToken, value);
         }
+        public string Email
+        {
+            get => Task.Run(async () => await SecureStorage.GetAsync(_keyEmail)).Result;
+            private set => SecureStorage.SetAsync(_keyEmail, value);
+        }
+        public string Password
+        {
+            get => Task.Run(async () => await SecureStorage.GetAsync(_keyPassword)).Result;
+            private set => SecureStorage.SetAsync(_keyPassword, value);
+        }
+        public string Id
+        {
+            get => Task.Run(async () => await SecureStorage.GetAsync(_keyId)).Result;
+            private set => SecureStorage.SetAsync(_keyId, value);
+        }
+        #endregion
+
         public double Width
         {
             get => Preferences.Get("WIDTH", 0.0);
@@ -67,6 +70,19 @@ namespace IntelligentHabitacion.App.Services
         }
 
         #region functions
+        public async Task SaveInitialUserInfos(UserPreferenceDto userPreference)
+        {
+            Name = userPreference.Name;
+            ProfileColor = userPreference.ProfileColor;
+            IsAdministrator = userPreference.IsAdministrator;
+            IsPartOfOneHome = userPreference.IsPartOfOneHome;
+            Width = userPreference.Width;
+            await SecureStorage.SetAsync(_keyId, userPreference.Id);
+            await SecureStorage.SetAsync(_keyEmail, userPreference.Email);
+            await ChangePassword(userPreference.Password);
+            await ChangeToken(userPreference.Password);
+        }
+        
         public void SaveUserInformations(UserPreferenceDto userPreference)
         {
             Name = userPreference.Name;
@@ -84,13 +100,13 @@ namespace IntelligentHabitacion.App.Services
             Name = name;
             Email = email;
         }
-        public void ChangeToken(string token)
+        public async Task ChangeToken(string token)
         {
-            Token = token;
+            await SecureStorage.SetAsync(_keyToken, token);
         }
-        public void ChangePassword(string password)
+        public async Task ChangePassword(string password)
         {
-            Password = password;
+            await SecureStorage.SetAsync(_keyPassword, password);
         }
         public void UserIsAdministrator(bool isAdmin)
         {

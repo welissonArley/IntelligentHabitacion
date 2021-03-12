@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.Exception;
 using Rg.Plugins.Popup.Extensions;
@@ -12,15 +11,13 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
     public class RequestPhoneNumberViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        public ICommand NextCommand { protected set; get; }
-        public ICommand WhyINeedFillThisInformationCommand { protected set; get; }
+        public ICommand NextCommand { get; }
+        public ICommand WhyINeedFillThisInformationCommand { get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestPhoneNumberViewModel(IUserRule userRule)
+        public RequestPhoneNumberViewModel()
         {
-            _userRule = userRule;
             NextCommand = new Command(async () => await OnNext());
             WhyINeedFillThisInformationCommand = new Command(async () =>
             {
@@ -33,8 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(Model.PhoneNumber1))
-                    throw new PhoneNumberEmptyException();
+                ValidateName();
 
                 await Navigation.PushAsync<RequestEmergencyContact1ViewModel>((viewModel, page) => viewModel.Model = Model);
             }
@@ -42,6 +38,12 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             {
                 await Exception(exeption);
             }
+        }
+
+        private void ValidateName()
+        {
+            if (string.IsNullOrWhiteSpace(Model.PhoneNumber1))
+                throw new PhoneNumberEmptyException();
         }
     }
 }

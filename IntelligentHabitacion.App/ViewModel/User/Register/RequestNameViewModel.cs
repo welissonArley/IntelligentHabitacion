@@ -1,5 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.Exception;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -8,14 +8,12 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
     public class RequestNameViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        public ICommand NextCommand { protected set; get; }
+        public ICommand NextCommand { get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestNameViewModel(IUserRule userRule)
+        public RequestNameViewModel()
         {
-            _userRule = userRule;
             NextCommand = new Command(async () => await OnNext());
         }
 
@@ -23,7 +21,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                _userRule.ValidateName(Model.Name);
+                ValidateName(Model.Name);
 
                 await Navigation.PushAsync<RequestPhoneNumberViewModel>((viewModel, page) => viewModel.Model = Model);
             }
@@ -31,6 +29,12 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             {
                 await Exception(exeption);
             }
+        }
+
+        private void ValidateName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new NameEmptyException();
         }
     }
 }

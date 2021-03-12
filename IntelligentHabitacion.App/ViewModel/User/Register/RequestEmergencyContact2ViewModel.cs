@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
 using Rg.Plugins.Popup.Extensions;
 using System.Threading.Tasks;
@@ -11,15 +10,13 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
     public class RequestEmergencyContact2ViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        public ICommand NextCommand { protected set; get; }
-        public ICommand WhyINeedFillThisInformationCommand { protected set; get; }
+        public ICommand NextCommand { get; }
+        public ICommand WhyINeedFillThisInformationCommand { get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestEmergencyContact2ViewModel(IUserRule userRule)
+        public RequestEmergencyContact2ViewModel()
         {
-            _userRule = userRule;
             NextCommand = new Command(async () => await OnNext());
             WhyINeedFillThisInformationCommand = new Command(async () =>
             {
@@ -32,9 +29,6 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(Model.EmergencyContact2.Name))
-                    _userRule.ValidateEmergencyContact(Model.EmergencyContact2.Name, Model.EmergencyContact2.PhoneNumber, Model.EmergencyContact2.Relationship);
-
                 await Navigation.PushAsync<RequestPasswordViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)

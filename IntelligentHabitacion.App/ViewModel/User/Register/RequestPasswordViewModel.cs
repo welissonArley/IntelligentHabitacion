@@ -1,9 +1,8 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.UseCases.User.RegisterUser;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.ViewModel.Login;
-using IntelligentHabitacion.Communication.Response;
+using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -14,11 +13,11 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
     public class RequestPasswordViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<IRegisterUserUseCase> useCase;
+        private IRegisterUserUseCase _useCase => useCase.Value;
 
-        public ICommand OnConcludeCommand { protected set; get; }
-        public ICommand ShowHidePasswordCommand { protected set; get; }
+        public ICommand OnConcludeCommand { get; }
+        public ICommand ShowHidePasswordCommand { get; }
 
         public RegisterUserModel Model { get; set; }
 
@@ -27,10 +26,9 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         public int IlustrationHeightRequest { get; set; }
         public Thickness IlustrationMargin { get; set; }
 
-        public RequestPasswordViewModel(IUserRule userRule, UserPreferences userPreferences)
+        public RequestPasswordViewModel(Lazy<IRegisterUserUseCase> useCase)
         {
-            _userRule = userRule;
-            _userPreferences = userPreferences;
+            this.useCase = useCase;
             HidePassword();
             OnConcludeCommand = new Command(async () => await OnConclude());
             ShowHidePasswordCommand = new Command(ShowHidePassword);
@@ -42,24 +40,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             {
                 await ShowLoading();
 
-                _userRule.ValidatePassword(Model.Password);
-
-                var response = await _userRule.Create(Model);
-
-                var responseJson = (ResponseUserRegisteredJson)response.Response;
-
-                _userPreferences.SaveUserInformations(new Dtos.UserPreferenceDto
-                {
-                    IsAdministrator = false,
-                    IsPartOfOneHome = false,
-                    ProfileColor = responseJson.ProfileColor,
-                    Name = Model.Name,
-                    Password = Model.Password,
-                    Token = response.Token,
-                    Email = Model.Email,
-                    Width = Application.Current.MainPage.Width,
-                    Id = responseJson.Id
-                });
+                await _useCase.Execute(Model);
 
                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 

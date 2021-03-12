@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
+using IntelligentHabitacion.Exception;
 using Rg.Plugins.Popup.Extensions;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,15 +11,13 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
     public class RequestEmergencyContact1ViewModel : BaseViewModel
     {
-        private readonly IUserRule _userRule;
-        public ICommand NextCommand { protected set; get; }
-        public ICommand WhyINeedFillThisInformationCommand { protected set; get; }
+        public ICommand NextCommand { get; }
+        public ICommand WhyINeedFillThisInformationCommand { get; }
 
         public RegisterUserModel Model { get; set; }
 
-        public RequestEmergencyContact1ViewModel(IUserRule userRule)
+        public RequestEmergencyContact1ViewModel()
         {
-            _userRule = userRule;
             NextCommand = new Command(async () => await OnNext());
             WhyINeedFillThisInformationCommand = new Command(async () =>
             {
@@ -32,7 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                _userRule.ValidateEmergencyContact(Model.EmergencyContact1.Name, Model.EmergencyContact1.PhoneNumber, Model.EmergencyContact1.Relationship);
+                ValidateEmergencyContact(Model.EmergencyContact1.Name, Model.EmergencyContact1.PhoneNumber, Model.EmergencyContact1.Relationship);
 
                 await Navigation.PushAsync<RequestEmergencyContact2ViewModel>((viewModel, page) => viewModel.Model = Model);
             }
@@ -40,6 +38,18 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             {
                 await Exception(exeption);
             }
+        }
+
+        private void ValidateEmergencyContact(string name, string phoneNumber, string relationship)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new NameEmptyException();
+
+            if (string.IsNullOrWhiteSpace(relationship))
+                throw new RelationshipToEmptyException();
+
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                throw new PhoneNumberEmptyException();
         }
     }
 }

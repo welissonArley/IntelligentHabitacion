@@ -29,7 +29,7 @@ namespace IntelligentHabitacion.App.UseCases.User.RegisterUser
                 IsAdministrator = false,
                 IsPartOfOneHome = false,
                 Id = response.Content.Id,
-                Token = GetToken(response.Headers),
+                Token = GetTokenOnHeaderRequest(response.Headers),
                 ProfileColor = response.Content.ProfileColor,
                 Name = userInformations.Name,
                 Password = userInformations.Password,

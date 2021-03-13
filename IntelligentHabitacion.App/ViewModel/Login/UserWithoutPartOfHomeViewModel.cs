@@ -6,6 +6,7 @@ using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -17,8 +18,9 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 {
     public class UserWithoutPartOfHomeViewModel : BaseViewModel
     {
-        private readonly WebSocketAddFriendConnection _webSocketAddFriendConnection;
-        private readonly UserPreferences _userPreferences;
+        private WebSocketAddFriendConnection _webSocketAddFriendConnection;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
 
         public ICommand CardCreateHomeTapped { get; }
         public ICommand CardMyInformationTapped { get; }
@@ -28,23 +30,15 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         public ICommand LoggoutCommand { get; }
 
-        public UserWithoutPartOfHomeViewModel(UserPreferences userPreferences)
+        public UserWithoutPartOfHomeViewModel(Lazy<UserPreferences> userPreferences)
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             LoggoutCommand = new Command(async () => { await ClickLogoutAccount(); });
 
             CardCreateHomeTapped = new Command(async () => await ClickOnCardCreateHome());
             CardMyInformationTapped = new Command(async () => await ClickOnCardMyInformations());
             CardJoinHomeTapped = new Command(async () => await ClickOnCardJoinHome());
             
-            var callbackWhenAnErrorOccurs = new Command(async (message) =>
-            {
-                await HandleException(message.ToString());
-            });
-
-            _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
-            _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, null);
-
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
@@ -73,13 +67,13 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<UserInformationViewModel>();
-                HideLoading();
+                await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, page) =>
+                {
+                    await viewModel.Initialize();
+                });
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -109,6 +103,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                         await DisconnectFromSocket();
                         await navigation.PopAllPopupAsync();
                     });
+                    CreateConnectionSocket();
                     await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, _userPreferences.Token, result);
                 }
             }
@@ -130,6 +125,17 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         public async Task DisconnectFromSocket()
         {
             await _webSocketAddFriendConnection.StopConnection().ConfigureAwait(false);
+            _webSocketAddFriendConnection = null;
+        }
+        private void CreateConnectionSocket()
+        {
+            var callbackWhenAnErrorOccurs = new Command(async (message) =>
+            {
+                await HandleException(message.ToString());
+            });
+
+            _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
+            _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, null);
         }
 
         private async Task OnCountrySelectedAsync(CountryModel value)
@@ -140,7 +146,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             {
                 await Navigation.PushAsync<Home.Register.Others.RegisterHomeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel
                 {
-                    City = new Model.CityModel
+                    City = new CityModel
                     {
                         Country = value
                     }

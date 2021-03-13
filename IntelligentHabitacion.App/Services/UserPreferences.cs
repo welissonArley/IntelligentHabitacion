@@ -80,7 +80,7 @@ namespace IntelligentHabitacion.App.Services
             await SecureStorage.SetAsync(_keyId, userPreference.Id);
             await SecureStorage.SetAsync(_keyEmail, userPreference.Email);
             await ChangePassword(userPreference.Password);
-            await ChangeToken(userPreference.Password);
+            await ChangeToken(userPreference.Token);
         }
         
         public void SaveUserInformations(UserPreferenceDto userPreference)
@@ -103,6 +103,10 @@ namespace IntelligentHabitacion.App.Services
         public async Task ChangeToken(string token)
         {
             await SecureStorage.SetAsync(_keyToken, token);
+        }
+        public async Task<string> GetToken()
+        {
+            return await SecureStorage.GetAsync(_keyToken);
         }
         public async Task ChangePassword(string password)
         {

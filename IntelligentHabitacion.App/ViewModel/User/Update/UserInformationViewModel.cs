@@ -6,12 +6,15 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.User.Update
 {
     public class UserInformationViewModel : BaseViewModel
     {
+        public LayoutState CurrentState { get; set; }
+
         private readonly Lazy<UserPreferences> userPreferences;
         private UserPreferences _userPreferences => userPreferences.Value;
         private Lazy<IUserInformationsUseCase> useCase;
@@ -25,6 +28,8 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
         public UserInformationViewModel(Lazy<IUserInformationsUseCase> useCase, Lazy<UserPreferences> userPreferences)
         {
+            CurrentState = LayoutState.Loading;
+
             this.userPreferences = userPreferences;
             this.useCase = useCase;
 
@@ -78,6 +83,8 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
         {
             Model = await _useCase.Execute();
             OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+            CurrentState = LayoutState.None;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
         }
     }
 }

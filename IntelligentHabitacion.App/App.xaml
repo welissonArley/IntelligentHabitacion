@@ -24,6 +24,7 @@
             <Color x:Key="RedDefault">#F8777D</Color>
             <Color x:Key="BlueDefault">#F2F6F7</Color>
             <Color x:Key="OrangeDefault">#FD8369</Color>
+            <Color x:Key="SkeletonColor">#e2e2e2</Color>
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />

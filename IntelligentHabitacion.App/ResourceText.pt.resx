@@ -819,6 +819,9 @@
   <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
     <value>Ver mais detalhes</value>
   </data>
+  <data name="TITLE_SENDING_DATA" xml:space="preserve">
+    <value>Enviando dados ...</value>
+  </data>
   <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
     <value>Enviando o QRCode ...</value>
   </data>
@@ -830,6 +833,9 @@
   </data>
   <data name="TITLE_STATE_TWOPOINTS" xml:space="preserve">
     <value>Estado:</value>
+  </data>
+  <data name="TITLE_SUCCESS" xml:space="preserve">
+    <value>Sucesso :)</value>
   </data>
   <data name="TITLE_SUNDAY_ABBREVIATED" xml:space="preserve">
     <value>Dom</value>

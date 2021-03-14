@@ -95,10 +95,10 @@ namespace IntelligentHabitacion.App.Services
             Width = userPreference.Width;
             Id = userPreference.Id;
         }
-        public void SaveUserInformations(string name, string email)
+        public async Task SaveUserInformations(string name, string email)
         {
             Name = name;
-            Email = email;
+            await SecureStorage.SetAsync(_keyEmail, email);
         }
         public async Task ChangeToken(string token)
         {

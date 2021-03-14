@@ -30,7 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                ValidateName();
+                ValidatePhoneNumber();
 
                 await Navigation.PushAsync<RequestEmergencyContact1ViewModel>((viewModel, page) => viewModel.Model = Model);
             }
@@ -40,7 +40,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             }
         }
 
-        private void ValidateName()
+        private void ValidatePhoneNumber()
         {
             if (string.IsNullOrWhiteSpace(Model.PhoneNumber1))
                 throw new PhoneNumberEmptyException();

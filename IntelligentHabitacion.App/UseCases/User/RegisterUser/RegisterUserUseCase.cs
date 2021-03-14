@@ -24,6 +24,8 @@ namespace IntelligentHabitacion.App.UseCases.User.RegisterUser
         {
             var response = await _restService.CreateUser(Mapper(userInformations), GetLanguage());
 
+            ResponseValidate(response);
+
             await _userPreferences.SaveInitialUserInfos(new Dtos.UserPreferenceDto
             {
                 IsAdministrator = false,

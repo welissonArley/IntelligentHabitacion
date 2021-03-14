@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.App.UseCases.User.RegisterUser;
+using IntelligentHabitacion.App.UseCases.User.UpdateUserInformations;
 using IntelligentHabitacion.App.UseCases.User.UserInformations;
 using XLabs.Ioc;
 
@@ -24,6 +25,7 @@ namespace IntelligentHabitacion.App
             container.Register<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>();
             container.Register<IRegisterUserUseCase, RegisterUserUseCase>();
             container.Register<IUserInformationsUseCase, UserInformationsUseCase>();
+            container.Register<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>();
         }
     }
 }

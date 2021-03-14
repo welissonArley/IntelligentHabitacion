@@ -16,5 +16,7 @@ namespace IntelligentHabitacion.App.Services.Communication.User
         Task<ApiResponse<ResponseUserRegisteredJson>> CreateUser([Body] RequestRegisterUserJson registerUser, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Get("/Informations")]
         Task<ApiResponse<ResponseUserInformationsJson>> GetUserInformations([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Put("/Update")]
+        Task<ApiResponse<string>> UpdateUser([Body] RequestUpdateUserJson updateUser, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

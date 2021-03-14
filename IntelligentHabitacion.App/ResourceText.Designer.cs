@@ -2212,6 +2212,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sending data ....
+        /// </summary>
+        internal static string TITLE_SENDING_DATA {
+            get {
+                return ResourceManager.GetString("TITLE_SENDING_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sending QRCode ....
         /// </summary>
         internal static string TITLE_SENDING_QRCODE {
@@ -2244,6 +2253,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_STATE_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_STATE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success :).
+        /// </summary>
+        internal static string TITLE_SUCCESS {
+            get {
+                return ResourceManager.GetString("TITLE_SUCCESS", resourceCulture);
             }
         }
         

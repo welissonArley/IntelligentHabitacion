@@ -87,6 +87,9 @@
     <Compile Update="Template\Header\CircleWithTextAndDescriptionComponent.xaml.cs">
       <DependentUpon>CircleWithTextAndDescriptionComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Template\Informations\SucessTemplate.xaml.cs">
+      <DependentUpon>SucessTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Template\Informations\ManageScheduleTemplate.xaml.cs">
       <DependentUpon>ManageScheduleTemplate.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
     </Compile>
     <Compile Update="Template\Informations\TextAreaTemplate.xaml.cs">
       <DependentUpon>TextAreaTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\Loading\LoadingTemplate.xaml.cs">
+      <DependentUpon>LoadingTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Loading\LoadingContentView.xaml.cs">
       <DependentUpon>LoadingContentView.xaml</DependentUpon>

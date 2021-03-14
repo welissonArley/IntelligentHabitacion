@@ -23,6 +23,8 @@ namespace IntelligentHabitacion.App.UseCases.User.UserInformations
         {
             var response = await _restService.GetUserInformations(await _userPreferences.GetToken(), GetLanguage());
 
+            ResponseValidate(response);
+
             await _userPreferences.ChangeToken(GetTokenOnHeaderRequest(response.Headers));
 
             return Mapper(response.Content);

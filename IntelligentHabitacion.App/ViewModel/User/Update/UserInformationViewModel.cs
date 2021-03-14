@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.UseCases.User.UpdateUserInformations;
 using IntelligentHabitacion.App.UseCases.User.UserInformations;
 using IntelligentHabitacion.App.ViewModel.User.Delete;
 using System;
@@ -13,12 +14,12 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 {
     public class UserInformationViewModel : BaseViewModel
     {
-        public LayoutState CurrentState { get; set; }
-
         private readonly Lazy<UserPreferences> userPreferences;
         private UserPreferences _userPreferences => userPreferences.Value;
-        private Lazy<IUserInformationsUseCase> useCase;
-        private IUserInformationsUseCase _useCase => useCase.Value;
+        private Lazy<IUserInformationsUseCase> getInformationsUseCase;
+        private IUserInformationsUseCase _useCase => getInformationsUseCase.Value;
+        private Lazy<IUpdateUserInformationsUseCase> updateUseCase;
+        private IUpdateUserInformationsUseCase _updateUseCase => updateUseCase.Value;
 
         public ICommand DeleteAccountTapped { get; }
         public ICommand ChangePasswordTapped { get; }
@@ -26,12 +27,15 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
         public UserInformationsModel Model { get; set; }
 
-        public UserInformationViewModel(Lazy<IUserInformationsUseCase> useCase, Lazy<UserPreferences> userPreferences)
+        public UserInformationViewModel(Lazy<IUserInformationsUseCase> getInformationsUseCase,
+            Lazy<IUpdateUserInformationsUseCase> updateUseCase,
+            Lazy<UserPreferences> userPreferences)
         {
             CurrentState = LayoutState.Loading;
 
             this.userPreferences = userPreferences;
-            this.useCase = useCase;
+            this.getInformationsUseCase = getInformationsUseCase;
+            this.updateUseCase = updateUseCase;
 
             DeleteAccountTapped = new Command(async () => await ClickDeleteAccount());
             ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
@@ -66,15 +70,14 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
         {
             try
             {
-                await ShowLoading();
-                //await _userRule.UpdateInformations(Model);
-                _userPreferences.SaveUserInformations(Model.Name, Model.Email);
-                await Navigation.PopAsync();
-                HideLoading();
+                Saving();
+
+                await _updateUseCase.Execute(Model);
+
+                await Sucess();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

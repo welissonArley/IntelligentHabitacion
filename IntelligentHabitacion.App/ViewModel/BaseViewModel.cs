@@ -7,7 +7,9 @@ using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using Plugin.Connectivity;
 using Rg.Plugins.Popup.Extensions;
+using System.ComponentModel;
 using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
@@ -16,10 +18,15 @@ namespace IntelligentHabitacion.App.ViewModel
 {
     public class BaseViewModel : XLabs.Forms.Mvvm.ViewModel
     {
+        public LayoutState CurrentState { get; set; }
+
         private LoadingContentView _loadingContentView;
 
         protected async Task Exception(System.Exception exception)
         {
+            CurrentState = LayoutState.None;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+
             var navigation = Resolver.Resolve<INavigation>();
 
             if (!(exception.InnerException as System.Reflection.TargetInvocationException is null))
@@ -41,6 +48,20 @@ namespace IntelligentHabitacion.App.ViewModel
             var navigation = Resolver.Resolve<INavigation>();
 
             await navigation.PushPopupAsync(new ErrorModal(exception));
+        }
+
+        protected void Saving()
+        {
+            CurrentState = LayoutState.Saving;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+        }
+        protected async Task Sucess()
+        {
+            CurrentState = LayoutState.Success;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            await Task.Delay(800);
+            CurrentState = LayoutState.None;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
         }
 
         protected async Task ShowLoading()

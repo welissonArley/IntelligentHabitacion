@@ -1132,6 +1132,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checking E-mail ....
+        /// </summary>
+        internal static string TITLE_CHECKING_EMAIL {
+            get {
+                return ResourceManager.GetString("TITLE_CHECKING_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose one of the numbers below:.
         /// </summary>
         internal static string TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS {

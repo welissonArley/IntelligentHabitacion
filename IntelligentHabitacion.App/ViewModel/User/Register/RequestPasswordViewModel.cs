@@ -39,21 +39,20 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                await ShowLoading();
+                SendingData();
 
                 ValidatePassword(Model.Password);
 
                 await _useCase.Execute(Model);
 
-                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                await Sucess();
 
-                HideLoading();
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 
                 await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

@@ -474,6 +474,9 @@
   <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="TITLE_CHECKING_EMAIL" xml:space="preserve">
+    <value>Checking E-mail ...</value>
+  </data>
   <data name="TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS" xml:space="preserve">
     <value>Choose one of the numbers below:</value>
   </data>

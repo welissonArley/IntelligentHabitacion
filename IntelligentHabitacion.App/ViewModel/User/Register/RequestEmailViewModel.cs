@@ -3,8 +3,10 @@ using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.App.View.Modal;
 using Rg.Plugins.Popup.Extensions;
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using XLabs.Ioc;
 
@@ -36,14 +38,17 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
         {
             try
             {
-                await ShowLoading();
+                SendingData();
+
                 await _useCase.Execute(Model.Email);
-                HideLoading();
+
                 await Navigation.PushAsync<RequestNameViewModel>((viewModel, page) => viewModel.Model = Model);
+
+                CurrentState = LayoutState.None;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

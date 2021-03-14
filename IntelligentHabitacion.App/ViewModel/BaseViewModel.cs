@@ -50,7 +50,7 @@ namespace IntelligentHabitacion.App.ViewModel
             await navigation.PushPopupAsync(new ErrorModal(exception));
         }
 
-        protected void Saving()
+        protected void SendingData()
         {
             CurrentState = LayoutState.Saving;
             OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));

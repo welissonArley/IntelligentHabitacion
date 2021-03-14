@@ -66,7 +66,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
         {
             try
             {
-                Saving();
+                SendingData();
 
                 await _updateUseCase.Execute(Model);
 

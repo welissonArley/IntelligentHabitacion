@@ -1,9 +1,9 @@
 ﻿using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.UseCases.Login.DoLogin;
 using IntelligentHabitacion.App.View.Login;
-using IntelligentHabitacion.Communication.Response;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,42 +13,28 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 {
     public class LoginViewModel : BaseViewModel
     {
-        private readonly ILoginRule _loginRule;
+        private readonly Lazy<ILoginUseCase> useCase;
+        private ILoginUseCase _useCase => useCase.Value;
+        private readonly UserPreferences _userPreferences;
 
         public ICommand ButtonLoginCommand { protected set; get; }
         public ICommand ForgotPasswordCommand { protected set; get; }
         public ICommand UsingFigerprintToLoginCommand { protected set; get; }
-        private readonly UserPreferences _userPreferences;
 
         public string Email { get; set; }
         public string Password { get; set; }
         public bool CanUseFigerprintToLogin { get; set; }
 
-        public LoginViewModel(ILoginRule loginRule, UserPreferences userPreferences)
+        public LoginViewModel(Lazy<ILoginUseCase> useCase, UserPreferences userPreferences)
         {
-            _loginRule = loginRule;
             _userPreferences = userPreferences;
-            CanUseFigerprintToLogin = userPreferences.AlreadySignedIn && CrossFingerprint.Current.IsAvailableAsync().GetAwaiter().GetResult();
+            this.useCase = useCase;
 
             ForgotPasswordCommand = new Command(async () => await OnForgotPassword());
             ButtonLoginCommand = new Command(async () =>
             {
                 await DoLogin(Email, Password);
             });
-            
-            if (CanUseFigerprintToLogin)
-            {
-                UsingFigerprintToLoginCommand = new Command(async () =>
-                {
-                    var request = new AuthenticationRequestConfiguration(ResourceText.TITLE_LOGIN_WITH_FINGERPRINT_ACCESS, "");
-                    var result = await CrossFingerprint.Current.AuthenticateAsync(request);
-
-                    if (result.Authenticated)
-                        await DoLogin(userPreferences.Email, userPreferences.Password);
-                });
-
-                UsingFigerprintToLoginCommand.Execute(null);
-            }
         }
 
         private async Task OnForgotPassword()
@@ -67,33 +53,39 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
+                SendingData();
 
-                var response = await _loginRule.Login(email, password);
+                var userIsPartOfOneHome = await _useCase.Execute(email, password);
 
-                var responseLogin = (ResponseLoginJson)response.Response;
-
-                _userPreferences.SaveUserInformations(new Dtos.UserPreferenceDto
-                {
-                    Email = email, Token = response.Token, Password = password, Name = responseLogin.Name,
-                    IsAdministrator = responseLogin.IsAdministrator, ProfileColor = responseLogin.ProfileColor,
-                    IsPartOfOneHome = responseLogin.IsPartOfOneHome, Width = Application.Current.MainPage.Width,
-                    Id = responseLogin.Id
-                });
-
-                if (responseLogin.IsPartOfOneHome)
+                if (userIsPartOfOneHome)
                     Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
                 else
                     Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
-
-                HideLoading();
 
                 await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
+            }
+        }
+
+        public async Task Initialize()
+        {
+            CanUseFigerprintToLogin = _userPreferences.AlreadySignedIn && await CrossFingerprint.Current.IsAvailableAsync();
+
+            if (CanUseFigerprintToLogin)
+            {
+                UsingFigerprintToLoginCommand = new Command(async () =>
+                {
+                    var request = new AuthenticationRequestConfiguration(ResourceText.TITLE_LOGIN_WITH_FINGERPRINT_ACCESS, "");
+                    var result = await CrossFingerprint.Current.AuthenticateAsync(request);
+
+                    if (result.Authenticated)
+                        await DoLogin(_userPreferences.Email, _userPreferences.Password);
+                });
+
+                UsingFigerprintToLoginCommand.Execute(null);
             }
         }
     }

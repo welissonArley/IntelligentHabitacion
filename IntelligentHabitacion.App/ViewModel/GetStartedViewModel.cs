@@ -1,5 +1,4 @@
-﻿using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.ViewModel.Login;
+﻿using IntelligentHabitacion.App.ViewModel.Login;
 using IntelligentHabitacion.App.ViewModel.User.Register;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,7 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel
         public ICommand LoginCommand { protected set; get; }
         public ICommand RegisterCommand { protected set; get; }
 
-        public GetStartedViewModel(UserPreferences userPreferences)
+        public GetStartedViewModel()
         {
             LoginCommand = new Command(async () => await OnLogin());
             RegisterCommand = new Command(async () => await OnRegister());
@@ -33,7 +32,10 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             try
             {
-                await Navigation.PushAsync<LoginViewModel>();
+                await Navigation.PushAsync<LoginViewModel>(async(viewModel, _) =>
+                {
+                    await viewModel.Initialize();
+                });
             }
             catch (System.Exception exeption)
             {

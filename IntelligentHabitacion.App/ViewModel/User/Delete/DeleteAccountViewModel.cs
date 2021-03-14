@@ -31,7 +31,10 @@ namespace IntelligentHabitacion.App.ViewModel.User.Delete
             {
                 _userRule.DeleteAccount(ConfirmationCode, Password);
                 _userPreferences.ClearAll();
-                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.Login.LoginPage>());
+                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.Login.LoginPage>(async(viewModel, _) =>
+                {
+                    await viewModel.Initialize();
+                }));
                 await Navigation.PopToRootAsync();
             }
             catch (System.Exception exeption)

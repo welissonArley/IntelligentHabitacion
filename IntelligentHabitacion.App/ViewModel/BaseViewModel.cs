@@ -135,7 +135,10 @@ namespace IntelligentHabitacion.App.ViewModel
             userPreferences.Logout();
             await navigation.PopAllPopupAsync();
             await navigation.PushPopupAsync(new ErrorModal(ResourceText.TITLE_PLEASE_LOGIN_AGAIN));
-            Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());
+            Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>(async(viewModel, _) =>
+            {
+                await viewModel.Initialize();
+            }));
         }
 
         #endregion

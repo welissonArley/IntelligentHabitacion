@@ -159,7 +159,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
             try
             {
                 _userPreferences.Logout();
-                Application.Current.MainPage = new NavigationPage((Page)XLabs.Forms.Mvvm.ViewFactory.CreatePage<LoginViewModel, View.Login.LoginPage>());
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>(async(viewModel, _) =>
+                {
+                    await viewModel.Initialize();
+                }));
             }
             catch (System.Exception exeption)
             {

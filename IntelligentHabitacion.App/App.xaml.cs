@@ -68,7 +68,12 @@ namespace IntelligentHabitacion.App
             {
                 MainPage = new NavigationPage((Page)ViewFactory.CreatePage<GetStartedViewModel, GetStartedPage>());
                 if (userPreferences.AlreadySignedIn && CrossFingerprint.Current.IsAvailableAsync().GetAwaiter().GetResult())
-                    MainPage.Navigation.PushAsync((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>());
+                {
+                    MainPage.Navigation.PushAsync((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>(async (viewModel, page) =>
+                    {
+                        await viewModel.Initialize();
+                    }));
+                }
             }
 
             Resolver.Resolve<IDependencyContainer>()

@@ -4,7 +4,7 @@ namespace IntelligentHabitacion.App.Useful.Validator
 {
     public class PasswordValidator
     {
-        public void IsValidaPasswordAndConfirmation(string password)
+        public void IsValid(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
                 throw new PasswordEmptyException();

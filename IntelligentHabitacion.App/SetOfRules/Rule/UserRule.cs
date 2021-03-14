@@ -54,7 +54,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         public void ValidatePassword(string password)
         {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(password);
+            new PasswordValidator().IsValid(password);
         }
 
         public void DeleteAccount(string codeReceived, string password)

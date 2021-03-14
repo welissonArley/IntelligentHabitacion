@@ -14,8 +14,6 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 {
     public class UserInformationViewModel : BaseViewModel
     {
-        private readonly Lazy<UserPreferences> userPreferences;
-        private UserPreferences _userPreferences => userPreferences.Value;
         private Lazy<IUserInformationsUseCase> getInformationsUseCase;
         private IUserInformationsUseCase _useCase => getInformationsUseCase.Value;
         private Lazy<IUpdateUserInformationsUseCase> updateUseCase;
@@ -28,12 +26,10 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
         public UserInformationsModel Model { get; set; }
 
         public UserInformationViewModel(Lazy<IUserInformationsUseCase> getInformationsUseCase,
-            Lazy<IUpdateUserInformationsUseCase> updateUseCase,
-            Lazy<UserPreferences> userPreferences)
+            Lazy<IUpdateUserInformationsUseCase> updateUseCase)
         {
             CurrentState = LayoutState.Loading;
 
-            this.userPreferences = userPreferences;
             this.getInformationsUseCase = getInformationsUseCase;
             this.updateUseCase = updateUseCase;
 

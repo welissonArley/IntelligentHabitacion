@@ -64,7 +64,7 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
 
         private void ValidatePasswordAndPasswordConfirmation(string newPassword)
         {
-            new PasswordValidator().IsValidaPasswordAndConfirmation(newPassword);
+            new PasswordValidator().IsValid(newPassword);
         }
     }
 }

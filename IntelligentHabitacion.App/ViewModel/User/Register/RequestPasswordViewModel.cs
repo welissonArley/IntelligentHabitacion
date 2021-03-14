@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.User.RegisterUser;
+using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.ViewModel.Login;
 using System;
@@ -39,6 +40,8 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             try
             {
                 await ShowLoading();
+
+                ValidatePassword(Model.Password);
 
                 await _useCase.Execute(Model);
 
@@ -86,6 +89,11 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
             OnPropertyChanged(new PropertyChangedEventArgs("IlustrationShowHidePassword"));
             OnPropertyChanged(new PropertyChangedEventArgs("IlustrationHeightRequest"));
             OnPropertyChanged(new PropertyChangedEventArgs("IlustrationMargin"));
+        }
+
+        public void ValidatePassword(string password)
+        {
+            new PasswordValidator().IsValid(password);
         }
     }
 }

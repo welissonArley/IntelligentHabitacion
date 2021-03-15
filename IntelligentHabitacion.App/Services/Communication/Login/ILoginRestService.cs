@@ -11,5 +11,9 @@ namespace IntelligentHabitacion.App.Services.Communication.Login
     {
         [Post("")]
         Task<ApiResponse<ResponseLoginJson>> DoLogin([Body] RequestLoginJson loggin, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Get("/RequestCodeResetPassword/{email}")]
+        Task RequestCodeResetPassword(string email, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Put("/ResetYourPassword")]
+        Task ChangePasswordForgotPassword([Body] RequestResetYourPasswordJson loggin, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

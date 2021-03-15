@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.UseCases.Login.ForgotPassword;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -8,14 +9,16 @@ namespace IntelligentHabitacion.App.ViewModel.User.ForgotPassword
 {
     public class RequestEmailViewModel : BaseViewModel
     {
-        private readonly ILoginRule _loginRule;
-        public ICommand RequestCodeCommand { protected set; get; }
+        private readonly Lazy<IRequestCodeResetPasswordUseCase> useCase;
+        private IRequestCodeResetPasswordUseCase _useCase => useCase.Value;
+
+        public ICommand RequestCodeCommand { get; }
 
         public ForgetPasswordModel Model { get; set; }
 
-        public RequestEmailViewModel(ILoginRule loginRule)
+        public RequestEmailViewModel(Lazy<IRequestCodeResetPasswordUseCase> useCase)
         {
-            _loginRule = loginRule;
+            this.useCase = useCase;
             RequestCodeCommand = new Command(async () => await OnRequestCode());
         }
 
@@ -23,14 +26,14 @@ namespace IntelligentHabitacion.App.ViewModel.User.ForgotPassword
         {
             try
             {
-                await ShowLoading();
-                await _loginRule.RequestCode(Model.Email);
-                HideLoading();
+                SendingData();
+
+                await _useCase.Execute(Model.Email);
+
                 await Navigation.PushAsync<ResetPasswordViewModel>((viewModel, page) => viewModel.Model = Model);
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

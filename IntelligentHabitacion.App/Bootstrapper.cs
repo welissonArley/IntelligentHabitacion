@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.UseCases.Login.DoLogin;
+using IntelligentHabitacion.App.UseCases.Login.ForgotPassword;
 using IntelligentHabitacion.App.UseCases.User.ChangePassword;
 using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.App.UseCases.User.RegisterUser;
@@ -30,6 +31,8 @@ namespace IntelligentHabitacion.App
             container.Register<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>();
             container.Register<IChangePasswordUseCase, ChangePasswordUseCase>();
             container.Register<ILoginUseCase, LoginUseCase>();
+            container.Register<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>();
+            container.Register<IResetPasswordUseCase, ResetPasswordUseCase>();
         }
     }
 }

@@ -3,9 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:CustomEntry="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
              xmlns:templateStep="clr-namespace:IntelligentHabitacion.App.Template.Step"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              x:Class="IntelligentHabitacion.App.View.User.ForgotPassword.RequestEmailPage">
-    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+        <xct:StateLayout.StateViews>
+            <xct:StateView StateKey="Saving">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
+        </xct:StateLayout.StateViews>
+        
         <templateStep:Steps AmountCompleteSteps="1" AmountIncompleteSteps="1"></templateStep:Steps>
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_EMAIL_RECOVER_PASSAWORD}" Style="{x:StaticResource LabelTitle}"></Label>

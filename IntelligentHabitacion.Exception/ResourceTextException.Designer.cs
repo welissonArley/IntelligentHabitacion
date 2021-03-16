@@ -637,11 +637,11 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Zip Code is invalid..
+        ///   Looks up a localized string similar to O CEP is invalid. Must be with the format XX.XXX-XXX.
         /// </summary>
-        public static string ZIPCODE_INVALID {
+        public static string ZIPCODE_INVALID_BRAZIL {
             get {
-                return ResourceManager.GetString("ZIPCODE_INVALID", resourceCulture);
+                return ResourceManager.GetString("ZIPCODE_INVALID_BRAZIL", resourceCulture);
             }
         }
     }

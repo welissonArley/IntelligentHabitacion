@@ -309,7 +309,7 @@
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>
   </data>
-  <data name="ZIPCODE_INVALID" xml:space="preserve">
-    <value>The Zip Code is invalid.</value>
+  <data name="ZIPCODE_INVALID_BRAZIL" xml:space="preserve">
+    <value>O CEP is invalid. Must be with the format XX.XXX-XXX</value>
   </data>
 </root>

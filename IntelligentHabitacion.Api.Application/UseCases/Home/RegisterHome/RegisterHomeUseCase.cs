@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
-using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.Home;
 using IntelligentHabitacion.Communication.Request;

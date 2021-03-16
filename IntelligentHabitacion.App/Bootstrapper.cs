@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule;
+using IntelligentHabitacion.App.UseCases.Home.RegisterHome;
+using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil;
 using IntelligentHabitacion.App.UseCases.Login.DoLogin;
 using IntelligentHabitacion.App.UseCases.Login.ForgotPassword;
 using IntelligentHabitacion.App.UseCases.User.ChangePassword;
@@ -33,6 +35,8 @@ namespace IntelligentHabitacion.App
             container.Register<ILoginUseCase, LoginUseCase>();
             container.Register<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>();
             container.Register<IResetPasswordUseCase, ResetPasswordUseCase>();
+            container.Register<IRequestCEPUseCase, RequestCEPUseCase>();
+            container.Register<IRegisterHomeUseCase, RegisterHomeUseCase>();
         }
     }
 }

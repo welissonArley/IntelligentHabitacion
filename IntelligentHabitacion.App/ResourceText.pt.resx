@@ -915,6 +915,9 @@
   <data name="TITLE_YOUR_NAME" xml:space="preserve">
     <value>O seu nome ;)</value>
   </data>
+  <data name="TITLE_ZIPCODE_TWOPOINTS" xml:space="preserve">
+    <value>CEP:</value>
+  </data>
   <data name="TITULO_LOGGOUT" xml:space="preserve">
     <value>Sair</value>
   </data>

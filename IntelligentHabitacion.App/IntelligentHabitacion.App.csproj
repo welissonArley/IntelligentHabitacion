@@ -219,9 +219,6 @@
     <Compile Update="View\Home\Informations\Others\HomeInformationPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="View\Home\Register\Others\RegisterHomePage.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
     <Compile Update="View\Modal\ChooseCountryModal.xaml.cs">
       <DependentUpon>ChooseCountryModal.xaml</DependentUpon>
     </Compile>
@@ -261,14 +258,8 @@
     <Compile Update="View\MyFoods\AddEditMyFoodsPage.xaml.cs">
       <DependentUpon>AddEditMyFoodsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\Home\Register\Brazil\RegisterHomePage.xaml.cs">
-      <DependentUpon>RegisterHomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\User\Update\UserInformationPage.xaml.cs">
       <DependentUpon>UserInformationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Home\Register\Brazil\RequestZipCodePage.xaml.cs">
-      <DependentUpon>RequestZipCodePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Login\UserIsPartOfHomePage.xaml.cs">
       <DependentUpon>UserIsPartOfHomePage.xaml</DependentUpon>
@@ -335,6 +326,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Home\Informations\InsertRoomPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Home\Register\RegisterHomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\MyFoods\MyFoodsPage.xaml">

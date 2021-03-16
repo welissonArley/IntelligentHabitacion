@@ -100,8 +100,8 @@ namespace IntelligentHabitacion.Communication
             var response = await SendRequisition(HttpMethod.Get, $"https://viacep.com.br/ws/{zipcode.Replace(".", "").Replace("-","")}/json/");
 
             var errorJson = (JsonConvert.DeserializeObject<ErrorTrueJson>(await response.Content.ReadAsStringAsync()));
-            if (errorJson.Erro)
-                throw new ZipCodeInvalidException();
+            //if (errorJson.Erro)
+                //throw new ZipCodeInvalidException();
 
             return JsonConvert.DeserializeObject<ResponseLocationBrazilJson>(await response.Content.ReadAsStringAsync());
         }

@@ -1,9 +1,9 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
+using IntelligentHabitacion.App.ViewModel.Home.Register;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -140,18 +140,13 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         private async Task OnCountrySelectedAsync(CountryModel value)
         {
-            if (value.Id == CountryEnum.BRAZIL)
-                await Navigation.PushAsync<Home.Register.Brazil.RequestZipCodeViewModel>((viewModel, page) => viewModel.Country = value);
-            else
+            await Navigation.PushAsync<RegisterHomeViewModel>((viewModel, _) => viewModel.Model = new HomeModel
             {
-                await Navigation.PushAsync<Home.Register.Others.RegisterHomeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel
+                City = new CityModel
                 {
-                    City = new CityModel
-                    {
-                        Country = value
-                    }
-                });
-            }
+                    Country = value
+                }
+            });
         }
 
         private async Task ClickLogoutAccount()

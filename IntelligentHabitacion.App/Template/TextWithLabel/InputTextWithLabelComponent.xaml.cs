@@ -110,8 +110,45 @@ namespace IntelligentHabitacion.App.Template.TextWithLabel
             set => SetValue(PropertyToBindindEntryProperty, value);
         }
         public string LabelTitle { get; set; }
-        public string PlaceHolderText { set { Input.Placeholder = value; } get { return Input.Placeholder; } }
-        public Keyboard Keyboard { set { Input.Keyboard = value; } get { return Input.Keyboard; } }
+        public string PlaceHolderText
+        {
+            get => (string)GetValue(PlaceHolderTextProperty);
+            set => SetValue(PlaceHolderTextProperty, value);
+        }
+        public Keyboard Keyboard
+        {
+            get => (Keyboard)GetValue(KeyboardProperty);
+            set => SetValue(KeyboardProperty, value);
+        }
+
+        public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(
+                                                        propertyName: "Keyboard",
+                                                        returnType: typeof(Keyboard),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: EntryKeboardPropertyChanged);
+
+        public static readonly BindableProperty PlaceHolderTextProperty = BindableProperty.Create(
+                                                        propertyName: "PlaceHolderText",
+                                                        returnType: typeof(string),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: PlaceHolderTextPropertyChanged);
+
+        private static void EntryKeboardPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue != null)
+                ((InputTextWithLabelComponent)bindable).Input.Keyboard = (Keyboard)newValue;
+        }
+
+        private static void PlaceHolderTextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (newValue != null)
+                ((InputTextWithLabelComponent)bindable).Input.Placeholder = (string)newValue;
+        }
+
         public bool IsPassword { set { Input.IsPassword = value; } get { return Input.IsPassword; } }
         public bool IconNet { set { Input.IconNet = value; } get { return Input.IconNet; } }
         

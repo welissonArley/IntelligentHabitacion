@@ -2509,6 +2509,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ZipCode:.
+        /// </summary>
+        internal static string TITLE_ZIPCODE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ZIPCODE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sair.
         /// </summary>
         internal static string TITULO_LOGGOUT {

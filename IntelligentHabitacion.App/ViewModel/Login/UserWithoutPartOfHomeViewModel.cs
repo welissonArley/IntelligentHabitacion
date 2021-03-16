@@ -1,9 +1,9 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.Useful;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
+using IntelligentHabitacion.App.ViewModel.Home.Register;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -48,26 +48,16 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         private async Task ClickOnCardCreateHome()
         {
-            try
+            await Navigation.PushAsync<SelectCountryViewModel>((viewModel, _) =>
             {
-                await ShowLoading();
-                var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new ChooseCountryModal(new Command(async (value) =>
-                {
-                    await OnCountrySelectedAsync((CountryModel)value);
-                })));
-                HideLoading();
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
+                viewModel.Initialize();
+            });
         }
         private async Task ClickOnCardMyInformations()
         {
             try
             {
-                await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, page) =>
+                await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, _) =>
                 {
                     await viewModel.Initialize();
                 });
@@ -136,22 +126,6 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
             _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, null);
-        }
-
-        private async Task OnCountrySelectedAsync(CountryModel value)
-        {
-            if (value.Id == CountryEnum.BRAZIL)
-                await Navigation.PushAsync<Home.Register.Brazil.RequestZipCodeViewModel>((viewModel, page) => viewModel.Country = value);
-            else
-            {
-                await Navigation.PushAsync<Home.Register.Others.RegisterHomeViewModel>((viewModel, page) => viewModel.Model = new Model.HomeModel
-                {
-                    City = new CityModel
-                    {
-                        Country = value
-                    }
-                });
-            }
         }
 
         private async Task ClickLogoutAccount()

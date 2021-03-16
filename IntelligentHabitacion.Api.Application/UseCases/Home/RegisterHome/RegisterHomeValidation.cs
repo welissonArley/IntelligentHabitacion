@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
+using System.Text.RegularExpressions;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.Home.RegisterHome
 {
@@ -16,6 +17,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Home.RegisterHome
             When(x => x.Country == Communication.Enums.CountryEnum.BRAZIL, () =>
             {
                 RuleFor(x => x.StateProvince).NotEmpty().WithMessage(ResourceTextException.STATEPROVINCE_EMPTY);
+                RuleFor(x => x.Neighborhood).NotEmpty().WithMessage(ResourceTextException.NEIGHBORHOOD_EMPTY);
+                RuleFor(x => x.ZipCode).Must(c => new Regex(RegexExpressions.CEP).Match(c).Success).WithMessage(ResourceTextException.ZIPCODE_INVALID_BRAZIL);
             });
         }
     }

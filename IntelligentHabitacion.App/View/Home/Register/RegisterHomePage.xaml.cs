@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace IntelligentHabitacion.App.View.Home.Register.Others
+namespace IntelligentHabitacion.App.View.Home.Register
 {
-    [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterHomePage : ContentPage
     {
         public RegisterHomePage()

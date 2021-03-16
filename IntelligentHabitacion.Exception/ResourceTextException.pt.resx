@@ -309,7 +309,7 @@
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>O CEP deve ser informado.</value>
   </data>
-  <data name="ZIPCODE_INVALID" xml:space="preserve">
-    <value>O CEP é inválido.</value>
+  <data name="ZIPCODE_INVALID_BRAZIL" xml:space="preserve">
+    <value>O CEP é inválido. Deve estar no formato XX.XXX-XXX</value>
   </data>
 </root>

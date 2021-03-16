@@ -1,47 +1,27 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SetOfRules.Rule.Operations.RegisterHome;
+using IntelligentHabitacion.App.Services.Communication.Home;
 using IntelligentHabitacion.App.Useful.Validator;
-using IntelligentHabitacion.Communication;
+using IntelligentHabitacion.Exception;
+using Refit;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace IntelligentHabitacion.App.SetOfRules.Rule
+namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil
 {
-    public class HomeBrazilRule : HomeRule, IHomeBrazilRule
+    public class RequestCEPUseCase : IRequestCEPUseCase
     {
-        private readonly IIntelligentHabitacionHttpClient _httpClient;
-        private readonly UserPreferences _userPreferences;
+        private readonly IZipCodeService _restService;
 
-        public HomeBrazilRule(IIntelligentHabitacionHttpClient intelligentHabitacionHttpClient, UserPreferences userPreferences)
-            : base(intelligentHabitacionHttpClient, userPreferences)
+        public RequestCEPUseCase()
         {
-            _httpClient = intelligentHabitacionHttpClient;
-            _userPreferences = userPreferences;
+            _restService = RestService.For<IZipCodeService>("https://viacep.com.br/ws/");
         }
 
-        public async override Task Create(HomeModel model)
+        public async Task<HomeModel> Execute(string cep)
         {
-            var requestHomeJson = new BrazilHomeRegisterStrategy().CreateRequestToRegisterHome(model);
+            Validate(cep);
 
-            var response = await _httpClient.CreateHome(requestHomeJson, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
-            _userPreferences.ChangeToken(response.Token);
-            _userPreferences.UserIsAdministrator(true);
-        }
-
-        public async override Task UpdateInformations(HomeModel model)
-        {
-            var requestHomeJson = new BrazilHomeRegisterStrategy().CreateRequestToUpdateHome(model);
-
-            var response = await _httpClient.UpdateHome(requestHomeJson, _userPreferences.Token, System.Globalization.CultureInfo.CurrentCulture.ToString());
-
-            _userPreferences.ChangeToken(response.Token);
-        }
-
-        public async Task<HomeModel> GetLocationByZipCode(string zipCode)
-        {
-            
-            var result = await _httpClient.GetLocationBrazilByZipCode(zipCode);
+            var result = await _restService.GetLocationBrazilByZipCode(cep.Replace(".", "").Replace("-", ""));
 
             return new HomeModel
             {
@@ -53,6 +33,16 @@ namespace IntelligentHabitacion.App.SetOfRules.Rule
                 Address = result.Logradouro,
                 Neighborhood = result.Bairro,
             };
+        }
+
+        public void Validate(string zipCode)
+        {
+            if (string.IsNullOrWhiteSpace(zipCode))
+                throw new ZipCodeEmptyException();
+
+            Regex regex = new Regex(RegexExpressions.CEP);
+            if (!regex.Match(zipCode).Success)
+                throw new ZipCodeInvalidException(ResourceTextException.ZIPCODE_INVALID_BRAZIL);
         }
 
         private string StateAbbreviationToFullNameState(string abbreviation)

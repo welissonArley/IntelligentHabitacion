@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using System;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,6 +23,19 @@ namespace IntelligentHabitacion.App.Template.Informations
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: CountryChanged);
 
+        public ICommand TappedCardCommand
+        {
+            get => (ICommand)GetValue(TappedCardCommandProperty);
+            set => SetValue(TappedCardCommandProperty, value);
+        }
+
+        public static readonly BindableProperty TappedCardCommandProperty = BindableProperty.Create(propertyName: "TappedCard",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(CountryComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
         private static void CountryChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (newValue != null)
@@ -37,6 +51,11 @@ namespace IntelligentHabitacion.App.Template.Informations
         public CountryComponent()
         {
             InitializeComponent();
+        }
+
+        private void SelectCountry_Tapped(object sender, EventArgs e)
+        {
+            TappedCardCommand?.Execute(Country);
         }
     }
 }

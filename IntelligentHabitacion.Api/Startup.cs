@@ -47,6 +47,8 @@ namespace IntelligentHabitacion.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers().AddNewtonsoftJson();
+
             services.AddHashids(setup =>
             {
                 setup.Salt = Configuration.GetValue<string>("Settings:IdCryptographySalt");

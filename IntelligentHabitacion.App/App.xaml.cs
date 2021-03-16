@@ -123,6 +123,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<CreateSchedulePage, CreateScheduleViewModel>();
             ViewFactory.Register<SelectTaskCleaningSchedulePage, SelectTaskCleaningScheduleViewModel>();
             ViewFactory.Register<InsertRoomPage, InsertRoomViewModel>();
+            ViewFactory.Register<SelectCountryPage, SelectCountryViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

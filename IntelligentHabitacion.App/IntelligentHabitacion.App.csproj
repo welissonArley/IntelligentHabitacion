@@ -219,9 +219,6 @@
     <Compile Update="View\Home\Informations\Others\HomeInformationPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="View\Modal\ChooseCountryModal.xaml.cs">
-      <DependentUpon>ChooseCountryModal.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
       <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
     </Compile>
@@ -310,6 +307,9 @@
     <EmbeddedResource Update="Template\Informations\DetailsUserScheduleCleanHomeTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Template\Skeleton\CountryComponentSkeleton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Template\Skeleton\InputTextWithLabelSkeleton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -329,6 +329,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Home\Register\RegisterHomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Home\Register\SelectCountryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\MyFoods\MyFoodsPage.xaml">

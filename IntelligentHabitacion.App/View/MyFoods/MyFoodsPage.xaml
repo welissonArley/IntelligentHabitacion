@@ -4,6 +4,7 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
              xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
              xmlns:skeleton="clr-namespace:IntelligentHabitacion.App.Template.Skeleton"
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
@@ -12,11 +13,25 @@
              x:Class="IntelligentHabitacion.App.View.MyFoods.MyFoodsPage">
     <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
         <xct:StateLayout.StateViews>
+            <xct:StateView StateKey="Saving">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
+            <xct:StateView StateKey="Success">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
             <xct:StateView StateKey="Loading">
                 <xct:StateView.Template>
                     <DataTemplate>
                         <StackLayout>
-                            <skeleton:LabelAmountAvaliableSkeleton></skeleton:LabelAmountAvaliableSkeleton>
+                            <skeleton:LabelAmountAvaliableSkeleton Margin="0,20,0,0"></skeleton:LabelAmountAvaliableSkeleton>
                             <component:SearchByNameComponent IsEnabled="False"></component:SearchByNameComponent>
                             <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_MY_FOODS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>
 

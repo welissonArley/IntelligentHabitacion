@@ -13,5 +13,7 @@ namespace IntelligentHabitacion.App.Services.Communication.MyFoods
         Task<ApiResponse<List<ResponseMyFoodJson>>> GetMyFoods([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Post("/AddFood")]
         Task<ApiResponse<string>> AddMyFood([Body] RequestProductJson myFood, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Put("/ChangeQuantity/{myFoodId}")]
+        Task<ApiResponse<string>> ChangeQuantityMyFood(string myFoodId, [Body] RequestChangeQuantityMyFoodJson myFood, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

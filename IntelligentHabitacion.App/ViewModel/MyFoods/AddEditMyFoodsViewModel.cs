@@ -77,8 +77,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                CurrentState = LayoutState.Saving;
-                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+                SendingData();
 
                 //if (string.IsNullOrEmpty(Model.Id))
                 var model = await _registerUseCase.Execute(Model);
@@ -100,8 +99,7 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                CurrentState = LayoutState.Saving;
-                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+                SendingData();
 
                 var model = await _registerUseCase.Execute(Model);
                 CallbackSave?.Invoke(model);

@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Template.Informations;
+using IntelligentHabitacion.App.UseCases.MyFoods.ChangeQuantityOfOneProduct;
 using IntelligentHabitacion.App.UseCases.MyFoods.GetMyFoods;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
     {
         private MyFoodsComponent componentToEdit { get; set; }
 
+        private readonly Lazy<IChangeQuantityOfOneProductUseCase> changeQuantityUseCase;
         private readonly Lazy<IGetMyFoodsUseCase> getMyFoodsUseCase;
         private IGetMyFoodsUseCase _getMyFoodsUseCase => getMyFoodsUseCase.Value;
+        private IChangeQuantityOfOneProductUseCase _changeQuantityUseCase => changeQuantityUseCase.Value;
 
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedChangeQuantityCommand { protected set; get; }
@@ -28,11 +31,12 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         private IList<FoodModel> _foodsList { get; set; }
         public ObservableCollection<FoodModel> FoodsList { get; set; }
 
-        public MyFoodsViewModel(Lazy<IGetMyFoodsUseCase> getMyFoodsUseCase)
+        public MyFoodsViewModel(Lazy<IGetMyFoodsUseCase> getMyFoodsUseCase, Lazy<IChangeQuantityOfOneProductUseCase> changeQuantityUseCase)
         {
             CurrentState = LayoutState.Loading;
 
             this.getMyFoodsUseCase = getMyFoodsUseCase;
+            this.changeQuantityUseCase = changeQuantityUseCase;
             componentToEdit = null;
 
             SearchTextChangedCommand = new Command((value) =>
@@ -63,18 +67,20 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                /*await ShowLoading();
-                await _myFoodsRule.ChangeQuantity(model);
+                SendingData();
+
+                await _changeQuantityUseCase.Execute(model.Id, model.Quantity);
                 if (model.Quantity <= 0)
                 {
                     _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
                     FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
+                    OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
                 }
-                HideLoading();*/
+
+                await Sucess();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

@@ -1,5 +1,4 @@
-﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.Services;
+﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;

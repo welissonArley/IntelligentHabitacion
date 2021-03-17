@@ -4,8 +4,11 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
              xmlns:templateInputTextWithLabel="clr-namespace:IntelligentHabitacion.App.Template.TextWithLabel"
              xmlns:InputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              Title="{Binding Title}"
              x:Name="AddEditMyFoodsContentPage"
              x:Class="IntelligentHabitacion.App.View.MyFoods.AddEditMyFoodsPage">
@@ -16,7 +19,24 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView VerticalOptions="FillAndExpand">
-        <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3">
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+            
             <StackLayout VerticalOptions="FillAndExpand" Spacing="-3">
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Name" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PRODUCT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PRODUCT}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
                 <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Manufacturer" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_MANUFACTURER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_MANUFACTURER}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>

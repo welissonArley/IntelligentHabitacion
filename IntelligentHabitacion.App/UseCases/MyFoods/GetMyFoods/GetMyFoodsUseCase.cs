@@ -33,7 +33,7 @@ namespace IntelligentHabitacion.App.UseCases.MyFoods.GetMyFoods
             return Mapper(response.Content);
         }
 
-        public IList<FoodModel> Mapper(List<ResponseMyFoodJson> myFoodJsons)
+        private IList<FoodModel> Mapper(List<ResponseMyFoodJson> myFoodJsons)
         {
             return myFoodJsons.Select(c => new FoodModel
             {

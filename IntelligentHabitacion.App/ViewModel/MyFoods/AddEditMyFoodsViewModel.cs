@@ -1,11 +1,12 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
 using IntelligentHabitacion.App.View.Modal;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using XLabs.Ioc;
 
@@ -41,7 +42,8 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public ICommand DeleteCommand { get; }
         public ICommand SaveAndNewCommand { get; }
 
-        private readonly IMyFoodsRule _myFoodsRule;
+        private readonly Lazy<IRegisterMyFoodUseCase> registerUseCase;
+        private IRegisterMyFoodUseCase _registerUseCase => registerUseCase.Value;
 
         public string Title { get; set; }
         public FoodModel Model { get; set; }
@@ -49,10 +51,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public Action<FoodModel> CallbackSave { get; set; }
         public Action<FoodModel> CallbackDelete { get; set; }
 
-        public AddEditMyFoodsViewModel(IMyFoodsRule myFoodsRule)
+        public AddEditMyFoodsViewModel(Lazy<IRegisterMyFoodUseCase> registerUseCase)
         {
-            _myFoodsRule = myFoodsRule;
-            
+            this.registerUseCase = registerUseCase;
+
             SelectDueDateTapped = new Command(async() =>
             {
                 await ClickSelectDueDate();
@@ -75,21 +77,22 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                await ShowLoading();
+                CurrentState = LayoutState.Saving;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
 
-                if (string.IsNullOrEmpty(Model.Id))
-                    Model.Id = await _myFoodsRule.AddItem(Model);
-                else
-                    await _myFoodsRule.EditItem(Model);
+                //if (string.IsNullOrEmpty(Model.Id))
+                var model = await _registerUseCase.Execute(Model);
+                //else
+                    //await _myFoodsRule.EditItem(Model);
 
-                CallbackSave?.Invoke(Model);
+                CallbackSave?.Invoke(model);
 
-                HideLoading();
+                await Sucess();
+
                 await Navigation.PopAsync();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -97,20 +100,22 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                await ShowLoading();
-                Model.Id = await _myFoodsRule.AddItem(Model);
-                CallbackSave?.Invoke(Model);
-                Model.Id = string.Empty;
-                Model.Name = "";
-                Model.Manufacturer = "";
-                Model.Quantity = 1.00m;
-                Model.DueDate = null;
+                CurrentState = LayoutState.Saving;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+
+                var model = await _registerUseCase.Execute(Model);
+                CallbackSave?.Invoke(model);
+
+                Model = new FoodModel
+                {
+                    Quantity = 1.00m
+                };
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
-                HideLoading();
+
+                await Sucess();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -118,11 +123,11 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                await ShowLoading();
+                /*await ShowLoading();
                 await _myFoodsRule.DeleteMyFood(Model.Id);
                 CallbackDelete(Model);
                 HideLoading();
-                await Navigation.PopAsync();
+                await Navigation.PopAsync();*/
             }
             catch (System.Exception exeption)
             {

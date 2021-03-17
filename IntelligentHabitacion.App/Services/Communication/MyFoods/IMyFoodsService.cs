@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Communication.Response;
+﻿using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using Refit;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
@@ -10,5 +11,7 @@ namespace IntelligentHabitacion.App.Services.Communication.MyFoods
     {
         [Get("/MyFoods")]
         Task<ApiResponse<List<ResponseMyFoodJson>>> GetMyFoods([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Post("/AddFood")]
+        Task<ApiResponse<string>> AddMyFood([Body] RequestProductJson myFood, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

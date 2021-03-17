@@ -82,18 +82,15 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, _) =>
                 {
                     viewModel.CallbackSave = NewItemAdded;
                     viewModel.Title = ResourceText.TITLE_NEW_ITEM;
                     viewModel.Model = new FoodModel { Quantity = 1.00m };
                 });
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -131,6 +128,8 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             _foodsList.Insert(0, model);
             FoodsList.Insert(0, model);
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+            CurrentState = LayoutState.None;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
         }
         private void DeleteItem(FoodModel model)
         {

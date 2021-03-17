@@ -37,9 +37,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 var response = await useCase.Execute();
                 WriteAutenticationHeader(response);
 
-                if (!((List<ResponseMyFoodJson>)response.ResponseJson).Any())
-                    return NoContent();
-
                 return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)

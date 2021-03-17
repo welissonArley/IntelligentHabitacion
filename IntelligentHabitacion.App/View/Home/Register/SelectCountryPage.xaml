@@ -23,7 +23,7 @@
                     <xct:StateView.Template>
                         <DataTemplate>
                             <StackLayout>
-                                <BoxView CornerRadius="2" WidthRequest="130" HorizontalOptions="StartAndExpand" HeightRequest="12" BackgroundColor="{StaticResource SkeletonColor}" />
+                                <skeleton:LabelAmountAvaliableSkeleton></skeleton:LabelAmountAvaliableSkeleton>
                                 
                                 <component:SearchByNameComponent IsEnabled="False"></component:SearchByNameComponent>
                                 <Label Margin="0,30,0,30" Text="{x:Static resourceText:ResourceText.CHOOSE_A_COUNTRY_BELOW}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>

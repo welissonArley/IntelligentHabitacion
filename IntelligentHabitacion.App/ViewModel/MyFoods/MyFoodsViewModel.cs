@@ -1,11 +1,14 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.Template.Informations;
+using IntelligentHabitacion.App.UseCases.MyFoods.GetMyFoods;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.MyFoods
@@ -14,26 +17,23 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
     {
         private MyFoodsComponent componentToEdit { get; set; }
 
-        private readonly IMyFoodsRule _myFoodsRule;
+        private readonly Lazy<IGetMyFoodsUseCase> getMyFoodsUseCase;
+        private IGetMyFoodsUseCase _getMyFoodsUseCase => getMyFoodsUseCase.Value;
 
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedChangeQuantityCommand { protected set; get; }
         public ICommand AddNewItemCommand { protected set; get; }
         public ICommand TappedItemCommand { protected set; get; }
 
-        private ObservableCollection<FoodModel> _foodsList { get; set; }
+        private IList<FoodModel> _foodsList { get; set; }
         public ObservableCollection<FoodModel> FoodsList { get; set; }
 
-        public bool FoodsListIsEmpty { get => _foodsList.Count == 0; }
-
-        public MyFoodsViewModel(IMyFoodsRule myFoodsRule)
+        public MyFoodsViewModel(Lazy<IGetMyFoodsUseCase> getMyFoodsUseCase)
         {
-            _myFoodsRule = myFoodsRule;
-            componentToEdit = null;
+            CurrentState = LayoutState.Loading;
 
-            var foodsList = Task.Run(async () => await myFoodsRule.GetMyFoods()).Result;
-            _foodsList = new ObservableCollection<FoodModel>(foodsList);
-            FoodsList = new ObservableCollection<FoodModel>(foodsList);
+            this.getMyFoodsUseCase = getMyFoodsUseCase;
+            componentToEdit = null;
 
             SearchTextChangedCommand = new Command((value) =>
             {
@@ -63,15 +63,14 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                await ShowLoading();
+                /*await ShowLoading();
                 await _myFoodsRule.ChangeQuantity(model);
                 if (model.Quantity <= 0)
                 {
                     _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
                     FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
-                    OnPropertyChanged(new PropertyChangedEventArgs("FoodsListIsEmpty"));
                 }
-                HideLoading();
+                HideLoading();*/
             }
             catch (System.Exception exeption)
             {
@@ -132,14 +131,12 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             _foodsList.Insert(0, model);
             FoodsList.Insert(0, model);
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
-            OnPropertyChanged(new PropertyChangedEventArgs("FoodsListIsEmpty"));
         }
         private void DeleteItem(FoodModel model)
         {
             _foodsList.Remove(_foodsList.First(c => c.Id.Equals(model.Id)));
             FoodsList.Remove(FoodsList.First(c => c.Id.Equals(model.Id)));
             OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
-            OnPropertyChanged(new PropertyChangedEventArgs("FoodsListIsEmpty"));
         }
 
         private void FillModelEdit(FoodModel copyTo, FoodModel from)
@@ -149,6 +146,15 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             copyTo.Type = from.Type;
             copyTo.DueDate = from.DueDate;
             copyTo.Quantity = from.Quantity;
+        }
+
+        public async Task Initialize()
+        {
+            _foodsList = await _getMyFoodsUseCase.Execute();
+            FoodsList = new ObservableCollection<FoodModel>(_foodsList);
+            OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+            CurrentState = _foodsList.Any() ? LayoutState.None : LayoutState.Empty;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
         }
     }
 }

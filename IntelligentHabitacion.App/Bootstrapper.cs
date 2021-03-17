@@ -8,6 +8,7 @@ using IntelligentHabitacion.App.UseCases.Login.ForgotPassword;
 using IntelligentHabitacion.App.UseCases.MyFoods.ChangeQuantityOfOneProduct;
 using IntelligentHabitacion.App.UseCases.MyFoods.GetMyFoods;
 using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
+using IntelligentHabitacion.App.UseCases.MyFoods.UpdateMyFood;
 using IntelligentHabitacion.App.UseCases.User.ChangePassword;
 using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.App.UseCases.User.RegisterUser;
@@ -43,6 +44,7 @@ namespace IntelligentHabitacion.App
             container.Register<IGetMyFoodsUseCase, GetMyFoodsUseCase>();
             container.Register<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>();
             container.Register<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>();
+            container.Register<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
         }
     }
 }

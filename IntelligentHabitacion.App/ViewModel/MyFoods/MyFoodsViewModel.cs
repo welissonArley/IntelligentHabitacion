@@ -104,20 +104,17 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                await ShowLoading();
                 componentToEdit = component;
-                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, _) =>
                 {
                     viewModel.CallbackSave = EditItem;
                     viewModel.CallbackDelete = DeleteItem;
                     viewModel.Model = component.Food.Clone();
                     viewModel.Title = ResourceText.TITLE_EDIT;
                 });
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

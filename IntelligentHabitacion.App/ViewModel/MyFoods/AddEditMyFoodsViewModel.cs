@@ -1,12 +1,12 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
+using IntelligentHabitacion.App.UseCases.MyFoods.UpdateMyFood;
 using IntelligentHabitacion.App.View.Modal;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using XLabs.Ioc;
 
@@ -43,7 +43,9 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public ICommand SaveAndNewCommand { get; }
 
         private readonly Lazy<IRegisterMyFoodUseCase> registerUseCase;
+        private readonly Lazy<IUpdateMyFoodUseCase> editUseCase;
         private IRegisterMyFoodUseCase _registerUseCase => registerUseCase.Value;
+        private IUpdateMyFoodUseCase _editUseCase => editUseCase.Value;
 
         public string Title { get; set; }
         public FoodModel Model { get; set; }
@@ -51,9 +53,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public Action<FoodModel> CallbackSave { get; set; }
         public Action<FoodModel> CallbackDelete { get; set; }
 
-        public AddEditMyFoodsViewModel(Lazy<IRegisterMyFoodUseCase> registerUseCase)
+        public AddEditMyFoodsViewModel(Lazy<IRegisterMyFoodUseCase> registerUseCase, Lazy<IUpdateMyFoodUseCase> editUseCase)
         {
             this.registerUseCase = registerUseCase;
+            this.editUseCase = editUseCase;
 
             SelectDueDateTapped = new Command(async() =>
             {
@@ -79,10 +82,12 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
             {
                 SendingData();
 
-                //if (string.IsNullOrEmpty(Model.Id))
-                var model = await _registerUseCase.Execute(Model);
-                //else
-                    //await _myFoodsRule.EditItem(Model);
+                FoodModel model = Model;
+
+                if (string.IsNullOrEmpty(Model.Id))
+                    model = await _registerUseCase.Execute(Model);
+                else
+                    await _editUseCase.Execute(Model);
 
                 CallbackSave?.Invoke(model);
 

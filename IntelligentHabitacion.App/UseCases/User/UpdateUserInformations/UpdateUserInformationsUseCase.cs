@@ -5,18 +5,20 @@ using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using Refit;
+using System;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.UseCases.User.UpdateUserInformations
 {
     public class UpdateUserInformationsUseCase : UseCaseBase, IUpdateUserInformationsUseCase
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private readonly IUserRestService _restService;
 
-        public UpdateUserInformationsUseCase(UserPreferences userPreferences) : base("User")
+        public UpdateUserInformationsUseCase(Lazy<UserPreferences> userPreferences) : base("User")
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             _restService = RestService.For<IUserRestService>(BaseAddress());
         }
 

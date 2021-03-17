@@ -3,19 +3,21 @@ using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Services.Communication.Home;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Strategy;
 using Refit;
+using System;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome
 {
     public class RegisterHomeUseCase : UseCaseBase, IRegisterHomeUseCase
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private readonly IHomeService _restService;
         private readonly ContextStrategy _contextStrategy;
 
-        public RegisterHomeUseCase(UserPreferences userPreferences) : base("Home")
+        public RegisterHomeUseCase(Lazy<UserPreferences> userPreferences) : base("Home")
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             _restService = RestService.For<IHomeService>(BaseAddress());
             _contextStrategy = new ContextStrategy();
         }

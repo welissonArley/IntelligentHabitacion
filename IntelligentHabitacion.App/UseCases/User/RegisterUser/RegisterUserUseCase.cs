@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Services.Communication.User;
 using IntelligentHabitacion.Communication.Request;
 using Refit;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -11,12 +12,13 @@ namespace IntelligentHabitacion.App.UseCases.User.RegisterUser
 {
     public class RegisterUserUseCase : UseCaseBase, IRegisterUserUseCase
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private readonly IUserRestService _restService;
 
-        public RegisterUserUseCase(UserPreferences userPreferences) : base("User")
+        public RegisterUserUseCase(Lazy<UserPreferences> userPreferences) : base("User")
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             _restService = RestService.For<IUserRestService>(BaseAddress());
         }
 

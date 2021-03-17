@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using Refit;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -11,12 +12,13 @@ namespace IntelligentHabitacion.App.UseCases.Login.DoLogin
 {
     public class LoginUseCase : UseCaseBase, ILoginUseCase
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private readonly ILoginRestService _restService;
 
-        public LoginUseCase(UserPreferences userPreferences) : base("Login")
+        public LoginUseCase(Lazy<UserPreferences> userPreferences) : base("Login")
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             _restService = RestService.For<ILoginRestService>(BaseAddress());
         }
 

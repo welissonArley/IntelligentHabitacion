@@ -3,18 +3,20 @@ using IntelligentHabitacion.App.Services.Communication.User;
 using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Exception;
 using Refit;
+using System;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.UseCases.User.ChangePassword
 {
     public class ChangePasswordUseCase : UseCaseBase, IChangePasswordUseCase
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private readonly IUserRestService _restService;
 
-        public ChangePasswordUseCase(UserPreferences userPreferences) : base("User")
+        public ChangePasswordUseCase(Lazy<UserPreferences> userPreferences) : base("User")
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             _restService = RestService.For<IUserRestService>(BaseAddress());
         }
 

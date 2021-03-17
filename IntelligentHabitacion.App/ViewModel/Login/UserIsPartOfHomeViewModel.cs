@@ -9,6 +9,7 @@ using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -19,7 +20,8 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 {
     public class UserIsPartOfHomeViewModel : BaseViewModel
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
 
         public ICommand CardMyInformationTapped { get; }
         public ICommand CardHomesInformationsTapped { get; }
@@ -33,9 +35,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         public ICommand AddNewItemCommand { get; }
         public ICommand AddNewFriendCommand { get; }
 
-        public UserIsPartOfHomeViewModel(UserPreferences userPreferences)
+        public UserIsPartOfHomeViewModel(Lazy<UserPreferences> userPreferences)
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
+
             LoggoutCommand = new Command(async () => { await ClickLogoutAccount_FloatActionButton(); });
             AddNewItemCommand = new Command(async () => { await OnAddNewItem_FloatActionButton(); });
             AddNewFriendCommand = new Command(async () => { await AddFriends_FloatActionButton(); });

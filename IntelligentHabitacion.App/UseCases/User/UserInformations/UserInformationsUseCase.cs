@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Services.Communication.User;
 using IntelligentHabitacion.Communication.Response;
 using Refit;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,12 +11,13 @@ namespace IntelligentHabitacion.App.UseCases.User.UserInformations
 {
     public class UserInformationsUseCase : UseCaseBase, IUserInformationsUseCase
     {
-        private readonly UserPreferences _userPreferences;
+        private readonly Lazy<UserPreferences> userPreferences;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private readonly IUserRestService _restService;
 
-        public UserInformationsUseCase(UserPreferences userPreferences) : base("User")
+        public UserInformationsUseCase(Lazy<UserPreferences> userPreferences) : base("User")
         {
-            _userPreferences = userPreferences;
+            this.userPreferences = userPreferences;
             _restService = RestService.For<IUserRestService>(BaseAddress());
         }
 

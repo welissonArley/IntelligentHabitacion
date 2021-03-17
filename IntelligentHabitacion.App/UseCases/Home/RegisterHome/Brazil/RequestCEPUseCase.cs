@@ -1,6 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services.Communication.Home;
-using IntelligentHabitacion.App.Useful.Validator;
 using IntelligentHabitacion.Exception;
 using Refit;
 using System.Text.RegularExpressions;

@@ -89,13 +89,13 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<MyFriendsViewModel>();
-                HideLoading();
+                await Navigation.PushAsync<MyFriendsViewModel>(async (viewModel, _) =>
+                {
+                    await viewModel.Initialize();
+                });
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

@@ -313,6 +313,9 @@
     <EmbeddedResource Update="Template\Skeleton\MyFoodsComponentSkeleton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Template\Skeleton\MyFriendsComponentSkeleton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\CleanHouse\DetailsUserSchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -6,17 +6,63 @@
              xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:component="clr-namespace:IntelligentHabitacion.App.Template.Search"
+             xmlns:skeleton="clr-namespace:IntelligentHabitacion.App.Template.Skeleton"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit" xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
              Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
              x:Name="MyFriendsContentPage"
              x:Class="IntelligentHabitacion.App.View.Friends.MyFriendsPage">
     <ContentPage.Resources>
         <converter:InverseBoolConverter x:Key="BoolInverseConverter"></converter:InverseBoolConverter>
     </ContentPage.Resources>
-    <StackLayout Style="{x:StaticResource MarginStyleDefault}">
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
-            <Image Source="IlustrationDog"></Image>
-            <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
-        </StackLayout>
+    <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+        <xct:StateLayout.StateViews>
+            <xct:StateView StateKey="Saving">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
+            <xct:StateView StateKey="Success">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
+            <xct:StateView StateKey="Empty" VerticalOptions="FillAndExpand">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <Grid VerticalOptions="FillAndExpand">
+                            <StackLayout>
+                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
+                                    <Image Source="IlustrationDog"></Image>
+                                    <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
+                                </StackLayout>
+
+                                <Button Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding Path=BindingContext.AddFriendCommand, Source={x:Reference Name=MyFriendsContentPage}}"></Button>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
+            <xct:StateView StateKey="Loading">
+                <xct:StateView.Template>
+                    <DataTemplate>
+                        <StackLayout>
+                            <skeleton:LabelAmountAvaliableSkeleton Margin="0,20,0,0"></skeleton:LabelAmountAvaliableSkeleton>
+                            <component:SearchByNameComponent IsEnabled="False"></component:SearchByNameComponent>
+                            <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_YOUR_FRIEND}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>
+
+                            <skeleton:MyFriendsComponentSkeleton></skeleton:MyFriendsComponentSkeleton>
+                            <skeleton:MyFriendsComponentSkeleton></skeleton:MyFriendsComponentSkeleton>
+                            <skeleton:MyFriendsComponentSkeleton></skeleton:MyFriendsComponentSkeleton>
+                        </StackLayout>
+                    </DataTemplate>
+                </xct:StateView.Template>
+            </xct:StateView>
+        </xct:StateLayout.StateViews>
+        
         <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding FriendsListIsEmpty, Converter={StaticResource BoolInverseConverter}}">
             <Label Margin="0,20,0,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
             <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFriendsContentPage}}"></component:SearchByNameComponent>

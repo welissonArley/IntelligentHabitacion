@@ -1,16 +1,18 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.Template.Informations;
+using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using XLabs.Ioc;
 
@@ -18,6 +20,9 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
 {
     public class MyFriendsViewModel : BaseViewModel
     {
+        private readonly Lazy<IGetMyFriendsUseCase> getMyFriendsUseCase;
+        private IGetMyFriendsUseCase _getMyFriendsUseCase => getMyFriendsUseCase.Value;
+
         private MyFriendsComponent componentToEdit { get; set; }
 
         public ICommand SearchTextChangedCommand { protected set; get; }
@@ -28,13 +33,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private ObservableCollection<FriendModel> _friendsList { get; set; }
         public ObservableCollection<FriendModel> FriendsList { get; set; }
 
-        public bool FriendsListIsEmpty { get; set; }
-
-        public MyFriendsViewModel(IFriendRule friendRule)
+        public MyFriendsViewModel(Lazy<IGetMyFriendsUseCase> getMyFriendsUseCase)
         {
-            FriendsList = new ObservableCollection<FriendModel>(Task.Run(async () => await friendRule.GetHouseFriends()).Result);
-            _friendsList = FriendsList;
-            FriendsListIsEmpty = _friendsList.Count == 0;
+            this.getMyFriendsUseCase = getMyFriendsUseCase;
+
+            CurrentState = LayoutState.Loading;
+
             SearchTextChangedCommand = new Command((value) =>
             {
                 OnSearchTextChanged((string)value);
@@ -122,7 +126,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                         }
                     };
                     _friendsList.Add(model);
-                    FriendsListIsEmpty = false;
                     OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
                     OnPropertyChanged(new PropertyChangedEventArgs("FriendsListIsEmpty"));
                 }));
@@ -152,10 +155,18 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             var friend = FriendsList.First(c => c.Id.Equals(id));
             FriendsList.Remove(friend);
-            FriendsListIsEmpty = _friendsList.Count == 0;
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsListIsEmpty"));
             Navigation.PopAsync();
+        }
+
+        public async Task Initialize()
+        {
+            _friendsList = new ObservableCollection<FriendModel>(await _getMyFriendsUseCase.Execute());
+            FriendsList = new ObservableCollection<FriendModel>(_friendsList);
+            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+            CurrentState = _friendsList.Any() ? LayoutState.None : LayoutState.Empty;
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
         }
     }
 }

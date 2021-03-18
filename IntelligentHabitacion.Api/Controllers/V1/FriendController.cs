@@ -10,7 +10,6 @@ using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
@@ -36,9 +35,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 var response = await useCase.Execute();
                 WriteAutenticationHeader(response);
-
-                if (!((List<ResponseFriendJson>)response.ResponseJson).Any())
-                    return NoContent();
 
                 return Ok(response.ResponseJson);
             }

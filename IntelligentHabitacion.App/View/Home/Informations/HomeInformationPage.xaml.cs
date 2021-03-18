@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace IntelligentHabitacion.App.View.Home.Informations.Others
+namespace IntelligentHabitacion.App.View.Home.Informations
 {
-    [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomeInformationPage : ContentPage
     {
         public HomeInformationPage()

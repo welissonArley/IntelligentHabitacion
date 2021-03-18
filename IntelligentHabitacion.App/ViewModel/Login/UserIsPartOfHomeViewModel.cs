@@ -5,6 +5,7 @@ using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.Add;
+using IntelligentHabitacion.App.ViewModel.Home.Informations;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
 using IntelligentHabitacion.Communication.Response;
@@ -74,31 +75,13 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
-
-                /*
-                 Which business rule will call GetInformations doesn’t matter,
-                as its implementation doesn’t depend on the country, the API manages this for us.
-                 */
-                var homeRule = Resolver.Resolve<IHomeBrazilRule>();
-                var home = await homeRule.GetInformations();
-
-                if (home.IsBrazil())
+                await Navigation.PushAsync<HomeInformationViewModel>(async (viewModel, _) =>
                 {
-                    await Navigation.PushAsync<Home.Informations.Brazil.HomeInformationViewModel>((viewModel, page) =>
-                    {
-                        viewModel.Model = home;
-                        viewModel._currentZipCode = home.ZipCode;
-                    });
-                }
-                else
-                    await Navigation.PushAsync<Home.Informations.Others.HomeInformationViewModel>((viewModel, page) => viewModel.Model = home);
-
-                HideLoading();
+                    await viewModel.Initialize();
+                });
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -195,17 +178,14 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<AddEditMyFoodsViewModel>((viewModel, _) =>
                 {
                     viewModel.Title = ResourceText.TITLE_NEW_ITEM;
                     viewModel.Model = new FoodModel { Quantity = 1.00m };
                 });
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -213,13 +193,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
                 await Navigation.PushAsync<QrCodeToAddFriendViewModel>();
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

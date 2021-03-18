@@ -101,8 +101,6 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<DeleteAccountPage, DeleteAccountViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
             ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
-            ViewFactory.Register<View.Home.Informations.Brazil.HomeInformationPage, ViewModel.Home.Informations.Brazil.HomeInformationViewModel>();
-            ViewFactory.Register<View.Home.Informations.Others.HomeInformationPage, ViewModel.Home.Informations.Others.HomeInformationViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
             ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
             ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
@@ -124,6 +122,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<SelectTaskCleaningSchedulePage, SelectTaskCleaningScheduleViewModel>();
             ViewFactory.Register<InsertRoomPage, InsertRoomViewModel>();
             ViewFactory.Register<SelectCountryPage, SelectCountryViewModel>();
+            ViewFactory.Register<HomeInformationPage, HomeInformationViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

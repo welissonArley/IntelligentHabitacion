@@ -216,9 +216,6 @@
     <Compile Update="View\Home\Delete\DeleteHomePage.xaml.cs">
       <DependentUpon>DeleteHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\Home\Informations\Others\HomeInformationPage.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
     <Compile Update="View\Modal\LoadingWithMessagesModal.xaml.cs">
       <DependentUpon>LoadingWithMessagesModal.xaml</DependentUpon>
     </Compile>
@@ -248,9 +245,6 @@
     </Compile>
     <Compile Update="View\Modal\WithoutInternetConnectionModal.xaml.cs">
       <DependentUpon>WithoutInternetConnectionModal.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Home\Informations\Brazil\HomeInformationPage.xaml.cs">
-      <DependentUpon>HomeInformationPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\MyFoods\AddEditMyFoodsPage.xaml.cs">
       <DependentUpon>AddEditMyFoodsPage.xaml</DependentUpon>
@@ -329,6 +323,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Friends\Add\QrCodeToAddFriendPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Home\Informations\HomeInformationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Home\Informations\InsertRoomPage.xaml">

@@ -13,5 +13,7 @@ namespace IntelligentHabitacion.App.Services.Communication.Home
         Task<ApiResponse<string>> CreateHome([Body] RequestRegisterHomeJson registerHome, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Get("/Informations")]
         Task<ApiResponse<ResponseHomeInformationsJson>> GetHomesInformations([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Put("/Update")]
+        Task<ApiResponse<string>> UpdateHome([Body] RequestUpdateHomeJson registerHome, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

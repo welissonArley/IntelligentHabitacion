@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.UseCases.Home.HomeInformations;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil;
+using IntelligentHabitacion.App.UseCases.Home.UpdateHomeInformations;
 using Plugin.Clipboard;
 using System;
 using System.Collections.ObjectModel;
@@ -19,8 +20,10 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Informations
         private readonly Lazy<UserPreferences> userPreferences;
         private readonly Lazy<IRequestCEPUseCase> cepUseCase;
         private readonly Lazy<IHomeInformationsUseCase> informationsUseCase;
+        private readonly Lazy<IUpdateHomeInformationsUseCase> updateUseCase;
         private IHomeInformationsUseCase _informationsUseCase => informationsUseCase.Value;
         private IRequestCEPUseCase _cepUseCase => cepUseCase.Value;
+        private IUpdateHomeInformationsUseCase _updateUseCase => updateUseCase.Value;
         private UserPreferences _userPreferences => userPreferences.Value;
 
         public string _currentZipCode;
@@ -36,11 +39,12 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Informations
         public EventHandler<FocusEventArgs> ZipCodeChangedUnfocused { get; set; }
 
         public HomeInformationViewModel(Lazy<UserPreferences> userPreferences, Lazy<IRequestCEPUseCase> cepUseCase,
-            Lazy<IHomeInformationsUseCase> informationsUseCase)
+            Lazy<IHomeInformationsUseCase> informationsUseCase, Lazy<IUpdateHomeInformationsUseCase> updateUseCase)
         {
             this.userPreferences = userPreferences;
             this.cepUseCase = cepUseCase;
             this.informationsUseCase = informationsUseCase;
+            this.updateUseCase = updateUseCase;
 
             CurrentState = LayoutState.Loading;
 
@@ -67,13 +71,12 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Informations
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<InsertRoomViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<InsertRoomViewModel>((viewModel, _) =>
                 {
                     viewModel.RoomsSaved = Model.Rooms.Select(c => c.Room).ToList();
                     viewModel.CallbackSelectRoomCommand = new Command((room) =>
                     {
-                        Model.Rooms = new System.Collections.ObjectModel.ObservableCollection<RoomModel>(Model.Rooms)
+                        Model.Rooms = new ObservableCollection<RoomModel>(Model.Rooms)
                         {
                             new RoomModel
                             {
@@ -84,11 +87,9 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Informations
                         OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                     });
                 });
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -107,7 +108,9 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Informations
         {
             try
             {
-                //await _homeRule.UpdateInformations(Model);
+                SendingData();
+                await _updateUseCase.Execute(Model);
+                await Sucess();
             }
             catch (System.Exception exeption)
             {

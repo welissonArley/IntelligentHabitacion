@@ -1,6 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 
-namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome.Strategy
+namespace IntelligentHabitacion.App.UseCases.Home.Strategy
 {
     public class ContextStrategy
     {

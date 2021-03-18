@@ -1,13 +1,14 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
+using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome.Strategy
+namespace IntelligentHabitacion.App.UseCases.Home.Strategy
 {
     public class BrazilHomeRegisterStrategy : HomeRegisterStrategy
     {
-        public override RequestRegisterHomeJson Mapper(HomeModel model)
+        public override RequestRegisterHomeJson Mapper_Register(HomeModel model)
         {
             return new RequestRegisterHomeJson
             {
@@ -19,6 +20,23 @@ namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome.Strategy
                 City = model.City.Name,
                 Country = (Communication.Enums.CountryEnum)model.City.Country.Id,
                 StateProvince = model.City.StateProvinceName
+            };
+        }
+
+        public override RequestUpdateHomeJson Mapper_Update(HomeModel model)
+        {
+            return new RequestUpdateHomeJson
+            {
+                NetworksName = model.NetWork.Name,
+                NetworksPassword = model.NetWork.Password,
+                ZipCode = model.ZipCode,
+                AdditionalAddressInfo = model.AdditionalAddressInfo,
+                Address = model.Address,
+                Neighborhood = model.Neighborhood,
+                Number = model.Number,
+                City = model.City.Name,
+                StateProvince = model.City.StateProvinceName,
+                Rooms = model.Rooms.Select(c => c.Room).ToList()
             };
         }
 

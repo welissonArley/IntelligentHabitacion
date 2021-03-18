@@ -2,11 +2,12 @@
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 
-namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome.Strategy
+namespace IntelligentHabitacion.App.UseCases.Home.Strategy
 {
     public abstract class HomeRegisterStrategy
     {
-        public abstract RequestRegisterHomeJson Mapper(HomeModel model);
+        public abstract RequestRegisterHomeJson Mapper_Register(HomeModel model);
+        public abstract RequestUpdateHomeJson Mapper_Update(HomeModel model);
         public abstract void Validate(HomeModel model);
 
         protected void ValidateBase(HomeModel model)

@@ -6,16 +6,16 @@ using Refit;
 using System;
 using System.Threading.Tasks;
 
-namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome
+namespace IntelligentHabitacion.App.UseCases.Home.UpdateHomeInformations
 {
-    public class RegisterHomeUseCase : UseCaseBase, IRegisterHomeUseCase
+    public class UpdateHomeInformationsUseCase : UseCaseBase, IUpdateHomeInformationsUseCase
     {
         private readonly Lazy<UserPreferences> userPreferences;
         private UserPreferences _userPreferences => userPreferences.Value;
         private readonly IHomeService _restService;
         private readonly ContextStrategy _contextStrategy;
 
-        public RegisterHomeUseCase(Lazy<UserPreferences> userPreferences) : base("Home")
+        public UpdateHomeInformationsUseCase(Lazy<UserPreferences> userPreferences) : base("Home")
         {
             this.userPreferences = userPreferences;
             _restService = RestService.For<IHomeService>(BaseAddress());
@@ -28,9 +28,9 @@ namespace IntelligentHabitacion.App.UseCases.Home.RegisterHome
 
             strategy.Validate(home);
 
-            var request = strategy.Mapper_Register(home);
+            var request = strategy.Mapper_Update(home);
 
-            var response = await _restService.CreateHome(request, await _userPreferences.GetToken(), GetLanguage());
+            var response = await _restService.UpdateHome(request, await _userPreferences.GetToken(), GetLanguage());
 
             ResponseValidate(response);
 

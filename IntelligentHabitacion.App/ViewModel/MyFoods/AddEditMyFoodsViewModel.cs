@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.UseCases.MyFoods.DeleteMyFood;
 using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
 using IntelligentHabitacion.App.UseCases.MyFoods.UpdateMyFood;
 using IntelligentHabitacion.App.View.Modal;
@@ -44,8 +45,10 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
 
         private readonly Lazy<IRegisterMyFoodUseCase> registerUseCase;
         private readonly Lazy<IUpdateMyFoodUseCase> editUseCase;
+        private readonly Lazy<IDeleteMyFoodUseCase> deleteUseCase;
         private IRegisterMyFoodUseCase _registerUseCase => registerUseCase.Value;
         private IUpdateMyFoodUseCase _editUseCase => editUseCase.Value;
+        private IDeleteMyFoodUseCase _deleteUseCase => deleteUseCase.Value;
 
         public string Title { get; set; }
         public FoodModel Model { get; set; }
@@ -53,10 +56,12 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         public Action<FoodModel> CallbackSave { get; set; }
         public Action<FoodModel> CallbackDelete { get; set; }
 
-        public AddEditMyFoodsViewModel(Lazy<IRegisterMyFoodUseCase> registerUseCase, Lazy<IUpdateMyFoodUseCase> editUseCase)
+        public AddEditMyFoodsViewModel(Lazy<IRegisterMyFoodUseCase> registerUseCase,
+            Lazy<IUpdateMyFoodUseCase> editUseCase, Lazy<IDeleteMyFoodUseCase> deleteUseCase)
         {
             this.registerUseCase = registerUseCase;
             this.editUseCase = editUseCase;
+            this.deleteUseCase = deleteUseCase;
 
             SelectDueDateTapped = new Command(async() =>
             {
@@ -126,11 +131,11 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
         {
             try
             {
-                /*await ShowLoading();
-                await _myFoodsRule.DeleteMyFood(Model.Id);
+                SendingData();
+                await _deleteUseCase.Execute(Model.Id);
                 CallbackDelete(Model);
-                HideLoading();
-                await Navigation.PopAsync();*/
+                await Sucess();
+                await Navigation.PopAsync();
             }
             catch (System.Exception exeption)
             {

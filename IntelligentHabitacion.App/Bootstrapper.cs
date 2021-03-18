@@ -6,6 +6,7 @@ using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil;
 using IntelligentHabitacion.App.UseCases.Login.DoLogin;
 using IntelligentHabitacion.App.UseCases.Login.ForgotPassword;
 using IntelligentHabitacion.App.UseCases.MyFoods.ChangeQuantityOfOneProduct;
+using IntelligentHabitacion.App.UseCases.MyFoods.DeleteMyFood;
 using IntelligentHabitacion.App.UseCases.MyFoods.GetMyFoods;
 using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
 using IntelligentHabitacion.App.UseCases.MyFoods.UpdateMyFood;
@@ -45,6 +46,7 @@ namespace IntelligentHabitacion.App
             container.Register<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>();
             container.Register<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>();
             container.Register<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
+            container.Register<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>();
         }
     }
 }

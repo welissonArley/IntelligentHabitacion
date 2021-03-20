@@ -22,6 +22,9 @@
                                         <DataTemplate>
                                             <Grid>
                                                 <StackLayout>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                                    </StackLayout.GestureRecognizers>
                                                     <Label Text="{Binding TitleNumber}" Style="{x:StaticResource LabelThin}" TextColor="{x:StaticResource GrayDefault}" FontSize="12"></Label>
                                                     <Label Margin="0,3,0,0" Text="{Binding Number}" HorizontalOptions="StartAndExpand" FontSize="14"></Label>
                                                     <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2"></BoxView>

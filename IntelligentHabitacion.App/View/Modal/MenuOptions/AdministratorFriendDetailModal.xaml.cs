@@ -11,15 +11,13 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
     public partial class AdministratorFriendDetailModal : Rg.Plugins.Popup.Pages.PopupPage
     {
         private readonly ICommand _changeDateOption;
-        private readonly ICommand _changeAdministrator;
         private readonly ICommand _removeFriendFromHome;
 
-        public AdministratorFriendDetailModal(ICommand changeDateOption, ICommand changeAdministrator, ICommand removeFriendFromHome)
+        public AdministratorFriendDetailModal(ICommand changeDateOption, ICommand removeFriendFromHome)
         {
             InitializeComponent();
 
             _changeDateOption = changeDateOption;
-            _changeAdministrator = changeAdministrator;
             _removeFriendFromHome = removeFriendFromHome;
         }
 
@@ -27,11 +25,6 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
         {
             await CloseThisModal();
             _changeDateOption.Execute(null);
-        }
-        private async void ChangeAdministrator_Tapped(object sender, System.EventArgs e)
-        {
-            await CloseThisModal();
-            _changeAdministrator.Execute(null);
         }
         private async void RemoveFriendFromHome_Tapped(object sender, System.EventArgs e)
         {

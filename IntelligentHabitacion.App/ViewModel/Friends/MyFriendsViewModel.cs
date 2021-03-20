@@ -77,21 +77,16 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, _) =>
                 {
-                    viewModel.Model = friend;
-                    viewModel.RefreshCallback = new Command(RefreshList);
-                    viewModel.DeleteFriendCallback = new Command((friendId)=>
+                    viewModel.Initialize(friend, new Command(RefreshList), new Command((friendId) =>
                     {
                         FriendRemoved(friendId.ToString());
-                    });
+                    }));
                 });
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

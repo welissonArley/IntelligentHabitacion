@@ -19,7 +19,7 @@ namespace IntelligentHabitacion.App.View.Modal
 
             _callbackPhonenumberSelected = callbackPhonenumberSelected;
             ShortName.Text = new Useful.ShortNameConverter().Converter(name);
-            BackgroundShortName.BackgroundColor = Color.FromHex(color);
+            BackgroundShortName.Fill = new SolidColorBrush(Color.FromHex(color));
             BackgroundCallTo.BackgroundColor = Color.FromHex(color);
             LabelBackgroundCallTo.Text = string.Format(ResourceText.TITLE_CALL_TO_TWOPOINTS, name);
             NumbersList.ItemsSource = new ObservableCollection<NumbersContact>
@@ -37,9 +37,9 @@ namespace IntelligentHabitacion.App.View.Modal
             };
         }
 
-        private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            NumbersContact current = (e.CurrentSelection.FirstOrDefault() as NumbersContact);
+            NumbersContact current = (((TappedEventArgs)e).Parameter as NumbersContact);
             Navigation.PopPopupAsync();
             _callbackPhonenumberSelected(current.Number);
         }

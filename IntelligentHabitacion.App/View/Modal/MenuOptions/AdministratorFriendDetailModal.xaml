@@ -6,7 +6,7 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="Transparent"
     x:Class="IntelligentHabitacion.App.View.Modal.MenuOptions.AdministratorFriendDetailModal">
-    <Frame VerticalOptions="Start" HorizontalOptions="End" HasShadow="True" WidthRequest="200" HeightRequest="130" Padding="0" Margin="0,50,20,0">
+    <Frame VerticalOptions="Start" HorizontalOptions="End" HasShadow="True" WidthRequest="200" HeightRequest="90" Padding="0" Margin="0,50,20,0">
         <StackLayout Spacing="-3">
             <StackLayout Margin="10,10,10,10" Spacing="-3">
                 <StackLayout Spacing="-3" HeightRequest="40">
@@ -24,15 +24,6 @@
                     </StackLayout.GestureRecognizers>
                     <StackLayout VerticalOptions="CenterAndExpand">
                         <Label Text="{x:Static resourceText:ResourceText.TITLE_REMOVE}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
-                        <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
-                    </StackLayout>
-                </StackLayout>
-                <StackLayout Spacing="-3" HeightRequest="40">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ChangeAdministrator_Tapped"></TapGestureRecognizer>
-                    </StackLayout.GestureRecognizers>
-                    <StackLayout VerticalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resourceText:ResourceText.TITLE_SET_AS_ADMINISTRATOR}" FontSize="14" Style="{x:StaticResource LabelMedium}"></Label>
                         <BoxView HeightRequest="0.2" Opacity=".2" BackgroundColor="{x:StaticResource GrayDefault}"></BoxView>
                     </StackLayout>
                 </StackLayout>

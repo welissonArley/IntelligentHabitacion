@@ -18,13 +18,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
     {
         private readonly IFriendRule _friendRule;
 
-        public ICommand MakePhonecallCommand { protected set; get; }
-        public ICommand NotifyFriendOrderHasArrivedCommand { protected set; get; }
-        public ICommand MenuOptionsCommand { protected set; get; }
+        public ICommand MakePhonecallCommand { get; }
+        public ICommand NotifyFriendOrderHasArrivedCommand { get; }
+        public ICommand MenuOptionsCommand { get; }
 
-        private ICommand ChangeDateJoinOnCommand { set; get; }
-        private ICommand ChangeAdministratorCommand { set; get; }
-        private ICommand RemoveFriendFromHomeCommand { set; get; }
+        private ICommand ChangeDateJoinOnCommand { get; }
+        private ICommand RemoveFriendFromHomeCommand { get; }
 
         public FriendModel Model { get; set; }
         public ICommand RefreshCallback { get; set; }
@@ -44,10 +43,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             ChangeDateJoinOnCommand = new Command(async () =>
             {
                 await ChangeDateOption();
-            });
-            ChangeAdministratorCommand = new Command(async () =>
-            {
-                await ChangeAdministrator();
             });
             RemoveFriendFromHomeCommand = new Command(async () =>
             {
@@ -72,7 +67,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private async Task ShowAdministratorOptions()
         {
             var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new AdministratorFriendDetailModal(ChangeDateJoinOnCommand, ChangeAdministratorCommand, RemoveFriendFromHomeCommand));
+            await navigation.PushPopupAsync(new AdministratorFriendDetailModal(ChangeDateJoinOnCommand, RemoveFriendFromHomeCommand));
         }
 
         private async Task ChangeDateOption()
@@ -81,24 +76,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             var navigation = Resolver.Resolve<INavigation>();
             await navigation.PushPopupAsync(new Calendar(Model.JoinedOn, OnDateSelected, maximumDate: DateTime.Today));
             HideLoading();
-        }
-        private async Task ChangeAdministrator()
-        {
-            try
-            {
-                await ShowLoading();
-                await Navigation.PushAsync<ChangeAdministratorViewModel>((viewModel, page) =>
-                {
-                    viewModel.FriendName = Model.Name;
-                    viewModel.FriendId = Model.Id;
-                });
-                HideLoading();
-            }
-            catch (System.Exception exeption)
-            {
-                HideLoading();
-                await Exception(exeption);
-            }
         }
         private async Task RemoveFriendFromHome()
         {
@@ -153,6 +130,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                 HideLoading();
                 await Exception(exeption);
             }
+        }
+
+        public void Initialize(FriendModel model, ICommand refreshCallback, ICommand deleteFriendCallback)
+        {
+            Model = model;
+            RefreshCallback = refreshCallback;
+            DeleteFriendCallback = deleteFriendCallback;
         }
     }
 }

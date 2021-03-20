@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:IntelligentHabitacion.App.CustomControl"
              x:Class="IntelligentHabitacion.App.Template.Skeleton.InputTextWithLabelSkeleton">
   <ContentView.Content>
         <StackLayout Spacing="0" x:Name="component">
@@ -13,7 +14,7 @@
                     </OnPlatform>
                 </Label.Margin>
             </Label>
-            <BoxView CornerRadius="2" HeightRequest="30" BackgroundColor="{StaticResource SkeletonColor}" />
+            <custom:SkeletonView CornerRadius="2" HeightRequest="30" BackgroundColor="{StaticResource SkeletonColor}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

@@ -4,7 +4,6 @@ using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
-using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.App.ViewModel.Home.Informations;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
@@ -193,7 +192,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await Navigation.PushAsync<QrCodeToAddFriendViewModel>();
+                await Navigation.PushAsync<AddFriendViewModel>(async (viewModel, _) =>
+                {
+                    await viewModel.Initialize(null);
+                });
             }
             catch (System.Exception exeption)
             {

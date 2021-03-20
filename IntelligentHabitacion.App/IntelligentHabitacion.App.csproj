@@ -322,10 +322,7 @@
     <EmbeddedResource Update="View\CleanHouse\SeeScheduleAllFriendsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Friends\Add\AcceptNewFriendPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="View\Friends\Add\QrCodeToAddFriendPage.xaml">
+    <EmbeddedResource Update="View\Friends\AddFriendPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Home\Informations\HomeInformationPage.xaml">

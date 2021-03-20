@@ -16,7 +16,13 @@
     <ContentPage.Resources>
         <behavior:ZipCodeBehavior x:Key="BehaviorZipCode"></behavior:ZipCodeBehavior>
     </ContentPage.Resources>
-    <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+    <StackLayout Style="{StaticResource MarginStyleDefault}">
+        <StackLayout.Triggers>
+            <DataTrigger TargetType="StackLayout" Binding="{Binding IsAdministrator}" Value="True">
+                <Setter Property="xct:StateLayout.CurrentState" Value="{Binding CurrentState}"></Setter>
+            </DataTrigger>
+        </StackLayout.Triggers>
+        
         <xct:StateLayout.StateViews>
             <xct:StateView StateKey="Saving">
                 <xct:StateView.Template>
@@ -57,8 +63,8 @@
                             
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.ZipCode, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ZIPCODE_TWOPOINTS}" PlaceHolderText="Zipcode" IsPassword="False">
                                 <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
-                                    <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=Model.City.Country.Id}" Value="{x:Static enum:CountryEnum.BRAZIL}">
-                                        <Setter Property="EntryUnfocused" Value="{Binding ZipCodeChangedUnfocused}"></Setter>
+                                    <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=BindingContext.Model.City.Country.Id, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                        <Setter Property="EntryUnfocused" Value="{Binding Path=BindingContext.ZipCodeChangedUnfocused, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></Setter>
                                         <Setter Property="EntryBehavior" Value="{x:StaticResource BehaviorZipCode}"></Setter>
                                         <Setter Property="Keyboard" Value="Numeric"></Setter>
                                         <Setter Property="PlaceHolderText" Value="31.275-972"></Setter>
@@ -70,7 +76,7 @@
                             
                             <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Neighborhood, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}" IsPassword="False">
                                 <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
-                                    <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=Model.City.Country.Id}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                    <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=BindingContext.Model.City.Country.Id, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Value="{x:Static enum:CountryEnum.BRAZIL}">
                                         <Setter Property="IsVisible" Value="True"></Setter>
                                     </DataTrigger>
                                 </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
@@ -81,7 +87,7 @@
 
                             <templateInputTextWithLabel:InputTextWithLabelComponent IsVisible="False" PropertyToBindindEntry="Model.City.StateProvinceName" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_STATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_STATE}">
                                 <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
-                                    <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=Model.City.Country.Id}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                    <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=BindingContext.Model.City.Country.Id, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Value="{x:Static enum:CountryEnum.BRAZIL}">
                                         <Setter Property="IsVisible" Value="True"></Setter>
                                     </DataTrigger>
                                 </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>

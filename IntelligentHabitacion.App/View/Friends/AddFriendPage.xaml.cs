@@ -1,13 +1,13 @@
-﻿using IntelligentHabitacion.App.ViewModel.Friends.Add;
+﻿using IntelligentHabitacion.App.ViewModel.Friends;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace IntelligentHabitacion.App.View.Friends.Add
+namespace IntelligentHabitacion.App.View.Friends
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QrCodeToAddFriendPage : ContentPage
+    public partial class AddFriendPage : ContentPage
     {
-        public QrCodeToAddFriendPage()
+        public AddFriendPage()
         {
             InitializeComponent();
 
@@ -19,8 +19,13 @@ namespace IntelligentHabitacion.App.View.Friends.Add
 
         protected override bool OnBackButtonPressed()
         {
-            var binding = (QrCodeToAddFriendViewModel)BindingContext;
-            binding.DisconnectFromSocket();
+            var binding = (AddFriendViewModel)BindingContext;
+            var command = new Command(async () =>
+            {
+                await binding.DisconnectFromSocket();
+            });
+            command.Execute(null);
+            
             return base.OnBackButtonPressed();
         }
     }

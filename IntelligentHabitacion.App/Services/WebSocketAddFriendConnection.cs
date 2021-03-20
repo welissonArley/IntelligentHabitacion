@@ -1,6 +1,6 @@
-﻿using IntelligentHabitacion.Communication.Request;
+﻿using IntelligentHabitacion.App.Services.Communication;
+using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
-using IntelligentHabitacion.Communication.Url;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
@@ -18,7 +18,7 @@ namespace IntelligentHabitacion.App.Services
         public WebSocketAddFriendConnection()
         {
             _connection = new HubConnectionBuilder()
-                    .WithUrl(new Uri($"wss://{UrlHelper.IntelligentHabitacionApi}/addNewFriend"), HttpTransportType.WebSockets)
+                    .WithUrl(new Uri($"wss://{RestEndPoints.BaseUrl}/addNewFriend"), HttpTransportType.WebSockets)
                     .WithAutomaticReconnect().Build();
 
             _connection.On<string>("ThrowError", (messageError) =>
@@ -65,7 +65,7 @@ namespace IntelligentHabitacion.App.Services
         }
         public async Task DeclinedFriendCandidate()
         {
-            await _connection.InvokeAsync("Decline");
+            await _connection.InvokeAsync("Decline").ConfigureAwait(false);
         }
         public async Task ApproveFriendCandidate(ICommand callbackSuccessfullyApproved, RequestApproveAddFriendJson requestApprove)
         {
@@ -73,12 +73,12 @@ namespace IntelligentHabitacion.App.Services
             {
                 callbackSuccessfullyApproved?.Execute(null);
             });
-            await _connection.InvokeAsync("Approve", requestApprove);
+            await _connection.InvokeAsync("Approve", requestApprove).ConfigureAwait(false);
         }
         public async Task StopConnection()
         {
-            await _connection.StopAsync();
-            await _connection.DisposeAsync();
+            await _connection.StopAsync().ConfigureAwait(false);
+            await _connection.DisposeAsync().ConfigureAwait(false);
         }
     }
 }

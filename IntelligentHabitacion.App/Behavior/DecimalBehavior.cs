@@ -54,7 +54,7 @@ namespace IntelligentHabitacion.App.Behavior
                 entry.CursorPosition = 0;
             }
             else
-                entry.Text = string.Format("{0:n}", decimalValue);
+                entry.Text = string.Format("{0:n}", decimalValue * 10);
 
             _firstTime = false;
             _secondTime = true;

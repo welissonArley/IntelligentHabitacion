@@ -3,7 +3,6 @@ using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Template.Informations;
 using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
 using IntelligentHabitacion.App.View.Modal;
-using IntelligentHabitacion.App.ViewModel.Friends.Add;
 using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -100,40 +99,16 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<QrCodeToAddFriendViewModel>((viewModel, page) => viewModel.ApprovedOperation = new Command((friendModel) =>
+                await Navigation.PushAsync<AddFriendViewModel>(async(viewModel, _) =>
                 {
-                    var json = (ResponseFriendJson)friendModel;
-                    var model = new FriendModel
+                    await viewModel.Initialize(new Command((friendModel) =>
                     {
-                        Id = json.Id,
-                        JoinedOn = json.JoinedOn,
-                        Name = json.Name,
-                        ProfileColor = json.ProfileColor,
-                        Phonenumber1 = json.Phonenumbers[0].Number,
-                        Phonenumber2 = json.Phonenumbers.Count > 1 ? json.Phonenumbers[1].Number : null,
-                        EmergencyContact1 = new EmergencyContactModel
-                        {
-                            Name = json.EmergencyContacts[0].Name,
-                            Relationship = json.EmergencyContacts[0].Relationship,
-                            PhoneNumber = json.EmergencyContacts[0].Phonenumber
-                        },
-                        EmergencyContact2 = json.EmergencyContacts.Count == 1 ? null : new EmergencyContactModel
-                        {
-                            Name = json.EmergencyContacts[1].Name,
-                            Relationship = json.EmergencyContacts[1].Relationship,
-                            PhoneNumber = json.EmergencyContacts[1].Phonenumber
-                        }
-                    };
-                    _friendsList.Add(model);
-                    OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
-                    OnPropertyChanged(new PropertyChangedEventArgs("FriendsListIsEmpty"));
-                }));
-                HideLoading();
+                        CallbackFriendAdded((ResponseFriendJson)friendModel);
+                    }));
+                });
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -158,6 +133,36 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsListIsEmpty"));
             Navigation.PopAsync();
+        }
+
+        private void CallbackFriendAdded(ResponseFriendJson json)
+        {
+            var model = new FriendModel
+            {
+                Id = json.Id,
+                JoinedOn = json.JoinedOn,
+                Name = json.Name,
+                ProfileColor = json.ProfileColor,
+                Phonenumber1 = json.Phonenumbers[0].Number,
+                Phonenumber2 = json.Phonenumbers.Count > 1 ? json.Phonenumbers[1].Number : null,
+                EmergencyContact1 = new EmergencyContactModel
+                {
+                    Name = json.EmergencyContacts[0].Name,
+                    Relationship = json.EmergencyContacts[0].Relationship,
+                    PhoneNumber = json.EmergencyContacts[0].Phonenumber
+                },
+                EmergencyContact2 = json.EmergencyContacts.Count == 1 ? null : new EmergencyContactModel
+                {
+                    Name = json.EmergencyContacts[1].Name,
+                    Relationship = json.EmergencyContacts[1].Relationship,
+                    PhoneNumber = json.EmergencyContacts[1].Phonenumber
+                }
+            };
+            _friendsList.Add(model);
+            FriendsList.Add(model);
+            CurrentState = LayoutState.None;
+            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
         }
 
         public async Task Initialize()

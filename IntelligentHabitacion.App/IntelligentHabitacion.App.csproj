@@ -99,8 +99,8 @@
     <Compile Update="Template\Informations\MyTaskCleanHouseComponent.xaml.cs">
       <DependentUpon>MyTaskCleanHouseComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\Informations\EmergencyContactComponent.xaml.cs">
-      <DependentUpon>EmergencyContactComponent.xaml</DependentUpon>
+    <Compile Update="Template\Informations\EmergencyContactsComponent.xaml.cs">
+      <DependentUpon>EmergencyContactsComponent.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Informations\MyFoodsComponent.xaml.cs">
       <DependentUpon>MyFoodsComponent.xaml</DependentUpon>
@@ -108,8 +108,8 @@
     <Compile Update="Template\Informations\CountryComponent.xaml.cs">
       <DependentUpon>CountryComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\Informations\PhonenumberToCallComponent.xaml.cs">
-      <DependentUpon>PhonenumberToCallComponent.xaml</DependentUpon>
+    <Compile Update="Template\Informations\PhonenumbersToCallComponent.xaml.cs">
+      <DependentUpon>PhonenumbersToCallComponent.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Informations\MyFriendsComponent.xaml.cs">
       <DependentUpon>MyFriendsComponent.xaml</DependentUpon>
@@ -234,8 +234,8 @@
     <Compile Update="View\Modal\Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\Modal\MenuOptions\AdministratorFriendDetailModal.xaml.cs">
-      <DependentUpon>AdministratorFriendDetailModal.xaml</DependentUpon>
+    <Compile Update="View\Modal\MenuOptions\FloatActionAdminFriendInformationDetailModal.xaml.cs">
+      <DependentUpon>FloatActionAdminFriendInformationDetailModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\QuickInformationModal.xaml.cs">
       <DependentUpon>QuickInformationModal.xaml</DependentUpon>

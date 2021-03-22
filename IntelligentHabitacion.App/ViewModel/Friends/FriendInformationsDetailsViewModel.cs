@@ -19,9 +19,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         private INotifyOrderReceivedUseCase _notifyOrderReceivedUseCase => notifyOrderReceivedUseCase.Value;
 
         public ICommand MakePhonecallCommand { get; }
-        public ICommand NotifyFriendOrderHasArrivedCommand { get; }
-        public ICommand MenuOptionsCommand { get; }
+        
+        public ICommand FloatActionCommand { get; }
 
+        public ICommand NotifyFriendOrderHasArrivedCommand { get; }
         private ICommand ChangeDateJoinOnCommand { get; }
         private ICommand RemoveFriendFromHomeCommand { get; }
 
@@ -37,9 +38,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             {
                 await MakeCall(value.ToString());
             });
-            MenuOptionsCommand = new Command(async () =>
+            FloatActionCommand = new Command(async () =>
             {
-                await ShowAdministratorOptions();
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new FloatActionAdminFriendInformationDetailModal(NotifyFriendOrderHasArrivedCommand, ChangeDateJoinOnCommand, RemoveFriendFromHomeCommand));
             });
 
             ChangeDateJoinOnCommand = new Command(async () =>
@@ -50,7 +52,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             {
                 await RemoveFriendFromHome();
             });
-
             NotifyFriendOrderHasArrivedCommand = new Command(async() =>
             {
                 await NotifyFriendOrderHasArrived();
@@ -62,12 +63,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             await ShowLoading();
             PhoneCall.MakeCall(number);
             HideLoading();
-        }
-
-        private async Task ShowAdministratorOptions()
-        {
-            var navigation = Resolver.Resolve<INavigation>();
-            await navigation.PushPopupAsync(new AdministratorFriendDetailModal(ChangeDateJoinOnCommand, RemoveFriendFromHomeCommand));
         }
 
         private async Task ChangeDateOption()

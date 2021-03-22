@@ -42,20 +42,13 @@ namespace IntelligentHabitacion.App.UseCases.Friends.GetMyFriends
                 ProfileColor = c.ProfileColor,
                 JoinedOn = c.JoinedOn,
                 DescriptionDateJoined = c.DescriptionDateJoined,
-                Phonenumber1 = c.Phonenumbers[0].Number,
-                Phonenumber2 = c.Phonenumbers.Count > 1 ? c.Phonenumbers[1].Number : null,
-                EmergencyContact1 = new EmergencyContactModel
+                Phonenumbers = c.Phonenumbers.Select(w => w.Number).ToList(),
+                EmergencyContacts = c.EmergencyContacts.Select(w => new EmergencyContactModel
                 {
-                    Name = c.EmergencyContacts[0].Name,
-                    Relationship = c.EmergencyContacts[0].Relationship,
-                    PhoneNumber = c.EmergencyContacts[0].Phonenumber
-                },
-                EmergencyContact2 = c.EmergencyContacts.Count > 1 ? new EmergencyContactModel
-                {
-                    Name = c.EmergencyContacts[1].Name,
-                    Relationship = c.EmergencyContacts[1].Relationship,
-                    PhoneNumber = c.EmergencyContacts[1].Phonenumber
-                } : null
+                    Name = w.Name,
+                    Relationship = w.Relationship,
+                    PhoneNumber = w.Phonenumber
+                }).ToList()
             }).ToList();
         }
     }

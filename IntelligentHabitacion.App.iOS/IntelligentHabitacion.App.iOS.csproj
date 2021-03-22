@@ -603,4 +603,31 @@
   <ItemGroup>
     <BundleResource Include="Resources\ActionButtonLoggout%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonCalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonCalendar%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonCalendar%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonOrder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonOrder%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonOrder%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonRemove%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonRemove%403x.png" />
+  </ItemGroup>
 </Project>

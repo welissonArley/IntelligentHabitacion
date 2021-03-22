@@ -65,12 +65,12 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         }
         private async Task MakePhonecall(FriendModel friend)
         {
-            if (string.IsNullOrWhiteSpace(friend.Phonenumber2))
-                await MakeCall(friend.Phonenumber1);
+            if (friend.Phonenumbers.Count == 1)
+                await MakeCall(friend.Phonenumbers.First());
             else
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new ChoosePhonenumberModal(friend.Name, friend.Phonenumber1, friend.Phonenumber2, friend.ProfileColor, MakeCall));
+                await navigation.PushPopupAsync(new ChoosePhonenumberModal(friend.Name, friend.Phonenumbers.ElementAt(0), friend.Phonenumbers.ElementAt(1), friend.ProfileColor, MakeCall));
             }
         }
         private async Task OnDetailFriend(FriendModel friend)
@@ -138,20 +138,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
                 JoinedOn = json.JoinedOn,
                 Name = json.Name,
                 ProfileColor = json.ProfileColor,
-                Phonenumber1 = json.Phonenumbers[0].Number,
-                Phonenumber2 = json.Phonenumbers.Count > 1 ? json.Phonenumbers[1].Number : null,
-                EmergencyContact1 = new EmergencyContactModel
+                Phonenumbers = json.Phonenumbers.Select(w => w.Number).ToList(),
+                EmergencyContacts = json.EmergencyContacts.Select(w => new EmergencyContactModel
                 {
-                    Name = json.EmergencyContacts[0].Name,
-                    Relationship = json.EmergencyContacts[0].Relationship,
-                    PhoneNumber = json.EmergencyContacts[0].Phonenumber
-                },
-                EmergencyContact2 = json.EmergencyContacts.Count == 1 ? null : new EmergencyContactModel
-                {
-                    Name = json.EmergencyContacts[1].Name,
-                    Relationship = json.EmergencyContacts[1].Relationship,
-                    PhoneNumber = json.EmergencyContacts[1].Phonenumber
-                }
+                    Name = w.Name,
+                    Relationship = w.Relationship,
+                    PhoneNumber = w.Phonenumber
+                }).ToList()
             };
             _friendsList.Add(model);
             FriendsList.Add(model);

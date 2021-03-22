@@ -11,5 +11,7 @@ namespace IntelligentHabitacion.App.Services.Communication.Friend
     {
         [Get("/Friends")]
         Task<ApiResponse<List<ResponseFriendJson>>> GetHouseFriends([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Post("/NotifyOrderReceived/{friendId}")]
+        Task<ApiResponse<string>> NotifyFriendOrderHasArrived(string friendId, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
+using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
 using IntelligentHabitacion.App.UseCases.Home.HomeInformations;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil;
@@ -53,6 +54,7 @@ namespace IntelligentHabitacion.App
             container.Register<IHomeInformationsUseCase, HomeInformationsUseCase>();
             container.Register<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>();
             container.Register<IGetMyFriendsUseCase, GetMyFriendsUseCase>();
+            container.Register<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>();
         }
     }
 }

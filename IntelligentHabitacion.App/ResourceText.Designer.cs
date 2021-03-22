@@ -1924,7 +1924,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notify that an order has arrived :).
+        ///   Looks up a localized string similar to Notify that an order has arrived.
         /// </summary>
         internal static string TITLE_NOTIFY_ORDER_ARRIVED {
             get {

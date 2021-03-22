@@ -204,9 +204,6 @@
     <Compile Update="View\Friends\RemoveFriendFromHomePage.xaml.cs">
       <DependentUpon>RemoveFriendFromHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\Friends\FriendDetailsPage.xaml.cs">
-      <DependentUpon>FriendDetailsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\Friends\ChangeAdministratorPage.xaml.cs">
       <DependentUpon>ChangeAdministratorPage.xaml</DependentUpon>
     </Compile>
@@ -323,6 +320,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Friends\AddFriendPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Friends\FriendInformationsDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Home\Informations\HomeInformationPage.xaml">

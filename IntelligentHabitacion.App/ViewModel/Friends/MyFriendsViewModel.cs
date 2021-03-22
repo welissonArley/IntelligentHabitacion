@@ -77,7 +77,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                await Navigation.PushAsync<FriendDetailsViewModel>((viewModel, _) =>
+                await Navigation.PushAsync<FriendInformationsDetailsViewModel>((viewModel, _) =>
                 {
                     viewModel.Initialize(friend, new Command(RefreshList), new Command((friendId) =>
                     {

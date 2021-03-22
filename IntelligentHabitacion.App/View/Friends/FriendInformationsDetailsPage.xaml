@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
+             xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:header="clr-namespace:IntelligentHabitacion.App.Template.Header"
+             xmlns:informations="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
+             x:Name="FriendInformationsContentPage"
+             x:Class="IntelligentHabitacion.App.View.Friends.FriendInformationsDetailsPage">
+    <ContentPage.Resources>
+        <converter:ObjectIsNullOrEmptyConverter x:Key="ObjectNullEmptyConverter"></converter:ObjectIsNullOrEmptyConverter>
+        <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <informations:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></informations:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <header:CircleWithTextAndDescriptionComponent CircleColor="{Binding Model.ProfileColor}" Text="{Binding Model.DescriptionDateJoined}" Title="{Binding Model.Name}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CircleWithTextAndDescriptionComponent>
+                <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_EMERGENCY_CONTACTS_TWOPOINTS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

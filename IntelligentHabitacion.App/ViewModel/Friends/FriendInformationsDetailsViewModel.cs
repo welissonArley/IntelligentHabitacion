@@ -1,12 +1,11 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
+using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using Rg.Plugins.Popup.Extensions;
 using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -14,9 +13,10 @@ using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel.Friends
 {
-    public class FriendDetailsViewModel : BaseViewModel
+    public class FriendInformationsDetailsViewModel : BaseViewModel
     {
-        private readonly IFriendRule _friendRule;
+        private readonly Lazy<INotifyOrderReceivedUseCase> notifyOrderReceivedUseCase;
+        private INotifyOrderReceivedUseCase _notifyOrderReceivedUseCase => notifyOrderReceivedUseCase.Value;
 
         public ICommand MakePhonecallCommand { get; }
         public ICommand NotifyFriendOrderHasArrivedCommand { get; }
@@ -29,8 +29,10 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         public ICommand RefreshCallback { get; set; }
         public ICommand DeleteFriendCallback { get; set; }
 
-        public FriendDetailsViewModel(IFriendRule friendRule)
+        public FriendInformationsDetailsViewModel(Lazy<INotifyOrderReceivedUseCase> notifyOrderReceivedUseCase)
         {
+            this.notifyOrderReceivedUseCase = notifyOrderReceivedUseCase;
+
             MakePhonecallCommand = new Command(async (value) =>
             {
                 await MakeCall(value.ToString());
@@ -53,8 +55,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             {
                 await NotifyFriendOrderHasArrived();
             });
-
-            _friendRule = friendRule;
         }
 
         private async Task MakeCall(string number)
@@ -101,13 +101,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                await ShowLoading();
+                /*await ShowLoading();
                 var friend = await _friendRule.ChangeDateJoinOn(Model.Id, date);
                 Model.DescriptionDateJoined = friend.DescriptionDateJoined;
                 Model.JoinedOn = friend.JoinedOn;
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 RefreshCallback?.Execute(null);
-                HideLoading();
+                HideLoading();*/
             }
             catch (System.Exception exeption)
             {
@@ -120,14 +120,17 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                await ShowLoading();
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new ConfirmAction(ResourceText.TITLE_NOTIFY_ORDER_ARRIVED, string.Format(ResourceText.DESCRIPTION_NOTIFY_ORDER_ARRIVED, Model.Name), View.Modal.Type.Green, new Command(async () => { await _friendRule.NotifyFriendOrderHasArrived(Model.Id); })));
-                HideLoading();
+                await navigation.PushPopupAsync(new ConfirmAction(ResourceText.TITLE_NOTIFY_ORDER_ARRIVED, string.Format(ResourceText.DESCRIPTION_NOTIFY_ORDER_ARRIVED, Model.Name), View.Modal.Type.Green,
+                    new Command(async () =>
+                    {
+                        SendingData();
+                        await _notifyOrderReceivedUseCase.Execute(Model.Id);
+                        await Sucess();
+                    })));
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

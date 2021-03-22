@@ -100,7 +100,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
             ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
-            ViewFactory.Register<FriendDetailsPage, FriendDetailsViewModel>();
+            ViewFactory.Register<FriendInformationsDetailsPage, FriendInformationsDetailsViewModel>();
             ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
             ViewFactory.Register<AddEditMyFoodsPage, AddEditMyFoodsViewModel>();
             ViewFactory.Register<AddFriendPage, AddFriendViewModel>();

@@ -37,11 +37,12 @@
 
                 <StackLayout VerticalOptions="FillAndExpand">
                     <header:CircleWithTextAndDescriptionComponent CircleColor="{Binding Model.ProfileColor}" Text="{Binding Model.DescriptionDateJoined}" Title="{Binding Model.Name}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CircleWithTextAndDescriptionComponent>
-                    <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
-
+                    
+                    <Label Margin="0,20,0,0" Text="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
                     <informations:PhonenumbersToCallComponent ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendInformationsContentPage}}" PhoneNumbers="{Binding Model.Phonenumbers}"></informations:PhonenumbersToCallComponent>
                     
-                    <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_EMERGENCY_CONTACTS_TWOPOINTS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                    <Label Margin="0,20,0,0" Text="{x:Static resourceText:ResourceText.TITLE_EMERGENCY_CONTACTS_TWOPOINTS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                    <informations:EmergencyContactsComponent ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendInformationsContentPage}}" EmergencyContacts="{Binding Model.EmergencyContacts}"></informations:EmergencyContactsComponent>
                 </StackLayout>
             </StackLayout>
 

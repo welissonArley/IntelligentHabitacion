@@ -55,6 +55,7 @@ namespace IntelligentHabitacion.App.Template.Informations
             {
                 var phoneNumbers = (IList<string>)newValue;
                 var component = ((PhonenumbersToCallComponent)bindable);
+                component.Content.Children.Clear();
 
                 foreach(var phoneNumber in phoneNumbers)
                     component.InsertLayout(component.Content, phoneNumber);

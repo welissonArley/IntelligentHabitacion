@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Communication.Response;
+﻿using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using Refit;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
@@ -13,5 +14,7 @@ namespace IntelligentHabitacion.App.Services.Communication.Friend
         Task<ApiResponse<List<ResponseFriendJson>>> GetHouseFriends([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Post("/NotifyOrderReceived/{friendId}")]
         Task<ApiResponse<string>> NotifyFriendOrderHasArrived(string friendId, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Put("/ChangeDateJoinHome/{friendId}")]
+        Task<ApiResponse<ResponseFriendJson>> ChangeDateJoinHome(string friendId, [Body] RequestDateJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

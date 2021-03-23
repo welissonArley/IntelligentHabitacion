@@ -1,11 +1,13 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.UseCases.Friends.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using Rg.Plugins.Popup.Extensions;
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -16,7 +18,9 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
     public class FriendInformationsDetailsViewModel : BaseViewModel
     {
         private readonly Lazy<INotifyOrderReceivedUseCase> notifyOrderReceivedUseCase;
+        private readonly Lazy<IChangeDateFriendJoinHomeUseCase> changeDateFriendJoinHomeUseCase;
         private INotifyOrderReceivedUseCase _notifyOrderReceivedUseCase => notifyOrderReceivedUseCase.Value;
+        private IChangeDateFriendJoinHomeUseCase _changeDateFriendJoinHomeUseCase => changeDateFriendJoinHomeUseCase.Value;
 
         public ICommand MakePhonecallCommand { get; }
         
@@ -30,9 +34,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         public ICommand RefreshCallback { get; set; }
         public ICommand DeleteFriendCallback { get; set; }
 
-        public FriendInformationsDetailsViewModel(Lazy<INotifyOrderReceivedUseCase> notifyOrderReceivedUseCase)
+        public FriendInformationsDetailsViewModel(Lazy<INotifyOrderReceivedUseCase> notifyOrderReceivedUseCase,
+            Lazy<IChangeDateFriendJoinHomeUseCase> changeDateFriendJoinHomeUseCase)
         {
             this.notifyOrderReceivedUseCase = notifyOrderReceivedUseCase;
+            this.changeDateFriendJoinHomeUseCase = changeDateFriendJoinHomeUseCase;
 
             MakePhonecallCommand = new Command(async (value) =>
             {
@@ -96,17 +102,16 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                /*await ShowLoading();
-                var friend = await _friendRule.ChangeDateJoinOn(Model.Id, date);
+                SendingData();
+                var friend = await _changeDateFriendJoinHomeUseCase.Execute(Model.Id, date);
                 Model.DescriptionDateJoined = friend.DescriptionDateJoined;
                 Model.JoinedOn = friend.JoinedOn;
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 RefreshCallback?.Execute(null);
-                HideLoading();*/
+                await Sucess();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

@@ -82,18 +82,13 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             try
             {
-                await ShowLoading();
-                await Navigation.PushAsync<RemoveFriendFromHomeViewModel>((viewModel, page) =>
+                await Navigation.PushAsync<RemoveFriendFromHomeViewModel>((viewModel, _) =>
                 {
-                    viewModel.FriendName = Model.Name;
-                    viewModel.FriendId = Model.Id;
-                    viewModel.FunctionCallbackCommand = DeleteFriendCallback;
+                    viewModel.Initialize(Model, DeleteFriendCallback);
                 });
-                HideLoading();
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }
@@ -139,7 +134,11 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
         {
             Model = model;
             RefreshCallback = refreshCallback;
-            DeleteFriendCallback = deleteFriendCallback;
+            DeleteFriendCallback = new Command(async (args) =>
+            {
+                deleteFriendCallback.Execute(args);
+                await Navigation.RemoveAsync(this);
+            });
         }
     }
 }

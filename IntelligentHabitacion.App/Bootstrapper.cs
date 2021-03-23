@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.UseCases.Friends.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
 using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
+using IntelligentHabitacion.App.UseCases.Friends.RemoveFriend;
 using IntelligentHabitacion.App.UseCases.Home.HomeInformations;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil;
@@ -57,6 +58,8 @@ namespace IntelligentHabitacion.App
             container.Register<IGetMyFriendsUseCase, GetMyFriendsUseCase>();
             container.Register<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>();
             container.Register<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>();
+            container.Register<IRemoveFriendUseCase, RemoveFriendUseCase>();
+            container.Register<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>();
         }
     }
 }

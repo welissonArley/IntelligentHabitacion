@@ -16,5 +16,9 @@ namespace IntelligentHabitacion.App.Services.Communication.Friend
         Task<ApiResponse<string>> NotifyFriendOrderHasArrived(string friendId, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Put("/ChangeDateJoinHome/{friendId}")]
         Task<ApiResponse<ResponseFriendJson>> ChangeDateJoinHome(string friendId, [Body] RequestDateJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Get("/RequestCodeRemoveFriend")]
+        Task<ApiResponse<string>> RequestCodeToRemoveFriend([Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Post("/RemoveFriend/{friendId}")]
+        Task<ApiResponse<string>> RemoveFriend(string friendId, [Body] RequestAdminActionJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

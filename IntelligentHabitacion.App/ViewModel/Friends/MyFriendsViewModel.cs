@@ -127,7 +127,6 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             FriendsList.Remove(friend);
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
             OnPropertyChanged(new PropertyChangedEventArgs("FriendsListIsEmpty"));
-            Navigation.PopAsync();
         }
 
         private void CallbackFriendAdded(ResponseFriendJson json)

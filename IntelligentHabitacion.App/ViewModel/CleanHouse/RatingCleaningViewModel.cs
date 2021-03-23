@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -8,7 +7,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class RatingCleaningViewModel : BaseViewModel
     {
-        private readonly ICleaningScheduleRule _rule;
+        /*private readonly ICleaningScheduleRule _rule;
 
         public ICommand OnConcludeCommand { protected set; get; }
         public ICommand CallbackOnConcludeCommand { set; get; }
@@ -46,6 +45,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 HideLoading();
                 await Exception(exeption);
             }
-        }
+        }*/
     }
 }

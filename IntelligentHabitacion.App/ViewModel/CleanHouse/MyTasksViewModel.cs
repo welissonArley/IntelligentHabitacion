@@ -1,6 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using IntelligentHabitacion.Communication.Enums;
@@ -18,7 +17,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class MyTasksViewModel : BaseViewModel
     {
-        private readonly ICleaningScheduleRule _rule;
+        /*private readonly ICleaningScheduleRule _rule;
 
         public bool ScheduleCreated { get; set; }
         public string InfoMessage { get; set; }
@@ -235,6 +234,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 HideLoading();
                 await Exception(exeption);
             }
-        }
+        }*/
     }
 }

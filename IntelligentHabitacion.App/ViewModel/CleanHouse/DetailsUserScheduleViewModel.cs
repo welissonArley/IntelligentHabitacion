@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,7 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class DetailsUserScheduleViewModel : BaseViewModel
     {
-        private ICleaningScheduleRule _rule { get; set; }
+        /*private ICleaningScheduleRule _rule { get; set; }
 
         public string UserId { get; set; }
         public DetailsUserScheduleModel Model { get; set; }
@@ -122,6 +121,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 HideLoading();
                 await Exception(exeption);
             }
-        }
+        }*/
     }
 }

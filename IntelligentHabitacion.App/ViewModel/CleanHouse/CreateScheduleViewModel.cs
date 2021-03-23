@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,7 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class CreateScheduleViewModel : BaseViewModel
     {
-        public ManageScheduleModel Model { get; set; }
+        /*public ManageScheduleModel Model { get; set; }
         public ICommand ManageTasksCommand { get; set; }
         public ICommand RandomAssignmentCommand { get; set; }
         public ICommand CallbackOnCreateScheduleCommand { get; set; }
@@ -168,6 +167,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 HideLoading();
                 await Exception(exeption);
             }
-        }
+        }*/
     }
 }

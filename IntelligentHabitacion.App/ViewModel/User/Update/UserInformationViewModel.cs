@@ -1,8 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.UseCases.User.UpdateUserInformations;
 using IntelligentHabitacion.App.UseCases.User.UserInformations;
-using IntelligentHabitacion.App.ViewModel.User.Delete;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -33,21 +31,8 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
             this.getInformationsUseCase = getInformationsUseCase;
             this.updateUseCase = updateUseCase;
 
-            DeleteAccountTapped = new Command(async () => await ClickDeleteAccount());
             ChangePasswordTapped = new Command(async () => await ClickChangePasswordAccount());
             UpdateInformationsTapped = new Command(async () => await ClickUpdateInformations());
-        }
-
-        private async Task ClickDeleteAccount()
-        {
-            try
-            {
-                await Navigation.PushAsync<ConfirmDeleteAccountViewModel>();
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
         }
 
         private async Task ClickChangePasswordAccount()

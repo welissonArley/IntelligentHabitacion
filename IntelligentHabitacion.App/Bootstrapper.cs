@@ -1,6 +1,4 @@
 ﻿using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
-using IntelligentHabitacion.App.SetOfRules.Rule;
 using IntelligentHabitacion.App.UseCases.Friends.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
 using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
@@ -18,7 +16,6 @@ using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
 using IntelligentHabitacion.App.UseCases.MyFoods.UpdateMyFood;
 using IntelligentHabitacion.App.UseCases.User.ChangePassword;
 using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
-using IntelligentHabitacion.App.UseCases.User.RegisterUser;
 using IntelligentHabitacion.App.UseCases.User.UpdateUserInformations;
 using IntelligentHabitacion.App.UseCases.User.UserInformations;
 using XLabs.Ioc;
@@ -27,39 +24,30 @@ namespace IntelligentHabitacion.App
 {
     public static class Bootstrapper
     {
-        public static void Register(IDependencyContainer container)
+        public static IDependencyContainer AddDependeces(this IDependencyContainer container)
         {
-            container.Register(new UserPreferences());
-            container.Register<IFriendRule, FriendRule>();
-            container.Register<IHomeBrazilRule, HomeBrazilRule>();
-            container.Register<IHomeOthersCountryRule, HomeOthersCountryRule>();
-            container.Register<ILoginRule, LoginRule>();
-            container.Register<IMyFoodsRule, MyFoodsRule>();
-            container.Register<IUserRule, UserRule>();
-            container.Register<ICleaningScheduleRule, CleaningScheduleRule>();
-
-            container.Register<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>();
-            container.Register<IRegisterUserUseCase, RegisterUserUseCase>();
-            container.Register<IUserInformationsUseCase, UserInformationsUseCase>();
-            container.Register<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>();
-            container.Register<IChangePasswordUseCase, ChangePasswordUseCase>();
-            container.Register<ILoginUseCase, LoginUseCase>();
-            container.Register<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>();
-            container.Register<IResetPasswordUseCase, ResetPasswordUseCase>();
-            container.Register<IRequestCEPUseCase, RequestCEPUseCase>();
-            container.Register<IRegisterHomeUseCase, RegisterHomeUseCase>();
-            container.Register<IGetMyFoodsUseCase, GetMyFoodsUseCase>();
-            container.Register<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>();
-            container.Register<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>();
-            container.Register<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
-            container.Register<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>();
-            container.Register<IHomeInformationsUseCase, HomeInformationsUseCase>();
-            container.Register<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>();
-            container.Register<IGetMyFriendsUseCase, GetMyFriendsUseCase>();
-            container.Register<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>();
-            container.Register<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>();
-            container.Register<IRemoveFriendUseCase, RemoveFriendUseCase>();
-            container.Register<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>();
+            return container.Register(new UserPreferences())
+                .Register<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
+                .Register<IUserInformationsUseCase, UserInformationsUseCase>()
+                .Register<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
+                .Register<IChangePasswordUseCase, ChangePasswordUseCase>()
+                .Register<ILoginUseCase, LoginUseCase>()
+                .Register<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>()
+                .Register<IResetPasswordUseCase, ResetPasswordUseCase>()
+                .Register<IRequestCEPUseCase, RequestCEPUseCase>()
+                .Register<IRegisterHomeUseCase, RegisterHomeUseCase>()
+                .Register<IGetMyFoodsUseCase, GetMyFoodsUseCase>()
+                .Register<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>()
+                .Register<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>()
+                .Register<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>()
+                .Register<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>()
+                .Register<IHomeInformationsUseCase, HomeInformationsUseCase>()
+                .Register<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>()
+                .Register<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
+                .Register<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
+                .Register<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
+                .Register<IRemoveFriendUseCase, RemoveFriendUseCase>()
+                .Register<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>();
         }
     }
 }

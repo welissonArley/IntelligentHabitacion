@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,7 +11,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
 {
     public class SeeScheduleAllFriendsViewModel : BaseViewModel
     {
-        private readonly ICleaningScheduleRule _rule;
+        /*private readonly ICleaningScheduleRule _rule;
 
         public ICommand SearchTextChangedCommand { protected set; get; }
         public ICommand TappedSeeDetailsCommand { protected set; get; }
@@ -89,6 +88,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleanHouse
                 HideLoading();
                 await Exception(exeption);
             }
-        }
+        }*/
     }
 }

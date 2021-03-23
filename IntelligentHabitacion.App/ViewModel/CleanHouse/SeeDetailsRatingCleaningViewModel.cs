@@ -1,5 +1,4 @@
 ﻿using IntelligentHabitacion.App.Model;
-using System;
 using System.Collections.ObjectModel;
 
 namespace IntelligentHabitacion.App.ViewModel.CleanHouse

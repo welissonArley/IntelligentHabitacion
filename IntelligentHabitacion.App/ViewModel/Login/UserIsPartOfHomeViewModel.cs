@@ -1,16 +1,12 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.SetOfRules.Interface;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
-using IntelligentHabitacion.App.ViewModel.CleanHouse;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Home.Informations;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Update;
-using IntelligentHabitacion.Communication.Response;
 using Rg.Plugins.Popup.Extensions;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -116,44 +112,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         {
             try
             {
-                await ShowLoading();
-
-                var cleaningScheduleRule = Resolver.Resolve<ICleaningScheduleRule>();
-                var response = await cleaningScheduleRule.GetMyTasks();
-
-                await Navigation.PushAsync<MyTasksViewModel>((viewModel, page) =>
-                {
-                    if (!(response as ResponseNeedActionJson is null))
-                    {
-                        var action = (ResponseNeedActionJson)response;
-
-                        viewModel.ScheduleCreated = false;
-                        viewModel.InfoMessage = action.Message;
-                        viewModel.Action = action.Action;
-                    }
-                    else
-                    {
-                        var action = (ResponseMyTasksCleaningScheduleJson)response;
-
-                        viewModel.ScheduleCreated = true;
-                        viewModel.Action = null;
-
-                        viewModel.Model = new Model.MyTasksCleanHouseModel
-                        {
-                            Name = viewModel.Name,
-                            Month = System.DateTime.UtcNow,
-                            Tasks = new System.Collections.ObjectModel.ObservableCollection<Model.TasksForTheMonth>(action.Tasks.Select(c => new Model.TasksForTheMonth
-                            {
-                                Room = c.Room, CleaningRecords = c.CleaningRecords, LastRecord = c.LastRecord, Id = c.Id
-                            }))
-                        };
-                    }
-                });
-                HideLoading();
+                
             }
             catch (System.Exception exeption)
             {
-                HideLoading();
                 await Exception(exeption);
             }
         }

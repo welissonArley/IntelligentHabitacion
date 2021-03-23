@@ -52,9 +52,8 @@ namespace IntelligentHabitacion.App.Droid
             if (!Resolver.IsSet)
             {
                 var container = new TinyContainer(new TinyIoCContainer());
-                
-                Bootstrapper.Register(container);
-                Communication.Bootstrapper.Register(container);
+
+                container.AddDependeces();
 
                 container.Register<IDependencyContainer>(container);
 

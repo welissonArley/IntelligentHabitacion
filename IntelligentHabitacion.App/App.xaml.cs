@@ -1,7 +1,6 @@
 ﻿using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.OneSignalConfig;
-using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.CleanHouse;
 using IntelligentHabitacion.App.View.Friends;
@@ -22,7 +21,6 @@ using IntelligentHabitacion.App.ViewModel.Login;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
 using IntelligentHabitacion.App.ViewModel.User.Register;
 using IntelligentHabitacion.App.ViewModel.User.Update;
-using Plugin.Fingerprint;
 using Rg.Plugins.Popup.Extensions;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
@@ -52,29 +50,11 @@ namespace IntelligentHabitacion.App
 
             RegisterViews();
 
-            var userPreferences = Resolver.Resolve<UserPreferences>();
-            if (userPreferences.HasAccessToken)
-            {
-                if (userPreferences.IsPartOfOneHome)
-                    MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
-                else
-                    MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
-            }
-            else
-            {
-                MainPage = new NavigationPage((Page)ViewFactory.CreatePage<GetStartedViewModel, GetStartedPage>());
-                if (userPreferences.AlreadySignedIn && CrossFingerprint.Current.IsAvailableAsync().GetAwaiter().GetResult())
-                {
-                    MainPage.Navigation.PushAsync((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>(async (viewModel, page) =>
-                    {
-                        await viewModel.Initialize();
-                    }));
-                }
-            }
-
             Resolver.Resolve<IDependencyContainer>()
                 .Register<INavigationService>(t => new NavigationService(MainPage.Navigation)) // New Xlabs nav service
                 .Register(t => MainPage.Navigation); // Old Xlabs nav service
+
+            MainPage = new InitializePage();
         }
 
         private void RegisterViews()

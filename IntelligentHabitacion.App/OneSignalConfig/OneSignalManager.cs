@@ -4,7 +4,6 @@ using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.ViewModel.Login;
 using Rg.Plugins.Popup.Extensions;
 using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
@@ -44,19 +43,19 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                     break;
                 case EnumNotifications.RemovedFromHome:
                 case EnumNotifications.HomeDeleted:
-                {
-                        Task.Run(() => Device.BeginInvokeOnMainThread(async() =>
+                    {
+                        Device.BeginInvokeOnMainThread(async () =>
                         {
                             userPreferences.UserIsPartOfOneHome(false);
                             var navigation = Resolver.Resolve<INavigation>();
                             var page = navigation.NavigationStack.FirstOrDefault();
                             if (page is UserIsPartOfHomePage)
                             {
-                                try { await navigation.PopAllPopupAsync(); } catch { /* If one exception is throwed its beacous dont have any popup */ }
+                                try { await navigation.PopAllPopupAsync(); } catch { /* If one exception is throwed its beacause dont have any popup */ }
                                 await navigation.PopToRootAsync();
                                 Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
                             }
-                        }));
+                        });
                     }
                     break;
             }
@@ -64,13 +63,13 @@ namespace IntelligentHabitacion.App.OneSignalConfig
 
         private static void RefreshHeader()
         {
-            Task.Run(() => Device.BeginInvokeOnMainThread(() =>
+            Device.BeginInvokeOnMainThread(() =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
                 var page = navigation.NavigationStack.FirstOrDefault();
                 if (page is UserIsPartOfHomePage refreshPage)
                     refreshPage.RefreshHeader();
-            }));
+            });
         }
     }
 }

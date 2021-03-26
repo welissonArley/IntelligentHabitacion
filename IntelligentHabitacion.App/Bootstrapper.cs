@@ -16,6 +16,7 @@ using IntelligentHabitacion.App.UseCases.MyFoods.RegisterMyFood;
 using IntelligentHabitacion.App.UseCases.MyFoods.UpdateMyFood;
 using IntelligentHabitacion.App.UseCases.User.ChangePassword;
 using IntelligentHabitacion.App.UseCases.User.EmailAlreadyBeenRegistered;
+using IntelligentHabitacion.App.UseCases.User.RegisterUser;
 using IntelligentHabitacion.App.UseCases.User.UpdateUserInformations;
 using IntelligentHabitacion.App.UseCases.User.UserInformations;
 using XLabs.Ioc;
@@ -28,6 +29,7 @@ namespace IntelligentHabitacion.App
         {
             return container.Register(new UserPreferences())
                 .Register<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
+                .Register<IRegisterUserUseCase, RegisterUserUseCase>()
                 .Register<IUserInformationsUseCase, UserInformationsUseCase>()
                 .Register<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
                 .Register<IChangePasswordUseCase, ChangePasswordUseCase>()

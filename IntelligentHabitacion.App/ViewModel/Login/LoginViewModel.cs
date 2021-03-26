@@ -72,7 +72,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         public async Task Initialize()
         {
-            CanUseFigerprintToLogin = _userPreferences.AlreadySignedIn && await CrossFingerprint.Current.IsAvailableAsync();
+            CanUseFigerprintToLogin = await _userPreferences.AlreadySignedIn() && await CrossFingerprint.Current.IsAvailableAsync();
 
             if (CanUseFigerprintToLogin)
             {

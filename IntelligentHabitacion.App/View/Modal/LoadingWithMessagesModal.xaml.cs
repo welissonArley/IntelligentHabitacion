@@ -39,12 +39,12 @@ namespace IntelligentHabitacion.App.View.Modal
             Operation = messages.First();
             _index = 1;
 
-            Task.Run(() => Device.BeginInvokeOnMainThread(() =>
+            Device.BeginInvokeOnMainThread(() =>
             {
                 _timer = new Timer(2000);
                 _timer.Elapsed += ElapsedTimer;
                 _timer.Start();
-            }));
+            });
         }
 
         private void ElapsedTimer(object sender, ElapsedEventArgs e)

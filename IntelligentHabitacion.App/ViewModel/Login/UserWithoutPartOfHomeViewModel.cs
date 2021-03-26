@@ -54,17 +54,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         }
         private async Task ClickOnCardMyInformations()
         {
-            try
+            await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, _) =>
             {
-                await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, _) =>
-                {
-                    await viewModel.Initialize();
-                });
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
+                await viewModel.Initialize();
+            });
         }
         private async Task ClickOnCardJoinHome()
         {
@@ -93,7 +86,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                         await navigation.PopAllPopupAsync();
                     });
                     CreateConnectionSocket();
-                    await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, _userPreferences.Token, result);
+                    await _webSocketAddFriendConnection.QrCodeWasRead(callbackDeclined, callbackApproved, await _userPreferences.GetToken(), result);
                 }
             }
             catch (System.Exception exeption)

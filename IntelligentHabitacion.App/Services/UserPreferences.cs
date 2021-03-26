@@ -35,29 +35,6 @@ namespace IntelligentHabitacion.App.Services
                 IsPartOfOneHome = true;
             }
         }
-        #region asyncToRemove
-        public string Token
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyToken)).Result;
-            private set => SecureStorage.SetAsync(_keyToken, value);
-        }
-        public string Email
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyEmail)).Result;
-            private set => SecureStorage.SetAsync(_keyEmail, value);
-        }
-        public string Password
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyPassword)).Result;
-            private set => SecureStorage.SetAsync(_keyPassword, value);
-        }
-        public string Id
-        {
-            get => Task.Run(async () => await SecureStorage.GetAsync(_keyId)).Result;
-            private set => SecureStorage.SetAsync(_keyId, value);
-        }
-        #endregion
-
         public double Width
         {
             get => Preferences.Get("WIDTH", 0.0);
@@ -82,19 +59,6 @@ namespace IntelligentHabitacion.App.Services
             await ChangePassword(userPreference.Password);
             await ChangeToken(userPreference.Token);
         }
-        
-        public void SaveUserInformations(UserPreferenceDto userPreference)
-        {
-            Name = userPreference.Name;
-            Email = userPreference.Email;
-            Password = userPreference.Password;
-            ProfileColor = userPreference.ProfileColor;
-            IsAdministrator = userPreference.IsAdministrator;
-            IsPartOfOneHome = userPreference.IsPartOfOneHome;
-            Token = userPreference.Token;
-            Width = userPreference.Width;
-            Id = userPreference.Id;
-        }
         public async Task SaveUserInformations(string name, string email)
         {
             Name = name;
@@ -111,6 +75,13 @@ namespace IntelligentHabitacion.App.Services
         public async Task ChangePassword(string password)
         {
             await SecureStorage.SetAsync(_keyPassword, password);
+        }
+        public async Task<(string Email, string Password)> GetInfoToLogin()
+        {
+            var email = await SecureStorage.GetAsync(_keyEmail);
+            var password = await SecureStorage.GetAsync(_keyPassword);
+
+            return (email, password);
         }
         public void UserIsAdministrator(bool isAdmin)
         {
@@ -133,11 +104,6 @@ namespace IntelligentHabitacion.App.Services
         public bool HasAccessToken
         {
             get => !string.IsNullOrWhiteSpace(Task.Run(async () => await SecureStorage.GetAsync(_keyToken)).Result);
-        }
-        public void ClearAll()
-        {
-            Preferences.Clear();
-            SecureStorage.RemoveAll();
         }
         public void Logout()
         {

@@ -54,70 +54,34 @@ namespace IntelligentHabitacion.App.ViewModel.Login
 
         private async Task ClickOnCardMyInformations()
         {
-            try
+            await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, _) =>
             {
-                await Navigation.PushAsync<UserInformationViewModel>(async (viewModel, _) =>
-                {
-                    await viewModel.Initialize();
-                });
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
+                await viewModel.Initialize();
+            });
         }
         private async Task ClickOnCardHomesInformations()
         {
-            try
+            await Navigation.PushAsync<HomeInformationViewModel>(async (viewModel, _) =>
             {
-                await Navigation.PushAsync<HomeInformationViewModel>(async (viewModel, _) =>
-                {
-                    await viewModel.Initialize();
-                });
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
+                await viewModel.Initialize();
+            });
         }
         private async Task ClickOnCardMyFriends()
         {
-            try
+            await Navigation.PushAsync<MyFriendsViewModel>(async (viewModel, _) =>
             {
-                await Navigation.PushAsync<MyFriendsViewModel>(async (viewModel, _) =>
-                {
-                    await viewModel.Initialize();
-                });
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
+                await viewModel.Initialize();
+            });
         }
         private async Task ClickOnCardMyFoods()
         {
-            try
+            await Navigation.PushAsync<MyFoodsViewModel>(async(viewModel, _) =>
             {
-                await Navigation.PushAsync<MyFoodsViewModel>(async(viewModel, _) =>
-                {
-                    await viewModel.Initialize();
-                });
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
+                await viewModel.Initialize();
+            });
         }
         private async Task ClickOnCardCleanHouse()
         {
-            try
-            {
-                
-            }
-            catch (System.Exception exeption)
-            {
-                await Exception(exeption);
-            }
         }
 
         private async Task ClickLogoutAccount_FloatActionButton()

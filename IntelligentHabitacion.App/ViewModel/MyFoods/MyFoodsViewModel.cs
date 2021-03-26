@@ -152,11 +152,18 @@ namespace IntelligentHabitacion.App.ViewModel.MyFoods
 
         public async Task Initialize()
         {
-            _foodsList = await _getMyFoodsUseCase.Execute();
-            FoodsList = new ObservableCollection<FoodModel>(_foodsList);
-            OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
-            CurrentState = _foodsList.Any() ? LayoutState.None : LayoutState.Empty;
-            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            try
+            {
+                _foodsList = await _getMyFoodsUseCase.Execute();
+                FoodsList = new ObservableCollection<FoodModel>(_foodsList);
+                OnPropertyChanged(new PropertyChangedEventArgs("FoodsList"));
+                CurrentState = _foodsList.Any() ? LayoutState.None : LayoutState.Empty;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
         }
     }
 }

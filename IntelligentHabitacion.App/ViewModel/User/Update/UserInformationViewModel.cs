@@ -65,10 +65,17 @@ namespace IntelligentHabitacion.App.ViewModel.User.Update
 
         public async Task Initialize()
         {
-            Model = await _useCase.Execute();
-            OnPropertyChanged(new PropertyChangedEventArgs("Model"));
-            CurrentState = LayoutState.None;
-            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            try
+            {
+                Model = await _useCase.Execute();
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                CurrentState = LayoutState.None;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
         }
     }
 }

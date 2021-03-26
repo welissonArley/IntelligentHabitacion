@@ -146,12 +146,19 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Informations
 
         public async Task Initialize()
         {
-            Model = await _informationsUseCase.Execute();
-            IsAdministrator = _userPreferences.IsAdministrator;
-            CurrentState = LayoutState.None;
-            OnPropertyChanged(new PropertyChangedEventArgs("IsAdministrator"));
-            OnPropertyChanged(new PropertyChangedEventArgs("Model"));
-            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            try
+            {
+                Model = await _informationsUseCase.Execute();
+                IsAdministrator = _userPreferences.IsAdministrator;
+                CurrentState = LayoutState.None;
+                OnPropertyChanged(new PropertyChangedEventArgs("IsAdministrator"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
         }
     }
 }

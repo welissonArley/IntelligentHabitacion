@@ -177,7 +177,7 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
             _webSocketAddFriendConnection = new WebSocketAddFriendConnection();
             _webSocketAddFriendConnection.SetCallbacks(callbackWhenAnErrorOccurs, callbackTimeChanged);
 
-            await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, _userPreferences.Token);
+            await _webSocketAddFriendConnection.GetQrCodeToAddFriend(callbackCodeIsReceived, callbackCodeWasRead, await _userPreferences.GetToken());
         }
     }
 }

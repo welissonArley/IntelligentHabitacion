@@ -101,11 +101,6 @@ namespace IntelligentHabitacion.App.ViewModel
         }
         private async Task ResponseException(ResponseException responseException, INavigation navigation)
         {
-            var userPreferences = Resolver.Resolve<UserPreferences>();
-
-            if (!string.IsNullOrWhiteSpace(responseException.Token))
-                userPreferences.ChangeToken(responseException.Token);
-
             if (!((responseException.Exception as ErrorOnValidationException) is null))
             {
                 ErrorOnValidationException validacaoException = (ErrorOnValidationException)responseException.Exception;
@@ -133,12 +128,13 @@ namespace IntelligentHabitacion.App.ViewModel
         {
             var userPreferences = Resolver.Resolve<UserPreferences>();
             userPreferences.Logout();
-            await navigation.PopAllPopupAsync();
+            try { await navigation.PopAllPopupAsync(); } catch { }
             await navigation.PushPopupAsync(new ErrorModal(ResourceText.TITLE_PLEASE_LOGIN_AGAIN));
             Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>(async(viewModel, _) =>
             {
                 await viewModel.Initialize();
             }));
+            await Navigation.PopToRootAsync();
         }
 
         #endregion

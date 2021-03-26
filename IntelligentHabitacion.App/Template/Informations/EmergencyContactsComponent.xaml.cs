@@ -71,7 +71,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                 BackgroundColor = Color.FromHex(string.IsNullOrEmpty(ProfileColor) ? "#000000" : ProfileColor),
                 HeightRequest = 30,
                 CornerRadius = 15,
-                Margin = 15,
+                Margin = new Thickness(15,10,15,30),
                 Source = ImageSource.FromFile("IconPhone"),
                 Padding = new Thickness(0, 7, 0, 7)
             };

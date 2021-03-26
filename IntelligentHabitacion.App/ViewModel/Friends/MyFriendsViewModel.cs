@@ -154,11 +154,18 @@ namespace IntelligentHabitacion.App.ViewModel.Friends
 
         public async Task Initialize()
         {
-            _friendsList = new ObservableCollection<FriendModel>(await _getMyFriendsUseCase.Execute());
-            FriendsList = new ObservableCollection<FriendModel>(_friendsList);
-            OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
-            CurrentState = _friendsList.Any() ? LayoutState.None : LayoutState.Empty;
-            OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            try
+            {
+                _friendsList = new ObservableCollection<FriendModel>(await _getMyFriendsUseCase.Execute());
+                FriendsList = new ObservableCollection<FriendModel>(_friendsList);
+                OnPropertyChanged(new PropertyChangedEventArgs("FriendsList"));
+                CurrentState = _friendsList.Any() ? LayoutState.None : LayoutState.Empty;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
         }
     }
 }

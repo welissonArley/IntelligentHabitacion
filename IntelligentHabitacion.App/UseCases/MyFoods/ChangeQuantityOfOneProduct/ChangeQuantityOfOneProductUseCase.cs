@@ -21,7 +21,7 @@ namespace IntelligentHabitacion.App.UseCases.MyFoods.ChangeQuantityOfOneProduct
 
         public async Task Execute(string productId, decimal amount)
         {
-            var response = await _restService.ChangeQuantityMyFood(productId, new RequestChangeQuantityMyFoodJson { Amount = amount }, _userPreferences.Token, GetLanguage());
+            var response = await _restService.ChangeQuantityMyFood(productId, new RequestChangeQuantityMyFoodJson { Amount = amount }, await _userPreferences.GetToken(), GetLanguage());
 
             ResponseValidate(response);
 

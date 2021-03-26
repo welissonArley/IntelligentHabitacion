@@ -82,7 +82,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                     var result = await CrossFingerprint.Current.AuthenticateAsync(request);
 
                     if (result.Authenticated)
-                        await DoLogin(_userPreferences.Email, _userPreferences.Password);
+                    {
+                        var infoToLogin = await _userPreferences.GetInfoToLogin();
+                        await DoLogin(infoToLogin.Email, infoToLogin.Password);
+                    }
                 });
 
                 UsingFigerprintToLoginCommand.Execute(null);

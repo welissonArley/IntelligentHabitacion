@@ -1,15 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleaningSchedule;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTaskFeedbacks;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.UpdateCleaningSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeAdministrator;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeDateFriendJoinHome;
@@ -70,14 +62,6 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>()
                 .AddScoped<IRemoveFriendUseCase, RemoveFriendUseCase>()
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
-                .AddScoped<IGetMyTasksCleaningScheduleUseCase, GetMyTasksCleaningScheduleUseCase>()
-                .AddScoped<IGetCleaningScheduleUseCase, GetCleaningScheduleUseCase>()
-                .AddScoped<IUpdateCleaningScheduleUseCase, UpdateCleaningScheduleUseCase>()
-                .AddScoped<ITaskCompletedTodayUseCase, TaskCompletedTodayUseCase>()
-                .AddScoped<IGetUsersTaskDetailsUseCase, GetUsersTaskDetailsUseCase>()
-                .AddScoped<IGetFriendsTasksUseCase, GetFriendsTasksUseCase>()
-                .AddScoped<IRateTaskUseCase, RateTaskUseCase>()
-                .AddScoped<IGetTaskFeedbacksUseCase, GetTaskFeedbacksUseCase>()
                 .AddScoped<IProcessRemindersOfCleaningTasksUseCase, ProcessRemindersOfCleaningTasksUseCase>();
         }
     }

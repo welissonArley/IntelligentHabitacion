@@ -1,12 +1,4 @@
-﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetCleaningSchedule;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetFriendsTasks;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetMyTasksCleaningSchedule;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTaskFeedbacks;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetUsersTaskDetails;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.TaskCompletedToday;
-using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.UpdateCleaningSchedule;
-using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -22,7 +14,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class CleaningScheduleController : BaseController
-    {
+    {/*
         /// <summary>
         /// This function will return an object with the user's tasks for the date.
         /// If the cleaning schedule dont exist, this function will return an another objet with the message and the action to do
@@ -247,6 +239,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             {
                 return HandleException(exception);
             }
-        }
+        }*/
     }
 }

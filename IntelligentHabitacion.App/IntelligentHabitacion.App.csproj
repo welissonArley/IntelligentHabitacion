@@ -90,15 +90,6 @@
     <Compile Update="Template\Informations\SucessTemplate.xaml.cs">
       <DependentUpon>SucessTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\Informations\ManageScheduleTemplate.xaml.cs">
-      <DependentUpon>ManageScheduleTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Template\Informations\ScheduleAllFriendsTemplate.xaml.cs">
-      <DependentUpon>ScheduleAllFriendsTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Template\Informations\MyTaskCleanHouseComponent.xaml.cs">
-      <DependentUpon>MyTaskCleanHouseComponent.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Template\Informations\EmergencyContactsComponent.xaml.cs">
       <DependentUpon>EmergencyContactsComponent.xaml</DependentUpon>
     </Compile>
@@ -116,9 +107,6 @@
     </Compile>
     <Compile Update="Template\Informations\EmptyTemplate.xaml.cs">
       <DependentUpon>EmptyTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Template\Informations\DetailsUserScheduleCleanHomeTemplate.xaml.cs">
-      <DependentUpon>DetailsUserScheduleCleanHomeTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Template\Informations\HomeInformationsRoomTemplate.xaml.cs">
       <DependentUpon>HomeInformationsRoomTemplate.xaml</DependentUpon>
@@ -143,27 +131,6 @@
     </Compile>
     <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\SelectTaskCleaningSchedulePage.xaml.cs">
-      <DependentUpon>SelectTaskCleaningSchedulePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\CreateSchedulePage.xaml.cs">
-      <DependentUpon>CreateSchedulePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\MyTasksPage.xaml.cs">
-      <DependentUpon>MyTasksPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\SeeDetailsRatingCleaningPage.xaml.cs">
-      <DependentUpon>SeeDetailsRatingCleaningPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\RatingCleaningPage.xaml.cs">
-      <DependentUpon>RatingCleaningPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\SettingSchedulePage.xaml.cs">
-      <DependentUpon>SettingSchedulePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\CleanHouse\DetailsUserSchedulePage.xaml.cs">
-      <DependentUpon>DetailsUserSchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\ConfirmAction.xaml.cs">
       <DependentUpon>ConfirmAction.xaml</DependentUpon>
@@ -280,9 +247,6 @@
     <EmbeddedResource Update="Template\Date\ColumnDayTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Template\Informations\DetailsUserScheduleCleanHomeTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Template\Skeleton\CountryComponentSkeleton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -296,12 +260,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Template\Skeleton\MyFriendsComponentSkeleton.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="View\CleanHouse\DetailsUserSchedulePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="View\CleanHouse\SeeScheduleAllFriendsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Friends\AddFriendPage.xaml">
@@ -333,5 +291,10 @@
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\CleanHouse\" />
+    <Folder Include="View\CleanHouse\" />
   </ItemGroup>
 </Project>

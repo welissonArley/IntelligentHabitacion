@@ -4,6 +4,7 @@
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
              xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:date="clr-namespace:IntelligentHabitacion.App.Template.Date"
              xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
              xmlns:skeleton="clr-namespace:IntelligentHabitacion.App.Template.Skeleton"
@@ -107,7 +108,7 @@
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
 
-                
+                <date:CalendarOptionTemplate Margin="0,40,0,0" Date="{Binding Model.Schedule.Date}" OnDateSelectedCommand="{Binding Path=BindingContext.OnDateSelectedCommand, Source={x:Reference TasksContentPage}}" />
             </StackLayout>
 
             <templateButton:FloatActionButton IsVisible="False" HorizontalOptions="End" VerticalOptions="End" Grid.Row="0">

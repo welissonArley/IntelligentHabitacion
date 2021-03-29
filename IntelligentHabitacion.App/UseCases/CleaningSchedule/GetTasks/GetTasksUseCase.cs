@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks
             _restService = RestService.For<ICleaningScheduleService>(BaseAddress());
         }
 
-        public async Task<TasksModel> Execute(DateTime date)
+        public async Task<ScheduleCleaningHouseModel> Execute(DateTime date)
         {
             var response = await _restService.GetTasks(new RequestDateJson { Date = date }, await _userPreferences.GetToken(), GetLanguage());
 
@@ -34,9 +34,9 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks
             return Mapper(response.Content);
         }
 
-        private TasksModel Mapper(ResponseTasksJson response)
+        private ScheduleCleaningHouseModel Mapper(ResponseTasksJson response)
         {
-            return new TasksModel
+            return new ScheduleCleaningHouseModel
             {
                 Action = response.Action,
                 Message = response.Message,

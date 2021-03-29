@@ -19,15 +19,24 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         private IGetTasksUseCase _getTasksUseCase => getTasksUseCase.Value;
         private ICreateFirstScheduleUseCase _createFirstScheduleUseCase => createFirstScheduleUseCase.Value;
 
-        public TasksModel Model { get; set; }
+        public ScheduleCleaningHouseModel Model { get; set; }
 
         public ICommand ConcludeCreateFirstScheduleCommand { get; }
         public ICommand RandomAssignmentCommand { get; }
         public ICommand ManageTasksCommand { get; }
+        public ICommand OnDateSelectedCommand { get; }
 
         public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase, Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase)
         {
             CurrentState = LayoutState.Loading;
+
+            Model = new ScheduleCleaningHouseModel
+            {
+                Schedule = new ScheduleTasksCleaningHouseModel
+                {
+                    Date = DateTime.Today
+                }
+            };
 
             this.getTasksUseCase = getTasksUseCase;
             this.createFirstScheduleUseCase = createFirstScheduleUseCase;
@@ -38,8 +47,16 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             {
                 await OnConcludeCreateFirstSchedule();
             });
+            OnDateSelectedCommand = new Command(async (date) =>
+            {
+                await OnDateSelected((DateTime)date);
+            });
         }
 
+        private async Task OnDateSelected(DateTime date)
+        {
+
+        }
         private void OnRandomAssignment()
         {
             CurrentState = LayoutState.Custom;

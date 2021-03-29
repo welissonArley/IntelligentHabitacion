@@ -6,6 +6,6 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks
 {
     public interface IGetTasksUseCase
     {
-        Task<TasksModel> Execute(DateTime date);
+        Task<ScheduleCleaningHouseModel> Execute(DateTime date);
     }
 }

@@ -244,6 +244,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Template\Date\CalendarOptionTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Template\Date\ColumnDayTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

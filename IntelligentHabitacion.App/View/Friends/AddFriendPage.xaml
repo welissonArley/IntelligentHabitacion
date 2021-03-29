@@ -33,7 +33,7 @@
                                 <header:CircleWithTextAndDescriptionComponent Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" Title="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" CircleText="+" CircleColor="{Binding Path=BindingContext.ProfileColor, Source={x:Reference Name=AddFriendContentPage}}"></header:CircleWithTextAndDescriptionComponent>
                                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                     <Label Text="QR Code" FontSize="17" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"></Label>
-                                    <custom:SkeletonView HorizontalOptions="CenterAndExpand" CornerRadius="10" WidthRequest="180" HeightRequest="180" BackgroundColor="{StaticResource SkeletonColor}"></custom:SkeletonView>
+                                    <custom:SkeletonView HorizontalOptions="CenterAndExpand" CornerRadius="10" WidthRequest="180" HeightRequest="180"></custom:SkeletonView>
                                     <Label Margin="0,15,0,0" Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
                                     <Label Text="--:--" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
                                 </StackLayout>

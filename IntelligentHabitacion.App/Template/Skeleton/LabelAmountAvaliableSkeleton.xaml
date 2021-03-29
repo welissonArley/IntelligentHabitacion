@@ -5,7 +5,7 @@
              x:Class="IntelligentHabitacion.App.Template.Skeleton.LabelAmountAvaliableSkeleton">
   <ContentView.Content>
       <StackLayout>
-            <custom:SkeletonView CornerRadius="2" WidthRequest="130" HorizontalOptions="StartAndExpand" HeightRequest="12" BackgroundColor="{StaticResource SkeletonColor}" />
+            <custom:SkeletonView WidthRequest="130" HorizontalOptions="StartAndExpand" HeightRequest="12" />
         </StackLayout>
   </ContentView.Content>
 </ContentView>

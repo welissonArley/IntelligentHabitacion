@@ -1573,6 +1573,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Have a nice day,.
+        /// </summary>
+        internal static string TITLE_HAVE_NICE_DAY {
+            get {
+                return ResourceManager.GetString("TITLE_HAVE_NICE_DAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home, sweet home.
         /// </summary>
         internal static string TITLE_HOME_SWEET_HOME {
@@ -2298,6 +2307,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SUNDAY_ABBREVIATED {
             get {
                 return ResourceManager.GetString("TITLE_SUNDAY_ABBREVIATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tasks:.
+        /// </summary>
+        internal static string TITLE_TASKS_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_TASKS_TWO_POINTS", resourceCulture);
             }
         }
         

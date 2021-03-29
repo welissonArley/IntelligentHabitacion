@@ -14,8 +14,8 @@
                     </Ellipse>
                 </Grid>
                 <StackLayout Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                    <custom:SkeletonView HorizontalOptions="StartAndExpand" CornerRadius="2" WidthRequest="150" HeightRequest="12" BackgroundColor="{StaticResource SkeletonColor}" />
-                    <custom:SkeletonView HorizontalOptions="StartAndExpand" CornerRadius="2" WidthRequest="100" HeightRequest="10" BackgroundColor="{StaticResource SkeletonColor}" />
+                    <custom:SkeletonView HorizontalOptions="StartAndExpand" WidthRequest="150" HeightRequest="12" />
+                    <custom:SkeletonView HorizontalOptions="StartAndExpand" WidthRequest="100" HeightRequest="10" />
                 </StackLayout>
                 <Grid VerticalOptions="CenterAndExpand" RowDefinitions="30">
                     <Ellipse Grid.Row="0" HeightRequest="30" WidthRequest="30">

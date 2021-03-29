@@ -606,6 +606,9 @@
   <data name="TITLE_GENERATING_CODE" xml:space="preserve">
     <value>Gerando código ...</value>
   </data>
+  <data name="TITLE_HAVE_NICE_DAY" xml:space="preserve">
+    <value>Tenha um ótimo dia,</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
   </data>
@@ -848,6 +851,9 @@
   </data>
   <data name="TITLE_SUNDAY_ABBREVIATED" xml:space="preserve">
     <value>Dom</value>
+  </data>
+  <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
+    <value>Tarefas:</value>
   </data>
   <data name="TITLE_THIS_OPERATION_WILL_EXPIRE" xml:space="preserve">
     <value>Esta operação vai expirar em:</value>

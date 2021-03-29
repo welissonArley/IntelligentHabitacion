@@ -621,6 +621,9 @@
   <data name="TITLE_GENERATING_CODE" xml:space="preserve">
     <value>Generating code ...</value>
   </data>
+  <data name="TITLE_HAVE_NICE_DAY" xml:space="preserve">
+    <value>Have a nice day,</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
   </data>
@@ -863,6 +866,9 @@
   </data>
   <data name="TITLE_SUNDAY_ABBREVIATED" xml:space="preserve">
     <value>Sun</value>
+  </data>
+  <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
+    <value>Tasks:</value>
   </data>
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>The City is:</value>

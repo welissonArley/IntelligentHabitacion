@@ -6,11 +6,11 @@
   <ContentView.Content>
         <StackLayout HeightRequest="35">
             <StackLayout Orientation="Horizontal">
-                <custom:SkeletonView CornerRadius="2" WidthRequest="25" HeightRequest="12" BackgroundColor="{StaticResource SkeletonColor}" />
-                <custom:SkeletonView CornerRadius="2" Margin="7,0,0,0" WidthRequest="25" HeightRequest="17" BackgroundColor="{StaticResource SkeletonColor}" />
-                <custom:SkeletonView CornerRadius="2" Margin="7,0,0,0" WidthRequest="130" HeightRequest="12" BackgroundColor="{StaticResource SkeletonColor}" />
+                <custom:SkeletonView WidthRequest="25" HeightRequest="12" />
+                <custom:SkeletonView Margin="7,0,0,0" WidthRequest="25" HeightRequest="17" />
+                <custom:SkeletonView Margin="7,0,0,0" WidthRequest="130" HeightRequest="12" />
             </StackLayout>
-            <custom:SkeletonView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></custom:SkeletonView>
+            <custom:SkeletonView CornerRadius="0" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></custom:SkeletonView>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

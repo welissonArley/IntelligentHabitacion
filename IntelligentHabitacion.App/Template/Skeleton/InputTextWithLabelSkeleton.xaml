@@ -14,7 +14,7 @@
                     </OnPlatform>
                 </Label.Margin>
             </Label>
-            <custom:SkeletonView CornerRadius="2" HeightRequest="30" BackgroundColor="{StaticResource SkeletonColor}" />
+            <custom:SkeletonView HeightRequest="30" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

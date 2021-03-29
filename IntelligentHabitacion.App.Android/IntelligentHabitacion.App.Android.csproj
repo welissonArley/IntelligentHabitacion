@@ -881,6 +881,36 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ActionButtonRemove.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\IconEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\WhiteEllipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\IconEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\WhiteEllipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\IconEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\IconEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\WhiteEllipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\WhiteEllipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\IconEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\WhiteEllipse.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="_ResolveSatellitePaths" DependsOnTargets="_ResolveAssemblies">
     <ResolveAssemblyReference AllowedAssemblyExtensions="$(AllowedReferenceAssemblyFileExtensions)" AssemblyFiles="@(ResolvedUserAssemblies)" AutoUnify="$(AutoUnifyAssemblyReferences)" FindDependencies="True" FindRelatedFiles="False" FindSatellites="True" SearchPaths="$(AssemblySearchPaths)" TargetFrameworkMoniker="$(TargetFrameworkMoniker)" TargetFrameworkMonikerDisplayName="$(TargetFrameworkMonikerDisplayName)" TargetFrameworkDirectories="$(TargetFrameworkDirectory)">

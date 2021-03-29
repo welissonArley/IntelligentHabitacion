@@ -648,4 +648,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\WhiteEllipse%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonAdd%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonAdd%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonNotify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonNotify%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ActionButtonNotify%403x.png" />
+  </ItemGroup>
 </Project>

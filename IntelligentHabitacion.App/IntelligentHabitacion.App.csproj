@@ -141,6 +141,9 @@
     <Compile Update="View\Modal\LgpdModal.xaml.cs">
       <DependentUpon>LgpdModal.xaml</DependentUpon>
     </Compile>
+    <Compile Update="View\Modal\MenuOptions\FloatActionTaskCleaningScheduleModal.xaml.cs">
+      <DependentUpon>FloatActionTaskCleaningScheduleModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\Modal\MenuOptions\FloatActionUserWithoutHomeModal.xaml.cs">
       <DependentUpon>FloatActionUserWithoutHomeModal.xaml</DependentUpon>
     </Compile>

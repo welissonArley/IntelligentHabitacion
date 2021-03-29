@@ -792,6 +792,12 @@
   <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
     <value>Informações da rede Wi-fi (Opcional)</value>
   </data>
+  <data name="TITLE_REGISTER_ROOM_CLEANING" xml:space="preserve">
+    <value>Registrar limpeza de cômodo</value>
+  </data>
+  <data name="TITLE_REMIND_FRIEND_PERFORM_TASKS" xml:space="preserve">
+    <value>Lembrar amigo de realizar tarefas</value>
+  </data>
   <data name="TITLE_REMOVE" xml:space="preserve">
     <value>Remover</value>
   </data>
@@ -899,6 +905,9 @@
   </data>
   <data name="TITLE_VERSION" xml:space="preserve">
     <value>Versão:</value>
+  </data>
+  <data name="TITLE_VIEW_FULL_HISTORY" xml:space="preserve">
+    <value>Visualizar histórico completo</value>
   </data>
   <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
     <value>Aguardando o Administrador ...</value>

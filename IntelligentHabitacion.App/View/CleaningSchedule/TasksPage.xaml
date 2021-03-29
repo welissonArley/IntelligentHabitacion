@@ -138,7 +138,7 @@
                 <date:CalendarOptionTemplate Margin="0,40,0,0" Date="{Binding Model.Schedule.Date}" OnDateSelectedCommand="{Binding Path=BindingContext.OnDateSelectedCommand, Source={x:Reference TasksContentPage}}" />
             </StackLayout>
 
-            <templateButton:FloatActionButton IsVisible="False" HorizontalOptions="End" VerticalOptions="End" Grid.Row="0">
+            <templateButton:FloatActionButton IsVisible="False" HorizontalOptions="End" VerticalOptions="End" Grid.Row="0" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=TasksContentPage}}">
                 <templateButton:FloatActionButton.Triggers>
                     <DataTrigger TargetType="templateButton:FloatActionButton" Binding="{Binding CurrentState}" Value="None">
                         <Setter Property="IsVisible" Value="True"></Setter>

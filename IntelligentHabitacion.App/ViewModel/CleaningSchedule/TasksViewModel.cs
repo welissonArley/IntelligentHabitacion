@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
+using IntelligentHabitacion.App.View.Modal.MenuOptions;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
+using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 {
@@ -25,6 +28,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public ICommand RandomAssignmentCommand { get; }
         public ICommand ManageTasksCommand { get; }
         public ICommand OnDateSelectedCommand { get; }
+        public ICommand FloatActionCommand { get; }
 
         public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase, Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase)
         {
@@ -42,6 +46,11 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             OnDateSelectedCommand = new Command(async (date) =>
             {
                 await OnDateSelected((DateTime)date);
+            });
+            FloatActionCommand = new Command(async () =>
+            {
+                var navigation = Resolver.Resolve<INavigation>();
+                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal());
             });
         }
 
@@ -150,7 +159,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
         public async Task Initialize()
         {
-            /*try
+            try
             {
                 Model = await _getTasksUseCase.Execute(DateTime.UtcNow);
                 if (Model.Action == Communication.Enums.NeedAction.RegisterRoom || Model.Action == Communication.Enums.NeedAction.InformationCreateCleaningSchedule)
@@ -175,7 +184,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             catch (System.Exception exeption)
             {
                 await Exception(exeption);
-            }*/
+            }
         }
     }
 }

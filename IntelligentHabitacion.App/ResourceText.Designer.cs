@@ -2131,6 +2131,24 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register room cleaning.
+        /// </summary>
+        internal static string TITLE_REGISTER_ROOM_CLEANING {
+            get {
+                return ResourceManager.GetString("TITLE_REGISTER_ROOM_CLEANING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remind friend to perform tasks.
+        /// </summary>
+        internal static string TITLE_REMIND_FRIEND_PERFORM_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_REMIND_FRIEND_PERFORM_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         internal static string TITLE_REMOVE {
@@ -2460,6 +2478,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_VERSION {
             get {
                 return ResourceManager.GetString("TITLE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View full history.
+        /// </summary>
+        internal static string TITLE_VIEW_FULL_HISTORY {
+            get {
+                return ResourceManager.GetString("TITLE_VIEW_FULL_HISTORY", resourceCulture);
             }
         }
         

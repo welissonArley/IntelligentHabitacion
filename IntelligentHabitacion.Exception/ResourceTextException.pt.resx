@@ -126,6 +126,9 @@
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>O nome da cidade deve ser informado.</value>
   </data>
+  <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
+    <value>Já existe um cronograma de limpeza criado.</value>
+  </data>
   <data name="CODE_EMPTY" xml:space="preserve">
     <value>O código deve ser informado.</value>
   </data>
@@ -247,7 +250,7 @@
     <value>Um código para alterar a senha é necessário.</value>
   </data>
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
-    <value>Cômodo não existe na Home</value>
+    <value>Há cômodos que não existem na Home</value>
   </data>
   <data name="ROOM_EMPTY" xml:space="preserve">
     <value>O nome do cômo deve ser informado.</value>
@@ -260,6 +263,9 @@
   </data>
   <data name="THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS" xml:space="preserve">
     <value>Há tarefas associadas a varios usuários.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
+    <value>Há cômodos duplicados.</value>
   </data>
   <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
     <value>Há usuários duplicados na requisição.</value>

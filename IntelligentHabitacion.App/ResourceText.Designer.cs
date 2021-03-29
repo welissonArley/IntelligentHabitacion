@@ -1150,6 +1150,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose the room(s):.
+        /// </summary>
+        internal static string TITLE_CHOOSE_THE_ROOMS_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_THE_ROOMS_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose your friend.
         /// </summary>
         internal static string TITLE_CHOOSE_YOUR_FRIEND {
@@ -1726,7 +1735,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage schedule.
+        ///   Looks up a localized string similar to Create the first schedule.
         /// </summary>
         internal static string TITLE_MANAGE_SCHEDULE {
             get {
@@ -1897,20 +1906,20 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No tasks.
+        /// </summary>
+        internal static string TITLE_NO_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_NO_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No task for this month..
         /// </summary>
         internal static string TITLE_NO_TASKS_FOR_THIS_MONTH {
             get {
                 return ResourceManager.GetString("TITLE_NO_TASKS_FOR_THIS_MONTH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No tasks this month.
-        /// </summary>
-        internal static string TITLE_NO_TASKS_THIS_MONTH {
-            get {
-                return ResourceManager.GetString("TITLE_NO_TASKS_THIS_MONTH", resourceCulture);
             }
         }
         
@@ -2059,7 +2068,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Random assignment.
+        ///   Looks up a localized string similar to Assign random tasks.
         /// </summary>
         internal static string TITLE_RANDOM_ASSIGNMENT {
             get {
@@ -2217,6 +2226,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SEE_MORE_DETAILS {
             get {
                 return ResourceManager.GetString("TITLE_SEE_MORE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the rooms below to be cleaned..
+        /// </summary>
+        internal static string TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED {
+            get {
+                return ResourceManager.GetString("TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED", resourceCulture);
             }
         }
         
@@ -2379,6 +2397,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_UNITY {
             get {
                 return ResourceManager.GetString("TITLE_UNITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating tasks.
+        /// </summary>
+        internal static string TITLE_UPDATING_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_UPDATING_TASKS", resourceCulture);
             }
         }
         

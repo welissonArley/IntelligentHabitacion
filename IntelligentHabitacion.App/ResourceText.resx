@@ -480,6 +480,9 @@
   <data name="TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS" xml:space="preserve">
     <value>Choose one of the numbers below:</value>
   </data>
+  <data name="TITLE_CHOOSE_THE_ROOMS_TWO_POINTS" xml:space="preserve">
+    <value>Choose the room(s):</value>
+  </data>
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Choose your friend</value>
   </data>
@@ -673,7 +676,7 @@
     <value>Login with fingerprint access</value>
   </data>
   <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
-    <value>Manage schedule</value>
+    <value>Create the first schedule</value>
   </data>
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Manufacturer:</value>
@@ -738,11 +741,11 @@
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>No results matched your filter.</value>
   </data>
+  <data name="TITLE_NO_TASKS" xml:space="preserve">
+    <value>No tasks</value>
+  </data>
   <data name="TITLE_NO_TASKS_FOR_THIS_MONTH" xml:space="preserve">
     <value>No task for this month.</value>
-  </data>
-  <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
-    <value>No tasks this month</value>
   </data>
   <data name="TITLE_OFFICE" xml:space="preserve">
     <value>Office</value>
@@ -784,7 +787,7 @@
     <value>Quantity:</value>
   </data>
   <data name="TITLE_RANDOM_ASSIGNMENT" xml:space="preserve">
-    <value>Random assignment</value>
+    <value>Assign random tasks</value>
   </data>
   <data name="TITLE_RATE" xml:space="preserve">
     <value>Rate</value>
@@ -836,6 +839,9 @@
   </data>
   <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
     <value>See more details</value>
+  </data>
+  <data name="TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED" xml:space="preserve">
+    <value>Select the rooms below to be cleaned.</value>
   </data>
   <data name="TITLE_SENDING_DATA" xml:space="preserve">
     <value>Sending data ...</value>
@@ -890,6 +896,9 @@
   </data>
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unity(s)</value>
+  </data>
+  <data name="TITLE_UPDATING_TASKS" xml:space="preserve">
+    <value>Updating tasks</value>
   </data>
   <data name="TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN" xml:space="preserve">
     <value>You can login using your fingerprint. Click here :)</value>

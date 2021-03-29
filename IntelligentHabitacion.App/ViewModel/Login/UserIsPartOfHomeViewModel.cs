@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
+using IntelligentHabitacion.App.ViewModel.CleaningSchedule;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Home.Informations;
 using IntelligentHabitacion.App.ViewModel.MyFoods;
@@ -82,6 +83,10 @@ namespace IntelligentHabitacion.App.ViewModel.Login
         }
         private async Task ClickOnCardCleanHouse()
         {
+            await Navigation.PushAsync<TasksViewModel>(async (viewModel, _) =>
+            {
+                await viewModel.Initialize();
+            });
         }
 
         private async Task ClickLogoutAccount_FloatActionButton()

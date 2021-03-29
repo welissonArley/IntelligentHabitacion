@@ -2,6 +2,7 @@
 using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.View.CleaningSchedule;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Home.Informations;
 using IntelligentHabitacion.App.View.Home.Register;
@@ -11,6 +12,7 @@ using IntelligentHabitacion.App.View.MyFoods;
 using IntelligentHabitacion.App.View.User.Register;
 using IntelligentHabitacion.App.View.User.Update;
 using IntelligentHabitacion.App.ViewModel;
+using IntelligentHabitacion.App.ViewModel.CleaningSchedule;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.ViewModel.Home.Informations;
@@ -81,6 +83,8 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<InsertRoomPage, InsertRoomViewModel>();
             ViewFactory.Register<SelectCountryPage, SelectCountryViewModel>();
             ViewFactory.Register<HomeInformationPage, HomeInformationViewModel>();
+            ViewFactory.Register<TasksPage, TasksViewModel>();
+            ViewFactory.Register<SelectOptionsCleaningHousePage, SelectOptionsCleaningHouseViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

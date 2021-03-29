@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DESCRIPTION_CREATE_CLEANING_SCHEDULE" xml:space="preserve">
-    <value>Hey Administrador, clique no menu acima e selecione a opção “Gerenciar Cronograma” e crie o primeiro Cronograma de Limpeza ;)</value>
+    <value>Nenhum cronograma disponível. Solicite a {0} para vir até aqui e criar ;)</value>
   </data>
   <data name="DESCRIPTION_DATE_JOINED_THE_HOUSE" xml:space="preserve">
     <value>Hoje fazem exatamente {0} que vocês compartilham um lar :)</value>
   </data>
   <data name="MESSAGE_REGISTER_ROOM" xml:space="preserve">
-    <value>O Administrador precisa ir ate a opção "Lar, doce lar" e na aba "Cômodos" registrar os cômodos para o cronograma.</value>
+    <value>Solicite a {0} para ir ate a opção "Lar, doce lar" e na aba "Cômodos" registrar os cômodos para o cronograma.</value>
+  </data>
+  <data name="MESSAGE_REGISTER_ROOM_ADMIN" xml:space="preserve">
+    <value>Você precisa ir até a opção "Lar, doce lar" e na aba "Cômodos" registrar os cômodos para o cronograma.</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>e</value>

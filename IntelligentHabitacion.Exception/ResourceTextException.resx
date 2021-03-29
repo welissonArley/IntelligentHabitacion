@@ -126,6 +126,9 @@
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>The City's name must be entered.</value>
   </data>
+  <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
+    <value>A cleaning schedule has already been created.</value>
+  </data>
   <data name="CODE_EMPTY" xml:space="preserve">
     <value>Code must be entered.</value>
   </data>
@@ -247,7 +250,7 @@
     <value>One code to reset the password is requerid.</value>
   </data>
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
-    <value>Room does not exist in Home</value>
+    <value>There area rooms that does not exist in Home</value>
   </data>
   <data name="ROOM_EMPTY" xml:space="preserve">
     <value>The room's name must be entered.</value>
@@ -260,6 +263,9 @@
   </data>
   <data name="THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS" xml:space="preserve">
     <value>There are tasks associated with several users.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
+    <value>There are duplicated rooms.</value>
   </data>
   <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
     <value>There are duplicate users in the request.</value>

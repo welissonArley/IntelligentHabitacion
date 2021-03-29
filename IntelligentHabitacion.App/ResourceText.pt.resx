@@ -465,6 +465,9 @@
   <data name="TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS" xml:space="preserve">
     <value>Escolha um dos números abaixo:</value>
   </data>
+  <data name="TITLE_CHOOSE_THE_ROOMS_TWO_POINTS" xml:space="preserve">
+    <value>Escolha o(s) cômodo(s):</value>
+  </data>
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Escolha seu amigo</value>
   </data>
@@ -658,7 +661,7 @@
     <value>Login com acesso por impressão digital</value>
   </data>
   <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
-    <value>Gerenciar cronograma</value>
+    <value>Criar primeiro cronograma</value>
   </data>
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Fabricante:</value>
@@ -723,11 +726,11 @@
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>Seu filtro não encontrou nenhum resultado.</value>
   </data>
-  <data name="TITLE_NO_TASKS_FOR_THIS_MONTH" xml:space="preserve">
-    <value>Nenhuma tarefa para este mês.</value>
+  <data name="TITLE_NO_TASKS" xml:space="preserve">
+    <value>Sem tarefas</value>
   </data>
-  <data name="TITLE_NO_TASKS_THIS_MONTH" xml:space="preserve">
-    <value>Sem tarefas para este mês</value>
+  <data name="TITLE_NO_TASKS_FOR_THIS_MONTH" xml:space="preserve">
+    <value>Sem tarefa para este mês.</value>
   </data>
   <data name="TITLE_OFFICE" xml:space="preserve">
     <value>Escritório</value>
@@ -769,7 +772,7 @@
     <value>Quantidade:</value>
   </data>
   <data name="TITLE_RANDOM_ASSIGNMENT" xml:space="preserve">
-    <value>Atribuição aleatória</value>
+    <value>Atribuir tarefas aleatórias</value>
   </data>
   <data name="TITLE_RATE" xml:space="preserve">
     <value>Avaliar</value>
@@ -822,6 +825,9 @@
   <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
     <value>Ver mais detalhes</value>
   </data>
+  <data name="TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED" xml:space="preserve">
+    <value>Selecione abaixo os cômodos para serem limpos.</value>
+  </data>
   <data name="TITLE_SENDING_DATA" xml:space="preserve">
     <value>Enviando dados ...</value>
   </data>
@@ -872,6 +878,9 @@
   </data>
   <data name="TITLE_UNITY" xml:space="preserve">
     <value>Unidade(s)</value>
+  </data>
+  <data name="TITLE_UPDATING_TASKS" xml:space="preserve">
+    <value>Atualizando tarefas</value>
   </data>
   <data name="TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN" xml:space="preserve">
     <value>Você pode entrar utilizando sua impressão digital. Clique aqui :)</value>

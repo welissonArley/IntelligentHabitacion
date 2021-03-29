@@ -88,6 +88,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A cleaning schedule has already been created..
+        /// </summary>
+        public static string CLEANING_SCHEDULE_ALREADY_CREATED {
+            get {
+                return ResourceManager.GetString("CLEANING_SCHEDULE_ALREADY_CREATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code must be entered..
         /// </summary>
         public static string CODE_EMPTY {
@@ -448,7 +457,7 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Room does not exist in Home.
+        ///   Looks up a localized string similar to There area rooms that does not exist in Home.
         /// </summary>
         public static string ROOM_DOES_NOT_EXIST_HOME {
             get {
@@ -516,6 +525,15 @@ namespace IntelligentHabitacion.Exception {
         public static string THERE_ARE_DUPLICATE_USERS_REQUEST {
             get {
                 return ResourceManager.GetString("THERE_ARE_DUPLICATE_USERS_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are duplicated rooms..
+        /// </summary>
+        public static string THERE_ARE_DUPLICATED_ROOMS {
+            get {
+                return ResourceManager.GetString("THERE_ARE_DUPLICATED_ROOMS", resourceCulture);
             }
         }
         

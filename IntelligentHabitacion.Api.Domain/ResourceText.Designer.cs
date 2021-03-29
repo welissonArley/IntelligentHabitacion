@@ -61,7 +61,7 @@ namespace IntelligentHabitacion.Api.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hey Administrator, click on the menu above and select the option &quot;Manage Schedule&quot; and create the first Cleaning Schedule ;).
+        ///   Looks up a localized string similar to No schedule available. Ask {0} to come here and create ;).
         /// </summary>
         public static string DESCRIPTION_CREATE_CLEANING_SCHEDULE {
             get {
@@ -79,11 +79,20 @@ namespace IntelligentHabitacion.Api.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Administrator needs to go to the option &quot;Home, sweet home&quot; and in The &quot;Rooms&quot; tab register the rooms for the schedule..
+        ///   Looks up a localized string similar to Ask {0} to go to the option &quot;Home, sweet home&quot; and in the &quot;Rooms&quot; tab register the rooms for the schedule..
         /// </summary>
         public static string MESSAGE_REGISTER_ROOM {
             get {
                 return ResourceManager.GetString("MESSAGE_REGISTER_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to go to the option &quot;Home, sweet home&quot; and in the &quot;Rooms&quot; tab register the rooms for the schedule..
+        /// </summary>
+        public static string MESSAGE_REGISTER_ROOM_ADMIN {
+            get {
+                return ResourceManager.GetString("MESSAGE_REGISTER_ROOM_ADMIN", resourceCulture);
             }
         }
         

@@ -1,4 +1,6 @@
 ﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.App.UseCases.Friends.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
 using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
@@ -49,7 +51,9 @@ namespace IntelligentHabitacion.App
                 .Register<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
                 .Register<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
                 .Register<IRemoveFriendUseCase, RemoveFriendUseCase>()
-                .Register<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>();
+                .Register<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>()
+                .Register<IGetTasksUseCase, GetTasksUseCase>()
+                .Register<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>();
         }
     }
 }

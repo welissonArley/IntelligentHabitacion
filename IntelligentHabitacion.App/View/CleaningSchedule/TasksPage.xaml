@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
+             xmlns:template="clr-namespace:IntelligentHabitacion.App.Template.Informations"
+             xmlns:loading="clr-namespace:IntelligentHabitacion.App.Template.Loading"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
+             x:Name="TasksContentPage"
+             x:Class="IntelligentHabitacion.App.View.CleaningSchedule.TasksPage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <StackLayout Grid.Row="0" Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <Label Text="Carregando"></Label>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Error" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <customcontrol:LabelJustifyText Text="{Binding Path=BindingContext.Model.Message, Source={x:Reference Name=TasksContentPage}}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="25" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource GreenDefault}"/>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Empty" VerticalOptions="FillAndExpand">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <StackLayout VerticalOptions="FillAndExpand">
+                                    <Label Text="{x:Static resourceText:ResourceText.TITLE_MANAGE_SCHEDULE}" FontSize="18"></Label>
+                                    <customcontrol:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_MANAGE_SCHEDULE}" Style="{StaticResource LabelLight}" FontSize="14" TextColor="{StaticResource GrayDefault}"></customcontrol:LabelJustifyText>
+
+                                    <CollectionView Margin="0,30,0,30" VerticalOptions="FillAndExpand" ItemsSource="{Binding Path=BindingContext.Model.CreateSchedule.Friends, Source={x:Reference Name=TasksContentPage}}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <template:ManageScheduleTemplate TappedChangeTasksCommand="{Binding Path=BindingContext.ManageTasksCommand, Source={x:Reference Name=TasksContentPage}}" User="{Binding .}"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+
+                                    <templateButton:SecondaryActionButton Margin="0,0,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_RANDOM_ASSIGNMENT}" TappedButtonCommand="{Binding Path=BindingContext.RandomAssignmentCommand, Source={x:Reference Name=TasksContentPage}}"/>
+                                    <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonGreenDefault}" Command="{Binding Path=BindingContext.ConcludeCreateFirstScheduleCommand, Source={x:Reference Name=TasksContentPage}}"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Custom" VerticalOptions="CenterAndExpand">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <ActivityIndicator HeightRequest="35" WidthRequest="35" IsRunning="True" Color="{x:StaticResource GreenDefault}"></ActivityIndicator>
+                                    <Label Text="{x:Static resourceText:ResourceText.TITLE_UPDATING_TASKS}" FontSize="15" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></Label>
+                                </StackLayout>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Saving">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Success">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                
+            </StackLayout>
+
+            <templateButton:FloatActionButton IsVisible="False" HorizontalOptions="End" VerticalOptions="End" Grid.Row="0">
+                <templateButton:FloatActionButton.Triggers>
+                    <DataTrigger TargetType="templateButton:FloatActionButton" Binding="{Binding CurrentState}" Value="None">
+                        <Setter Property="IsVisible" Value="True"></Setter>
+                    </DataTrigger>
+                </templateButton:FloatActionButton.Triggers>
+            </templateButton:FloatActionButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

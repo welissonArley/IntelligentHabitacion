@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DESCRIPTION_CREATE_CLEANING_SCHEDULE" xml:space="preserve">
-    <value>Hey Administrator, click on the menu above and select the option "Manage Schedule" and create the first Cleaning Schedule ;)</value>
+    <value>No schedule available. Ask {0} to come here and create ;)</value>
   </data>
   <data name="DESCRIPTION_DATE_JOINED_THE_HOUSE" xml:space="preserve">
     <value>Today it is exactly {0} that you share a home :)</value>
   </data>
   <data name="MESSAGE_REGISTER_ROOM" xml:space="preserve">
-    <value>The Administrator needs to go to the option "Home, sweet home" and in The "Rooms" tab register the rooms for the schedule.</value>
+    <value>Ask {0} to go to the option "Home, sweet home" and in the "Rooms" tab register the rooms for the schedule.</value>
+  </data>
+  <data name="MESSAGE_REGISTER_ROOM_ADMIN" xml:space="preserve">
+    <value>You need to go to the option "Home, sweet home" and in the "Rooms" tab register the rooms for the schedule.</value>
   </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>

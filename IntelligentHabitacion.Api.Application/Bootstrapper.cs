@@ -1,6 +1,8 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeAdministrator;
@@ -62,7 +64,9 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>()
                 .AddScoped<IRemoveFriendUseCase, RemoveFriendUseCase>()
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
-                .AddScoped<IProcessRemindersOfCleaningTasksUseCase, ProcessRemindersOfCleaningTasksUseCase>();
+                .AddScoped<IProcessRemindersOfCleaningTasksUseCase, ProcessRemindersOfCleaningTasksUseCase>()
+                .AddScoped<IGetTasksUseCase, GetTasksUseCase>()
+                .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>();
         }
     }
 }

@@ -21,11 +21,11 @@
     <PackageReference Include="Messier16.Forms.Controls" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />
     <PackageReference Include="Plugin.Fingerprint" Version="2.1.3" />
-    <PackageReference Include="Refit" Version="6.0.24" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
+    <PackageReference Include="Refit" Version="6.0.38" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugin.TabView" Version="1.1.1" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.3" />
+	<PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.5.0" />
@@ -247,6 +247,9 @@
     <EmbeddedResource Update="Template\Date\ColumnDayTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Template\Informations\ManageScheduleTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Template\Skeleton\CountryComponentSkeleton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -260,6 +263,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Template\Skeleton\MyFriendsComponentSkeleton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\CleaningSchedule\SelectOptionsCleaningHousePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\CleaningSchedule\TasksPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Friends\AddFriendPage.xaml">
@@ -291,10 +300,5 @@
   <ItemGroup>
     <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModel\CleanHouse\" />
-    <Folder Include="View\CleanHouse\" />
   </ItemGroup>
 </Project>

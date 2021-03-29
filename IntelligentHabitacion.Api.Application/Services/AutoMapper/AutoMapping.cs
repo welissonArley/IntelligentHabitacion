@@ -15,8 +15,6 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
 
             RequestToDomain();
             DomainToResponse();
-            DtoToResponse();
-            RequestToDto();
         }
 
         private void RequestToDomain()
@@ -64,28 +62,8 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
                 .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)))
                 .ForMember(c => c.JoinedOn, opt => opt.MapFrom(c => c.HomeAssociation.JoinedOn));
 
-            CreateMap<Domain.Entity.User, Communication.Response.ResponseAllFriendsTasksScheduleJson>()
+            CreateMap<Domain.Entity.User, Communication.Response.ResponseFriendSimplifiedJson>()
                 .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
-
-            CreateMap<Domain.Entity.CleaningSchedule, Communication.Response.ResponseTasksForTheMonthJson>()
-                .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
-
-            CreateMap<Domain.Entity.User, Communication.Response.ResponseDetailsUserScheduleJson>();
-
-            CreateMap<Domain.Entity.CleaningRating, Communication.Response.ResponseRateJson>()
-                .ForMember(c => c.RatingStars, map => map.MapFrom(w => w.Rating));
-        }
-
-        private void DtoToResponse()
-        {
-            CreateMap<Domain.Dto.MyTasksCleaningScheduleDto, Communication.Response.ResponseTasksForTheMonthJson>()
-                .ForMember(c => c.Id, opt => opt.MapFrom(c => _hashids.EncodeLong(c.Id)));
-        }
-
-        private void RequestToDto()
-        {
-            CreateMap<Communication.Request.RequestUpdateCleaningScheduleJson, Domain.Dto.UpdateCleaningScheduleDto>()
-                .ForMember(c => c.UserId, opt => opt.MapFrom(c => _hashids.DecodeLong(c.UserId).First()));
         }
     }
 }

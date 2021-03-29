@@ -1,4 +1,6 @@
-﻿using IntelligentHabitacion.Api.Filter;
+﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
+using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -14,20 +16,18 @@ namespace IntelligentHabitacion.Api.Controllers.V1
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class CleaningScheduleController : BaseController
-    {/*
+    {
         /// <summary>
         /// This function will return an object with the user's tasks for the date.
-        /// If the cleaning schedule dont exist, this function will return an another objet with the message and the action to do
         /// </summary>
         /// <param name="useCase"></param>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("MyTasks")]
-        [ProducesResponseType(typeof(ResponseMyTasksCleaningScheduleJson), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ResponseNeedActionJson), StatusCodes.Status206PartialContent)]
+        [Route("Tasks")]
+        [ProducesResponseType(typeof(ResponseTasksJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> MyTasks([FromServices] IGetMyTasksCleaningScheduleUseCase useCase,
+        public async Task<IActionResult> MyTasks([FromServices] IGetTasksUseCase useCase,
             [FromBody] RequestDateJson request)
         {
             try
@@ -37,10 +37,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 var response = await useCase.Execute(request.Date);
                 WriteAutenticationHeader(response);
 
-                if (response.ResponseJson as ResponseNeedActionJson is null)
-                    return Ok(response.ResponseJson);
-
-                return StatusCode(StatusCodes.Status206PartialContent, response.ResponseJson);
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {
@@ -48,6 +45,34 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             }
         }
 
+        /// <summary>
+        /// This function will create only the first cleaning schedule
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("CleaningSchedule")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public async Task<IActionResult> CreateFirstCleaningSchedule([FromServices] ICreateFirstScheduleUseCase useCase,
+            [FromBody] List<RequestUpdateCleaningScheduleJson> request)
+        {
+            try
+            {
+                VerifyParameters(request);
+
+                var response = await useCase.Execute(request);
+                WriteAutenticationHeader(response);
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+        /*
         /// <summary>
         /// This function will return an object with the current cleaning schedule.
         /// </summary>
@@ -72,33 +97,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             }
         }
 
-        /// <summary>
-        /// This function will update the current cleaning schedule
-        /// </summary>
-        /// <param name="useCase"></param>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("CleaningSchedule")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public async Task<IActionResult> UpdateCleaningSchedule([FromServices] IUpdateCleaningScheduleUseCase useCase,
-            [FromBody] List<RequestUpdateCleaningScheduleJson> request)
-        {
-            try
-            {
-                VerifyParameters(request);
-
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
-
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
+        
 
         /// <summary>
         /// This function will save one register to confirm that the user cleaned today the room received as parameter

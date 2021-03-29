@@ -852,6 +852,9 @@
   <data name="TITLE_SUNDAY_ABBREVIATED" xml:space="preserve">
     <value>Dom</value>
   </data>
+  <data name="TITLE_TASKS" xml:space="preserve">
+    <value>Tarefas</value>
+  </data>
   <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
     <value>Tarefas:</value>
   </data>

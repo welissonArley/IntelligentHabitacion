@@ -2311,6 +2311,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tasks.
+        /// </summary>
+        internal static string TITLE_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tasks:.
         /// </summary>
         internal static string TITLE_TASKS_TWO_POINTS {

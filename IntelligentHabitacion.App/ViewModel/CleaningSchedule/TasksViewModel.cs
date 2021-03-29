@@ -30,14 +30,6 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         {
             CurrentState = LayoutState.Loading;
 
-            Model = new ScheduleCleaningHouseModel
-            {
-                Schedule = new ScheduleTasksCleaningHouseModel
-                {
-                    Date = DateTime.Today
-                }
-            };
-
             this.getTasksUseCase = getTasksUseCase;
             this.createFirstScheduleUseCase = createFirstScheduleUseCase;
 
@@ -158,7 +150,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
         public async Task Initialize()
         {
-            try
+            /*try
             {
                 Model = await _getTasksUseCase.Execute(DateTime.UtcNow);
                 if (Model.Action == Communication.Enums.NeedAction.RegisterRoom || Model.Action == Communication.Enums.NeedAction.InformationCreateCleaningSchedule)
@@ -183,7 +175,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             catch (System.Exception exeption)
             {
                 await Exception(exeption);
-            }
+            }*/
         }
     }
 }

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
              xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:templateButton="clr-namespace:IntelligentHabitacion.App.Template.Button"
              xmlns:date="clr-namespace:IntelligentHabitacion.App.Template.Date"
@@ -12,6 +13,10 @@
              Title="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}"
              x:Name="TasksContentPage"
              x:Class="IntelligentHabitacion.App.View.CleaningSchedule.TasksPage">
+    <ContentPage.Resources>
+        <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+        <converter:IntegerAtLeastTwoNumbersConverter x:Key="IntegerAtLeastTwoNumbersConverter"></converter:IntegerAtLeastTwoNumbersConverter>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid RowDefinitions="*">
             <StackLayout Grid.Row="0" Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
@@ -108,6 +113,28 @@
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
 
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand">
+                        <Label Text="{x:Static resourceText:ResourceText.TITLE_HAVE_NICE_DAY}" FontSize="18" Style="{StaticResource LabelSemiBold}"></Label>
+                        <Label Text="{Binding Model.Schedule.Name}" FontSize="25" Style="{StaticResource LabelBold}" TextColor="{Binding Model.Schedule.ProfileColor}"></Label>
+                    </StackLayout>
+
+                    <Grid RowDefinitions="*">
+                        <Grid Grid.Row="0" ColumnDefinitions="100" RowDefinitions="100" HorizontalOptions="End">
+                            <BoxView Grid.Column="0" Grid.Row="0" HeightRequest="100" WidthRequest="100" CornerRadius="0,0,50,0" Color="{Binding Model.Schedule.ProfileColor}"/>
+                            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Text="{Binding Model.Schedule.Name, Converter={StaticResource ShortNameConverter}}" TextColor="White" Style="{StaticResource LabelBold}" FontSize="40"></Label>
+                        </Grid>
+
+                        <Grid Grid.Row="0" Margin="0,0,75,0" ColumnDefinitions="45" RowDefinitions="45" VerticalOptions="EndAndExpand" HorizontalOptions="End">
+                            <Image Source="WhiteEllipse" Grid.Column="0" Grid.Row="0" WidthRequest="45" HeightRequest="45" />
+
+                            <StackLayout Spacing="-3" Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Label HorizontalOptions="CenterAndExpand" Text="{Binding Model.Schedule.AmountOfTasks, Converter={StaticResource IntegerAtLeastTwoNumbersConverter}}" TextColor="{Binding Model.Schedule.ProfileColor}" FontSize="14" Style="{StaticResource LabelBold}"></Label>
+                                <Label Text="{x:Static resourceText:ResourceText.TITLE_TASKS}" TextColor="{Binding Model.Schedule.ProfileColor}" FontSize="9"></Label>
+                            </StackLayout>
+                        </Grid>
+                    </Grid>
+                </StackLayout>
                 <date:CalendarOptionTemplate Margin="0,40,0,0" Date="{Binding Model.Schedule.Date}" OnDateSelectedCommand="{Binding Path=BindingContext.OnDateSelectedCommand, Source={x:Reference TasksContentPage}}" />
             </StackLayout>
 

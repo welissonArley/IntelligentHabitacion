@@ -33,7 +33,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase, Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase)
         {
             CurrentState = LayoutState.Loading;
-
+            
             this.getTasksUseCase = getTasksUseCase;
             this.createFirstScheduleUseCase = createFirstScheduleUseCase;
 
@@ -145,8 +145,9 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             {
                 SendingData();
 
-                await _createFirstScheduleUseCase.Execute(Model.CreateSchedule.Friends);
-                
+                Model.Schedule = await _createFirstScheduleUseCase.Execute(Model.CreateSchedule.Friends);
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 await Sucess();
             }
             catch (System.Exception exeption)

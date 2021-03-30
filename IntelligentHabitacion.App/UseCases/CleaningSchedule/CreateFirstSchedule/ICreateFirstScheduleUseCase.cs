@@ -6,6 +6,6 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedul
 {
     public interface ICreateFirstScheduleUseCase
     {
-        Task Execute(IList<FriendCreateFirstScheduleModel> usersTasks);
+        Task<ScheduleTasksCleaningHouseModel> Execute(IList<FriendCreateFirstScheduleModel> usersTasks);
     }
 }

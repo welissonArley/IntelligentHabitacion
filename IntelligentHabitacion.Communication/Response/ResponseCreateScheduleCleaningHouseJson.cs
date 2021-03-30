@@ -7,10 +7,10 @@ namespace IntelligentHabitacion.Communication.Response
         public ResponseCreateScheduleCleaningHouseJson()
         {
             Rooms = new List<ResponseRoomJson>();
-            Friends = new List<ResponseFriendSimplifiedJson>();
+            Friends = new List<ResponseUserSimplifiedJson>();
         }
 
         public IList<ResponseRoomJson> Rooms { get; set; }
-        public IList<ResponseFriendSimplifiedJson> Friends { get; set; }
+        public IList<ResponseUserSimplifiedJson> Friends { get; set; }
     }
 }

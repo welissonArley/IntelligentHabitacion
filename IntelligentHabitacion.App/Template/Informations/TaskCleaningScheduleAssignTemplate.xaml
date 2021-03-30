@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:InputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="IntelligentHabitacion.App.Template.Informations.TaskCleaningScheduleAssignTemplate">
+  <ContentView.Content>
+        <StackLayout Padding="3">
+            <Frame Margin="0,20,0,0" CornerRadius="4" BackgroundColor="White" HasShadow="True" Padding="0">
+                <StackLayout Spacing="-3">
+                    <Grid Margin="15,20,15,0" ColumnDefinitions="*" RowDefinitions="*">
+                        <StackLayout Orientation="Horizontal">
+                            <InputKit:CheckBox x:Name="CompletedTodayContent" Margin="0,0,10,0" IconColor="{StaticResource GreenDefault}" TextFontSize="14" BorderColor="Black" Color="{StaticResource GreenDefault}" Type="Check"/>
+                            <Label x:Name="Room" Style="{StaticResource LabelBold}" FontSize="18" VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <Frame x:Name="ThereIsTaskToRateContent" BackgroundColor="White" HasShadow="False" Margin="0,-10,0,0" HorizontalOptions="End" VerticalOptions="Start" BorderColor="{StaticResource YellowDefault}" CornerRadius="10" HeightRequest="25" Padding="0">
+                            <Label VerticalOptions="CenterAndExpand" Margin="7,4,7,4" Text="Avaliação disponível" FontSize="13" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource YellowDefault}"></Label>
+                        </Frame>
+                    </Grid>
+                    
+                    <Line Margin="15" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"></Line>
+                    <StackLayout x:Name="ContentAssign" Orientation="Horizontal" Margin="15,0,15,15">
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                            <Line WidthRequest="0.5" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"/>
+                            <StackLayout HeightRequest="25" WidthRequest="40">
+                                <Image x:Name="OptionEdit" Source="IconEdit" WidthRequest="25" HeightRequest="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -53,7 +53,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPost]
         [Route("CleaningSchedule")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseScheduleTasksCleaningHouseJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
         public async Task<IActionResult> CreateFirstCleaningSchedule([FromServices] ICreateFirstScheduleUseCase useCase,
             [FromBody] List<RequestUpdateCleaningScheduleJson> request)
@@ -65,7 +65,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 var response = await useCase.Execute(request);
                 WriteAutenticationHeader(response);
 
-                return Ok();
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

@@ -6,6 +6,11 @@ namespace IntelligentHabitacion.App.Model
 {
     public class ScheduleTasksCleaningHouseModel : ObservableObject
     {
+        public ScheduleTasksCleaningHouseModel()
+        {
+            Tasks = new ObservableCollection<TaskModel>();
+        }
+
         public string ProfileColor { get; set; }
         public string Name { get; set; }
         public int AmountOfTasks { get; set; }

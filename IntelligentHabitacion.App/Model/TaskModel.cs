@@ -5,10 +5,15 @@ namespace IntelligentHabitacion.App.Model
 {
     public class TaskModel : ObservableObject
     {
-        public string Id { get; set; }
+        public TaskModel()
+        {
+            Assign = new ObservableCollection<UserSimplifiedModel>();
+        }
+
         public string Room { get; set; }
         public bool CanRate { get; set; }
+        public bool CanEdit { get; set; }
         public bool CanCompletedToday { get; set; }
-        public ObservableCollection<FriendSimplifiedModel> Assign { get; set; }
+        public ObservableCollection<UserSimplifiedModel> Assign { get; set; }
     }
 }

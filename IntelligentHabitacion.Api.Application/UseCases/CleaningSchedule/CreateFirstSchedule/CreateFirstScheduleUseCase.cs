@@ -5,6 +5,7 @@ using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Api.Domain.Services;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System;
@@ -47,12 +48,15 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Create
 
             await Validate(loggedUser, request, friends);
 
+            var listSchedules = new List<Domain.Entity.CleaningSchedule>();
             foreach(var friend in request)
             {
                 var userId = _hashids.DecodeLong(friend.UserId).First();
                 var schedules = friend.Rooms.Select(c => CreateSchedule(loggedUser.HomeAssociation.HomeId, userId, c));
                 
                 await _repository.Add(schedules);
+
+                listSchedules.AddRange(schedules);
             }
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
@@ -61,6 +65,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Create
 
             await SendNotification(friends.Where(c => c.Id != loggedUser.Id).Select(c => c.PushNotificationId).ToList());
 
+            response.ResponseJson = Mapper(loggedUser, friends, listSchedules);
             return response;
         }
 
@@ -86,6 +91,88 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Create
                 UserId = userId,
                 Room = room
             };
+        }
+
+        private ResponseScheduleTasksCleaningHouseJson Mapper(Domain.Entity.User loggedUser,
+            IList<Domain.Entity.User> users, List<Domain.Entity.CleaningSchedule> schedules)
+        {
+            return new ResponseScheduleTasksCleaningHouseJson
+            {
+                Date = DateTime.UtcNow,
+                ProfileColor = loggedUser.ProfileColor,
+                Name = loggedUser.Name,
+                AmountOfTasks = schedules.Count(c => c.UserId == loggedUser.Id),
+                Tasks = ScheduleTasksFormatter(loggedUser, users, schedules)
+            };
+        }
+
+        public List<ResponseTaskJson> ScheduleTasksFormatter(Domain.Entity.User loggedUser,
+            IList<Domain.Entity.User> users, IList<Domain.Entity.CleaningSchedule> schedules)
+        {
+            var response = new List<ResponseTaskJson>();
+
+            var myRooms = schedules.Where(c => c.UserId == loggedUser.Id).Select(c => c.Room).Distinct().OrderBy(c => c);
+            var otherRooms = schedules.Where(c => !myRooms.Contains(c.Room)).Select(c => c.Room).Distinct().OrderBy(c => c);
+
+            foreach(var room in myRooms)
+            {
+                var task = schedules.First(c => c.UserId == loggedUser.Id && c.Room.Equals(room));
+
+                var schedule = new ResponseTaskJson
+                {
+                    IdTaskToRegisterRoomCleaning = _hashids.EncodeLong(task.Id),
+                    CanEdit = true,
+                    CanRate = false,
+                    CanCompletedToday = true,
+                    Room = room,
+                    Assign = new List<ResponseUserSimplifiedJson>
+                    {
+                        new ResponseUserSimplifiedJson
+                        {
+                            Id = _hashids.EncodeLong(loggedUser.Id),
+                            Name = loggedUser.Name,
+                            ProfileColor = loggedUser.ProfileColor
+                        }
+                    }
+                };
+
+                var otherUsers = users.Where(w =>
+                            schedules.Where(c => c.Room.Equals(room) && c.UserId != loggedUser.Id)
+                            .Select(c => c.UserId).Contains(w.Id)).ToList();
+
+                foreach(var user in otherUsers)
+                {
+                    schedule.Assign.Add(new ResponseUserSimplifiedJson
+                    {
+                        Id = _hashids.EncodeLong(user.Id),
+                        Name = user.Name,
+                        ProfileColor = user.ProfileColor
+                    });
+                }
+
+                response.Add(schedule);
+            }
+
+            foreach (var room in otherRooms)
+            {
+                response.Add(new ResponseTaskJson
+                {
+                    CanEdit = true,
+                    CanRate = false,
+                    CanCompletedToday = false,
+                    Room = room,
+                    Assign = users
+                        .Where(w => schedules.Where(c => c.Room.Equals(room)).Select(c => c.UserId).Contains(w.Id))
+                        .OrderBy(c => c.Name).Select(c => new ResponseUserSimplifiedJson
+                        {
+                            Id = _hashids.EncodeLong(c.Id),
+                            Name = c.Name,
+                            ProfileColor = c.ProfileColor
+                        }).ToList()
+                });
+            }
+
+            return response;
         }
 
         private async Task SendNotification(List<string> pushNotificationIds)

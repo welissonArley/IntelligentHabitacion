@@ -25,7 +25,8 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks
 
         public async Task<ScheduleCleaningHouseModel> Execute(DateTime date)
         {
-            var response = await _restService.GetTasks(new RequestDateJson { Date = date }, await _userPreferences.GetToken(), GetLanguage());
+            var token = await _userPreferences.GetToken();
+            var response = await _restService.GetTasks(new RequestDateJson { Date = date }, token, GetLanguage());
 
             ResponseValidate(response);
 
@@ -40,6 +41,26 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks
             {
                 Action = response.Action,
                 Message = response.Message,
+                Schedule = new ScheduleTasksCleaningHouseModel
+                {
+                    Date = response.Schedule.Date,
+                    AmountOfTasks = response.Schedule.AmountOfTasks,
+                    Name = response.Schedule.Name,
+                    ProfileColor = response.Schedule.ProfileColor,
+                    Tasks = new ObservableCollection<TaskModel>(response.Schedule.Tasks.Select(c => new TaskModel
+                    {
+                        CanCompletedToday = c.CanCompletedToday,
+                        CanEdit = c.CanEdit,
+                        CanRate = c.CanRate,
+                        Room = c.Room,
+                        Assign = new ObservableCollection<UserSimplifiedModel>(c.Assign.Select(w => new UserSimplifiedModel
+                        {
+                            Id = w.Id,
+                            Name = w.Name,
+                            ProfileColor = w.ProfileColor
+                        }))
+                    }))
+                },
                 CreateSchedule = new CreateScheduleCleaningHouseModel
                 {
                     Rooms = response.CreateSchedule.Rooms.Select(c => new RoomModel

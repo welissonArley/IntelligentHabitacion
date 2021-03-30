@@ -18,7 +18,7 @@
         <converter:IntegerAtLeastTwoNumbersConverter x:Key="IntegerAtLeastTwoNumbersConverter"></converter:IntegerAtLeastTwoNumbersConverter>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid RowDefinitions="*">
+        <Grid RowDefinitions="*" VerticalOptions="FillAndExpand">
             <StackLayout Grid.Row="0" Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
                 <xct:StateLayout.StateViews>
                     <xct:StateView StateKey="Loading">
@@ -113,29 +113,50 @@
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
 
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand">
-                        <Label Text="{x:Static resourceText:ResourceText.TITLE_HAVE_NICE_DAY}" FontSize="18" Style="{StaticResource LabelSemiBold}"></Label>
-                        <Label Text="{Binding Model.Schedule.Name}" FontSize="25" Style="{StaticResource LabelBold}" TextColor="{Binding Model.Schedule.ProfileColor}"></Label>
-                    </StackLayout>
+                <StackLayout>
+                    <Grid RowDefinitions="100">
+                        <StackLayout Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand">
+                            <Label Text="{x:Static resourceText:ResourceText.TITLE_HAVE_NICE_DAY}" FontSize="18" Style="{StaticResource LabelSemiBold}"></Label>
+                            <Label Text="{Binding Model.Schedule.Name}" FontSize="25" Style="{StaticResource LabelBold}" TextColor="{Binding Model.Schedule.ProfileColor}"></Label>
+                        </StackLayout>
+                        <Grid Grid.Row="0" RowDefinitions="*" HorizontalOptions="End">
+                            <Grid Grid.Row="0" ColumnDefinitions="100" RowDefinitions="100" HorizontalOptions="End">
+                                <BoxView Grid.Column="0" Grid.Row="0" HeightRequest="100" WidthRequest="100" CornerRadius="0,0,50,0" Color="{Binding Model.Schedule.ProfileColor}"/>
+                                <Label Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Text="{Binding Model.Schedule.Name, Converter={StaticResource ShortNameConverter}}" TextColor="White" Style="{StaticResource LabelBold}" FontSize="40"></Label>
+                            </Grid>
 
-                    <Grid RowDefinitions="*">
-                        <Grid Grid.Row="0" ColumnDefinitions="100" RowDefinitions="100" HorizontalOptions="End">
-                            <BoxView Grid.Column="0" Grid.Row="0" HeightRequest="100" WidthRequest="100" CornerRadius="0,0,50,0" Color="{Binding Model.Schedule.ProfileColor}"/>
-                            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Text="{Binding Model.Schedule.Name, Converter={StaticResource ShortNameConverter}}" TextColor="White" Style="{StaticResource LabelBold}" FontSize="40"></Label>
-                        </Grid>
+                            <Grid Grid.Row="0" Margin="0,0,75,0" ColumnDefinitions="45" RowDefinitions="45" VerticalOptions="EndAndExpand" HorizontalOptions="End">
+                                <Image Source="WhiteEllipse" Grid.Column="0" Grid.Row="0" WidthRequest="45" HeightRequest="45" />
 
-                        <Grid Grid.Row="0" Margin="0,0,75,0" ColumnDefinitions="45" RowDefinitions="45" VerticalOptions="EndAndExpand" HorizontalOptions="End">
-                            <Image Source="WhiteEllipse" Grid.Column="0" Grid.Row="0" WidthRequest="45" HeightRequest="45" />
-
-                            <StackLayout Spacing="-3" Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                                <Label HorizontalOptions="CenterAndExpand" Text="{Binding Model.Schedule.AmountOfTasks, Converter={StaticResource IntegerAtLeastTwoNumbersConverter}}" TextColor="{Binding Model.Schedule.ProfileColor}" FontSize="14" Style="{StaticResource LabelBold}"></Label>
-                                <Label Text="{x:Static resourceText:ResourceText.TITLE_TASKS}" TextColor="{Binding Model.Schedule.ProfileColor}" FontSize="9"></Label>
-                            </StackLayout>
+                                <StackLayout Spacing="-3" Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                    <Label HorizontalOptions="CenterAndExpand" Text="{Binding Model.Schedule.AmountOfTasks, Converter={StaticResource IntegerAtLeastTwoNumbersConverter}}" TextColor="{Binding Model.Schedule.ProfileColor}" FontSize="14" Style="{StaticResource LabelBold}"></Label>
+                                    <Label Text="{x:Static resourceText:ResourceText.TITLE_TASKS}" TextColor="{Binding Model.Schedule.ProfileColor}" FontSize="9"></Label>
+                                </StackLayout>
+                            </Grid>
                         </Grid>
                     </Grid>
+
+                    <date:CalendarOptionTemplate Margin="0,40,0,0" Date="{Binding Model.Schedule.Date}" OnDateSelectedCommand="{Binding Path=BindingContext.OnDateSelectedCommand, Source={x:Reference TasksContentPage}}" />
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_TASKS_TWO_POINTS}" Margin="0,40,0,0" TextColor="{StaticResource GrayDefault}" FontSize="13" Style="{StaticResource LabelSemiBold}"/>
+
+                    <CollectionView ItemsSource="{Binding Model.Schedule.Tasks}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <template:TaskCleaningScheduleAssignTemplate Task="{Binding .}"></template:TaskCleaningScheduleAssignTemplate>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
+                                <StackLayout VerticalOptions="CenterAndExpand">
+                                    <Image Source="IllustrationWomanManCleaningHouse"></Image>
+                                    <Label Text="{x:Static resourceText:ResourceText.TITLE_NO_TASKS_FOR_THIS_MONTH}" Style="{StaticResource LabelBold}" Margin="10,25,10,10" FontSize="18" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
                 </StackLayout>
-                <date:CalendarOptionTemplate Margin="0,40,0,0" Date="{Binding Model.Schedule.Date}" OnDateSelectedCommand="{Binding Path=BindingContext.OnDateSelectedCommand, Source={x:Reference TasksContentPage}}" />
             </StackLayout>
 
             <templateButton:FloatActionButton IsVisible="False" HorizontalOptions="End" VerticalOptions="End" Grid.Row="0" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=TasksContentPage}}">

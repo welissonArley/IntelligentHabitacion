@@ -12,6 +12,6 @@ namespace IntelligentHabitacion.App.Services.Communication.CleaningSchedule
         [Post("/Tasks")]
         Task<ApiResponse<ResponseTasksJson>> GetTasks([Body] RequestDateJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Post("/CleaningSchedule")]
-        Task<ApiResponse<ResponseTasksJson>> CreateFirstCleaningSchedule([Body] IList<RequestUpdateCleaningScheduleJson> request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        Task<ApiResponse<ResponseScheduleTasksCleaningHouseJson>> CreateFirstCleaningSchedule([Body] IList<RequestUpdateCleaningScheduleJson> request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

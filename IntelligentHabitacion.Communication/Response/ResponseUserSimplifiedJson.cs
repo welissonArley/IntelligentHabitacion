@@ -1,8 +1,6 @@
-﻿using XLabs.Data;
-
-namespace IntelligentHabitacion.App.Model
+﻿namespace IntelligentHabitacion.Communication.Response
 {
-    public class FriendSimplifiedModel : ObservableObject
+    public class ResponseUserSimplifiedJson
     {
         public string Id { get; set; }
         public string Name { get; set; }

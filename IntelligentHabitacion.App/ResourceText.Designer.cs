@@ -340,6 +340,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t worry, your name won&apos;t appear on the reminder when your friend sees it :).
+        /// </summary>
+        internal static string DESCRIPTION_REMINDER_PERFORM_TASK {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_REMINDER_PERFORM_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your friends will receive a notification and can evaluate your work. Do you confirm this?.
         /// </summary>
         internal static string DESCRIPTION_ROOM_CLEANED {
@@ -1164,6 +1173,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CHOOSE_THE_ROOMS_TWO_POINTS {
             get {
                 return ResourceManager.GetString("TITLE_CHOOSE_THE_ROOMS_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose who will receive the reminder:.
+        /// </summary>
+        internal static string TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS", resourceCulture);
             }
         }
         
@@ -2163,6 +2181,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_REMIND_FRIEND_PERFORM_TASKS {
             get {
                 return ResourceManager.GetString("TITLE_REMIND_FRIEND_PERFORM_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reminder to perform tasks.
+        /// </summary>
+        internal static string TITLE_REMINDER_PERFORM_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_REMINDER_PERFORM_TASK", resourceCulture);
             }
         }
         

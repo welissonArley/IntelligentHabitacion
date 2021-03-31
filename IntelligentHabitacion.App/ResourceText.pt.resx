@@ -204,6 +204,9 @@
   <data name="DESCRIPTION_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
     <value>Vamos enviar uma notificação para avisar que chegou uma encomenda para {0}. Você confirma isto?</value>
   </data>
+  <data name="DESCRIPTION_REMINDER_PERFORM_TASK" xml:space="preserve">
+    <value>Não se preocupe, seu nome não será exibido no lembrete  quando seu amigo(a) visualiza-lo :)</value>
+  </data>
   <data name="DESCRIPTION_ROOM_CLEANED" xml:space="preserve">
     <value>Seus amigos vão receber uma notificação e podem avaliar seu trabalho. Você confirma isto?</value>
   </data>
@@ -470,6 +473,9 @@
   </data>
   <data name="TITLE_CHOOSE_THE_ROOMS_TWO_POINTS" xml:space="preserve">
     <value>Escolha o(s) cômodo(s):</value>
+  </data>
+  <data name="TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS" xml:space="preserve">
+    <value>Escolha quem vai receber o lembrete:</value>
   </data>
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Escolha seu amigo</value>
@@ -800,6 +806,9 @@
   </data>
   <data name="TITLE_REGISTER_ROOM_CLEANING" xml:space="preserve">
     <value>Registrar limpeza de cômodo</value>
+  </data>
+  <data name="TITLE_REMINDER_PERFORM_TASK" xml:space="preserve">
+    <value>Lembrete para realizar tarefas</value>
   </data>
   <data name="TITLE_REMIND_FRIEND_PERFORM_TASKS" xml:space="preserve">
     <value>Lembrar amigo de realizar tarefas</value>

@@ -11,12 +11,15 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
     public partial class FloatActionTaskCleaningScheduleModal : Rg.Plugins.Popup.Pages.PopupPage
     {
         private ICommand RegisterRoomsCleanedCommand { get; }
+        private ICommand RememberUserCleanRoomCommand { get; }
 
-        public FloatActionTaskCleaningScheduleModal(ICommand registerRoomsCleanedCommand)
+        public FloatActionTaskCleaningScheduleModal(ICommand registerRoomsCleanedCommand,
+            ICommand rememberUserCleanRoom)
         {
             InitializeComponent();
 
             RegisterRoomsCleanedCommand = registerRoomsCleanedCommand;
+            RememberUserCleanRoomCommand = rememberUserCleanRoom;
         }
 
         private async Task CloseThisModal()
@@ -29,6 +32,12 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
         {
             await CloseThisModal();
             RegisterRoomsCleanedCommand.Execute(null);
+        }
+
+        private async void RememberUserCleanRoom_Tapped(object sender, System.EventArgs e)
+        {
+            await CloseThisModal();
+            RememberUserCleanRoomCommand.Execute(null);
         }
     }
 }

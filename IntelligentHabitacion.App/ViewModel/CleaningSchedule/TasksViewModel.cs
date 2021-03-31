@@ -1,7 +1,9 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.Reminder;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -18,12 +20,16 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 {
     public class TasksViewModel : BaseViewModel
     {
+        private readonly Lazy<UserPreferences> userPreferences;
         private readonly Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase;
         private readonly Lazy<IGetTasksUseCase> getTasksUseCase;
         private readonly Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase;
+        private readonly Lazy<IReminderUseCase> reminderUseCase;
+        private UserPreferences _userPreferences => userPreferences.Value;
         private IGetTasksUseCase _getTasksUseCase => getTasksUseCase.Value;
         private ICreateFirstScheduleUseCase _createFirstScheduleUseCase => createFirstScheduleUseCase.Value;
         private IRegisterRoomCleanedUseCase _registerRoomCleanedUseCase => registerRoomCleanedUseCase.Value;
+        private IReminderUseCase _reminderUseCase => reminderUseCase.Value;
 
         public ScheduleCleaningHouseModel Model { get; set; }
 
@@ -36,13 +42,16 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
         public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase,
             Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase,
-            Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase)
+            Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase,
+            Lazy<IReminderUseCase> reminderUseCase, Lazy<UserPreferences> userPreferences)
         {
             CurrentState = LayoutState.Loading;
             
             this.getTasksUseCase = getTasksUseCase;
             this.createFirstScheduleUseCase = createFirstScheduleUseCase;
             this.registerRoomCleanedUseCase = registerRoomCleanedUseCase;
+            this.reminderUseCase = reminderUseCase;
+            this.userPreferences = userPreferences;
 
             RandomAssignmentCommand = new Command(OnRandomAssignment);
             ManageTasksCommand = new Command(OnManageTasksCommand);
@@ -67,10 +76,37 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                     }));
                 });
             });
+            ICommand SelectRememberUserCleanRoom = new Command(async () =>
+            {
+                await Navigation.PushAsync<SelectOptionsCleaningHouseViewModel>(async (viewModel, _) =>
+                {
+                    var options = new List<SelectOptionModel>();
+                    var myId = await _userPreferences.GetMyId();
+                    var users = Model.Schedule.Tasks.SelectMany(c => c.Assign).Where(c => !c.Id.Equals(myId));
+                    foreach(var id in users.Select(c => c.Id).Distinct())
+                    {
+                        var model = users.First(c => c.Id.Equals(id));
+                        options.Add(new SelectOptionModel
+                        {
+                            Id = model.Id,
+                            Name = model.Name,
+                            Assigned = false
+                        });
+                    }
+
+                    viewModel.Initialize(ResourceText.TITLE_REMINDER_PERFORM_TASK,
+                        ResourceText.DESCRIPTION_REMINDER_PERFORM_TASK, ResourceText.TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS,
+                        new Command(async (listAssigns) =>
+                        {
+                            var list = (List<SelectOptionModel>)listAssigns;
+                            await OnSendReminderCleanRoom(list.Select(c => c.Id).ToList());
+                        }), options);
+                });
+            });
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal(SelectRegisterRoomsCleanedCommand));
+                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal(SelectRegisterRoomsCleanedCommand, SelectRememberUserCleanRoom));
             });
         }
 
@@ -202,6 +238,21 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
             OnPropertyChanged(new PropertyChangedEventArgs("Model"));
             await Sucess();
+        }
+        private async Task OnSendReminderCleanRoom(List<string> assigns)
+        {
+            try
+            {
+                SendingData();
+
+                await _reminderUseCase.Execute(assigns);
+
+                await Sucess();
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
         }
 
         public async Task Initialize()

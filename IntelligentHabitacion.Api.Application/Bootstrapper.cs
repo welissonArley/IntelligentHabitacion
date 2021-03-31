@@ -5,6 +5,7 @@ using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirs
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Reminder;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeAdministrator;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeDateFriendJoinHome;
@@ -68,7 +69,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IProcessRemindersOfCleaningTasksUseCase, ProcessRemindersOfCleaningTasksUseCase>()
                 .AddScoped<IGetTasksUseCase, GetTasksUseCase>()
                 .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
-                .AddScoped<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>();
+                .AddScoped<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>()
+                .AddScoped<IReminderUseCase, ReminderUseCase>();
         }
     }
 }

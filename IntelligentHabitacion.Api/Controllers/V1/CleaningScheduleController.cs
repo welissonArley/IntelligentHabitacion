@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Reminder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -100,143 +101,32 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 return HandleException(exception);
             }
         }
-        /*
-        /// <summary>
-        /// This function will return an object with the current cleaning schedule.
-        /// </summary>
-        /// <param name="useCase"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("CleaningSchedule")]
-        [ProducesResponseType(typeof(ResponseManageScheduleJson), StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
-        public async Task<IActionResult> GetCleaningSchedule([FromServices] IGetCleaningScheduleUseCase useCase)
-        {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
-
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
 
         /// <summary>
-        /// This function will return the object with datails to each task of a user
+        /// This function will send a PushNotification to the users received as parameter to remember clean room
         /// </summary>
         /// <param name="useCase"></param>
         /// <param name="request"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("UserTaskDetails/{id:hashids}")]
-        [ProducesResponseType(typeof(ResponseDetailsUserScheduleJson), StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> GetUsersTaskDetails(
-            [FromServices] IGetUsersTaskDetailsUseCase useCase,
-            [FromBody] RequestDateJson request,
-            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
-        {
-            try
-            {
-                var response = await useCase.Execute(id, request.Date);
-                WriteAutenticationHeader(response);
-
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
-
-        /// <summary>
-        /// This function return one array with the all friend's tasks
-        /// </summary>
-        /// <param name="useCase"></param>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("FriendsTasks")]
-        [ProducesResponseType(typeof(List<ResponseAllFriendsTasksScheduleJson>), StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> GetFriendsTasks(
-            [FromServices] IGetFriendsTasksUseCase useCase,
-            [FromBody] RequestDateJson request)
-        {
-            try
-            {
-                var response = await useCase.Execute(request.Date);
-                WriteAutenticationHeader(response);
-
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
-
-        /// <summary>
-        /// One user can rate un friend's task completed and return the new average rating
-        /// </summary>
-        /// <param name="useCase"></param>
-        /// <param name="request"></param>
-        /// <param name="id"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("RateTask/{id:hashids}")]
-        [ProducesResponseType(typeof(ResponseAverageRatingJson), StatusCodes.Status200OK)]
+        [Route("Reminder")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> RateTaskCompleted(
-            [FromServices] IRateTaskUseCase useCase,
-            [FromBody] RequestRateTaskJson request,
-            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
+        public async Task<IActionResult> Reminder(
+            [FromServices] IReminderUseCase useCase,
+            [FromBody] IList<string> request)
         {
             try
             {
-                VerifyParameters(request);
-
-                var response = await useCase.Execute(id, request);
+                var response = await useCase.Execute(request);
                 WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
+                return Ok();
             }
             catch (System.Exception exception)
             {
                 return HandleException(exception);
             }
         }
-
-        /// <summary>
-        /// This function will return one list with all task's rate
-        /// </summary>
-        /// <param name="useCase"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("Feedbacks/{id:hashids}")]
-        [ProducesResponseType(typeof(ResponseRateTaskJson), StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> GetFeedbacks(
-            [FromServices] IGetTaskFeedbacksUseCase useCase,
-            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
-        {
-            try
-            {
-                var response = await useCase.Execute(id);
-                WriteAutenticationHeader(response);
-
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }*/
     }
 }

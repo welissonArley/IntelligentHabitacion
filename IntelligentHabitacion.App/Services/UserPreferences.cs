@@ -72,6 +72,10 @@ namespace IntelligentHabitacion.App.Services
         {
             return await SecureStorage.GetAsync(_keyToken);
         }
+        public async Task<string> GetMyId()
+        {
+            return await SecureStorage.GetAsync(_keyId);
+        }
         public async Task ChangePassword(string password)
         {
             await SecureStorage.SetAsync(_keyPassword, password);

@@ -210,6 +210,9 @@
   <data name="DESCRIPTION_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
     <value>We will send a notification to let {0} know that an order has arrived. Do you confirm this?</value>
   </data>
+  <data name="DESCRIPTION_REMINDER_PERFORM_TASK" xml:space="preserve">
+    <value>Don't worry, your name won't appear on the reminder when your friend sees it :)</value>
+  </data>
   <data name="DESCRIPTION_ROOM_CLEANED" xml:space="preserve">
     <value>Your friends will receive a notification and can evaluate your work. Do you confirm this?</value>
   </data>
@@ -485,6 +488,9 @@
   </data>
   <data name="TITLE_CHOOSE_THE_ROOMS_TWO_POINTS" xml:space="preserve">
     <value>Choose the room(s):</value>
+  </data>
+  <data name="TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS" xml:space="preserve">
+    <value>Choose who will receive the reminder:</value>
   </data>
   <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
     <value>Choose your friend</value>
@@ -815,6 +821,9 @@
   </data>
   <data name="TITLE_REGISTER_ROOM_CLEANING" xml:space="preserve">
     <value>Register room cleaning</value>
+  </data>
+  <data name="TITLE_REMINDER_PERFORM_TASK" xml:space="preserve">
+    <value>Reminder to perform tasks</value>
   </data>
   <data name="TITLE_REMIND_FRIEND_PERFORM_TASKS" xml:space="preserve">
     <value>Remind friend to perform tasks</value>

@@ -1,10 +1,9 @@
 ﻿using IntelligentHabitacion.App.Model;
-using System;
-using System.Collections.Generic;
+using IntelligentHabitacion.App.View.Modal;
+using Rg.Plugins.Popup.Extensions;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
@@ -14,6 +13,11 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskCleaningScheduleAssignTemplate : ContentView
     {
+        public ICommand OnConfirmRoomCleanedToday
+        {
+            get => (ICommand)GetValue(OnConfirmRoomCleanedTodayProperty);
+            set => SetValue(OnConfirmRoomCleanedTodayProperty, value);
+        }
         public TaskModel Task
         {
             get => (TaskModel)GetValue(TaskProperty);
@@ -26,6 +30,14 @@ namespace IntelligentHabitacion.App.Template.Informations
                                                         defaultValue: null,
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: TaskChanged);
+
+        public static readonly BindableProperty OnConfirmRoomCleanedTodayProperty = BindableProperty.Create(
+                                                        propertyName: "OnConfirmRoomCleanedToday",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(TaskCleaningScheduleAssignTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: null);
 
         private static void TaskChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -45,12 +57,12 @@ namespace IntelligentHabitacion.App.Template.Informations
                 component.Room.Text = taskModel.Room;
                 component.OptionEdit.IsVisible = taskModel.CanEdit;
                 component.ThereIsTaskToRateContent.IsVisible = taskModel.CanRate;
-                component.CompletedTodayContent.IsVisible = taskModel.CanCompletedToday;
-                if (taskModel.CanCompletedToday)
+                component.CompletedTodayContent.IsVisible = taskModel.CanRegisterRoomCleanedToday;
+                if (taskModel.CanRegisterRoomCleanedToday)
                 {
-                    component.CompletedTodayContent.CheckChangedCommand = new Command((value) =>
+                    component.CompletedTodayContent.CheckChangedCommand = new Command(async() =>
                     {
-                        component.CompletedTodayContent.IsVisible = false;
+                        await component.RoomCleanedToday(taskModel.Room);
                     });
                 }
             }
@@ -100,6 +112,14 @@ namespace IntelligentHabitacion.App.Template.Informations
         public TaskCleaningScheduleAssignTemplate()
         {
             InitializeComponent();
+        }
+
+        public async Task RoomCleanedToday(string room)
+        {
+            ICommand callbackCancel = new Command(() => CompletedTodayContent.IsChecked = false);
+            ICommand callbackConfirm = new Command(() => OnConfirmRoomCleanedToday.Execute(Task));
+
+            await Navigation.PushPopupAsync(new ConfirmAction(string.Format(ResourceText.TITLE_ROOM_CLEANED, room), ResourceText.DESCRIPTION_ROOM_CLEANED, View.Modal.Type.Green, callbackConfirm, callbackCancel));
         }
     }
 }

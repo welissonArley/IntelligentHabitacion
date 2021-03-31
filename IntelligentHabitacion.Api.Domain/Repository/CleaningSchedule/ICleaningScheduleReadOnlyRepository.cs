@@ -11,5 +11,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task<List<Entity.CleaningSchedule>> GetTasksForTheMonth(DateTime month, long homeId);
         Task<bool> TaskCleanedOnDate(long taskId, DateTime date);
         Task<bool> ThereAreaTaskToUserRateThisMonth(long userId, string room);
+        Task<Entity.CleaningSchedule> GetTaskById(long id);
     }
 }

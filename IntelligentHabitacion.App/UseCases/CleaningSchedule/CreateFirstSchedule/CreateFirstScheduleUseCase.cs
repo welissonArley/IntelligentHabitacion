@@ -55,7 +55,8 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedul
                 ProfileColor = response.ProfileColor,
                 Tasks = new ObservableCollection<TaskModel>(response.Tasks.Select(c => new TaskModel
                 {
-                    CanCompletedToday = c.CanCompletedToday,
+                    IdTaskToRegisterRoomCleaning = c.IdTaskToRegisterRoomCleaning,
+                    CanRegisterRoomCleanedToday = c.CanCompletedToday,
                     CanEdit = c.CanEdit,
                     CanRate = c.CanRate,
                     Room = c.Room,

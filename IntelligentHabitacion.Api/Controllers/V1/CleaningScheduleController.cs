@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -72,6 +73,33 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 return HandleException(exception);
             }
         }
+
+        /// <summary>
+        /// This function will save one register to confirm that the user cleaned the room received as parameter
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("RegisterRoomCleaned")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> RegisterRoomCleaned(
+            [FromServices] IRegisterRoomCleanedUseCase useCase,
+            [FromBody] RequestRegisterRoomCleaned request)
+        {
+            try
+            {
+                var response = await useCase.Execute(request);
+                WriteAutenticationHeader(response);
+
+                return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
         /*
         /// <summary>
         /// This function will return an object with the current cleaning schedule.
@@ -90,35 +118,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
-        }
-
-        
-
-        /// <summary>
-        /// This function will save one register to confirm that the user cleaned today the room received as parameter
-        /// </summary>
-        /// <param name="useCase"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpPut]
-        [Route("TaskCompleted/{id:hashids}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> TaskCompletedToday(
-            [FromServices] ITaskCompletedTodayUseCase useCase,
-            [FromRoute][ModelBinder(typeof(Binder.HashidsModelBinder))] long id)
-        {
-            try
-            {
-                var response = await useCase.Execute(id);
-                WriteAutenticationHeader(response);
-
-                return Ok();
             }
             catch (System.Exception exception)
             {

@@ -439,6 +439,15 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can only record cleaning records for the current month and up to 3 days before today..
+        /// </summary>
+        public static string RECORD_CLEANING_ROOM_INVALID_DATE {
+            get {
+                return ResourceManager.GetString("RECORD_CLEANING_ROOM_INVALID_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relationship must be entered..
         /// </summary>
         public static string RELATIONSHIPTO_EMPTY {
@@ -552,6 +561,15 @@ namespace IntelligentHabitacion.Exception {
         public static string THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS {
             get {
                 return ResourceManager.GetString("THERE_AREA_TASKS_ASSOCIATED_SEVERAL_USERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is already a clean room record for this date..
+        /// </summary>
+        public static string THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE {
+            get {
+                return ResourceManager.GetString("THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE", resourceCulture);
             }
         }
         

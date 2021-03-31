@@ -143,7 +143,7 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <template:TaskCleaningScheduleAssignTemplate Task="{Binding .}"></template:TaskCleaningScheduleAssignTemplate>
+                                    <template:TaskCleaningScheduleAssignTemplate Task="{Binding .}" OnConfirmRoomCleanedToday="{Binding Path=BindingContext.RegisterRoomClenedTodayCommand, Source={x:Reference TasksContentPage}}"></template:TaskCleaningScheduleAssignTemplate>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

@@ -15,13 +15,15 @@ namespace IntelligentHabitacion.App.View.Modal
     [DesignTimeVisible(false)]
     public partial class ConfirmAction : Rg.Plugins.Popup.Pages.PopupPage
     {
-        private readonly ICommand _action;
+        private readonly ICommand _callbackConfirm;
+        private readonly ICommand _callbackCancel;
 
-        public ConfirmAction(string title, string text, Type type, ICommand action)
+        public ConfirmAction(string title, string text, Type type, ICommand callbackConfirm, ICommand callbackCancel = null)
         {
             InitializeComponent();
 
-            _action = action;
+            _callbackConfirm = callbackConfirm;
+            _callbackCancel = callbackCancel;
 
             LabelTitle.Text = title;
             LabelText.Text = text;
@@ -46,12 +48,13 @@ namespace IntelligentHabitacion.App.View.Modal
 
         private async void Button_Cancel(object sender, EventArgs e)
         {
+            _callbackCancel?.Execute(null);
             await Navigation.PopPopupAsync();
         }
         private async void Button_Ok(object sender, EventArgs e)
         {
             await Navigation.PopPopupAsync();
-            _action.Execute(null);
+            _callbackConfirm.Execute(null);
         }
     }
 }

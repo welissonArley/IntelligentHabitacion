@@ -63,7 +63,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.RemoveFriend
             _codeRepository.DeleteAllFromTheUser(loggedUser.Id);
 
             _myFoodsRepository.DeleteAllFromTheUser(friend.Id);
-            _scheduleRepository.FinishAllFromTheUser(friend.Id, loggedUser.HomeAssociation.HomeId);
+            await _scheduleRepository.FinishAllFromTheUser(friend.Id, loggedUser.HomeAssociation.HomeId);
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 

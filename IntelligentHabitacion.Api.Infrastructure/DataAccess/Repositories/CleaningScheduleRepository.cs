@@ -66,14 +66,28 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             return false;
         }
 
-        public void FinishAllFromTheUser(long userId, long homeId)
+        public async Task FinishAllFromTheUser(long userId, long homeId)
         {
             var schedules = _context.CleaningSchedules.Where(c => c.UserId == userId && c.HomeId == homeId);
             foreach (var schedule in schedules)
                 schedule.ScheduleFinishAt = DateTime.UtcNow;
 
-            if (schedules.Any())
+            if (await schedules.AnyAsync())
                 _context.CleaningSchedules.UpdateRange(schedules);
+        }
+
+        public async Task RegisterRoomCleaned(long taskId, DateTime date)
+        {
+            await _context.CleaningTasksCompleteds.AddAsync(new CleaningTasksCompleted
+            {
+                CleaningScheduleId = taskId,
+                CreateDate = date
+            });
+        }
+
+        public Task<CleaningSchedule> GetTaskById(long id)
+        {
+            return _context.CleaningSchedules.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

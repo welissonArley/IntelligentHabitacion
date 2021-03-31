@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -19,26 +20,33 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
     {
         private readonly Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase;
         private readonly Lazy<IGetTasksUseCase> getTasksUseCase;
+        private readonly Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase;
         private IGetTasksUseCase _getTasksUseCase => getTasksUseCase.Value;
         private ICreateFirstScheduleUseCase _createFirstScheduleUseCase => createFirstScheduleUseCase.Value;
+        private IRegisterRoomCleanedUseCase _registerRoomCleanedUseCase => registerRoomCleanedUseCase.Value;
 
         public ScheduleCleaningHouseModel Model { get; set; }
 
+        public ICommand RegisterRoomClenedTodayCommand { get; }
         public ICommand ConcludeCreateFirstScheduleCommand { get; }
         public ICommand RandomAssignmentCommand { get; }
         public ICommand ManageTasksCommand { get; }
         public ICommand OnDateSelectedCommand { get; }
         public ICommand FloatActionCommand { get; }
 
-        public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase, Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase)
+        public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase,
+            Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase,
+            Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase)
         {
             CurrentState = LayoutState.Loading;
             
             this.getTasksUseCase = getTasksUseCase;
             this.createFirstScheduleUseCase = createFirstScheduleUseCase;
+            this.registerRoomCleanedUseCase = registerRoomCleanedUseCase;
 
             RandomAssignmentCommand = new Command(OnRandomAssignment);
             ManageTasksCommand = new Command(OnManageTasksCommand);
+            RegisterRoomClenedTodayCommand = new Command(async(room) => await OnRegisterRoomClenedTodayCommand((TaskModel)room));
             ConcludeCreateFirstScheduleCommand = new Command(async() =>
             {
                 await OnConcludeCreateFirstSchedule();
@@ -155,6 +163,24 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                 await Exception(exeption);
                 CurrentState = LayoutState.Empty;
                 OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            }
+        }
+        private async Task OnRegisterRoomClenedTodayCommand(TaskModel task)
+        {
+            try
+            {
+                SendingData();
+
+                await _registerRoomCleanedUseCase.Execute(new List<string> { task.IdTaskToRegisterRoomCleaning }, DateTime.UtcNow);
+                Model.Schedule.Tasks
+                    .First(c => c.IdTaskToRegisterRoomCleaning.Equals(task.IdTaskToRegisterRoomCleaning)).CanRegisterRoomCleanedToday = false;
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                await Sucess();
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
             }
         }
 

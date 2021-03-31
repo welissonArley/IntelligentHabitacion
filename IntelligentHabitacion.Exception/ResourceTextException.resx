@@ -243,6 +243,9 @@
   <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
     <value>You can only rate tasks on the current month's schedule.</value>
   </data>
+  <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
+    <value>You can only record cleaning records for the current month and up to 3 days before today.</value>
+  </data>
   <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
     <value>Relationship must be entered.</value>
   </data>
@@ -272,6 +275,9 @@
   </data>
   <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
     <value>There are users with duplicate tasks in the request.</value>
+  </data>
+  <data name="THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE" xml:space="preserve">
+    <value>There is already a clean room record for this date.</value>
   </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Emergency contact's name {0} must be entered.</value>

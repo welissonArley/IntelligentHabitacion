@@ -4,6 +4,7 @@ using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeAdministrator;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeDateFriendJoinHome;
@@ -66,7 +67,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
                 .AddScoped<IProcessRemindersOfCleaningTasksUseCase, ProcessRemindersOfCleaningTasksUseCase>()
                 .AddScoped<IGetTasksUseCase, GetTasksUseCase>()
-                .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>();
+                .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
+                .AddScoped<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>();
         }
     }
 }

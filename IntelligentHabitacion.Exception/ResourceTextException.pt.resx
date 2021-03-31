@@ -243,6 +243,9 @@
   <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
     <value>Você pode apenas avaliar tarefas no cronograma do mês atual.</value>
   </data>
+  <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
+    <value>Você pode apenas registrar registros de limpeza para o mês atual e em até 3 dias anteriores a data de hoje.</value>
+  </data>
   <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
     <value>O grau de parentesco deve ser informado.</value>
   </data>
@@ -272,6 +275,9 @@
   </data>
   <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
     <value>Há usuários com tarefas duplicadas na requisição.</value>
+  </data>
+  <data name="THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE" xml:space="preserve">
+    <value>Já existe um registro de cômodo limpo para esta data.</value>
   </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>O nome do Contato de emergência {0} deve ser informado.</value>

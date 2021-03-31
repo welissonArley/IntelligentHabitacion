@@ -46,7 +46,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
             RandomAssignmentCommand = new Command(OnRandomAssignment);
             ManageTasksCommand = new Command(OnManageTasksCommand);
-            RegisterRoomClenedTodayCommand = new Command(async(room) => await OnRegisterRoomClenedTodayCommand((TaskModel)room));
+            RegisterRoomClenedTodayCommand = new Command(async(room) => await OnRegisterRoomClenedToday((TaskModel)room));
             ConcludeCreateFirstScheduleCommand = new Command(async() =>
             {
                 await OnConcludeCreateFirstSchedule();
@@ -55,10 +55,22 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             {
                 await OnDateSelected((DateTime)date);
             });
+
+            ICommand SelectRegisterRoomsCleanedCommand = new Command(async() =>
+            {
+                await Navigation.PushAsync<SelectRoomsRegisterCleanedViewModel>((viewModel, _) =>
+                {
+                    var tasks = Model.Schedule.Tasks.Where(c => !string.IsNullOrEmpty(c.IdTaskToRegisterRoomCleaning)).ToList();
+                    viewModel.Initialize(tasks, new Command(async(listAssigns) =>
+                    {
+                        await OnCallbackRegisterCleanedRoomsToday((List<string>)listAssigns);
+                    }));
+                });
+            });
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal());
+                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal(SelectRegisterRoomsCleanedCommand));
             });
         }
 
@@ -165,7 +177,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                 OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
             }
         }
-        private async Task OnRegisterRoomClenedTodayCommand(TaskModel task)
+        private async Task OnRegisterRoomClenedToday(TaskModel task)
         {
             try
             {
@@ -182,6 +194,14 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             {
                 await Exception(exeption);
             }
+        }
+        private async Task OnCallbackRegisterCleanedRoomsToday(List<string> assigns)
+        {
+            foreach (var id in assigns)
+                Model.Schedule.Tasks.First(c => c.IdTaskToRegisterRoomCleaning.Equals(id)).CanRegisterRoomCleanedToday = false;
+
+            OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+            await Sucess();
         }
 
         public async Task Initialize()

@@ -283,6 +283,9 @@
     <EmbeddedResource Update="View\CleaningSchedule\SelectOptionsCleaningHousePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="View\CleaningSchedule\SelectRoomsRegisterCleanedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\CleaningSchedule\TasksPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

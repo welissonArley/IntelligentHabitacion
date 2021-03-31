@@ -153,6 +153,9 @@
   <data name="DESCRIPTION_ALL" xml:space="preserve">
     <value> all </value>
   </data>
+  <data name="DESCRIPTION_CHOOSE_ROOMS_REGISTER_COMPLETED_CLEANING" xml:space="preserve">
+    <value>Below you can choose one or more rooms to register completed cleaning :)</value>
+  </data>
   <data name="DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED" xml:space="preserve">
     <value>Below you can choose one or more rooms to be cleaned in the month.</value>
   </data>
@@ -851,6 +854,9 @@
   </data>
   <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
     <value>See more details</value>
+  </data>
+  <data name="TITLE_SELECT_CLEANING_DATE_TWO_POINT" xml:space="preserve">
+    <value>Select the cleaning date:</value>
   </data>
   <data name="TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED" xml:space="preserve">
     <value>Select the rooms below to be cleaned.</value>

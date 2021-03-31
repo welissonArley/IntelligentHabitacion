@@ -169,6 +169,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Below you can choose one or more rooms to register completed cleaning :).
+        /// </summary>
+        internal static string DESCRIPTION_CHOOSE_ROOMS_REGISTER_COMPLETED_CLEANING {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_CHOOSE_ROOMS_REGISTER_COMPLETED_CLEANING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Below you can choose one or more rooms to be cleaned in the month..
         /// </summary>
         internal static string DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED {
@@ -2262,6 +2271,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SEE_MORE_DETAILS {
             get {
                 return ResourceManager.GetString("TITLE_SEE_MORE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the cleaning date:.
+        /// </summary>
+        internal static string TITLE_SELECT_CLEANING_DATE_TWO_POINT {
+            get {
+                return ResourceManager.GetString("TITLE_SELECT_CLEANING_DATE_TWO_POINT", resourceCulture);
             }
         }
         

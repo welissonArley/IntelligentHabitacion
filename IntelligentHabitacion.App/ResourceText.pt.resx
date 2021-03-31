@@ -147,6 +147,9 @@
   <data name="DESCRIPTION_ALL" xml:space="preserve">
     <value> todas </value>
   </data>
+  <data name="DESCRIPTION_CHOOSE_ROOMS_REGISTER_COMPLETED_CLEANING" xml:space="preserve">
+    <value>Abaixo você pode escolher um ou mais comôdos para registrar limpeza concluída :)</value>
+  </data>
   <data name="DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED" xml:space="preserve">
     <value>Abaixo você pode escolher um ou mais comôdos para serem limpados no mês.</value>
   </data>
@@ -836,6 +839,9 @@
   </data>
   <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
     <value>Ver mais detalhes</value>
+  </data>
+  <data name="TITLE_SELECT_CLEANING_DATE_TWO_POINT" xml:space="preserve">
+    <value>Selecione a data da limpeza:</value>
   </data>
   <data name="TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED" xml:space="preserve">
     <value>Selecione abaixo os cômodos para serem limpos.</value>

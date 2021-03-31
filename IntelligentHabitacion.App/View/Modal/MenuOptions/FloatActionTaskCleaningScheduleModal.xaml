@@ -18,6 +18,9 @@
                     <Image Source="ActionButtonCalendar" HeightRequest="40" WidthRequest="40"></Image>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,15,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="RegisterRoomsCleaned_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
                     <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_REGISTER_ROOM_CLEANING}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
                     <Image Source="ActionButtonAdd" HeightRequest="40" WidthRequest="40"></Image>
                 </StackLayout>

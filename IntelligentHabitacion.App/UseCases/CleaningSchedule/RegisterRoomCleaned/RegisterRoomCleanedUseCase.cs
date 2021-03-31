@@ -1,9 +1,11 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.Services.Communication.CleaningSchedule;
 using IntelligentHabitacion.Communication.Request;
+using IntelligentHabitacion.Exception.API;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned
@@ -22,6 +24,9 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleane
 
         public async Task Execute(IList<string> taskIds, DateTime date)
         {
+            if (!taskIds.Any())
+                throw new InvalidTaskException();
+
             var token = await _userPreferences.GetToken();
             var response = await _restService.RegisterRoomCleaned(new RequestRegisterRoomCleaned
             {

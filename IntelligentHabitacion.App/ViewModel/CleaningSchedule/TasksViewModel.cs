@@ -112,7 +112,20 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
         private async Task OnDateSelected(DateTime date)
         {
+            try
+            {
+                SendingData();
 
+                Model = await _getTasksUseCase.Execute(date);
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                CurrentState = LayoutState.None;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
         }
         private void OnRandomAssignment()
         {

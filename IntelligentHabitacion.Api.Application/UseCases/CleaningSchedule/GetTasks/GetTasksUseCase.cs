@@ -106,7 +106,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
                 var schedule = new ResponseTaskJson
                 {
                     IdTaskToRegisterRoomCleaning = _hashids.EncodeLong(task.Id),
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId,
+                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId && today.Month == date.Month && today.Year == date.Year,
                     CanRate = await _repository.ThereAreaTaskToUserRateThisMonth(loggedUser.Id, room),
                     CanCompletedToday = !canCompletedToday && date.Month == today.Month && date.Year == today.Year,
                     Room = room,
@@ -142,7 +142,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
             {
                 response.Add(new ResponseTaskJson
                 {
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId,
+                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId && today.Month == date.Month && today.Year == date.Year,
                     CanRate = await _repository.ThereAreaTaskToUserRateThisMonth(loggedUser.Id, room),
                     CanCompletedToday = false,
                     Room = room,
@@ -165,7 +165,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
             {
                 response.Add(new ResponseTaskJson
                 {
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId,
+                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId && today.Month == date.Month && today.Year == date.Year,
                     CanRate = false,
                     CanCompletedToday = false,
                     Room = room

@@ -1906,6 +1906,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No responsible.
+        /// </summary>
+        internal static string TITLE_NO_RESPONSIBLE {
+            get {
+                return ResourceManager.GetString("TITLE_NO_RESPONSIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No results matched your filter..
         /// </summary>
         internal static string TITLE_NO_RESULTS_MATCHED_FILTER {

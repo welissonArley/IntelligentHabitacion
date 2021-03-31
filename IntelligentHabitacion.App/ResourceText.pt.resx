@@ -726,6 +726,9 @@
   <data name="TITLE_NO_COMMENTS" xml:space="preserve">
     <value>Sem comentários</value>
   </data>
+  <data name="TITLE_NO_RESPONSIBLE" xml:space="preserve">
+    <value>Sem responsáveis</value>
+  </data>
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>Seu filtro não encontrou nenhum resultado.</value>
   </data>

@@ -54,6 +54,9 @@ namespace IntelligentHabitacion.App.Template.Informations
                     component.ContentAssign.Children.Insert(0, CreateEllipseAssign(assign.ProfileColor, assign.Name));
                 }
 
+                if(!taskModel.Assign.Any())
+                    component.ContentAssign.Children.Insert(0, CreateNoAssignContent());
+
                 component.Room.Text = taskModel.Room;
                 component.OptionEdit.IsVisible = taskModel.CanEdit;
                 component.ThereIsTaskToRateContent.IsVisible = taskModel.CanRate;
@@ -107,6 +110,16 @@ namespace IntelligentHabitacion.App.Template.Informations
             }, 0, 0);
 
             return grid;
+        }
+        private static Label CreateNoAssignContent()
+        {
+            return new Label
+            {
+                Text = ResourceText.TITLE_NO_RESPONSIBLE,
+                FontSize = 18,
+                Style = (Style)Application.Current.Resources["LabelBold"],
+                TextColor = (Color)Application.Current.Resources["GrayDefault"]
+            };
         }
 
         public TaskCleaningScheduleAssignTemplate()

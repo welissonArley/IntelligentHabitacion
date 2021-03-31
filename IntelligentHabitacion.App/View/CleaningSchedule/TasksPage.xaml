@@ -155,6 +155,11 @@
                                 </StackLayout>
                             </ContentView>
                         </CollectionView.EmptyView>
+                        <CollectionView.Footer>
+                            <ContentView>
+                                <StackLayout HeightRequest="70"/>
+                            </ContentView>
+                        </CollectionView.Footer>
                     </CollectionView>
                 </StackLayout>
             </StackLayout>

@@ -741,6 +741,9 @@
   <data name="TITLE_NO_COMMENTS" xml:space="preserve">
     <value>No comments</value>
   </data>
+  <data name="TITLE_NO_RESPONSIBLE" xml:space="preserve">
+    <value>No responsible</value>
+  </data>
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>No results matched your filter.</value>
   </data>

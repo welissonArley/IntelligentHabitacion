@@ -172,6 +172,21 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Create
                 });
             }
 
+            var roomsWithoutAssign = loggedUser.HomeAssociation.Home.Rooms
+                .Where(c => !myRooms.Contains(c.Name) && !otherRooms.Contains(c.Name))
+                .Select(c => c.Name).OrderBy(c => c);
+
+            foreach (var room in roomsWithoutAssign)
+            {
+                response.Add(new ResponseTaskJson
+                {
+                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId,
+                    CanRate = false,
+                    CanCompletedToday = false,
+                    Room = room
+                });
+            }
+
             return response;
         }
 

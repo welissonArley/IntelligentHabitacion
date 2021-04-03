@@ -116,7 +116,7 @@ namespace IntelligentHabitacion.App.Template.Date
                     component._selectedDayHasRateAvaliable = rateAvaliable;
                     component._selectedDayHasAttention = showAttentionIcon;
 
-                    component.OnChangeDateCommand.Execute(new DateTime(date.Year, date.Month, day));
+                    //component.OnChangeDateCommand.Execute(new DateTime(date.Year, date.Month, day));
                 })
             });
 
@@ -191,11 +191,13 @@ namespace IntelligentHabitacion.App.Template.Date
 
         private void PreviousMonth_Clicked(object sender, EventArgs e)
         {
-            OnChangeDateCommand.Execute(Model.Date.AddMonths(-1));
+            var newDate = Model.Date.AddMonths(-1);
+            OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, _selectedDayActually));
         }
         private void NextMonth_Clicked(object sender, EventArgs e)
         {
-            OnChangeDateCommand.Execute(Model.Date.AddMonths(1));
+            var newDate = Model.Date.AddMonths(1);
+            OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, _selectedDayActually));
         }
         private async void ChangeMonthYear_Tapped(object sender, EventArgs e)
         {

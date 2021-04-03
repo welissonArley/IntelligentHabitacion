@@ -45,7 +45,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calend
         {
             return new ResponseCalendarCleaningScheduleJson
             {
-                Date = new DateTime(date.Year, date.Month, DateTime.UtcNow.Day),
+                Date = date,
                 CleanedDays = dto.Select(c => new ResponseCleaningScheduleCalendarDayInfoJson
                 {
                     Day = c.Day,

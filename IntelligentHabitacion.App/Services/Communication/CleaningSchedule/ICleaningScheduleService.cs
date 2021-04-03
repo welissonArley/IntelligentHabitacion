@@ -17,5 +17,7 @@ namespace IntelligentHabitacion.App.Services.Communication.CleaningSchedule
         Task<ApiResponse<string>> RegisterRoomCleaned([Body] RequestRegisterRoomCleaned request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Put("/Reminder")]
         Task<ApiResponse<string>> ReminderUsers([Body] IList<string> request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Put("/Calendar")]
+        Task<ApiResponse<ResponseCalendarCleaningScheduleJson>> Calendar([Body] RequestCalendarCleaningScheduleJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned;
@@ -57,7 +58,8 @@ namespace IntelligentHabitacion.App
                 .Register<IGetTasksUseCase, GetTasksUseCase>()
                 .Register<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
                 .Register<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>()
-                .Register<IReminderUseCase, ReminderUseCase>();
+                .Register<IReminderUseCase, ReminderUseCase>()
+                .Register<ICalendarUseCase, CalendarUseCase>();
         }
     }
 }

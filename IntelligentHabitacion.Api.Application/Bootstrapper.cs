@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
@@ -70,7 +71,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IGetTasksUseCase, GetTasksUseCase>()
                 .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
                 .AddScoped<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>()
-                .AddScoped<IReminderUseCase, ReminderUseCase>();
+                .AddScoped<IReminderUseCase, ReminderUseCase>()
+                .AddScoped<ICalendarUseCase, CalendarUseCase>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntelligentHabitacion.Api.Domain.Dto;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,5 +13,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task<bool> TaskCleanedOnDate(long taskId, DateTime date);
         Task<bool> ThereAreaTaskToUserRateThisMonth(long userId, string room);
         Task<Entity.CleaningSchedule> GetTaskById(long id);
+        Task<IList<CleaningScheduleCalendarDayInfoDto>> GetCalendarTasksForMonth(DateTime month, long homeId, string room, long userId);
     }
 }

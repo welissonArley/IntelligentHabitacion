@@ -1,4 +1,5 @@
-﻿using IntelligentHabitacion.Api.Domain.Entity;
+﻿using IntelligentHabitacion.Api.Domain.Dto;
+using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -88,6 +89,33 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         public Task<CleaningSchedule> GetTaskById(long id)
         {
             return _context.CleaningSchedules.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task<IList<CleaningScheduleCalendarDayInfoDto>> GetCalendarTasksForMonth(DateTime month, long homeId, string room, long userId)
+        {
+            var query = _context.CleaningSchedules.AsNoTracking()
+                .Include(c => c.CleaningTasksCompleteds)
+                .Where(c => c.CleaningTasksCompleteds.Any() && c.HomeId == homeId && c.ScheduleStartAt.Month == month.Month && c.ScheduleStartAt.Year == month.Year);
+
+            if (!string.IsNullOrWhiteSpace(room))
+                query = query.Where(c => c.Room.Equals(room));
+
+            var result = await query.SelectMany(c => c.CleaningTasksCompleteds).ToListAsync();
+            var group = result.GroupBy(c => c.CreateDate.Day).OrderBy(c => c.Key);
+
+            var response = new List<CleaningScheduleCalendarDayInfoDto>();
+
+            foreach(var dayTask in group)
+            {
+                response.Add(new CleaningScheduleCalendarDayInfoDto
+                {
+                    Day = dayTask.Key,
+                    AmountCleanedRecords = dayTask.Count(),
+                    AmountcleanedRecordsToRate = dayTask.Count(c => !_context.CleaningRatingUsers.Any(w => w.UserId == userId && w.CleaningTaskCompletedId == c.Id))
+                });
+            }
+
+            return response;
         }
     }
 }

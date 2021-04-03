@@ -5,6 +5,9 @@
              x:Class="IntelligentHabitacion.App.Template.Informations.TaskCleaningScheduleAssignTemplate">
   <ContentView.Content>
         <StackLayout Padding="3">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SelectTask_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
             <Frame Margin="0,20,0,0" CornerRadius="4" BackgroundColor="White" HasShadow="True" Padding="0">
                 <StackLayout Spacing="-3">
                     <Grid Margin="15,20,15,0" ColumnDefinitions="*" RowDefinitions="*">

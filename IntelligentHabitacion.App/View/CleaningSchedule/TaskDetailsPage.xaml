@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:calendar="clr-namespace:IntelligentHabitacion.App.Template.Date"
+             xmlns:skeleton="clr-namespace:IntelligentHabitacion.App.Template.Skeleton"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{Binding Model.Room}"
+             x:Name="TaskDetailsContentPage"
+             x:Class="IntelligentHabitacion.App.View.CleaningSchedule.TaskDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <StackLayout xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <skeleton:CalendarSkeleton />
+                                </StackLayout>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <calendar:CalendarTemplate OnChangeDateCommand="{Binding Path=BindingContext.OnDateChangedCommand, Source={x:Reference TaskDetailsContentPage}}" Model="{Binding Model}" />
+            </StackLayout>
+
+            <Label Margin="0,20,0,0" Text="Historico" FontSize="13" Style="{StaticResource LabelSemiBold}" TextColor="{StaticResource GrayDefault}"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

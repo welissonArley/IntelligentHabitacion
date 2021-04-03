@@ -13,6 +13,11 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskCleaningScheduleAssignTemplate : ContentView
     {
+        public ICommand OnSelectTaskDetails
+        {
+            get => (ICommand)GetValue(OnSelectTaskDetailsProperty);
+            set => SetValue(OnSelectTaskDetailsProperty, value);
+        }
         public ICommand OnConfirmRoomCleanedToday
         {
             get => (ICommand)GetValue(OnConfirmRoomCleanedTodayProperty);
@@ -33,6 +38,14 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         public static readonly BindableProperty OnConfirmRoomCleanedTodayProperty = BindableProperty.Create(
                                                         propertyName: "OnConfirmRoomCleanedToday",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(TaskCleaningScheduleAssignTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: null);
+
+        public static readonly BindableProperty OnSelectTaskDetailsProperty = BindableProperty.Create(
+                                                        propertyName: "OnSelectTaskDetails",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(TaskCleaningScheduleAssignTemplate),
                                                         defaultValue: null,
@@ -133,6 +146,11 @@ namespace IntelligentHabitacion.App.Template.Informations
             ICommand callbackConfirm = new Command(() => OnConfirmRoomCleanedToday.Execute(Task));
 
             await Navigation.PushPopupAsync(new ConfirmAction(string.Format(ResourceText.TITLE_ROOM_CLEANED, room), ResourceText.DESCRIPTION_ROOM_CLEANED, View.Modal.Type.Green, callbackConfirm, callbackCancel));
+        }
+
+        private void SelectTask_Tapped(object sender, System.EventArgs e)
+        {
+            OnSelectTaskDetails.Execute(Task);
         }
     }
 }

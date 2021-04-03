@@ -33,6 +33,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
         public ScheduleCleaningHouseModel Model { get; set; }
 
+        public ICommand SelectTaskToShowDetailsCommand { get; }
         public ICommand RegisterRoomClenedTodayCommand { get; }
         public ICommand ConcludeCreateFirstScheduleCommand { get; }
         public ICommand RandomAssignmentCommand { get; }
@@ -63,6 +64,13 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             OnDateSelectedCommand = new Command(async (date) =>
             {
                 await OnDateSelected((DateTime)date);
+            });
+            SelectTaskToShowDetailsCommand = new Command(async (task) =>
+            {
+                await Navigation.PushAsync<TaskDetailsViewModel>(async(viewModel, _) =>
+                {
+                    await viewModel.Initialize((TaskModel)task);
+                });
             });
 
             ICommand SelectRegisterRoomsCleanedCommand = new Command(async() =>

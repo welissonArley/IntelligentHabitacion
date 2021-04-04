@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Reminder;
 using IntelligentHabitacion.Api.Filter;
@@ -144,6 +145,36 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         public async Task<IActionResult> Calendar(
             [FromServices] ICalendarUseCase useCase,
             [FromBody] RequestCalendarCleaningScheduleJson request)
+        {
+            try
+            {
+                VerifyParameters(request);
+
+                var response = await useCase.Execute(request);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function return the all tasks cleaned in the day.
+        /// If the room name on request is empty, so this function will return the calendar considering all rooms cleaned
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("HistoryOfTheDay")]
+        [ProducesResponseType(typeof(IList<ResponseHistoryOfTheDayJson>), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> HistoryOfTheDay(
+            [FromServices] IHistoryOfTheDayUseCase useCase,
+            [FromBody] RequestHistoryOfTheDayJson request)
         {
             try
             {

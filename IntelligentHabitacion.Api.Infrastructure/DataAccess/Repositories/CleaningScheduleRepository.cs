@@ -117,5 +117,38 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
             return response;
         }
+
+        public async Task<IList<CleaningScheduleHistoryOfTheDayDto>> GetHistoryOfTheDay(DateTime date, long homeId, string room, long userId)
+        {
+            var query = _context.CleaningSchedules.AsNoTracking()
+                .Include(c => c.User)
+                .Include(c => c.CleaningTasksCompleteds)
+                .Where(c => c.CleaningTasksCompleteds.Any() && c.HomeId == homeId && c.ScheduleStartAt.Month == date.Month && c.ScheduleStartAt.Year == date.Year);
+
+            if (!string.IsNullOrWhiteSpace(room))
+                query = query.Where(c => c.Room.Equals(room));
+
+            var response = new List<CleaningScheduleHistoryOfTheDayDto>();
+            IEnumerable<CleaningTasksCompleted> list;
+
+            foreach (var cleaningSchedule in query)
+            {
+                list = cleaningSchedule.CleaningTasksCompleteds.Where(c => c.CreateDate.Date == date.Date);
+
+                var dtoList = list.Select(c => new CleaningScheduleHistoryOfTheDayDto
+                {
+                    Id = c.Id,
+                    AverageRate = c.AverageRating,
+                    User = cleaningSchedule.User.Name
+                });
+
+                response.AddRange(dtoList);
+            }
+
+            foreach (var task in response)
+                task.CanRate = !(await _context.CleaningRatingUsers.AnyAsync(w => w.UserId == userId && w.CleaningTaskCompletedId == task.Id));
+
+            return response.OrderBy(c => c.User).ToList();
+        }
     }
 }

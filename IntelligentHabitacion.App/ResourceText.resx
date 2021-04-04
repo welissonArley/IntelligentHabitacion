@@ -456,6 +456,9 @@
   <data name="TITLE_ASSIGN_TASKS" xml:space="preserve">
     <value>Assign tasks</value>
   </data>
+  <data name="TITLE_AVERAGE_RATE" xml:space="preserve">
+    <value>Average rating</value>
+  </data>
   <data name="TITLE_BATHROOM" xml:space="preserve">
     <value>Bathroom</value>
   </data>
@@ -750,6 +753,9 @@
   <data name="TITLE_NO_COMMENTS" xml:space="preserve">
     <value>No comments</value>
   </data>
+  <data name="TITLE_NO_RECORDS" xml:space="preserve">
+    <value>No record</value>
+  </data>
   <data name="TITLE_NO_RESPONSIBLE" xml:space="preserve">
     <value>No responsible</value>
   </data>
@@ -896,6 +902,9 @@
   </data>
   <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
     <value>Tasks:</value>
+  </data>
+  <data name="TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY" xml:space="preserve">
+    <value>There are no cleaning records for this day</value>
   </data>
   <data name="TITLE_THE_CITY_IS" xml:space="preserve">
     <value>The City is:</value>

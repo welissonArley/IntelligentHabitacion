@@ -441,6 +441,9 @@
   <data name="TITLE_ASSIGN_TASKS" xml:space="preserve">
     <value>Atribuir tarefas</value>
   </data>
+  <data name="TITLE_AVERAGE_RATE" xml:space="preserve">
+    <value>Avaliação média</value>
+  </data>
   <data name="TITLE_BATHROOM" xml:space="preserve">
     <value>Banheiro</value>
   </data>
@@ -735,6 +738,9 @@
   <data name="TITLE_NO_COMMENTS" xml:space="preserve">
     <value>Sem comentários</value>
   </data>
+  <data name="TITLE_NO_RECORDS" xml:space="preserve">
+    <value>Nenhum registro</value>
+  </data>
   <data name="TITLE_NO_RESPONSIBLE" xml:space="preserve">
     <value>Sem responsáveis</value>
   </data>
@@ -881,6 +887,9 @@
   </data>
   <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
     <value>Tarefas:</value>
+  </data>
+  <data name="TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY" xml:space="preserve">
+    <value>Não há registros de limpeza para este dia</value>
   </data>
   <data name="TITLE_THIS_OPERATION_WILL_EXPIRE" xml:space="preserve">
     <value>Esta operação vai expirar em:</value>

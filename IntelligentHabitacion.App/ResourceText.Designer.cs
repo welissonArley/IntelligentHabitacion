@@ -1078,6 +1078,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average rating.
+        /// </summary>
+        internal static string TITLE_AVERAGE_RATE {
+            get {
+                return ResourceManager.GetString("TITLE_AVERAGE_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bathroom.
         /// </summary>
         internal static string TITLE_BATHROOM {
@@ -1933,6 +1942,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No record.
+        /// </summary>
+        internal static string TITLE_NO_RECORDS {
+            get {
+                return ResourceManager.GetString("TITLE_NO_RECORDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No responsible.
         /// </summary>
         internal static string TITLE_NO_RESPONSIBLE {
@@ -2406,6 +2424,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_THE_CITY_IS {
             get {
                 return ResourceManager.GetString("TITLE_THE_CITY_IS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no cleaning records for this day.
+        /// </summary>
+        internal static string TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY {
+            get {
+                return ResourceManager.GetString("TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY", resourceCulture);
             }
         }
         

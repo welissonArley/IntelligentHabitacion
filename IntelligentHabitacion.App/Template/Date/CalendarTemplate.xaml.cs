@@ -13,6 +13,11 @@ namespace IntelligentHabitacion.App.Template.Date
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalendarTemplate : ContentView
     {
+        public ICommand OnDaySelectedCommand
+        {
+            get => (ICommand)GetValue(OnDaySelectedCommandProperty);
+            set => SetValue(OnDaySelectedCommandProperty, value);
+        }
         public ICommand OnChangeDateCommand
         {
             get => (ICommand)GetValue(OnChangeDateCommandProperty);
@@ -37,6 +42,13 @@ namespace IntelligentHabitacion.App.Template.Date
                                                         propertyChanged: ModelChanged);
 
         public static readonly BindableProperty OnChangeDateCommandProperty = BindableProperty.Create(propertyName: "OnChangeDate",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(CalendarTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
+        public static readonly BindableProperty OnDaySelectedCommandProperty = BindableProperty.Create(propertyName: "OnDaySelected",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(CalendarTemplate),
                                                         defaultValue: null,
@@ -116,7 +128,7 @@ namespace IntelligentHabitacion.App.Template.Date
                     component._selectedDayHasRateAvaliable = rateAvaliable;
                     component._selectedDayHasAttention = showAttentionIcon;
 
-                    //component.OnChangeDateCommand.Execute(new DateTime(date.Year, date.Month, day));
+                    component.OnDaySelectedCommand.Execute(new DateTime(date.Year, date.Month, day));
                 })
             });
 

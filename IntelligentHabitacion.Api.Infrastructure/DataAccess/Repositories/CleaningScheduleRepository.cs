@@ -111,11 +111,17 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 {
                     Day = dayTask.Key,
                     AmountCleanedRecords = dayTask.Count(),
-                    AmountcleanedRecordsToRate = dayTask.Count(c => !_context.CleaningRatingUsers.Any(w => w.UserId == userId && w.CleaningTaskCompletedId == c.Id))
+                    AmountcleanedRecordsToRate = dayTask.Count(c => CountAmountcleanedRecordsToRate(userId, c, query))
                 });
             }
 
             return response;
+        }
+
+        private bool CountAmountcleanedRecordsToRate(long userId, CleaningTasksCompleted cleaningTasksCompleted, IQueryable<CleaningSchedule> cleaningSchedules)
+        {
+            return cleaningSchedules.First(c => c.Id == cleaningTasksCompleted.CleaningScheduleId).UserId == userId ? false :
+                !_context.CleaningRatingUsers.Any(w => w.UserId == userId && w.CleaningTaskCompletedId == cleaningTasksCompleted.Id);
         }
 
         public async Task<IList<CleaningScheduleHistoryOfTheDayDto>> GetHistoryOfTheDay(DateTime date, long homeId, string room, long userId)
@@ -139,13 +145,14 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 {
                     Id = c.Id,
                     AverageRate = c.AverageRating,
-                    User = cleaningSchedule.User.Name
+                    User = cleaningSchedule.User.Name,
+                    CanRate = cleaningSchedule.UserId != userId
                 });
 
                 response.AddRange(dtoList);
             }
 
-            foreach (var task in response)
+            foreach (var task in response.Where(c => c.CanRate))
                 task.CanRate = !(await _context.CleaningRatingUsers.AnyAsync(w => w.UserId == userId && w.CleaningTaskCompletedId == task.Id));
 
             return response.OrderBy(c => c.User).ToList();

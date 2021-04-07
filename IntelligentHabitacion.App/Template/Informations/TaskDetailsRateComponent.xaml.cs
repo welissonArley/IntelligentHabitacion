@@ -46,6 +46,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                     {
                         component.LabelWithoutRate.IsVisible = true;
                         component.RatingStars.IsVisible = false;
+                        component.SeeDetailsButton.IsVisible = false;
                     }
                     else
                     {

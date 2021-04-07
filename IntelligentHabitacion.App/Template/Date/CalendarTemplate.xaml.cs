@@ -80,9 +80,6 @@ namespace IntelligentHabitacion.App.Template.Date
             while (component.DaysContent.Children.Count > 8)
                 component.DaysContent.Children.RemoveAt(8);
 
-            if (component.DaysContent.RowDefinitions.Count == 8 && (column <= 4 || (column == 5 && DateTime.DaysInMonth(model.Date.Year, model.Date.Month) == 30)))
-                component.DaysContent.RowDefinitions.RemoveAt(7);
-
             for (var day = 1; day <= DateTime.DaysInMonth(model.Date.Year, model.Date.Month); day++)
             {
                 var dayDetails = model.CleanedDays.FirstOrDefault(c => c.Day == day);
@@ -204,19 +201,31 @@ namespace IntelligentHabitacion.App.Template.Date
         private void PreviousMonth_Clicked(object sender, EventArgs e)
         {
             var newDate = Model.Date.AddMonths(-1);
-            OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, _selectedDayActually));
+            var day = _selectedDayActually;
+            if (_selectedDayActually > DateTime.DaysInMonth(newDate.Year, newDate.Month))
+                day = DateTime.DaysInMonth(newDate.Year, newDate.Month);
+
+            OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, day));
         }
         private void NextMonth_Clicked(object sender, EventArgs e)
         {
             var newDate = Model.Date.AddMonths(1);
-            OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, _selectedDayActually));
+            var day = _selectedDayActually;
+            if (_selectedDayActually > DateTime.DaysInMonth(newDate.Year, newDate.Month))
+                day = DateTime.DaysInMonth(newDate.Year, newDate.Month);
+
+            OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, day));
         }
         private async void ChangeMonthYear_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushPopupAsync(new CalendarMonth(Model.Date, new Command((date) =>
             {
                 var newDate = (DateTime)date;
-                OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, _selectedDayActually));
+                var day = _selectedDayActually;
+                if (_selectedDayActually > DateTime.DaysInMonth(newDate.Year, newDate.Month))
+                    day = DateTime.DaysInMonth(newDate.Year, newDate.Month);
+
+                OnChangeDateCommand.Execute(new DateTime(newDate.Year, newDate.Month, day));
             })));
         }
     }

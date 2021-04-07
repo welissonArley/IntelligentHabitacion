@@ -13,7 +13,7 @@
                     <ImageButton Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Margin="15,0,0,0" Rotation="270"/>
                 </StackLayout>
             </StackLayout>
-            <Grid ColumnSpacing="1" x:Name="DaysContent" RowDefinitions="17,1,40,40,40,40,40"
+            <Grid ColumnSpacing="1" x:Name="DaysContent" RowDefinitions="17,1,40,40,40,40,40,40"
                   ColumnDefinitions="*,*,*,*,*,*,*">
 
                 <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Text="{x:Static resourceText:ResourceText.TITLE_SUNDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
@@ -26,7 +26,6 @@
 
                 <BoxView Color="{StaticResource GrayDefault}" Grid.Row="1" Grid.ColumnSpan="7"></BoxView>
 
-                <customcontrol:SkeletonView Grid.Column="4" Grid.Row="2" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
                 <customcontrol:SkeletonView Grid.Column="5" Grid.Row="2" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
                 <customcontrol:SkeletonView Grid.Column="6" Grid.Row="2" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
                 <customcontrol:SkeletonView Grid.Column="0" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
@@ -56,6 +55,8 @@
                 <customcontrol:SkeletonView Grid.Column="3" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
                 <customcontrol:SkeletonView Grid.Column="4" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
                 <customcontrol:SkeletonView Grid.Column="5" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="6" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="0" Grid.Row="7" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
             </Grid>
         </StackLayout>
     </ContentView.Content>

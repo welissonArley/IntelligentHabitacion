@@ -2,6 +2,7 @@
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.Reminder;
 using IntelligentHabitacion.App.UseCases.Friends.ChangeDateFriendJoinHome;
@@ -59,7 +60,8 @@ namespace IntelligentHabitacion.App
                 .Register<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
                 .Register<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>()
                 .Register<IReminderUseCase, ReminderUseCase>()
-                .Register<ICalendarUseCase, CalendarUseCase>();
+                .Register<ICalendarUseCase, CalendarUseCase>()
+                .Register<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>();
         }
     }
 }

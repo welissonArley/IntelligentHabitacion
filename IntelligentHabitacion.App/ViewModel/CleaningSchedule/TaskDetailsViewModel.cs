@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.Calendar;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,8 +16,10 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public LayoutState CurrentStateCalendar { get; set; }
         public LayoutState CurrentStateHistoric { get; set; }
 
+        private readonly Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase;
         private readonly Lazy<ICalendarUseCase> useCase;
         private ICalendarUseCase _useCase => useCase.Value;
+        private IHistoryOfTheDayUseCase _historyOfTheDayUseCase => historyOfTheDayUseCase.Value;
 
         public TaskModel TaskModel { get; set; }
         public CleaningScheduleCalendarModel Model { get; set; }
@@ -25,39 +28,57 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public ICommand OnDateChangedCommand { get; }
         public ICommand OnDaySelectedCommand { get; }
 
-        public TaskDetailsViewModel(Lazy<ICalendarUseCase> useCase)
+        public TaskDetailsViewModel(Lazy<ICalendarUseCase> useCase, Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase)
         {
+            CurrentStateHistoric = LayoutState.Loading;
+            CurrentStateCalendar = LayoutState.Loading;
+
             this.useCase = useCase;
+            this.historyOfTheDayUseCase = historyOfTheDayUseCase;
 
             OnDateChangedCommand = new Command(async (dateReturned) =>
             {
+                CurrentStateHistoric = LayoutState.Loading;
+                CurrentStateCalendar = LayoutState.Loading;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
+
                 var date = (DateTime)dateReturned;
 
                 await FillCalendarModel(date, TaskModel.Room);
-                await FillTaskDayDetailsModel(date);
+                await FillTaskDayDetailsModel(date, TaskModel.Room);
             });
             OnDaySelectedCommand = new Command(async (dateReturned) =>
             {
                 var date = (DateTime)dateReturned;
 
-                await FillTaskDayDetailsModel(date);
+                await FillTaskDayDetailsModel(date, TaskModel.Room);
             });
         }
 
         private async Task FillCalendarModel(DateTime date, string room)
         {
-            CurrentStateCalendar = LayoutState.Loading;
-            OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
+            if(CurrentStateCalendar != LayoutState.Loading)
+            {
+                CurrentStateCalendar = LayoutState.Loading;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
+            }
 
             Model = await _useCase.Execute(date, room);
 
             CurrentStateCalendar = LayoutState.None;
             OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
         }
-        private async Task FillTaskDayDetailsModel(DateTime date)
+        private async Task FillTaskDayDetailsModel(DateTime date, string room)
         {
-            CurrentStateHistoric = LayoutState.Loading;
-            OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
+            if(CurrentStateHistoric != LayoutState.Loading)
+            {
+                CurrentStateHistoric = LayoutState.Loading;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
+            }
+
+            var result = await _historyOfTheDayUseCase.Execute(date, room);
+            DetailsDayModel = new ObservableCollection<DetailsTaskCleanedOnDayModel>(result);
 
             CurrentStateHistoric = LayoutState.None;
             OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
@@ -67,10 +88,8 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         {
             TaskModel = taskModel;
 
-            var calendarTask = FillCalendarModel(DateTime.UtcNow, taskModel.Room);
-            var taskDetailsTask = FillTaskDayDetailsModel(DateTime.UtcNow);
-
-            await Task.WhenAll(calendarTask, taskDetailsTask);
+            await FillCalendarModel(DateTime.UtcNow, taskModel.Room);
+            await FillTaskDayDetailsModel(DateTime.UtcNow, taskModel.Room);
         }
     }
 }

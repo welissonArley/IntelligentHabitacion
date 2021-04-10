@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay
             _restService = RestService.For<ICleaningScheduleService>(BaseAddress());
         }
 
-        public async Task<IList<DetailsTaskCleanedOnDayModel>> Execute(DateTime date, string room = null)
+        public async Task<IList<DetailsTaskCleanedOnDayModelGroup>> Execute(DateTime date, string room = null)
         {
             var token = await _userPreferences.GetToken();
             var response = await _restService.HistoryOfTheDay(new RequestHistoryOfTheDayJson
@@ -39,15 +39,15 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay
             return Mapper(response.Content);
         }
 
-        private IList<DetailsTaskCleanedOnDayModel> Mapper(IList<ResponseHistoryOfTheDayJson> response)
+        private IList<DetailsTaskCleanedOnDayModelGroup> Mapper(IList<ResponseHistoryRoomOfTheDayJson> response)
         {
-            return response.Select(c => new DetailsTaskCleanedOnDayModel
+            return response.Select(c => new DetailsTaskCleanedOnDayModelGroup(c.Room, c.History.Select(w => new DetailsTaskCleanedOnDayModel
             {
-                AverageRate = c.AverageRate,
-                CanRate = c.CanRate,
-                Id = c.Id,
-                User = c.User
-            }).ToList();
+                AverageRate = w.AverageRate,
+                CanRate = w.CanRate,
+                Id = w.Id,
+                User = w.User
+            }).ToList())).ToList();
         }
     }
 }

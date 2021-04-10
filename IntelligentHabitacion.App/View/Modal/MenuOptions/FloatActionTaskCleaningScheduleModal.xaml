@@ -17,6 +17,9 @@
                     <Image Source="ActionButtonNotify" HeightRequest="40" WidthRequest="40"></Image>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,15,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ViewCompleteHistory_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
                     <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_VIEW_FULL_HISTORY}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
                     <Image Source="ActionButtonCalendar" HeightRequest="40" WidthRequest="40"></Image>
                 </StackLayout>

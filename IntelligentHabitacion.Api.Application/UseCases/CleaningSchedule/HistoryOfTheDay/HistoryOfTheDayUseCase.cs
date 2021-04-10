@@ -44,14 +44,18 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Histor
             return response;
         }
 
-        private IList<ResponseHistoryOfTheDayJson> Mapper(IList<CleaningScheduleHistoryOfTheDayDto> dto)
+        private IList<ResponseHistoryRoomOfTheDayJson> Mapper(IList<CleaningScheduleHistoryRoomOfTheDayDto> dto)
         {
-            return dto.Select(c => new ResponseHistoryOfTheDayJson
+            return dto.Select(c => new ResponseHistoryRoomOfTheDayJson
             {
-                User = c.User,
-                AverageRate = c.AverageRate,
-                CanRate = c.CanRate,
-                Id = _hashids.EncodeLong(c.Id)
+                Room = c.Room,
+                History = c.History.Select(w => new ResponseHistoryCleanDayJson
+                {
+                    User = w.User,
+                    AverageRate = w.AverageRate,
+                    CanRate = w.CanRate,
+                    Id = _hashids.EncodeLong(w.Id)
+                }).ToList()
             }).ToList();
         }
     }

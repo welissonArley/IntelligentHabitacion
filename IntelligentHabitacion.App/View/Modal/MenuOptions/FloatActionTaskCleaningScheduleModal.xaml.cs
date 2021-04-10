@@ -12,14 +12,16 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
     {
         private ICommand RegisterRoomsCleanedCommand { get; }
         private ICommand RememberUserCleanRoomCommand { get; }
+        private ICommand SelectViewCompleteHistoryCommand { get; }
 
         public FloatActionTaskCleaningScheduleModal(ICommand registerRoomsCleanedCommand,
-            ICommand rememberUserCleanRoom)
+            ICommand rememberUserCleanRoom, ICommand selectViewCompleteHistoryCommand)
         {
             InitializeComponent();
 
             RegisterRoomsCleanedCommand = registerRoomsCleanedCommand;
             RememberUserCleanRoomCommand = rememberUserCleanRoom;
+            SelectViewCompleteHistoryCommand = selectViewCompleteHistoryCommand;
         }
 
         private async Task CloseThisModal()
@@ -38,6 +40,11 @@ namespace IntelligentHabitacion.App.View.Modal.MenuOptions
         {
             await CloseThisModal();
             RememberUserCleanRoomCommand.Execute(null);
+        }
+        private async void ViewCompleteHistory_Tapped(object sender, System.EventArgs e)
+        {
+            await CloseThisModal();
+            SelectViewCompleteHistoryCommand.Execute(null);
         }
     }
 }

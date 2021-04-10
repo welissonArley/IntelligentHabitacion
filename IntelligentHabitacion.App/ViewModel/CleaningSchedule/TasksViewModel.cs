@@ -149,10 +149,17 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                     });
                 });
             });
+            ICommand SelectViewCompleteHistoryCommand = new Command(async() =>
+            {
+                await Navigation.PushAsync<CompleteHistoryViewModel>(async(viewModel, _) =>
+                {
+                    await viewModel.Initialize();
+                });
+            });
             FloatActionCommand = new Command(async () =>
             {
                 var navigation = Resolver.Resolve<INavigation>();
-                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal(SelectRegisterRoomsCleanedCommand, SelectRememberUserCleanRoom));
+                await navigation.PushPopupAsync(new FloatActionTaskCleaningScheduleModal(SelectRegisterRoomsCleanedCommand, SelectRememberUserCleanRoom, SelectViewCompleteHistoryCommand));
             });
         }
 

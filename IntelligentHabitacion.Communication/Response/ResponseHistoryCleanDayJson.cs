@@ -1,6 +1,6 @@
 ﻿namespace IntelligentHabitacion.Communication.Response
 {
-    public class ResponseHistoryOfTheDayJson
+    public class ResponseHistoryCleanDayJson
     {
         public string Id { get; set; }
         public string User { get; set; }

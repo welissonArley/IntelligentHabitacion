@@ -6,7 +6,7 @@
              x:Class="IntelligentHabitacion.App.Template.Informations.TaskDetailsRateComponent">
   <ContentView.Content>
         <StackLayout Margin="0,15,0,0">
-            <Label x:Name="UserLabel" FontSize="13" Style="{StaticResource LabelSemiBold}"></Label>
+            <Label x:Name="UserLabel" FontSize="13"></Label>
 
             <StackLayout x:Name="ContentShowRateDetails" Orientation="Horizontal" Margin="0,5,0,0">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_AVERAGE_RATE}" HorizontalOptions="FillAndExpand" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelThin}" FontSize="14"></Label>

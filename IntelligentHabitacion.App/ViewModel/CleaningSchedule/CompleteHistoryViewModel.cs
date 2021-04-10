@@ -11,24 +11,23 @@ using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 {
-    public class TaskDetailsViewModel : BaseViewModel
+    public class CompleteHistoryViewModel : BaseViewModel
     {
         public LayoutState CurrentStateCalendar { get; set; }
         public LayoutState CurrentStateHistoric { get; set; }
+
+        public CleaningScheduleCalendarModel Model { get; set; }
+        public ObservableCollection<DetailsTaskCleanedOnDayModelGroup> DetailsDayModel { get; set; }
 
         private readonly Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase;
         private readonly Lazy<ICalendarUseCase> useCase;
         private ICalendarUseCase _useCase => useCase.Value;
         private IHistoryOfTheDayUseCase _historyOfTheDayUseCase => historyOfTheDayUseCase.Value;
 
-        public TaskModel TaskModel { get; set; }
-        public CleaningScheduleCalendarModel Model { get; set; }
-        public ObservableCollection<DetailsTaskCleanedOnDayModelGroup> DetailsDayModel { get; set; }
-
         public ICommand OnDateChangedCommand { get; }
         public ICommand OnDaySelectedCommand { get; }
 
-        public TaskDetailsViewModel(Lazy<ICalendarUseCase> useCase, Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase)
+        public CompleteHistoryViewModel(Lazy<ICalendarUseCase> useCase, Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase)
         {
             CurrentStateHistoric = LayoutState.Loading;
             CurrentStateCalendar = LayoutState.Loading;
@@ -45,51 +44,49 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
                 var date = (DateTime)dateReturned;
 
-                await FillCalendarModel(date, TaskModel.Room);
-                await FillTaskDayDetailsModel(date, TaskModel.Room);
+                await FillCalendarModel(date);
+                await FillTaskDayDetailsModel(date);
             });
             OnDaySelectedCommand = new Command(async (dateReturned) =>
             {
                 var date = (DateTime)dateReturned;
 
-                await FillTaskDayDetailsModel(date, TaskModel.Room);
+                await FillTaskDayDetailsModel(date);
             });
         }
 
-        private async Task FillCalendarModel(DateTime date, string room)
+        private async Task FillCalendarModel(DateTime date)
         {
-            if(CurrentStateCalendar != LayoutState.Loading)
+            if (CurrentStateCalendar != LayoutState.Loading)
             {
                 CurrentStateCalendar = LayoutState.Loading;
                 OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
             }
 
-            Model = await _useCase.Execute(date, room);
+            Model = await _useCase.Execute(date);
 
             CurrentStateCalendar = LayoutState.None;
             OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
         }
-        private async Task FillTaskDayDetailsModel(DateTime date, string room)
+        private async Task FillTaskDayDetailsModel(DateTime date)
         {
-            if(CurrentStateHistoric != LayoutState.Loading)
+            if (CurrentStateHistoric != LayoutState.Loading)
             {
                 CurrentStateHistoric = LayoutState.Loading;
                 OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
             }
 
-            var result = await _historyOfTheDayUseCase.Execute(date, room);
+            var result = await _historyOfTheDayUseCase.Execute(date);
             DetailsDayModel = new ObservableCollection<DetailsTaskCleanedOnDayModelGroup>(result);
 
             CurrentStateHistoric = LayoutState.None;
             OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
         }
 
-        public async Task Initialize(TaskModel taskModel)
+        public async Task Initialize()
         {
-            TaskModel = taskModel;
-
-            await FillCalendarModel(DateTime.UtcNow, taskModel.Room);
-            await FillTaskDayDetailsModel(DateTime.UtcNow, taskModel.Room);
+            await FillCalendarModel(DateTime.UtcNow);
+            await FillTaskDayDetailsModel(DateTime.UtcNow);
         }
     }
 }

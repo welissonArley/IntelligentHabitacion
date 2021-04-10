@@ -7,6 +7,6 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay
 {
     public interface IHistoryOfTheDayUseCase
     {
-        Task<IList<DetailsTaskCleanedOnDayModel>> Execute(DateTime date, string room = null);
+        Task<IList<DetailsTaskCleanedOnDayModelGroup>> Execute(DateTime date, string room = null);
     }
 }

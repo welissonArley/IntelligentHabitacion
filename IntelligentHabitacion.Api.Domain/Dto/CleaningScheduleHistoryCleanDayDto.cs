@@ -1,6 +1,6 @@
 ﻿namespace IntelligentHabitacion.Api.Domain.Dto
 {
-    public class CleaningScheduleHistoryOfTheDayDto
+    public class CleaningScheduleHistoryCleanDayDto
     {
         public long Id { get; set; }
         public string User { get; set; }

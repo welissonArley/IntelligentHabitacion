@@ -6,9 +6,8 @@
              xmlns:informations="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:skeleton="clr-namespace:IntelligentHabitacion.App.Template.Skeleton"
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-             Title="{Binding TaskModel.Room}"
-             x:Name="TaskDetailsContentPage"
-             x:Class="IntelligentHabitacion.App.View.CleaningSchedule.TaskDetailsPage">
+             x:Name="CompleteHistoryContentPage"
+             x:Class="IntelligentHabitacion.App.View.CleaningSchedule.CompleteHistoryPage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
             <StackLayout xct:StateLayout.CurrentState="{Binding CurrentStateCalendar}">
@@ -24,10 +23,10 @@
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
 
-                <calendar:CalendarTemplate OnDaySelectedCommand="{Binding Path=BindingContext.OnDaySelectedCommand, Source={x:Reference TaskDetailsContentPage}}" OnChangeDateCommand="{Binding Path=BindingContext.OnDateChangedCommand, Source={x:Reference TaskDetailsContentPage}}" Model="{Binding Model}" />
+                <calendar:CalendarTemplate OnDaySelectedCommand="{Binding Path=BindingContext.OnDaySelectedCommand, Source={x:Reference CompleteHistoryContentPage}}" OnChangeDateCommand="{Binding Path=BindingContext.OnDateChangedCommand, Source={x:Reference CompleteHistoryContentPage}}" Model="{Binding Model}" />
             </StackLayout>
 
-            <Label Margin="0,20,0,5" Text="Historico" FontSize="13" Style="{StaticResource LabelSemiBold}" TextColor="{StaticResource GrayDefault}"></Label>
+            <Label Margin="0,20,0,0" Text="Historico" FontSize="13" Style="{StaticResource LabelSemiBold}" TextColor="{StaticResource GrayDefault}"></Label>
 
             <StackLayout xct:StateLayout.CurrentState="{Binding CurrentStateHistoric}">
                 <xct:StateLayout.StateViews>
@@ -44,6 +43,11 @@
                 </xct:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding DetailsDayModel}" IsGrouped="True">
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Label Padding="0,20,0,20" Text="{Binding Room}" Style="{StaticResource LabelSemiBold}" FontSize="13"></Label>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>

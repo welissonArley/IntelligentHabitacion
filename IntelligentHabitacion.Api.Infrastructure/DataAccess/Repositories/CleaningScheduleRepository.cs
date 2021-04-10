@@ -124,7 +124,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                 !_context.CleaningRatingUsers.Any(w => w.UserId == userId && w.CleaningTaskCompletedId == cleaningTasksCompleted.Id);
         }
 
-        public async Task<IList<CleaningScheduleHistoryOfTheDayDto>> GetHistoryOfTheDay(DateTime date, long homeId, string room, long userId)
+        public async Task<IList<CleaningScheduleHistoryRoomOfTheDayDto>> GetHistoryOfTheDay(DateTime date, long homeId, string room, long userId)
         {
             var query = _context.CleaningSchedules.AsNoTracking()
                 .Include(c => c.User)
@@ -134,14 +134,17 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             if (!string.IsNullOrWhiteSpace(room))
                 query = query.Where(c => c.Room.Equals(room));
 
-            var response = new List<CleaningScheduleHistoryOfTheDayDto>();
+            var resultQuery = await query.ToListAsync();
+
+            var response = new List<CleaningScheduleHistoryRoomOfTheDayDto>();
+
             IEnumerable<CleaningTasksCompleted> list;
 
-            foreach (var cleaningSchedule in query)
+            foreach (var cleaningSchedule in resultQuery)
             {
                 list = cleaningSchedule.CleaningTasksCompleteds.Where(c => c.CreateDate.Date == date.Date);
 
-                var dtoList = list.Select(c => new CleaningScheduleHistoryOfTheDayDto
+                var dtoList = list.Select(c => new CleaningScheduleHistoryCleanDayDto
                 {
                     Id = c.Id,
                     AverageRate = c.AverageRating,
@@ -149,13 +152,25 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                     CanRate = cleaningSchedule.UserId != userId
                 });
 
-                response.AddRange(dtoList);
+                foreach (var task in dtoList.Where(c => c.CanRate))
+                    task.CanRate = !(await _context.CleaningRatingUsers.AnyAsync(w => w.UserId == userId && w.CleaningTaskCompletedId == task.Id));
+
+                if (dtoList.Any())
+                {
+                    if (response.Any(c => c.Room.Equals(cleaningSchedule.Room)))
+                        response.First(c => c.Room.Equals(cleaningSchedule.Room)).History.AddRange(dtoList);
+                    else
+                    {
+                        response.Add(new CleaningScheduleHistoryRoomOfTheDayDto
+                        {
+                            Room = cleaningSchedule.Room,
+                            History = dtoList.ToList()
+                        });
+                    }
+                }
             }
 
-            foreach (var task in response.Where(c => c.CanRate))
-                task.CanRate = !(await _context.CleaningRatingUsers.AnyAsync(w => w.UserId == userId && w.CleaningTaskCompletedId == task.Id));
-
-            return response.OrderBy(c => c.User).ToList();
+            return response.OrderBy(c => c.Room).ToList();
         }
 
         public async Task<IList<CleaningSchedule>> GetScheduleRoomForCurrentMonth(long homeId, string room)

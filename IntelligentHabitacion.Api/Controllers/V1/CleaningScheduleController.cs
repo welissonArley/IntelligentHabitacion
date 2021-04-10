@@ -171,7 +171,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPut]
         [Route("HistoryOfTheDay")]
-        [ProducesResponseType(typeof(IList<ResponseHistoryOfTheDayJson>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IList<ResponseHistoryRoomOfTheDayJson>), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public async Task<IActionResult> HistoryOfTheDay(
             [FromServices] IHistoryOfTheDayUseCase useCase,

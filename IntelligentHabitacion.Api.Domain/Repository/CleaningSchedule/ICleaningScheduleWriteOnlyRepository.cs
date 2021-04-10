@@ -9,5 +9,7 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task Add(IEnumerable<Entity.CleaningSchedule> schedules);
         Task FinishAllFromTheUser(long userId, long homeId);
         Task RegisterRoomCleaned(long taskId, DateTime date);
+        void Remove(Entity.CleaningSchedule schedule);
+        Task FinishTask(long taskId);
     }
 }

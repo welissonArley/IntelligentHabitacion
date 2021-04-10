@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.EditTaskAssign;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
@@ -184,6 +185,35 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will change the assign for a task on the current month
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("EditTaskAssign")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public async Task<IActionResult> EditTaskAssign(
+            [FromServices] IEditTaskAssignUseCase useCase,
+            [FromBody] RequestEditAssignCleaningScheduleJson request)
+        {
+            try
+            {
+                VerifyParameters(request);
+
+                var response = await useCase.Execute(request);
+                WriteAutenticationHeader(response);
+
+                return Ok();
             }
             catch (System.Exception exception)
             {

@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.EditTaskAssign;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
@@ -74,7 +75,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>()
                 .AddScoped<IReminderUseCase, ReminderUseCase>()
                 .AddScoped<ICalendarUseCase, CalendarUseCase>()
-                .AddScoped<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>();
+                .AddScoped<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>()
+                .AddScoped<IEditTaskAssignUseCase, EditTaskAssignUseCase>();
         }
     }
 }

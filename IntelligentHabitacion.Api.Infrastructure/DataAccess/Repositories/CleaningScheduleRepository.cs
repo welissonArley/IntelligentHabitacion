@@ -157,5 +157,31 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
 
             return response.OrderBy(c => c.User).ToList();
         }
+
+        public async Task<IList<CleaningSchedule>> GetScheduleRoomForCurrentMonth(long homeId, string room)
+        {
+            var today = DateTime.Today;
+
+            return await _context.CleaningSchedules.AsNoTracking()
+                .Include(c => c.CleaningTasksCompleteds)
+                .Where(c => c.ScheduleStartAt.Month == today.Month && c.ScheduleStartAt.Year == today.Year &&
+                    c.Room.Equals(room) && c.HomeId == homeId).ToListAsync();
+        }
+
+        public void Remove(CleaningSchedule schedule)
+        {
+            _context.CleaningSchedules.Remove(schedule);
+        }
+
+        public async Task FinishTask(long taskId)
+        {
+            var schedule = await _context.CleaningSchedules.FirstOrDefaultAsync(c => c.Id == taskId);
+            if(schedule != null)
+            {
+                schedule.ScheduleFinishAt = DateTime.UtcNow;
+
+                _context.CleaningSchedules.Update(schedule);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.EditTaskAssign;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.Reminder;
@@ -26,11 +27,13 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         private readonly Lazy<IGetTasksUseCase> getTasksUseCase;
         private readonly Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase;
         private readonly Lazy<IReminderUseCase> reminderUseCase;
+        private readonly Lazy<IEditTaskAssignUseCase> editTaskAssignUseCase;
         private UserPreferences _userPreferences => userPreferences.Value;
         private IGetTasksUseCase _getTasksUseCase => getTasksUseCase.Value;
         private ICreateFirstScheduleUseCase _createFirstScheduleUseCase => createFirstScheduleUseCase.Value;
         private IRegisterRoomCleanedUseCase _registerRoomCleanedUseCase => registerRoomCleanedUseCase.Value;
         private IReminderUseCase _reminderUseCase => reminderUseCase.Value;
+        private IEditTaskAssignUseCase _editTaskAssignUseCase => editTaskAssignUseCase.Value;
 
         public ScheduleCleaningHouseModel Model { get; set; }
 
@@ -46,7 +49,8 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase,
             Lazy<ICreateFirstScheduleUseCase> createFirstScheduleUseCase,
             Lazy<IRegisterRoomCleanedUseCase> registerRoomCleanedUseCase,
-            Lazy<IReminderUseCase> reminderUseCase, Lazy<UserPreferences> userPreferences)
+            Lazy<IReminderUseCase> reminderUseCase, Lazy<UserPreferences> userPreferences,
+            Lazy<IEditTaskAssignUseCase> editTaskAssignUseCase)
         {
             CurrentState = LayoutState.Loading;
             
@@ -55,6 +59,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             this.registerRoomCleanedUseCase = registerRoomCleanedUseCase;
             this.reminderUseCase = reminderUseCase;
             this.userPreferences = userPreferences;
+            this.editTaskAssignUseCase = editTaskAssignUseCase;
 
             RandomAssignmentCommand = new Command(OnRandomAssignment);
             ManageTasksCommand = new Command(OnManageTasksCommand);
@@ -319,6 +324,8 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             try
             {
                 SendingData();
+
+                await _editTaskAssignUseCase.Execute(assigns.Select(c => c.Id).ToList(), task.Room);
 
                 task.Assign.Clear();
                 task.Assign = new ObservableCollection<UserSimplifiedModel>(Model.Schedule.AvaliableUsersToAssign.Where(c => assigns.Any(w => w.Id.Equals(c.Id))).ToList());

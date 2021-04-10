@@ -474,6 +474,9 @@
   <data name="TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS" xml:space="preserve">
     <value>Escolha um dos números abaixo:</value>
   </data>
+  <data name="TITLE_CHOOSE_RESPONSIBLE_PEOPLE_TWOPOINTS" xml:space="preserve">
+    <value>Escolha a(s) pessoa(s) responsável(is):</value>
+  </data>
   <data name="TITLE_CHOOSE_THE_ROOMS_TWO_POINTS" xml:space="preserve">
     <value>Escolha o(s) cômodo(s):</value>
   </data>
@@ -860,6 +863,9 @@
   </data>
   <data name="TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED" xml:space="preserve">
     <value>Selecione abaixo os cômodos para serem limpos.</value>
+  </data>
+  <data name="TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW" xml:space="preserve">
+    <value>Selecione abaixo os responsáveis para limpar este cômodo.</value>
   </data>
   <data name="TITLE_SENDING_DATA" xml:space="preserve">
     <value>Enviando dados ...</value>

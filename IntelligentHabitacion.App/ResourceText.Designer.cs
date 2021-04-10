@@ -1177,6 +1177,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose responsible people:.
+        /// </summary>
+        internal static string TITLE_CHOOSE_RESPONSIBLE_PEOPLE_TWOPOINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_RESPONSIBLE_PEOPLE_TWOPOINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the room(s):.
         /// </summary>
         internal static string TITLE_CHOOSE_THE_ROOMS_TWO_POINTS {
@@ -2334,6 +2343,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED {
             get {
                 return ResourceManager.GetString("TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selecione abaixo os responsáveis para limpar este cômodo..
+        /// </summary>
+        internal static string TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW {
+            get {
+                return ResourceManager.GetString("TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW", resourceCulture);
             }
         }
         

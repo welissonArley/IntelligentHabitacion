@@ -86,7 +86,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
                 ProfileColor = loggedUser.ProfileColor,
                 Name = loggedUser.Name,
                 AmountOfTasks = schedules.Count(c => c.UserId == loggedUser.Id),
-                Tasks = await ScheduleTasksFormatter(date, loggedUser, users, schedules)
+                Tasks = await ScheduleTasksFormatter(date, loggedUser, users, schedules),
+                AvaliableUsersToAssign = _mapper.Map<List<ResponseUserSimplifiedJson>>(users)
             };
         }
         public async Task<List<ResponseTaskJson>> ScheduleTasksFormatter(DateTime date, Domain.Entity.User loggedUser,

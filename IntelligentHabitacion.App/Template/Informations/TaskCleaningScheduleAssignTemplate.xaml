@@ -26,6 +26,9 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                             <Line WidthRequest="0.5" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"/>
                             <StackLayout HeightRequest="25" WidthRequest="40">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="EditAssign_Tapped"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
                                 <Image x:Name="OptionEdit" Source="IconEdit" WidthRequest="25" HeightRequest="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
                             </StackLayout>
                         </StackLayout>

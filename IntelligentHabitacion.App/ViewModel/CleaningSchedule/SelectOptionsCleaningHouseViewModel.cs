@@ -1,5 +1,5 @@
 ﻿using IntelligentHabitacion.App.Model;
-using System.Collections.Generic;
+using IntelligentHabitacion.App.ValueObjects;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -26,13 +26,13 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             });
         }
 
-        public void Initialize(string title, string phrase, string subTitle, ICommand callbackOnConclude, IList<SelectOptionModel> options)
+        public void Initialize(SelectOptionsObject optionsObject)
         {
-            Title = title;
-            Phrase = phrase;
-            SubTitle = subTitle;
-            CallbackOnConclude = callbackOnConclude;
-            Options = new ObservableCollection<SelectOptionModel>(options);
+            Title = optionsObject.Title;
+            Phrase = optionsObject.Phrase;
+            SubTitle = optionsObject.SubTitle;
+            CallbackOnConclude = optionsObject.CallbackOnConclude;
+            Options = new ObservableCollection<SelectOptionModel>(optionsObject.Options);
 
             OnPropertyChanged(new PropertyChangedEventArgs("Title"));
             OnPropertyChanged(new PropertyChangedEventArgs("Phrase"));

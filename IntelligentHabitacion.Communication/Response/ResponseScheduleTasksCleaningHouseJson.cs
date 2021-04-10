@@ -8,6 +8,7 @@ namespace IntelligentHabitacion.Communication.Response
         public ResponseScheduleTasksCleaningHouseJson()
         {
             Tasks = new List<ResponseTaskJson>();
+            AvaliableUsersToAssign = new List<ResponseUserSimplifiedJson>();
         }
 
         public string ProfileColor { get; set; }
@@ -16,5 +17,6 @@ namespace IntelligentHabitacion.Communication.Response
         
         public DateTime Date { get; set; }
         public IList<ResponseTaskJson> Tasks { get; set; }
+        public IList<ResponseUserSimplifiedJson> AvaliableUsersToAssign { get; set; }
     }
 }

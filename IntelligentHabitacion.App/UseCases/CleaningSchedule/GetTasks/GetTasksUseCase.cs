@@ -60,6 +60,12 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.GetTasks
                             Name = w.Name,
                             ProfileColor = w.ProfileColor
                         }))
+                    })),
+                    AvaliableUsersToAssign = new ObservableCollection<UserSimplifiedModel>(response.Schedule.AvaliableUsersToAssign.Select(c => new UserSimplifiedModel
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        ProfileColor = c.ProfileColor
                     }))
                 },
                 CreateSchedule = new CreateScheduleCleaningHouseModel

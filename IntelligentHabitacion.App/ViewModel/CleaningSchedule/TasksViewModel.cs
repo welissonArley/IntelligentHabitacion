@@ -8,6 +8,7 @@ using IntelligentHabitacion.App.View.Modal.MenuOptions;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public ICommand RandomAssignmentCommand { get; }
         public ICommand ManageTasksCommand { get; }
         public ICommand OnDateSelectedCommand { get; }
+        public ICommand EditAssigsToTaskCommand { get; }
         public ICommand FloatActionCommand { get; }
 
         public TasksViewModel(Lazy<IGetTasksUseCase> getTasksUseCase,
@@ -73,6 +75,32 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                 });
             });
 
+            EditAssigsToTaskCommand = new Command(async (task) =>
+            {
+                var taskSelected = (TaskModel)task;
+
+                await Navigation.PushAsync<SelectOptionsCleaningHouseViewModel>((viewModel, _) =>
+                {
+                    viewModel.Initialize(new ValueObjects.SelectOptionsObject
+                    {
+                        Title = taskSelected.Room,
+                        Phrase = ResourceText.TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW,
+                        SubTitle = ResourceText.TITLE_CHOOSE_RESPONSIBLE_PEOPLE_TWOPOINTS,
+                        CallbackOnConclude = new Command(async(listAssigns) =>
+                        {
+                            var list = (List<SelectOptionModel>)listAssigns;
+                            await OnEditTaskAssign(taskSelected, list);
+                        }),
+                        Options = Model.Schedule.AvaliableUsersToAssign.Select(c => new SelectOptionModel
+                        {
+                            Id = c.Id,
+                            Name = c.Name,
+                            Assigned = taskSelected.Assign.Any(w => w.Id.Equals(c.Id))
+                        }).OrderBy(c => c.Name).ToList()
+                    });
+                });
+            });
+
             ICommand SelectRegisterRoomsCleanedCommand = new Command(async() =>
             {
                 await Navigation.PushAsync<SelectRoomsRegisterCleanedViewModel>((viewModel, _) =>
@@ -102,13 +130,18 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                         });
                     }
 
-                    viewModel.Initialize(ResourceText.TITLE_REMINDER_PERFORM_TASK,
-                        ResourceText.DESCRIPTION_REMINDER_PERFORM_TASK, ResourceText.TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS,
-                        new Command(async (listAssigns) =>
+                    viewModel.Initialize(new ValueObjects.SelectOptionsObject
+                    {
+                        Title = ResourceText.TITLE_REMINDER_PERFORM_TASK,
+                        Phrase = ResourceText.DESCRIPTION_REMINDER_PERFORM_TASK,
+                        SubTitle = ResourceText.TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS,
+                        CallbackOnConclude = new Command(async (listAssigns) =>
                         {
                             var list = (List<SelectOptionModel>)listAssigns;
                             await OnSendReminderCleanRoom(list.Select(c => c.Id).ToList());
-                        }), options);
+                        }),
+                        Options = options
+                    });
                 });
             });
             FloatActionCommand = new Command(async () =>
@@ -195,8 +228,12 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
             Navigation.PushAsync<SelectOptionsCleaningHouseViewModel>((viewModel, _) =>
             {
-                viewModel.Initialize(userModel.Name, ResourceText.TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED,
-                    ResourceText.TITLE_CHOOSE_THE_ROOMS_TWO_POINTS, new Command((roomsAssignedsReturn) =>
+                viewModel.Initialize(new ValueObjects.SelectOptionsObject
+                {
+                    Title = userModel.Name,
+                    Phrase = ResourceText.TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED,
+                    SubTitle = ResourceText.TITLE_CHOOSE_THE_ROOMS_TWO_POINTS,
+                    CallbackOnConclude = new Command((roomsAssignedsReturn) =>
                     {
                         CurrentState = LayoutState.Custom;
                         OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
@@ -209,11 +246,13 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                                 Id = c.Id,
                                 Room = c.Name
                             }));
-                        
+
                         CurrentState = LayoutState.Empty;
                         OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                         OnPropertyChanged(new PropertyChangedEventArgs("CurrentState"));
-                    }), listAssigned.OrderBy(c => c.Name).ToList());
+                    }),
+                    Options = listAssigned.OrderBy(c => c.Name).ToList()
+                });
             });
         }
         private async Task OnConcludeCreateFirstSchedule()
@@ -267,6 +306,24 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                 SendingData();
 
                 await _reminderUseCase.Execute(assigns);
+
+                await Sucess();
+            }
+            catch (System.Exception exeption)
+            {
+                await Exception(exeption);
+            }
+        }
+        private async Task OnEditTaskAssign(TaskModel task, List<SelectOptionModel> assigns)
+        {
+            try
+            {
+                SendingData();
+
+                task.Assign.Clear();
+                task.Assign = new ObservableCollection<UserSimplifiedModel>(Model.Schedule.AvaliableUsersToAssign.Where(c => assigns.Any(w => w.Id.Equals(c.Id))).ToList());
+
+                OnPropertyChanged(new PropertyChangedEventArgs("Model"));
 
                 await Sucess();
             }

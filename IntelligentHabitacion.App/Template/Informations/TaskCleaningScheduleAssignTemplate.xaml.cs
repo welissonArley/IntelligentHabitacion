@@ -23,6 +23,11 @@ namespace IntelligentHabitacion.App.Template.Informations
             get => (ICommand)GetValue(OnConfirmRoomCleanedTodayProperty);
             set => SetValue(OnConfirmRoomCleanedTodayProperty, value);
         }
+        public ICommand OnEditAssigsToTask
+        {
+            get => (ICommand)GetValue(OnEditAssigsToTaskProperty);
+            set => SetValue(OnEditAssigsToTaskProperty, value);
+        }
         public TaskModel Task
         {
             get => (TaskModel)GetValue(TaskProperty);
@@ -46,6 +51,14 @@ namespace IntelligentHabitacion.App.Template.Informations
 
         public static readonly BindableProperty OnSelectTaskDetailsProperty = BindableProperty.Create(
                                                         propertyName: "OnSelectTaskDetails",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(TaskCleaningScheduleAssignTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: null);
+
+        public static readonly BindableProperty OnEditAssigsToTaskProperty = BindableProperty.Create(
+                                                        propertyName: "OnEditAssigsToTask",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(TaskCleaningScheduleAssignTemplate),
                                                         defaultValue: null,
@@ -151,6 +164,11 @@ namespace IntelligentHabitacion.App.Template.Informations
         private void SelectTask_Tapped(object sender, System.EventArgs e)
         {
             OnSelectTaskDetails.Execute(Task);
+        }
+
+        private void EditAssign_Tapped(object sender, System.EventArgs e)
+        {
+            OnEditAssigsToTask.Execute(Task);
         }
     }
 }

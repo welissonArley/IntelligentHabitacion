@@ -230,7 +230,7 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPost]
         [Route("RateTask/{id:hashids}")]
         [ProducesResponseType(typeof(ResponseAverageRatingJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]

@@ -1,4 +1,6 @@
 ﻿using IntelligentHabitacion.App.Model;
+using IntelligentHabitacion.App.UseCases.CleaningSchedule.RateTask;
+using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -8,12 +10,17 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 {
     public class RateTaskViewModel : BaseViewModel
     {
+        private readonly Lazy<IRateTaskUseCase> useCase;
+        private IRateTaskUseCase _useCase => useCase.Value;
+
         public ICommand CallbackOnConcludeCommand { get; set; }
         public ICommand OnConcludeCommand { get; }
         public RateTaskModel Model { get; set; }
 
-        public RateTaskViewModel()
+        public RateTaskViewModel(Lazy<IRateTaskUseCase> useCase)
         {
+            this.useCase = useCase;
+
             OnConcludeCommand = new Command(async () => await OnConclude());
         }
 
@@ -23,7 +30,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             {
                 SendingData();
 
-                var averageRating = 3;//await _rule.RateFriendTask(Model);
+                var averageRating = await _useCase.Execute(Model);
 
                 await Sucess();
                 

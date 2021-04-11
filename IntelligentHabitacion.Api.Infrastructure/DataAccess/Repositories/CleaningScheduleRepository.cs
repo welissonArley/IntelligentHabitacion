@@ -128,7 +128,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         {
             var query = _context.CleaningSchedules.AsNoTracking()
                 .Include(c => c.User)
-                .Include(c => c.CleaningTasksCompleteds)
+                .Include(c => c.CleaningTasksCompleteds).ThenInclude(c => c.Ratings)
                 .Where(c => c.CleaningTasksCompleteds.Any() && c.HomeId == homeId && c.ScheduleStartAt.Month == date.Month && c.ScheduleStartAt.Year == date.Year);
 
             if (!string.IsNullOrWhiteSpace(room))
@@ -151,10 +151,13 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                     User = cleaningSchedule.User.Name,
                     CanRate = cleaningSchedule.UserId != userId,
                     CleanedAt = c.CreateDate
-                });
+                }).ToList();
 
                 foreach (var task in dtoList.Where(c => c.CanRate))
-                    task.CanRate = !(await _context.CleaningRatingUsers.AnyAsync(w => w.UserId == userId && w.CleaningTaskCompletedId == task.Id));
+                {
+                    var alreadyRateThisTask = await _context.CleaningRatingUsers.AnyAsync(w => w.UserId == userId && w.CleaningTaskCompletedId == task.Id);
+                    dtoList.First(c => c.Id.Equals(task.Id)).CanRate = !alreadyRateThisTask;
+                }
 
                 if (dtoList.Any())
                 {

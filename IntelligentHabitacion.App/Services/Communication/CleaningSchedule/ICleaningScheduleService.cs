@@ -23,5 +23,7 @@ namespace IntelligentHabitacion.App.Services.Communication.CleaningSchedule
         Task<ApiResponse<IList<ResponseHistoryRoomOfTheDayJson>>> HistoryOfTheDay([Body] RequestHistoryOfTheDayJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Put("/EditTaskAssign")]
         Task<ApiResponse<string>> EditTaskAssign([Body] RequestEditAssignCleaningScheduleJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Post("/RateTask/{taskCompletedId}")]
+        Task<ApiResponse<ResponseAverageRatingJson>> RateTask(string taskCompletedId, [Body] RequestRateTaskJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

@@ -206,6 +206,7 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
         public async Task<CleaningTasksCompleted> GetTaskCompletedById(long id)
         {
             return await _context.CleaningTasksCompleteds.AsNoTracking()
+                .Include(c => c.Ratings)
                 .Include(c => c.CleaningSchedule).ThenInclude(c => c.User).ThenInclude(c => c.HomeAssociation)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }

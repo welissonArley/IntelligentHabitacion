@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.Application.Services.LoggedUser;
 using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.DetailsAllRate;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.EditTaskAssign;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
@@ -78,7 +79,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<ICalendarUseCase, CalendarUseCase>()
                 .AddScoped<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>()
                 .AddScoped<IEditTaskAssignUseCase, EditTaskAssignUseCase>()
-                .AddScoped<IRateTaskUseCase, RateTaskUseCase>();
+                .AddScoped<IRateTaskUseCase, RateTaskUseCase>()
+                .AddScoped<IDetailsAllRateUseCase, DetailsAllRateUseCase>();
         }
     }
 }

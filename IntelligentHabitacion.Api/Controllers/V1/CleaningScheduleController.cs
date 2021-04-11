@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Calendar;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.DetailsAllRate;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.EditTaskAssign;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
@@ -244,6 +245,33 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 VerifyParameters(request);
 
                 var response = await useCase.Execute(id, request);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will return all rate to the task received in the route
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RateDetails/{id:hashids}")]
+        [ProducesResponseType(typeof(IList<ResponseRateTaskJson>), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> RateDetails(
+            [FromServices] IDetailsAllRateUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
+        {
+            try
+            {
+                var response = await useCase.Execute(id);
                 WriteAutenticationHeader(response);
 
                 return Ok(response.ResponseJson);

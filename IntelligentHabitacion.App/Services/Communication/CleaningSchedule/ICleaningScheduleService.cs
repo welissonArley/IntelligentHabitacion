@@ -25,5 +25,7 @@ namespace IntelligentHabitacion.App.Services.Communication.CleaningSchedule
         Task<ApiResponse<string>> EditTaskAssign([Body] RequestEditAssignCleaningScheduleJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Post("/RateTask/{taskCompletedId}")]
         Task<ApiResponse<ResponseAverageRatingJson>> RateTask(string taskCompletedId, [Body] RequestRateTaskJson request, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Get("/RateDetails/{taskCompletedId}")]
+        Task<ApiResponse<IList<ResponseRateTaskJson>>> RateDetails(string taskCompletedId, [Authorize("Basic")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

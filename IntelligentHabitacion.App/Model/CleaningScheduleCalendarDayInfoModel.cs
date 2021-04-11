@@ -1,6 +1,8 @@
-﻿namespace IntelligentHabitacion.App.Model
+﻿using XLabs.Data;
+
+namespace IntelligentHabitacion.App.Model
 {
-    public class CleaningScheduleCalendarDayInfoModel
+    public class CleaningScheduleCalendarDayInfoModel : ObservableObject
     {
         public int Day { get; set; }
         public int AmountCleanedRecords { get; set; }

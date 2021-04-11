@@ -88,6 +88,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<SelectRoomsRegisterCleanedPage, SelectRoomsRegisterCleanedViewModel>();
             ViewFactory.Register<TaskDetailsPage, TaskDetailsViewModel>();
             ViewFactory.Register<CompleteHistoryPage, CompleteHistoryViewModel>();
+            ViewFactory.Register<RateTaskPage, RateTaskViewModel>();
         }
 
         private static void OneSignalId(string playerID, string pushToken)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace IntelligentHabitacion.App.Model
@@ -9,6 +10,7 @@ namespace IntelligentHabitacion.App.Model
         public string User { get; set; }
         public int AverageRate { get; set; }
         public bool CanRate { get; set; }
+        public DateTime CleanedAt { get; set; }
     }
 
     public class DetailsTaskCleanedOnDayModelGroup : ObservableCollection<DetailsTaskCleanedOnDayModel>

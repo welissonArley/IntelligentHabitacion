@@ -149,7 +149,8 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
                     Id = c.Id,
                     AverageRate = c.AverageRating,
                     User = cleaningSchedule.User.Name,
-                    CanRate = cleaningSchedule.UserId != userId
+                    CanRate = cleaningSchedule.UserId != userId,
+                    CleanedAt = c.CreateDate
                 });
 
                 foreach (var task in dtoList.Where(c => c.CanRate))

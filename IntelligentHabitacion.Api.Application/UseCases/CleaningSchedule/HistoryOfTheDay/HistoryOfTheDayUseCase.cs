@@ -54,7 +54,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Histor
                     User = w.User,
                     AverageRate = w.AverageRate,
                     CanRate = w.CanRate,
-                    Id = _hashids.EncodeLong(w.Id)
+                    Id = _hashids.EncodeLong(w.Id),
+                    CleanedAt = w.CleanedAt
                 }).ToList()
             }).ToList();
         }

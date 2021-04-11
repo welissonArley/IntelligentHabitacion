@@ -16,7 +16,7 @@
 
             <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5"></BoxView>
 
-            <Button x:Name="ButtonToRate" Text="{x:Static resourceText:ResourceText.TITLE_RATE}" Style="{x:StaticResource ButtonGreenDefault}" CornerRadius="0"></Button>
+            <Button x:Name="ButtonToRate" Clicked="ButtonRateTask_Clicked" Text="{x:Static resourceText:ResourceText.TITLE_RATE}" Style="{x:StaticResource ButtonGreenDefault}" CornerRadius="0"></Button>
 
             <Button HorizontalOptions="End" x:Name="SeeDetailsButton" Text="{x:Static resourceText:ResourceText.TITLE_DETAILS}" CornerRadius="0" BackgroundColor="White" TextColor="{x:StaticResource GreenDefault}" HeightRequest="30"></Button>
         </StackLayout>

@@ -4,6 +4,7 @@ using IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -26,6 +27,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
 
         public ICommand OnDateChangedCommand { get; }
         public ICommand OnDaySelectedCommand { get; }
+        public ICommand OnRateTaskTappedCommand { get; }
 
         public CompleteHistoryViewModel(Lazy<ICalendarUseCase> useCase, Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase)
         {
@@ -52,6 +54,35 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                 var date = (DateTime)dateReturned;
 
                 await FillTaskDayDetailsModel(date);
+            });
+            OnRateTaskTappedCommand = new Command(async (taskToRate) =>
+            {
+                var taskToRateModel = (DetailsTaskCleanedOnDayModel)taskToRate;
+
+                var groupModel = this.DetailsDayModel.First(c => c.Any(w => w.Id.Equals(taskToRateModel.Id)));
+
+                await Navigation.PushAsync<RateTaskViewModel>((viewModel, _) =>
+                {
+                    viewModel.Initialize(taskToRateModel, groupModel.Room, new Command((newAverageRate) =>
+                    {
+                        CurrentStateCalendar = LayoutState.Loading;
+                        CurrentStateHistoric = LayoutState.Loading;
+                        OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
+                        OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
+
+                        taskToRateModel.CanRate = false;
+                        taskToRateModel.AverageRate = (int)newAverageRate;
+                        Model.Date = taskToRateModel.CleanedAt;
+                        Model.CleanedDays.First(c => c.Day == taskToRateModel.CleanedAt.Day).AmountcleanedRecordsToRate--;
+                        
+                        CurrentStateHistoric = LayoutState.None;
+                        CurrentStateCalendar = LayoutState.None;
+                        OnPropertyChanged(new PropertyChangedEventArgs("DetailsDayModel"));
+                        OnPropertyChanged(new PropertyChangedEventArgs("Model"));
+                        OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
+                        OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
+                    }));
+                });
             });
         }
 

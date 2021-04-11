@@ -1,4 +1,6 @@
-﻿namespace IntelligentHabitacion.Api.Domain.Dto
+﻿using System;
+
+namespace IntelligentHabitacion.Api.Domain.Dto
 {
     public class CleaningScheduleHistoryCleanDayDto
     {
@@ -6,5 +8,6 @@
         public string User { get; set; }
         public int AverageRate { get; set; }
         public bool CanRate { get; set; }
+        public DateTime CleanedAt { get; set; }
     }
 }

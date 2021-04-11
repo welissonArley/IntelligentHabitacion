@@ -46,7 +46,8 @@ namespace IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay
                 AverageRate = w.AverageRate,
                 CanRate = w.CanRate,
                 Id = w.Id,
-                User = w.User
+                User = w.User,
+                CleanedAt = w.CleanedAt
             }).ToList())).ToList();
         }
     }

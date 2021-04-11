@@ -11,5 +11,6 @@ namespace IntelligentHabitacion.Api.Domain.Repository.CleaningSchedule
         Task RegisterRoomCleaned(long taskId, DateTime date);
         void Remove(Entity.CleaningSchedule schedule);
         Task FinishTask(long taskId);
+        Task<int> AddRateTask_ReturnAverageRating(Entity.CleaningRating cleaningRating, long userThatGiveTheRate);
     }
 }

@@ -11,7 +11,9 @@ namespace IntelligentHabitacion.Api.Domain.Entity
     {
         [NotMapped]
         public int AverageRating { get => Ratings != null && Ratings.Any() ? (int)Math.Round(Ratings.Average(c => c.Rating)) : -1; }
+        [ForeignKey("CleaningScheduleId")]
         public long CleaningScheduleId { get; set; }
+        public CleaningSchedule CleaningSchedule { get; set; }
         public IList<CleaningRating> Ratings { get; set; }
     }
 }

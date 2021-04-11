@@ -3,8 +3,10 @@ using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.CreateFirs
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.EditTaskAssign;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTasks;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
+using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Reminder;
+using IntelligentHabitacion.Api.Binder;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
@@ -214,6 +216,37 @@ namespace IntelligentHabitacion.Api.Controllers.V1
                 WriteAutenticationHeader(response);
 
                 return Ok();
+            }
+            catch (System.Exception exception)
+            {
+                return HandleException(exception);
+            }
+        }
+
+        /// <summary>
+        /// This function will rate one task
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("RateTask/{id:hashids}")]
+        [ProducesResponseType(typeof(ResponseAverageRatingJson), StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
+        public async Task<IActionResult> RateTask(
+            [FromServices] IRateTaskUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+            [FromBody] RequestRateTaskJson request)
+        {
+            try
+            {
+                VerifyParameters(request);
+
+                var response = await useCase.Execute(id, request);
+                WriteAutenticationHeader(response);
+
+                return Ok(response.ResponseJson);
             }
             catch (System.Exception exception)
             {

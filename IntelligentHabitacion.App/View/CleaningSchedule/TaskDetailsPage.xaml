@@ -47,7 +47,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <informations:TaskDetailsRateComponent TaskDetails="{Binding .}" TappedRateTaskCommand="{Binding Path=BindingContext.OnRateTaskTappedCommand, Source={x:Reference TaskDetailsContentPage}}"></informations:TaskDetailsRateComponent>
+                                <informations:TaskDetailsRateComponent TappedDetailsRateTaskCommand="{Binding Path=BindingContext.OnSeeDetailsRateTappedCommand, Source={x:Reference TaskDetailsContentPage}}" TaskDetails="{Binding .}" TappedRateTaskCommand="{Binding Path=BindingContext.OnRateTaskTappedCommand, Source={x:Reference TaskDetailsContentPage}}"></informations:TaskDetailsRateComponent>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

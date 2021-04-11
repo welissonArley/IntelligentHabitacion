@@ -29,6 +29,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
         public ICommand OnDateChangedCommand { get; }
         public ICommand OnDaySelectedCommand { get; }
         public ICommand OnRateTaskTappedCommand { get; }
+        public ICommand OnSeeDetailsRateTappedCommand { get; }
 
         public TaskDetailsViewModel(Lazy<ICalendarUseCase> useCase, Lazy<IHistoryOfTheDayUseCase> historyOfTheDayUseCase)
         {
@@ -81,6 +82,15 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                         OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateHistoric"));
                         OnPropertyChanged(new PropertyChangedEventArgs("CurrentStateCalendar"));
                     }));
+                });
+            });
+            OnSeeDetailsRateTappedCommand = new Command(async (taskToRate) =>
+            {
+                var taskToRateModel = (DetailsTaskCleanedOnDayModel)taskToRate;
+
+                await Navigation.PushAsync<DetailsAllRateViewModel>(async (viewModel, _) =>
+                {
+                    await viewModel.Initialize(taskToRateModel.Id);
                 });
             });
         }

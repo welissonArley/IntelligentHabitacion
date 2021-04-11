@@ -8,6 +8,11 @@ namespace IntelligentHabitacion.App.Template.Informations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskDetailsRateComponent : ContentView
     {
+        public ICommand TappedDetailsRateTaskCommand
+        {
+            get => (ICommand)GetValue(TappedDetailsRateTaskCommandProperty);
+            set => SetValue(TappedDetailsRateTaskCommandProperty, value);
+        }
         public ICommand TappedRateTaskCommand
         {
             get => (ICommand)GetValue(TappedRateTaskCommandProperty);
@@ -29,6 +34,13 @@ namespace IntelligentHabitacion.App.Template.Informations
                                                         propertyChanged: TaskDetailsChanged);
 
         public static readonly BindableProperty TappedRateTaskCommandProperty = BindableProperty.Create(propertyName: "TappedRateTask",
+                                                        returnType: typeof(ICommand),
+                                                        declaringType: typeof(TaskDetailsRateComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
+        public static readonly BindableProperty TappedDetailsRateTaskCommandProperty = BindableProperty.Create(propertyName: "TappedDetailsRateTask",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(TaskDetailsRateComponent),
                                                         defaultValue: null,
@@ -80,6 +92,11 @@ namespace IntelligentHabitacion.App.Template.Informations
         private void ButtonRateTask_Clicked(object sender, System.EventArgs e)
         {
             TappedRateTaskCommand.Execute(TaskDetails);
+        }
+
+        private void ButtonSeeDetails_Clicked(object sender, System.EventArgs e)
+        {
+            TappedDetailsRateTaskCommand.Execute(TaskDetails);
         }
     }
 }

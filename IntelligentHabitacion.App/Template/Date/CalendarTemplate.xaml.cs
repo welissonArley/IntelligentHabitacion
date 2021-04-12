@@ -75,10 +75,22 @@ namespace IntelligentHabitacion.App.Template.Date
             component.LabelMonth.Text = $"{model.Date.ToString("MMMM").Substring(0, 1).ToUpper()}{model.Date.ToString("MMMM").Substring(1)}, {model.Date.Year}";
 
             var row = 2;
-            var column = (int)new DateTime(model.Date.Year, model.Date.Month, 1).DayOfWeek;
+            var dateReceived = new DateTime(model.Date.Year, model.Date.Month, 1);
+            var column = (int)dateReceived.DayOfWeek;
 
             while (component.DaysContent.Children.Count > 8)
                 component.DaysContent.Children.RemoveAt(8);
+
+            var datePreviousNextMonth = dateReceived.AddMonths(-1);
+            var numberOfDays = DateTime.DaysInMonth(datePreviousNextMonth.Year, datePreviousNextMonth.Month);
+            datePreviousNextMonth = new DateTime(datePreviousNextMonth.Year, datePreviousNextMonth.Month, numberOfDays);
+
+            for (var dayPreviousMonth = column-1; dayPreviousMonth >= 0; dayPreviousMonth--)
+            {
+                var stackLayout = ColumnDayTemplatePreviousNextMonth(component, datePreviousNextMonth, datePreviousNextMonth.Day);
+                component.DaysContent.Children.Add(stackLayout, dayPreviousMonth, row);
+                datePreviousNextMonth = datePreviousNextMonth.AddDays(-1);
+            }
 
             for (var day = 1; day <= DateTime.DaysInMonth(model.Date.Year, model.Date.Month); day++)
             {
@@ -95,8 +107,46 @@ namespace IntelligentHabitacion.App.Template.Date
                     row++;
                 }
             }
+
+            datePreviousNextMonth = dateReceived.AddMonths(1);
+            while(row <= 7)
+            {
+                for (var columnToFill = column; columnToFill < 7; columnToFill++)
+                {
+                    var stackLayout = ColumnDayTemplatePreviousNextMonth(component, datePreviousNextMonth, datePreviousNextMonth.Day);
+                    component.DaysContent.Children.Add(stackLayout, columnToFill, row);
+                    datePreviousNextMonth = datePreviousNextMonth.AddDays(1);
+                }
+                row++;
+                column = 0;
+            }
         }
 
+        private static StackLayout ColumnDayTemplatePreviousNextMonth(CalendarTemplate component, DateTime date, int day)
+        {
+            var dayLabel = DayLabel(day);
+            dayLabel.Style = (Style)Application.Current.Resources["LabelThin"];
+            dayLabel.TextColor = (Color)Application.Current.Resources["GrayDefault"];
+
+            var stackLayout = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Children =
+                {
+                    dayLabel
+                }
+            };
+            stackLayout.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    component.OnChangeDateCommand.Execute(new DateTime(date.Year, date.Month, day));
+                })
+            });
+
+            return stackLayout;
+        }
         private static StackLayout ColumnDayTemplate(CalendarTemplate component, DateTime date, int day, bool selected, bool rateAvaliable, bool showAttentionIcon)
         {
             var stackLayout = new StackLayout

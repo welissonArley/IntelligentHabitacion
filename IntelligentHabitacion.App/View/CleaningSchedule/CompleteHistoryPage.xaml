@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
+             xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
              xmlns:calendar="clr-namespace:IntelligentHabitacion.App.Template.Date"
              xmlns:informations="clr-namespace:IntelligentHabitacion.App.Template.Informations"
              xmlns:skeleton="clr-namespace:IntelligentHabitacion.App.Template.Skeleton"
@@ -26,15 +27,15 @@
                 <calendar:CalendarTemplate OnDaySelectedCommand="{Binding Path=BindingContext.OnDaySelectedCommand, Source={x:Reference CompleteHistoryContentPage}}" OnChangeDateCommand="{Binding Path=BindingContext.OnDateChangedCommand, Source={x:Reference CompleteHistoryContentPage}}" Model="{Binding Model}" />
             </StackLayout>
 
-            <Label Margin="0,20,0,0" Text="Historico" FontSize="13" Style="{StaticResource LabelSemiBold}" TextColor="{StaticResource GrayDefault}"></Label>
-
             <StackLayout xct:StateLayout.CurrentState="{Binding CurrentStateHistoric}">
                 <xct:StateLayout.StateViews>
                     <xct:StateView StateKey="Loading">
                         <xct:StateView.Template>
                             <DataTemplate>
                                 <StackLayout>
+                                    <customcontrol:SkeletonView Margin="0,20,0,20" HorizontalOptions="StartAndExpand" WidthRequest="50" HeightRequest="15"/>
                                     <skeleton:TaskDetailsRateSkeleton Margin="0,20,0,0" />
+                                    <customcontrol:SkeletonView Margin="0,20,0,20" HorizontalOptions="StartAndExpand" WidthRequest="50" HeightRequest="15"/>
                                     <skeleton:TaskDetailsRateSkeleton Margin="0,15,0,0" />
                                 </StackLayout>
                             </DataTemplate>

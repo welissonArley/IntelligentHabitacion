@@ -27,15 +27,13 @@
                 <calendar:CalendarTemplate OnDaySelectedCommand="{Binding Path=BindingContext.OnDaySelectedCommand, Source={x:Reference TaskDetailsContentPage}}" OnChangeDateCommand="{Binding Path=BindingContext.OnDateChangedCommand, Source={x:Reference TaskDetailsContentPage}}" Model="{Binding Model}" />
             </StackLayout>
 
-            <Label Margin="0,20,0,5" Text="Historico" FontSize="13" Style="{StaticResource LabelSemiBold}" TextColor="{StaticResource GrayDefault}"></Label>
-
             <StackLayout xct:StateLayout.CurrentState="{Binding CurrentStateHistoric}">
                 <xct:StateLayout.StateViews>
                     <xct:StateView StateKey="Loading">
                         <xct:StateView.Template>
                             <DataTemplate>
                                 <StackLayout>
-                                    <skeleton:TaskDetailsRateSkeleton Margin="0,20,0,0" />
+                                    <skeleton:TaskDetailsRateSkeleton Margin="0,0,0,0" />
                                     <skeleton:TaskDetailsRateSkeleton Margin="0,15,0,0" />
                                 </StackLayout>
                             </DataTemplate>

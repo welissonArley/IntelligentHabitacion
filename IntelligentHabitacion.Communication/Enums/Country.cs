@@ -1,6 +1,6 @@
 ﻿namespace IntelligentHabitacion.Communication.Enums
 {
-    public enum CountryEnum
+    public enum Country
     {
         AUSTRALIA = 1,
         BELGIUM = 2,

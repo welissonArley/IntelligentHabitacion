@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Exception.ExceptionsBase;
 using System;
 
+#pragma warning disable S3925
 namespace IntelligentHabitacion.Exception.API
 {
     public class InvalidDateException : IntelligentHabitacionException

@@ -12,7 +12,7 @@ namespace IntelligentHabitacion.Communication.Response
         public string Neighborhood { get; set; }
         public string City { get; set; }
         public string StateProvince { get; set; }
-        public CountryEnum Country { get; set; }
+        public Country Country { get; set; }
         public ResponseWifiNetworkJson NetWork { get; set; }
         public IList<ResponseRoomJson> Rooms { get; set; }
     }

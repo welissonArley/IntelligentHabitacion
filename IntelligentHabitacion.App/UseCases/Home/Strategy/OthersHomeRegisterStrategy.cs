@@ -15,7 +15,7 @@ namespace IntelligentHabitacion.App.UseCases.Home.Strategy
                 Address = model.Address,
                 Number = model.Number,
                 City = model.City.Name,
-                Country = (Communication.Enums.CountryEnum)model.City.Country.Id,
+                Country = (Communication.Enums.Country)model.City.Country.Id,
                 StateProvince = model.City.StateProvinceName
             };
         }

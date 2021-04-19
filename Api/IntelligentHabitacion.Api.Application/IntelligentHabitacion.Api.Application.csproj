@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
     <ProjectReference Include="..\IntelligentHabitacion.Api.Domain\IntelligentHabitacion.Api.Domain.csproj" />
-    <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
-    <ProjectReference Include="..\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj" />
   </ItemGroup>
 
 </Project>

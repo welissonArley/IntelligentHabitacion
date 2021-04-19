@@ -143,16 +143,6 @@
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IntelligentHabitacion.App\IntelligentHabitacion.App.csproj">
-      <Project>{14012B9D-1150-43F2-8E2B-C238135FEEE0}</Project>
-      <Name>IntelligentHabitacion</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj">
-      <Project>{28CDBB21-5116-46E4-8352-3C0E68D0C342}</Project>
-      <Name>IntelligentHabitacion.Communication</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -940,6 +930,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ActionButtonNotify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj">
+      <Project>{28cdbb21-5116-46e4-8352-3c0e68d0c342}</Project>
+      <Name>IntelligentHabitacion.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntelligentHabitacion.App\IntelligentHabitacion.App.csproj">
+      <Project>{14012b9d-1150-43f2-8e2b-c238135feee0}</Project>
+      <Name>IntelligentHabitacion.App</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="_ResolveSatellitePaths" DependsOnTargets="_ResolveAssemblies">

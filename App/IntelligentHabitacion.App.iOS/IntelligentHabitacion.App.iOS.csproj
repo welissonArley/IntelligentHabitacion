@@ -201,16 +201,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\IntelligentHabitacion.App\IntelligentHabitacion.App.csproj">
-      <Project>{14012B9D-1150-43F2-8E2B-C238135FEEE0}</Project>
-      <Name>IntelligentHabitacion</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj">
-      <Project>{28CDBB21-5116-46E4-8352-3C0E68D0C342}</Project>
-      <Name>IntelligentHabitacion.Communication</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
@@ -665,5 +655,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ActionButtonNotify%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj">
+      <Project>{28cdbb21-5116-46e4-8352-3c0e68d0c342}</Project>
+      <Name>IntelligentHabitacion.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntelligentHabitacion.App\IntelligentHabitacion.App.csproj">
+      <Project>{14012b9d-1150-43f2-8e2b-c238135feee0}</Project>
+      <Name>IntelligentHabitacion.App</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

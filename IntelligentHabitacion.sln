@@ -3,28 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.App.Android", "IntelligentHabitacion.App.Android\IntelligentHabitacion.App.Android.csproj", "{0DF6CE87-7EF8-4FB7-9F5E-593825862A03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.App.Android", "App\IntelligentHabitacion.App.Android\IntelligentHabitacion.App.Android.csproj", "{0DF6CE87-7EF8-4FB7-9F5E-593825862A03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.App.iOS", "IntelligentHabitacion.App.iOS\IntelligentHabitacion.App.iOS.csproj", "{9B503306-0FAB-4125-94A0-E2C74E88E67F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentHabitacion.App.iOS", "App\IntelligentHabitacion.App.iOS\IntelligentHabitacion.App.iOS.csproj", "{9B503306-0FAB-4125-94A0-E2C74E88E67F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.App", "IntelligentHabitacion.App\IntelligentHabitacion.App.csproj", "{14012B9D-1150-43F2-8E2B-C238135FEEE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.App", "App\IntelligentHabitacion.App\IntelligentHabitacion.App.csproj", "{14012B9D-1150-43F2-8E2B-C238135FEEE0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Exception", "IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj", "{CEA33520-0CFE-402B-9394-941030786EC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Exception", "Shared\IntelligentHabitacion.Exception\IntelligentHabitacion.Exception.csproj", "{CEA33520-0CFE-402B-9394-941030786EC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{415855E4-1AB6-41AB-9578-B081E0DE5042}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{2F0DE466-FC19-4764-9337-4890F21269BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{5A158F97-B01F-47CB-B5CB-FEAD1103A6FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3644F12F-E37F-49BC-98BD-F31216AEEE65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FBED826-5BE0-4C10-B2EF-794FE5D4D425}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Communication", "IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj", "{28CDBB21-5116-46E4-8352-3C0E68D0C342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Communication", "Shared\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj", "{28CDBB21-5116-46E4-8352-3C0E68D0C342}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api", "IntelligentHabitacion.Api\IntelligentHabitacion.Api.csproj", "{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api", "Api\IntelligentHabitacion.Api\IntelligentHabitacion.Api.csproj", "{5E3CF783-84DB-405D-B2FE-91A43CDA3F54}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Application", "IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj", "{D9E1B95D-B219-4304-BD4A-5B17E427BF02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Application", "Api\IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj", "{D9E1B95D-B219-4304-BD4A-5B17E427BF02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Domain", "IntelligentHabitacion.Api.Domain\IntelligentHabitacion.Api.Domain.csproj", "{816A6A6C-80E3-4C2A-8876-F24BC1B62797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Domain", "Api\IntelligentHabitacion.Api.Domain\IntelligentHabitacion.Api.Domain.csproj", "{816A6A6C-80E3-4C2A-8876-F24BC1B62797}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Infrastructure", "IntelligentHabitacion.Api.Infrastructure\IntelligentHabitacion.Api.Infrastructure.csproj", "{71D9E999-9BE0-4FFF-AEEC-1B7A6B347EF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Infrastructure", "Api\IntelligentHabitacion.Api.Infrastructure\IntelligentHabitacion.Api.Infrastructure.csproj", "{71D9E999-9BE0-4FFF-AEEC-1B7A6B347EF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +173,17 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DF6CE87-7EF8-4FB7-9F5E-593825862A03} = {5A158F97-B01F-47CB-B5CB-FEAD1103A6FB}
+		{9B503306-0FAB-4125-94A0-E2C74E88E67F} = {5A158F97-B01F-47CB-B5CB-FEAD1103A6FB}
+		{14012B9D-1150-43F2-8E2B-C238135FEEE0} = {5A158F97-B01F-47CB-B5CB-FEAD1103A6FB}
+		{CEA33520-0CFE-402B-9394-941030786EC1} = {415855E4-1AB6-41AB-9578-B081E0DE5042}
+		{28CDBB21-5116-46E4-8352-3C0E68D0C342} = {415855E4-1AB6-41AB-9578-B081E0DE5042}
+		{5E3CF783-84DB-405D-B2FE-91A43CDA3F54} = {2F0DE466-FC19-4764-9337-4890F21269BE}
+		{D9E1B95D-B219-4304-BD4A-5B17E427BF02} = {2F0DE466-FC19-4764-9337-4890F21269BE}
+		{816A6A6C-80E3-4C2A-8876-F24BC1B62797} = {2F0DE466-FC19-4764-9337-4890F21269BE}
+		{71D9E999-9BE0-4FFF-AEEC-1B7A6B347EF1} = {2F0DE466-FC19-4764-9337-4890F21269BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4C3A8FD-B903-400C-8409-C06B85C1B1AD}

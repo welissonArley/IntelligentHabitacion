@@ -73,8 +73,9 @@ namespace IntelligentHabitacion.App.Template.Informations
             {
                 var taskModel = (TaskModel)newValue;
                 var component = ((TaskCleaningScheduleAssignTemplate)bindable);
+                component.ContentAssign.Children.Clear();
 
-                for(var index = taskModel.Assign.Count; index > 0; index--)
+                for (var index = taskModel.Assign.Count; index > 0; index--)
                 {
                     var assign = taskModel.Assign.ElementAt(index-1);
                     component.ContentAssign.Children.Insert(0, CreateEllipseAssign(assign.ProfileColor, assign.Name));

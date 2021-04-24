@@ -169,7 +169,11 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
             {
                 SendingData();
 
-                Model = await _getTasksUseCase.Execute(date);
+                var today = DateTime.UtcNow;
+
+                var dateToSend = date.Month == today.Month && date.Year == today.Year ? today : date;
+
+                Model = await _getTasksUseCase.Execute(dateToSend);
 
                 OnPropertyChanged(new PropertyChangedEventArgs("Model"));
                 CurrentState = LayoutState.None;
@@ -201,7 +205,7 @@ namespace IntelligentHabitacion.App.ViewModel.CleaningSchedule
                 int index = random.Next(newAvaliables.Count);
                 var roomRandom = newAvaliables.ElementAt(index);
 
-                user.Tasks = new System.Collections.ObjectModel.ObservableCollection<RoomModel>
+                user.Tasks = new ObservableCollection<RoomModel>
                 {
                     new RoomModel
                     {

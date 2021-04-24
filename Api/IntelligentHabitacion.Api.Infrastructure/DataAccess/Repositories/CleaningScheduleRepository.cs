@@ -58,11 +58,9 @@ namespace IntelligentHabitacion.Api.Infrastructure.DataAccess.Repositories
             var today = DateTime.UtcNow;
 
             var taskIds = _context.CleaningSchedules.Where(c => c.ScheduleStartAt.Year == today.Year && c.ScheduleStartAt.Month == today.Month && !c.ScheduleFinishAt.HasValue && c.Room.Equals(room) && c.UserId != userId).Select(c => c.Id);
-            var tasksCompletedsIds = _context.CleaningTasksCompleteds.Where(c => taskIds.Contains(c.CleaningScheduleId)).Select(c => c.Id);
-            if(await tasksCompletedsIds.AnyAsync())
-            {
-                return await _context.CleaningRatingUsers.AllAsync(c => c.UserId != userId && tasksCompletedsIds.Contains(c.CleaningTaskCompletedId));
-            }
+            var tasksCompletedsIds = await _context.CleaningTasksCompleteds.Where(c => taskIds.Contains(c.CleaningScheduleId)).Select(c => c.Id).ToListAsync();
+            if(tasksCompletedsIds.Any())
+                return !tasksCompletedsIds.All(c => _context.CleaningRatingUsers.Any(w => w.CleaningTaskCompletedId == c && w.UserId == userId));
 
             return false;
         }

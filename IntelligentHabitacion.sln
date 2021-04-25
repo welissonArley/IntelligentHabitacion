@@ -34,11 +34,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentHabitacion.Api.Infrastructure", "Api\IntelligentHabitacion.Api.Infrastructure\IntelligentHabitacion.Api.Infrastructure.csproj", "{71D9E999-9BE0-4FFF-AEEC-1B7A6B347EF1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{AAC75236-BBE4-4D2A-853F-A03F2D0FE55D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Tests\Backend", "{AAC75236-BBE4-4D2A-853F-A03F2D0FE55D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Test", "Validators.Test\Validators.Test.csproj", "{C4E6D7FC-0498-47A3-8A7F-10A6CACBD87A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Test", "Tests\Backend\Validators.Test\Validators.Test.csproj", "{C4E6D7FC-0498-47A3-8A7F-10A6CACBD87A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Useful.ToTests", "Useful.ToTests\Useful.ToTests.csproj", "{9FAF786B-06C8-4DDC-A01D-FFF808F025DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Useful.ToTests", "Tests\Useful.ToTests\Useful.ToTests.csproj", "{9FAF786B-06C8-4DDC-A01D-FFF808F025DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

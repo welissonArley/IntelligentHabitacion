@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Api\IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj" />
-    <ProjectReference Include="..\Shared\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
-    <ProjectReference Include="..\Useful.ToTests\Useful.ToTests.csproj" />
+    <ProjectReference Include="..\..\..\Api\IntelligentHabitacion.Api.Application\IntelligentHabitacion.Api.Application.csproj" />
+    <ProjectReference Include="..\..\..\Shared\IntelligentHabitacion.Communication\IntelligentHabitacion.Communication.csproj" />
+    <ProjectReference Include="..\..\Useful.ToTests\Useful.ToTests.csproj" />
   </ItemGroup>
 
 </Project>

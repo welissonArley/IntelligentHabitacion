@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Api\IntelligentHabitacion.Api.Domain\IntelligentHabitacion.Api.Domain.csproj" />
+    <ProjectReference Include="..\..\Api\IntelligentHabitacion.Api.Domain\IntelligentHabitacion.Api.Domain.csproj" />
   </ItemGroup>
 
 </Project>

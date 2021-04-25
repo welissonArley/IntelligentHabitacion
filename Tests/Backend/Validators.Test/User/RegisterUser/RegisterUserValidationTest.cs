@@ -4,6 +4,7 @@ using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Useful.ToTests.Builders.Repositories;
 using Xunit;
 
@@ -12,12 +13,12 @@ namespace Validators.Test.User.RegisterUser
     public class RegisterUserValidationTest
     {
         [Fact]
-        public void Validade_Sucess()
+        public async Task Validade_Sucess()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -45,12 +46,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_NameEmpty()
+        public async Task Validade_NameEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 PushNotificationId = Guid.NewGuid().ToString(),
                 Phonenumbers = new List<string> { "+55 37 9 0000-0000", "+55 37 9 1000-0000" },
@@ -78,12 +79,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmailEmpty()
+        public async Task Validade_EmailEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -111,12 +112,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_PushNotificationIdEmpty()
+        public async Task Validade_PushNotificationIdEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 Phonenumbers = new List<string> { "+55 37 9 0000-0000", "+55 37 9 1000-0000" },
@@ -144,12 +145,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmailInvalidFormat()
+        public async Task Validade_EmailInvalidFormat()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -178,14 +179,14 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_ExistActiveUserWithEmail()
+        public async Task Validade_ExistActiveUserWithEmail()
         {
             var email = "user@test.com";
 
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().ExistActiveUserWithEmail(email).Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -214,12 +215,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_PasswordEmpty()
+        public async Task Validade_PasswordEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -247,12 +248,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_PasswordInvalid()
+        public async Task Validade_PasswordInvalid()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -281,12 +282,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_PhonenumbersEmpty()
+        public async Task Validade_PhonenumbersEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -314,12 +315,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContactEmpty()
+        public async Task Validade_EmergencyContactEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -333,12 +334,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact1NameEmpty()
+        public async Task Validade_EmergencyContact1NameEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -360,12 +361,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact2NameEmpty()
+        public async Task Validade_EmergencyContact2NameEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -393,12 +394,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact1And2NameEmpty()
+        public async Task Validade_EmergencyContact1And2NameEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -427,12 +428,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact1RelationshipEmpty()
+        public async Task Validade_EmergencyContact1RelationshipEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -454,12 +455,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact2RelationshipEmpty()
+        public async Task Validade_EmergencyContact2RelationshipEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -487,12 +488,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact1And2RelationshipEmpty()
+        public async Task Validade_EmergencyContact1And2RelationshipEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -521,12 +522,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact1PhonenumberEmpty()
+        public async Task Validade_EmergencyContact1PhonenumberEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -548,12 +549,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact2PhonenumberEmpty()
+        public async Task Validade_EmergencyContact2PhonenumberEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -581,12 +582,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContact1And2PhonenumberEmpty()
+        public async Task Validade_EmergencyContact1And2PhonenumberEmpty()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -615,12 +616,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_MoreThan2PhoneNumbers()
+        public async Task Validade_MoreThan2PhoneNumbers()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -649,12 +650,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_MoreThan2EmergencyContact()
+        public async Task Validade_MoreThan2EmergencyContact()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -689,12 +690,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_SamePhoneNumbers()
+        public async Task Validade_SamePhoneNumbers()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),
@@ -723,12 +724,12 @@ namespace Validators.Test.User.RegisterUser
         }
 
         [Fact]
-        public void Validade_EmergencyContactSamePhoneNumbers()
+        public async Task Validade_EmergencyContactSamePhoneNumbers()
         {
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new RegisterUserValidation(userReadOnlyRepository);
-            var validationResult = validator.Validate(new RequestRegisterUserJson
+            var validationResult = await validator.ValidateAsync(new RequestRegisterUserJson
             {
                 Name = "User",
                 PushNotificationId = Guid.NewGuid().ToString(),

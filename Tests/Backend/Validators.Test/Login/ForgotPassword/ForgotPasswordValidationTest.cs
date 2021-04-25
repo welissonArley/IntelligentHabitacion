@@ -3,6 +3,7 @@ using IntelligentHabitacion.Api.Application.UseCases.Login.ForgotPassword;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using System;
+using System.Threading.Tasks;
 using Useful.ToTests.Builders.Repositories;
 using Xunit;
 
@@ -11,7 +12,7 @@ namespace Validators.Test.Login.ForgotPassword
     public class ForgotPasswordValidationTest
     {
         [Fact]
-        public void Validade_Sucess()
+        public async Task Validade_Sucess()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -22,7 +23,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = email,
                 Code = codeValue,
@@ -33,7 +34,7 @@ namespace Validators.Test.Login.ForgotPassword
         }
 
         [Fact]
-        public void Validade_UserInvalid()
+        public async Task Validade_UserInvalid()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -44,7 +45,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = "invaliduser@test.com",
                 Code = codeValue,
@@ -56,7 +57,7 @@ namespace Validators.Test.Login.ForgotPassword
         }
 
         [Fact]
-        public void Validade_CodeInvalid()
+        public async Task Validade_CodeInvalid()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -67,7 +68,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = email,
                 Code = codeValue,
@@ -79,7 +80,7 @@ namespace Validators.Test.Login.ForgotPassword
         }
 
         [Fact]
-        public void Validade_PasswordEmpty()
+        public async Task Validade_PasswordEmpty()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -90,7 +91,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = email,
                 Code = codeValue,
@@ -102,7 +103,7 @@ namespace Validators.Test.Login.ForgotPassword
         }
 
         [Fact]
-        public void Validade_PasswordInvalid()
+        public async Task Validade_PasswordInvalid()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -113,7 +114,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = email,
                 Code = codeValue,
@@ -125,7 +126,7 @@ namespace Validators.Test.Login.ForgotPassword
         }
 
         [Fact]
-        public void Validade_CodeNotTheSame()
+        public async Task Validade_CodeNotTheSame()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -136,7 +137,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = email,
                 Code = "DEF456",
@@ -148,7 +149,7 @@ namespace Validators.Test.Login.ForgotPassword
         }
 
         [Fact]
-        public void Validade_ExpiredCode()
+        public async Task Validade_ExpiredCode()
         {
             var codeValue = "ABC123";
             var email = "user@test.com";
@@ -159,7 +160,7 @@ namespace Validators.Test.Login.ForgotPassword
             var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
-            var validationResult = validator.Validate(new RequestResetYourPasswordJson
+            var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
             {
                 Email = email,
                 Code = codeValue,

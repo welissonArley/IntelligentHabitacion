@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       NETCORE_VERSION: '3.1.x'
       buildConfiguration: 'Release'
       SolutionPath: 'IntelligentHabitacion.sln'

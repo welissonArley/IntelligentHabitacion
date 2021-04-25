@@ -2,6 +2,11 @@ name: .NET Build on Push and Pull_Request
 
 on: [push, pull_request]
 
+variables:
+  NETCORE_VERSION: '3.1.x'
+  buildConfiguration: 'Release'
+  SolutionPath: 'IntelligentHabitacion.sln'
+
 jobs:
   build:
 
@@ -17,6 +22,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build
+      run: dotnet build $(SolutionPath) -c $(buildConfiguration)
     - name: Run Test
       run: dotnet test --no-build --verbosity normal

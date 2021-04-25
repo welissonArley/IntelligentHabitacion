@@ -11,5 +11,5 @@ This project contains:
 
 | Branch | Status |
 |----------|----------|
-| Master | [![Build Status](https://dev.azure.com/welissonarleyvs/IntelligentHabitacion/_apis/build/status/PipelineBuild/welissonArley.IntelligentHabitacion?branchName=master)](https://dev.azure.com/welissonarleyvs/IntelligentHabitacion/_build?definitionId=14&_a=summary) |
-| Develop | [![Build Status](https://dev.azure.com/welissonarleyvs/IntelligentHabitacion/_apis/build/status/PipelineBuild/welissonArley.IntelligentHabitacion?branchName=develop)](https://dev.azure.com/welissonarleyvs/IntelligentHabitacion/_build?definitionId=14&_a=summary) |
+| Master | ![Build Status](https://github.com/welissonArley/IntelligentHabitacion/actions/workflows/dotnet.yml/badge.svg?branch=master) |
+| Develop | ![Build Status](https://github.com/welissonArley/IntelligentHabitacion/actions/workflows/dotnet.yml/badge.svg?branch=develop) |

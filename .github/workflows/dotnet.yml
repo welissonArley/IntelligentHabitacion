@@ -6,7 +6,6 @@ jobs:
   build:
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      buildPlatform: 'Any CPU'
       buildConfiguration: 'Release'
       SolutionPath: 'IntelligentHabitacion.sln'
     
@@ -29,4 +28,4 @@ jobs:
       run: nuget restore ${{ env.SolutionPath }}
       
     - name: Build Solution
-      run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }} /p:platform=${{ env.buildPlatform }}
+      run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }}

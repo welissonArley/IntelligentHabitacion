@@ -21,3 +21,6 @@ jobs:
       
     - name: Clean Solution
       run: msbuild ${{ env.SolutionPath }} /t:Clean
+      
+    - name: Build Solution
+      run: msbuild ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /property:Configuration=${{ env.buildConfiguration }}

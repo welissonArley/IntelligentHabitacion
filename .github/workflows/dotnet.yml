@@ -29,3 +29,6 @@ jobs:
       
     - name: Build Solution
       run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }}
+      
+    - name: Run Test
+      run: dotnet test

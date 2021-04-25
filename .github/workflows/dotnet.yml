@@ -1,12 +1,12 @@
-name: .NET Build on Push and Pull_Request
+name: Build Project
 
 on: [push, pull_request]
 
 jobs:
   build:
     env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       NETCORE_VERSION: '3.1.x'
+      buildPlatform: 'Any CPU'
       buildConfiguration: 'Release'
       SolutionPath: 'IntelligentHabitacion.sln'
     
@@ -17,10 +17,16 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Setup MSBuild
-      uses: warrenbuckley/Setup-MSBuild@v1
+      uses: microsoft/setup-msbuild@v1
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
       
     - name: Clean Solution
-      run: msbuild ${{ env.SolutionPath }} /t:Clean
+      run: msbuild.exe ${{ env.SolutionPath }} /t:Clean /p:configuration=${{ env.buildConfiguration }}
+      
+    - name: Restore Packages
+      run: nuget restore ${{ env.SolutionPath }}
       
     - name: Build Solution
-      run: msbuild ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /property:Configuration=${{ env.buildConfiguration }}
+      run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }} /p:platform=${{ env.buildPlatform }}

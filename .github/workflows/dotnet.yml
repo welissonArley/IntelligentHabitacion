@@ -12,19 +12,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.NETCORE_VERSION }}
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-      with:
-        vs-version: '16.8.0'
+    - name: Checkout
+      uses: actions/checkout@v2
     
-    - name: Clear Nuget Packages
-      run: dotnet nuget locals all-clear
-    - name: Build
-      run: dotnet build ${{ env.SolutionPath }} -c ${{ env.buildConfiguration }}
-    - name: Run Test
-      run: dotnet test --no-build --verbosity normal
+    - name: Setup MSBuild
+      uses: warrenbuckley/Setup-MSBuild@v1
+      
+    - name: Clean Solution
+      run: msbuild ${{ env.SolutionPath }} /t:Clean

@@ -2,6 +2,7 @@
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IntelligentHabitacion.Api.Application.SharedValidators
 {
@@ -24,6 +25,9 @@ namespace IntelligentHabitacion.Api.Application.SharedValidators
 
                 index++;
             }
+
+            if(emergecyContacts.All(c => !string.IsNullOrWhiteSpace(c.Phonenumber)) && emergecyContacts.Select(c => c.Phonenumber).Distinct().Count() != emergecyContacts.Count)
+                context.AddFailure(ResourceTextException.EMERGENCY_CONTACT_SAME_PHONENUMBER);
         }
     }
 }

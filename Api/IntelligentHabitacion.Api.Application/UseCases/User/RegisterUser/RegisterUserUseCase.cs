@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using IntelligentHabitacion.Api.Application.Services.Cryptography;
-using IntelligentHabitacion.Api.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using IntelligentHabitacion.Communication.Request;
@@ -13,7 +12,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser
 {
     public class RegisterUserUseCase : IRegisterUserUseCase
     {
-        private readonly IEmailAlreadyBeenRegisteredUseCase _registeredUseCase;
+        private readonly IUserReadOnlyRepository _repositoryUserReadOnly;
         private readonly IUserWriteOnlyRepository _repository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -22,19 +21,19 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser
 
         public RegisterUserUseCase(IMapper mapper, IUnitOfWork unitOfWork,
             IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUserWriteOnlyRepository repository,
-            IEmailAlreadyBeenRegisteredUseCase registeredUseCase, PasswordEncripter cryptography)
+            IUserReadOnlyRepository repositoryUserReadOnly, PasswordEncripter cryptography)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
             _repository = repository;
-            _registeredUseCase = registeredUseCase;
+            _repositoryUserReadOnly = repositoryUserReadOnly;
             _cryptography = cryptography;
         }
 
         public async Task<ResponseOutput> Execute(RequestRegisterUserJson registerUserJson)
         {
-            var validation = await new RegisterUserValidation(_registeredUseCase).ValidateAsync(registerUserJson);
+            var validation = await new RegisterUserValidation(_repositoryUserReadOnly).ValidateAsync(registerUserJson);
 
             if (validation.IsValid)
             {

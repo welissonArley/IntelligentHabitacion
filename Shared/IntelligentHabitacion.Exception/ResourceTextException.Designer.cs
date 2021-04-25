@@ -232,6 +232,33 @@ namespace IntelligentHabitacion.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Emergency contacts cannot have the same phone number..
+        /// </summary>
+        public static string EMERGENCY_CONTACT_SAME_PHONENUMBER {
+            get {
+                return ResourceManager.GetString("EMERGENCY_CONTACT_SAME_PHONENUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An emergency contact must be informed..
+        /// </summary>
+        public static string EMERGENCYCONTACT_EMPTY {
+            get {
+                return ResourceManager.GetString("EMERGENCYCONTACT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can inform a maximum of 2 emergency contacts..
+        /// </summary>
+        public static string EMERGENCYCONTACT_MAX_TWO {
+            get {
+                return ResourceManager.GetString("EMERGENCYCONTACT_MAX_TWO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Expired code. Request a new one..
         /// </summary>
         public static string EXPIRED_CODE {
@@ -381,6 +408,24 @@ namespace IntelligentHabitacion.Exception {
         public static string PHONENUMBER_INVALID {
             get {
                 return ResourceManager.GetString("PHONENUMBER_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can enter a maximum of 2 phonenumbers..
+        /// </summary>
+        public static string PHONENUMBER_MAX_TWO {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_MAX_TWO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The phone numbers are the same..
+        /// </summary>
+        public static string PHONENUMBERS_ARE_SAME {
+            get {
+                return ResourceManager.GetString("PHONENUMBERS_ARE_SAME", resourceCulture);
             }
         }
         

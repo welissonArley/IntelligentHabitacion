@@ -29,6 +29,12 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public UserReadOnlyRepositoryBuilder ExistActiveUserWithEmail(string email)
+        {
+            _repository.Setup(x => x.ExistActiveUserWithEmail(email)).ReturnsAsync(true);
+            return this;
+        }
+
         public IUserReadOnlyRepository Build()
         {
             return _repository.Object;

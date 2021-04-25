@@ -174,6 +174,15 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>O E-mail é inválido.</value>
   </data>
+  <data name="EMERGENCYCONTACT_EMPTY" xml:space="preserve">
+    <value>Um contato de emergência deve ser informado.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_MAX_TWO" xml:space="preserve">
+    <value>Você pode informar no máximo 2 contatos de emergência.</value>
+  </data>
+  <data name="EMERGENCY_CONTACT_SAME_PHONENUMBER" xml:space="preserve">
+    <value>Os contatos de emergência não pode ter o mesmo número de telefone.</value>
+  </data>
   <data name="EXPIRED_CODE" xml:space="preserve">
     <value>O código expirou. Solicite um novo.</value>
   </data>
@@ -213,6 +222,9 @@
   <data name="PASSWORD_NOT_SAME_CONFIRMATION" xml:space="preserve">
     <value>A senha não é igual a confirmação de senha.</value>
   </data>
+  <data name="PHONENUMBERS_ARE_SAME" xml:space="preserve">
+    <value>Os números de telefones são iguais.</value>
+  </data>
   <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
     <value>Um telefone deve ser informado para o Contato de emergência {0}.</value>
   </data>
@@ -224,6 +236,9 @@
   </data>
   <data name="PHONENUMBER_INVALID" xml:space="preserve">
     <value>O número de telefone é inválido. (XX) X XXXX-XXXX</value>
+  </data>
+  <data name="PHONENUMBER_MAX_TWO" xml:space="preserve">
+    <value>Você pode informar no máximo 2 telefones.</value>
   </data>
   <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
     <value>O nome do produto deve ser informado.</value>

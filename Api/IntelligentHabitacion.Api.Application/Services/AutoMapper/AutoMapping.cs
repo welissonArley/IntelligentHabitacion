@@ -43,7 +43,7 @@ namespace IntelligentHabitacion.Api.Application.Services.AutoMapper
             CreateMap<Domain.Entity.User, Communication.Response.ResponseLoginJson>()
                 .ForMember(c => c.Id, opt => opt.MapFrom(w => _hashids.EncodeLong(w.Id)))
                 .ForMember(c => c.IsPartOfOneHome, opt => opt.MapFrom(w => w.HomeAssociationId.HasValue))
-                .ForMember(c => c.IsAdministrator, opt => opt.MapFrom(w => w.HomeAssociation != null && w.HomeAssociation.Home.AdministratorId == w.Id));
+                .ForMember(c => c.IsAdministrator, opt => opt.MapFrom(w => w.IsAdministrator()));
 
             CreateMap<Domain.Entity.User, Communication.Response.ResponseUserRegisteredJson>()
                 .ForMember(c => c.Id, opt => opt.MapFrom(w => _hashids.EncodeLong(w.Id)));

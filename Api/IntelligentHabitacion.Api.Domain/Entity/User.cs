@@ -17,5 +17,10 @@ namespace IntelligentHabitacion.Api.Domain.Entity
 
         public long? HomeAssociationId { get; set; }
         public HomeAssociation HomeAssociation { get; set; }
+
+        public bool IsAdministrator()
+        {
+            return HomeAssociation != null && HomeAssociation.Home.AdministratorId == Id;
+        }
     }
 }

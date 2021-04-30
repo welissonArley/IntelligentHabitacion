@@ -180,7 +180,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Create
             {
                 response.Add(new ResponseTaskJson
                 {
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId,
+                    CanEdit = loggedUser.IsAdministrator(),
                     CanRate = false,
                     CanCompletedToday = false,
                     Room = room

@@ -45,7 +45,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
                 return await CreateResponse(loggedUser, new ResponseTasksJson
                 {
                     Action = Communication.Enums.NeedAction.RegisterRoom,
-                    Message = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId ? ResourceText.MESSAGE_REGISTER_ROOM_ADMIN : string.Format(ResourceText.MESSAGE_REGISTER_ROOM, (await _userReadOnlyRepository.GetById(loggedUser.HomeAssociation.Home.AdministratorId)).Name)
+                    Message = loggedUser.IsAdministrator() ? ResourceText.MESSAGE_REGISTER_ROOM_ADMIN : string.Format(ResourceText.MESSAGE_REGISTER_ROOM, (await _userReadOnlyRepository.GetById(loggedUser.HomeAssociation.Home.AdministratorId)).Name)
                 });
             }
 
@@ -57,8 +57,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
 
                 return await CreateResponse(loggedUser, new ResponseTasksJson
                 {
-                    Action = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId ? Communication.Enums.NeedAction.CreateTheCleaningSchedule : Communication.Enums.NeedAction.InformationCreateCleaningSchedule,
-                    Message = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId ? "" : string.Format(ResourceText.DESCRIPTION_CREATE_CLEANING_SCHEDULE, usersAtHome.First(c => c.Id == loggedUser.HomeAssociation.Home.AdministratorId).Name),
+                    Action = loggedUser.IsAdministrator() ? Communication.Enums.NeedAction.CreateTheCleaningSchedule : Communication.Enums.NeedAction.InformationCreateCleaningSchedule,
+                    Message = loggedUser.IsAdministrator() ? "" : string.Format(ResourceText.DESCRIPTION_CREATE_CLEANING_SCHEDULE, usersAtHome.First(c => c.Id == loggedUser.HomeAssociation.Home.AdministratorId).Name),
                     CreateSchedule = new ResponseCreateScheduleCleaningHouseJson
                     {
                         Friends = _mapper.Map<List<ResponseUserSimplifiedJson>>(usersAtHome),
@@ -107,7 +107,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
                 var schedule = new ResponseTaskJson
                 {
                     IdTaskToRegisterRoomCleaning = _hashids.EncodeLong(task.Id),
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId && today.Month == date.Month && today.Year == date.Year,
+                    CanEdit = loggedUser.IsAdministrator() && today.Month == date.Month && today.Year == date.Year,
                     CanRate = await _repository.ThereAreaTaskToUserRateThisMonth(loggedUser.Id, room),
                     CanCompletedToday = !canCompletedToday && date.Month == today.Month && date.Year == today.Year,
                     Room = room,
@@ -143,7 +143,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
             {
                 response.Add(new ResponseTaskJson
                 {
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId && today.Month == date.Month && today.Year == date.Year,
+                    CanEdit = loggedUser.IsAdministrator() && today.Month == date.Month && today.Year == date.Year,
                     CanRate = await _repository.ThereAreaTaskToUserRateThisMonth(loggedUser.Id, room),
                     CanCompletedToday = false,
                     Room = room,
@@ -166,7 +166,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.GetTas
             {
                 response.Add(new ResponseTaskJson
                 {
-                    CanEdit = loggedUser.Id == loggedUser.HomeAssociation.Home.AdministratorId && today.Month == date.Month && today.Year == date.Year,
+                    CanEdit = loggedUser.IsAdministrator() && today.Month == date.Month && today.Year == date.Year,
                     CanRate = false,
                     CanCompletedToday = false,
                     Room = room

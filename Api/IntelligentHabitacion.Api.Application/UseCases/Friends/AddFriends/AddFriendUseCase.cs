@@ -102,7 +102,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends
             var email = _tokenController.User(userToken);
             var user = await _userRepository.GetByEmail(email);
 
-            if (user == null || user.HomeAssociationId == null || user.HomeAssociation.Home.AdministratorId != user.Id)
+            if (user == null || user.HomeAssociationId == null || user.IsAdministrator())
                 throw new IntelligentHabitacionException(ResourceTextException.USER_WITHOUT_PERMISSION_ACCESS_RESOURCE);
 
             var codeRandom = new CodeGenerator().Random36Chars();

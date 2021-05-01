@@ -21,8 +21,10 @@
                     </Grid>
                     
                     <Line Margin="15" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"></Line>
-                    <StackLayout x:Name="ContentAssign" Orientation="Horizontal" Margin="15,0,15,15">
-                        
+                    <StackLayout Orientation="Horizontal" Margin="15,0,15,15">
+                        <StackLayout x:Name="ContentAssign" Orientation="Horizontal">
+                            
+                        </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                             <Line WidthRequest="0.5" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"/>
                             <StackLayout HeightRequest="25" WidthRequest="40" x:Name="OptionEdit">

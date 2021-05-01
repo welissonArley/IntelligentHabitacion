@@ -32,3 +32,6 @@ jobs:
       
     - name: Run Validators Test
       run: dotnet test Tests\Backend\Validators.Test
+      
+    - name: Run UseCases Test
+      run: dotnet test Tests\Backend\UseCases.Test

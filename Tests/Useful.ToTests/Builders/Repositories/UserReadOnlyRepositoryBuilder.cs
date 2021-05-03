@@ -35,6 +35,20 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public UserReadOnlyRepositoryBuilder GetByEmailPassword(string email, string password)
+        {
+            _repository.Setup(x => x.GetByEmailPassword(email, password)).ReturnsAsync(new User
+            {
+                Email = email,
+                Password = password,
+                Active = true,
+                Name = "User",
+                ProfileColor = "#000000"
+            });
+
+            return this;
+        }
+
         public IUserReadOnlyRepository Build()
         {
             return _repository.Object;

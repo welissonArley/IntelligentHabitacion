@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using IntelligentHabitacion.Api.Application.Services.Cryptography;
 using IntelligentHabitacion.Api.Application.UseCases.User.ChangePassword;
 using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Exception;
+using Useful.ToTests.Builders.Encripter;
 using Xunit;
 
 namespace Validators.Test.User.ChangePassword
@@ -14,7 +14,7 @@ namespace Validators.Test.User.ChangePassword
         {
             var currentPassword = "@CurrentPassword123";
 
-            var encripter = new PasswordEncripter("addKey");
+            var encripter = PasswordEncripterBuilder.Instance().Build();
             var userDataNow = new IntelligentHabitacion.Api.Domain.Entity.User { Password = encripter.Encrypt(currentPassword) };
 
             var validator = new ChangePasswordValidation(encripter, userDataNow);
@@ -32,7 +32,7 @@ namespace Validators.Test.User.ChangePassword
         {
             var currentPassword = "@CurrentPassword123";
 
-            var encripter = new PasswordEncripter("addKey");
+            var encripter = PasswordEncripterBuilder.Instance().Build();
             var userDataNow = new IntelligentHabitacion.Api.Domain.Entity.User { Password = encripter.Encrypt(currentPassword) };
 
             var validator = new ChangePasswordValidation(encripter, userDataNow);
@@ -51,7 +51,7 @@ namespace Validators.Test.User.ChangePassword
         {
             var currentPassword = "@CurrentPassword123";
 
-            var encripter = new PasswordEncripter("addKey");
+            var encripter = PasswordEncripterBuilder.Instance().Build();
             var userDataNow = new IntelligentHabitacion.Api.Domain.Entity.User { Password = encripter.Encrypt(currentPassword) };
 
             var validator = new ChangePasswordValidation(encripter, userDataNow);
@@ -70,7 +70,7 @@ namespace Validators.Test.User.ChangePassword
         {
             var currentPassword = "@CurrentPassword123";
 
-            var encripter = new PasswordEncripter("addKey");
+            var encripter = PasswordEncripterBuilder.Instance().Build();
             var userDataNow = new IntelligentHabitacion.Api.Domain.Entity.User { Password = encripter.Encrypt(currentPassword) };
 
             var validator = new ChangePasswordValidation(encripter, userDataNow);

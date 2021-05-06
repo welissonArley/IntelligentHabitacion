@@ -29,7 +29,7 @@ namespace UseCases.Test.Login.ForgotPassword
         {
             var email = "user@email.com";
 
-            var userRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(email)).Build();
+            var userRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(email)).Build();
 
             var useCase = new RequestCodeResetPasswordUseCase(userRepository, _tokenWriteOnlyRepository, _sendEmail, _unitOfWork);
 

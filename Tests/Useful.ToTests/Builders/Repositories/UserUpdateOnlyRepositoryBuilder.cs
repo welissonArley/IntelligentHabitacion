@@ -23,9 +23,15 @@ namespace Useful.ToTests.Builders.Repositories
             return _instance;
         }
 
-        public UserUpdateOnlyRepositoryBuilder GetByEmail(string email, User user)
+        public UserUpdateOnlyRepositoryBuilder GetByEmail(User user)
         {
-            _repository.Setup(x => x.GetByEmail_Update(email)).ReturnsAsync(user);
+            _repository.Setup(x => x.GetByEmail_Update(user.Email)).ReturnsAsync(user);
+            return this;
+        }
+
+        public UserUpdateOnlyRepositoryBuilder GetById(User user)
+        {
+            _repository.Setup(x => x.GetById_Update(user.Id)).ReturnsAsync(user);
             return this;
         }
 

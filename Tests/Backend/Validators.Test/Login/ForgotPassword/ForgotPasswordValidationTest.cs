@@ -20,7 +20,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userId, CreateCodeModel(userId, codeValue));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
@@ -42,7 +42,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userId, CreateCodeModel(userId, codeValue));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
@@ -65,7 +65,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(2, CreateCodeModel(2, codeValue));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
@@ -88,7 +88,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userId, CreateCodeModel(userId, codeValue));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
@@ -111,7 +111,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userId, CreateCodeModel(userId, codeValue));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
@@ -134,7 +134,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userId, CreateCodeModel(userId, codeValue));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson
@@ -157,7 +157,7 @@ namespace Validators.Test.Login.ForgotPassword
 
             var codeRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userId, CreateCodeModel(userId, codeValue, DateTime.UtcNow.AddDays(-1)));
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, CreateUserModel(userId, email));
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(CreateUserModel(userId, email));
 
             var validator = new ForgotPasswordValidation(codeRepository.Build(), userReadOnlyRepository.Build());
             var validationResult = await validator.ValidateAsync(new RequestResetYourPasswordJson

@@ -23,9 +23,9 @@ namespace Useful.ToTests.Builders.Repositories
             return _instance;
         }
 
-        public UserReadOnlyRepositoryBuilder GetByEmail(string email, User user)
+        public UserReadOnlyRepositoryBuilder GetByEmail(User user)
         {
-            _repository.Setup(x => x.GetByEmail(email)).ReturnsAsync(user);
+            _repository.Setup(x => x.GetByEmail(user.Email)).ReturnsAsync(user);
             return this;
         }
 

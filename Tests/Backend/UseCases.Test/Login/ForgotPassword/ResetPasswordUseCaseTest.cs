@@ -32,8 +32,8 @@ namespace UseCases.Test.Login.ForgotPassword
             var code = "ABC123";
 
             var userModel = CreateUserModel(email);
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, userModel).Build();
-            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetByEmail(email, userModel).Build();
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(userModel).Build();
+            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetByEmail(userModel).Build();
             var codeReadOnlyRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userModel.Id, CreateCodeModel(userModel.Id, code)).Build();
             var codeWriteOnlyRepository = CodeWriteOnlyRepositoryBuilder.Instance().Build();
 
@@ -62,8 +62,8 @@ namespace UseCases.Test.Login.ForgotPassword
             var code = "ABC123";
 
             var userModel = CreateUserModel(email);
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(email, userModel).Build();
-            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetByEmail(email, userModel).Build();
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().GetByEmail(userModel).Build();
+            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetByEmail(userModel).Build();
             var codeReadOnlyRepository = CodeReadOnlyRepositoryBuilder.Instance().GetByUserId(userModel.Id, CreateCodeModel(userModel.Id, code)).Build();
             var codeWriteOnlyRepository = CodeWriteOnlyRepositoryBuilder.Instance().Build();
 

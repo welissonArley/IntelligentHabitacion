@@ -37,7 +37,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.UpdateUserInformat
         {
             var loggedUser = await _loggedUser.User();
 
-            Validate(updateUserJson, loggedUser);
+            await Validate(updateUserJson, loggedUser);
 
             var userToUpdate = await _repository.GetById_Update(loggedUser.Id);
 
@@ -57,11 +57,11 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.UpdateUserInformat
             return response;
         }
 
-        private void Validate(RequestUpdateUserJson updateUserJson, Domain.Entity.User userDataNow)
+        private async Task Validate(RequestUpdateUserJson updateUserJson, Domain.Entity.User userDataNow)
         {
             var validation = new UpdateUserInformationsValidation().Validate(updateUserJson);
 
-            if (!userDataNow.Email.Equals(updateUserJson.Email) && _registeredUseCase.Execute(updateUserJson.Email).ConfigureAwait(false).GetAwaiter().GetResult().Value)
+            if (!userDataNow.Email.Equals(updateUserJson.Email) && (await _registeredUseCase.Execute(updateUserJson.Email)).Value)
                 validation.Errors.Add(new FluentValidation.Results.ValidationFailure("", ResourceTextException.EMAIL_ALREADYBEENREGISTERED));
 
             if (!validation.IsValid)

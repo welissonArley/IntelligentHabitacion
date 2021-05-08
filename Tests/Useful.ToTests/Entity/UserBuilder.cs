@@ -60,7 +60,22 @@ namespace Useful.ToTests.Entity
             user.HomeAssociationId = 1;
             user.HomeAssociation = new HomeAssociation
             {
-                HomeId = 1
+                HomeId = 1,
+                Home = new Home
+                {
+                    Id = 1,
+                    Active = true,
+                    City = "City",
+                    AdditionalAddressInfo = "Additional",
+                    Address = "Address",
+                    Neighborhood = "Neighborhood",
+                    Number = "1",
+                    StateProvince = "State",
+                    ZipCode = "31.000-000",
+                    Country = IntelligentHabitacion.Api.Domain.ValueObjects.CountryEnum.BRAZIL,
+                    DeadlinePaymentRent = 15,
+                    CreateDate = DateTime.UtcNow
+                }
             };
 
             return user;

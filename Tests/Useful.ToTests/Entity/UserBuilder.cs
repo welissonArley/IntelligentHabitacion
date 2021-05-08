@@ -58,6 +58,10 @@ namespace Useful.ToTests.Entity
         {
             var user = User_WithoutHomeAssociation();
             user.HomeAssociationId = 1;
+            user.HomeAssociation = new HomeAssociation
+            {
+                HomeId = 1
+            };
 
             return user;
         }

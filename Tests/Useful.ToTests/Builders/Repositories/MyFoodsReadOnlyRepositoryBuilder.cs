@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.MyFoods;
 using Moq;
+using System.Collections.Generic;
 
 namespace Useful.ToTests.Builders.Repositories
 {
@@ -26,6 +27,12 @@ namespace Useful.ToTests.Builders.Repositories
         public MyFoodsReadOnlyRepositoryBuilder GetById(long userId, MyFood myFood)
         {
             _repository.Setup(x => x.GetById(myFood.Id, userId)).ReturnsAsync(myFood);
+            return this;
+        }
+
+        public MyFoodsReadOnlyRepositoryBuilder GetByUserId(long userId, IList<MyFood> myFoods)
+        {
+            _repository.Setup(x => x.GetByUserId(userId)).ReturnsAsync(myFoods);
             return this;
         }
 

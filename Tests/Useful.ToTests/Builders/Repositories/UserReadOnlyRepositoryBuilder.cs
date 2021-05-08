@@ -29,6 +29,12 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public UserReadOnlyRepositoryBuilder GetById(User user)
+        {
+            _repository.Setup(x => x.GetById(user.Id)).ReturnsAsync(user);
+            return this;
+        }
+
         public UserReadOnlyRepositoryBuilder ExistActiveUserWithEmail(string email)
         {
             _repository.Setup(x => x.ExistActiveUserWithEmail(email)).ReturnsAsync(true);

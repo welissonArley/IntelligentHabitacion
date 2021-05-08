@@ -29,6 +29,12 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public CodeReadOnlyRepositoryBuilder GetByCode(Code code)
+        {
+            _repository.Setup(x => x.GetByCode(code.Value)).ReturnsAsync(code);
+            return this;
+        }
+
         public ICodeReadOnlyRepository Build()
         {
             return _repository.Object;

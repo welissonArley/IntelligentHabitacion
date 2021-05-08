@@ -1,7 +1,7 @@
-﻿using IntelligentHabitacion.Api.Application.Services.Token;
-using IntelligentHabitacion.Api.Application.UseCases;
+﻿using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Domain.Repository.Token;
 using Useful.ToTests.Builders.Repositories;
+using Useful.ToTests.Builders.TokenController;
 
 namespace Useful.ToTests.Builders.CreateResponseUseCase
 {
@@ -25,7 +25,7 @@ namespace Useful.ToTests.Builders.CreateResponseUseCase
 
         public IntelligentHabitacionUseCase Build()
         {
-            return new IntelligentHabitacionUseCase(new TokenController(60, "VW5pdFRlc3QxMjNVbml0VGVzdDEyM1VuaXRUZXN0MTIzVW5pdFRlc3QxMjNVbml0VGVzdDEyM1VuaXRUZXN0MTIzVW5pdFRlc3QxMjNVbml0VGVzdDEyM1VuaXRUZXN0MTIzVW5pdFQ="), _tokenRepository);
+            return new IntelligentHabitacionUseCase(TokenControllerBuilder.Instance().Build(), _tokenRepository);
         }
     }
 }

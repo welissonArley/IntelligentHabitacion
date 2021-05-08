@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using HashidsNet;
+using Useful.ToTests.Builders.Hashids;
 
 namespace Useful.ToTests.Builders.Mapper
 {
@@ -7,7 +7,7 @@ namespace Useful.ToTests.Builders.Mapper
     {
         public static IMapper Build()
         {
-            var hashids = new Hashids("this is my salt", minHashLength: 3);
+            var hashids = HashidsBuilder.Instance().Build();
 
             var mockMapper = new MapperConfiguration(cfg =>
             {

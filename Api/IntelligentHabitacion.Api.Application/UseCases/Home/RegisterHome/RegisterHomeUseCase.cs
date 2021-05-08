@@ -47,7 +47,7 @@ namespace IntelligentHabitacion.Api.Application.UseCases.Home.RegisterHome
 
         private void Validate(Domain.Entity.User loggedUser, RequestRegisterHomeJson registerHomeJson)
         {
-            if (loggedUser.HomeAssociationId != null)
+            if (loggedUser.HomeAssociationId.HasValue)
                 throw new UserIsPartOfAHomeException();
 
             var validation = new RegisterHomeValidation().Validate(registerHomeJson);

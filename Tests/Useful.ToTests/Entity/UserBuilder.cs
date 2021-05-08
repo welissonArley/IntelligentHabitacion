@@ -54,5 +54,12 @@ namespace Useful.ToTests.Entity
                 }
             };
         }
+        public User User_WithHomeAssociation()
+        {
+            var user = User_WithoutHomeAssociation();
+            user.HomeAssociationId = 1;
+
+            return user;
+        }
     }
 }

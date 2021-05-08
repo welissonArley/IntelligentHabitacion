@@ -24,6 +24,12 @@ namespace Useful.ToTests.Builders.Repositories
             return _instance;
         }
 
+        public MyFoodsReadOnlyRepositoryBuilder GetExpiredOrCloseToDueDate(IList<MyFood> foods)
+        {
+            _repository.Setup(x => x.GetExpiredOrCloseToDueDate()).ReturnsAsync(foods);
+            return this;
+        }
+
         public MyFoodsReadOnlyRepositoryBuilder GetById(long userId, MyFood myFood)
         {
             _repository.Setup(x => x.GetById(myFood.Id, userId)).ReturnsAsync(myFood);

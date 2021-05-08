@@ -46,7 +46,7 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IntelligentHabitacionUseCase>()
                 .AddScoped(options => new PasswordEncripter(configuration.GetValue<string>("Settings:KeyAdditionalCryptography")))
                 .AddScoped<ILoggedUser, LoggedUser>()
-                .AddScoped<IProcessFoodsNextToDueDate, ProcessFoodsNextToDueDateUseCasse>()
+                .AddScoped<IProcessFoodsNextToDueDateUseCase, ProcessFoodsNextToDueDateUseCase>()
                 .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>()
                 .AddScoped<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
                 .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>()

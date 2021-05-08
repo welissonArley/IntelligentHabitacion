@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
 {
-    public class ProcessFoodsNextToDueDateUseCasse : IProcessFoodsNextToDueDate
+    public class ProcessFoodsNextToDueDateUseCase : IProcessFoodsNextToDueDateUseCase
     {
         private readonly IMyFoodsWriteOnlyRepository _myFoodWriteRepository;
         private readonly IMyFoodsReadOnlyRepository _myFoodReadOnlyRepository;
         private readonly IPushNotificationService _pushNotificationService;
 
-        public ProcessFoodsNextToDueDateUseCasse(IMyFoodsWriteOnlyRepository myFoodWriteRepository,
+        public ProcessFoodsNextToDueDateUseCase(IMyFoodsWriteOnlyRepository myFoodWriteRepository,
             IMyFoodsReadOnlyRepository myFoodReadOnlyRepository,
             IPushNotificationService pushNotificationService)
         {

@@ -69,7 +69,7 @@ namespace IntelligentHabitacion.Api.Services
         private async Task NotifyUserProductNextToDueDate()
         {
             using var scope = _serviceProvider.CreateScope();
-            var useCase = scope.ServiceProvider.GetRequiredService<IProcessFoodsNextToDueDate>();
+            var useCase = scope.ServiceProvider.GetRequiredService<IProcessFoodsNextToDueDateUseCase>();
             await useCase.Execute();
         }
         /// <summary>

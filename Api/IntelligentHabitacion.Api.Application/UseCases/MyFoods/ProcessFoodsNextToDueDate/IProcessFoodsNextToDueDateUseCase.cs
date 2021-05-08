@@ -2,7 +2,7 @@
 
 namespace IntelligentHabitacion.Api.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
 {
-    public interface IProcessFoodsNextToDueDate
+    public interface IProcessFoodsNextToDueDateUseCase
     {
         Task Execute();
     }

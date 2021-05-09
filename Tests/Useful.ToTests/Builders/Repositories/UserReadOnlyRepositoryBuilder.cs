@@ -1,6 +1,7 @@
 ﻿using IntelligentHabitacion.Api.Domain.Entity;
 using IntelligentHabitacion.Api.Domain.Repository.User;
 using Moq;
+using System.Collections.Generic;
 
 namespace Useful.ToTests.Builders.Repositories
 {
@@ -32,6 +33,12 @@ namespace Useful.ToTests.Builders.Repositories
         public UserReadOnlyRepositoryBuilder GetById(User user)
         {
             _repository.Setup(x => x.GetById(user.Id)).ReturnsAsync(user);
+            return this;
+        }
+
+        public UserReadOnlyRepositoryBuilder GetByHome(long homeId, IList<User> users)
+        {
+            _repository.Setup(x => x.GetByHome(homeId)).ReturnsAsync(users);
             return this;
         }
 

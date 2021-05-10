@@ -25,45 +25,48 @@
             <Color x:Key="BlueDefault">#F2F6F7</Color>
             <Color x:Key="OrangeDefault">#FD8369</Color>
             <Color x:Key="SkeletonColor">#e2e2e2</Color>
+
+            <Color x:Key="DarkModePrimaryColor">#1F1E19</Color>
+            <Color x:Key="DarkModeSecondaryColor">#424242</Color>
             
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
-                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" />
                 <Setter Property="NavigationPage.BackButtonTitle" Value=""></Setter>
             </Style>
 
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="#FFFFFF"></Setter>
-                <Setter Property="BarTextColor" Value="#000000"></Setter>
+                <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"></Setter>
+                <Setter Property="BarTextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
                 <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="True" ></Setter>
             </Style>
 
             <Style TargetType="Label" ApplyToDerivedTypes="True">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayRegular}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelThin">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelSemiBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelMedium">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelLight">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             <Style TargetType="Label" x:Key="LabelTitle">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
                 <Setter Property="FontSize" Value="22"></Setter>
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
@@ -71,7 +74,7 @@
             </Style>
             <Style TargetType="Label" x:Key="LabelExtraBold">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayExtraBold}"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
             
             <Style TargetType="Button">

@@ -3,6 +3,7 @@ using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.Login;
 using Plugin.Fingerprint;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XLabs.Forms.Mvvm;
@@ -22,6 +23,11 @@ namespace IntelligentHabitacion.App.View
         {
             base.OnAppearing();
 
+            await SetMainPage();
+        }
+
+        private async Task SetMainPage()
+        {
             var userPreferences = Resolver.Resolve<UserPreferences>();
             if (await userPreferences.HasAccessToken())
             {

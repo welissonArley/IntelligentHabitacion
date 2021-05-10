@@ -4,11 +4,13 @@ using Android.OS;
 
 namespace IntelligentHabitacion.App.Droid
 {
-    [Activity(Label = "Intelligent Habitacion", Theme = "@style/Theme.Splash", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, NoHistory = true)]
+    [Activity(Label = "Intelligent Habitacion", Theme = "@style/Theme.Splash", LaunchMode = LaunchMode.SingleTop, MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, NoHistory = true)]
     public class SplashScreenActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            base.SetTheme(Resource.Style.MainTheme);
+
             base.OnCreate(savedInstanceState);
 
             StartActivity(typeof(MainActivity));

@@ -36,6 +36,31 @@ namespace IntelligentHabitacion.App
         {
             InitializeComponent();
 
+            SetAppTheme();
+
+            OneSignalSettings();
+
+            SetDependencyInjection();
+
+            RegisterViews();
+
+            MainPage = new InitializePage();
+        }
+
+        private void SetAppTheme()
+        {
+            Current.UserAppTheme = Current.RequestedTheme == OSAppTheme.Unspecified ? OSAppTheme.Light : Current.RequestedTheme;
+        }
+
+        private void SetDependencyInjection()
+        {
+            Resolver.Resolve<IDependencyContainer>()
+                .Register<INavigationService>(t => new NavigationService(MainPage.Navigation)) // New Xlabs nav service
+                .Register(t => MainPage.Navigation); // Old Xlabs nav service
+        }
+
+        private void OneSignalSettings()
+        {
             OneSignal.Current.StartInit(OneSignalManager.OneSignalKey)
                 .InFocusDisplaying(OSInFocusDisplayOption.None)
                 .HandleNotificationReceived((notification) =>
@@ -44,17 +69,14 @@ namespace IntelligentHabitacion.App
                     if (!notification.shown) // if the "show" is false, this means that the app is in focus.
                         Current.MainPage.Navigation.PushPopupAsync(new NotifyModal(notification.payload.title, notification.payload.body));
                 }).EndInit();
+
             OneSignal.Current.RegisterForPushNotifications();
 
             OneSignal.Current.IdsAvailable(OneSignalId);
-
-            RegisterViews();
-
-            Resolver.Resolve<IDependencyContainer>()
-                .Register<INavigationService>(t => new NavigationService(MainPage.Navigation)) // New Xlabs nav service
-                .Register(t => MainPage.Navigation); // Old Xlabs nav service
-
-            MainPage = new InitializePage();
+        }
+        private static void OneSignalId(string playerID, string pushToken)
+        {
+            OneSignalManager.SetMyIdOneSignal(playerID);
         }
 
         private void RegisterViews()
@@ -90,11 +112,6 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<CompleteHistoryPage, CompleteHistoryViewModel>();
             ViewFactory.Register<RateTaskPage, RateTaskViewModel>();
             ViewFactory.Register<DetailsAllRatePage, DetailsAllRateViewModel>();
-        }
-
-        private static void OneSignalId(string playerID, string pushToken)
-        {
-            OneSignalManager.SetMyIdOneSignal(playerID);
         }
     }
 }

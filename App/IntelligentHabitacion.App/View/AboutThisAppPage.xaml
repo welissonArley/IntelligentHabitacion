@@ -29,31 +29,37 @@
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Flaticon_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <Label Text="https://www.flaticon.com" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+            <Label Text="https://www.flaticon.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
         </StackLayout>
         <StackLayout HeightRequest="30" BackgroundColor="Transparent">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Freepick_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <Label Text="https://br.freepik.com" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+            <Label Text="https://br.freepik.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
         </StackLayout>
         <StackLayout HeightRequest="30" BackgroundColor="Transparent">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Undraw_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <Label Text="https://undraw.co/illustrations" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+            <Label Text="https://undraw.co/illustrations" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
         </StackLayout>
         <StackLayout HeightRequest="30" BackgroundColor="Transparent">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Drawkit_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <Label Text="https://www.drawkit.io" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+            <Label Text="https://www.drawkit.io" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
         </StackLayout>
         <StackLayout HeightRequest="30" BackgroundColor="Transparent">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="PixelTrue_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <Label Text="https://www.pixeltrue.com/free-illustrations" FontSize="14" TextColor="#0077AA" VerticalOptions="CenterAndExpand"></Label>
+            <Label Text="https://www.pixeltrue.com/free-illustrations" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+        <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="PixelTrue_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label Text="https://www.icons8.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
         </StackLayout>
     </StackLayout>
 </ContentPage>

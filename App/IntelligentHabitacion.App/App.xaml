@@ -76,6 +76,10 @@
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayExtraBold}"></Setter>
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
             </Style>
+            <Style TargetType="Label" x:Key="LabelUrlLink">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayRegular}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light='#0077AA', Dark='#05B4FF'}"></Setter>
+            </Style>
             
             <Style TargetType="Button">
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>

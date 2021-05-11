@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppVersion\AppVersionAndroid.cs" />
+    <Compile Include="CustomControl\AppFrameRenderer.cs" />
     <Compile Include="CustomControl\ButtonAllCapsFalseRenderer.cs" />
     <Compile Include="CustomControl\EditorEntryWhiteBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />

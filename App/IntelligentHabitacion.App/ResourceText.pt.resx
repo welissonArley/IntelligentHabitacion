@@ -157,7 +157,7 @@
     <value>Acompanhe o cronograma de Limpeza para deixar o lar limpo e lindo.</value>
   </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
-    <value>Utilize esta opção para criar um lar e ser o administrador do mesmo.</value>
+    <value>Utilize esta opção para criar um lar e ser o administrador.</value>
   </data>
   <data name="DESCRIPTION_DATE_CLEANING_BY_FRIEND" xml:space="preserve">
     <value>Limpeza realizada em {0} ({1}) por {2}</value>
@@ -184,7 +184,7 @@
     <value>Abaixo você pode ver quais comôdos da casa foram limpados, quem limpou e em quais dias do mês selecionado.</value>
   </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
-    <value>Utilize esta opção para fazer parte de um republica já criada.</value>
+    <value>Utilize esta opção para fazer parte de uma republica já criada.</value>
   </data>
   <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
     <value>Selecione as tarefas para cada um dos moradores da casa. Não se preocupe, você pode alterar isso quando quiser :)</value>
@@ -196,7 +196,7 @@
     <value>Veja informações uteis sobre os seus amigos de lar.</value>
   </data>
   <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
-    <value>Utilize esta opção para visualizar e/ou editar suas informações de cadastro.</value>
+    <value>Utilize esta opção para visualizar e/ou editar suas informações.</value>
   </data>
   <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
     <value>Abaixo você vai encontrar informações das suas tarefas realizadas em cada mês :)</value>

@@ -34,15 +34,6 @@ namespace IntelligentHabitacion.App.Template.CardIlustrationOptions
             get { return LabelDescriptionCard.Text; }
         }
 
-        public Thickness IlustrationMargin
-        {
-            set
-            {
-                ImageIlustration.Margin = value;
-            }
-            get { return ImageIlustration.Margin; }
-        }
-
         public static readonly BindableProperty TappedCardCommandProperty = BindableProperty.Create(propertyName: "TappedCard",
                                                         returnType: typeof(ICommand),
                                                         declaringType: typeof(CardIlustrationOptions),

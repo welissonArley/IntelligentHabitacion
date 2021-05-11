@@ -9,7 +9,7 @@
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Card_OnTapped"></TapGestureRecognizer>
             </Grid.GestureRecognizers>
-            <Frame HasShadow="True" CornerRadius="5" Padding="0" Grid.Column="0" Grid.Row="0">
+            <Frame BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="True" CornerRadius="5" Padding="0" Grid.Column="0" Grid.Row="0">
                 <StackLayout Spacing="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Image Source="IconInformation">
                         <Image.HeightRequest>
@@ -20,13 +20,13 @@
                         </Image.WidthRequest>
                     </Image>
                     <StackLayout Margin="15,0,0,0" Spacing="3">
-                        <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource OrangeDefault}">
+                        <Label Text="{x:Static resourceText:ResourceText.TITILE_ABOUT_APP}" Style="{x:StaticResource LabelExtraBold}" TextColor="{x:StaticResource OrangeDefault}">
                             <Label.FontSize>
                                 <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="24"></OnIdiom>
                             </Label.FontSize>
                         </Label>
                         <StackLayout Orientation="Horizontal" Spacing="4">
-                            <Label VerticalOptions="CenterAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_VERSION}" Style="{x:StaticResource LabelLight}">
+                            <Label VerticalOptions="CenterAndExpand" Margin="0,2,0,0" Text="{x:Static resourceText:ResourceText.TITLE_VERSION}" Style="{x:StaticResource LabelLight}">
                                 <Label.FontSize>
                                     <OnIdiom x:TypeArguments="x:Double" Phone="8" Tablet="16"></OnIdiom>
                                 </Label.FontSize>

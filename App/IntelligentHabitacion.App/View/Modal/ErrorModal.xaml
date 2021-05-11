@@ -3,15 +3,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
+    BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-    BackgroundColor="Transparent"
     x:Class="IntelligentHabitacion.App.View.Modal.ErrorModal">
-    <Frame HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+    <Frame BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
         <StackLayout>
             <BoxView Color="{x:StaticResource RedDefault}" HorizontalOptions="FillAndExpand" HeightRequest="7"></BoxView>
             <StackLayout VerticalOptions="CenterAndExpand" Margin="0,10,0,0">
                 <customControl:LabelJustifyText Margin="20" x:Name="ErrorMensage" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="15"></customControl:LabelJustifyText>
-                <Button Margin="20" Style="{x:StaticResource ButtonYellowDefault}" Text="OK" Clicked="Button_Clicked_Ok"></Button>
+                <Button Margin="20" Style="{x:StaticResource ButtonYellowDefault}" BackgroundColor="{StaticResource RedDefault}" Text="OK" Clicked="Button_Clicked_Ok"></Button>
             </StackLayout>
         </StackLayout>
     </Frame>

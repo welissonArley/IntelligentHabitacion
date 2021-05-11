@@ -5,7 +5,7 @@
              x:Class="IntelligentHabitacion.App.Template.TextWithLabel.InputTextWithLabelComponent">
     <ContentView.Content>
         <StackLayout Spacing="0" x:Name="component">
-            <Label x:Name="Label" Text=" " FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}">
+            <Label x:Name="Label" Text=" " FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{AppThemeBinding Light={StaticResource GrayDefault}, Dark=White}">
                 <Label.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <OnPlatform.Platforms>

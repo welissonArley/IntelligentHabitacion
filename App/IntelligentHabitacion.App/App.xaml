@@ -123,9 +123,9 @@
             </Style>
 
             <Style TargetType="Entry" ApplyToDerivedTypes="True">
-                <Setter Property="PlaceholderColor" Value="{DynamicResource GrayDefault}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrayDefault}"></Setter>
                 <Setter Property="FontSize" Value="14"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
                 <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
                 <Setter Property="ReturnType" Value="Go"></Setter>
             </Style>

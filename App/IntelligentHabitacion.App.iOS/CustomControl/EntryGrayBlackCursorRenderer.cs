@@ -9,7 +9,7 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(EntryGrayBlackCursor), typeof(EntryGrayBlackCursorRenderer))]
 namespace IntelligentHabitacion.App.iOS.CustomControl
 {
-	public class EntryGrayBlackCursorRenderer : EntryRenderer
+    public class EntryGrayBlackCursorRenderer : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -21,19 +21,26 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
 
 			CALayer _line = new CALayer
 			{
-				BorderColor = ColorToEntryLine(),
-				BackgroundColor = ColorToEntryLine(),
+				BorderColor = GetLineColor(),
+				BackgroundColor = GetLineColor(),
 				Frame = new CGRect(0, Frame.Height / 2, UIScreen.MainScreen.Bounds.Width - 40, 1f)
 			};
 
 
 			Control.Layer.AddSublayer(_line);
-			Control.TintColor = UIColor.Black;
+			Control.TintColor = GetCursor();
 		}
 
-        private CGColor ColorToEntryLine()
+		private CGColor GetLineColor()
 		{
-			return UIColor.FromRGB(229, 229, 229).CGColor;
+			(int R, int G, int B) = Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? (98, 97, 94) : (229, 229, 229);
+
+			return UIColor.FromRGB(R, G, B).CGColor;
 		}
-    }
+
+		private UIColor GetCursor()
+		{
+			return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White : UIColor.Black;
+		}
+	}
 }

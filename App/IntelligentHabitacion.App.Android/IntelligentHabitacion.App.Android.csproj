@@ -114,7 +114,7 @@
     <Compile Include="CustomControl\EditorEntryWhiteBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\EntryForSearchByNameBlackCursorRenderer.cs" />
-    <Compile Include="CustomControl\EntryWhiteBlackCursorRenderer.cs" />
+    <Compile Include="CustomControl\EntryNoLineBlackCursorRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

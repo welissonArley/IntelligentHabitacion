@@ -74,7 +74,7 @@ namespace IntelligentHabitacion.App.Template.Step
                 HeightRequest = 16,
                 WidthRequest = 16,
                 StrokeThickness = 3,
-                Stroke = new SolidColorBrush(Color.Black)
+                Stroke = Application.Current.RequestedTheme == OSAppTheme.Dark ? new SolidColorBrush(Color.White) : new SolidColorBrush(Color.Black)
             };
         }
     }

@@ -6,10 +6,10 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(EntryWhiteBlackCursor), typeof(EntryWhiteBlackCursorRenderer))]
+[assembly: ExportRenderer(typeof(EntryNoLineBlackCursor), typeof(EntryNoLineBlackCursorRenderer))]
 namespace IntelligentHabitacion.App.iOS.CustomControl
 {
-	public class EntryWhiteBlackCursorRenderer : EntryRenderer
+	public class EntryNoLineBlackCursorRenderer : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -22,13 +22,24 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
 
 			CALayer _line = new CALayer
 			{
-				BorderColor = UIColor.White.CGColor,
-				BackgroundColor = UIColor.White.CGColor,
+				BorderColor = GetLineColor(),
+				BackgroundColor = GetLineColor(),
 				Frame = new CGRect(0, Frame.Height / 2, UIScreen.MainScreen.Bounds.Width - 40, 1f)
 			};
 
 			Control.Layer.AddSublayer(_line);
-			Control.TintColor = UIColor.Black;
+			Control.TintColor = GetCursor();
 		}
-    }
+
+		private CGColor GetLineColor()
+		{
+			return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White.CGColor :
+				UIColor.FromRGB(31, 30, 25).CGColor;
+		}
+
+		private UIColor GetCursor()
+		{
+			return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White : UIColor.Black;
+		}
+	}
 }

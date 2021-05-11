@@ -25,7 +25,7 @@
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_TOBEGIN_TELL_EMAIL}" Style="{x:StaticResource LabelTitle}"></Label>
 
-        <CustomEntry:EntryWhiteBlackCursor Text="{Binding Model.Email}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryWhiteBlackCursor>
+        <CustomEntry:EntryNoLineBlackCursor Text="{Binding Model.Email}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryNoLineBlackCursor>
 
         <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
     </StackLayout>

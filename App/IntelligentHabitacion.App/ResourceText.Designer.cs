@@ -187,7 +187,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Follow the Cleaning schedule to make the home clean and beautiful..
+        ///   Looks up a localized string similar to Do your part and leave the home clean and organized..
         /// </summary>
         internal static string DESCRIPTION_CLEAN_HOUSE {
             get {
@@ -295,7 +295,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Track the foods you have, with quantity and expiration date..
+        ///   Looks up a localized string similar to See information about your products. (Quantity, maturity, etc)..
         /// </summary>
         internal static string DESCRIPTION_MY_FOOD {
             get {

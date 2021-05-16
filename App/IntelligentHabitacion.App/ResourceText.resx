@@ -160,7 +160,7 @@
     <value>Below you can choose one or more rooms to be cleaned in the month.</value>
   </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
-    <value>Follow the Cleaning schedule to make the home clean and beautiful.</value>
+    <value>Do your part and leave the home clean and organized.</value>
   </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
@@ -196,7 +196,7 @@
     <value>Select the tasks for each of the household's residents. Don't worry, you can change this whenever you want :)</value>
   </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
-    <value>Track the foods you have, with quantity and expiration date.</value>
+    <value>See information about your products. (Quantity, maturity, etc).</value>
   </data>
   <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
     <value>See useful information about your friends at home.</value>

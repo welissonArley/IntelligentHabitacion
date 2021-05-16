@@ -154,7 +154,7 @@
     <value>Abaixo você pode escolher um ou mais comôdos para serem limpados no mês.</value>
   </data>
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
-    <value>Acompanhe o cronograma de Limpeza para deixar o lar limpo e lindo.</value>
+    <value>Faça sua parte e deixe o lar limpo e organizado.</value>
   </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Utilize esta opção para criar um lar e ser o administrador.</value>
@@ -190,7 +190,7 @@
     <value>Selecione as tarefas para cada um dos moradores da casa. Não se preocupe, você pode alterar isso quando quiser :)</value>
   </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
-    <value>Acompanhe os alimentos que você, com quantidade e data de vencimento.</value>
+    <value>Veja informações de seus produtos. (Qtd, vencimento, etc).</value>
   </data>
   <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
     <value>Veja informações uteis sobre os seus amigos de lar.</value>

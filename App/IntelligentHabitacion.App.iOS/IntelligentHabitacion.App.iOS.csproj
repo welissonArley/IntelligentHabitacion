@@ -322,24 +322,6 @@
     <BundleResource Include="Resources\IlustrationMyFood%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IlustrationSweetHome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IlustrationSweetHome%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IlustrationSweetHome%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IlustrationTheFriends.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IlustrationTheFriends%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IlustrationTheFriends%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IconPhone.png" />
   </ItemGroup>
   <ItemGroup>

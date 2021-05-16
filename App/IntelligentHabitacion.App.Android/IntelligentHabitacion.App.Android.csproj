@@ -711,15 +711,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\IllustrationWomanManCleaningHouse.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\IconTabAddress.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\IconTabHome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\IconTabWifi.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\IconDelete.png" />
   </ItemGroup>
   <ItemGroup>

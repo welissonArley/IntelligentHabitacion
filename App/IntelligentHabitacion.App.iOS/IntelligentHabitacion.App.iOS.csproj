@@ -520,15 +520,6 @@
     <BundleResource Include="Resources\IllustrationWomanManCleaningHouse%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconTabAddress.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconTabHome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconTabWifi.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IconDelete.png" />
   </ItemGroup>
   <ItemGroup>

@@ -70,7 +70,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                     component.Content.Children.Add(new Xamarin.Forms.Button
                     {
                         FontSize = 16,
-                        BackgroundColor = Color.White,
+                        BackgroundColor = Color.Transparent,
                         HorizontalOptions = LayoutOptions.StartAndExpand,
                         TextColor = (Color)Application.Current.Resources["YellowDefault"],
                         Text = ResourceText.TITLE_ADD_ROOM,

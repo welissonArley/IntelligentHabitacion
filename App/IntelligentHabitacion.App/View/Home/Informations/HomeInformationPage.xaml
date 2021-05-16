@@ -42,7 +42,7 @@
         
         <templateButton:TabsView VerticalOptions="FillAndExpand">
             <templateButton:TabsView.TabItems>
-                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ADDRESS}" UnselectedIcon="IconTabAddress.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ADDRESS}" Icon="IconTabAddress.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}" xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
                             <xct:StateLayout.StateViews>
@@ -98,7 +98,7 @@
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>
 
-                <templateButton:TabItem Title="Wifi" UnselectedIcon="IconTabWifi.png">
+                <templateButton:TabItem Title="Wifi" Icon="IconTabWifi.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
                             <xct:StateLayout.StateViews>
@@ -127,7 +127,7 @@
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>
 
-                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ROOMS}" UnselectedIcon="IconTabHome.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ROOMS}" Icon="IconTabHome.png">
                     <templateButton:TabItem.TabContent>
                         <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
                             <xct:StateLayout.StateViews>

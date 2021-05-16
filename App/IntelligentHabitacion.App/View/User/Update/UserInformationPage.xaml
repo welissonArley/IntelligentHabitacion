@@ -31,7 +31,7 @@
 
         <templateButton:TabsView VerticalOptions="FillAndExpand">
             <templateButton:TabsView.TabItems>
-                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_MY_DATA}" UnselectedIcon="IconTabUser.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_MY_DATA}" Icon="IconTabUser.svg">
                     <templateButton:TabItem.TabContent>
                         <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateUserInformationContentPage}}">
                             <xct:StateLayout.StateViews>
@@ -55,7 +55,7 @@
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>
 
-                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" UnselectedIcon="IconTabPhone.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" Icon="IconTabPhone.svg">
                     <templateButton:TabItem.TabContent>
                         <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateUserInformationContentPage}}">
                             <xct:StateLayout.StateViews>
@@ -77,7 +77,7 @@
                     </templateButton:TabItem.TabContent>
                 </templateButton:TabItem>
 
-                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_CONTACTS}" UnselectedIcon="IconTabEmergency.png">
+                <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_CONTACTS}" Icon="IconTabEmergency.svg">
                     <templateButton:TabItem.TabContent>
                         <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateUserInformationContentPage}}">
                             <xct:StateLayout.StateViews>

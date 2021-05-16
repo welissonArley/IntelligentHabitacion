@@ -17,6 +17,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\IconTabEmergency.svg" />
+    <None Remove="Resources\IconTabPhone.svg" />
+    <None Remove="Resources\IconTabUser.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\IconTabEmergency.svg" />
+    <EmbeddedResource Include="Resources\IconTabPhone.svg" />
+    <EmbeddedResource Include="Resources\IconTabUser.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Com.OneSignal" Version="3.10.4" />
     <PackageReference Include="Messier16.Forms.Controls" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />
@@ -26,6 +38,8 @@
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugin.TabView" Version="1.1.1" />
 	<PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.3" />
+	<PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+	<PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.5.0" />

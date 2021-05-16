@@ -36,6 +36,8 @@ namespace IntelligentHabitacion.App.Droid
             CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Messier16.Forms.Android.Controls.Messier16Controls.InitAll();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            var ignore = typeof(FFImageLoading.Svg.Forms.SvgCachedImage);
 
             LoadApplication(new App());
         }

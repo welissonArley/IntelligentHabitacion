@@ -21,6 +21,8 @@ namespace IntelligentHabitacion.App.iOS
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
             Messier16.Forms.iOS.Controls.Messier16Controls.InitAll();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            var ignore = typeof(FFImageLoading.Svg.Forms.SvgCachedImage);
 
             LoadApplication(new App());
 

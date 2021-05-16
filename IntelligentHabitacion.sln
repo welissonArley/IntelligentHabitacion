@@ -40,7 +40,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Test", "Tests\Ba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Useful.ToTests", "Tests\Useful.ToTests\Useful.ToTests.csproj", "{9FAF786B-06C8-4DDC-A01D-FFF808F025DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "Tests\Backend\UseCases.Test\UseCases.Test.csproj", "{67F8C26E-99BD-4F0D-923C-59B6E1D857F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Test", "Tests\Backend\UseCases.Test\UseCases.Test.csproj", "{67F8C26E-99BD-4F0D-923C-59B6E1D857F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

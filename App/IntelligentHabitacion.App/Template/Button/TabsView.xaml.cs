@@ -34,9 +34,9 @@ namespace IntelligentHabitacion.App.Template.Button
             {
                 TabViewControlTabItemTitle = c.Title,
                 TabContent = c.TabContent,
-                TabViewControlTabItemIconSource = ImageSource.FromFile(c.UnselectedIcon)
+                TabViewControlTabItemIconSource = ImageSource.FromFile(c.Icon)
             });
-
+            
             Tabs.TemplatedItemSource = new ObservableCollection<TabModelBase>(listItems);
         }
     }
@@ -44,7 +44,7 @@ namespace IntelligentHabitacion.App.Template.Button
     public class TabItem
     {
         public string Title { get; set; }
-        public string UnselectedIcon { get; set; }
+        public string Icon { get; set; }
         public Xamarin.Forms.View TabContent { get; set; }
     }
 
@@ -55,5 +55,14 @@ namespace IntelligentHabitacion.App.Template.Button
         public Xamarin.Forms.View TabContent { get; set; }
 
         public void TabViewControlTabItemFocus() { }
+    }
+
+    public class AppColorTransformation : FFImageLoading.Transformations.TintTransformation
+    {
+        public AppColorTransformation()
+        {
+            HexColor = Application.Current.RequestedTheme == OSAppTheme.Light ? "#000000" : "#FFFFFF";
+            EnableSolidColor = true;
+        }
     }
 }

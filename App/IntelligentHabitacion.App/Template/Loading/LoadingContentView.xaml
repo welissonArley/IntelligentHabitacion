@@ -6,7 +6,7 @@
     BackgroundColor="Transparent"
     x:Class="IntelligentHabitacion.App.Template.Loading.LoadingContentView">
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*" RowDefinitions="*">
-        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.8"/>
+        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.8"/>
 
         <ActivityIndicator Grid.Column="0" Grid.Row="0" IsRunning="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{x:StaticResource YellowDefault}" />
     </Grid>

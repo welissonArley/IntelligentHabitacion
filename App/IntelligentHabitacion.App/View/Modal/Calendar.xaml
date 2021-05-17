@@ -4,19 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-    BackgroundColor="Transparent"
+    BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"
     x:Class="IntelligentHabitacion.App.View.Modal.Calendar">
-    <Frame HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+    <Frame HasShadow="True" Padding="0" VerticalOptions="Center" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
         <StackLayout Margin="20,20,20,30">
             <StackLayout Orientation="Horizontal" Spacing="0">
-                <ImageButton x:Name="ButtonPreviousYear" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousYear"></ImageButton>
+                <ImageButton x:Name="ButtonPreviousYear" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousYear"></ImageButton>
                 <Label WidthRequest="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="1" x:Name="LabelYear" Style="{x:StaticResource LabelBold}" FontSize="18"></Label>
-                <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
+                <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
             </StackLayout>
             <StackLayout Margin="0,20,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                <ImageButton x:Name="ButtonPreviousMonth" Source="IconRoundDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousMonth"></ImageButton>
+                <ImageButton x:Name="ButtonPreviousMonth" Source="{AppThemeBinding Light=IconRoundDirection, Dark=IconRoundDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousMonth"></ImageButton>
                 <Label x:Name="LabelMonth" FontSize="18" Style="{x:StaticResource LabelMedium}" HorizontalOptions="CenterAndExpand"></Label>
-                <ImageButton x:Name="ButtonNextMonth" Rotation="180" Source="IconRoundDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_NextMonth" Margin="0,0,1,0"></ImageButton>
+                <ImageButton x:Name="ButtonNextMonth" Rotation="180" Source="{AppThemeBinding Light=IconRoundDirection, Dark=IconRoundDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_NextMonth" Margin="0,0,1,0"></ImageButton>
             </StackLayout>
 
             <Grid Margin="0,20,0,0" ColumnSpacing="1" x:Name="DaysContent" RowDefinitions="30,30,30,30,30,30,30"
@@ -32,8 +32,8 @@
             </Grid>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                <Button Padding="0" HeightRequest="30" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" TextColor="{x:StaticResource RedDefault}" BackgroundColor="White" Clicked="Button_Cancel" FontSize="16"></Button>
-                <Button Padding="0" HeightRequest="30" Text="Ok" TextColor="{x:StaticResource GreenDefault}" BackgroundColor="White" FontSize="16" Clicked="Button_Ok"></Button>
+                <Button Padding="0" HeightRequest="30" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" TextColor="{x:StaticResource RedDefault}" BackgroundColor="Transparent" Clicked="Button_Cancel" FontSize="16"></Button>
+                <Button Padding="0" HeightRequest="30" Text="Ok" TextColor="{x:StaticResource GreenDefault}" BackgroundColor="Transparent" FontSize="16" Clicked="Button_Ok"></Button>
             </StackLayout>
         </StackLayout>
     </Frame>

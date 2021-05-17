@@ -36,7 +36,7 @@ namespace IntelligentHabitacion.App.Template.Date
         public void DeselectDay()
         {
             SelectComponent.IsVisible = false;
-            LabelDay.TextColor = Color.Black;
+            LabelDay.TextColor = Application.Current.RequestedTheme == OSAppTheme.Light ? Color.Black : Color.White;
         }
 
         private void DaySelected()

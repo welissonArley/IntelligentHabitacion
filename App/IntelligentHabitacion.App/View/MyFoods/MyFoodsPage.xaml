@@ -49,7 +49,7 @@
                         <Grid VerticalOptions="FillAndExpand">
                             <StackLayout>
                                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3">
-                                    <Image Source="IlustrationMyFood"></Image>
+                                    <Image Source="IlustrationMyFood" HeightRequest="300"></Image>
                                     <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FOODS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
                                 </StackLayout>
 

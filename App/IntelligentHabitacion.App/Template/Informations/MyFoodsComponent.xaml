@@ -35,8 +35,8 @@
                         </Label>
                     </StackLayout>
                     <Grid HorizontalOptions="End" ColumnSpacing="15" VerticalOptions="CenterAndExpand" RowDefinitions="20" ColumnDefinitions="30,30">
-                        <Button Grid.Row="0" Grid.Column="0" Text="-1" BackgroundColor="White" BorderWidth="2" BorderColor="{x:StaticResource RedDefault}" TextColor="{x:StaticResource RedDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_SubtractOne"></Button>
-                        <Button Grid.Row="0" Grid.Column="1" Text="+1" BackgroundColor="White" BorderWidth="2" BorderColor="{x:StaticResource GreenDefault}" TextColor="{x:StaticResource GreenDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_AddOne"></Button>
+                        <Button Grid.Row="0" Grid.Column="0" Text="-1" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{x:StaticResource RedDefault}" TextColor="{x:StaticResource RedDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_SubtractOne"></Button>
+                        <Button Grid.Row="0" Grid.Column="1" Text="+1" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{x:StaticResource GreenDefault}" TextColor="{x:StaticResource GreenDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_AddOne"></Button>
                     </Grid>
                 </StackLayout>
                 <BoxView BackgroundColor="{x:StaticResource GrayDefault}" HeightRequest="0.2" Opacity="0.5" Margin="0,10,0,0"></BoxView>

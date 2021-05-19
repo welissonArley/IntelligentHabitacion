@@ -13,7 +13,7 @@
                 <Label WidthRequest="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="1" x:Name="LabelYear" Style="{x:StaticResource LabelBold}" FontSize="18"></Label>
                 <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
             </StackLayout>
-            <StackLayout Margin="0,20,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+            <StackLayout Margin="0,20,0,0" Padding="2" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                 <ImageButton x:Name="ButtonPreviousMonth" Source="{AppThemeBinding Light=IconRoundDirection, Dark=IconRoundDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousMonth"></ImageButton>
                 <Label x:Name="LabelMonth" FontSize="18" Style="{x:StaticResource LabelMedium}" HorizontalOptions="CenterAndExpand"></Label>
                 <ImageButton x:Name="ButtonNextMonth" Rotation="180" Source="{AppThemeBinding Light=IconRoundDirection, Dark=IconRoundDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_NextMonth" Margin="0,0,1,0"></ImageButton>

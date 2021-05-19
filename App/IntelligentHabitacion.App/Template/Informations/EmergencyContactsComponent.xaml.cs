@@ -84,7 +84,8 @@ namespace IntelligentHabitacion.App.Template.Informations
             {
                 HasShadow = true,
                 CornerRadius = 15,
-                Padding = 0
+                Padding = 0,
+                BackgroundColor = Application.Current.RequestedTheme == OSAppTheme.Dark ? (Color)Application.Current.Resources["DarkModeSecondaryColor"] : Color.White
             };
 
             frame.Content = new StackLayout

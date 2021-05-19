@@ -9,7 +9,7 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(EntryForSearchByNameBlackCursor), typeof(EntryForSearchByNameBlackCursorRenderer))]
 namespace IntelligentHabitacion.App.iOS.CustomControl
 {
-	public class EntryForSearchByNameBlackCursorRenderer : EntryRenderer
+    public class EntryForSearchByNameBlackCursorRenderer : EntryRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
 		{
@@ -24,12 +24,17 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
 			};
 			Control.BorderStyle = UITextBorderStyle.None;
 			Control.Layer.AddSublayer(_line);
-			Control.TintColor = UIColor.Black;
+			Control.TintColor = GetCursor();
 		}
 
 		private CGColor ColorToEntryLine()
 		{
 			return UIColor.Clear.CGColor;
+		}
+
+		private UIColor GetCursor()
+		{
+			return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White : UIColor.Black;
 		}
 	}
 }

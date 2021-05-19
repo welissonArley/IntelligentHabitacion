@@ -6,10 +6,10 @@
     xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
     x:Class="IntelligentHabitacion.App.Template.Search.SearchByNameComponent">
     <ContentView.Content>
-        <Frame Margin="0,20,0,0" BackgroundColor="#F1F1F1" HasShadow="False" HeightRequest="40" CornerRadius="20" Padding="0">
+        <Frame Margin="0,20,0,0" BackgroundColor="{AppThemeBinding Light='#F1F1F1', Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="False" HeightRequest="40" CornerRadius="20" Padding="0">
             <StackLayout Orientation="Horizontal" Spacing="-3">
                 <Image Margin="15,0,15,0" Source="IconSearch" VerticalOptions="CenterAndExpand" HeightRequest="15" WidthRequest="15"></Image>
-                <customControl:EntryForSearchByNameBlackCursor TextChanged="Entry_TextChanged" FontSize="12" Placeholder="{x:Static resourceText:ResourceText.TITLE_SEARCH_BY_NAME}" PlaceholderColor="{x:StaticResource GrayDefault}" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"></customControl:EntryForSearchByNameBlackCursor>
+                <customControl:EntryForSearchByNameBlackCursor TextChanged="Entry_TextChanged" FontSize="12" Placeholder="{x:Static resourceText:ResourceText.TITLE_SEARCH_BY_NAME}" PlaceholderColor="{StaticResource GrayDefault}" TextColor="{AppThemeBinding Light=Black, Dark=White}" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"></customControl:EntryForSearchByNameBlackCursor>
             </StackLayout>
         </Frame>
     </ContentView.Content>

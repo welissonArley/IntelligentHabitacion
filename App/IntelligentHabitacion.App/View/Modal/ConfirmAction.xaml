@@ -5,9 +5,9 @@
     xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
     xmlns:customControl="clr-namespace:IntelligentHabitacion.App.CustomControl"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-    BackgroundColor="White"
+    BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"
     x:Class="IntelligentHabitacion.App.View.Modal.ConfirmAction">
-    <Frame HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+    <Frame HasShadow="True" Padding="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
         <StackLayout>
             <StackLayout Orientation="Horizontal" Margin="20">
                 <Image WidthRequest="50" HeightRequest="50" x:Name="ImageIcon"></Image>

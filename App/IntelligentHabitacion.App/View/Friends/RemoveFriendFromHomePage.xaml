@@ -42,7 +42,7 @@
                     <FormattedString>
                         <Span FontFamily="{DynamicResource FontFamilyRalewayBold}" Text="{Binding Model.Name}" TextColor="{x:StaticResource GreenDefault}" FontSize="22"></Span>
                         <Span Text=" " FontSize="22"></Span>
-                        <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME}" TextColor="Black" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                        <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME}" TextColor="{AppThemeBinding Light=Black, Dark=White}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
                     </FormattedString>
                 </customControl:LabelJustifyText.FormattedText>
             </customControl:LabelJustifyText>

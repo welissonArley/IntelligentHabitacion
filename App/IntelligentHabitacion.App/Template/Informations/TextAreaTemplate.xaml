@@ -5,8 +5,8 @@
              x:Class="IntelligentHabitacion.App.Template.Informations.TextAreaTemplate">
   <ContentView.Content>
       <StackLayout Margin="0,20,0,0">
-            <Frame Padding="0" HasShadow="False" BorderColor="{x:StaticResource GrayDefault}">
-                <customControl:EditorEntryWhiteBlackCursor x:Name="Input" PlaceholderColor="{x:StaticResource GrayDefault}" HeightRequest="110" FontSize="12"></customControl:EditorEntryWhiteBlackCursor>
+            <Frame Padding="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="False" BorderColor="{AppThemeBinding Light={StaticResource GrayDefault}, Dark=White}">
+                <customControl:AppEditor x:Name="Input" PlaceholderColor="{StaticResource GrayDefault}" TextColor="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="110" FontSize="12"></customControl:AppEditor>
             </Frame>
             <Label x:Name="LabelCount" Text="0/255" FontSize="14" HorizontalOptions="EndAndExpand"></Label>
         </StackLayout>

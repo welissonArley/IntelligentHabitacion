@@ -12,8 +12,8 @@
                     </Label.GestureRecognizers>
                 </Label>
                 <StackLayout Orientation="Horizontal">
-                    <ImageButton Clicked="PreviousMonth_Clicked" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Rotation="90"/>
-                    <ImageButton Clicked="NextMonth_Clicked" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Margin="15,0,0,0" Rotation="270"/>
+                    <ImageButton Clicked="PreviousMonth_Clicked" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Rotation="90"/>
+                    <ImageButton Clicked="NextMonth_Clicked" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Margin="15,0,0,0" Rotation="270"/>
                 </StackLayout>
             </StackLayout>
             <Grid ColumnSpacing="1" x:Name="DaysContent" RowDefinitions="17,1,40,40,40,40,40,40"

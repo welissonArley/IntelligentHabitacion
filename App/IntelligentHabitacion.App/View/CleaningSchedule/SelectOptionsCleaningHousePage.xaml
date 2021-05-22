@@ -16,7 +16,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <InputKit:CheckBox IconColor="{StaticResource GreenDefault}" TextFontSize="14" BorderColor="Black" IsChecked="{Binding Assigned}" Color="{StaticResource GreenDefault}" Text="{Binding Name}" Margin="0,10,0,0" Type="Check"></InputKit:CheckBox>
+                            <InputKit:CheckBox TextColor="{AppThemeBinding Light=Black, Dark=White}" IconColor="{AppThemeBinding Light={StaticResource GreenDefault}, Dark=White}" TextFontSize="14" BorderColor="{AppThemeBinding Light=Black, Dark=White}" IsChecked="{Binding Assigned}" Color="{AppThemeBinding Light={StaticResource GreenDefault}, Dark=White}" Text="{Binding Name}" Margin="0,10,0,0" Type="Check"></InputKit:CheckBox>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

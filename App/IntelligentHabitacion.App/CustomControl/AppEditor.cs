@@ -2,7 +2,7 @@
 
 namespace IntelligentHabitacion.App.CustomControl
 {
-    public class EditorEntryWhiteBlackCursor : Editor
+    public class AppEditor : Editor
     {
     }
 }

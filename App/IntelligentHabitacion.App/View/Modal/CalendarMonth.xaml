@@ -4,14 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:resourceText="clr-namespace:IntelligentHabitacion.App"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-    BackgroundColor="Transparent"
+    BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"
     x:Class="IntelligentHabitacion.App.View.Modal.CalendarMonth">
-    <Frame HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+    <Frame HasShadow="True" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
         <StackLayout Margin="20,20,20,30">
             <StackLayout Orientation="Horizontal" Spacing="0">
-                <ImageButton x:Name="ButtonPreviousYear" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousYear"></ImageButton>
+                <ImageButton x:Name="ButtonPreviousYear" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_PreviousYear"></ImageButton>
                 <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" x:Name="LabelYear" Style="{x:StaticResource LabelBold}" FontSize="18"></Label>
-                <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="IconSquareDirection" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
+                <ImageButton x:Name="ButtonNextYear" Rotation="180" BorderWidth="1" Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Clicked="Button_NextYear"></ImageButton>
             </StackLayout>
 
             <Grid Margin="0,20,0,0" ColumnSpacing="1" x:Name="MonthContent" RowDefinitions="50,50,50,30"
@@ -19,8 +19,8 @@
             </Grid>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                <Button Padding="0" HeightRequest="30" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" TextColor="{x:StaticResource RedDefault}" BackgroundColor="White" Clicked="Button_Cancel" FontSize="16"></Button>
-                <Button Padding="0" HeightRequest="30" Text="Ok" TextColor="{x:StaticResource GreenDefault}" BackgroundColor="White" FontSize="16" Clicked="Button_Ok"></Button>
+                <Button Padding="0" HeightRequest="30" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" TextColor="{x:StaticResource RedDefault}" BackgroundColor="Transparent" Clicked="Button_Cancel" FontSize="16"></Button>
+                <Button Padding="0" HeightRequest="30" Text="Ok" TextColor="{x:StaticResource GreenDefault}" BackgroundColor="Transparent" FontSize="16" Clicked="Button_Ok"></Button>
             </StackLayout>
         </StackLayout>
     </Frame>

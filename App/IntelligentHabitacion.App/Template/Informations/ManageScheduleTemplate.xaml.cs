@@ -45,6 +45,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                 var component = ((ManageScheduleTemplate)bindable);
                 component.LabelName.Text = taskModel.Name;
                 component.ButtonChange.TextColor = Color.FromHex(taskModel.ProfileColor);
+                component.ButtonChange.BackgroundColor = Color.Transparent;
 
                 component.Content.Children.Clear();
 
@@ -99,7 +100,7 @@ namespace IntelligentHabitacion.App.Template.Informations
                 Text = ResourceText.TITLE_ASSIGN_TASKS,
                 HorizontalOptions = LayoutOptions.End,
                 CornerRadius = 0,
-                BackgroundColor = Color.White,
+                BackgroundColor = Color.Transparent,
                 HeightRequest = 30
             };
 

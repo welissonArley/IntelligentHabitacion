@@ -8,14 +8,14 @@
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="SelectTask_Tapped"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-            <Frame Margin="0,20,0,0" CornerRadius="4" BackgroundColor="White" HasShadow="True" Padding="0">
+            <Frame Margin="0,20,0,0" CornerRadius="4" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="True" Padding="0">
                 <StackLayout Spacing="-3">
                     <Grid Margin="15,20,15,0" ColumnDefinitions="*" RowDefinitions="*">
                         <StackLayout Orientation="Horizontal">
-                            <InputKit:CheckBox x:Name="CompletedTodayContent" Margin="0,0,10,0" IconColor="{StaticResource GreenDefault}" TextFontSize="14" BorderColor="Black" Color="{StaticResource GreenDefault}" Type="Check"/>
+                            <InputKit:CheckBox x:Name="CompletedTodayContent" Margin="0,0,10,0" IconColor="{AppThemeBinding Dark=White, Light={StaticResource GreenDefault}}" TextFontSize="14" BorderColor="{AppThemeBinding Dark=White, Light=Black}" Color="{AppThemeBinding Dark=White, Light={StaticResource GreenDefault}}" Type="Check"/>
                             <Label x:Name="Room" Style="{StaticResource LabelBold}" FontSize="18" VerticalOptions="CenterAndExpand"></Label>
                         </StackLayout>
-                        <Frame x:Name="ThereIsTaskToRateContent" BackgroundColor="White" HasShadow="False" Margin="0,-10,0,0" HorizontalOptions="End" VerticalOptions="Start" BorderColor="{StaticResource YellowDefault}" CornerRadius="10" HeightRequest="25" Padding="0">
+                        <Frame x:Name="ThereIsTaskToRateContent" BackgroundColor="Transparent" HasShadow="False" Margin="0,-10,0,0" HorizontalOptions="End" VerticalOptions="Start" BorderColor="{StaticResource YellowDefault}" CornerRadius="10" HeightRequest="25" Padding="0">
                             <Label VerticalOptions="CenterAndExpand" Margin="7,4,7,4" Text="Avaliação disponível" FontSize="13" Style="{StaticResource LabelExtraBold}" TextColor="{StaticResource YellowDefault}"></Label>
                         </Frame>
                     </Grid>

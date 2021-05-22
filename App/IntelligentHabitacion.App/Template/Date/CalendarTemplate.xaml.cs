@@ -222,7 +222,7 @@ namespace IntelligentHabitacion.App.Template.Date
             {
                 HeightRequest = 31,
                 WidthRequest = 31,
-                Stroke = hasAttention ? new SolidColorBrush((Color)Application.Current.Resources[rateAvaliable ? "YellowDefault" : "GreenDefault"]) : new SolidColorBrush(Color.Black),
+                Stroke = hasAttention ? new SolidColorBrush((Color)Application.Current.Resources[rateAvaliable ? "YellowDefault" : "GreenDefault"]) : new SolidColorBrush(Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.White : Color.Black),
                 StrokeThickness = 2
             }, 0, 0);
             grid.Children.Add(new Label
@@ -232,7 +232,7 @@ namespace IntelligentHabitacion.App.Template.Date
                 Text = $"{(day < 10 ? "0" : "")}{day}",
                 FontSize = 16,
                 Style = (Style)Application.Current.Resources["LabelBold"],
-                TextColor = hasAttention ? (Color)Application.Current.Resources[rateAvaliable ? "YellowDefault" : "GreenDefault"] : Color.Black
+                TextColor = hasAttention ? (Color)Application.Current.Resources[rateAvaliable ? "YellowDefault" : "GreenDefault"] : Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.White : Color.Black
             }, 0, 0);
 
             return grid;

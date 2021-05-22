@@ -35,7 +35,7 @@ namespace IntelligentHabitacion.App.Template.Date
         public void DeselectMonth()
         {
             SelectComponent.IsVisible = false;
-            LabelMonth.TextColor = Color.Black;
+            LabelMonth.TextColor = Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.White : Color.Black;
         }
 
         private void MonthSelected()

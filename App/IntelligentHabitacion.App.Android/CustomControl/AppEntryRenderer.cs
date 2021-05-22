@@ -10,12 +10,12 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(EntryForSearchByNameBlackCursor), typeof(EntryForSearchByNameBlackCursorRenderer))]
+[assembly: ExportRenderer(typeof(AppEntry), typeof(AppEntryRenderer))]
 namespace IntelligentHabitacion.App.Droid.CustomControl
 {
-    public class EntryForSearchByNameBlackCursorRenderer : EntryRenderer
+    public class AppEntryRenderer : EntryRenderer
     {
-        public EntryForSearchByNameBlackCursorRenderer(Context context) : base(context) { }
+        public AppEntryRenderer(Context context) : base(context) { }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -34,7 +34,6 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
                 else
                 {
                     Control.BackgroundTintList = ColorStateList.ValueOf(color);
-
                     IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
                     IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
                     JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, cursor);
@@ -44,10 +43,9 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
 
         private Android.Graphics.Color GetLineColor()
         {
-            var color = (Xamarin.Forms.Color)Application.Current.Resources["DarkModeSecondaryColor"];
-            string hex = color.ToHex();
+            var color = Application.Current.RequestedTheme == OSAppTheme.Dark ? "#62615E" : "#E5E5E5";
 
-            return Application.Current.RequestedTheme == OSAppTheme.Dark ? Android.Graphics.Color.ParseColor(hex) : Android.Graphics.Color.ParseColor("#F1F1F1");
+            return Android.Graphics.Color.ParseColor(color);
         }
 
         private int GetCursor()

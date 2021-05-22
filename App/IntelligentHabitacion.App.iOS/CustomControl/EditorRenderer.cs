@@ -1,7 +1,6 @@
 ﻿using CoreAnimation;
 using CoreGraphics;
 using IntelligentHabitacion.App.CustomControl;
-using IntelligentHabitacion.App.iOS.CustomControl;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;

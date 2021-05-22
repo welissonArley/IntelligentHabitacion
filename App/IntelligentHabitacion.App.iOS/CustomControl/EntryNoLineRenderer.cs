@@ -6,10 +6,10 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(EntryNoLineBlackCursor), typeof(EntryNoLineBlackCursorRenderer))]
+[assembly: ExportRenderer(typeof(EntryNoLine), typeof(EntryNoLineRenderer))]
 namespace IntelligentHabitacion.App.iOS.CustomControl
 {
-	public class EntryNoLineBlackCursorRenderer : EntryRenderer
+    public class EntryNoLineRenderer : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {

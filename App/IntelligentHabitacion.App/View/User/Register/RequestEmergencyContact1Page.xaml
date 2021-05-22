@@ -14,9 +14,9 @@
         <Label Text="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_CASES}" Style="{x:StaticResource LabelTitle}"></Label>
 
         <StackLayout VerticalOptions="CenterAndExpand">
-            <CustomEntry:EntryNoLineBlackCursor Text="{Binding Model.EmergencyContact1.Name}" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_NAME}"></CustomEntry:EntryNoLineBlackCursor>
-            <CustomEntry:EntryNoLineBlackCursor Text="{Binding Model.EmergencyContact1.Relationship}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP}"></CustomEntry:EntryNoLineBlackCursor>
-            <CustomEntry:EntryNoLineBlackCursor Text="{Binding Model.EmergencyContact1.PhoneNumber}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" Keyboard="Telephone"></CustomEntry:EntryNoLineBlackCursor>
+            <CustomEntry:EntryNoLine Text="{Binding Model.EmergencyContact1.Name}" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_NAME}"></CustomEntry:EntryNoLine>
+            <CustomEntry:EntryNoLine Text="{Binding Model.EmergencyContact1.Relationship}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP}"></CustomEntry:EntryNoLine>
+            <CustomEntry:EntryNoLine Text="{Binding Model.EmergencyContact1.PhoneNumber}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" Keyboard="Telephone"></CustomEntry:EntryNoLine>
         </StackLayout>
         
         <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>

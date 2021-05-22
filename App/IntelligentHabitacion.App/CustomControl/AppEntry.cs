@@ -2,7 +2,7 @@
 
 namespace IntelligentHabitacion.App.CustomControl
 {
-    public class EntryGrayBlackCursor : Entry
+    public class AppEntry : Entry
     {
         public bool IconNet { get; set; }
     }

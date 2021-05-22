@@ -18,10 +18,16 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
 
             if (e.NewElement.HasShadow)
             {
-                SetOutlineSpotShadowColor(Application.Current.RequestedTheme == OSAppTheme.Dark ? Android.Graphics.Color.White : Android.Graphics.Color.Black);
+                var color = GetShadowColor();
+                SetOutlineSpotShadowColor(color);
                 Elevation = 5.0f;
                 TranslationZ = 10.0f;
             }
+        }
+
+        private Android.Graphics.Color GetShadowColor()
+        {
+            return Application.Current.RequestedTheme == OSAppTheme.Dark ? Android.Graphics.Color.White : Android.Graphics.Color.Black;
         }
     }
 }

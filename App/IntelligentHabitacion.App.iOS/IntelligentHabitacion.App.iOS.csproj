@@ -68,15 +68,15 @@
     <Compile Include="AppVersion\AppVersioniOS.cs" />
     <Compile Include="CustomControl\AppFrameRenderer.cs" />
     <Compile Include="CustomControl\EditorRenderer.cs" />
-    <Compile Include="CustomControl\EntryForSearchByNameBlackCursorRenderer.cs" />
+    <Compile Include="CustomControl\EntryForSearchByNameRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomControl\EntryNoLineBlackCursorRenderer.cs" />
-    <Compile Include="CustomControl\EntryGrayBlackCursorRenderer.cs" />
+    <Compile Include="CustomControl\EntryNoLineRenderer.cs" />
+    <Compile Include="CustomControl\AppEntryRenderer.cs" />
     <BundleResource Include="Resources\Fonts\Raleway-Light.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>

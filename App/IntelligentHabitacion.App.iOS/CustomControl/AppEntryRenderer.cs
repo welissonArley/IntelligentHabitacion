@@ -6,30 +6,36 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(EntryForSearchByNameBlackCursor), typeof(EntryForSearchByNameBlackCursorRenderer))]
+[assembly: ExportRenderer(typeof(AppEntry), typeof(AppEntryRenderer))]
 namespace IntelligentHabitacion.App.iOS.CustomControl
 {
-    public class EntryForSearchByNameBlackCursorRenderer : EntryRenderer
-	{
-		protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
-		{
+    public class AppEntryRenderer : EntryRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        {
 			base.OnElementChanged(e);
-			if (Control == null || e.NewElement == null) return;
+			if (Control == null || e.NewElement == null)
+				return;
+
+			Control.BorderStyle = UITextBorderStyle.None;
 
 			CALayer _line = new CALayer
 			{
-				BorderColor = ColorToEntryLine(),
-				BackgroundColor = ColorToEntryLine(),
+				BorderColor = GetLineColor(),
+				BackgroundColor = GetLineColor(),
 				Frame = new CGRect(0, Frame.Height / 2, UIScreen.MainScreen.Bounds.Width - 40, 1f)
 			};
-			Control.BorderStyle = UITextBorderStyle.None;
+
+
 			Control.Layer.AddSublayer(_line);
 			Control.TintColor = GetCursor();
 		}
 
-		private CGColor ColorToEntryLine()
+		private CGColor GetLineColor()
 		{
-			return UIColor.Clear.CGColor;
+			(int R, int G, int B) = Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? (98, 97, 94) : (229, 229, 229);
+
+			return UIColor.FromRGB(R, G, B).CGColor;
 		}
 
 		private UIColor GetCursor()

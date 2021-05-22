@@ -10,7 +10,8 @@ namespace IntelligentHabitacion.App.Services
         {
             var optionsCustom = new MobileBarcodeScanningOptions()
             {
-                PossibleFormats = new List<ZXing.BarcodeFormat>() {
+                PossibleFormats = new List<ZXing.BarcodeFormat>()
+                {
                     ZXing.BarcodeFormat.QR_CODE
                 }
             };

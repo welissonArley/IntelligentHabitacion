@@ -2,7 +2,7 @@
 
 namespace IntelligentHabitacion.App.CustomControl
 {
-    public class EntryNoLineBlackCursor : Entry
+    public class EntryForSearchByName : Entry
     {
     }
 }

@@ -10,7 +10,7 @@
 
         <Label Text="{x:Static resourceText:ResourceText.TITLE_YOUR_NAME}" Style="{x:StaticResource LabelTitle}"></Label>
 
-        <CustomEntry:EntryNoLineBlackCursor Text="{Binding Model.Name}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryNoLineBlackCursor>
+        <CustomEntry:EntryNoLine Text="{Binding Model.Name}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryNoLine>
 
         <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
     </StackLayout>

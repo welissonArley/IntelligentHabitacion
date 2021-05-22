@@ -13,11 +13,16 @@ namespace IntelligentHabitacion.App.iOS.CustomControl
             base.Draw(rect);
             base.LayoutSubviews();
             this.Layer.ShadowRadius = 2.0f;
-            this.Layer.ShadowColor = Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White.CGColor : UIColor.Black.CGColor;
+            this.Layer.ShadowColor = ShadowColor();
             this.Layer.ShadowOffset = new CGSize(2, 2);
             this.Layer.ShadowOpacity = 1.0f;
             this.Layer.ShadowPath = UIBezierPath.FromRect(Layer.Bounds).CGPath;
             this.Layer.MasksToBounds = false;
+        }
+
+        private CGColor ShadowColor()
+        {
+            return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White.CGColor : UIColor.Black.CGColor;
         }
     }
 }

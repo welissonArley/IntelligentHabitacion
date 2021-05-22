@@ -14,7 +14,7 @@
                     </OnPlatform>
                 </Label.Margin>
             </Label>
-            <CustomEntry:EntryGrayBlackCursor x:Name="Input"></CustomEntry:EntryGrayBlackCursor>
+            <CustomEntry:AppEntry x:Name="Input"></CustomEntry:AppEntry>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

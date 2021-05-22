@@ -10,12 +10,12 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(EntryGrayBlackCursor), typeof(EntryGrayBlackCursorRenderer))]
+[assembly: ExportRenderer(typeof(EntryNoLine), typeof(EntryNoLineRenderer))]
 namespace IntelligentHabitacion.App.Droid.CustomControl
 {
-    public class EntryGrayBlackCursorRenderer : EntryRenderer
+    public class EntryNoLineRenderer : EntryRenderer
     {
-        public EntryGrayBlackCursorRenderer(Context context) : base(context) { }
+        public EntryNoLineRenderer(Context context) : base(context) { }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -34,18 +34,19 @@ namespace IntelligentHabitacion.App.Droid.CustomControl
                 else
                 {
                     Control.BackgroundTintList = ColorStateList.ValueOf(color);
+
                     IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
                     IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
                     JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, cursor);
                 }
+
+                Control.Gravity = Android.Views.GravityFlags.CenterHorizontal;
             }
         }
 
         private Android.Graphics.Color GetLineColor()
         {
-            var color = Application.Current.RequestedTheme == OSAppTheme.Dark ? "#62615E" : "#E5E5E5";
-
-            return Android.Graphics.Color.ParseColor(color);
+            return Application.Current.RequestedTheme == OSAppTheme.Dark ? Android.Graphics.Color.ParseColor("#1F1E19") : Android.Graphics.Color.White;
         }
 
         private int GetCursor()

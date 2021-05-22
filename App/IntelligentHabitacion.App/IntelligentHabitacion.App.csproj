@@ -80,9 +80,6 @@
     <Compile Update="Template\Button\DeleteButton.xaml.cs">
       <DependentUpon>DeleteButton.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Template\CardIlustrationOptions\CardAboutApp.xaml.cs">
-      <DependentUpon>CardAboutApp.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Template\CardIlustrationOptions\CardIlustrationOptions.xaml.cs">
       <DependentUpon>CardIlustrationOptions.xaml</DependentUpon>
     </Compile>
@@ -151,6 +148,21 @@
     </Compile>
     <Compile Update="Template\TextWithLabel\InputTextWithLabelComponent.xaml.cs">
       <DependentUpon>InputTextWithLabelComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AboutThisProject\IlustrationsInformationsPage.xaml.cs">
+      <DependentUpon>IlustrationsInformationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AboutThisProject\INeedHelpContactUsPage.xaml.cs">
+      <DependentUpon>INeedHelpContactUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AboutThisProject\TermsOfUsePage.xaml.cs">
+      <DependentUpon>TermsOfUsePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AboutThisProject\PrivacyPolicyPage.xaml.cs">
+      <DependentUpon>PrivacyPolicyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AboutThisProject\ProjectInformationsPage.xaml.cs">
+      <DependentUpon>ProjectInformationsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Modal\ConfirmAction.xaml.cs">
       <DependentUpon>ConfirmAction.xaml</DependentUpon>
@@ -310,6 +322,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Template\Skeleton\TaskDetailsRateSkeleton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\AboutThisProject\ProjectInformationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\CleaningSchedule\CompleteHistoryPage.xaml">

@@ -2,6 +2,7 @@
 using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.View;
+using IntelligentHabitacion.App.View.AboutThisProject;
 using IntelligentHabitacion.App.View.CleaningSchedule;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Home.Informations;
@@ -12,6 +13,7 @@ using IntelligentHabitacion.App.View.MyFoods;
 using IntelligentHabitacion.App.View.User.Register;
 using IntelligentHabitacion.App.View.User.Update;
 using IntelligentHabitacion.App.ViewModel;
+using IntelligentHabitacion.App.ViewModel.AboutThisProject;
 using IntelligentHabitacion.App.ViewModel.CleaningSchedule;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
@@ -112,6 +114,11 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<CompleteHistoryPage, CompleteHistoryViewModel>();
             ViewFactory.Register<RateTaskPage, RateTaskViewModel>();
             ViewFactory.Register<DetailsAllRatePage, DetailsAllRateViewModel>();
+            ViewFactory.Register<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
+            ViewFactory.Register<INeedHelpContactUsPage, INeedHelpContactUsViewModel>();
+            ViewFactory.Register<PrivacyPolicyPage, PrivacyPolicyViewModel>();
+            ViewFactory.Register<ProjectInformationsPage, ProjectInformationsViewModel>();
+            ViewFactory.Register<TermsOfUsePage, TermsOfUseViewModel>();
         }
     }
 }

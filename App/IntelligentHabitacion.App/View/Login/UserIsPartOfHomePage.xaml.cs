@@ -30,7 +30,6 @@ namespace IntelligentHabitacion.App.View.Login
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
             GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
-            GridCards.RowDefinitions.Add(new RowDefinition { Height = cardHeight });
         }
 
         private void UserGotOrder()

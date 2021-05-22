@@ -18,8 +18,6 @@
                     <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardCreateHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationCreateHome" TitleCard="{x:Static resourceText:ResourceText.TITLE_CREATE_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CREATE_HOME}"></templateCard:CardIlustrationOptions>
                     <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" TappedCardCommand="{Binding Path=BindingContext.CardMyInformationTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationMyInformation" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_INFORMATIONS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_INFORMATIONS}"></templateCard:CardIlustrationOptions>
                 </Grid>
-
-                <templateCard:CardAboutApp Margin="20,110,20,30"></templateCard:CardAboutApp>
             </StackLayout>
         </ScrollView>
 

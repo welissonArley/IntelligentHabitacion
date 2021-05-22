@@ -277,15 +277,6 @@
     <BundleResource Include="Resources\IlustrationMyInformation%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconInformation.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconInformation%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconInformation%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IlustrationFinances%403x.png" />
   </ItemGroup>
   <ItemGroup>

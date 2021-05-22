@@ -340,15 +340,6 @@
     <BundleResource Include="Resources\IconSearch%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconMenuDots.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconMenuDots%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconMenuDots%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IlustrationDog.png" />
   </ItemGroup>
   <ItemGroup>
@@ -493,15 +484,6 @@
     <BundleResource Include="Resources\IconCalendar%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IllustrationDogSearching.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IllustrationDogSearching%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IllustrationDogSearching%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IconCheck.png" />
   </ItemGroup>
   <ItemGroup>
@@ -509,15 +491,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IconCheck%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IllustrationWomanManCleaningHouse.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IllustrationWomanManCleaningHouse%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IllustrationWomanManCleaningHouse%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IconDelete.png" />

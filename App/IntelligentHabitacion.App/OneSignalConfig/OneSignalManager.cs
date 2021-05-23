@@ -71,7 +71,8 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                 if (page is UserIsPartOfHomeFlyoutPage refreshPage)
                 {
                     var pageDetail = ((FlyoutPage)page).Detail;
-                    ((UserIsPartOfHomeFlyoutPageDetail)pageDetail).RefreshHeader();
+                    var navigationPage = (NavigationPage)pageDetail;
+                    ((UserIsPartOfHomeFlyoutPageDetail)navigationPage.CurrentPage).RefreshHeader();
                 }
             });
         }

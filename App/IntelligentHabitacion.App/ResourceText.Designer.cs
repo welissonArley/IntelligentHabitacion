@@ -414,7 +414,7 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your order has arrived and is waiting for you ;).
+        ///   Looks up a localized string similar to You have an order waiting for you :).
         /// </summary>
         internal static string DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU {
             get {

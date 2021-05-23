@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace IntelligentHabitacion.App.ViewModel.Dashboard.PartOfHome
 {
-    public class UserIsPartOfHomeViewModel : BaseViewModel
+    public class UserIsPartOfHomeFlyoutViewModel : BaseViewModel
     {
         private readonly Lazy<UserPreferences> userPreferences;
         private UserPreferences _userPreferences => userPreferences.Value;
@@ -23,7 +23,7 @@ namespace IntelligentHabitacion.App.ViewModel.Dashboard.PartOfHome
         public ICommand AboutThisProjectCommand { get; }
         public ICommand ContactUsCommand { get; }
 
-        public UserIsPartOfHomeViewModel(Lazy<UserPreferences> userPreferences)
+        public UserIsPartOfHomeFlyoutViewModel(Lazy<UserPreferences> userPreferences)
         {
             this.userPreferences = userPreferences;
 

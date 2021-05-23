@@ -122,7 +122,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<PrivacyPolicyPage, PrivacyPolicyViewModel>();
             ViewFactory.Register<ProjectInformationsPage, ProjectInformationsViewModel>();
             ViewFactory.Register<TermsOfUsePage, TermsOfUseViewModel>();
-            ViewFactory.Register<UserIsPartOfHomeFlyoutPageFlyout, UserIsPartOfHomeViewModel>();
+            ViewFactory.Register<UserIsPartOfHomeFlyoutPageFlyout, UserIsPartOfHomeFlyoutViewModel>();
         }
     }
 }

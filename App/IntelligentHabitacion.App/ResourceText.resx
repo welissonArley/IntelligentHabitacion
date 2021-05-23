@@ -237,7 +237,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Don't worry, your name will not be displayed in the rating when your friend views it :)</value>
   </data>
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
-    <value>Your order has arrived and is waiting for you ;)</value>
+    <value>You have an order waiting for you :)</value>
   </data>
   <data name="DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE" xml:space="preserve">
     <value>Looking for the schedule settings, right? At this time, the schedule will be automatically set every 1st of every month. But don't worry, the administrator will have full control over this configuration very soon :)</value>

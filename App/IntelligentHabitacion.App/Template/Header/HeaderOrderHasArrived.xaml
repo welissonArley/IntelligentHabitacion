@@ -8,13 +8,12 @@
     mc:Ignorable="d"
     x:Class="IntelligentHabitacion.App.Template.Header.HeaderOrderHasArrived">
     <ContentView.Content>
-        <Grid Margin="20,0,20,0" ColumnDefinitions="*">
-            <Image x:Name="ImageOrderHasArrived" Grid.Column="0" HorizontalOptions="StartAndExpand" Source="IconOrderHasArrived"></Image>
-
-            <Grid HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" ColumnDefinitions="160" RowDefinitions="60,20,50">
-                <Label Grid.Column="0" Grid.Row="0" Text="{x:Static resourceText:ResourceText.DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU}" FontSize="16" Style="{x:StaticResource LabelLight}" VerticalOptions="EndAndExpand"></Label>
-                <Button Grid.Column="0" Grid.Row="2" Text="{x:Static resourceText:ResourceText.TITLE_ALREADY_RECEIVED}" Style="{x:StaticResource ButtonYellowDefault}" Margin="0,0,0,10" Clicked="Button_Clicked"></Button>
-            </Grid>
+        <Grid ColumnDefinitions="*,*">
+            <Image Grid.Column="0" x:Name="ImageOrderHasArrived" Source="IconOrderHasArrived"></Image>
+            <StackLayout Grid.Column="1" Padding="0,0,20,0" VerticalOptions="EndAndExpand">
+                <Label Text="{x:Static resourceText:ResourceText.DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU}" FontSize="16" Style="{x:StaticResource LabelLight}" Margin="0,0,0,10"></Label>
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_ALREADY_RECEIVED}" Style="{x:StaticResource ButtonYellowDefault}" Clicked="Button_Clicked"></Button>
+            </StackLayout>
         </Grid>
     </ContentView.Content>
 </ContentView>

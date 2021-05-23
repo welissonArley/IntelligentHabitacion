@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.View.Modal;
 using IntelligentHabitacion.App.View.Modal.MenuOptions;
@@ -80,7 +81,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                     {
                         await navigation.PushPopupAsync(new OperationSuccessfullyExecutedModal(ResourceText.TITLE_ACCEPTED));
                         _userPreferences.UserIsPartOfOneHome(true);
-                        Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+                        Application.Current.MainPage = new NavigationPage(new UserIsPartOfHomeFlyoutPage());
                         await Task.Delay(1100);
                         await DisconnectFromSocket();
                         await navigation.PopAllPopupAsync();

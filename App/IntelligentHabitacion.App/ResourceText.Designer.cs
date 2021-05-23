@@ -61,33 +61,6 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This application was created with the intention of making life easier for people who share an apartment with friends..
-        /// </summary>
-        internal static string ABOUT_APP_FIRST_PART {
-            get {
-                return ResourceManager.GetString("ABOUT_APP_FIRST_PART", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The App will assist in organizing and sending notifications for important matters, such as: notifications to remember the cleaning schedule; on the payment of the rent; notice of receipt of orders, and others..
-        /// </summary>
-        internal static string ABOUT_APP_SECOND_PART {
-            get {
-                return ResourceManager.GetString("ABOUT_APP_SECOND_PART", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to With an easy and creative design, I hope it will be useful for your home :).
-        /// </summary>
-        internal static string ABOUT_APP_THIRD_PART {
-            get {
-                return ResourceManager.GetString("ABOUT_APP_THIRD_PART", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Australia.
         /// </summary>
         internal static string AUSTRALIA {
@@ -945,6 +918,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About this Project.
+        /// </summary>
+        internal static string TITLE_ABOUT_THIS_PROJECT {
+            get {
+                return ResourceManager.GetString("TITLE_ABOUT_THIS_PROJECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accept.
         /// </summary>
         internal static string TITLE_ACCEPT {
@@ -1364,6 +1346,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact us.
+        /// </summary>
+        internal static string TITLE_CONTACT_US {
+            get {
+                return ResourceManager.GetString("TITLE_CONTACT_US", resourceCulture);
             }
         }
         

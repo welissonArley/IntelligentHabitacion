@@ -1,5 +1,6 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.UseCases.Login.DoLogin;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.View.Login;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
@@ -58,7 +59,7 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                 var userIsPartOfOneHome = await _useCase.Execute(email, password);
 
                 if (userIsPartOfOneHome)
-                    Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+                    Application.Current.MainPage = new NavigationPage(new UserIsPartOfHomeFlyoutPage());
                 else
                     Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
 

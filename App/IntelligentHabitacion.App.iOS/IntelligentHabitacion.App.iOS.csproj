@@ -502,33 +502,6 @@
     <BundleResource Include="Resources\FloatActionButton%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonAddFood.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonAddFood%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonAddFood%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonAddFriend.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonAddFriend%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonAddFriend%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonLoggout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonLoggout%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ActionButtonLoggout%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ActionButtonCalendar.png" />
   </ItemGroup>
   <ItemGroup>

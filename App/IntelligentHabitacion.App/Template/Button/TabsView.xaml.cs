@@ -56,13 +56,4 @@ namespace IntelligentHabitacion.App.Template.Button
 
         public void TabViewControlTabItemFocus() { }
     }
-
-    public class AppColorTransformation : FFImageLoading.Transformations.TintTransformation
-    {
-        public AppColorTransformation()
-        {
-            HexColor = Application.Current.RequestedTheme == OSAppTheme.Light ? "#000000" : "#FFFFFF";
-            EnableSolidColor = true;
-        }
-    }
 }

@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ABOUT_APP_FIRST_PART" xml:space="preserve">
-    <value>This application was created with the intention of making life easier for people who share an apartment with friends.</value>
-  </data>
-  <data name="ABOUT_APP_SECOND_PART" xml:space="preserve">
-    <value>The App will assist in organizing and sending notifications for important matters, such as: notifications to remember the cleaning schedule; on the payment of the rent; notice of receipt of orders, and others.</value>
-  </data>
-  <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
-    <value>With an easy and creative design, I hope it will be useful for your home :)</value>
-  </data>
   <data name="AUSTRALIA" xml:space="preserve">
     <value>Australia</value>
   </data>
@@ -413,6 +404,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>About the App</value>
   </data>
+  <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
+    <value>About this Project</value>
+  </data>
   <data name="TITLE_ACCEPT" xml:space="preserve">
     <value>Accept</value>
   </data>
@@ -556,6 +550,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
     <value>If you wish, you can inform me of a second emergency contact (optional)</value>
+  </data>
+  <data name="TITLE_CONTACT_US" xml:space="preserve">
+    <value>Contact us</value>
   </data>
   <data name="TITLE_COUNTRY_AVALIABLE" xml:space="preserve">
     <value>{0} countries available.</value>

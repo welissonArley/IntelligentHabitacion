@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace IntelligentHabitacion.App.View.AboutThisProject
+namespace IntelligentHabitacion.App.View.ContactUs
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class INeedHelpContactUsPage : ContentPage
+    public partial class ContactUsPage : ContentPage
     {
-        public INeedHelpContactUsPage()
+        public ContactUsPage()
         {
             InitializeComponent();
         }

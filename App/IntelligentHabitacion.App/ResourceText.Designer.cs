@@ -277,6 +277,17 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One of the goals of this App is to be designed in a creative way. And for that, nothing better than using images to illustrate and amuse the user, right?
+        ///
+        ///All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :).
+        /// </summary>
+        internal static string DESCRIPTION_ILUSTRATIONS_INFORMATIONS {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ILUSTRATIONS_INFORMATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use this option to be part of a home already created..
         /// </summary>
         internal static string DESCRIPTION_JOIN_HOME {
@@ -1641,15 +1652,6 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_HOUSEWORK {
             get {
                 return ResourceManager.GetString("TITLE_HOUSEWORK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Icon sources and Illustrations used:.
-        /// </summary>
-        internal static string TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS {
-            get {
-                return ResourceManager.GetString("TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS", resourceCulture);
             }
         }
         

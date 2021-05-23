@@ -194,9 +194,6 @@
     <Compile Update="View\User\Update\ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\AboutThisAppPage.xaml.cs">
-      <DependentUpon>AboutThisAppPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\Friends\RemoveFriendFromHomePage.xaml.cs">
       <DependentUpon>RemoveFriendFromHomePage.xaml</DependentUpon>
     </Compile>

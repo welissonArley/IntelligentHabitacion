@@ -183,6 +183,11 @@
   <data name="DESCRIPTION_HOUSEWORK" xml:space="preserve">
     <value>Abaixo você pode ver quais comôdos da casa foram limpados, quem limpou e em quais dias do mês selecionado.</value>
   </data>
+  <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
+    <value>Um dos objetivos deste App é ser desenhado de forma criativa. E para isso nada melhor que fazer uso de imagens para ilustrar e divertir o usuário, certo? 
+
+Todas as images utilizadas possuem licença gratuitas para o uso, e como agradecimento, deixamos abaixo os links para os sites que nossa equipe utilizou :)</value>
+  </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Utilize esta opção para fazer parte de uma republica já criada.</value>
   </data>
@@ -629,9 +634,6 @@
   </data>
   <data name="TITLE_HOUSEWORK" xml:space="preserve">
     <value>Tarefas de limpeza</value>
-  </data>
-  <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
-    <value>Fontes dos icones e Ilustrações utilizadas:</value>
   </data>
   <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
     <value>Sua informação é salva com criptografia e nos não vamos compartilhar com ninguem. Você pode editar ou excluir quando quiser.</value>

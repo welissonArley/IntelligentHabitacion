@@ -189,6 +189,11 @@
   <data name="DESCRIPTION_HOUSEWORK" xml:space="preserve">
     <value>Below you can see which rooms in the house were cleaned, who cleaned and on which days of the selected month.</value>
   </data>
+  <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
+    <value>One of the goals of this App is to be designed in a creative way. And for that, nothing better than using images to illustrate and amuse the user, right?
+
+All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :)</value>
+  </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
     <value>Use this option to be part of a home already created.</value>
   </data>
@@ -644,9 +649,6 @@
   </data>
   <data name="TITLE_HOUSEWORK" xml:space="preserve">
     <value>Housework</value>
-  </data>
-  <data name="TITLE_ICON_SOURCE_ILUSTRATIONS_USED_TWOPOINTS" xml:space="preserve">
-    <value>Icon sources and Illustrations used:</value>
   </data>
   <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
     <value>Your information is saved with encryption and we will not share it with anyone. You can edit or delete at any time.</value>

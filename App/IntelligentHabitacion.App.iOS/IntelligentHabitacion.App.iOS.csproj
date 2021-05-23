@@ -619,4 +619,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IconSquareDirection_darkmode%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationGirlAndCat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationGirlAndCat%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationGirlAndCat%403x.png" />
+  </ItemGroup>
 </Project>

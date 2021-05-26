@@ -14,10 +14,7 @@ namespace IntelligentHabitacion.App.View.Dashboard.PartOfHome
 
             Flyout = (Page)ViewFactory.CreatePage<UserIsPartOfHomeFlyoutViewModel, UserIsPartOfHomeFlyoutPageFlyout>();
 
-            Detail = new NavigationPage(new UserIsPartOfHomeFlyoutPageDetail
-            {
-                BindingContext = new UserIsPartOfHomeDetailViewModel(Navigation)
-            });
+            Detail.BindingContext = new UserIsPartOfHomeDetailViewModel(Navigation);
         }        
     }
 }

@@ -1,12 +1,10 @@
 ﻿using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
 using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
-using IntelligentHabitacion.App.View.Login;
-using IntelligentHabitacion.App.ViewModel.Login;
 using Rg.Plugins.Popup.Extensions;
 using System.Linq;
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.OneSignalConfig
@@ -54,7 +52,7 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                             {
                                 try { await navigation.PopAllPopupAsync(); } catch { /* If one exception is throwed its beacause dont have any popup */ }
                                 await navigation.PopToRootAsync();
-                                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                                Application.Current.MainPage = new NavigationPage(new UserWithoutPartOfHomePage());
                             }
                         });
                     }

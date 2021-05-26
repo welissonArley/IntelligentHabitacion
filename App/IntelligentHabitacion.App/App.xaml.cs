@@ -5,6 +5,7 @@ using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.AboutThisProject;
 using IntelligentHabitacion.App.View.CleaningSchedule;
 using IntelligentHabitacion.App.View.ContactUs;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
 using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Home.Informations;
@@ -18,6 +19,7 @@ using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.AboutThisProject;
 using IntelligentHabitacion.App.ViewModel.CleaningSchedule;
 using IntelligentHabitacion.App.ViewModel.ContactUs;
+using IntelligentHabitacion.App.ViewModel.Dashboard.NotPartOfHome;
 using IntelligentHabitacion.App.ViewModel.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
@@ -97,7 +99,6 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestEmergencyContact1Page, RequestEmergencyContact1ViewModel>();
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
-            ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomeViewModel>();
             ViewFactory.Register<UserInformationPage, UserInformationViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
@@ -123,6 +124,7 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<ProjectInformationsPage, ProjectInformationsViewModel>();
             ViewFactory.Register<TermsOfUsePage, TermsOfUseViewModel>();
             ViewFactory.Register<UserIsPartOfHomeFlyoutPageFlyout, UserIsPartOfHomeFlyoutViewModel>();
+            ViewFactory.Register<UserWithoutPartOfHomePageFlyout, UserWithoutPartOfHomeFlyoutViewModel>();
         }
     }
 }

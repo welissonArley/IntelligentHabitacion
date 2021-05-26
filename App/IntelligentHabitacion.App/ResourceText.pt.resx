@@ -428,6 +428,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
     <value>O Administrador deve configurar o cronograma de limpeza.</value>
   </data>
+  <data name="TITLE_ALL_YOU_NEED_TO_KNOW" xml:space="preserve">
+    <value>Tudo que você precisa saber.</value>
+  </data>
   <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
     <value>Ok, já recebi!</value>
   </data>
@@ -626,11 +629,17 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_HAVE_NICE_DAY" xml:space="preserve">
     <value>Tenha um ótimo dia,</value>
   </data>
+  <data name="TITLE_HI" xml:space="preserve">
+    <value>Oi,</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
   </data>
   <data name="TITLE_HOUSEWORK" xml:space="preserve">
     <value>Tarefas de limpeza</value>
+  </data>
+  <data name="TITLE_ICONS_ILUSTRATIONS_USED" xml:space="preserve">
+    <value>Icones e ilustrações utilizadas</value>
   </data>
   <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
     <value>Sua informação é salva com criptografia e nos não vamos compartilhar com ninguem. Você pode editar ou excluir quando quiser.</value>
@@ -785,6 +794,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>Por razões de segurança, faça login novamente.</value>
   </data>
+  <data name="TITLE_PRIVACY_POLICY" xml:space="preserve">
+    <value>Política de privacidade</value>
+  </data>
   <data name="TITLE_PRODUCTS_AVALIABLES" xml:space="preserve">
     <value>{0} produtos disponíveis</value>
   </data>
@@ -878,6 +890,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>
   </data>
+  <data name="TITLE_SHOW_ME_THE_LINKS" xml:space="preserve">
+    <value>Mostre-me os links</value>
+  </data>
   <data name="TITLE_STATE_TWOPOINTS" xml:space="preserve">
     <value>Estado:</value>
   </data>
@@ -892,6 +907,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
     <value>Tarefas:</value>
+  </data>
+  <data name="TITLE_TERMS_OF_USE" xml:space="preserve">
+    <value>Termos de Uso</value>
   </data>
   <data name="TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY" xml:space="preserve">
     <value>Não há registros de limpeza para este dia</value>
@@ -955,6 +973,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
     <value>O que achou da limpeza?</value>
+  </data>
+  <data name="TITLE_WHICH_ARE_THEY" xml:space="preserve">
+    <value>Quais são?</value>
   </data>
   <data name="TITLE_WHY_NEED_FILL_THIS_INFORMATION" xml:space="preserve">
     <value>Por que preciso preencher esta informação?</value>

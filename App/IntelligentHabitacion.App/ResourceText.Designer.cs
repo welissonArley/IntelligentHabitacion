@@ -1035,6 +1035,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All you need to know..
+        /// </summary>
+        internal static string TITLE_ALL_YOU_NEED_TO_KNOW {
+            get {
+                return ResourceManager.GetString("TITLE_ALL_YOU_NEED_TO_KNOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok, I received!.
         /// </summary>
         internal static string TITLE_ALREADY_RECEIVED {
@@ -1629,6 +1638,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hi,.
+        /// </summary>
+        internal static string TITLE_HI {
+            get {
+                return ResourceManager.GetString("TITLE_HI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home, sweet home.
         /// </summary>
         internal static string TITLE_HOME_SWEET_HOME {
@@ -1643,6 +1661,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_HOUSEWORK {
             get {
                 return ResourceManager.GetString("TITLE_HOUSEWORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icons and illustrations used.
+        /// </summary>
+        internal static string TITLE_ICONS_ILUSTRATIONS_USED {
+            get {
+                return ResourceManager.GetString("TITLE_ICONS_ILUSTRATIONS_USED", resourceCulture);
             }
         }
         
@@ -2106,6 +2133,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Privacy Policy.
+        /// </summary>
+        internal static string TITLE_PRIVACY_POLICY {
+            get {
+                return ResourceManager.GetString("TITLE_PRIVACY_POLICY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Product:.
         /// </summary>
         internal static string TITLE_PRODUCT_TWOPOINTS {
@@ -2385,6 +2421,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show me the links.
+        /// </summary>
+        internal static string TITLE_SHOW_ME_THE_LINKS {
+            get {
+                return ResourceManager.GetString("TITLE_SHOW_ME_THE_LINKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State:.
         /// </summary>
         internal static string TITLE_STATE_TWOPOINTS {
@@ -2426,6 +2471,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_TASKS_TWO_POINTS {
             get {
                 return ResourceManager.GetString("TITLE_TASKS_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms of use.
+        /// </summary>
+        internal static string TITLE_TERMS_OF_USE {
+            get {
+                return ResourceManager.GetString("TITLE_TERMS_OF_USE", resourceCulture);
             }
         }
         
@@ -2624,6 +2678,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_WHAT_THINK_CLEANING {
             get {
                 return ResourceManager.GetString("TITLE_WHAT_THINK_CLEANING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which are they?.
+        /// </summary>
+        internal static string TITLE_WHICH_ARE_THEY {
+            get {
+                return ResourceManager.GetString("TITLE_WHICH_ARE_THEY", resourceCulture);
             }
         }
         

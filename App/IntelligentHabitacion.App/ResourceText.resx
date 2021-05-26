@@ -443,6 +443,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
     <value>The Administrator must configure the cleaning schedule.</value>
   </data>
+  <data name="TITLE_ALL_YOU_NEED_TO_KNOW" xml:space="preserve">
+    <value>All you need to know.</value>
+  </data>
   <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
     <value>Ok, I received!</value>
   </data>
@@ -641,11 +644,17 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_HAVE_NICE_DAY" xml:space="preserve">
     <value>Have a nice day,</value>
   </data>
+  <data name="TITLE_HI" xml:space="preserve">
+    <value>Hi,</value>
+  </data>
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Home, sweet home</value>
   </data>
   <data name="TITLE_HOUSEWORK" xml:space="preserve">
     <value>Housework</value>
+  </data>
+  <data name="TITLE_ICONS_ILUSTRATIONS_USED" xml:space="preserve">
+    <value>Icons and illustrations used</value>
   </data>
   <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
     <value>Your information is saved with encryption and we will not share it with anyone. You can edit or delete at any time.</value>
@@ -800,6 +809,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
     <value>For security reasons, please log in again.</value>
   </data>
+  <data name="TITLE_PRIVACY_POLICY" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
   <data name="TITLE_PRODUCTS_AVALIABLES" xml:space="preserve">
     <value>{0} products avaliables</value>
   </data>
@@ -893,6 +905,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_SHOPPING" xml:space="preserve">
     <value>Shopping</value>
   </data>
+  <data name="TITLE_SHOW_ME_THE_LINKS" xml:space="preserve">
+    <value>Show me the links</value>
+  </data>
   <data name="TITLE_STATE_TWOPOINTS" xml:space="preserve">
     <value>State:</value>
   </data>
@@ -907,6 +922,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
     <value>Tasks:</value>
+  </data>
+  <data name="TITLE_TERMS_OF_USE" xml:space="preserve">
+    <value>Terms of use</value>
   </data>
   <data name="TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY" xml:space="preserve">
     <value>There are no cleaning records for this day</value>
@@ -973,6 +991,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
     <value>What did you think of the cleaning?</value>
+  </data>
+  <data name="TITLE_WHICH_ARE_THEY" xml:space="preserve">
+    <value>Which are they?</value>
   </data>
   <data name="TITLE_WHY_NEED_FILL_THIS_INFORMATION" xml:space="preserve">
     <value>Why do I need to fill this information?</value>

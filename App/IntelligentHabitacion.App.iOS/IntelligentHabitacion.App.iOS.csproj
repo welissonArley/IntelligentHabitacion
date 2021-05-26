@@ -601,4 +601,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\IlustrationGirlAndCat%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow%403x.png" />
+  </ItemGroup>
 </Project>

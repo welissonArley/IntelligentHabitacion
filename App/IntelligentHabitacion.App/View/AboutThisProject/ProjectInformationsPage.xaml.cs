@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using IntelligentHabitacion.App.Services.Interface;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IntelligentHabitacion.App.View.AboutThisProject
@@ -9,6 +10,8 @@ namespace IntelligentHabitacion.App.View.AboutThisProject
         public ProjectInformationsPage()
         {
             InitializeComponent();
+
+            LabelVersion.Text = $"{ResourceText.TITLE_VERSION} {DependencyService.Get<IAppVersion>().GetVersionNumber()}";
         }
     }
 }

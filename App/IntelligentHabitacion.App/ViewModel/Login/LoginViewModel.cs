@@ -1,13 +1,13 @@
 ﻿using IntelligentHabitacion.App.Services;
 using IntelligentHabitacion.App.UseCases.Login.DoLogin;
-using IntelligentHabitacion.App.View.Login;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.App.ViewModel.Login
 {
@@ -58,9 +58,9 @@ namespace IntelligentHabitacion.App.ViewModel.Login
                 var userIsPartOfOneHome = await _useCase.Execute(email, password);
 
                 if (userIsPartOfOneHome)
-                    Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+                    Application.Current.MainPage = new NavigationPage(new UserIsPartOfHomeFlyoutPage());
                 else
-                    Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                    Application.Current.MainPage = new NavigationPage(new UserWithoutPartOfHomePage());
 
                 await Navigation.PopToRootAsync();
             }

@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ActionAboutApp.svg" />
+    <None Remove="Resources\ActionAddFriend.svg" />
+    <None Remove="Resources\ActionAddProduct.svg" />
+    <None Remove="Resources\ActionLogout.svg" />
+    <None Remove="Resources\ActionSupport.svg" />
     <None Remove="Resources\IconTabAddress.svg" />
     <None Remove="Resources\IconTabEmergency.svg" />
     <None Remove="Resources\IconTabHome.svg" />
@@ -26,6 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ActionAboutApp.svg" />
+    <EmbeddedResource Include="Resources\ActionAddFriend.svg" />
+    <EmbeddedResource Include="Resources\ActionAddProduct.svg" />
+    <EmbeddedResource Include="Resources\ActionLogout.svg" />
+    <EmbeddedResource Include="Resources\ActionSupport.svg" />
     <EmbeddedResource Include="Resources\IconTabAddress.svg" />
     <EmbeddedResource Include="Resources\IconTabEmergency.svg" />
     <EmbeddedResource Include="Resources\IconTabHome.svg" />
@@ -152,9 +162,6 @@
     <Compile Update="View\AboutThisProject\IlustrationsInformationsPage.xaml.cs">
       <DependentUpon>IlustrationsInformationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\AboutThisProject\INeedHelpContactUsPage.xaml.cs">
-      <DependentUpon>INeedHelpContactUsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\AboutThisProject\TermsOfUsePage.xaml.cs">
       <DependentUpon>TermsOfUsePage.xaml</DependentUpon>
     </Compile>
@@ -175,15 +182,6 @@
     </Compile>
     <Compile Update="View\Modal\MenuOptions\FloatActionTaskCleaningScheduleModal.xaml.cs">
       <DependentUpon>FloatActionTaskCleaningScheduleModal.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Modal\MenuOptions\FloatActionUserWithoutHomeModal.xaml.cs">
-      <DependentUpon>FloatActionUserWithoutHomeModal.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Modal\MenuOptions\FloatActionUserIsPartOfHomeModal.xaml.cs">
-      <DependentUpon>FloatActionUserIsPartOfHomeModal.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Modal\MenuOptions\AdministratorMyTasksModal.xaml.cs">
-      <DependentUpon>AdministratorMyTasksModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\User\ForgotPassword\ResetPasswordPage.xaml.cs">
       <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
@@ -232,12 +230,6 @@
     </Compile>
     <Compile Update="View\User\Update\UserInformationPage.xaml.cs">
       <DependentUpon>UserInformationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Login\UserIsPartOfHomePage.xaml.cs">
-      <DependentUpon>UserIsPartOfHomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="View\Login\UserWithoutPartOfHomePage.xaml.cs">
-      <DependentUpon>UserWithoutPartOfHomePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -343,6 +335,27 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\CleaningSchedule\TasksPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\ContactUs\ContactUsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Dashboard\NotPartOfHome\UserWithoutPartOfHomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Dashboard\NotPartOfHome\UserWithoutPartOfHomePageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Dashboard\NotPartOfHome\UserWithoutPartOfHomePageFlyout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Dashboard\PartOfHome\UserIsPartOfHomeFlyoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Dashboard\PartOfHome\UserIsPartOfHomeFlyoutPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Dashboard\PartOfHome\UserIsPartOfHomeFlyoutPageFlyout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Friends\AddFriendPage.xaml">

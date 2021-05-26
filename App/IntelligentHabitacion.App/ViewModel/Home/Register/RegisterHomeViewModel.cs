@@ -1,15 +1,13 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome;
 using IntelligentHabitacion.App.UseCases.Home.RegisterHome.Brazil;
-using IntelligentHabitacion.App.View.Login;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.View.Modal;
-using IntelligentHabitacion.App.ViewModel.Login;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.ViewModel.Home.Register
@@ -58,7 +56,7 @@ namespace IntelligentHabitacion.App.ViewModel.Home.Register
 
                 await Sucess();
 
-                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+                Application.Current.MainPage = new NavigationPage(new UserIsPartOfHomeFlyoutPage());
 
                 await Navigation.PopToRootAsync();
             }

@@ -4,6 +4,9 @@ using IntelligentHabitacion.App.OneSignalConfig;
 using IntelligentHabitacion.App.View;
 using IntelligentHabitacion.App.View.AboutThisProject;
 using IntelligentHabitacion.App.View.CleaningSchedule;
+using IntelligentHabitacion.App.View.ContactUs;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.View.Friends;
 using IntelligentHabitacion.App.View.Home.Informations;
 using IntelligentHabitacion.App.View.Home.Register;
@@ -15,6 +18,9 @@ using IntelligentHabitacion.App.View.User.Update;
 using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.AboutThisProject;
 using IntelligentHabitacion.App.ViewModel.CleaningSchedule;
+using IntelligentHabitacion.App.ViewModel.ContactUs;
+using IntelligentHabitacion.App.ViewModel.Dashboard.NotPartOfHome;
+using IntelligentHabitacion.App.ViewModel.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.ViewModel.Friends;
 using IntelligentHabitacion.App.ViewModel.Friends.ChangeAdministrator;
 using IntelligentHabitacion.App.ViewModel.Home.Informations;
@@ -93,10 +99,8 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RequestEmergencyContact1Page, RequestEmergencyContact1ViewModel>();
             ViewFactory.Register<RequestEmergencyContact2Page, RequestEmergencyContact2ViewModel>();
             ViewFactory.Register<RequestPasswordPage, RequestPasswordViewModel>();
-            ViewFactory.Register<UserWithoutPartOfHomePage, UserWithoutPartOfHomeViewModel>();
             ViewFactory.Register<UserInformationPage, UserInformationViewModel>();
             ViewFactory.Register<ChangePasswordPage, ChangePasswordViewModel>();
-            ViewFactory.Register<UserIsPartOfHomePage, UserIsPartOfHomeViewModel>();
             ViewFactory.Register<MyFriendsPage, MyFriendsViewModel>();
             ViewFactory.Register<FriendInformationsDetailsPage, FriendInformationsDetailsViewModel>();
             ViewFactory.Register<MyFoodsPage, MyFoodsViewModel>();
@@ -115,10 +119,12 @@ namespace IntelligentHabitacion.App
             ViewFactory.Register<RateTaskPage, RateTaskViewModel>();
             ViewFactory.Register<DetailsAllRatePage, DetailsAllRateViewModel>();
             ViewFactory.Register<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
-            ViewFactory.Register<INeedHelpContactUsPage, INeedHelpContactUsViewModel>();
+            ViewFactory.Register<ContactUsPage, ContactUsViewModel>();
             ViewFactory.Register<PrivacyPolicyPage, PrivacyPolicyViewModel>();
             ViewFactory.Register<ProjectInformationsPage, ProjectInformationsViewModel>();
             ViewFactory.Register<TermsOfUsePage, TermsOfUseViewModel>();
+            ViewFactory.Register<UserIsPartOfHomeFlyoutPageFlyout, UserIsPartOfHomeFlyoutViewModel>();
+            ViewFactory.Register<UserWithoutPartOfHomePageFlyout, UserWithoutPartOfHomeFlyoutViewModel>();
         }
     }
 }

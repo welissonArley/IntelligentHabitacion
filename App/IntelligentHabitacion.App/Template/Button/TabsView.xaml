@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:converter="clr-namespace:IntelligentHabitacion.App.Converter"
-    xmlns:button="clr-namespace:IntelligentHabitacion.App.Template.Button"
     xmlns:tabView="clr-namespace:Xam.Plugin.TabView;assembly=Xam.Plugin.TabView"
+    xmlns:appTransformation="clr-namespace:IntelligentHabitacion.App.ValueObjects"
     x:Class="IntelligentHabitacion.App.Template.Button.TabsView">
     <ContentView.Resources>
         <converter:SvgImageSourceConverter x:Key="SvgImageSourceConverter"></converter:SvgImageSourceConverter>
@@ -19,7 +19,7 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                             <ffimageloadingsvg:SvgCachedImage IsVisible="{Binding IsCurrent, Converter={StaticResource InverseBoolConverter}}" WidthRequest="15" HeightRequest="15" Source="{Binding HeaderIcon, Converter={StaticResource SvgImageSourceConverter}}">
                                 <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                    <button:AppColorTransformation></button:AppColorTransformation>
+                                    <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
                                 </ffimageloadingsvg:SvgCachedImage.Transformations>
                             </ffimageloadingsvg:SvgCachedImage>
 

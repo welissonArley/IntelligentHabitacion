@@ -1,4 +1,6 @@
 ﻿using IntelligentHabitacion.App.Services;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using IntelligentHabitacion.App.View.Login;
 using IntelligentHabitacion.App.ViewModel;
 using IntelligentHabitacion.App.ViewModel.Login;
@@ -32,9 +34,9 @@ namespace IntelligentHabitacion.App.View
             if (await userPreferences.HasAccessToken())
             {
                 if (userPreferences.IsPartOfOneHome)
-                    Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserIsPartOfHomeViewModel, UserIsPartOfHomePage>());
+                    Application.Current.MainPage = new NavigationPage(new UserIsPartOfHomeFlyoutPage());
                 else
-                    Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                    Application.Current.MainPage = new NavigationPage(new UserWithoutPartOfHomePage());
             }
             else
             {

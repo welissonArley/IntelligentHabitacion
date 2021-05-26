@@ -14,7 +14,7 @@ namespace IntelligentHabitacion.App.Template.Header
             var deviceWidth = IntelligentHabitacionDevice.IntelligentHabitacionDevice.Width();
 
             ImageGirlReading.WidthRequest = deviceWidth;
-            ImageGirlReading.HeightRequest = deviceWidth * 0.77;
+            ImageGirlReading.HeightRequest = deviceWidth * 0.49;
 
             FillInformations();
         }

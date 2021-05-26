@@ -26,8 +26,8 @@ namespace IntelligentHabitacion.App.Template.Header
 
             var deviceWidth = IntelligentHabitacionDevice.IntelligentHabitacionDevice.Width();
 
-            ImageOrderHasArrived.WidthRequest = deviceWidth * 0.60;
-            ImageOrderHasArrived.HeightRequest = ImageOrderHasArrived.WidthRequest * 1.20;
+            ImageOrderHasArrived.WidthRequest = deviceWidth * 0.42;
+            ImageOrderHasArrived.HeightRequest = ImageOrderHasArrived.WidthRequest * 1.45;
         }
 
         private void Button_Clicked(object sender, System.EventArgs e)

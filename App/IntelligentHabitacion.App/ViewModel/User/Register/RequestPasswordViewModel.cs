@@ -1,14 +1,12 @@
 ﻿using IntelligentHabitacion.App.Model;
 using IntelligentHabitacion.App.UseCases.User.RegisterUser;
 using IntelligentHabitacion.App.Useful.Validator;
-using IntelligentHabitacion.App.View.Login;
-using IntelligentHabitacion.App.ViewModel.Login;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
 
 namespace IntelligentHabitacion.App.ViewModel.User.Register
 {
@@ -47,7 +45,7 @@ namespace IntelligentHabitacion.App.ViewModel.User.Register
 
                 await Sucess();
 
-                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                Application.Current.MainPage = new NavigationPage(new UserWithoutPartOfHomePage());
 
                 await Navigation.PopToRootAsync();
             }

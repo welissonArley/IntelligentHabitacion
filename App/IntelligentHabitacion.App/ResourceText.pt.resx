@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ABOUT_APP_FIRST_PART" xml:space="preserve">
-    <value>Este aplicativo foi criado com  a intenção de facilitar a vida de pessoas que dividem um apartamento com amigos.</value>
-  </data>
-  <data name="ABOUT_APP_SECOND_PART" xml:space="preserve">
-    <value>O App vai auxiliar na organização e enviar notificações para assuntos importantes, tais como: notificações para lembrar do cronograma de limpeza; sobre o pagamento do aluguel; aviso do recebimento de encomendas, entre outros.</value>
-  </data>
-  <data name="ABOUT_APP_THIRD_PART" xml:space="preserve">
-    <value>Com um design fácil e criativo, espero que seja útil para seu lar :)</value>
-  </data>
   <data name="BRAZIL" xml:space="preserve">
     <value>Brasil</value>
   </data>
@@ -240,7 +231,7 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
     <value>Não se preocupe, seu nome não será exibido na avaliação  quando seu amigo(a) visualiza-la :)</value>
   </data>
   <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
-    <value>Seu pedido chegou e esta esperando por você ;)</value>
+    <value>Você tem uma encomenda te esperando :)</value>
   </data>
   <data name="DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE" xml:space="preserve">
     <value>Procurando pelas configurações do cronograma, certo? Neste momento o cronograma será automaticamente configurado todo dia 1 de cada mês. Mas não se preocupe, em breve o administrador vai ter total controle sobre esta configuração :)</value>
@@ -398,6 +389,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITILE_ABOUT_APP" xml:space="preserve">
     <value>Sobre o App</value>
   </data>
+  <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
+    <value>Sobre este Projeto</value>
+  </data>
   <data name="TITLE_ACCEPT" xml:space="preserve">
     <value>Aceitar</value>
   </data>
@@ -541,6 +535,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
     <value>Se desejar, pode me informar um segundo contato para casos de emergência (opcional)</value>
+  </data>
+  <data name="TITLE_CONTACT_US" xml:space="preserve">
+    <value>Contate-nos</value>
   </data>
   <data name="TITLE_COUNTRY_AVALIABLE" xml:space="preserve">
     <value>{0} países disponíveis.</value>

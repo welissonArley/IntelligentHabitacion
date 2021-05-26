@@ -1,11 +1,10 @@
 ﻿using Com.OneSignal.Abstractions;
 using IntelligentHabitacion.App.Services;
-using IntelligentHabitacion.App.View.Login;
-using IntelligentHabitacion.App.ViewModel.Login;
+using IntelligentHabitacion.App.View.Dashboard.NotPartOfHome;
+using IntelligentHabitacion.App.View.Dashboard.PartOfHome;
 using Rg.Plugins.Popup.Extensions;
 using System.Linq;
 using Xamarin.Forms;
-using XLabs.Forms.Mvvm;
 using XLabs.Ioc;
 
 namespace IntelligentHabitacion.App.OneSignalConfig
@@ -49,11 +48,11 @@ namespace IntelligentHabitacion.App.OneSignalConfig
                             userPreferences.UserIsPartOfOneHome(false);
                             var navigation = Resolver.Resolve<INavigation>();
                             var page = navigation.NavigationStack.FirstOrDefault();
-                            if (page is UserIsPartOfHomePage)
+                            if (page is UserIsPartOfHomeFlyoutPage)
                             {
                                 try { await navigation.PopAllPopupAsync(); } catch { /* If one exception is throwed its beacause dont have any popup */ }
                                 await navigation.PopToRootAsync();
-                                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<UserWithoutPartOfHomeViewModel, UserWithoutPartOfHomePage>());
+                                Application.Current.MainPage = new NavigationPage(new UserWithoutPartOfHomePage());
                             }
                         });
                     }
@@ -67,8 +66,12 @@ namespace IntelligentHabitacion.App.OneSignalConfig
             {
                 var navigation = Resolver.Resolve<INavigation>();
                 var page = navigation.NavigationStack.FirstOrDefault();
-                if (page is UserIsPartOfHomePage refreshPage)
-                    refreshPage.RefreshHeader();
+                if (page is UserIsPartOfHomeFlyoutPage refreshPage)
+                {
+                    var pageDetail = ((FlyoutPage)page).Detail;
+                    var navigationPage = (NavigationPage)pageDetail;
+                    ((UserIsPartOfHomeFlyoutPageDetail)navigationPage.CurrentPage).RefreshHeader();
+                }
             });
         }
     }

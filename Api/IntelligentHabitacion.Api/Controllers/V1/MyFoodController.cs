@@ -10,7 +10,6 @@ using IntelligentHabitacion.Communication.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace IntelligentHabitacion.Api.Controllers.V1
@@ -32,17 +31,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ProducesResponseType(typeof(List<ResponseMyFoodJson>), StatusCodes.Status200OK)]
         public async Task<IActionResult> MyFoods([FromServices] IGetMyFoodsUseCase useCase)
         {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -58,19 +50,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IRegisterMyFoodUseCase useCase,
             [FromBody] RequestProductJson requestMyFood)
         {
-            try
-            {
-                VerifyParameters(requestMyFood);
+            VerifyParameters(requestMyFood);
 
-                var response = await useCase.Execute(requestMyFood);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(requestMyFood);
+            WriteAutenticationHeader(response);
 
-                return Created(string.Empty, response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Created(string.Empty, response.ResponseJson);
         }
 
         /// <summary>
@@ -86,17 +71,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IDeleteMyFoodUseCase useCase,
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
         {
-            try
-            {
-                var response = await useCase.Execute(id);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -114,17 +92,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
             [FromBody] RequestChangeQuantityMyFoodJson request)
         {
-            try
-            {
-                var response = await useCase.Execute(id, request.Amount);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id, request.Amount);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -142,19 +113,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
             RequestProductJson editMyFood)
         {
-            try
-            {
-                VerifyParameters(editMyFood);
+            VerifyParameters(editMyFood);
 
-                var response = await useCase.Execute(id, editMyFood);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id, editMyFood);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
     }
 }

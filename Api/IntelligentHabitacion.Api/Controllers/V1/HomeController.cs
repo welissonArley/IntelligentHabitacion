@@ -31,19 +31,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IRegisterHomeUseCase useCase,
             [FromBody] RequestRegisterHomeJson registerHomeJson)
         {
-            try
-            {
-                VerifyParameters(registerHomeJson);
+            VerifyParameters(registerHomeJson);
 
-                var response = await useCase.Execute(registerHomeJson);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(registerHomeJson);
+            WriteAutenticationHeader(response);
 
-                return Created(string.Empty, string.Empty);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Created(string.Empty, string.Empty);
         }
 
         /// <summary>
@@ -56,17 +49,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public async Task<IActionResult> Informations([FromServices] IHomeInformationsUseCase useCase)
         {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -83,19 +69,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IUpdateHomeInformationsUseCase useCase,
             RequestUpdateHomeJson updateHomeJson)
         {
-            try
-            {
-                VerifyParameters(updateHomeJson);
-                
-                var response = await useCase.Execute(updateHomeJson);
-                WriteAutenticationHeader(response);
+            VerifyParameters(updateHomeJson);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            var response = await useCase.Execute(updateHomeJson);
+            WriteAutenticationHeader(response);
+
+            return Ok();
         }
     }
 }

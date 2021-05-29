@@ -31,17 +31,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public async Task<IActionResult> Friends([FromServices] IGetMyFriendsUseCase useCase)
         {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -60,19 +53,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
             [FromBody] RequestDateJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(id, request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id, request);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -89,17 +75,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] INotifyOrderReceivedUseCase useCase,
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
         {
-            try
-            {
-                var response = await useCase.Execute(id);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -112,17 +91,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
         public async Task<IActionResult> RequestCodeChangeAdministrator([FromServices] IRequestCodeChangeAdministratorUseCase useCase)
         {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -141,19 +113,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
             [FromBody] RequestAdminActionJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(id, request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id, request);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -166,17 +131,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
         public async Task<IActionResult> RequestCodeRemoveFriend([FromServices] IRequestCodeToRemoveFriendUseCase useCase)
         {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -195,19 +153,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
             [FromBody] RequestAdminActionJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(id, request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id, request);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
     }
 }

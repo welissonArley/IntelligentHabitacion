@@ -33,19 +33,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IRegisterUserUseCase useCase,
             [FromBody] RequestRegisterUserJson registerUserJson)
         {
-            try
-            {
-                VerifyParameters(registerUserJson);
+            VerifyParameters(registerUserJson);
 
-                var response = await useCase.Execute(registerUserJson);
+            var response = await useCase.Execute(registerUserJson);
 
-                WriteAutenticationHeader(response);
-                return Created(string.Empty, response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            WriteAutenticationHeader(response);
+            return Created(string.Empty, response.ResponseJson);
         }
 
         /// <summary>
@@ -61,17 +54,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IEmailAlreadyBeenRegisteredUseCase useCase,
             [FromRoute] string email)
         {
-            try
-            {
-                VerifyParameters(email);
+            VerifyParameters(email);
 
-                var response = await useCase.Execute(email);
-                return Ok(response);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            var response = await useCase.Execute(email);
+            return Ok(response);
         }
 
         /// <summary>
@@ -88,19 +74,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IUpdateUserInformationsUseCase useCase,
             [FromBody] RequestUpdateUserJson updateUserJson)
         {
-            try
-            {
-                VerifyParameters(updateUserJson);
+            VerifyParameters(updateUserJson);
 
-                var response = await useCase.Execute(updateUserJson);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(updateUserJson);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -117,18 +96,11 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IChangePasswordUseCase useCase,
             [FromBody] RequestChangePasswordJson changePasswordJson)
         {
-            try
-            {
-                VerifyParameters(changePasswordJson);
-                var response = await useCase.Execute(changePasswordJson);
+            VerifyParameters(changePasswordJson);
+            var response = await useCase.Execute(changePasswordJson);
 
-                WriteAutenticationHeader(response);
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            WriteAutenticationHeader(response);
+            return Ok();
         }
 
         /// <summary>
@@ -141,17 +113,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
         public async Task<IActionResult> Informations([FromServices] IUserInformationsUseCase useCase)
         {
-            try
-            {
-                var response = await useCase.Execute();
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
     }
 }

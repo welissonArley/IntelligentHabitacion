@@ -38,19 +38,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         public async Task<IActionResult> MyTasks([FromServices] IGetTasksUseCase useCase,
             [FromBody] RequestDateJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(request.Date);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request.Date);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -66,19 +59,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         public async Task<IActionResult> CreateFirstCleaningSchedule([FromServices] ICreateFirstScheduleUseCase useCase,
             [FromBody] List<RequestUpdateCleaningScheduleJson> request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -95,17 +81,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IRegisterRoomCleanedUseCase useCase,
             [FromBody] RequestRegisterRoomCleaned request)
         {
-            try
-            {
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -122,17 +101,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IReminderUseCase useCase,
             [FromBody] IList<string> request)
         {
-            try
-            {
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -150,19 +122,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] ICalendarUseCase useCase,
             [FromBody] RequestCalendarCleaningScheduleJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -180,19 +145,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IHistoryOfTheDayUseCase useCase,
             [FromBody] RequestHistoryOfTheDayJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -209,19 +167,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IEditTaskAssignUseCase useCase,
             [FromBody] RequestEditAssignCleaningScheduleJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(request);
+            WriteAutenticationHeader(response);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -240,19 +191,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
             [FromBody] RequestRateTaskJson request)
         {
-            try
-            {
-                VerifyParameters(request);
+            VerifyParameters(request);
 
-                var response = await useCase.Execute(id, request);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id, request);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -269,17 +213,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IDetailsAllRateUseCase useCase,
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
         {
-            try
-            {
-                var response = await useCase.Execute(id);
-                WriteAutenticationHeader(response);
+            var response = await useCase.Execute(id);
+            WriteAutenticationHeader(response);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok(response.ResponseJson);
         }
     }
 }

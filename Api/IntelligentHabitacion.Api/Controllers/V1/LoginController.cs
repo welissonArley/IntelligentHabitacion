@@ -27,19 +27,12 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] ILoginUseCase useCase,
             [FromBody] RequestLoginJson loginJson)
         {
-            try
-            {
-                VerifyParameters(loginJson);
-                
-                var response = await useCase.Execute(loginJson);
-                WriteAutenticationHeader(response);
+            VerifyParameters(loginJson);
 
-                return Ok(response.ResponseJson);
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            var response = await useCase.Execute(loginJson);
+            WriteAutenticationHeader(response);
+
+            return Ok(response.ResponseJson);
         }
 
         /// <summary>
@@ -53,17 +46,10 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IRequestCodeResetPasswordUseCase useCase,
             [FromRoute] string email)
         {
-            try
-            {
-                VerifyParameters(email);
-                await useCase.Execute(email);
+            VerifyParameters(email);
+            await useCase.Execute(email);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
 
         /// <summary>
@@ -79,18 +65,11 @@ namespace IntelligentHabitacion.Api.Controllers.V1
             [FromServices] IResetPasswordUseCase useCase,
             [FromBody] RequestResetYourPasswordJson resetYourPasswordJson)
         {
-            try
-            {
-                VerifyParameters(resetYourPasswordJson);
+            VerifyParameters(resetYourPasswordJson);
 
-                await useCase.Execute(resetYourPasswordJson);
+            await useCase.Execute(resetYourPasswordJson);
 
-                return Ok();
-            }
-            catch (System.Exception exception)
-            {
-                return HandleException(exception);
-            }
+            return Ok();
         }
     }
 }

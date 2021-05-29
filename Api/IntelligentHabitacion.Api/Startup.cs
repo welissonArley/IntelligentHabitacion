@@ -62,7 +62,10 @@ namespace IntelligentHabitacion.Api
 
             services.AddSignalR();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(ExceptionFilter));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddVersionedApiExplorer(options =>
             {

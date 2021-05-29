@@ -11,8 +11,11 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
         private readonly SendGridClient _client;
         private readonly EmailAddress _from;
 
+        private readonly EmailConfig _emailConfig;
+
         public SendEmail(EmailConfig emailConfig)
         {
+            _emailConfig = emailConfig;
             _client = new SendGridClient(emailConfig.ApiKey);
             _from = new EmailAddress(emailConfig.Email, emailConfig.Name);
         }
@@ -50,6 +53,15 @@ namespace IntelligentHabitacion.Api.Infrastructure.Services
             var to = new EmailAddress(content.SendToEmail, content.Subject);
             var plainTextContent = content.PlainText;
             var htmlContent = $"{EmailHeader()}{content.HtmlText}";
+            var msg = MailHelper.CreateSingleEmail(_from, to, content.Subject, plainTextContent, htmlContent);
+
+            await _client.SendEmailAsync(msg);
+        }
+        public async Task SendMessageSupport(EmailContent content)
+        {
+            var to = new EmailAddress(_emailConfig.SupportEmail, content.Subject);
+            var plainTextContent = content.PlainText;
+            var htmlContent = content.HtmlText;
             var msg = MailHelper.CreateSingleEmail(_from, to, content.Subject, plainTextContent, htmlContent);
 
             await _client.SendEmailAsync(msg);

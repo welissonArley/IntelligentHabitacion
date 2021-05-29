@@ -23,7 +23,6 @@ namespace IntelligentHabitacion.Api.Controllers.V1
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
         public async Task<IActionResult> SendMessageToUs([FromServices] IContactUsUseCase useCase,
             [FromBody] RequestContactUsJson request)
         {

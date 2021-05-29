@@ -29,7 +29,8 @@ namespace IntelligentHabitacion.Api.Infrastructure
                 {
                     ApiKey = configuration.GetValue<string>("Settings:SendEmailSettings:ApiKey"),
                     Name = "Intelligent Habitacion Team",
-                    Email = configuration.GetValue<string>("Settings:SendEmailSettings:FromEmail")
+                    Email = configuration.GetValue<string>("Settings:SendEmailSettings:FromEmail"),
+                    SupportEmail = configuration.GetValue<string>("Settings:SendEmailSettings:SupportEmail")
                 });
             });
             services.AddScoped<IPushNotificationService, OneSignalService>(options =>

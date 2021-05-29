@@ -6,5 +6,6 @@ namespace IntelligentHabitacion.Api.Domain.Services
     public interface ISendEmail
     {
         Task Send(EmailContent content);
+        Task SendMessageSupport(EmailContent content);
     }
 }

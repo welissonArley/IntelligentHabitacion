@@ -8,6 +8,7 @@ using IntelligentHabitacion.App.UseCases.CleaningSchedule.HistoryOfTheDay;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.RateTask;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.App.UseCases.CleaningSchedule.Reminder;
+using IntelligentHabitacion.App.UseCases.ContactUs;
 using IntelligentHabitacion.App.UseCases.Friends.ChangeDateFriendJoinHome;
 using IntelligentHabitacion.App.UseCases.Friends.GetMyFriends;
 using IntelligentHabitacion.App.UseCases.Friends.NotifyOrderReceived;
@@ -67,7 +68,8 @@ namespace IntelligentHabitacion.App
                 .Register<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>()
                 .Register<IEditTaskAssignUseCase, EditTaskAssignUseCase>()
                 .Register<IRateTaskUseCase, RateTaskUseCase>()
-                .Register<IDetailsAllRateUseCase, DetailsAllRateUseCase>();
+                .Register<IDetailsAllRateUseCase, DetailsAllRateUseCase>()
+                .Register<IContactUsUseCase, ContactUsUseCase>();
         }
     }
 }

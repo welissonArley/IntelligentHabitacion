@@ -1,4 +1,5 @@
 ﻿using IntelligentHabitacion.Api.Application.Services.LoggedUser;
+using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Services;
 using IntelligentHabitacion.Api.Domain.ValueObjects;
 using IntelligentHabitacion.Communication.Request;
@@ -11,13 +12,15 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ContactUs
         private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
         private readonly ILoggedUser _loggedUser;
         private readonly ISendEmail _emailHelper;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ContactUsUseCase(ISendEmail emailHelper, ILoggedUser loggedUser,
-            IntelligentHabitacionUseCase intelligentHabitacionUseCase)
+            IntelligentHabitacionUseCase intelligentHabitacionUseCase, IUnitOfWork unitOfWork)
         {
             _emailHelper = emailHelper;
             _loggedUser = loggedUser;
             _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<ResponseOutput> Execute(RequestContactUsJson request)
@@ -35,6 +38,8 @@ namespace IntelligentHabitacion.Api.Application.UseCases.ContactUs
             }
 
             var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
+
+            await _unitOfWork.Commit();
 
             return response;
         }

@@ -275,6 +275,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="MALDIVES" xml:space="preserve">
     <value>Maldives</value>
   </data>
+  <data name="MESSAGE_CONTACT_YOU_AS_SOON_AS_POSSIBLE" xml:space="preserve">
+    <value>We will contact you as soon as possible.</value>
+  </data>
   <data name="MEXICO" xml:space="preserve">
     <value>Mexico</value>
   </data>

@@ -531,6 +531,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We will contact you as soon as possible..
+        /// </summary>
+        internal static string MESSAGE_CONTACT_YOU_AS_SOON_AS_POSSIBLE {
+            get {
+                return ResourceManager.GetString("MESSAGE_CONTACT_YOU_AS_SOON_AS_POSSIBLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mexico.
         /// </summary>
         internal static string MEXICO {

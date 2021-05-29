@@ -266,6 +266,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="MALDIVES" xml:space="preserve">
     <value>Maldivas</value>
   </data>
+  <data name="MESSAGE_CONTACT_YOU_AS_SOON_AS_POSSIBLE" xml:space="preserve">
+    <value>Entraremos em contato o mais rápido possível.</value>
+  </data>
   <data name="MONACO" xml:space="preserve">
     <value>Mônaco</value>
   </data>

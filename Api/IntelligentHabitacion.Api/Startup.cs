@@ -4,6 +4,7 @@ using IntelligentHabitacion.Api.Configuration.Swagger;
 using IntelligentHabitacion.Api.Configuration.Token;
 using IntelligentHabitacion.Api.Filter;
 using IntelligentHabitacion.Api.Infrastructure;
+using IntelligentHabitacion.Api.Infrastructure.DataAccess;
 using IntelligentHabitacion.Api.Infrastructure.Migrations;
 using IntelligentHabitacion.Api.Middleware;
 using IntelligentHabitacion.Api.Services;
@@ -148,9 +149,21 @@ namespace IntelligentHabitacion.Api
                 endpoints.MapHub<AddFriendHub>("/addNewFriend");
             });
 
-            Database.EnsureDatabase(Configuration.GetConnectionString("Connection"), Configuration.GetConnectionString("DatabaseName"));
+            UpdateDatabase(app);
+        }
 
-            app.Migrate();
+        private void UpdateDatabase(IApplicationBuilder app)
+        {
+            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+
+            using var context = serviceScope.ServiceProvider.GetService<IntelligentHabitacionContext>();
+
+            if (!context.Database.ProviderName.Equals("Microsoft.EntityFrameworkCore.InMemory"))
+            {
+                Database.EnsureDatabase(Configuration.GetConnectionString("Connection"), Configuration.GetConnectionString("DatabaseName"));
+
+                app.Migrate();
+            }
         }
     }
 }

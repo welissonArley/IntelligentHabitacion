@@ -5,17 +5,16 @@ using IntelligentHabitacion.Api.Application.UseCases;
 using IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser;
 using IntelligentHabitacion.Api.Domain.Repository;
 using IntelligentHabitacion.Api.Domain.Repository.User;
-using IntelligentHabitacion.Communication.Request;
 using IntelligentHabitacion.Communication.Response;
 using IntelligentHabitacion.Exception;
 using IntelligentHabitacion.Exception.ExceptionsBase;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Useful.ToTests.Builders.CreateResponseUseCase;
 using Useful.ToTests.Builders.Encripter;
 using Useful.ToTests.Builders.Mapper;
 using Useful.ToTests.Builders.Repositories;
+using Useful.ToTests.Requests;
 using Xunit;
 
 namespace UseCases.Test.User.RegisterUser
@@ -42,25 +41,11 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Sucess()
         {
+            var user = RequestRegisterUserBuilder.Instance().Build();
+
             var useCase = new RegisterUserUseCase(_mapper, _unitOfWork, _intelligentHabitacionUseCase, _userWriteOnlyRepository, _userReadOnlyRepository, _passwordEncripter);
 
-            var validationResult = await useCase.Execute(new RequestRegisterUserJson
-            {
-                Email = "user@email.com",
-                Name = "User",
-                Password = "@Password123",
-                PushNotificationId = "PushId",
-                Phonenumbers = new List<string> { "+55 9 9999-9999" },
-                EmergencyContacts = new List<RequestEmergencyContactJson>
-                {
-                    new RequestEmergencyContactJson
-                    {
-                        Name = "Contact",
-                        Phonenumber = "+55 9 8888-8888",
-                        Relationship = "Mother"
-                    }
-                }
-            });
+            var validationResult = await useCase.Execute(user);
 
             validationResult.Should().BeOfType<ResponseOutput>();
             validationResult.Token.Should().NotBeNullOrWhiteSpace();
@@ -74,17 +59,13 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Empty_PhoneNumbersAndEmergencyContacts()
         {
+            var user = RequestRegisterUserBuilder.Instance().Build();
+            user.Phonenumbers.Clear();
+            user.EmergencyContacts.Clear();
+
             var useCase = new RegisterUserUseCase(_mapper, _unitOfWork, _intelligentHabitacionUseCase, _userWriteOnlyRepository, _userReadOnlyRepository, _passwordEncripter);
 
-            Func<Task> act = async () => {
-                await useCase.Execute(new RequestRegisterUserJson
-                {
-                    Email = "user@email.com",
-                    Name = "User",
-                    Password = "@Password123",
-                    PushNotificationId = "PushId",
-                });
-            };
+            Func<Task> act = async () => { await useCase.Execute(user); };
 
             (await act.Should().ThrowAsync<ErrorOnValidationException>())
                 .Where(e => e.ErrorMensages.Count == 2 && 

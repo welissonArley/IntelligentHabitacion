@@ -33,25 +33,28 @@ namespace IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser
 
         public async Task<ResponseOutput> Execute(RequestRegisterUserJson registerUserJson)
         {
+            await ValidateRequest(registerUserJson);
+
+            var userModel = _mapper.Map<Domain.Entity.User>(registerUserJson);
+            userModel.Password = _cryptography.Encrypt(userModel.Password);
+
+            await _repository.Add(userModel);
+            await _unitOfWork.Commit();
+
+            var json = _mapper.Map<ResponseUserRegisteredJson>(userModel);
+
+            var response = await _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, json);
+
+            await _unitOfWork.Commit();
+
+            return response;
+        }
+
+        private async Task ValidateRequest(RequestRegisterUserJson registerUserJson)
+        {
             var validation = await new RegisterUserValidation(_repositoryUserReadOnly).ValidateAsync(registerUserJson);
 
-            if (validation.IsValid)
-            {
-                var userModel = _mapper.Map<Domain.Entity.User>(registerUserJson);
-                userModel.Password = _cryptography.Encrypt(userModel.Password);
-
-                await _repository.Add(userModel);
-                await _unitOfWork.Commit();
-
-                var json = _mapper.Map<ResponseUserRegisteredJson>(userModel);
-
-                var response = await _intelligentHabitacionUseCase.CreateResponse(userModel.Email, userModel.Id, json);
-                
-                await _unitOfWork.Commit();
-
-                return response;
-            }
-            else
+            if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
         }
     }

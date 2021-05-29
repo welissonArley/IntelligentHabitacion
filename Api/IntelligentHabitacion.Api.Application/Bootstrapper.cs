@@ -11,6 +11,7 @@ using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.ProcessRem
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RateTask;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
 using IntelligentHabitacion.Api.Application.UseCases.CleaningSchedule.Reminder;
+using IntelligentHabitacion.Api.Application.UseCases.ContactUs;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.AddFriends;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeAdministrator;
 using IntelligentHabitacion.Api.Application.UseCases.Friends.ChangeDateFriendJoinHome;
@@ -80,7 +81,8 @@ namespace IntelligentHabitacion.Api.Application
                 .AddScoped<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>()
                 .AddScoped<IEditTaskAssignUseCase, EditTaskAssignUseCase>()
                 .AddScoped<IRateTaskUseCase, RateTaskUseCase>()
-                .AddScoped<IDetailsAllRateUseCase, DetailsAllRateUseCase>();
+                .AddScoped<IDetailsAllRateUseCase, DetailsAllRateUseCase>()
+                .AddScoped<IContactUsUseCase, ContactUsUseCase>();
         }
     }
 }

@@ -153,6 +153,9 @@
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Do your part and leave the home clean and organized.</value>
   </data>
+  <data name="DESCRIPTION_CONTACT_US" xml:space="preserve">
+    <value>Leave your message (suggestion, complaint, problems, doubts, etc.) and we will get in touch with you as soon as possible.</value>
+  </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Use this option to create a home and be the administrator.</value>
   </data>
@@ -707,6 +710,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Manufacturer:</value>
   </data>
+  <data name="TITLE_MESSAGE" xml:space="preserve">
+    <value>Message</value>
+  </data>
   <data name="TITLE_MONDAY_ABBREVIATED" xml:space="preserve">
     <value>Mon</value>
   </data>
@@ -899,6 +905,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
     <value>Sending QRCode ...</value>
   </data>
+  <data name="TITLE_SEND_MESSAGE" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
   <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
     <value>Set as administrator</value>
   </data>
@@ -988,6 +997,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Welcome :)</value>
+  </data>
+  <data name="TITLE_WE_LOVE_HEAR_FROM_YOU" xml:space="preserve">
+    <value>Nos amamos ouvir você.</value>
   </data>
   <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
     <value>What did you think of the cleaning?</value>

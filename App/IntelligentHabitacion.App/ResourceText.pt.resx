@@ -147,6 +147,9 @@
   <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
     <value>Faça sua parte e deixe o lar limpo e organizado.</value>
   </data>
+  <data name="DESCRIPTION_CONTACT_US" xml:space="preserve">
+    <value>Deixe sua mensagem (Sugestão, reclamação, problemas, dúvidas, etc.) e nos vamos entrar em contato com você o mais rápido possível.</value>
+  </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
     <value>Utilize esta opção para criar um lar e ser o administrador.</value>
   </data>
@@ -692,6 +695,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
     <value>Fabricante:</value>
   </data>
+  <data name="TITLE_MESSAGE" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
   <data name="TITLE_MONDAY_ABBREVIATED" xml:space="preserve">
     <value>Seg</value>
   </data>
@@ -884,6 +890,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
     <value>Enviando o QRCode ...</value>
   </data>
+  <data name="TITLE_SEND_MESSAGE" xml:space="preserve">
+    <value>Enviar Mensagem</value>
+  </data>
   <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
     <value>Definir como administrador</value>
   </data>
@@ -970,6 +979,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_WELCOME" xml:space="preserve">
     <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_WE_LOVE_HEAR_FROM_YOU" xml:space="preserve">
+    <value>Nos amamos ouvir você.</value>
   </data>
   <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
     <value>O que achou da limpeza?</value>

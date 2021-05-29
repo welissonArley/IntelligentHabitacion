@@ -169,6 +169,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Leave your message (suggestion, complaint, problems, doubts, etc.) and we will get in touch with you as soon as possible..
+        /// </summary>
+        internal static string DESCRIPTION_CONTACT_US {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_CONTACT_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use this option to create a home and be the administrator..
         /// </summary>
         internal static string DESCRIPTION_CREATE_HOME {
@@ -1827,6 +1836,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Message.
+        /// </summary>
+        internal static string TITLE_MESSAGE {
+            get {
+                return ResourceManager.GetString("TITLE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mon.
         /// </summary>
         internal static string TITLE_MONDAY_ABBREVIATED {
@@ -2385,6 +2403,15 @@ namespace IntelligentHabitacion.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send Message.
+        /// </summary>
+        internal static string TITLE_SEND_MESSAGE {
+            get {
+                return ResourceManager.GetString("TITLE_SEND_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sending data ....
         /// </summary>
         internal static string TITLE_SENDING_DATA {
@@ -2651,6 +2678,15 @@ namespace IntelligentHabitacion.App {
         internal static string TITLE_WARMING_UP_ENGINES {
             get {
                 return ResourceManager.GetString("TITLE_WARMING_UP_ENGINES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nos amamos ouvir você..
+        /// </summary>
+        internal static string TITLE_WE_LOVE_HEAR_FROM_YOU {
+            get {
+                return ResourceManager.GetString("TITLE_WE_LOVE_HEAR_FROM_YOU", resourceCulture);
             }
         }
         

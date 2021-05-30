@@ -151,6 +151,6 @@
             </templateButton:TabsView.TabItems>
         </templateButton:TabsView>
 
-        <Button VerticalOptions="End" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding UpdateInformationsTapped}"></Button>
+        <Button VerticalOptions="End" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding UpdateInformationsTapped}"></Button>
     </StackLayout>
 </ContentPage>

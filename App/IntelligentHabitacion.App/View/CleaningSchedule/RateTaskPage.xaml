@@ -58,7 +58,7 @@
 
             <template:TextAreaTemplate PropertyToBindindEntry="Model.Feedback" PlaceHolderText="{x:Static resourceText:ResourceText.TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK}"></template:TextAreaTemplate>
 
-            <Button Command="{Binding OnConcludeCommand}" VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}"></Button>
+            <Button Command="{Binding OnConcludeCommand}" VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -66,7 +66,7 @@
                     </DataTrigger>
                 </StackLayout.Triggers>
                 <templateButton:ConfirmDangerActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE}" TappedButtonCommand="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:ConfirmDangerActionButton>
-                <Button VerticalOptions="EndAndExpand" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding SaveCommand}"></Button>
+                <Button VerticalOptions="EndAndExpand" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding SaveCommand}"></Button>
             </StackLayout>
             <StackLayout Margin="0,30,0,10">
                 <StackLayout.Triggers>
@@ -75,7 +75,7 @@
                     </DataTrigger>
                 </StackLayout.Triggers>
                 <templateButton:SecondaryActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_SAVE_AND_NEW}" TappedButtonCommand="{Binding Path=BindingContext.SaveAndNewCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:SecondaryActionButton>
-                <Button VerticalOptions="EndAndExpand" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding SaveCommand}"></Button>
+                <Button VerticalOptions="EndAndExpand" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding SaveCommand}"></Button>
             </StackLayout>
         </StackLayout>
     </ScrollView>

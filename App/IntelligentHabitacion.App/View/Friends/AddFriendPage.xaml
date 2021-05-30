@@ -68,7 +68,7 @@
                                 <Label Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
                                 <Label Text="{Binding Path=BindingContext.Time, Source={x:Reference Name=AddFriendContentPage}}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
 
-                                <Button Margin="0,30,0,0" Style="{x:StaticResource ButtonGreenDefault}" Text="{x:Static resourceText:ResourceText.TITLE_ACCEPT}" Command="{Binding Path=BindingContext.ApproveOperationTapped, Source={x:Reference Name=AddFriendContentPage}}"></Button>
+                                <Button Margin="0,30,0,0" Style="{x:StaticResource ButtonYellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_ACCEPT}" Command="{Binding Path=BindingContext.ApproveOperationTapped, Source={x:Reference Name=AddFriendContentPage}}"></Button>
                                 <templateButton:DeleteButton Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_CANCEL_OPERATION}" TappedButtonCommand="{Binding Path=BindingContext.CancelOperationTapped, Source={x:Reference Name=AddFriendContentPage}}"></templateButton:DeleteButton>
                             </StackLayout>
                         </DataTemplate>

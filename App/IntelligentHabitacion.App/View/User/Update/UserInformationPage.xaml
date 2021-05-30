@@ -116,7 +116,7 @@
                 <xct:StateView StateKey="Loading"></xct:StateView>
             </xct:StateLayout.StateViews>
 
-            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding UpdateInformationsTapped}"></Button>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding UpdateInformationsTapped}"></Button>
             <templateButton:DeleteButton IsVisible="False" Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
         </StackLayout>
     </StackLayout>

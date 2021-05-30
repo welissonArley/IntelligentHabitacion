@@ -19,7 +19,7 @@
             
             <Grid ColumnDefinitions="*,*" ColumnSpacing="0" RowDefinitions="40">
                 <Button Clicked="Button_Cancel" Grid.Column="0" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" BackgroundColor="#ececec" TextColor="Black" CornerRadius="0"></Button>
-                <Button x:Name="ButtonOk" Clicked="Button_Ok" Grid.Column="1" Text="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TextColor="White" CornerRadius="0"></Button>
+                <Button x:Name="ButtonOk" Clicked="Button_Ok" Grid.Column="1" Text="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TextColor="Black" CornerRadius="0"></Button>
             </Grid>
         </StackLayout>
     </Frame>

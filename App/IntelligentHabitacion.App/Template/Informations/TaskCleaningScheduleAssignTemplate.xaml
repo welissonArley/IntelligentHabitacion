@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:appTransformation="clr-namespace:IntelligentHabitacion.App.ValueObjects"
              xmlns:InputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="IntelligentHabitacion.App.Template.Informations.TaskCleaningScheduleAssignTemplate">
   <ContentView.Content>
@@ -31,7 +33,11 @@
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EditAssign_Tapped"></TapGestureRecognizer>
                                 </StackLayout.GestureRecognizers>
-                                <Image Source="IconEdit" WidthRequest="25" HeightRequest="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                                <ffimageloadingsvg:SvgCachedImage HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" Source="resource://IntelligentHabitacion.App.Resources.IconEdit.svg">
+                                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                        <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                </ffimageloadingsvg:SvgCachedImage>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

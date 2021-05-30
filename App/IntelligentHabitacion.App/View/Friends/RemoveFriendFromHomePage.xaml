@@ -49,7 +49,7 @@
             
             <StackLayout VerticalOptions="EndAndExpand">
                 <button:ConfirmDangerActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TappedButtonCommand="{Binding RequestCodeCommand}"></button:ConfirmDangerActionButton>
-                <Button Margin="0,50,0,0" Style="{x:StaticResource ButtonGreenDefault}" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" Command="{Binding CancelCommand}"></Button>
+                <Button Margin="0,50,0,0" Style="{x:StaticResource ButtonYellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" Command="{Binding CancelCommand}"></Button>
             </StackLayout>
         </StackLayout>
     </StackLayout>

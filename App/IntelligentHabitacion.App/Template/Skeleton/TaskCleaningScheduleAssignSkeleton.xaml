@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:customcontrol="clr-namespace:IntelligentHabitacion.App.CustomControl"
+             xmlns:appTransformation="clr-namespace:IntelligentHabitacion.App.ValueObjects"
              x:Class="IntelligentHabitacion.App.Template.Skeleton.TaskCleaningScheduleAssignSkeleton">
   <ContentView.Content>
         <Frame Margin="0,20,0,0" CornerRadius="4" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="True" Padding="0" HeightRequest="122">
@@ -21,7 +23,11 @@
                     </Ellipse>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                         <Line WidthRequest="0.5" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"/>
-                        <Image Source="IconEdit" VerticalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" Margin="15,0,0,0"></Image>
+                        <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" Margin="15,0,0,0" Source="resource://IntelligentHabitacion.App.Resources.IconEdit.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

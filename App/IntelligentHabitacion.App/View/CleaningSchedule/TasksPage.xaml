@@ -82,7 +82,7 @@
                                     </CollectionView>
 
                                     <templateButton:SecondaryActionButton Margin="0,0,0,30" TitleButton="{x:Static resourceText:ResourceText.TITLE_RANDOM_ASSIGNMENT}" TappedButtonCommand="{Binding Path=BindingContext.RandomAssignmentCommand, Source={x:Reference Name=TasksContentPage}}"/>
-                                    <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonGreenDefault}" Command="{Binding Path=BindingContext.ConcludeCreateFirstScheduleCommand, Source={x:Reference Name=TasksContentPage}}"/>
+                                    <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonYellowDefault}" Command="{Binding Path=BindingContext.ConcludeCreateFirstScheduleCommand, Source={x:Reference Name=TasksContentPage}}"/>
                                 </StackLayout>
                             </DataTemplate>
                         </xct:StateView.Template>

@@ -87,7 +87,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" Command="{Binding ConcludeCommand}"></Button>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding ConcludeCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

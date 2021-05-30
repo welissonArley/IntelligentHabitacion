@@ -72,7 +72,7 @@
                     
                     <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
 
-                    <Button VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonGreenDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding OnConcludeCommand}"></Button>
+                    <Button VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding OnConcludeCommand}"></Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

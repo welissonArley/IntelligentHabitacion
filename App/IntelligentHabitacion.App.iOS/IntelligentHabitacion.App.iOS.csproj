@@ -529,15 +529,6 @@
     <BundleResource Include="Resources\ActionButtonRemove%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconEdit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconEdit%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconEdit%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\WhiteEllipse.png" />
   </ItemGroup>
   <ItemGroup>

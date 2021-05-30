@@ -22,7 +22,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonGreenDefault}" Command="{Binding ConcludeCommand}"></Button>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{StaticResource ButtonYellowDefault}" Command="{Binding ConcludeCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

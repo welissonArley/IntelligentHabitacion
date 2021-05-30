@@ -33,7 +33,7 @@ namespace IntelligentHabitacion.App.View.Modal
                 case Type.Green:
                     {
                         LabelTitle.TextColor = (Color)Application.Current.Resources["GreenDefault"];
-                        ButtonOk.BackgroundColor = (Color)Application.Current.Resources["GreenDefault"];
+                        ButtonOk.BackgroundColor = (Color)Application.Current.Resources["YellowDefault"];
                         ImageIcon.Source = ImageSource.FromFile("IconCheck");
                     }
                     break;

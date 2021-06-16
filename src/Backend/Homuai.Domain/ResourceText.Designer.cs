@@ -61,6 +61,42 @@ namespace Homuai.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No schedule available. Ask {0} to come here and create ;).
+        /// </summary>
+        public static string DESCRIPTION_CREATE_CLEANING_SCHEDULE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_CREATE_CLEANING_SCHEDULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Today it is exactly {0} that you share a home :).
+        /// </summary>
+        public static string DESCRIPTION_DATE_JOINED_THE_HOUSE {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DATE_JOINED_THE_HOUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ask {0} to go to the option &quot;Home, sweet home&quot; and in the &quot;Rooms&quot; tab register the rooms for the schedule..
+        /// </summary>
+        public static string MESSAGE_REGISTER_ROOM {
+            get {
+                return ResourceManager.GetString("MESSAGE_REGISTER_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to go to the option &quot;Home, sweet home&quot; and in the &quot;Rooms&quot; tab register the rooms for the schedule..
+        /// </summary>
+        public static string MESSAGE_REGISTER_ROOM_ADMIN {
+            get {
+                return ResourceManager.GetString("MESSAGE_REGISTER_ROOM_ADMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to and.
         /// </summary>
         public static string TITLE_AND {

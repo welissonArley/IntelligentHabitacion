@@ -7,7 +7,7 @@ jobs:
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       buildConfiguration: 'Release'
-      SolutionPath: 'IntelligentHabitacion.sln'
+      SolutionPath: 'Homuai.sln'
     
     runs-on: windows-latest
 

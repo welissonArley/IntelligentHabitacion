@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SendGrid" Version="9.23.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Homuai.Domain\Homuai.Domain.csproj" />
   </ItemGroup>
 

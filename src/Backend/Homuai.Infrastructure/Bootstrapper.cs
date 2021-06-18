@@ -19,8 +19,7 @@ namespace Homuai.Infrastructure
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<HomuaiContext>(options =>
-                options.UseMySql($"{configuration.GetConnectionString("Connection")}Database={configuration.GetConnectionString("DatabaseName")};"));
+            AddDbContext(services, configuration);
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ISendEmail, SendGridService>(options =>
@@ -58,6 +57,14 @@ namespace Homuai.Infrastructure
                 .AddScoped<IMyFoodsWriteOnlyRepository, MyFoodsRepository>()
                 .AddScoped<ICleaningScheduleReadOnlyRepository, CleaningScheduleRepository>()
                 .AddScoped<ICleaningScheduleWriteOnlyRepository, CleaningScheduleRepository>();
+        }
+
+        private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
+        {
+            var inMemoryTests = configuration.GetValue<bool>("Settings:InMemoryTests");
+
+            if (!inMemoryTests)
+                services.AddDbContext<HomuaiContext>(options => options.UseMySql($"{configuration.GetConnectionString("Connection")}Database={configuration.GetConnectionString("DatabaseName")};"));
         }
     }
 }

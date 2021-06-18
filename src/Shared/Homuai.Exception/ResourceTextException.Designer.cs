@@ -239,5 +239,14 @@ namespace Homuai.Exception {
                 return ResourceManager.GetString("TYPE_PRODUCTS_INVALID", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User and/or password is invalid..
+        /// </summary>
+        public static string USER_OR_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("USER_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
     }
 }

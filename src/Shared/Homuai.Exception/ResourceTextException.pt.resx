@@ -177,4 +177,7 @@
   <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
     <value>O tipo do produto é inválido.</value>
   </data>
+  <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Usuário e/ou senha inválidos.</value>
+  </data>
 </root>

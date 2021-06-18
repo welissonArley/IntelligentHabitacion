@@ -194,7 +194,7 @@ FakesAssemblies/
 
 .vscode/settings.json
 
-IntelligentHabitacion.Api.xml
+Homuai.Api.xml
 
 /.sonarqube
 coverage.opencover.xml

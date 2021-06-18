@@ -3,6 +3,7 @@ using FluentMigrator.Runner;
 using Homuai.Api.Configuration.Swagger;
 using Homuai.Api.Filter;
 using Homuai.Api.Middleware;
+using Homuai.Api.Services;
 using Homuai.Infrastructure;
 using Homuai.Infrastructure.DataAccess;
 using Homuai.Infrastructure.Migrations;
@@ -99,6 +100,8 @@ namespace Homuai.Api
                 .AddRepositories(Configuration);
 
             services.AddHttpContextAccessor();
+
+            services.AddHostedService<RunAtMidnightEveryDay>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
 

@@ -2,6 +2,7 @@ using Clearfield.Application;
 using FluentMigrator.Runner;
 using Homuai.Api.Configuration.Swagger;
 using Homuai.Api.Filter;
+using Homuai.Api.Filter.Authentication;
 using Homuai.Api.Middleware;
 using Homuai.Api.Services;
 using Homuai.Infrastructure;
@@ -102,6 +103,10 @@ namespace Homuai.Api
             services.AddHttpContextAccessor();
 
             services.AddHostedService<RunAtMidnightEveryDay>();
+
+            services.AddScoped<AuthenticationUserAttribute>();
+            services.AddScoped<AuthenticationUserIsPartOfHomeAttribute>();
+            services.AddScoped<AuthenticationUserIsAdminAttribute>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
 

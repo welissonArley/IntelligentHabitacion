@@ -1,4 +1,6 @@
-﻿using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
+﻿using Homuai.Api.Filter.Authentication;
+using Homuai.Application.UseCases.User.ChangePassword;
+using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.RegisterUser;
 using Homuai.Application.UseCases.User.UpdateUserInformations;
 using Homuai.Communication.Boolean;
@@ -60,6 +62,7 @@ namespace Homuai.Api.Controllers.V1
         /// <param name="updateUserJson"></param>
         /// <returns></returns>
         [HttpPut]
+        [ServiceFilter(typeof(AuthenticationUserAttribute))]
         [Route("update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Update(
@@ -67,6 +70,27 @@ namespace Homuai.Api.Controllers.V1
             [FromBody] RequestUpdateUserJson updateUserJson)
         {
             var response = await useCase.Execute(updateUserJson);
+            WriteAutenticationHeader(response);
+
+            return Ok();
+        }
+
+        /// <summary>
+        /// This function will update the password
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="changePasswordJson"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [ServiceFilter(typeof(AuthenticationUserAttribute))]
+        [Route("ChangePassword")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> ChangePassword(
+            [FromServices] IChangePasswordUseCase useCase,
+            [FromBody] RequestChangePasswordJson changePasswordJson)
+        {
+            var response = await useCase.Execute(changePasswordJson);
+
             WriteAutenticationHeader(response);
 
             return Ok();

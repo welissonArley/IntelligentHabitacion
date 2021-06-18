@@ -61,6 +61,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The current password is invalid..
+        /// </summary>
+        public static string CURRENT_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("CURRENT_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The duedate must be grater than today..
         /// </summary>
         public static string DUEDATE_MUST_BE_GRATER_THAN_TODAY {
@@ -246,6 +255,15 @@ namespace Homuai.Exception {
         public static string USER_OR_PASSWORD_INVALID {
             get {
                 return ResourceManager.GetString("USER_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You do not have permission to access this resource..
+        /// </summary>
+        public static string USER_WITHOUT_PERMISSION_ACCESS_RESOURCE {
+            get {
+                return ResourceManager.GetString("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE", resourceCulture);
             }
         }
     }

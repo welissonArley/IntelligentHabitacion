@@ -1,20 +1,20 @@
 ﻿using AutoMapper;
 using FluentAssertions;
-using IntelligentHabitacion.Api.Application.Services.Cryptography;
-using IntelligentHabitacion.Api.Application.UseCases;
-using IntelligentHabitacion.Api.Application.UseCases.User.RegisterUser;
-using IntelligentHabitacion.Api.Domain.Repository;
-using IntelligentHabitacion.Api.Domain.Repository.User;
-using IntelligentHabitacion.Communication.Response;
-using IntelligentHabitacion.Exception;
-using IntelligentHabitacion.Exception.ExceptionsBase;
+using Homuai.Application.Services.Cryptography;
+using Homuai.Application.UseCases;
+using Homuai.Application.UseCases.User.RegisterUser;
+using Homuai.Communication.Response;
+using Homuai.Domain.Repository;
+using Homuai.Domain.Repository.User;
+using Homuai.Exception;
+using Homuai.Exception.ExceptionsBase;
 using System;
 using System.Threading.Tasks;
-using Useful.ToTests.Builders.CreateResponseUseCase;
 using Useful.ToTests.Builders.Encripter;
 using Useful.ToTests.Builders.Mapper;
 using Useful.ToTests.Builders.Repositories;
-using Useful.ToTests.Requests;
+using Useful.ToTests.Builders.Request;
+using Useful.ToTests.Builders.UseCaseCreateResponse;
 using Xunit;
 
 namespace UseCases.Test.User.RegisterUser
@@ -24,7 +24,7 @@ namespace UseCases.Test.User.RegisterUser
         private readonly IUnitOfWork _unitOfWork;
         private readonly PasswordEncripter _passwordEncripter;
         private readonly IMapper _mapper;
-        private readonly IntelligentHabitacionUseCase _intelligentHabitacionUseCase;
+        private readonly HomuaiUseCase _intelligentHabitacionUseCase;
         private readonly IUserReadOnlyRepository _userReadOnlyRepository;
         private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
 
@@ -33,7 +33,7 @@ namespace UseCases.Test.User.RegisterUser
             _unitOfWork = UnitOfWorkBuilder.Instance().Build();
             _passwordEncripter = PasswordEncripterBuilder.Instance().Build();
             _mapper = MapperBuilder.Build();
-            _intelligentHabitacionUseCase = IntelligentHabitacionUseCaseBuilder.Instance().Build();
+            _intelligentHabitacionUseCase = HomuaiUseCaseBuilder.Instance().Build();
             _userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
             _userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
         }
@@ -41,7 +41,7 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Sucess()
         {
-            var user = RequestRegisterUserBuilder.Instance().Build();
+            var user = RequestRegisterUser.Instance().Build();
 
             var useCase = new RegisterUserUseCase(_mapper, _unitOfWork, _intelligentHabitacionUseCase, _userWriteOnlyRepository, _userReadOnlyRepository, _passwordEncripter);
 
@@ -59,7 +59,7 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Empty_PhoneNumbersAndEmergencyContacts()
         {
-            var user = RequestRegisterUserBuilder.Instance().Build();
+            var user = RequestRegisterUser.Instance().Build();
             user.Phonenumbers.Clear();
             user.EmergencyContacts.Clear();
 
@@ -68,7 +68,7 @@ namespace UseCases.Test.User.RegisterUser
             Func<Task> act = async () => { await useCase.Execute(user); };
 
             (await act.Should().ThrowAsync<ErrorOnValidationException>())
-                .Where(e => e.ErrorMensages.Count == 2 && 
+                .Where(e => e.ErrorMensages.Count == 2 &&
                     e.ErrorMensages.Contains(ResourceTextException.PHONENUMBER_EMPTY)
                     && e.ErrorMensages.Contains(ResourceTextException.EMERGENCYCONTACT_EMPTY));
         }

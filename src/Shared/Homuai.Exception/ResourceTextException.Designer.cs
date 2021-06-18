@@ -70,6 +70,33 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email address has already been registered..
+        /// </summary>
+        public static string EMAIL_ALREADYBEENREGISTERED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADYBEENREGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail must be entered..
+        /// </summary>
+        public static string EMAIL_EMPTY {
+            get {
+                return ResourceManager.GetString("EMAIL_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The E-mail is invalid..
+        /// </summary>
+        public static string EMAIL_INVALID {
+            get {
+                return ResourceManager.GetString("EMAIL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Emergency contacts cannot have the same phone number..
         /// </summary>
         public static string EMERGENCY_CONTACT_SAME_PHONENUMBER {
@@ -79,11 +106,38 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An emergency contact must be informed..
+        /// </summary>
+        public static string EMERGENCYCONTACT_EMPTY {
+            get {
+                return ResourceManager.GetString("EMERGENCYCONTACT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can inform a maximum of 2 emergency contacts..
+        /// </summary>
+        public static string EMERGENCYCONTACT_MAX_TWO {
+            get {
+                return ResourceManager.GetString("EMERGENCYCONTACT_MAX_TWO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be at least 6 characters..
         /// </summary>
         public static string INVALID_PASSWORD {
             get {
                 return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name must be entered..
+        /// </summary>
+        public static string NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("NAME_EMPTY", resourceCulture);
             }
         }
         
@@ -106,11 +160,47 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One phone number must be entered..
+        /// </summary>
+        public static string PHONENUMBER_EMPTY {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can enter a maximum of 2 phonenumbers..
+        /// </summary>
+        public static string PHONENUMBER_MAX_TWO {
+            get {
+                return ResourceManager.GetString("PHONENUMBER_MAX_TWO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The phone numbers are the same..
+        /// </summary>
+        public static string PHONENUMBERS_ARE_SAME {
+            get {
+                return ResourceManager.GetString("PHONENUMBERS_ARE_SAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The product name must be entered..
         /// </summary>
         public static string PRODUCT_NAME_EMPTY {
             get {
                 return ResourceManager.GetString("PRODUCT_NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The push notification id is invalid..
+        /// </summary>
+        public static string PUSHNOTIFICATION_INVALID {
+            get {
+                return ResourceManager.GetString("PUSHNOTIFICATION_INVALID", resourceCulture);
             }
         }
         

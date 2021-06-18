@@ -31,7 +31,10 @@ jobs:
       run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }}
       
     - name: Run Validators Test
-      run: dotnet test Tests\Backend\Validators.Test
+      run: dotnet test tests\Backend\Validators.Test
       
     - name: Run UseCases Test
-      run: dotnet test Tests\Backend\UseCases.Test
+      run: dotnet test tests\Backend\UseCases.Test
+      
+    - name: Run WebApi Test
+      run: dotnet test tests\Backend\WebApi.Test

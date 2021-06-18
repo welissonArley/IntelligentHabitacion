@@ -120,20 +120,50 @@
   <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
     <value>A data de vencimento deve ser maior que hoje.</value>
   </data>
+  <data name="EMAIL_ALREADYBEENREGISTERED" xml:space="preserve">
+    <value>Este e-mail já está registrado.</value>
+  </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>E-mail deve ser informado.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>O E-mail é inválido.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_EMPTY" xml:space="preserve">
+    <value>Um contato de emergência deve ser informado.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_MAX_TWO" xml:space="preserve">
+    <value>Você pode informar no máximo 2 contatos de emergência.</value>
+  </data>
   <data name="EMERGENCY_CONTACT_SAME_PHONENUMBER" xml:space="preserve">
     <value>Os contatos de emergência não pode ter o mesmo número de telefone.</value>
   </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>A senha deve ter pelo menos 6 caracteres.</value>
   </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>O nome deve ser informado.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>A senha atual deve ser informada.</value>
+  </data>
+  <data name="PHONENUMBERS_ARE_SAME" xml:space="preserve">
+    <value>Os números de telefones são iguais.</value>
   </data>
   <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
     <value>Um telefone deve ser informado para o Contato de emergência.</value>
   </data>
+  <data name="PHONENUMBER_EMPTY" xml:space="preserve">
+    <value>Um telefone deve ser informado.</value>
+  </data>
+  <data name="PHONENUMBER_MAX_TWO" xml:space="preserve">
+    <value>Você pode informar no máximo 2 telefones.</value>
+  </data>
   <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
     <value>O nome do produto deve ser informado.</value>
+  </data>
+  <data name="PUSHNOTIFICATION_INVALID" xml:space="preserve">
+    <value>Id para push notification é inválido.</value>
   </data>
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>A quantidade de produtos é inválida.</value>

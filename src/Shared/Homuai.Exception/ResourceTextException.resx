@@ -120,20 +120,50 @@
   <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
     <value>The duedate must be grater than today.</value>
   </data>
+  <data name="EMAIL_ALREADYBEENREGISTERED" xml:space="preserve">
+    <value>This email address has already been registered.</value>
+  </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>E-mail must be entered.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>The E-mail is invalid.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_EMPTY" xml:space="preserve">
+    <value>An emergency contact must be informed.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_MAX_TWO" xml:space="preserve">
+    <value>You can inform a maximum of 2 emergency contacts.</value>
+  </data>
   <data name="EMERGENCY_CONTACT_SAME_PHONENUMBER" xml:space="preserve">
     <value>Emergency contacts cannot have the same phone number.</value>
   </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>Name must be entered.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>Current password must be entered.</value>
+  </data>
+  <data name="PHONENUMBERS_ARE_SAME" xml:space="preserve">
+    <value>The phone numbers are the same.</value>
   </data>
   <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
     <value>One phonenumber must be entered for the Emergency contact.</value>
   </data>
+  <data name="PHONENUMBER_EMPTY" xml:space="preserve">
+    <value>One phone number must be entered.</value>
+  </data>
+  <data name="PHONENUMBER_MAX_TWO" xml:space="preserve">
+    <value>You can enter a maximum of 2 phonenumbers.</value>
+  </data>
   <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
     <value>The product name must be entered.</value>
+  </data>
+  <data name="PUSHNOTIFICATION_INVALID" xml:space="preserve">
+    <value>The push notification id is invalid.</value>
   </data>
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>The quantity of products is invalid.</value>

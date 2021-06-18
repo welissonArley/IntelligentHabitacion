@@ -4,6 +4,7 @@ using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
 using Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate;
+using Homuai.Application.UseCases.User.ChangePassword;
 using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.RegisterUser;
 using Homuai.Application.UseCases.User.UpdateUserInformations;
@@ -29,7 +30,8 @@ namespace Clearfield.Application
                 .AddScoped<IProcessFoodsNextToDueDateUseCase, ProcessFoodsNextToDueDateUseCase>()
                 .AddScoped<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
                 .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
-                .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+                .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>()
+                .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
         }
     }
 }

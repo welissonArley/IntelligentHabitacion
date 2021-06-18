@@ -1,6 +1,4 @@
-﻿using Homuai.Application.Services.Token;
-using Homuai.Infrastructure.DataAccess;
-using Useful.ToTests.Builders.TokenController;
+﻿using Homuai.Infrastructure.DataAccess;
 using WebApi.Test.Builder;
 
 namespace WebApi.Test
@@ -10,21 +8,20 @@ namespace WebApi.Test
         public static void Seed(HomuaiContext context)
         {
             EntityBuilder.Start();
-            var tokenController = TokenControllerBuilder.Instance().Build();
-
-            AddUserWithoutHome(context, tokenController);
+            
+            AddUserWithoutHome(context);
 
             context.SaveChanges();
         }
 
-        private static void AddUserWithoutHome(HomuaiContext context, TokenController tokenController)
+        private static void AddUserWithoutHome(HomuaiContext context)
         {
             context.Users.Add(EntityBuilder.UserWithoutHome);
             context.Tokens.Add(new Homuai.Domain.Entity.Token
             {
                 Id = 1,
                 UserId = EntityBuilder.UserWithoutHome.Id,
-                Value = tokenController.Generate(EntityBuilder.UserWithoutHome.Email)
+                Value = EntityBuilder.Token_UserWithoutHome
             });
         }
     }

@@ -8,6 +8,7 @@ using Homuai.Application.UseCases.User.ChangePassword;
 using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.RegisterUser;
 using Homuai.Application.UseCases.User.UpdateUserInformations;
+using Homuai.Application.UseCases.User.UserInformations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,7 +32,8 @@ namespace Clearfield.Application
                 .AddScoped<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
                 .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
                 .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>()
-                .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+                .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>()
+                .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>();
         }
     }
 }

@@ -16,8 +16,7 @@ namespace WebApi.Test.V1.User.UpdateUserInformations
         [Fact]
         public async Task Validade_Sucess()
         {
-            var user = EntityBuilder.UserWithoutHome;
-            var token = _tokenController.Generate(user.Email);
+            var token = EntityBuilder.Token_UserWithoutHome;
 
             var json = RequestUpdateUser.Instance().Build();
 
@@ -29,8 +28,7 @@ namespace WebApi.Test.V1.User.UpdateUserInformations
         [Fact]
         public async Task Validade_EmptyName()
         {
-            var user = EntityBuilder.UserWithoutHome;
-            var token = _tokenController.Generate(user.Email);
+            var token = EntityBuilder.Token_UserWithoutHome;
 
             var json = RequestUpdateUser.Instance().Build();
             json.Name = "";

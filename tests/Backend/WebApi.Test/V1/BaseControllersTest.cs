@@ -1,10 +1,8 @@
 ﻿using Homuai.Api;
-using Homuai.Application.Services.Token;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Useful.ToTests.Builders.TokenController;
 using Xunit;
 
 namespace WebApi.Test.V1
@@ -14,12 +12,9 @@ namespace WebApi.Test.V1
         private int ApiVersion => 1;
         private readonly HttpClient _httpClient;
 
-        protected readonly TokenController _tokenController;
-
         public BaseControllersTest(CustomWebApplicationFactory<Startup> factory)
         {
             _httpClient = factory.CreateClient();
-            _tokenController = TokenControllerBuilder.Instance().Build();
         }
 
         protected async Task<HttpResponseMessage> DoGetRequest(string method, string token = null)

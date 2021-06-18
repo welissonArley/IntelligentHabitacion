@@ -3,6 +3,7 @@ using Homuai.Application.UseCases.User.ChangePassword;
 using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.RegisterUser;
 using Homuai.Application.UseCases.User.UpdateUserInformations;
+using Homuai.Application.UseCases.User.UserInformations;
 using Homuai.Communication.Boolean;
 using Homuai.Communication.Request;
 using Homuai.Communication.Response;
@@ -94,6 +95,22 @@ namespace Homuai.Api.Controllers.V1
             WriteAutenticationHeader(response);
 
             return Ok();
+        }
+
+        /// <summary>
+        /// This function will return the user's informations
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ServiceFilter(typeof(AuthenticationUserAttribute))]
+        [Route("Informations")]
+        [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Informations([FromServices] IUserInformationsUseCase useCase)
+        {
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
+
+            return Ok(response.ResponseJson);
         }
     }
 }

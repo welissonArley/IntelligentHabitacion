@@ -30,7 +30,7 @@ namespace Homuai.Application.Services.LoggedUser
 
             var authorization = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString();
 
-            var token = authorization.Substring("Basic ".Length).Trim();
+            var token = authorization["Bearer ".Length..].Trim();
 
             var email = _tokenController.User(token);
 

@@ -2,7 +2,11 @@
 using Homuai.Application.Services.LoggedUser;
 using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
+using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate;
+using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.RegisterUser;
+using Homuai.Application.UseCases.User.UpdateUserInformations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +25,10 @@ namespace Clearfield.Application
                 .AddScoped(options => new PasswordEncripter(configuration.GetValue<string>("Settings:KeyAdditionalCryptography")))
 
                 .AddScoped<ILoggedUser, LoggedUser>()
+                .AddScoped<IProcessRemindersOfCleaningTasksUseCase, ProcessRemindersOfCleaningTasksUseCase>()
+                .AddScoped<IProcessFoodsNextToDueDateUseCase, ProcessFoodsNextToDueDateUseCase>()
+                .AddScoped<IEmailAlreadyBeenRegisteredUseCase, EmailAlreadyBeenRegisteredUseCase>()
+                .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
                 .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         }
     }

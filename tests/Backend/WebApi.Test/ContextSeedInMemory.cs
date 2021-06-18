@@ -1,4 +1,5 @@
 ﻿using Homuai.Infrastructure.DataAccess;
+using WebApi.Test.Builder;
 
 namespace WebApi.Test
 {
@@ -6,6 +7,10 @@ namespace WebApi.Test
     {
         public static void Seed(HomuaiContext context)
         {
+            EntityBuilder.Start();
+
+            context.Users.Add(EntityBuilder.UserWithoutHome);
+
             context.SaveChanges();
         }
     }

@@ -1,4 +1,7 @@
-﻿using Homuai.Application.UseCases.User.RegisterUser;
+﻿using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
+using Homuai.Application.UseCases.User.RegisterUser;
+using Homuai.Application.UseCases.User.UpdateUserInformations;
+using Homuai.Communication.Boolean;
 using Homuai.Communication.Request;
 using Homuai.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +34,42 @@ namespace Homuai.Api.Controllers.V1
 
             WriteAutenticationHeader(response);
             return Created(string.Empty, response.ResponseJson);
+        }
+
+        /// <summary>
+        /// This function verify if the e-mail address has already been registered.
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("email-already-been-registered/{email}")]
+        [ProducesResponseType(typeof(BooleanJson), StatusCodes.Status200OK)]
+        public async Task<IActionResult> EmailAlreadyBeenRegistered(
+            [FromServices] IEmailAlreadyBeenRegisteredUseCase useCase,
+            [FromRoute] string email)
+        {
+            var response = await useCase.Execute(email);
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// This function will update the logged user's personal informations
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="updateUserJson"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("update")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Update(
+            [FromServices] IUpdateUserInformationsUseCase useCase,
+            [FromBody] RequestUpdateUserJson updateUserJson)
+        {
+            var response = await useCase.Execute(updateUserJson);
+            WriteAutenticationHeader(response);
+
+            return Ok();
         }
     }
 }

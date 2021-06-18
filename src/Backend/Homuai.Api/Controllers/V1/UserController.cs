@@ -28,7 +28,6 @@ namespace Homuai.Api.Controllers.V1
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(ResponseUserRegisteredJson), StatusCodes.Status201Created)]
-        [Route("register")]
         public async Task<IActionResult> Register(
             [FromServices] IRegisterUserUseCase useCase,
             [FromBody] RequestRegisterUserJson registerUserJson)
@@ -64,7 +63,6 @@ namespace Homuai.Api.Controllers.V1
         /// <returns></returns>
         [HttpPut]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
-        [Route("update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Update(
             [FromServices] IUpdateUserInformationsUseCase useCase,
@@ -84,7 +82,7 @@ namespace Homuai.Api.Controllers.V1
         /// <returns></returns>
         [HttpPut]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
-        [Route("ChangePassword")]
+        [Route("change-password")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> ChangePassword(
             [FromServices] IChangePasswordUseCase useCase,
@@ -103,7 +101,6 @@ namespace Homuai.Api.Controllers.V1
         /// <returns></returns>
         [HttpGet]
         [ServiceFilter(typeof(AuthenticationUserAttribute))]
-        [Route("Informations")]
         [ProducesResponseType(typeof(ResponseUserInformationsJson), StatusCodes.Status200OK)]
         public async Task<IActionResult> Informations([FromServices] IUserInformationsUseCase useCase)
         {

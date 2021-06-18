@@ -20,7 +20,7 @@ namespace WebApi.Test.V1.User.UpdateUserInformations
 
             var json = RequestUpdateUser.Instance().Build();
 
-            var request = await DoPutRequest("user/update", json, token);
+            var request = await DoPutRequest("user", json, token);
 
             Assert.Equal(HttpStatusCode.OK, request.StatusCode);
         }
@@ -33,7 +33,7 @@ namespace WebApi.Test.V1.User.UpdateUserInformations
             var json = RequestUpdateUser.Instance().Build();
             json.Name = "";
 
-            var request = await DoPutRequest("user/update", json, token);
+            var request = await DoPutRequest("user", json, token);
 
             Assert.Equal(HttpStatusCode.BadRequest, request.StatusCode);
         }

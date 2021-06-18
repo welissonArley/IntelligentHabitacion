@@ -3,7 +3,12 @@ using Homuai.Application.Services.LoggedUser;
 using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using Homuai.Application.UseCases.MyFoods.ChangeQuantityOfOneProduct;
+using Homuai.Application.UseCases.MyFoods.DeleteMyFood;
+using Homuai.Application.UseCases.MyFoods.GetMyFoods;
 using Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate;
+using Homuai.Application.UseCases.MyFoods.RegisterMyFood;
+using Homuai.Application.UseCases.MyFoods.UpdateMyFood;
 using Homuai.Application.UseCases.User.ChangePassword;
 using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.RegisterUser;
@@ -33,7 +38,12 @@ namespace Clearfield.Application
                 .AddScoped<IUpdateUserInformationsUseCase, UpdateUserInformationsUseCase>()
                 .AddScoped<IRegisterUserUseCase, RegisterUserUseCase>()
                 .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>()
-                .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>();
+                .AddScoped<IUserInformationsUseCase, UserInformationsUseCase>()
+                .AddScoped<IChangeQuantityOfOneProductUseCase, ChangeQuantityOfOneProductUseCase>()
+                .AddScoped<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>()
+                .AddScoped<IGetMyFoodsUseCase, GetMyFoodsUseCase>()
+                .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>()
+                .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
         }
     }
 }

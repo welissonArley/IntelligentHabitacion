@@ -20,7 +20,7 @@ namespace WebApi.Test.V1.User.Register
         {
             var user = RequestRegisterUser.Instance().Build();
 
-            var request = await DoPostRequest("user/register", user);
+            var request = await DoPostRequest("user", user);
 
             Assert.Equal(HttpStatusCode.Created, request.StatusCode);
 

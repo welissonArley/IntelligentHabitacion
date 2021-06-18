@@ -205,6 +205,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The product was not found..
+        /// </summary>
+        public static string PRODUCT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("PRODUCT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The push notification id is invalid..
         /// </summary>
         public static string PUSHNOTIFICATION_INVALID {

@@ -165,6 +165,9 @@
   <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
     <value>The product name must be entered.</value>
   </data>
+  <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
+    <value>The product was not found.</value>
+  </data>
   <data name="PUSHNOTIFICATION_INVALID" xml:space="preserve">
     <value>The push notification id is invalid.</value>
   </data>

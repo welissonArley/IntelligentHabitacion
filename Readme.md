@@ -39,6 +39,19 @@
 * [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms)
 * [.NET Core 3.1](http://asp.net/)
 
+<!-- GETTING STARTED -->
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+| OS | Version |
+|----------|----------|
+| Android | greater or equal to 6.0 (API level 23) |
+| iOS | greater or equal to 8.0 |
+
 <!-- LICENSE -->
 ## License
 

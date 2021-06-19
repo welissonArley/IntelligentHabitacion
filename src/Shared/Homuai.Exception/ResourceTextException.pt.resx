@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADDRESS_EMPTY" xml:space="preserve">
+    <value>O logradouro deve ser informado.</value>
+  </data>
+  <data name="CITY_EMPTY" xml:space="preserve">
+    <value>O nome da cidade deve ser informado.</value>
+  </data>
   <data name="CODE_INVALID" xml:space="preserve">
     <value>O código é inválido.</value>
   </data>
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Solicite um código para alterar sua senha.</value>
+  </data>
+  <data name="COUNTRY_EMPTY" xml:space="preserve">
+    <value>O nome do País deve ser informado.</value>
   </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>A senha atual é inválida.</value>
@@ -159,6 +168,12 @@
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>O nome deve ser informado.</value>
   </data>
+  <data name="NEIGHBORHOOD_EMPTY" xml:space="preserve">
+    <value>O bairro deve ser informado.</value>
+  </data>
+  <data name="NUMBER_EMPTY" xml:space="preserve">
+    <value>O número deve ser informado.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>A senha atual deve ser informada.</value>
   </data>
@@ -186,6 +201,12 @@
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>A quantidade de produtos é inválida.</value>
   </data>
+  <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
+    <value>O Estado deve ser informado.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
+    <value>Há cômodos duplicados.</value>
+  </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>O nome do Contato de emergência deve ser informado.</value>
   </data>
@@ -195,10 +216,19 @@
   <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
     <value>O tipo do produto é inválido.</value>
   </data>
+  <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
+    <value>Você já faz parte de um lar. Está operação não é permitida neste momento.</value>
+  </data>
   <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>Usuário e/ou senha inválidos.</value>
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>Você não possui permissão para acessar este recurso.</value>
+  </data>
+  <data name="ZIPCODE_EMPTY" xml:space="preserve">
+    <value>O CEP deve ser informado.</value>
+  </data>
+  <data name="ZIPCODE_INVALID_BRAZIL" xml:space="preserve">
+    <value>O CEP é inválido. Deve estar no formato XX.XXX-XXX</value>
   </data>
 </root>

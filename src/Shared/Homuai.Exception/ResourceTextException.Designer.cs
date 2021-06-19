@@ -61,6 +61,24 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The address must be entered..
+        /// </summary>
+        public static string ADDRESS_EMPTY {
+            get {
+                return ResourceManager.GetString("ADDRESS_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The City&apos;s name must be entered..
+        /// </summary>
+        public static string CITY_EMPTY {
+            get {
+                return ResourceManager.GetString("CITY_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The code is invalid..
         /// </summary>
         public static string CODE_INVALID {
@@ -75,6 +93,15 @@ namespace Homuai.Exception {
         public static string CODE_RESET_PASSWORD_REQUIRED {
             get {
                 return ResourceManager.GetString("CODE_RESET_PASSWORD_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Country&apos;s name must be entered..
+        /// </summary>
+        public static string COUNTRY_EMPTY {
+            get {
+                return ResourceManager.GetString("COUNTRY_EMPTY", resourceCulture);
             }
         }
         
@@ -187,6 +214,24 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The neighborhood must be entered..
+        /// </summary>
+        public static string NEIGHBORHOOD_EMPTY {
+            get {
+                return ResourceManager.GetString("NEIGHBORHOOD_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number must be entered..
+        /// </summary>
+        public static string NUMBER_EMPTY {
+            get {
+                return ResourceManager.GetString("NUMBER_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current password must be entered..
         /// </summary>
         public static string PASSWORD_EMPTY {
@@ -268,6 +313,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The State must be entered..
+        /// </summary>
+        public static string STATEPROVINCE_EMPTY {
+            get {
+                return ResourceManager.GetString("STATEPROVINCE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Emergency contact&apos;s name must be entered..
         /// </summary>
         public static string THE_NAME_EMERGENCY_CONTACT_INVALID {
@@ -286,11 +340,29 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are duplicated rooms..
+        /// </summary>
+        public static string THERE_ARE_DUPLICATED_ROOMS {
+            get {
+                return ResourceManager.GetString("THERE_ARE_DUPLICATED_ROOMS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The product&apos;s type is invalid..
         /// </summary>
         public static string TYPE_PRODUCTS_INVALID {
             get {
                 return ResourceManager.GetString("TYPE_PRODUCTS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are already part of a home. This operation is not allowed at this time..
+        /// </summary>
+        public static string USER_IS_PART_OF_A_HOME {
+            get {
+                return ResourceManager.GetString("USER_IS_PART_OF_A_HOME", resourceCulture);
             }
         }
         
@@ -309,6 +381,24 @@ namespace Homuai.Exception {
         public static string USER_WITHOUT_PERMISSION_ACCESS_RESOURCE {
             get {
                 return ResourceManager.GetString("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zip Code must be entered..
+        /// </summary>
+        public static string ZIPCODE_EMPTY {
+            get {
+                return ResourceManager.GetString("ZIPCODE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O CEP is invalid. Must be with the format XX.XXX-XXX.
+        /// </summary>
+        public static string ZIPCODE_INVALID_BRAZIL {
+            get {
+                return ResourceManager.GetString("ZIPCODE_INVALID_BRAZIL", resourceCulture);
             }
         }
     }

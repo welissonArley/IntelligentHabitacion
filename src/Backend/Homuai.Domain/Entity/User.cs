@@ -22,5 +22,9 @@ namespace Homuai.Domain.Entity
         {
             return HomeAssociation != null && HomeAssociation.Home.AdministratorId == Id;
         }
+        public bool IsPartOfHome()
+        {
+            return HomeAssociationId.HasValue;
+        }
     }
 }

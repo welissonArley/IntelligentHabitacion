@@ -35,7 +35,7 @@ namespace Homuai.Api.Filter.Authentication
             try
             {
                 var user = await GetUser(context);
-                if (user == null || !user.HomeAssociationId.HasValue || !user.IsAdministrator())
+                if (user == null || !user.IsAdministrator())
                     UserDoesNotHaveAccess(context);
                 else
                 {

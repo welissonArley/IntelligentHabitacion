@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADDRESS_EMPTY" xml:space="preserve">
+    <value>The address must be entered.</value>
+  </data>
+  <data name="CITY_EMPTY" xml:space="preserve">
+    <value>The City's name must be entered.</value>
+  </data>
   <data name="CODE_INVALID" xml:space="preserve">
     <value>The code is invalid.</value>
   </data>
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Request a code to reset your password.</value>
+  </data>
+  <data name="COUNTRY_EMPTY" xml:space="preserve">
+    <value>The Country's name must be entered.</value>
   </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>The current password is invalid.</value>
@@ -159,6 +168,12 @@
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Name must be entered.</value>
   </data>
+  <data name="NEIGHBORHOOD_EMPTY" xml:space="preserve">
+    <value>The neighborhood must be entered.</value>
+  </data>
+  <data name="NUMBER_EMPTY" xml:space="preserve">
+    <value>The number must be entered.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>Current password must be entered.</value>
   </data>
@@ -186,6 +201,12 @@
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>The quantity of products is invalid.</value>
   </data>
+  <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
+    <value>The State must be entered.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
+    <value>There are duplicated rooms.</value>
+  </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Emergency contact's name must be entered.</value>
   </data>
@@ -195,10 +216,19 @@
   <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
     <value>The product's type is invalid.</value>
   </data>
+  <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
+    <value>You are already part of a home. This operation is not allowed at this time.</value>
+  </data>
   <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>User and/or password is invalid.</value>
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>You do not have permission to access this resource.</value>
+  </data>
+  <data name="ZIPCODE_EMPTY" xml:space="preserve">
+    <value>The Zip Code must be entered.</value>
+  </data>
+  <data name="ZIPCODE_INVALID_BRAZIL" xml:space="preserve">
+    <value>O CEP is invalid. Must be with the format XX.XXX-XXX</value>
   </data>
 </root>

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CODE_INVALID" xml:space="preserve">
+    <value>O código é inválido.</value>
+  </data>
+  <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
+    <value>Solicite um código para alterar sua senha.</value>
+  </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>A senha atual é inválida.</value>
   </data>
@@ -141,8 +147,14 @@
   <data name="EMERGENCY_CONTACT_SAME_PHONENUMBER" xml:space="preserve">
     <value>Os contatos de emergência não pode ter o mesmo número de telefone.</value>
   </data>
+  <data name="EXPIRED_CODE" xml:space="preserve">
+    <value>O código expirou. Solicite um novo.</value>
+  </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>A senha deve ter pelo menos 6 caracteres.</value>
+  </data>
+  <data name="INVALID_USER" xml:space="preserve">
+    <value>Usuário inválido</value>
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>O nome deve ser informado.</value>

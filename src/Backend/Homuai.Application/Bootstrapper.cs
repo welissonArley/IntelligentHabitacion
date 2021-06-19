@@ -3,6 +3,8 @@ using Homuai.Application.Services.LoggedUser;
 using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using Homuai.Application.UseCases.Login.DoLogin;
+using Homuai.Application.UseCases.Login.ForgotPassword;
 using Homuai.Application.UseCases.MyFoods.ChangeQuantityOfOneProduct;
 using Homuai.Application.UseCases.MyFoods.DeleteMyFood;
 using Homuai.Application.UseCases.MyFoods.GetMyFoods;
@@ -43,7 +45,10 @@ namespace Clearfield.Application
                 .AddScoped<IDeleteMyFoodUseCase, DeleteMyFoodUseCase>()
                 .AddScoped<IGetMyFoodsUseCase, GetMyFoodsUseCase>()
                 .AddScoped<IRegisterMyFoodUseCase, RegisterMyFoodUseCase>()
-                .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>();
+                .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>()
+                .AddScoped<ILoginUseCase, LoginUseCase>()
+                .AddScoped<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>()
+                .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>();
         }
     }
 }

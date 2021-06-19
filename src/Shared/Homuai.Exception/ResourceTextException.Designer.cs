@@ -61,6 +61,24 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The code is invalid..
+        /// </summary>
+        public static string CODE_INVALID {
+            get {
+                return ResourceManager.GetString("CODE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request a code to reset your password..
+        /// </summary>
+        public static string CODE_RESET_PASSWORD_REQUIRED {
+            get {
+                return ResourceManager.GetString("CODE_RESET_PASSWORD_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The current password is invalid..
         /// </summary>
         public static string CURRENT_PASSWORD_INVALID {
@@ -133,11 +151,29 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expired code. Request a new one..
+        /// </summary>
+        public static string EXPIRED_CODE {
+            get {
+                return ResourceManager.GetString("EXPIRED_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be at least 6 characters..
         /// </summary>
         public static string INVALID_PASSWORD {
             get {
                 return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid user..
+        /// </summary>
+        public static string INVALID_USER {
+            get {
+                return ResourceManager.GetString("INVALID_USER", resourceCulture);
             }
         }
         

@@ -42,6 +42,13 @@ You can use this project to study and/or help me improve them (become a contribu
 You DO NOT have permission to copy, modify, publish, distribute, sublicense, and/or sell
 copies of this Software.
 
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Othneil Drew for this incredible Read-me template](https://github.com/othneildrew/Best-README-Template)
+* [Willian Rodrigues with the tests](https://www.linkedin.com/in/willian-rodrigues-b99b76b7/)
+* [Henrique Couto with the tests](https://www.linkedin.com/in/henrique-couto-3287b1133/)
+* [Marina Moreira with the translations](https://www.linkedin.com/in/marina-moreira-54b4b116a/)
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [stars-shield]: https://img.shields.io/github/stars/welissonArley/IntelligentHabitacion.svg

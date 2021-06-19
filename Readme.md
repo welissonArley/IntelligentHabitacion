@@ -28,6 +28,11 @@
   </ol>
 </details>
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Homuai Screen Shot][product-screenshot]](https://example.com)
+
 ### Built With
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -37,10 +42,10 @@ This section should list any major frameworks that you built your project using.
 <!-- LICENSE -->
 ## License
 
-You can use this project to study and/or help me improve them (become a contributor).
+You can use this project to study and/or help me improve them (becoming a contributor).
 
 You DO NOT have permission to copy, modify, publish, distribute, sublicense, and/or sell
-copies of this Software.
+copies of this Project.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -51,8 +56,9 @@ copies of this Software.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[stars-shield]: https://img.shields.io/github/stars/welissonArley/IntelligentHabitacion.svg
-[stars-url]: https://img.shields.io/github/stars/welissonarley/IntelligentHabitacionsvg?style=for-the-badge
+[product-screenshot]: readme-images/screenshot.png
+[stars-shield]: https://img.shields.io/github/stars/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
+[stars-url]: https://img.shields.io/github/stars/welissonarley/IntelligentHabitacionsvg
 [issues-shield]: https://img.shields.io/github/issues/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
 [issues-url]: https://github.com/welissonArley/IntelligentHabitacion/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555

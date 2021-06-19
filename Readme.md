@@ -54,8 +54,15 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. Get the App for free to Android at [GooglePlay](https://example.com)
-2. Get the App for free to iOS at [App Store](https://example.com)
+You can download the App on:
+
+* Get the App for free at [GooglePlay](https://example.com)
+* Get the App for free at [App Store](https://example.com)
+
+<!-- ROADMAP -->
+## Roadmap
+
+You can see the [open issues](https://github.com/welissonArley/IntelligentHabitacion/issues) (and known issues) and the [board project] (https://github.com/welissonArley/IntelligentHabitacion/projects/1) to see the future features available on the project.
 
 <!-- LICENSE -->
 ## License

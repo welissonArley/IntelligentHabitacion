@@ -52,6 +52,11 @@ To get a local copy up and running follow these simple example steps.
 | Android | greater or equal to 6.0 (API level 23) |
 | iOS | greater or equal to 8.0 |
 
+### Installation
+
+1. Get the App for free to Android at [GooglePlay](https://example.com)
+2. Get the App for free to iOS at [App Store](https://example.com)
+
 <!-- LICENSE -->
 ## License
 

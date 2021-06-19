@@ -25,7 +25,7 @@
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
-    <li><a href="#build-status">Build Status (Badges)</a></li>
+    <li><a href="#build-status">Build Status</a></li>
   </ol>
 </details>
 
@@ -75,7 +75,7 @@ copies of this Project.
 <!-- CONTACT -->
 ## Contact
 
-Support - suppor@homuai.com
+Support: support@homuai.com
 
 Website: comming soon
 
@@ -85,6 +85,11 @@ Website: comming soon
 * [Willian Rodrigues with the tests](https://www.linkedin.com/in/willian-rodrigues-b99b76b7/)
 * [Henrique Couto with the tests](https://www.linkedin.com/in/henrique-couto-3287b1133/)
 * [Marina Moreira with the translations](https://www.linkedin.com/in/marina-moreira-54b4b116a/)
+
+<!-- Build Status (Badges) -->
+## Build Status
+[![master][https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/master?label=master&style=for-the-badge]]
+[![develop][https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/develop?label=master&style=for-the-badge]]
 
 
 <!-- MARKDOWN LINKS & IMAGES -->

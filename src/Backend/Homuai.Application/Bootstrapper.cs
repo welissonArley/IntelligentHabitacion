@@ -3,6 +3,7 @@ using Homuai.Application.Services.LoggedUser;
 using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using Homuai.Application.UseCases.ContactUs;
 using Homuai.Application.UseCases.Friends.AddFriends;
 using Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome;
 using Homuai.Application.UseCases.Friends.GetMyFriends;
@@ -62,7 +63,8 @@ namespace Clearfield.Application
                 .AddScoped<IAddFriendUseCase, AddFriendUseCase>()
                 .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
                 .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
-                .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>();
+                .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
+                .AddScoped<IContactUsUseCase, ContactUsUseCase>();
         }
     }
 }

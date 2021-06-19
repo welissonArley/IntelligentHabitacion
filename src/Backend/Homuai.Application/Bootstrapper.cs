@@ -2,7 +2,16 @@
 using Homuai.Application.Services.LoggedUser;
 using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
+using Homuai.Application.UseCases.CleaningSchedule.Calendar;
+using Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
+using Homuai.Application.UseCases.CleaningSchedule.DetailsAllRate;
+using Homuai.Application.UseCases.CleaningSchedule.EditTaskAssign;
+using Homuai.Application.UseCases.CleaningSchedule.GetTasks;
+using Homuai.Application.UseCases.CleaningSchedule.HistoryOfTheDay;
 using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using Homuai.Application.UseCases.CleaningSchedule.RateTask;
+using Homuai.Application.UseCases.CleaningSchedule.RegisterRoomCleaned;
+using Homuai.Application.UseCases.CleaningSchedule.Reminder;
 using Homuai.Application.UseCases.ContactUs;
 using Homuai.Application.UseCases.Friends.AddFriends;
 using Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome;
@@ -64,7 +73,16 @@ namespace Clearfield.Application
                 .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
                 .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
-                .AddScoped<IContactUsUseCase, ContactUsUseCase>();
+                .AddScoped<IContactUsUseCase, ContactUsUseCase>()
+                .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
+                .AddScoped<IDetailsAllRateUseCase, DetailsAllRateUseCase>()
+                .AddScoped<IEditTaskAssignUseCase, EditTaskAssignUseCase>()
+                .AddScoped<IGetTasksUseCase, GetTasksUseCase>()
+                .AddScoped<IHistoryOfTheDayUseCase, HistoryOfTheDayUseCase>()
+                .AddScoped<IRateTaskUseCase, RateTaskUseCase>()
+                .AddScoped<IRegisterRoomCleanedUseCase, RegisterRoomCleanedUseCase>()
+                .AddScoped<IReminderUseCase, ReminderUseCase>()
+                .AddScoped<ICalendarUseCase, CalendarUseCase>();
         }
     }
 }

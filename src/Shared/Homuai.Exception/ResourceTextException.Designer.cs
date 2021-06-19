@@ -70,11 +70,29 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It is not possible to leave the cleaning schedule with ALL users without tasks..
+        /// </summary>
+        public static string ALL_USER_WITHOUT_CLEANING_TASKS {
+            get {
+                return ResourceManager.GetString("ALL_USER_WITHOUT_CLEANING_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The City&apos;s name must be entered..
         /// </summary>
         public static string CITY_EMPTY {
             get {
                 return ResourceManager.GetString("CITY_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A cleaning schedule has already been created..
+        /// </summary>
+        public static string CLEANING_SCHEDULE_ALREADY_CREATED {
+            get {
+                return ResourceManager.GetString("CLEANING_SCHEDULE_ALREADY_CREATED", resourceCulture);
             }
         }
         
@@ -223,6 +241,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Task invalid..
+        /// </summary>
+        public static string INVALID_TASK {
+            get {
+                return ResourceManager.GetString("INVALID_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid user..
         /// </summary>
         public static string INVALID_USER {
@@ -349,6 +376,42 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must rate the task with a score between 0 and 5..
+        /// </summary>
+        public static string RATE_SCORE_BETWEEN_ZERO_FIVE {
+            get {
+                return ResourceManager.GetString("RATE_SCORE_BETWEEN_ZERO_FIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can only rate tasks on the current month&apos;s schedule..
+        /// </summary>
+        public static string RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE {
+            get {
+                return ResourceManager.GetString("RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can only record cleaning records for the current month and up to 3 days before today..
+        /// </summary>
+        public static string RECORD_CLEANING_ROOM_INVALID_DATE {
+            get {
+                return ResourceManager.GetString("RECORD_CLEANING_ROOM_INVALID_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There area rooms that does not exist in Home.
+        /// </summary>
+        public static string ROOM_DOES_NOT_EXIST_HOME {
+            get {
+                return ResourceManager.GetString("ROOM_DOES_NOT_EXIST_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The State must be entered..
         /// </summary>
         public static string STATEPROVINCE_EMPTY {
@@ -376,11 +439,38 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are duplicate users in the request..
+        /// </summary>
+        public static string THERE_ARE_DUPLICATE_USERS_REQUEST {
+            get {
+                return ResourceManager.GetString("THERE_ARE_DUPLICATE_USERS_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There are duplicated rooms..
         /// </summary>
         public static string THERE_ARE_DUPLICATED_ROOMS {
             get {
                 return ResourceManager.GetString("THERE_ARE_DUPLICATED_ROOMS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are users with duplicate tasks in the request..
+        /// </summary>
+        public static string THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST {
+            get {
+                return ResourceManager.GetString("THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is already a clean room record for this date..
+        /// </summary>
+        public static string THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE {
+            get {
+                return ResourceManager.GetString("THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE", resourceCulture);
             }
         }
         
@@ -430,11 +520,29 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have already rate this task..
+        /// </summary>
+        public static string YOU_ALREADY_RATE_THIS_TASK {
+            get {
+                return ResourceManager.GetString("YOU_ALREADY_RATE_THIS_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You cannot perform this action..
         /// </summary>
         public static string YOU_CANNNOT_PERMORM_THIS_ACTION {
             get {
                 return ResourceManager.GetString("YOU_CANNNOT_PERMORM_THIS_ACTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can not rate your own task..
+        /// </summary>
+        public static string YOU_CANNOT_RATE_YOUR_OWN_TASK {
+            get {
+                return ResourceManager.GetString("YOU_CANNOT_RATE_YOUR_OWN_TASK", resourceCulture);
             }
         }
         

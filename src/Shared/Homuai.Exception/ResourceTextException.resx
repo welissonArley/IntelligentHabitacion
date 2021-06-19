@@ -120,8 +120,14 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>The address must be entered.</value>
   </data>
+  <data name="ALL_USER_WITHOUT_CLEANING_TASKS" xml:space="preserve">
+    <value>It is not possible to leave the cleaning schedule with ALL users without tasks.</value>
+  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>The City's name must be entered.</value>
+  </data>
+  <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
+    <value>A cleaning schedule has already been created.</value>
   </data>
   <data name="CODE_INVALID" xml:space="preserve">
     <value>The code is invalid.</value>
@@ -171,6 +177,9 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
+  <data name="INVALID_TASK" xml:space="preserve">
+    <value>Task invalid.</value>
+  </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Invalid user.</value>
   </data>
@@ -213,11 +222,32 @@
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>The quantity of products is invalid.</value>
   </data>
+  <data name="RATE_SCORE_BETWEEN_ZERO_FIVE" xml:space="preserve">
+    <value>You must rate the task with a score between 0 and 5.</value>
+  </data>
+  <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
+    <value>You can only rate tasks on the current month's schedule.</value>
+  </data>
+  <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
+    <value>You can only record cleaning records for the current month and up to 3 days before today.</value>
+  </data>
+  <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
+    <value>There area rooms that does not exist in Home</value>
+  </data>
   <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
     <value>The State must be entered.</value>
   </data>
   <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
     <value>There are duplicated rooms.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
+    <value>There are duplicate users in the request.</value>
+  </data>
+  <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
+    <value>There are users with duplicate tasks in the request.</value>
+  </data>
+  <data name="THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE" xml:space="preserve">
+    <value>There is already a clean room record for this date.</value>
   </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>The Emergency contact's name must be entered.</value>
@@ -240,8 +270,14 @@
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>You do not have permission to access this resource.</value>
   </data>
+  <data name="YOU_ALREADY_RATE_THIS_TASK" xml:space="preserve">
+    <value>You have already rate this task.</value>
+  </data>
   <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
     <value>You cannot perform this action.</value>
+  </data>
+  <data name="YOU_CANNOT_RATE_YOUR_OWN_TASK" xml:space="preserve">
+    <value>You can not rate your own task.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>

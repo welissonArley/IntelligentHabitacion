@@ -120,8 +120,14 @@
   <data name="ADDRESS_EMPTY" xml:space="preserve">
     <value>O logradouro deve ser informado.</value>
   </data>
+  <data name="ALL_USER_WITHOUT_CLEANING_TASKS" xml:space="preserve">
+    <value>Não é possivel deixar o Cronograma de limpeza com TODOS os usuários sem tarefas.</value>
+  </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>O nome da cidade deve ser informado.</value>
+  </data>
+  <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
+    <value>Já existe um cronograma de limpeza criado.</value>
   </data>
   <data name="CODE_INVALID" xml:space="preserve">
     <value>O código é inválido.</value>
@@ -171,6 +177,9 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>A senha deve ter pelo menos 6 caracteres.</value>
   </data>
+  <data name="INVALID_TASK" xml:space="preserve">
+    <value>Tarefa inválida.</value>
+  </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Usuário inválido</value>
   </data>
@@ -213,11 +222,32 @@
   <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
     <value>A quantidade de produtos é inválida.</value>
   </data>
+  <data name="RATE_SCORE_BETWEEN_ZERO_FIVE" xml:space="preserve">
+    <value>Você deve avaliar a tarefa com uma nota entre 0 e 5.</value>
+  </data>
+  <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
+    <value>Você pode apenas avaliar tarefas no cronograma do mês atual.</value>
+  </data>
+  <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
+    <value>Você pode apenas registrar registros de limpeza para o mês atual e em até 3 dias anteriores a data de hoje.</value>
+  </data>
+  <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
+    <value>Há cômodos que não existem na Home</value>
+  </data>
   <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
     <value>O Estado deve ser informado.</value>
   </data>
   <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
     <value>Há cômodos duplicados.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
+    <value>Há usuários duplicados na requisição.</value>
+  </data>
+  <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
+    <value>Há usuários com tarefas duplicadas na requisição.</value>
+  </data>
+  <data name="THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE" xml:space="preserve">
+    <value>Já existe um registro de cômodo limpo para esta data.</value>
   </data>
   <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
     <value>O nome do Contato de emergência deve ser informado.</value>
@@ -240,8 +270,14 @@
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>Você não possui permissão para acessar este recurso.</value>
   </data>
+  <data name="YOU_ALREADY_RATE_THIS_TASK" xml:space="preserve">
+    <value>Você já avaliou esta tarefa.</value>
+  </data>
   <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
     <value>Você não pode executar esta ação.</value>
+  </data>
+  <data name="YOU_CANNOT_RATE_YOUR_OWN_TASK" xml:space="preserve">
+    <value>Você não pode avaliar sua propria tarefa.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>O CEP deve ser informado.</value>

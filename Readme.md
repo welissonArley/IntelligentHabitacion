@@ -88,9 +88,8 @@ Website: comming soon
 
 <!-- Build Status (Badges) -->
 ## Build Status
-https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/master?label=master&style=for-the-badge
-https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/develop?label=develop&style=for-the-badge
-
+![Build Status](https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/master?label=master&style=for-the-badge)
+![Build Status](https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png

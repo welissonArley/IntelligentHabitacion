@@ -129,11 +129,17 @@
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Request a code to reset your password.</value>
   </data>
+  <data name="CONNECTION_ADMINISTRATOR_LOST" xml:space="preserve">
+    <value>The connection to the administrator has been lost.</value>
+  </data>
   <data name="COUNTRY_EMPTY" xml:space="preserve">
     <value>The Country's name must be entered.</value>
   </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>The current password is invalid.</value>
+  </data>
+  <data name="DATE_MUST_BE_LESS_THAN" xml:space="preserve">
+    <value>The date must be less than {0}.</value>
   </data>
   <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
     <value>The duedate must be grater than today.</value>
@@ -159,11 +165,17 @@
   <data name="EXPIRED_CODE" xml:space="preserve">
     <value>Expired code. Request a new one.</value>
   </data>
+  <data name="FRIEND_NOT_FOUND" xml:space="preserve">
+    <value>Friend was not found.</value>
+  </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Password must be at least 6 characters.</value>
   </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Invalid user.</value>
+  </data>
+  <data name="MONTHLYRENT_INVALID" xml:space="preserve">
+    <value>Invalid monthly rent.</value>
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Name must be entered.</value>
@@ -216,6 +228,9 @@
   <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
     <value>The product's type is invalid.</value>
   </data>
+  <data name="UNKNOW_ERROR" xml:space="preserve">
+    <value>Unknow error</value>
+  </data>
   <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
     <value>You are already part of a home. This operation is not allowed at this time.</value>
   </data>
@@ -224,6 +239,9 @@
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>You do not have permission to access this resource.</value>
+  </data>
+  <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
+    <value>You cannot perform this action.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>The Zip Code must be entered.</value>

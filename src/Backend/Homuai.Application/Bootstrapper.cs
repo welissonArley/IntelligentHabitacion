@@ -3,6 +3,13 @@ using Homuai.Application.Services.LoggedUser;
 using Homuai.Application.Services.Token;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.CleaningSchedule.ProcessRemindersOfCleaningTasks;
+using Homuai.Application.UseCases.Friends.AddFriends;
+using Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome;
+using Homuai.Application.UseCases.Friends.GetMyFriends;
+using Homuai.Application.UseCases.Friends.NotifyOrderReceived;
+using Homuai.Application.UseCases.Home.HomeInformations;
+using Homuai.Application.UseCases.Home.RegisterHome;
+using Homuai.Application.UseCases.Home.UpdateHomeInformations;
 using Homuai.Application.UseCases.Login.DoLogin;
 using Homuai.Application.UseCases.Login.ForgotPassword;
 using Homuai.Application.UseCases.MyFoods.ChangeQuantityOfOneProduct;
@@ -48,7 +55,14 @@ namespace Clearfield.Application
                 .AddScoped<IUpdateMyFoodUseCase, UpdateMyFoodUseCase>()
                 .AddScoped<ILoginUseCase, LoginUseCase>()
                 .AddScoped<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>()
-                .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>();
+                .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>()
+                .AddScoped<IHomeInformationsUseCase, HomeInformationsUseCase>()
+                .AddScoped<IRegisterHomeUseCase, RegisterHomeUseCase>()
+                .AddScoped<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>()
+                .AddScoped<IAddFriendUseCase, AddFriendUseCase>()
+                .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
+                .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
+                .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>();
         }
     }
 }

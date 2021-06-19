@@ -129,11 +129,17 @@
   <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
     <value>Solicite um código para alterar sua senha.</value>
   </data>
+  <data name="CONNECTION_ADMINISTRATOR_LOST" xml:space="preserve">
+    <value>A conexão com o administrador foi perdida.</value>
+  </data>
   <data name="COUNTRY_EMPTY" xml:space="preserve">
     <value>O nome do País deve ser informado.</value>
   </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>A senha atual é inválida.</value>
+  </data>
+  <data name="DATE_MUST_BE_LESS_THAN" xml:space="preserve">
+    <value>A data deve ser menor que {0}.</value>
   </data>
   <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
     <value>A data de vencimento deve ser maior que hoje.</value>
@@ -159,11 +165,17 @@
   <data name="EXPIRED_CODE" xml:space="preserve">
     <value>O código expirou. Solicite um novo.</value>
   </data>
+  <data name="FRIEND_NOT_FOUND" xml:space="preserve">
+    <value>Friend não encontrado.</value>
+  </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>A senha deve ter pelo menos 6 caracteres.</value>
   </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Usuário inválido</value>
+  </data>
+  <data name="MONTHLYRENT_INVALID" xml:space="preserve">
+    <value>O valor do aluguel é inválido.</value>
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>O nome deve ser informado.</value>
@@ -216,6 +228,9 @@
   <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
     <value>O tipo do produto é inválido.</value>
   </data>
+  <data name="UNKNOW_ERROR" xml:space="preserve">
+    <value>Erro desconhecido.</value>
+  </data>
   <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
     <value>Você já faz parte de um lar. Está operação não é permitida neste momento.</value>
   </data>
@@ -224,6 +239,9 @@
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>Você não possui permissão para acessar este recurso.</value>
+  </data>
+  <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
+    <value>Você não pode executar esta ação.</value>
   </data>
   <data name="ZIPCODE_EMPTY" xml:space="preserve">
     <value>O CEP deve ser informado.</value>

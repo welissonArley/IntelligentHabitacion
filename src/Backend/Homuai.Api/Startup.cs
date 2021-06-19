@@ -5,6 +5,7 @@ using Homuai.Api.Filter;
 using Homuai.Api.Filter.Authentication;
 using Homuai.Api.Middleware;
 using Homuai.Api.Services;
+using Homuai.Api.WebSocket.AddFriend;
 using Homuai.Infrastructure;
 using Homuai.Infrastructure.DataAccess;
 using Homuai.Infrastructure.Migrations;
@@ -146,7 +147,7 @@ namespace Homuai.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapHub<AddFriendHub>("/addNewFriend");
+                endpoints.MapHub<AddFriendHub>("/addNewFriend");
             });
 
             UpdateDatabase(app);

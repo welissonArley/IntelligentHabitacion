@@ -97,6 +97,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The connection to the administrator has been lost..
+        /// </summary>
+        public static string CONNECTION_ADMINISTRATOR_LOST {
+            get {
+                return ResourceManager.GetString("CONNECTION_ADMINISTRATOR_LOST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Country&apos;s name must be entered..
         /// </summary>
         public static string COUNTRY_EMPTY {
@@ -111,6 +120,15 @@ namespace Homuai.Exception {
         public static string CURRENT_PASSWORD_INVALID {
             get {
                 return ResourceManager.GetString("CURRENT_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The date must be less than {0}..
+        /// </summary>
+        public static string DATE_MUST_BE_LESS_THAN {
+            get {
+                return ResourceManager.GetString("DATE_MUST_BE_LESS_THAN", resourceCulture);
             }
         }
         
@@ -187,6 +205,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friend was not found..
+        /// </summary>
+        public static string FRIEND_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("FRIEND_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be at least 6 characters..
         /// </summary>
         public static string INVALID_PASSWORD {
@@ -201,6 +228,15 @@ namespace Homuai.Exception {
         public static string INVALID_USER {
             get {
                 return ResourceManager.GetString("INVALID_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid monthly rent..
+        /// </summary>
+        public static string MONTHLYRENT_INVALID {
+            get {
+                return ResourceManager.GetString("MONTHLYRENT_INVALID", resourceCulture);
             }
         }
         
@@ -358,6 +394,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unknow error.
+        /// </summary>
+        public static string UNKNOW_ERROR {
+            get {
+                return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are already part of a home. This operation is not allowed at this time..
         /// </summary>
         public static string USER_IS_PART_OF_A_HOME {
@@ -381,6 +426,15 @@ namespace Homuai.Exception {
         public static string USER_WITHOUT_PERMISSION_ACCESS_RESOURCE {
             get {
                 return ResourceManager.GetString("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot perform this action..
+        /// </summary>
+        public static string YOU_CANNNOT_PERMORM_THIS_ACTION {
+            get {
+                return ResourceManager.GetString("YOU_CANNNOT_PERMORM_THIS_ACTION", resourceCulture);
             }
         }
         

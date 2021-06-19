@@ -1,3 +1,4 @@
+[![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -57,8 +58,10 @@ copies of this Project.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
+[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
+[contributors-url]: https://github.com/welissonArley/IntelligentHabitacion/graphs/contributors
 [stars-shield]: https://img.shields.io/github/stars/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[stars-url]: https://img.shields.io/github/stars/welissonarley/IntelligentHabitacionsvg
+[stars-url]: https://img.shields.io/github/stars/welissonarley/IntelligentHabitacion
 [issues-shield]: https://img.shields.io/github/issues/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
 [issues-url]: https://github.com/welissonArley/IntelligentHabitacion/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555

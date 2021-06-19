@@ -62,7 +62,7 @@ You can download the App on:
 <!-- ROADMAP -->
 ## Roadmap
 
-You can see the [open issues](https://github.com/welissonArley/IntelligentHabitacion/issues) (and known issues) and the [board project] (https://github.com/welissonArley/IntelligentHabitacion/projects/1) to see the future features available on the project.
+You can see the [open issues](https://github.com/welissonArley/IntelligentHabitacion/issues) (and known issues) and the [board project](https://github.com/welissonArley/IntelligentHabitacion/projects/1) to see the future features available on the project.
 
 <!-- LICENSE -->
 ## License

@@ -133,6 +133,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current password must be entered..
+        /// </summary>
+        public static string CURRENT_PASSWORD_EMPTY {
+            get {
+                return ResourceManager.GetString("CURRENT_PASSWORD_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The current password is invalid..
         /// </summary>
         public static string CURRENT_PASSWORD_INVALID {
@@ -399,6 +408,15 @@ namespace Homuai.Exception {
         public static string RECORD_CLEANING_ROOM_INVALID_DATE {
             get {
                 return ResourceManager.GetString("RECORD_CLEANING_ROOM_INVALID_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relationship must be entered..
+        /// </summary>
+        public static string RELATIONSHIPTO_EMPTY {
+            get {
+                return ResourceManager.GetString("RELATIONSHIPTO_EMPTY", resourceCulture);
             }
         }
         

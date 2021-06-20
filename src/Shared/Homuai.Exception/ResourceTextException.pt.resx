@@ -141,6 +141,9 @@
   <data name="COUNTRY_EMPTY" xml:space="preserve">
     <value>O nome do País deve ser informado.</value>
   </data>
+  <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
+    <value>A senha atual deve ser informada.</value>
+  </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>A senha atual é inválida.</value>
   </data>
@@ -230,6 +233,9 @@
   </data>
   <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
     <value>Você pode apenas registrar registros de limpeza para o mês atual e em até 3 dias anteriores a data de hoje.</value>
+  </data>
+  <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
+    <value>O grau de parentesco deve ser informado.</value>
   </data>
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
     <value>Há cômodos que não existem na Home</value>

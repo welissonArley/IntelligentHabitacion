@@ -141,6 +141,9 @@
   <data name="COUNTRY_EMPTY" xml:space="preserve">
     <value>The Country's name must be entered.</value>
   </data>
+  <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
+    <value>Current password must be entered.</value>
+  </data>
   <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
     <value>The current password is invalid.</value>
   </data>
@@ -230,6 +233,9 @@
   </data>
   <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
     <value>You can only record cleaning records for the current month and up to 3 days before today.</value>
+  </data>
+  <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
+    <value>Relationship must be entered.</value>
   </data>
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
     <value>There area rooms that does not exist in Home</value>

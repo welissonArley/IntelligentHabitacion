@@ -1,7 +1,7 @@
 ﻿using Homuai.App.Services;
 using XLabs.Ioc;
 
-namespace Homuai.App.Device
+namespace Homuai.App.ThisDevice
 {
     public static class HomuaiDevice
     {

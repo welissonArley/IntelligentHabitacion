@@ -56,13 +56,13 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-SDK Android API 23 or higher to run the Android App version
+* SDK Android API 23 or higher to run the Android App version
 
-MAC with the iOS SDK 10 (just in case you want to run the iOS App version)
+* MAC with the iOS SDK 10 (just in case you want to run the iOS App version)
 
-Visual Studio 2019+
+* Visual Studio 2019+
 
-MySQL Server
+* MySQL Server
 
 ### Installation
 

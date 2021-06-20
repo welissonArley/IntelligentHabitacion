@@ -104,6 +104,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppVersion\AppVersionAndroid.cs" />
+    <Compile Include="CustomControl\AppEntryRenderer.cs" />
+    <Compile Include="CustomControl\AppFrameRenderer.cs" />
+    <Compile Include="CustomControl\ButtonAllCapsFalseRenderer.cs" />
+    <Compile Include="CustomControl\EditorRenderer.cs" />
+    <Compile Include="CustomControl\EntryForSearchByNameRenderer.cs" />
+    <Compile Include="CustomControl\EntryNoLineRenderer.cs" />
+    <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

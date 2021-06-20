@@ -63,6 +63,13 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppVersion\AppVersioniOS.cs" />
+    <Compile Include="CustomControl\AppEntryRenderer.cs" />
+    <Compile Include="CustomControl\AppFrameRenderer.cs" />
+    <Compile Include="CustomControl\EditorRenderer.cs" />
+    <Compile Include="CustomControl\EntryForSearchByNameRenderer.cs" />
+    <Compile Include="CustomControl\EntryNoLineRenderer.cs" />
+    <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

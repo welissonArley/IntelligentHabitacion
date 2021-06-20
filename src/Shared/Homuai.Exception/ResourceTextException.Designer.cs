@@ -115,6 +115,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid password or verification code..
+        /// </summary>
+        public static string CODE_OR_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("CODE_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Request a code to reset your password..
         /// </summary>
         public static string CODE_RESET_PASSWORD_REQUIRED {

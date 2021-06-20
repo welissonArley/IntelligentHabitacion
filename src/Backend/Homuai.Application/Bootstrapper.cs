@@ -17,6 +17,7 @@ using Homuai.Application.UseCases.Friends.AddFriends;
 using Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome;
 using Homuai.Application.UseCases.Friends.GetMyFriends;
 using Homuai.Application.UseCases.Friends.NotifyOrderReceived;
+using Homuai.Application.UseCases.Friends.RemoveFriend;
 using Homuai.Application.UseCases.Home.HomeInformations;
 using Homuai.Application.UseCases.Home.RegisterHome;
 using Homuai.Application.UseCases.Home.UpdateHomeInformations;
@@ -73,6 +74,8 @@ namespace Clearfield.Application
                 .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
                 .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()
                 .AddScoped<INotifyOrderReceivedUseCase, NotifyOrderReceivedUseCase>()
+                .AddScoped<IRequestCodeToRemoveFriendUseCase, RequestCodeToRemoveFriendUseCase>()
+                .AddScoped<IRemoveFriendUseCase, RemoveFriendUseCase>()
                 .AddScoped<IContactUsUseCase, ContactUsUseCase>()
                 .AddScoped<ICreateFirstScheduleUseCase, CreateFirstScheduleUseCase>()
                 .AddScoped<IDetailsAllRateUseCase, DetailsAllRateUseCase>()

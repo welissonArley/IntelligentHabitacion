@@ -16,5 +16,9 @@ namespace Homuai.App.Services.Communication.Friend
         Task<ApiResponse<string>> NotifyFriendOrderHasArrived(string friendId, [Authorize("Bearer")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
         [Put("/change-date-join-home/{friendId}")]
         Task<ApiResponse<ResponseFriendJson>> ChangeDateJoinHome(string friendId, [Body] RequestDateJson request, [Authorize("Bearer")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Get("/code-remove-friend")]
+        Task<ApiResponse<string>> RequestCodeToRemoveFriend([Authorize("Bearer")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
+        [Delete("/{friendId}")]
+        Task<ApiResponse<string>> RemoveFriend(string friendId, [Body] RequestAdminActionJson request, [Authorize("Bearer")] string token, [Header("Accept-Language")] StringWithQualityHeaderValue language);
     }
 }

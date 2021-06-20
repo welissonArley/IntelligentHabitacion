@@ -3,6 +3,7 @@ using Homuai.Api.Filter.Authentication;
 using Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome;
 using Homuai.Application.UseCases.Friends.GetMyFriends;
 using Homuai.Application.UseCases.Friends.NotifyOrderReceived;
+using Homuai.Application.UseCases.Friends.RemoveFriend;
 using Homuai.Communication.Request;
 using Homuai.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -71,6 +72,46 @@ namespace Homuai.Api.Controllers.V1
             [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id)
         {
             var response = await useCase.Execute(id);
+            WriteAutenticationHeader(response);
+
+            return Ok();
+        }
+
+        /// <summary>
+        /// This function will send a email to admin with a code to remove a friend
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("code-remove-friend")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public async Task<IActionResult> RequestCodeToRemoveFriend(
+            [FromServices] IRequestCodeToRemoveFriendUseCase useCase)
+        {
+            var response = await useCase.Execute();
+            WriteAutenticationHeader(response);
+
+            return Ok();
+        }
+
+        /// <summary>
+        /// This function will remove a friend from home
+        /// </summary>
+        /// <param name="useCase"></param>
+        /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("{id:hashids}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
+        public async Task<IActionResult> RemoveFriend(
+            [FromServices] IRemoveFriendUseCase useCase,
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] long id,
+           [FromBody] RequestAdminActionJson request)
+        {
+            var response = await useCase.Execute(id, request);
             WriteAutenticationHeader(response);
 
             return Ok();

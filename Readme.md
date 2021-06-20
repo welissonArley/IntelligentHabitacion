@@ -20,7 +20,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -33,6 +32,8 @@
 ## About The Project
 
 [![Homuai Screen Shot][product-screenshot]](https://example.com)
+
+Text
 
 ### Built With
 
@@ -54,10 +55,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-You can download the App on:
+You can download the App for free on:
 
-* Get the App for free at [GooglePlay](https://example.com)
-* Get the App for free at [App Store](https://example.com)
+* [GooglePlay](https://example.com)
+* [App Store](https://example.com)
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -69,7 +70,7 @@ You can see the [open issues](https://github.com/welissonArley/IntelligentHabita
 
 You can use this project to study and/or help me improve them (becoming a contributor).
 
-You DO NOT have permission to copy, modify, publish, distribute, sublicense, and/or sell
+You **do not** have permission to copy, modify, publish, distribute, sublicense, and/or sell
 copies of this Project.
 
 <!-- CONTACT -->

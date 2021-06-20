@@ -192,6 +192,9 @@
   <data name="INVALID_USER" xml:space="preserve">
     <value>Invalid user.</value>
   </data>
+  <data name="MESSAGE_EMPTY" xml:space="preserve">
+    <value>Menssage must be entered.</value>
+  </data>
   <data name="MONTHLYRENT_INVALID" xml:space="preserve">
     <value>Invalid monthly rent.</value>
   </data>

@@ -192,6 +192,9 @@
   <data name="INVALID_USER" xml:space="preserve">
     <value>Usuário inválido</value>
   </data>
+  <data name="MESSAGE_EMPTY" xml:space="preserve">
+    <value>Mensagem não pode ser vazia.</value>
+  </data>
   <data name="MONTHLYRENT_INVALID" xml:space="preserve">
     <value>O valor do aluguel é inválido.</value>
   </data>

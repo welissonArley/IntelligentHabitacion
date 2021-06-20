@@ -286,6 +286,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Menssage must be entered..
+        /// </summary>
+        public static string MESSAGE_EMPTY {
+            get {
+                return ResourceManager.GetString("MESSAGE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid monthly rent..
         /// </summary>
         public static string MONTHLYRENT_INVALID {

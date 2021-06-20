@@ -33,7 +33,11 @@
 
 [![Homuai Screen Shot][product-screenshot]](https://example.com)
 
-Text
+When I was living with some friends (three to be more specific) I used to have some problems with the organization and the houseworks. Unfortunately, student life is so busy and it’s normal to forget things like: paying rent; and letting products expire in the refrigerator.
+
+I didn’t find one good App that really suited my needs, so I thought: why can’t I make a project to solve this myself? Homuai is an app free of charge whose main goal is to help people who live with friends. It was a way that I found as a developer to create an opportunity to practice and improve my skills and learn new ones.
+
+Of course, your needs may be different and I can’t promise you that this project is the best in the entire world. So I'll be adding more features in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
 
 ### Built With
 
@@ -43,22 +47,35 @@ Text
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-| OS | Version |
-|----------|----------|
-| Android | greater or equal to 6.0 (API level 23) |
-| iOS | greater or equal to 8.0 |
-
-### Installation
-
 You can download the App for free on:
 
 * [GooglePlay](https://example.com)
 * [App Store](https://example.com)
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+SDK Android API 23 or higher to run the Android App version
+
+MAC with the iOS SDK 10 (just in case you want to run the iOS App version)
+
+Visual Studio 2019+
+
+MySQL Server
+
+### Installation
+
+1. Clone the repo;
+2. Fill all information in appsettings.Development.json. NOTE: In the section ConnectionStrings, write your database name separately from the connection, this works to create the database in the start up;
+3. Run the Web API;
+
+To run the app using the API locally do the follow:
+
+1. Download and configure ngrok (https://ngrok.com);
+2. Run ngrok;
+3. Change the api link in the file RestEndPoints.cs on the app project to the link shown in the console (the console that you are running ngrok);
+4. Have a good time testing.
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -68,10 +85,9 @@ You can see the [open issues](https://github.com/welissonArley/IntelligentHabita
 <!-- LICENSE -->
 ## License
 
-You can use this project to study and/or help me improve them (becoming a contributor).
+The Homuai Project can not be copied and/or distributed without the express permission of Welisson Arley <welissonarleyvs@gmail.com>.
 
-You **do not** have permission to copy, modify, publish, distribute, sublicense, and/or sell
-copies of this Project.
+Feel free to use this project to study and help me improve them by becoming a contributor :smile:
 
 <!-- CONTACT -->
 ## Contact

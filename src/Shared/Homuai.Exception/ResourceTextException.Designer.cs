@@ -97,6 +97,15 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code must be entered..
+        /// </summary>
+        public static string CODE_EMPTY {
+            get {
+                return ResourceManager.GetString("CODE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The code is invalid..
         /// </summary>
         public static string CODE_INVALID {

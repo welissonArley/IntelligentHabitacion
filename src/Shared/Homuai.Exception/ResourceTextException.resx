@@ -129,6 +129,9 @@
   <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
     <value>A cleaning schedule has already been created.</value>
   </data>
+  <data name="CODE_EMPTY" xml:space="preserve">
+    <value>Code must be entered.</value>
+  </data>
   <data name="CODE_INVALID" xml:space="preserve">
     <value>The code is invalid.</value>
   </data>

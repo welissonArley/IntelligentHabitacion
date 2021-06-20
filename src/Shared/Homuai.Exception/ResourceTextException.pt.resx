@@ -129,6 +129,9 @@
   <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
     <value>Já existe um cronograma de limpeza criado.</value>
   </data>
+  <data name="CODE_EMPTY" xml:space="preserve">
+    <value>O código deve ser informado.</value>
+  </data>
   <data name="CODE_INVALID" xml:space="preserve">
     <value>O código é inválido.</value>
   </data>

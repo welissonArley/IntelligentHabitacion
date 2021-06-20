@@ -36,4 +36,22 @@
     <ProjectReference Include="..\..\Shared\Homuai.Communication\Homuai.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\Homuai.Exception\Homuai.Exception.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ResourceText.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceText.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ResourceText.pt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ResourceText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

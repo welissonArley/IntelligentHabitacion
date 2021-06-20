@@ -11,6 +11,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ActionAboutApp.svg" />
+    <None Remove="Resources\ActionAddFriend.svg" />
+    <None Remove="Resources\ActionAddProduct.svg" />
+    <None Remove="Resources\ActionLogout.svg" />
+    <None Remove="Resources\ActionSupport.svg" />
+    <None Remove="Resources\IconEdit.svg" />
+    <None Remove="Resources\IconTabAddress.svg" />
+    <None Remove="Resources\IconTabEmergency.svg" />
+    <None Remove="Resources\IconTabHome.svg" />
+    <None Remove="Resources\IconTabPhone.svg" />
+    <None Remove="Resources\IconTabUser.svg" />
+    <None Remove="Resources\IconTabWifi.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ActionAboutApp.svg" />
+    <EmbeddedResource Include="Resources\ActionAddFriend.svg" />
+    <EmbeddedResource Include="Resources\ActionAddProduct.svg" />
+    <EmbeddedResource Include="Resources\ActionLogout.svg" />
+    <EmbeddedResource Include="Resources\ActionSupport.svg" />
+    <EmbeddedResource Include="Resources\IconEdit.svg" />
+    <EmbeddedResource Include="Resources\IconTabAddress.svg" />
+    <EmbeddedResource Include="Resources\IconTabEmergency.svg" />
+    <EmbeddedResource Include="Resources\IconTabHome.svg" />
+    <EmbeddedResource Include="Resources\IconTabPhone.svg" />
+    <EmbeddedResource Include="Resources\IconTabUser.svg" />
+    <EmbeddedResource Include="Resources\IconTabWifi.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Com.OneSignal" Version="3.10.6" />
     <PackageReference Include="Messier16.Forms.Controls" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />

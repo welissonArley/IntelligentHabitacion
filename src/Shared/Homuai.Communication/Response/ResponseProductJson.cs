@@ -8,6 +8,6 @@ namespace Homuai.Communication.Response
         public string Name { get; set; }
         public decimal Quantity { get; set; }
         public string Manufacturer { get; set; }
-        public Type Type { get; set; }
+        public ProductType Type { get; set; }
     }
 }

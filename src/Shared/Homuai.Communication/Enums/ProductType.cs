@@ -1,6 +1,6 @@
 ﻿namespace Homuai.Communication.Enums
 {
-    public enum Type
+    public enum ProductType
     {
         Unity = 0,
         Box = 1,

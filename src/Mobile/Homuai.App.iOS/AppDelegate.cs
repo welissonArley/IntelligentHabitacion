@@ -1,31 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using Com.OneSignal;
 using Foundation;
+using Homuai.App.OneSignalConfig;
+using TinyIoC;
 using UIKit;
+using XLabs.Ioc;
+using XLabs.Ioc.TinyIOC;
 
 namespace Homuai.App.iOS
 {
-    // The UIApplicationDelegate for the application. This class is responsible for launching the 
-    // User Interface of the application, as well as listening (and optionally responding) to 
-    // application events from iOS.
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        //
-        // This method is invoked when the application has loaded and is ready to run. In this 
-        // method you should instantiate the window, load the UI into it and then make the window
-        // visible.
-        //
-        // You have 17 seconds to return from this method, or iOS will terminate your application.
-        //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            ConfigureDI();
+
+            Rg.Plugins.Popup.Popup.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+            OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
+            Messier16.Forms.iOS.Controls.Messier16Controls.InitAll();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            var ignore = typeof(FFImageLoading.Svg.Forms.SvgCachedImage);
+
             LoadApplication(new App());
 
+            Plugin.InputKit.Platforms.iOS.Config.Init();
+            OneSignal.Current.RegisterForPushNotifications();
+
             return base.FinishedLaunching(app, options);
+        }
+
+        private void ConfigureDI()
+        {
+            if (!Resolver.IsSet)
+            {
+                var container = new TinyContainer(new TinyIoCContainer());
+
+                container.AddDependeces();
+
+                container.Register<IDependencyContainer>(container);
+
+                Resolver.SetResolver(container.GetResolver());
+            }
         }
     }
 }

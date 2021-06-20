@@ -11,7 +11,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Com.OneSignal" Version="3.10.6" />
+    <PackageReference Include="Messier16.Forms.Controls" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.8" />
+    <PackageReference Include="Plugin.Fingerprint" Version="2.1.4" />
+    <PackageReference Include="Refit" Version="6.0.38" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugin.TabView" Version="1.1.1" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.7.2" />
+    <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.3.0" />
+    <PackageReference Include="XLabs.Forms" Version="2.0.5782" />
+    <PackageReference Include="XLabs.IoC" Version="2.0.5782" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Homuai.Communication\Homuai.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\Homuai.Exception\Homuai.Exception.csproj" />
   </ItemGroup>
 </Project>

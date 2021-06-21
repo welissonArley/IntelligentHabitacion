@@ -1,6 +1,6 @@
 ﻿using Homuai.App.Model;
 using Homuai.App.Services.Communication.Login;
-using Homuai.App.Useful.Validator;
+using Homuai.App.ValueObjects.Validator;
 using Homuai.Communication.Request;
 using Homuai.Exception.Exceptions;
 using Refit;

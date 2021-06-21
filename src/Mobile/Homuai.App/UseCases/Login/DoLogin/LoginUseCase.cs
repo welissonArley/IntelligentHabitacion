@@ -1,6 +1,7 @@
 ﻿using Homuai.App.Services;
 using Homuai.App.Services.Communication.Login;
-using Homuai.App.Useful.Validator;
+using Homuai.App.ValueObjects.Dtos;
+using Homuai.App.ValueObjects.Validator;
 using Homuai.Communication.Request;
 using Homuai.Exception.Exceptions;
 using Refit;
@@ -34,7 +35,7 @@ namespace Homuai.App.UseCases.Login.DoLogin
 
             ResponseValidate(response);
 
-            await _userPreferences.SaveInitialUserInfos(new Dtos.UserPreferenceDto
+            await _userPreferences.SaveInitialUserInfos(new UserPreferenceDto
             {
                 Email = email,
                 Token = GetTokenOnHeaderRequest(response.Headers),

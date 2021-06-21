@@ -56,10 +56,10 @@ namespace Homuai.App.Views.Templates.Information
                 var friendModel = (FriendModel)newValue;
                 var component = (MyFriendsComponent)bindable;
                 component.LabelFriendsName.Text = friendModel.Name;
-                component.LabelShortName.Text = new Useful.ShortNameConverter().Converter(friendModel.Name);
+                component.LabelShortName.Text = new Services.ShortNameConverter().Converter(friendModel.Name);
                 component.BackgroundShortName.Fill = new SolidColorBrush(Color.FromHex(friendModel.ProfileColor)); ;
                 component.BackgroundCall.Fill = new SolidColorBrush(Color.FromHex(friendModel.ProfileColor));
-                component.LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, friendModel.JoinedOn.ToString(ResourceText.FORMAT_DATE));
+                component.LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_IN, friendModel.JoinedOn.ToString(ResourceText.FORMAT_DATE));
             }
         }
 
@@ -81,10 +81,10 @@ namespace Homuai.App.Views.Templates.Information
         public void Refresh()
         {
             LabelFriendsName.Text = Friend.Name;
-            LabelShortName.Text = new Useful.ShortNameConverter().Converter(Friend.Name);
+            LabelShortName.Text = new Services.ShortNameConverter().Converter(Friend.Name);
             BackgroundShortName.Fill = new SolidColorBrush(Color.FromHex(Friend.ProfileColor));
             BackgroundCall.Fill = new SolidColorBrush(Color.FromHex(Friend.ProfileColor));
-            LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_ON, Friend.JoinedOn.ToString(ResourceText.FORMAT_DATE));
+            LabelJoinedOn.Text = string.Format(ResourceText.TITLE_JOINED_IN, Friend.JoinedOn.ToString(ResourceText.FORMAT_DATE));
         }
     }
 }

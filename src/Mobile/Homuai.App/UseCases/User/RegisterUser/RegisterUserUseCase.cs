@@ -1,7 +1,7 @@
 ﻿using Homuai.App.Model;
-using Homuai.App.OneSignalConfig;
 using Homuai.App.Services;
 using Homuai.App.Services.Communication.User;
+using Homuai.App.ValueObjects.Dtos;
 using Homuai.Communication.Request;
 using Refit;
 using System;
@@ -28,7 +28,7 @@ namespace Homuai.App.UseCases.User.RegisterUser
 
             ResponseValidate(response);
 
-            await _userPreferences.SaveInitialUserInfos(new Dtos.UserPreferenceDto
+            await _userPreferences.SaveInitialUserInfos(new UserPreferenceDto
             {
                 IsAdministrator = false,
                 IsPartOfOneHome = false,
@@ -49,7 +49,7 @@ namespace Homuai.App.UseCases.User.RegisterUser
                 Name = userInformations.Name,
                 Email = userInformations.Email,
                 Password = userInformations.Password,
-                PushNotificationId = OneSignalManager.MyOneSignalId
+                PushNotificationId = Services.Communication.Notifications.MyOneSignalId
             };
 
             user.Phonenumbers.Add(userInformations.PhoneNumber1);

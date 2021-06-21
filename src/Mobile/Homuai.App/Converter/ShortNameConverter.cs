@@ -8,7 +8,7 @@ namespace Homuai.App.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return new Useful.ShortNameConverter().Converter(value.ToString());
+            return new Services.ShortNameConverter().Converter(value.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

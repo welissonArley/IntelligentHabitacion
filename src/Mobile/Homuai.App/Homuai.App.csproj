@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dtos\**" />
+    <EmbeddedResource Remove="Dtos\**" />
+    <None Remove="Dtos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\ActionAboutApp.svg" />
     <None Remove="Resources\ActionAddFriend.svg" />
     <None Remove="Resources\ActionAddProduct.svg" />

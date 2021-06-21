@@ -157,7 +157,7 @@
     <value>Leave your message (suggestion, complaint, problems, doubts, etc.) and we will get in touch with you as soon as possible.</value>
   </data>
   <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
-    <value>Use this option to create a home and be the administrator.</value>
+    <value>Use this option to create a home and to be an administrator.</value>
   </data>
   <data name="DESCRIPTION_DATE_CLEANING_BY_FRIEND" xml:space="preserve">
     <value>Cleaning performed on {0} ({1}) by {2}</value>
@@ -207,7 +207,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Below you will find information about your tasks performed each month :)</value>
   </data>
   <data name="DESCRIPTION_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
-    <value>We will send a notification to let {0} know that an order has arrived. Do you confirm this?</value>
+    <value>We will send a notification to let {0} know that an order has arrived. Do you agree on that?</value>
   </data>
   <data name="DESCRIPTION_REMINDER_PERFORM_TASK" xml:space="preserve">
     <value>Don't worry, your name won't appear on the reminder when your friend sees it :)</value>
@@ -674,8 +674,8 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ITS_GREAT_SEE_YOU_HERE" xml:space="preserve">
     <value>It's great to see you here 😍</value>
   </data>
-  <data name="TITLE_JOINED_ON" xml:space="preserve">
-    <value>Joined on {0}</value>
+  <data name="TITLE_JOINED_IN" xml:space="preserve">
+    <value>Joined in {0}</value>
   </data>
   <data name="TITLE_JOIN_HOME" xml:space="preserve">
     <value>Join a home</value>
@@ -707,6 +707,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
     <value>Login with fingerprint access</value>
   </data>
+  <data name="TITLE_LOGOUT" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
     <value>Create the first schedule</value>
   </data>
@@ -737,8 +740,8 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_MY_FRIENDS" xml:space="preserve">
     <value>My friends</value>
   </data>
-  <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
-    <value>My informations</value>
+  <data name="TITLE_MY_PROFILE" xml:space="preserve">
+    <value>My profile</value>
   </data>
   <data name="TITLE_MY_TASKS" xml:space="preserve">
     <value>My Tasks</value>
@@ -1030,9 +1033,6 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_ZIPCODE_TWOPOINTS" xml:space="preserve">
     <value>ZipCode:</value>
-  </data>
-  <data name="TITULO_LOGGOUT" xml:space="preserve">
-    <value>Sair</value>
   </data>
   <data name="UNITED_KINGDOM" xml:space="preserve">
     <value>United Kingdom</value>

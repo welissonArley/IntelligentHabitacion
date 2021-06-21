@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using Homuai.App.Services;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +25,7 @@ namespace Homuai.App.Views.Templates.Header
         {
             InitializeComponent();
 
-            var deviceWidth = ThisDevice.HomuaiDevice.Width();
+            var deviceWidth = HomuaiDevice.Width();
 
             ImageOrderHasArrived.WidthRequest = deviceWidth * 0.42;
             ImageOrderHasArrived.HeightRequest = ImageOrderHasArrived.WidthRequest * 1.45;

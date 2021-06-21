@@ -178,7 +178,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this option to create a home and be the administrator..
+        ///   Looks up a localized string similar to Use this option to create a home and to be an administrator..
         /// </summary>
         public static string DESCRIPTION_CREATE_HOME {
             get {
@@ -324,7 +324,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We will send a notification to let {0} know that an order has arrived. Do you confirm this?.
+        ///   Looks up a localized string similar to We will send a notification to let {0} know that an order has arrived. Do you agree on that?.
         /// </summary>
         public static string DESCRIPTION_NOTIFY_ORDER_ARRIVED {
             get {
@@ -1737,11 +1737,11 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Joined on {0}.
+        ///   Looks up a localized string similar to Joined in {0}.
         /// </summary>
-        public static string TITLE_JOINED_ON {
+        public static string TITLE_JOINED_IN {
             get {
-                return ResourceManager.GetString("TITLE_JOINED_ON", resourceCulture);
+                return ResourceManager.GetString("TITLE_JOINED_IN", resourceCulture);
             }
         }
         
@@ -1823,6 +1823,15 @@ namespace Homuai.App {
         public static string TITLE_LOGIN_WITH_FINGERPRINT_ACCESS {
             get {
                 return ResourceManager.GetString("TITLE_LOGIN_WITH_FINGERPRINT_ACCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        public static string TITLE_LOGOUT {
+            get {
+                return ResourceManager.GetString("TITLE_LOGOUT", resourceCulture);
             }
         }
         
@@ -1917,11 +1926,11 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My informations.
+        ///   Looks up a localized string similar to My profile.
         /// </summary>
-        public static string TITLE_MY_INFORMATIONS {
+        public static string TITLE_MY_PROFILE {
             get {
-                return ResourceManager.GetString("TITLE_MY_INFORMATIONS", resourceCulture);
+                return ResourceManager.GetString("TITLE_MY_PROFILE", resourceCulture);
             }
         }
         
@@ -2795,15 +2804,6 @@ namespace Homuai.App {
         public static string TITLE_ZIPCODE_TWOPOINTS {
             get {
                 return ResourceManager.GetString("TITLE_ZIPCODE_TWOPOINTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sair.
-        /// </summary>
-        public static string TITULO_LOGGOUT {
-            get {
-                return ResourceManager.GetString("TITULO_LOGGOUT", resourceCulture);
             }
         }
         

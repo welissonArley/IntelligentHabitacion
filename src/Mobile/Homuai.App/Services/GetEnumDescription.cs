@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Homuai.App.Useful
+namespace Homuai.App.Services
 {
     public static class GetEnumDescription
     {

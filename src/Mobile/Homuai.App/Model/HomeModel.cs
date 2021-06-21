@@ -1,4 +1,4 @@
-﻿using Homuai.App.Useful;
+﻿using Homuai.App.ValueObjects.Enum;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using XLabs.Data;

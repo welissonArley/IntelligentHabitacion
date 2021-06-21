@@ -692,6 +692,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
     <value>Login com acesso por impressão digital</value>
   </data>
+  <data name="TITLE_LOGOUT" xml:space="preserve">
+    <value>Sair</value>
+  </data>
   <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
     <value>Criar primeiro cronograma</value>
   </data>
@@ -722,7 +725,7 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_MY_FRIENDS" xml:space="preserve">
     <value>My friends</value>
   </data>
-  <data name="TITLE_MY_INFORMATIONS" xml:space="preserve">
+  <data name="TITLE_MY_PROFILE" xml:space="preserve">
     <value>Minhas informações</value>
   </data>
   <data name="TITLE_MY_TASKS" xml:space="preserve">
@@ -1012,9 +1015,6 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_ZIPCODE_TWOPOINTS" xml:space="preserve">
     <value>CEP:</value>
-  </data>
-  <data name="TITULO_LOGGOUT" xml:space="preserve">
-    <value>Sair</value>
   </data>
   <data name="UNITED_KINGDOM" xml:space="preserve">
     <value>Reino Unido</value>

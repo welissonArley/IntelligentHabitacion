@@ -1,7 +1,8 @@
 ﻿using Homuai.App.Model;
 using Homuai.App.Services;
 using Homuai.App.Services.Communication.Home;
-using Homuai.App.Useful;
+using Homuai.App.ValueObjects;
+using Homuai.App.ValueObjects.Enum;
 using Homuai.Communication.Response;
 using Refit;
 using System;

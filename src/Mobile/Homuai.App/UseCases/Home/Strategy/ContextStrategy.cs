@@ -1,4 +1,5 @@
 ﻿using Homuai.App.Model;
+using Homuai.App.ValueObjects.Enum;
 
 namespace Homuai.App.UseCases.Home.Strategy
 {
@@ -8,7 +9,7 @@ namespace Homuai.App.UseCases.Home.Strategy
         {
             switch (country.Id)
             {
-                case Useful.CountryEnum.BRAZIL:
+                case CountryEnum.BRAZIL:
                     {
                         return new BrazilHomeRegisterStrategy();
                     }

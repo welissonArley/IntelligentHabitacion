@@ -1,7 +1,6 @@
-﻿using Homuai.App.Services;
-using XLabs.Ioc;
+﻿using XLabs.Ioc;
 
-namespace Homuai.App.ThisDevice
+namespace Homuai.App.Services
 {
     public static class HomuaiDevice
     {

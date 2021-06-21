@@ -11,7 +11,7 @@ namespace Homuai.App.Views.Templates.Header
         {
             InitializeComponent();
 
-            var deviceWidth = ThisDevice.HomuaiDevice.Width();
+            var deviceWidth = HomuaiDevice.Width();
 
             ImageGirlReading.WidthRequest = deviceWidth;
             ImageGirlReading.HeightRequest = deviceWidth * 0.49;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 
-namespace Homuai.App.ValueObjects
+namespace Homuai.App.ValueObjects.Dtos
 {
     public class SelectOptionsObject
     {

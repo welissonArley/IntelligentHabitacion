@@ -1,6 +1,6 @@
 ﻿using Homuai.Exception.Exceptions;
 
-namespace Homuai.App.Useful.Validator
+namespace Homuai.App.ValueObjects.Validator
 {
     public class EmailValidator
     {

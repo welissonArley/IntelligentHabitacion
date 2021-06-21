@@ -1,4 +1,4 @@
-﻿namespace Homuai.App.Useful
+﻿namespace Homuai.App.Services
 {
     public class ShortNameConverter
     {

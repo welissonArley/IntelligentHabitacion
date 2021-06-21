@@ -1,4 +1,4 @@
-﻿namespace Homuai.App.OneSignalConfig
+﻿namespace Homuai.App.ValueObjects.Enum
 {
     public static class EnumNotifications
     {

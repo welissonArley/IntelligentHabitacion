@@ -1,8 +1,9 @@
 ﻿using Homuai.App.Model;
+using Homuai.App.ValueObjects.Enum;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Homuai.App.Useful
+namespace Homuai.App.ValueObjects
 {
     public class CoutriesAvaliables
     {

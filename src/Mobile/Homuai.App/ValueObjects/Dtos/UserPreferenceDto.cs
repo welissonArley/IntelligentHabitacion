@@ -1,4 +1,4 @@
-﻿namespace Homuai.App.Dtos
+﻿namespace Homuai.App.ValueObjects.Dtos
 {
     public class UserPreferenceDto
     {

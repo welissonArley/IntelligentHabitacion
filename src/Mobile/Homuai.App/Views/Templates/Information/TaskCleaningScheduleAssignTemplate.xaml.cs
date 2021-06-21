@@ -1,5 +1,5 @@
 ﻿using Homuai.App.Model;
-using Homuai.App.Useful;
+using Homuai.App.ValueObjects.Enum;
 using Homuai.App.Views.Modal;
 using Rg.Plugins.Popup.Extensions;
 using System.Linq;
@@ -130,7 +130,7 @@ namespace Homuai.App.Views.Templates.Information
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Text = new Useful.ShortNameConverter().Converter(name),
+                Text = new Services.ShortNameConverter().Converter(name),
                 TextColor = Color.White,
                 FontSize = 14,
                 Style = (Style)Application.Current.Resources["LabelBold"]

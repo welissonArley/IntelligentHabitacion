@@ -1,5 +1,5 @@
 ﻿using Homuai.App.Services.Communication.Login;
-using Homuai.App.Useful.Validator;
+using Homuai.App.ValueObjects.Validator;
 using Refit;
 using System.Threading.Tasks;
 

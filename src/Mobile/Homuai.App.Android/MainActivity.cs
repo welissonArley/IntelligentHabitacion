@@ -3,7 +3,6 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Com.OneSignal;
-using Homuai.App.OneSignalConfig;
 using Plugin.CurrentActivity;
 using Plugin.Fingerprint;
 using TinyIoC;
@@ -29,7 +28,7 @@ namespace Homuai.App.Droid
             Plugin.InputKit.Platforms.Droid.Config.Init(this, savedInstanceState);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
-            OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
+            OneSignal.Current.StartInit(Services.Communication.Notifications.OneSignalKey).EndInit();
             OneSignal.Current.RegisterForPushNotifications();
             CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);

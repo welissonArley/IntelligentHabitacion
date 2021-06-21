@@ -1,4 +1,5 @@
 ﻿using Homuai.App.Model;
+using Homuai.App.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
@@ -144,7 +145,7 @@ namespace Homuai.App.Views.Templates.Information
 
         private static void SetGridDefinitions(Grid grid)
         {
-            var cardHeight = ((ThisDevice.HomuaiDevice.Width() / 2) - 35) * 1.27;
+            var cardHeight = ((HomuaiDevice.Width() / 2) - 35) * 1.27;
 
             grid.Children.Clear();
             grid.RowDefinitions.Clear();

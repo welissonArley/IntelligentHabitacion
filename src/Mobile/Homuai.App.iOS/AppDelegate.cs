@@ -1,6 +1,5 @@
 ﻿using Com.OneSignal;
 using Foundation;
-using Homuai.App.OneSignalConfig;
 using TinyIoC;
 using UIKit;
 using XLabs.Ioc;
@@ -19,7 +18,7 @@ namespace Homuai.App.iOS
 
             Rg.Plugins.Popup.Popup.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
-            OneSignal.Current.StartInit(OneSignalManager.OneSignalKey).EndInit();
+            OneSignal.Current.StartInit(Services.Communication.Notifications.OneSignalKey).EndInit();
             Messier16.Forms.iOS.Controls.Messier16Controls.InitAll();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             var ignore = typeof(FFImageLoading.Svg.Forms.SvgCachedImage);

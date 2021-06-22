@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Homuai.App.Views.View.AboutThisProject
+namespace Homuai.App.Views.View.Friends
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TermsOfUsePage : ContentPage
+    public partial class FriendInformationsDetailsPage : ContentPage
     {
-        public TermsOfUsePage()
+        public FriendInformationsDetailsPage()
         {
             InitializeComponent();
         }

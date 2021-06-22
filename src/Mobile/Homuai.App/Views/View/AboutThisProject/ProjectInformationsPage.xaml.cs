@@ -5,7 +5,7 @@ using Xamarin.Forms.Xaml;
 namespace Homuai.App.Views.View.AboutThisProject
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProjectInformationsPage : ContentView
+    public partial class ProjectInformationsPage : ContentPage
     {
         public ProjectInformationsPage()
         {

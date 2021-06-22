@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:Homuai.App"
              xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
              x:Class="Homuai.App.Views.View.AboutThisProject.IlustrationsInformationsPage">
-    <ContentView.Content>
+    <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
             <Image Source="IlustrationGirlAndCat" HorizontalOptions="CenterAndExpand"></Image>
 
@@ -47,5 +47,5 @@
                 <Label x:Name="Icons8Label" Text="https://www.icons8.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
             </StackLayout>
         </StackLayout>
-    </ContentView.Content>
-</ContentView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:Homuai.App"
              xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
              x:Class="Homuai.App.Views.View.AboutThisProject.PrivacyPolicyPage">
-    <ContentView.Content>
+    <ContentPage.Content>
         <ScrollView Margin="0,0,0,30">
             <StackLayout Style="{StaticResource MarginStyleDefault}">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_PRIVACY_POLICY}" Style="{StaticResource LabelBold}" FontSize="18"></Label>
@@ -48,5 +48,5 @@
                 <customControl:LabelJustifyText Margin="0,10,0,0" Text="Podemos alterar informações disponibilizadas aqui, então pedimos que visite esta página periodicamente." FontSize="12"></customControl:LabelJustifyText>
             </StackLayout>
         </ScrollView>
-    </ContentView.Content>
-</ContentView>
+    </ContentPage.Content>
+</ContentPage>

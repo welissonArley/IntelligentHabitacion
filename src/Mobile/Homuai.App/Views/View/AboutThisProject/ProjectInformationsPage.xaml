@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:Homuai.App"
              xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
              x:Class="Homuai.App.Views.View.AboutThisProject.ProjectInformationsPage">
-    <ContentView.Content>
+    <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resourceText:ResourceText.TITLE_HI}" FontSize="18" Style="{StaticResource LabelBold}"></Label>
             <Label Text="{Binding UserName}" TextColor="{Binding ProfileColor}" FontSize="25" Style="{StaticResource LabelBold}"></Label>
@@ -48,5 +48,5 @@
 
             <Label x:Name="LabelVersion" Style="{StaticResource LabelLight}" FontSize="14" VerticalOptions="EndAndExpand"></Label>
         </StackLayout>
-    </ContentView.Content>
-</ContentView>
+    </ContentPage.Content>
+</ContentPage>

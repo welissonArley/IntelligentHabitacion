@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resourceText="clr-namespace:Homuai.App"
              xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
              x:Class="Homuai.App.Views.View.AboutThisProject.TermsOfUsePage">
-    <ContentView.Content>
+    <ContentPage.Content>
         <ScrollView Margin="0,0,0,30">
             <StackLayout Style="{StaticResource MarginStyleDefault}">
                 <Label Text="{x:Static resourceText:ResourceText.TITLE_TERMS_OF_USE}" Style="{StaticResource LabelBold}" FontSize="18"></Label>
@@ -64,5 +64,5 @@
                 <customControl:LabelJustifyText Margin="0,10,0,0" Text="Você pode entrar em contato conosco através do formulário disponível dentro do Aplicativo. Retornaremos o mais rápido possível, com uma solução amigável, através do seu email informado no formulário." FontSize="12"></customControl:LabelJustifyText>
             </StackLayout>
         </ScrollView>
-    </ContentView.Content>
-</ContentView>
+    </ContentPage.Content>
+</ContentPage>

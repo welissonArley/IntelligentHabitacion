@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Homuai.App.Views.View.Login
+namespace Homuai.App.Views.View.User.Register
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RequestPasswordPage : ContentPage
     {
-        public LoginPage()
+        public RequestPasswordPage()
         {
             InitializeComponent();
         }

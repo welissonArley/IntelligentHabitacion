@@ -6,7 +6,7 @@
              xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              Title="{x:Static resourceText:ResourceText.TITLE_LOGIN}"
-             x:Class="Homuai.App.Views.View.Login.LoginPage">
+             x:Class="Homuai.App.Views.View.Login.DoLogin.LoginPage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
             <xct:StateLayout.StateViews>

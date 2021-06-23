@@ -1,6 +1,7 @@
 ﻿using Homuai.App.Model;
 using Homuai.App.Services;
 using Homuai.App.Services.Communication.MyFoods;
+using Homuai.App.ValueObjects.Enum;
 using Homuai.Communication.Response;
 using Refit;
 using System;
@@ -42,7 +43,7 @@ namespace Homuai.App.UseCases.MyFoods.GetMyFoods
                 DueDate = c.DueDate,
                 Manufacturer = c.Manufacturer,
                 Name = c.Name,
-                Type = (Useful.ProductEnum)c.Type
+                Type = (ProductEnum)c.Type
             }).ToList();
         }
     }

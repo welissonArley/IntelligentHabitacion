@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Homuai.App.Useful
+namespace Homuai.App.ValueObjects.Enum
 {
     public enum ProductEnum
     {

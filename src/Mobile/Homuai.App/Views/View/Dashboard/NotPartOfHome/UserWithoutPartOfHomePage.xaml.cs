@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Homuai.App.ViewModel.Dashboard.NotPartOfHome;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XLabs.Forms.Mvvm;
 
@@ -10,10 +11,10 @@ namespace Homuai.App.Views.View.Dashboard.NotPartOfHome
         public UserWithoutPartOfHomePage()
         {
             InitializeComponent();
-            /*
+            
             Flyout = (Page)ViewFactory.CreatePage<UserWithoutPartOfHomeFlyoutViewModel, UserWithoutPartOfHomeFlyoutViewModel>();
 
-            Detail.BindingContext = new UserWithoutPartOfHomeDetailViewModel(Navigation);*/
+            Detail.BindingContext = new UserWithoutPartOfHomeDetailViewModel(Navigation);
         }
     }
 }

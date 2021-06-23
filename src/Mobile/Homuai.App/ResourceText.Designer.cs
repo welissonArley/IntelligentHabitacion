@@ -1674,6 +1674,15 @@ namespace Homuai.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Homuai is your tool and a new way to organize your home..
+        /// </summary>
+        public static string TITLE_HOMUAI_TOOL_NEW_WAY_ORGANIZE_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_HOMUAI_TOOL_NEW_WAY_ORGANIZE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Housework.
         /// </summary>
         public static string TITLE_HOUSEWORK {
@@ -1697,15 +1706,6 @@ namespace Homuai.App {
         public static string TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION {
             get {
                 return ResourceManager.GetString("TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Intelligent Habitacion is your tool and a new way to organize your home..
-        /// </summary>
-        public static string TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME {
-            get {
-                return ResourceManager.GetString("TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME", resourceCulture);
             }
         }
         

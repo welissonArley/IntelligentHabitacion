@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Homuai.App.ViewModel.Dashboard.PartOfHome;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XLabs.Forms.Mvvm;
@@ -12,9 +12,9 @@ namespace Homuai.App.Views.View.Dashboard.PartOfHome
         {
             InitializeComponent();
 
-            /*Flyout = (Page)ViewFactory.CreatePage<UserIsPartOfHomeFlyoutViewModel, UserIsPartOfHomeFlyoutPageFlyout>();
+            Flyout = (Page)ViewFactory.CreatePage<UserIsPartOfHomeFlyoutViewModel, UserIsPartOfHomeFlyoutPageFlyout>();
 
-            Detail.BindingContext = new UserIsPartOfHomeDetailViewModel(Navigation);*/
+            Detail.BindingContext = new UserIsPartOfHomeDetailViewModel(Navigation);
         }
     }
 }

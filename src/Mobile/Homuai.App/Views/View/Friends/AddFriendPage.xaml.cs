@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Homuai.App.ViewModel.Friends;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Homuai.App.Views.View.Friends
@@ -18,13 +19,13 @@ namespace Homuai.App.Views.View.Friends
 
         protected override bool OnBackButtonPressed()
         {
-            /*var binding = (AddFriendViewModel)BindingContext;
+            var binding = (AddFriendViewModel)BindingContext;
             var command = new Command(async () =>
             {
                 await binding.DisconnectFromSocket();
             });
             command.Execute(null);
-            */
+            
             return base.OnBackButtonPressed();
         }
     }

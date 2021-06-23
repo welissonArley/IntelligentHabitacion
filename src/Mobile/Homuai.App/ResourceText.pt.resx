@@ -641,6 +641,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
     <value>Lar, doce lar</value>
   </data>
+  <data name="TITLE_HOMUAI_TOOL_NEW_WAY_ORGANIZE_HOME" xml:space="preserve">
+    <value>O Homuai é sua ferramenta e um novo jeito de organizar sua casa.</value>
+  </data>
   <data name="TITLE_HOUSEWORK" xml:space="preserve">
     <value>Tarefas de limpeza</value>
   </data>
@@ -649,9 +652,6 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
     <value>Sua informação é salva com criptografia e nos não vamos compartilhar com ninguem. Você pode editar ou excluir quando quiser.</value>
-  </data>
-  <data name="TITLE_INTELLIGENT_HABITACION_TOOL_NEW_WAY_ORGANIZE_HOME" xml:space="preserve">
-    <value>O Intelligent Habitacion é sua ferramenta e um novo jeito de organizar sua casa.</value>
   </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>É triste ver você partir :((</value>

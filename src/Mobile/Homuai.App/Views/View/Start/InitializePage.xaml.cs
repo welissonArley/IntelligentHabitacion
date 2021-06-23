@@ -1,6 +1,9 @@
 ﻿using Homuai.App.Services;
+using Homuai.App.ViewModel.Login.DoLogin;
+using Homuai.App.ViewModel.Start;
 using Homuai.App.Views.View.Dashboard.NotPartOfHome;
 using Homuai.App.Views.View.Dashboard.PartOfHome;
+using Homuai.App.Views.View.Login.DoLogin;
 using Plugin.Fingerprint;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -37,14 +40,14 @@ namespace Homuai.App.Views.View.Start
             }
             else
             {
-                /*Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<GetStartedViewModel, GetStartedPage>());
+                Application.Current.MainPage = new NavigationPage((Page)ViewFactory.CreatePage<GetStartedViewModel, GetStartedPage>());
                 if (await userPreferences.AlreadySignedIn() && await CrossFingerprint.Current.IsAvailableAsync())
                 {
                     await Application.Current.MainPage.Navigation.PushAsync((Page)ViewFactory.CreatePage<LoginViewModel, LoginPage>(async (viewModel, page) =>
                     {
                         await viewModel.Initialize();
                     }));
-                }*/
+                }
             }
         }
     }

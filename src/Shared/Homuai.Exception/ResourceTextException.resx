@@ -249,6 +249,12 @@
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
     <value>There area rooms that does not exist in Home</value>
   </data>
+  <data name="ROOM_EMPTY" xml:space="preserve">
+    <value>The room's name must be entered.</value>
+  </data>
+  <data name="ROOM_NAME_EXIST" xml:space="preserve">
+    <value>There is already a room with this name.</value>
+  </data>
   <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
     <value>The State must be entered.</value>
   </data>

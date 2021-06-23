@@ -249,6 +249,12 @@
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
     <value>Há cômodos que não existem na Home</value>
   </data>
+  <data name="ROOM_EMPTY" xml:space="preserve">
+    <value>O nome do cômo deve ser informado.</value>
+  </data>
+  <data name="ROOM_NAME_EXIST" xml:space="preserve">
+    <value>Já existe um cômodo com este nome.</value>
+  </data>
   <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
     <value>O Estado deve ser informado.</value>
   </data>

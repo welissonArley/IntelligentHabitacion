@@ -457,6 +457,24 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The room&apos;s name must be entered..
+        /// </summary>
+        public static string ROOM_EMPTY {
+            get {
+                return ResourceManager.GetString("ROOM_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is already a room with this name..
+        /// </summary>
+        public static string ROOM_NAME_EXIST {
+            get {
+                return ResourceManager.GetString("ROOM_NAME_EXIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The State must be entered..
         /// </summary>
         public static string STATEPROVINCE_EMPTY {

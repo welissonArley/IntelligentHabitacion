@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Homuai.App.ViewModel.AboutThisProject
 {
-    public class ProjectInformationsViewModel : BaseViewModel
+    public class ProjectInformationViewModel : BaseViewModel
     {
         public string UserName { get; }
         public string ProfileColor { get; }
@@ -13,7 +13,7 @@ namespace Homuai.App.ViewModel.AboutThisProject
         public ICommand TermsOfUseCommand { get; }
         public ICommand ShowMeTheLinksCommand { get; }
 
-        public ProjectInformationsViewModel(UserPreferences userPreferences)
+        public ProjectInformationViewModel(UserPreferences userPreferences)
         {
             UserName = userPreferences.Name;
             ProfileColor = userPreferences.ProfileColor;

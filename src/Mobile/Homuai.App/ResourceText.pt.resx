@@ -188,14 +188,14 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
     <value>Selecione as tarefas para cada um dos moradores da casa. Não se preocupe, você pode alterar isso quando quiser :)</value>
   </data>
+  <data name="DESCRIPTION_MY_DATA" xml:space="preserve">
+    <value>Utilize esta opção para visualizar e/ou editar suas informações.</value>
+  </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
     <value>Veja informações de seus produtos. (Qtd, vencimento, etc).</value>
   </data>
   <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
     <value>Veja informações uteis sobre os seus amigos de lar.</value>
-  </data>
-  <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
-    <value>Utilize esta opção para visualizar e/ou editar suas informações.</value>
   </data>
   <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
     <value>Abaixo você vai encontrar informações das suas tarefas realizadas em cada mês :)</value>

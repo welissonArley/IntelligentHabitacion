@@ -288,6 +288,15 @@ namespace Homuai.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use this option to see and/or edit your registry information..
+        /// </summary>
+        public static string DESCRIPTION_MY_DATA {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_MY_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to See information about your products. (Quantity, maturity, etc)..
         /// </summary>
         public static string DESCRIPTION_MY_FOOD {
@@ -302,15 +311,6 @@ namespace Homuai.App {
         public static string DESCRIPTION_MY_FRIENDS {
             get {
                 return ResourceManager.GetString("DESCRIPTION_MY_FRIENDS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use this option to see and/or edit your registry information..
-        /// </summary>
-        public static string DESCRIPTION_MY_INFORMATIONS {
-            get {
-                return ResourceManager.GetString("DESCRIPTION_MY_INFORMATIONS", resourceCulture);
             }
         }
         

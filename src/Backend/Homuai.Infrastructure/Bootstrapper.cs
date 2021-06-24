@@ -27,7 +27,7 @@ namespace Homuai.Infrastructure
                 return new SendGridService(new Domain.ValueObjects.EmailConfig
                 {
                     ApiKey = configuration.GetValue<string>("Settings:SendEmailSettings:ApiKey"),
-                    Name = "Intelligent Habitacion Team",
+                    Name = "Homuai Team",
                     Email = configuration.GetValue<string>("Settings:SendEmailSettings:FromEmail"),
                     SupportEmail = configuration.GetValue<string>("Settings:SendEmailSettings:SupportEmail")
                 });

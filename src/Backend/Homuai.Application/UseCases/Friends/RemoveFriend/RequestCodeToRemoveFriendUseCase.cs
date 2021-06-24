@@ -59,7 +59,7 @@ namespace Homuai.Application.UseCases.Friends.RemoveFriend
             var plainText = $"Olá {adminName}, Use o código abaixo para remover seu amigo da associação com a Home:\n\n\n";
             plainText = $"{plainText}{code}\n\n\n";
             plainText = $"{plainText}Mas lembre-se, não deixe pra depois pois este código será valido por apenas 10 minutos, combinado?\n\n\n";
-            plainText = $"{plainText}Obrigado,\nIntelligent Habitacion Admin Team.";
+            plainText = $"{plainText}Obrigado,\nHomuai Admin Team.";
 
             return plainText;
         }
@@ -80,7 +80,7 @@ namespace Homuai.Application.UseCases.Friends.RemoveFriend
 
             htmlText = $@"{htmlText}<div style=""margin-top: 100px;"">
 			<span style=""font-family: 'Raleway';font-size: 14px;"">Obrigado,</span>
-			<span style=""font-family: 'Raleway';font-size: 14px;display: block;margin-top: 14px;"">Intelligent Habitacion Admin Team.</span>
+			<span style=""font-family: 'Raleway';font-size: 14px;display: block;margin-top: 14px;"">Homuai Admin Team.</span>
 		</div>";
 
             return htmlText;

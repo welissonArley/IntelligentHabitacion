@@ -14,7 +14,7 @@
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AddNewFriendCommand}"></TapGestureRecognizer>
                 </StackLayout.GestureRecognizers>
-                <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://IntelligentHabitacion.App.Resources.ActionAddFriend.svg">
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAddFriend.svg">
                     <ffimageloadingsvg:SvgCachedImage.Transformations>
                         <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
                     </ffimageloadingsvg:SvgCachedImage.Transformations>
@@ -25,7 +25,7 @@
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AddNewItemCommand}"></TapGestureRecognizer>
                 </StackLayout.GestureRecognizers>
-                <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://IntelligentHabitacion.App.Resources.ActionAddProduct.svg">
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAddProduct.svg">
                     <ffimageloadingsvg:SvgCachedImage.Transformations>
                         <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
                     </ffimageloadingsvg:SvgCachedImage.Transformations>
@@ -38,7 +38,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ContactUsCommand}"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
-                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://IntelligentHabitacion.App.Resources.ActionSupport.svg">
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionSupport.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                             <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>
@@ -49,7 +49,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding AboutThisProjectCommand}"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
-                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://IntelligentHabitacion.App.Resources.ActionAboutApp.svg">
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAboutApp.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                             <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>
@@ -60,7 +60,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding LoggoutCommand}"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
-                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://IntelligentHabitacion.App.Resources.ActionLogout.svg">
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionLogout.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                             <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>

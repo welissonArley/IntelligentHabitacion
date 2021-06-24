@@ -194,14 +194,14 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
     <value>Select the tasks for each of the household's residents. Don't worry, you can change this whenever you want :)</value>
   </data>
+  <data name="DESCRIPTION_MY_DATA" xml:space="preserve">
+    <value>Use this option to see and/or edit your registry information.</value>
+  </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
     <value>See information about your products. (Quantity, maturity, etc).</value>
   </data>
   <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
     <value>See useful information about your friends at home.</value>
-  </data>
-  <data name="DESCRIPTION_MY_INFORMATIONS" xml:space="preserve">
-    <value>Use this option to see and/or edit your registry information.</value>
   </data>
   <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
     <value>Below you will find information about your tasks performed each month :)</value>

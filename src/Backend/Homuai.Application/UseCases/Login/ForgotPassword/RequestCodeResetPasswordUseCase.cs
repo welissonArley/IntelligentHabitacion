@@ -57,7 +57,7 @@ namespace Homuai.Application.UseCases.Login.ForgotPassword
             var plainText = $"Olá {userName}, Precisa resetar sua senha para acessar sua conta, certo? Use o código abaixo para prosseguir com a ação:\n\n\n";
             plainText = $"{plainText}{code}\n\n\n";
             plainText = $"{plainText}Mas lembre-se, não deixe pra depois pois este código será valido por apenas 1 hora combinado?\n\n\n";
-            plainText = $"{plainText}Obrigado,\nIntelligent Habitacion Admin Team.";
+            plainText = $"{plainText}Obrigado,\nHomuai Admin Team.";
 
             return plainText;
         }
@@ -78,7 +78,7 @@ namespace Homuai.Application.UseCases.Login.ForgotPassword
 
                 htmlText = $@"{htmlText}<div style=""margin-top: 100px;"">
 			    <span style=""font-family: 'Raleway';font-size: 14px;"">Obrigado,</span>
-			    <span style=""font-family: 'Raleway';font-size: 14px;display: block;margin-top: 14px;"">Intelligent Habitacion Admin Team.</span>
+			    <span style=""font-family: 'Raleway';font-size: 14px;display: block;margin-top: 14px;"">Homuai Admin Team.</span>
 		    </div>";
 
             return htmlText;

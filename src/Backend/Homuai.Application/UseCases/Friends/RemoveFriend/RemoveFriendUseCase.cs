@@ -17,7 +17,7 @@ namespace Homuai.Application.UseCases.Friends.RemoveFriend
 {
     public class RemoveFriendUseCase : IRemoveFriendUseCase
     {
-        private readonly HomuaiUseCase _intelligentHabitacionUseCase;
+        private readonly HomuaiUseCase _homuaiUseCase;
         private readonly ILoggedUser _loggedUser;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPushNotificationService _pushNotificationService;
@@ -30,12 +30,12 @@ namespace Homuai.Application.UseCases.Friends.RemoveFriend
 
         public RemoveFriendUseCase(ILoggedUser loggedUser, IPushNotificationService pushNotificationService,
             IUnitOfWork unitOfWork, ICodeWriteOnlyRepository codeRepository, PasswordEncripter cryptography,
-            HomuaiUseCase intelligentHabitacionUseCase, IUserUpdateOnlyRepository repository,
+            HomuaiUseCase homuaiUseCase, IUserUpdateOnlyRepository repository,
             ICodeReadOnlyRepository codeReadOnlyRepository, IMyFoodsWriteOnlyRepository myFoodsRepository,
             ICleaningScheduleWriteOnlyRepository scheduleRepository)
         {
             _loggedUser = loggedUser;
-            _intelligentHabitacionUseCase = intelligentHabitacionUseCase;
+            _homuaiUseCase = homuaiUseCase;
             _unitOfWork = unitOfWork;
             _pushNotificationService = pushNotificationService;
             _repository = repository;
@@ -65,7 +65,7 @@ namespace Homuai.Application.UseCases.Friends.RemoveFriend
             _myFoodsRepository.DeleteAllFromTheUser(friend.Id);
             await _scheduleRepository.FinishAllFromTheUser(friend.Id, loggedUser.HomeAssociation.HomeId);
 
-            var response = await _intelligentHabitacionUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
+            var response = await _homuaiUseCase.CreateResponse(loggedUser.Email, loggedUser.Id);
 
             await _unitOfWork.Commit();
 

@@ -57,8 +57,8 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 You can download the App for free on:
 
-![[google-play-shield-shield]](https://example.com
-![[app-store-shield]](https://example.com
+[![google-play-shield]](https://example.com)
+[![app-store-shield]](https://example.com)
 
 To get a local copy up and running follow these simple example steps.
 

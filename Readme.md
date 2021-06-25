@@ -80,7 +80,7 @@ To run the app using the API locally do the follow:
 <!-- ROADMAP -->
 ## Roadmap
 
-You can see the [open issues](https://github.com/welissonArley/IntelligentHabitacion/issues) (and known issues) and the [board project](https://github.com/welissonArley/IntelligentHabitacion/projects/1) to see the future features available on the project.
+You can see the [open issues](https://github.com/welissonArley/Homuai/issues) (and known issues) and the [board project](https://github.com/welissonArley/Homuai/projects/1) to see the future features available on the project.
 
 <!-- LICENSE -->
 ## License
@@ -105,16 +105,16 @@ Website: comming soon
 
 <!-- Build Status (Badges) -->
 ## Build Status
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/master?label=master&style=for-the-badge)
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
+![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/master?label=master&style=for-the-badge)
+![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
-[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[contributors-url]: https://github.com/welissonArley/IntelligentHabitacion/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[stars-url]: https://img.shields.io/github/stars/welissonarley/IntelligentHabitacion
-[issues-shield]: https://img.shields.io/github/issues/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[issues-url]: https://github.com/welissonArley/IntelligentHabitacion/issues
+[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Homuai.svg?style=for-the-badge
+[contributors-url]: https://github.com/welissonArley/Homuai/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/welissonArley/Homuai.svg?style=for-the-badge
+[stars-url]: https://img.shields.io/github/stars/welissonarley/Homuai/stargazers
+[issues-shield]: https://img.shields.io/github/issues/welissonArley/Homuai.svg?style=for-the-badge
+[issues-url]: https://github.com/welissonArley/Homuai/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/welissonarley/

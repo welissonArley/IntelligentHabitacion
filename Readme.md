@@ -113,7 +113,7 @@ Website: comming soon
 [contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Homuai.svg?style=for-the-badge
 [contributors-url]: https://github.com/welissonArley/Homuai/graphs/contributors
 [stars-shield]: https://img.shields.io/github/stars/welissonArley/Homuai.svg?style=for-the-badge
-[stars-url]: https://img.shields.io/github/stars/welissonarley/Homuai/stargazers
+[stars-url]: https://github.com/welissonArley/Homuai//stargazers
 [issues-shield]: https://img.shields.io/github/issues/welissonArley/Homuai.svg?style=for-the-badge
 [issues-url]: https://github.com/welissonArley/Homuai/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555

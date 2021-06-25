@@ -41,16 +41,16 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 ### Built With
 
-![xamarin-shield]]
-![netcore-shield]]
-![mysql-shield]]
-![aws-shield]]
-![android-shield]]
-![ios-shield]]
-![windows-shield]]
-![ubuntu-shield]]
-![visualstudio-shield]]
-![figma-shield]]
+![xamarin-shield]
+![netcore-shield]
+![mysql-shield]
+![aws-shield]
+![android-shield]
+![ios-shield]
+![windows-shield]
+![ubuntu-shield]
+![visualstudio-shield]
+![figma-shield]
 
 <!-- GETTING STARTED -->
 ## Getting Started

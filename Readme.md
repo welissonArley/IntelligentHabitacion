@@ -92,7 +92,7 @@ Feel free to use this project to study and help me improve them by becoming a co
 <!-- CONTACT -->
 ## Contact
 
-Support: support@homuai.com
+Support: homuai@homuai.com
 
 Website: comming soon
 

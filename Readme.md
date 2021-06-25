@@ -78,11 +78,18 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/welissonArley/Homuai.git
    ```
-2. Fill all information in `appsettings.Development.json`
+2. Fill all information in `appsettings.Development.json`. NOTE: In the section ConnectionStrings:
    ```sh
-   In the section ConnectionStrings, write your database name separately from the connection, this works to create the database in the start up.
+    {
+        "ConnectionStrings":
+        {
+            "Connection": "Server=localhost;Uid=root;Pwd=@password;",
+            "DatabaseName": "homuai-database-name"
+        },
+        ...
+    }
     ```
-3. Run the Web API;
+3. Run the Web API
 
 To run the app using the API locally do the follow:
 

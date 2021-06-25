@@ -57,8 +57,8 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 You can download the App for free on:
 
-* [GooglePlay](https://example.com)
-* [App Store](https://example.com)
+![[google-play-shield-shield]](https://example.com
+![[app-store-shield]](https://example.com
 
 To get a local copy up and running follow these simple example steps.
 
@@ -126,7 +126,6 @@ Website: comming soon
 [issues-url]: https://github.com/welissonArley/Homuai/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/welissonarley/
-
 [xamarin-shield]: https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white
 [netcore-shield]: https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white
 [mysql-shield]: https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
@@ -138,3 +137,5 @@ Website: comming soon
 [visualstudio-shield]: https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white
 [figma-shield]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
 [buymecoffe-shield]: https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black
+[google-play-shield]: https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white
+[app-store-shield]: https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white

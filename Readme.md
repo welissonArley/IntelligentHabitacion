@@ -41,8 +41,16 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 ### Built With
 
-* [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms)
-* [.NET Core 3.1](http://asp.net/)
+![xamarin-shield]]
+![netcore-shield]]
+![mysql-shield]]
+![aws-shield]]
+![android-shield]]
+![ios-shield]]
+![windows-shield]]
+![ubuntu-shield]]
+![visualstudio-shield]]
+![figma-shield]]
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -113,8 +121,20 @@ Website: comming soon
 [contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Homuai.svg?style=for-the-badge
 [contributors-url]: https://github.com/welissonArley/Homuai/graphs/contributors
 [stars-shield]: https://img.shields.io/github/stars/welissonArley/Homuai.svg?style=for-the-badge
-[stars-url]: https://github.com/welissonArley/Homuai//stargazers
+[stars-url]: https://github.com/welissonArley/Homuai/stargazers
 [issues-shield]: https://img.shields.io/github/issues/welissonArley/Homuai.svg?style=for-the-badge
 [issues-url]: https://github.com/welissonArley/Homuai/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/welissonarley/
+
+[xamarin-shield]: https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white
+[netcore-shield]: https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white
+[mysql-shield]: https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
+[aws-shield]: https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
+[android-shield]: https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white
+[ios-shield]: https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white
+[windows-shield]: https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white
+[ubuntu-shield]: https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white
+[visualstudio-shield]: https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white
+[figma-shield]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[buymecoffe-shield]: https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black

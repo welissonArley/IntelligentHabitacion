@@ -74,15 +74,26 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. Clone the repo;
-2. Fill all information in appsettings.Development.json. NOTE: In the section ConnectionStrings, write your database name separately from the connection, this works to create the database in the start up;
+1. Clone the repo
+   ```sh
+   git clone https://github.com/welissonArley/Homuai.git
+   ```
+2. Fill all information in `appsettings.Development.json`
+   ```sh
+   In the section ConnectionStrings, write your database name separately from the connection, this works to create the database in the start up.
+    ```
 3. Run the Web API;
 
 To run the app using the API locally do the follow:
 
-1. Download and configure ngrok (https://ngrok.com);
+1. Download and configure ngrok
+    ```sh
+       https://ngrok.com
+   ```
 2. Run ngrok;
-3. Change the api link in the file RestEndPoints.cs on the app project to the link shown in the console (the console that you are running ngrok);
+
+3. Change the api link in `RestEndPoints.cs` on the app project to the link shown in the console (the console that you are running ngrok)
+
 4. Have a good time testing.
 
 <!-- ROADMAP -->

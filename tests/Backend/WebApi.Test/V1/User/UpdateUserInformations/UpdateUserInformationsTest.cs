@@ -1,4 +1,5 @@
-﻿using Homuai.Api;
+﻿using FluentAssertions;
+using Homuai.Api;
 using System.Net;
 using System.Threading.Tasks;
 using Useful.ToTests.Builders.Request;
@@ -20,9 +21,9 @@ namespace WebApi.Test.V1.User.UpdateUserInformations
 
             var json = RequestUpdateUser.Instance().Build();
 
-            var request = await DoPutRequest("user", json, token);
+            var response = await DoPutRequest("user", json, token);
 
-            Assert.Equal(HttpStatusCode.OK, request.StatusCode);
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Fact]
@@ -33,9 +34,9 @@ namespace WebApi.Test.V1.User.UpdateUserInformations
             var json = RequestUpdateUser.Instance().Build();
             json.Name = "";
 
-            var request = await DoPutRequest("user", json, token);
+            var response = await DoPutRequest("user", json, token);
 
-            Assert.Equal(HttpStatusCode.BadRequest, request.StatusCode);
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using FluentAssertions;
 using Homuai.Api;
-using Homuai.Communication.Response;
-using Newtonsoft.Json;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Useful.ToTests.Builders.Request;
 using Xunit;
@@ -20,14 +19,16 @@ namespace WebApi.Test.V1.User.Register
         {
             var user = RequestRegisterUser.Instance().Build();
 
-            var request = await DoPostRequest("user", user);
+            var response = await DoPostRequest("user", user);
 
-            Assert.Equal(HttpStatusCode.Created, request.StatusCode);
+            response.StatusCode.Should().Be(HttpStatusCode.Created);
 
-            var response = JsonConvert.DeserializeObject<ResponseUserRegisteredJson>(request.Content.ReadAsStringAsync().Result);
+            await using var responseBody = await response.Content.ReadAsStreamAsync();
 
-            response.Id.Should().NotBeNullOrWhiteSpace();
-            response.ProfileColor.Should().NotBeNullOrWhiteSpace();
+            var responseData = await JsonDocument.ParseAsync(responseBody);
+
+            responseData.RootElement.GetProperty("id").GetString().Should().NotBeNullOrWhiteSpace();
+            responseData.RootElement.GetProperty("profileColor").GetString().Should().NotBeNullOrWhiteSpace();
         }
     }
 }

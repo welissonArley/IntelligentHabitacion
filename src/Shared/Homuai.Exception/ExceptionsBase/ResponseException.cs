@@ -10,6 +10,11 @@ namespace Homuai.Exception.ExceptionsBase
         {
         }
 
+        public ResponseException()
+        {
+
+        }
+
         public string Token { get; set; }
         public object Exception { get; set; }
     }

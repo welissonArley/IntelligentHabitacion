@@ -11,7 +11,7 @@ namespace Homuai.Api.Services
     /// <summary>
     /// 
     /// </summary>
-    public class RunAtMidnightEveryDay : IHostedService, IDisposable
+    public abstract class RunAtMidnightEveryDay : IHostedService, IDisposable
     {
         private System.Timers.Timer _timer;
         private readonly IServiceProvider _serviceProvider;
@@ -30,7 +30,7 @@ namespace Homuai.Api.Services
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task StartAsync(CancellationToken cancellationToken)
+        public virtual async Task StartAsync(CancellationToken cancellationToken)
         {
             await ScheduleJob(cancellationToken);
         }
@@ -88,7 +88,7 @@ namespace Homuai.Api.Services
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task StopAsync(CancellationToken cancellationToken)
+        public virtual async Task StopAsync(CancellationToken cancellationToken)
         {
             _timer?.Stop();
             await Task.CompletedTask;
@@ -97,7 +97,7 @@ namespace Homuai.Api.Services
         /// <summary>
         /// 
         /// </summary>
-        void IDisposable.Dispose()
+        public virtual void Dispose()
         {
             _timer?.Dispose();
         }

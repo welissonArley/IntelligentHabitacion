@@ -1,3 +1,4 @@
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -41,16 +42,7 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 ### Built With
 
-![xamarin-shield]
-![netcore-shield]
-![mysql-shield]
-![aws-shield]
-![android-shield]
-![ios-shield]
-![windows-shield]
-![ubuntu-shield]
-![visualstudio-shield]
-![figma-shield]
+![windows-shield] ![ubuntu-shield] ![figma-shield] ![visualstudio-shield] ![netcore-shield] ![xamarin-shield] ![android-shield] ![ios-shield] ![mysql-shield] ![aws-shield]
 
 <!-- GETTING STARTED -->
 ## Getting Started

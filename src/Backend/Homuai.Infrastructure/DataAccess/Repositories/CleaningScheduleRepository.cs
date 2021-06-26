@@ -118,8 +118,7 @@ namespace Homuai.Infrastructure.DataAccess.Repositories
 
         private bool CountAmountcleanedRecordsToRate(long userId, CleaningTasksCompleted cleaningTasksCompleted, IQueryable<CleaningSchedule> cleaningSchedules)
         {
-            return cleaningSchedules.First(c => c.Id == cleaningTasksCompleted.CleaningScheduleId).UserId == userId ? false :
-                !_context.CleaningRatingUsers.Any(w => w.UserId == userId && w.CleaningTaskCompletedId == cleaningTasksCompleted.Id);
+            return cleaningSchedules.First(c => c.Id == cleaningTasksCompleted.CleaningScheduleId).UserId != userId && !_context.CleaningRatingUsers.Any(w => w.UserId == userId && w.CleaningTaskCompletedId == cleaningTasksCompleted.Id);
         }
 
         public async Task<IList<CleaningScheduleHistoryRoomOfTheDayDto>> GetHistoryOfTheDay(DateTime date, long homeId, string room, long userId)

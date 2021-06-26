@@ -31,7 +31,7 @@ namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
 
             var users = query.Select(c => c.User).Distinct();
 
-            if (query.Count() > 0)
+            if (query.Any())
             {
                 foreach (var result in group)
                 {

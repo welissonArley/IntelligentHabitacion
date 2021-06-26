@@ -1,3 +1,4 @@
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -41,16 +42,7 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 ### Built With
 
-![xamarin-shield]
-![netcore-shield]
-![mysql-shield]
-![aws-shield]
-![android-shield]
-![ios-shield]
-![windows-shield]
-![ubuntu-shield]
-![visualstudio-shield]
-![figma-shield]
+![windows-shield] ![ubuntu-shield] ![figma-shield] ![visualstudio-shield] ![netcore-shield] ![xamarin-shield] ![android-shield] ![ios-shield] ![mysql-shield] ![aws-shield]
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -131,8 +123,9 @@ Website: comming soon
 
 <!-- Build Status (Badges) -->
 ## Build Status
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/master?label=master&style=for-the-badge)
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
+![branches](https://badgen.net/github/branches/welissonarley/homuai?style=for-the-badge)
+![commitDevelop](https://badgen.net/github/last-commit/welissonarley/homuai/develop?label=last%20commit%20on%20develop&style=for-the-badge)
+![commitMaster](https://badgen.net/github/last-commit/welissonarley/homuai/master?label=last%20commit%20on%20master&style=for-the-badge)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png

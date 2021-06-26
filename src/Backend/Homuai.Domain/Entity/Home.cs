@@ -14,7 +14,7 @@ namespace Homuai.Domain.Entity
         public string Neighborhood { get; set; }
         public string City { get; set; }
         public string StateProvince { get; set; }
-        public CountryEnum Country { get; set; }
+        public CountryAvaliable Country { get; set; }
         public short DeadlinePaymentRent { get; set; }
         public string NetworksName { get; set; }
         public string NetworksPassword { get; set; }

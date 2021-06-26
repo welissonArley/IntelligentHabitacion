@@ -41,16 +41,24 @@ Of course, your needs may be different and I can’t promise you that this proje
 
 ### Built With
 
-* [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms)
-* [.NET Core 3.1](http://asp.net/)
+![xamarin-shield]
+![netcore-shield]
+![mysql-shield]
+![aws-shield]
+![android-shield]
+![ios-shield]
+![windows-shield]
+![ubuntu-shield]
+![visualstudio-shield]
+![figma-shield]
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 You can download the App for free on:
 
-* [GooglePlay](https://example.com)
-* [App Store](https://example.com)
+[![google-play-shield]](https://example.com)
+[![app-store-shield]](https://example.com)
 
 To get a local copy up and running follow these simple example steps.
 
@@ -66,21 +74,39 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. Clone the repo;
-2. Fill all information in appsettings.Development.json. NOTE: In the section ConnectionStrings, write your database name separately from the connection, this works to create the database in the start up;
-3. Run the Web API;
+1. Clone the repo
+   ```sh
+   git clone https://github.com/welissonArley/Homuai.git
+   ```
+2. Fill all information in `appsettings.Development.json`. NOTE: In the section ConnectionStrings:
+   ```sh
+    {
+        "ConnectionStrings":
+        {
+            "Connection": "Server=localhost;Uid=root;Pwd=@password;",
+            "DatabaseName": "homuai-database-name"
+        },
+        ...
+    }
+    ```
+3. Run the Web API
 
 To run the app using the API locally do the follow:
 
-1. Download and configure ngrok (https://ngrok.com);
+1. Download and configure ngrok
+    ```sh
+       https://ngrok.com
+   ```
 2. Run ngrok;
-3. Change the api link in the file RestEndPoints.cs on the app project to the link shown in the console (the console that you are running ngrok);
+
+3. Change the api link in `RestEndPoints.cs` on the app project to the link shown in the console (the console that you are running ngrok)
+
 4. Have a good time testing.
 
 <!-- ROADMAP -->
 ## Roadmap
 
-You can see the [open issues](https://github.com/welissonArley/IntelligentHabitacion/issues) (and known issues) and the [board project](https://github.com/welissonArley/IntelligentHabitacion/projects/1) to see the future features available on the project.
+You can see the [open issues](https://github.com/welissonArley/Homuai/issues) (and known issues) and the [board project](https://github.com/welissonArley/Homuai/projects/1) to see the future features available on the project.
 
 <!-- LICENSE -->
 ## License
@@ -92,7 +118,7 @@ Feel free to use this project to study and help me improve them by becoming a co
 <!-- CONTACT -->
 ## Contact
 
-Support: support@homuai.com
+Support: homuai@homuai.com
 
 Website: comming soon
 
@@ -105,16 +131,29 @@ Website: comming soon
 
 <!-- Build Status (Badges) -->
 ## Build Status
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/master?label=master&style=for-the-badge)
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/IntelligentHabitacion/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
+![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/master?label=master&style=for-the-badge)
+![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
-[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[contributors-url]: https://github.com/welissonArley/IntelligentHabitacion/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[stars-url]: https://img.shields.io/github/stars/welissonarley/IntelligentHabitacion
-[issues-shield]: https://img.shields.io/github/issues/welissonArley/IntelligentHabitacion.svg?style=for-the-badge
-[issues-url]: https://github.com/welissonArley/IntelligentHabitacion/issues
+[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Homuai.svg?style=for-the-badge
+[contributors-url]: https://github.com/welissonArley/Homuai/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/welissonArley/Homuai.svg?style=for-the-badge
+[stars-url]: https://github.com/welissonArley/Homuai/stargazers
+[issues-shield]: https://img.shields.io/github/issues/welissonArley/Homuai.svg?style=for-the-badge
+[issues-url]: https://github.com/welissonArley/Homuai/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/welissonarley/
+[xamarin-shield]: https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white
+[netcore-shield]: https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white
+[mysql-shield]: https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
+[aws-shield]: https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
+[android-shield]: https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white
+[ios-shield]: https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white
+[windows-shield]: https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white
+[ubuntu-shield]: https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white
+[visualstudio-shield]: https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white
+[figma-shield]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[buymecoffe-shield]: https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black
+[google-play-shield]: https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white
+[app-store-shield]: https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white

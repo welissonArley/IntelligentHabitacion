@@ -13,10 +13,11 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
         {
             RuleFor(c => homeId).MustAsync(async (idHome, cancelationToken) =>
             {
-                return await repository.HomeHasCleaningScheduleCreated(idHome);
+                var homeHasCleaningScheduleCreated = await repository.HomeHasCleaningScheduleCreated(idHome);
+                return !homeHasCleaningScheduleCreated;
 
             }).WithMessage(ResourceTextException.CLEANING_SCHEDULE_ALREADY_CREATED);
-
+            
             RuleFor(c => c).Must(c => c.Select(k => k.UserId).Distinct().Count() == c.Count()).WithMessage(ResourceTextException.THERE_ARE_DUPLICATE_USERS_REQUEST);
             
             RuleForEach(c => c).ChildRules(users =>

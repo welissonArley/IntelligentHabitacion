@@ -18,7 +18,7 @@
                     <xct:StateView.Template>
                         <DataTemplate>
                             <StackLayout Margin="0,20,0,0" IsEnabled="False">
-                                <Label Text="{x:Static resourceText:ResourceText.TITLE_RATING}" FontSize="18" TextColor="Black" Style="{x:StaticResource LabelSemiBold}"></Label>
+                                <Label Text="{x:Static resourceText:ResourceText.TITLE_RATING}" FontSize="18" Style="{x:StaticResource LabelSemiBold}"></Label>
                                 <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5" Margin="0,20,0,0"></BoxView>
 
                                 <customControl:SkeletonView WidthRequest="80" HorizontalOptions="Start" HeightRequest="14" Margin="0,8,0,0"/>

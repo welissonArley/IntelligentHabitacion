@@ -1,4 +1,5 @@
 ﻿using Android.Content;
+using Android.OS;
 using Homuai.App.Droid.CustomControl;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -16,7 +17,7 @@ namespace Homuai.App.Droid.CustomControl
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement.HasShadow)
+            if (e.NewElement.HasShadow && Build.VERSION.SdkInt >= BuildVersionCodes.Q)
             {
                 var color = GetShadowColor();
                 SetOutlineSpotShadowColor(color);

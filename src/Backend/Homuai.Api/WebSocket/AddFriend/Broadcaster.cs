@@ -12,7 +12,7 @@ namespace Homuai.Api.WebSocket.AddFriend
     {
         private readonly static Lazy<Broadcaster> _instance = new Lazy<Broadcaster>(() => new Broadcaster());
 
-        private ConcurrentDictionary<string, object> _dictionary;
+        private ConcurrentDictionary<string, object> _dictionary { get; set; }
 
         /// <summary>
         /// 

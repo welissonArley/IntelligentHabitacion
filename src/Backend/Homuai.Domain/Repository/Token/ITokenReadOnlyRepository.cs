@@ -4,6 +4,6 @@ namespace Homuai.Domain.Repository.Token
 {
     public interface ITokenReadOnlyRepository
     {
-        Task<Entity.Token> GetByUserId(long id);
+        Task<Entity.Token> GetByUserId(long userId);
     }
 }

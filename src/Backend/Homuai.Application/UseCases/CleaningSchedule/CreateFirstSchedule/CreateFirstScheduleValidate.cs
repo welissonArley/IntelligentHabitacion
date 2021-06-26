@@ -13,7 +13,7 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
         {
             RuleFor(c => homeId).MustAsync(async (idHome, cancelationToken) =>
             {
-                return await repository.HomeHasCleaningScheduleCreated(idHome) == false;
+                return await repository.HomeHasCleaningScheduleCreated(idHome);
 
             }).WithMessage(ResourceTextException.CLEANING_SCHEDULE_ALREADY_CREATED);
 

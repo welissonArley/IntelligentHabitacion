@@ -15,7 +15,7 @@ namespace Homuai.Application.UseCases.Home.UpdateHomeInformations
             RuleFor(x => x.City).NotNull().WithMessage(ResourceTextException.CITY_EMPTY);
             When(x => x.Rooms.Count > 0, () =>
             {
-                RuleFor(x => x.Rooms).Must(x => x.ToList().Distinct().Count() == x.Count()).WithMessage(ResourceTextException.THERE_ARE_DUPLICATED_ROOMS);
+                RuleFor(x => x.Rooms).Must(x => x.Distinct().Count() == x.Count()).WithMessage(ResourceTextException.THERE_ARE_DUPLICATED_ROOMS);
             });
         }
     }

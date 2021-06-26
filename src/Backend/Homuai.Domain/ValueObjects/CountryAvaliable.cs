@@ -1,6 +1,6 @@
 ﻿namespace Homuai.Domain.ValueObjects
 {
-    public enum CountryEnum
+    public enum CountryAvaliable
     {
         AUSTRALIA = 1,
         BELGIUM = 2,

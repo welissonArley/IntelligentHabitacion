@@ -14,7 +14,7 @@ namespace Homuai.Api.Services
     public class RunAtMidnightEveryDay : IHostedService, IDisposable
     {
         private System.Timers.Timer _timer;
-        private IServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
         
         /// <summary>
         /// 
@@ -40,7 +40,7 @@ namespace Homuai.Api.Services
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        protected virtual async Task ScheduleJob(CancellationToken cancellationToken)
+        private async Task ScheduleJob(CancellationToken cancellationToken)
         {
             var delay = DateTime.UtcNow.Date.AddDays(1) - DateTime.UtcNow;
             _timer = new System.Timers.Timer(delay.TotalMilliseconds);
@@ -100,6 +100,15 @@ namespace Homuai.Api.Services
         public void Dispose()
         {
             _timer?.Dispose();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            Dispose();
         }
     }
 }

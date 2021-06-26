@@ -5,6 +5,6 @@ namespace Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome
 {
     public interface IChangeDateFriendJoinHomeUseCase
     {
-        Task<ResponseOutput> Execute(long myFriendId, RequestDateJson editMyFood);
+        Task<ResponseOutput> Execute(long myFriendId, RequestDateJson request);
     }
 }

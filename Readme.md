@@ -123,8 +123,9 @@ Website: comming soon
 
 <!-- Build Status (Badges) -->
 ## Build Status
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/master?label=master&style=for-the-badge)
-![Build Status](https://img.shields.io/github/workflow/status/welissonarley/Homuai/workflows/dotnet.yml/develop?label=develop&style=for-the-badge)
+![branches](https://badgen.net/github/branches/welissonarley/homuai?style=for-the-badge)
+![commitDevelop](https://badgen.net/github/last-commit/welissonarley/homuai/develop?label=last%20commit%20on%20develop&style=for-the-badge)
+![commitMaster](https://badgen.net/github/last-commit/welissonarley/homuai/master?label=last%20commit%20on%20master&style=for-the-badge)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png

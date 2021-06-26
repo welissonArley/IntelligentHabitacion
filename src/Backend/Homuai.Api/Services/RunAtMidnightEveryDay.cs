@@ -11,7 +11,7 @@ namespace Homuai.Api.Services
     /// <summary>
     /// 
     /// </summary>
-    public abstract class RunAtMidnightEveryDay : IHostedService, IDisposable
+    public class RunAtMidnightEveryDay : IHostedService, IDisposable
     {
         private System.Timers.Timer _timer;
         private readonly IServiceProvider _serviceProvider;
@@ -97,7 +97,7 @@ namespace Homuai.Api.Services
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Dispose()
+        public void Dispose()
         {
             _timer?.Dispose();
         }

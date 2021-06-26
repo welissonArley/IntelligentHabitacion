@@ -39,6 +39,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"welissonArley_Homuai" /o:"welissonarley" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"welissonArley_Homuai" /o:"welissonarley" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"  /d:sonar.cs.opencover.reportsPaths=tests\Backend\*.Test\coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io"
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -l trx
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

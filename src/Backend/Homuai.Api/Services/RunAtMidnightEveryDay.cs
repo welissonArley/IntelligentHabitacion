@@ -97,18 +97,9 @@ namespace Homuai.Api.Services
         /// <summary>
         /// 
         /// </summary>
-        public void Dispose()
+        void IDisposable.Dispose()
         {
             _timer?.Dispose();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="disposing"></param>
-        protected virtual void Dispose(bool disposing)
-        {
-            Dispose();
         }
     }
 }

@@ -16,7 +16,7 @@
                 </StackLayout.GestureRecognizers>
                 <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.IconTabHome.svg">
                     <ffimageloadingsvg:SvgCachedImage.Transformations>
-                        <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                        <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                 </ffimageloadingsvg:SvgCachedImage>
                 <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_CREATE_HOME}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
@@ -29,7 +29,7 @@
                     </StackLayout.GestureRecognizers>
                     <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionSupport.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
-                            <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                            <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>
                     </ffimageloadingsvg:SvgCachedImage>
                     <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_CONTACT_US}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
@@ -40,7 +40,7 @@
                     </StackLayout.GestureRecognizers>
                     <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAboutApp.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
-                            <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                            <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>
                     </ffimageloadingsvg:SvgCachedImage>
                     <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_ABOUT_THIS_PROJECT}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
@@ -51,7 +51,7 @@
                     </StackLayout.GestureRecognizers>
                     <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionLogout.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
-                            <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                            <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>
                     </ffimageloadingsvg:SvgCachedImage>
                     <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_LOGOUT}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>

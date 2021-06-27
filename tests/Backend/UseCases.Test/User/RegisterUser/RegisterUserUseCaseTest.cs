@@ -52,7 +52,8 @@ namespace UseCases.Test.User.RegisterUser
             validationResult.ResponseJson.Should().BeOfType<ResponseUserRegisteredJson>();
 
             var responseJson = validationResult.ResponseJson.As<ResponseUserRegisteredJson>();
-            responseJson.ProfileColor.Should().NotBeNullOrEmpty().And.StartWith("#");
+            responseJson.ProfileColorLightMode.Should().NotBeNullOrEmpty().And.StartWith("#");
+            responseJson.ProfileColorDarkMode.Should().NotBeNullOrEmpty().And.StartWith("#");
             responseJson.Id.Should().NotBeNullOrEmpty();
         }
 

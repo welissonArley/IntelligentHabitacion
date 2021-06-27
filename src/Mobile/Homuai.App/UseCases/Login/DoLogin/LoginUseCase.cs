@@ -42,7 +42,8 @@ namespace Homuai.App.UseCases.Login.DoLogin
                 Password = password,
                 Name = response.Content.Name,
                 IsAdministrator = response.Content.IsAdministrator,
-                ProfileColor = response.Content.ProfileColor,
+                ProfileColorDarkMode = response.Content.ProfileColorDarkMode,
+                ProfileColorLightMode = response.Content.ProfileColorLightMode,
                 IsPartOfOneHome = response.Content.IsPartOfOneHome,
                 Width = Application.Current.MainPage.Width,
                 Id = response.Content.Id

@@ -25,7 +25,7 @@
                         <Line WidthRequest="0.5" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"/>
                         <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" Margin="15,0,0,0" Source="resource://Homuai.App.Resources.IconEdit.svg">
                             <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                                <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                             </ffimageloadingsvg:SvgCachedImage.Transformations>
                         </ffimageloadingsvg:SvgCachedImage>
                     </StackLayout>

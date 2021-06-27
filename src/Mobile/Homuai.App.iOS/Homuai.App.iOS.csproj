@@ -263,15 +263,6 @@
     <BundleResource Include="Resources\IlustrationWave%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\WhiteEllipse.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WhiteEllipse%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WhiteEllipse%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ActionButtonAdd.png" />
   </ItemGroup>
   <ItemGroup>
@@ -443,15 +434,6 @@
     <BundleResource Include="Resources\IconOrderHasArrived%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\IconPhone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconPhone%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IconPhone%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IconQuestion.png" />
   </ItemGroup>
   <ItemGroup>
@@ -543,5 +525,41 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IlustrationCreateHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconPhoneDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconPhoneDark%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconPhoneDark%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconPhoneLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconPhoneLight%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconPhoneLight%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EllipseImageDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EllipseImageDark%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EllipseImageDark%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EllipseImageLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EllipseImageLight%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EllipseImageLight%403x.png" />
   </ItemGroup>
 </Project>

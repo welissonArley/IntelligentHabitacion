@@ -52,7 +52,8 @@ namespace Homuai.App.UseCases.CleaningSchedule.CreateFirstSchedule
                 Date = response.Date,
                 AmountOfTasks = response.AmountOfTasks,
                 Name = response.Name,
-                ProfileColor = response.ProfileColor,
+                ProfileColorDarkMode = response.ProfileColorDarkMode,
+                ProfileColorLightMode = response.ProfileColorLightMode,
                 Tasks = new ObservableCollection<TaskModel>(response.Tasks.Select(c => new TaskModel
                 {
                     IdTaskToRegisterRoomCleaning = c.IdTaskToRegisterRoomCleaning,
@@ -64,7 +65,8 @@ namespace Homuai.App.UseCases.CleaningSchedule.CreateFirstSchedule
                     {
                         Id = w.Id,
                         Name = w.Name,
-                        ProfileColor = w.ProfileColor
+                        ProfileColorLightMode = w.ProfileColorLightMode,
+                        ProfileColorDarkMode = w.ProfileColorDarkMode
                     }))
                 }))
             };

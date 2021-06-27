@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public bool IsPartOfOneHome { get; set; }
         public bool IsAdministrator { get; set; }
-        public string ProfileColor { get; set; }
+        public string ProfileColorLightMode { get; set; }
+        public string ProfileColorDarkMode { get; set; }
     }
 }

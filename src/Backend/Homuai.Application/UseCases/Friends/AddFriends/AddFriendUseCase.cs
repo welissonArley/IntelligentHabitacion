@@ -92,7 +92,8 @@ namespace Homuai.Application.UseCases.Friends.AddFriends
                 Phonenumbers = user.Phonenumbers.Select(c => new ResponsePhonenumberJson { Number = c.Number }).ToList(),
                 EmergencyContacts = user.EmergencyContacts.Select(c => new ResponseEmergencyContactJson
                 { Name = c.Name, Relationship = c.Relationship, Phonenumber = c.Phonenumber }).ToList(),
-                ProfileColor = user.ProfileColor,
+                ProfileColorLightMode = user.ProfileColorLightMode,
+                ProfileColorDarkMode = user.ProfileColorDarkMode,
                 AdminId = _hashIds.EncodeLong(admin.Id)
             };
         }

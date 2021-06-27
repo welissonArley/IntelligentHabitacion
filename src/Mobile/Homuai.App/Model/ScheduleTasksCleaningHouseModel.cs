@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Xamarin.Forms;
 using XLabs.Data;
 
 namespace Homuai.App.Model
@@ -12,7 +13,16 @@ namespace Homuai.App.Model
             AvaliableUsersToAssign = new ObservableCollection<UserSimplifiedModel>();
         }
 
-        public string ProfileColor { get; set; }
+        public string ProfileColor
+        {
+            get
+            {
+                return Application.Current.RequestedTheme == OSAppTheme.Dark ? ProfileColorDarkMode : ProfileColorLightMode;
+            }
+        }
+        public string ProfileColorLightMode { get; set; }
+        public string ProfileColorDarkMode { get; set; }
+
         public string Name { get; set; }
         public int AmountOfTasks { get; set; }
 

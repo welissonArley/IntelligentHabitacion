@@ -83,7 +83,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.GetTasks
             return new ResponseScheduleTasksCleaningHouseJson
             {
                 Date = date,
-                ProfileColor = loggedUser.ProfileColor,
+                ProfileColorDarkMode = loggedUser.ProfileColorDarkMode,
+                ProfileColorLightMode = loggedUser.ProfileColorLightMode,
                 Name = loggedUser.Name,
                 AmountOfTasks = schedules.Count(c => c.UserId == loggedUser.Id),
                 Tasks = await ScheduleTasksFormatter(date, loggedUser, users, schedules),
@@ -117,7 +118,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.GetTasks
                         {
                             Id = _hashids.EncodeLong(loggedUser.Id),
                             Name = loggedUser.Name,
-                            ProfileColor = loggedUser.ProfileColor
+                            ProfileColorLightMode = loggedUser.ProfileColorLightMode,
+                            ProfileColorDarkMode = loggedUser.ProfileColorDarkMode
                         }
                     }
                 };
@@ -132,7 +134,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.GetTasks
                     {
                         Id = _hashids.EncodeLong(user.Id),
                         Name = user.Name,
-                        ProfileColor = user.ProfileColor
+                        ProfileColorDarkMode = user.ProfileColorDarkMode,
+                        ProfileColorLightMode = user.ProfileColorLightMode
                     });
                 }
 
@@ -153,7 +156,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.GetTasks
                         {
                             Id = _hashids.EncodeLong(c.Id),
                             Name = c.Name,
-                            ProfileColor = c.ProfileColor
+                            ProfileColorDarkMode = c.ProfileColorDarkMode,
+                            ProfileColorLightMode = c.ProfileColorLightMode
                         }).ToList()
                 });
             }

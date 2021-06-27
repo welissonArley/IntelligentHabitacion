@@ -1,4 +1,5 @@
-﻿using Homuai.App.Model;
+﻿using FFImageLoading.Svg.Forms;
+using Homuai.App.Model;
 using Homuai.App.Services;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +75,7 @@ namespace Homuai.App.Views.Templates.Information
                 HeightRequest = 30,
                 CornerRadius = 15,
                 Margin = new Thickness(15, 10, 15, 30),
-                Source = ImageSource.FromFile("IconPhone"),
+                Source = ImageSource.FromFile(Application.Current.RequestedTheme == OSAppTheme.Dark ? "IconPhoneDark" : "IconPhoneLight"),
                 Padding = new Thickness(0, 7, 0, 7)
             };
             imageButton.Clicked += (obg, events) =>

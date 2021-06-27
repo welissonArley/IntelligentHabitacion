@@ -46,7 +46,8 @@ namespace Homuai.App.UseCases.CleaningSchedule.GetTasks
                     Date = response.Schedule.Date,
                     AmountOfTasks = response.Schedule.AmountOfTasks,
                     Name = response.Schedule.Name,
-                    ProfileColor = response.Schedule.ProfileColor,
+                    ProfileColorDarkMode = response.Schedule.ProfileColorDarkMode,
+                    ProfileColorLightMode = response.Schedule.ProfileColorLightMode,
                     Tasks = new ObservableCollection<TaskModel>(response.Schedule.Tasks.Select(c => new TaskModel
                     {
                         IdTaskToRegisterRoomCleaning = c.IdTaskToRegisterRoomCleaning,
@@ -58,14 +59,16 @@ namespace Homuai.App.UseCases.CleaningSchedule.GetTasks
                         {
                             Id = w.Id,
                             Name = w.Name,
-                            ProfileColor = w.ProfileColor
+                            ProfileColorLightMode = w.ProfileColorLightMode,
+                            ProfileColorDarkMode = w.ProfileColorDarkMode
                         }))
                     })),
                     AvaliableUsersToAssign = new ObservableCollection<UserSimplifiedModel>(response.Schedule.AvaliableUsersToAssign.Select(c => new UserSimplifiedModel
                     {
                         Id = c.Id,
                         Name = c.Name,
-                        ProfileColor = c.ProfileColor
+                        ProfileColorDarkMode = c.ProfileColorDarkMode,
+                        ProfileColorLightMode = c.ProfileColorLightMode
                     }))
                 },
                 CreateSchedule = new CreateScheduleCleaningHouseModel
@@ -79,7 +82,8 @@ namespace Homuai.App.UseCases.CleaningSchedule.GetTasks
                     {
                         Id = c.Id,
                         Name = c.Name,
-                        ProfileColor = c.ProfileColor
+                        ProfileColorLightMode = c.ProfileColorLightMode,
+                        ProfileColorDarkMode = c.ProfileColorDarkMode
                     }))
                 }
             };

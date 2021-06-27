@@ -1,4 +1,5 @@
-﻿using XLabs.Data;
+﻿using Xamarin.Forms;
+using XLabs.Data;
 
 namespace Homuai.App.Model
 {
@@ -6,6 +7,15 @@ namespace Homuai.App.Model
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string ProfileColor { get; set; }
+        public string ProfileColor
+        {
+            get
+            {
+                return Application.Current.RequestedTheme == OSAppTheme.Dark ? ProfileColorDarkMode : ProfileColorLightMode;
+            }
+        }
+
+        public string ProfileColorLightMode { get; set; }
+        public string ProfileColorDarkMode { get; set; }
     }
 }

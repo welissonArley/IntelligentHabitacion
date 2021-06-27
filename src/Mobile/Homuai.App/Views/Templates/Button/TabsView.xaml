@@ -18,7 +18,7 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                             <ffimageloadingsvg:SvgCachedImage IsVisible="{Binding IsCurrent, Converter={StaticResource InverseBoolConverter}}" WidthRequest="15" HeightRequest="15" Source="{Binding HeaderIcon, Converter={StaticResource SvgImageSourceConverter}}">
                                 <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                    <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                                    <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                                 </ffimageloadingsvg:SvgCachedImage.Transformations>
                             </ffimageloadingsvg:SvgCachedImage>
 

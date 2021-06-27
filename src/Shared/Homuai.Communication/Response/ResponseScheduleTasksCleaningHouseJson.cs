@@ -11,7 +11,8 @@ namespace Homuai.Communication.Response
             AvaliableUsersToAssign = new List<ResponseUserSimplifiedJson>();
         }
 
-        public string ProfileColor { get; set; }
+        public string ProfileColorLightMode { get; set; }
+        public string ProfileColorDarkMode { get; set; }
         public string Name { get; set; }
         public int AmountOfTasks { get; set; }
         

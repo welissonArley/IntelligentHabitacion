@@ -131,7 +131,7 @@ namespace Homuai.App.Views.Templates.Information
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Text = new Services.ShortNameConverter().Converter(name),
-                TextColor = Color.White,
+                TextColor = Application.Current.RequestedTheme == OSAppTheme.Dark ? (Color)Application.Current.Resources["DarkModePrimaryColor"] : Color.White,
                 FontSize = 14,
                 Style = (Style)Application.Current.Resources["LabelBold"]
             }, 0, 0);

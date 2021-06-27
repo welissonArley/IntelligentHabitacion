@@ -8,6 +8,7 @@
         RegisterFinances = 4,
         PushNotification = 5,
         RegisterRooms = 6,
-        CleaningSchedule = 7
+        CleaningSchedule = 7,
+        ProfileColor = 8
     }
 }

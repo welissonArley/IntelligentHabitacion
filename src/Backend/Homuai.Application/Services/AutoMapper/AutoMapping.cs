@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using HashidsNet;
-using Homuai.Domain.ValueObjects;
 using System.Linq;
 
 namespace Homuai.Application.Services.AutoMapper
@@ -19,8 +18,7 @@ namespace Homuai.Application.Services.AutoMapper
 
         private void RequestToDomain()
         {
-            CreateMap<Communication.Request.RequestRegisterUserJson, Domain.Entity.User>()
-                .ForMember(c => c.ProfileColor, opt => opt.MapFrom(src => new Color().RandomColor()));
+            CreateMap<Communication.Request.RequestRegisterUserJson, Domain.Entity.User>();
 
             CreateMap<string, Domain.Entity.Phonenumber>()
                 .ForMember(c => c.Number, opt => opt.MapFrom(src => src));

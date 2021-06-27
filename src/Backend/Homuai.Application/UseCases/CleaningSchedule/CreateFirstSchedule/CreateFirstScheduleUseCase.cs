@@ -99,7 +99,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
             return new ResponseScheduleTasksCleaningHouseJson
             {
                 Date = DateTime.UtcNow,
-                ProfileColor = loggedUser.ProfileColor,
+                ProfileColorDarkMode = loggedUser.ProfileColorDarkMode,
+                ProfileColorLightMode = loggedUser.ProfileColorLightMode,
                 Name = loggedUser.Name,
                 AmountOfTasks = schedules.Count(c => c.UserId == loggedUser.Id),
                 Tasks = ScheduleTasksFormatter(loggedUser, users, schedules)
@@ -131,7 +132,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
                         {
                             Id = _hashids.EncodeLong(loggedUser.Id),
                             Name = loggedUser.Name,
-                            ProfileColor = loggedUser.ProfileColor
+                            ProfileColorLightMode = loggedUser.ProfileColorLightMode,
+                            ProfileColorDarkMode = loggedUser.ProfileColorDarkMode
                         }
                     }
                 };
@@ -146,7 +148,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
                     {
                         Id = _hashids.EncodeLong(user.Id),
                         Name = user.Name,
-                        ProfileColor = user.ProfileColor
+                        ProfileColorDarkMode = user.ProfileColorDarkMode,
+                        ProfileColorLightMode = user.ProfileColorLightMode
                     });
                 }
 
@@ -167,7 +170,8 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
                         {
                             Id = _hashids.EncodeLong(c.Id),
                             Name = c.Name,
-                            ProfileColor = c.ProfileColor
+                            ProfileColorLightMode = c.ProfileColorLightMode,
+                            ProfileColorDarkMode = c.ProfileColorDarkMode
                         }).ToList()
                 });
             }

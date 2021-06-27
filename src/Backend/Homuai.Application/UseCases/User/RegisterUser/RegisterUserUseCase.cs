@@ -4,6 +4,7 @@ using Homuai.Communication.Request;
 using Homuai.Communication.Response;
 using Homuai.Domain.Repository;
 using Homuai.Domain.Repository.User;
+using Homuai.Domain.ValueObjects;
 using Homuai.Exception.ExceptionsBase;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,8 +36,12 @@ namespace Homuai.Application.UseCases.User.RegisterUser
         {
             await ValidateRequest(registerUserJson);
 
+            var colors = new Color().RandomColor();
+
             var userModel = _mapper.Map<Domain.Entity.User>(registerUserJson);
             userModel.Password = _cryptography.Encrypt(userModel.Password);
+            userModel.ProfileColorLightMode = colors.colorLightMode;
+            userModel.ProfileColorDarkMode = colors.colorDarkMode;
 
             await _repository.Add(userModel);
             await _unitOfWork.Commit();

@@ -83,7 +83,8 @@ namespace Homuai.App.ViewModel.Friends
             Model = new AcceptNewFriendModel
             {
                 Name = newFriendToAddJson.Name,
-                ProfileColor = newFriendToAddJson.ProfileColor,
+                ProfileColorDarkMode = newFriendToAddJson.ProfileColorDarkMode,
+                ProfileColorLightMode = newFriendToAddJson.ProfileColorLightMode,
                 EntryDate = DateTime.Today.Date,
                 MonthlyRent = 0.00m
             };
@@ -154,7 +155,7 @@ namespace Homuai.App.ViewModel.Friends
         {
             CallbackOnFriendAdded = callBackFriendAdded;
 
-            ProfileColor = _userPreferences.ProfileColor;
+            ProfileColor = _userPreferences.ProfileColor();
             OnPropertyChanged(new PropertyChangedEventArgs("ProfileColor"));
 
             var callbackCodeIsReceived = new Command((code) =>

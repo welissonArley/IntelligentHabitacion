@@ -1,6 +1,7 @@
 ﻿using Homuai.App.ValueObjects.Dtos;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Homuai.App.Services
 {
@@ -15,11 +16,6 @@ namespace Homuai.App.Services
         {
             get => Preferences.Get("NAME", null);
             private set => Preferences.Set("NAME", value);
-        }
-        public string ProfileColor
-        {
-            get => Preferences.Get("PROFILECOLOR", null);
-            private set => Preferences.Set("PROFILECOLOR", value);
         }
         public bool IsPartOfOneHome
         {
@@ -50,10 +46,13 @@ namespace Homuai.App.Services
         public async Task SaveInitialUserInfos(UserPreferenceDto userPreference)
         {
             Name = userPreference.Name;
-            ProfileColor = userPreference.ProfileColor;
             IsAdministrator = userPreference.IsAdministrator;
             IsPartOfOneHome = userPreference.IsPartOfOneHome;
             Width = userPreference.Width;
+
+            Preferences.Set("PROFILECOLOR_LightMode", userPreference.ProfileColorLightMode);
+            Preferences.Set("PROFILECOLOR_DarkMode", userPreference.ProfileColorDarkMode);
+
             await SecureStorage.SetAsync(_keyId, userPreference.Id);
             await SecureStorage.SetAsync(_keyEmail, userPreference.Email);
             await ChangePassword(userPreference.Password);
@@ -98,6 +97,13 @@ namespace Homuai.App.Services
         public void UserIsPartOfOneHome(bool isPartOfOneHome)
         {
             IsPartOfOneHome = isPartOfOneHome;
+        }
+        public string ProfileColor()
+        {
+            if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                return Preferences.Get("PROFILECOLOR_DarkMode", null);
+
+            return Preferences.Get("PROFILECOLOR_LightMode", null);
         }
 
         public async Task<bool> AlreadySignedIn()

@@ -136,7 +136,8 @@ namespace Homuai.App.ViewModel.Friends
                 Id = json.Id,
                 JoinedOn = json.JoinedOn,
                 Name = json.Name,
-                ProfileColor = json.ProfileColor,
+                ProfileColorLightMode = json.ProfileColorLightMode,
+                ProfileColorDarkMode = json.ProfileColorDarkMode,
                 Phonenumbers = json.Phonenumbers.Select(w => w.Number).ToList(),
                 EmergencyContacts = json.EmergencyContacts.Select(w => new EmergencyContactModel
                 {

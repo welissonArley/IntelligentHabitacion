@@ -10,7 +10,8 @@ namespace Homuai.Domain.Entity
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string ProfileColor { get; set; }
+        public string ProfileColorLightMode { get; set; }
+        public string ProfileColorDarkMode { get; set; }
         public string PushNotificationId { get; set; }
         public ICollection<Phonenumber> Phonenumbers { get; set; }
         public ICollection<EmergencyContact> EmergencyContacts { get; set; }

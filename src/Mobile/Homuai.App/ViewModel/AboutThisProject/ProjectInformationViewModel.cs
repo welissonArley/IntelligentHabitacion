@@ -16,7 +16,7 @@ namespace Homuai.App.ViewModel.AboutThisProject
         public ProjectInformationViewModel(UserPreferences userPreferences)
         {
             UserName = userPreferences.Name;
-            ProfileColor = userPreferences.ProfileColor;
+            ProfileColor = userPreferences.ProfileColor();
 
             PrivacyPolicyCommand = new Command(async () => await Navigation.PushAsync<PrivacyPolicyViewModel>());
             TermsOfUseCommand = new Command(async () => await Navigation.PushAsync<TermsOfUseViewModel>());

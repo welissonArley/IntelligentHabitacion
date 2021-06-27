@@ -22,7 +22,8 @@ namespace WebApi.Test.Builder.Entities
                 Email = "user1@email.com.br",
                 Password = "",
                 Name = "User 1",
-                ProfileColor = "#000000",
+                ProfileColorDarkMode = "#FFFFFF",
+                ProfileColorLightMode = "#000000",
                 PushNotificationId = Guid.NewGuid().ToString(),
                 EmergencyContacts = new Collection<EmergencyContact>
                 {

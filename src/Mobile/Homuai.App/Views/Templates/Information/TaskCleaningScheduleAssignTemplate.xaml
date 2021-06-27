@@ -35,7 +35,7 @@
                                 </StackLayout.GestureRecognizers>
                                 <ffimageloadingsvg:SvgCachedImage HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.IconEdit.svg">
                                     <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                        <appTransformation:AppColorTransformation></appTransformation:AppColorTransformation>
+                                        <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
                                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                                 </ffimageloadingsvg:SvgCachedImage>
                             </StackLayout>

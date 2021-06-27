@@ -28,7 +28,8 @@ namespace WebApi.Test.V1.User.Register
             var responseData = await JsonDocument.ParseAsync(responseBody);
 
             responseData.RootElement.GetProperty("id").GetString().Should().NotBeNullOrWhiteSpace();
-            responseData.RootElement.GetProperty("profileColor").GetString().Should().NotBeNullOrWhiteSpace();
+            responseData.RootElement.GetProperty("profileColorLightMode").GetString().Should().NotBeNullOrWhiteSpace();
+            responseData.RootElement.GetProperty("profileColorDarkMode").GetString().Should().NotBeNullOrWhiteSpace();
         }
     }
 }

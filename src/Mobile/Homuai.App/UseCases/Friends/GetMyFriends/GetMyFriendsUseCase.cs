@@ -39,7 +39,8 @@ namespace Homuai.App.UseCases.Friends.GetMyFriends
             {
                 Id = c.Id,
                 Name = c.Name,
-                ProfileColor = c.ProfileColor,
+                ProfileColorLightMode = c.ProfileColorLightMode,
+                ProfileColorDarkMode = c.ProfileColorDarkMode,
                 JoinedOn = c.JoinedOn,
                 DescriptionDateJoined = c.DescriptionDateJoined,
                 Phonenumbers = c.Phonenumbers.Select(w => w.Number).ToList(),

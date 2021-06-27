@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FFImageLoading.Svg.Forms;
+using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
@@ -104,7 +105,7 @@ namespace Homuai.App.Views.Templates.Information
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HeightRequest = 16,
                 WidthRequest = 35,
-                Source = ImageSource.FromFile("IconPhone")
+                Source = ImageSource.FromFile(Application.Current.RequestedTheme == OSAppTheme.Dark ? "IconPhoneDark" : "IconPhoneLight"),
             }, 0, 0);
 
             stackLayout.Children.Add(new StackLayout

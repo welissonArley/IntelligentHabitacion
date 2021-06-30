@@ -121,7 +121,7 @@
     <value>The address must be entered.</value>
   </data>
   <data name="ALL_USER_WITHOUT_CLEANING_TASKS" xml:space="preserve">
-    <value>It is not possible to leave the cleaning schedule with ALL users without tasks.</value>
+    <value>It is not possible to set the cleaning schedule when NO users have tasks.</value>
   </data>
   <data name="CITY_EMPTY" xml:space="preserve">
     <value>The City's name must be entered.</value>
@@ -154,10 +154,10 @@
     <value>The current password is invalid.</value>
   </data>
   <data name="DATE_MUST_BE_LESS_THAN" xml:space="preserve">
-    <value>The date must be less than {0}.</value>
+    <value>The date must be before {0}.</value>
   </data>
   <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
-    <value>The duedate must be grater than today.</value>
+    <value>The duedate must be after today.</value>
   </data>
   <data name="EMAIL_ALREADYBEENREGISTERED" xml:space="preserve">
     <value>This email address has already been registered.</value>
@@ -166,7 +166,7 @@
     <value>E-mail must be entered.</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>The E-mail is invalid.</value>
+    <value>The e-mail is invalid.</value>
   </data>
   <data name="EMERGENCYCONTACT_EMPTY" xml:space="preserve">
     <value>An emergency contact must be informed.</value>
@@ -187,7 +187,7 @@
     <value>Password must be at least 6 characters.</value>
   </data>
   <data name="INVALID_TASK" xml:space="preserve">
-    <value>Task invalid.</value>
+    <value>Invalid task.</value>
   </data>
   <data name="INVALID_USER" xml:space="preserve">
     <value>Invalid user.</value>
@@ -214,10 +214,10 @@
     <value>The phone numbers are the same.</value>
   </data>
   <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
-    <value>One phonenumber must be entered for the Emergency contact.</value>
+    <value>A phonenumber must be entered for the Emergency contact.</value>
   </data>
   <data name="PHONENUMBER_EMPTY" xml:space="preserve">
-    <value>One phone number must be entered.</value>
+    <value>A phone number must be entered.</value>
   </data>
   <data name="PHONENUMBER_MAX_TWO" xml:space="preserve">
     <value>You can enter a maximum of 2 phonenumbers.</value>
@@ -247,7 +247,7 @@
     <value>Relationship must be entered.</value>
   </data>
   <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
-    <value>There area rooms that does not exist in Home</value>
+    <value>There area rooms that do not exist in Home.</value>
   </data>
   <data name="ROOM_EMPTY" xml:space="preserve">
     <value>The room's name must be entered.</value>
@@ -292,7 +292,7 @@
     <value>You do not have permission to access this resource.</value>
   </data>
   <data name="YOU_ALREADY_RATE_THIS_TASK" xml:space="preserve">
-    <value>You have already rate this task.</value>
+    <value>You have already rated this task.</value>
   </data>
   <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
     <value>You cannot perform this action.</value>
@@ -304,6 +304,6 @@
     <value>The Zip Code must be entered.</value>
   </data>
   <data name="ZIPCODE_INVALID_BRAZIL" xml:space="preserve">
-    <value>O CEP is invalid. Must be with the format XX.XXX-XXX</value>
+    <value>The CEP is invalid. Must be with the format XX.XXX-XXX</value>
   </data>
 </root>

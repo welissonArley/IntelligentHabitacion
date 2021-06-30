@@ -133,7 +133,7 @@
     <value>Choose a country below:</value>
   </data>
   <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
-    <value>By performing this process you are transferring all the privileges of being an Administrator to your friend</value>
+    <value>By performing this action you are transferring all the privileges of being an Administrator to your friend</value>
   </data>
   <data name="DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME" xml:space="preserve">
     <value>will be removed from association with Home. However, histories such as: payments, cleaning schedule, etc., will be stored for future consultations.</value>
@@ -163,10 +163,10 @@
     <value>Cleaning performed on {0} ({1}) by {2}</value>
   </data>
   <data name="DESCRIPTION_DELETE_HOME_FIRST_PHRASE" xml:space="preserve">
-    <value>ATTENTION!!! Continuing with this process will result in the loss of </value>
+    <value>ATTENTION!!! Continuing with this action will result in the loss of</value>
   </data>
   <data name="DESCRIPTION_DELETE_HOME_FOURTH_PHRASE" xml:space="preserve">
-    <value> possible to recover data after confirming this process.</value>
+    <value>possible to recover data after confirming this process.</value>
   </data>
   <data name="DESCRIPTION_DELETE_HOME_SECOND_PHRASE" xml:space="preserve">
     <value>information from Home, including history such as: payments, cleaning schedule, etc.</value>
@@ -181,15 +181,15 @@
     <value>See useful information about home data.</value>
   </data>
   <data name="DESCRIPTION_HOUSEWORK" xml:space="preserve">
-    <value>Below you can see which rooms in the house were cleaned, who cleaned and on which days of the selected month.</value>
+    <value>Below you can see which rooms in the house were cleaned, who cleaned them and on which days of the selected month.</value>
   </data>
   <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
-    <value>One of the goals of this App is to be designed in a creative way. And for that, nothing better than using images to illustrate and amuse the user, right?
+    <value>One of the goals of this App is to have a creative design. And for that, nothing better than using images to illustrate and amuse the user, right?
 
 All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :)</value>
   </data>
   <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
-    <value>Use this option to be part of a home already created.</value>
+    <value>Use this option to be part of an existing home.</value>
   </data>
   <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
     <value>Select the tasks for each of the household's residents. Don't worry, you can change this whenever you want :)</value>
@@ -198,7 +198,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Use this option to see and/or edit your registry information.</value>
   </data>
   <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
-    <value>See information about your products. (Quantity, maturity, etc).</value>
+    <value>See information about your products. (Quantity, etc).</value>
   </data>
   <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
     <value>See useful information about your friends at home.</value>
@@ -207,7 +207,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Below you will find information about your tasks performed each month :)</value>
   </data>
   <data name="DESCRIPTION_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
-    <value>We will send a notification to let {0} know that an order has arrived. Do you agree on that?</value>
+    <value>We will send a notification to let {0} know that an order has arrived. Do you agree to that?</value>
   </data>
   <data name="DESCRIPTION_REMINDER_PERFORM_TASK" xml:space="preserve">
     <value>Don't worry, your name won't appear on the reminder when your friend sees it :)</value>
@@ -294,7 +294,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Are you sure you want to perform this action?</value>
   </data>
   <data name="PHRASE_YOU_HAVENT_ADDED_FOODS" xml:space="preserve">
-    <value>Use the button below to add the products. So we can help you with expiration date, quantity, etc. :)</value>
+    <value>Use the button below to add the products so we can help you with expiration date, quantity, etc. :)</value>
   </data>
   <data name="PHRASE_YOU_HAVENT_ADDED_FRIENDS" xml:space="preserve">
     <value>Oh no, you haven't added any friends yet :(</value>
@@ -510,7 +510,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Choose your friend</value>
   </data>
   <data name="TITLE_CHOOSE_YOUR_RATING" xml:space="preserve">
-    <value>Choose your rating from 1 to 5 stars;)</value>
+    <value>Choose your rating from 1 to 5 stars ;)</value>
   </data>
   <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
     <value>City:</value>
@@ -666,7 +666,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Icons and illustrations used</value>
   </data>
   <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
-    <value>Your information is saved with encryption and we will not share it with anyone. You can edit or delete at any time.</value>
+    <value>We will not share your information with anyone. You can edit or delete at any time.</value>
   </data>
   <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
     <value>It's so sad see you go :((</value>
@@ -780,7 +780,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>No record</value>
   </data>
   <data name="TITLE_NO_RESPONSIBLE" xml:space="preserve">
-    <value>No responsible</value>
+    <value>No one is in charge</value>
   </data>
   <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
     <value>No results matched your filter.</value>
@@ -804,7 +804,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Password:</value>
   </data>
   <data name="TITLE_PHONENUMBERS" xml:space="preserve">
-    <value>Phonenumbers</value>
+    <value>Phone numbers</value>
   </data>
   <data name="TITLE_PHONENUMBER_1_TWOPOINTS" xml:space="preserve">
     <value>Phone number 1:</value>
@@ -813,7 +813,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Phone number 2:</value>
   </data>
   <data name="TITLE_PHONENUMBER_TWOPOINTS" xml:space="preserve">
-    <value>Phonenumber:</value>
+    <value>Phone number:</value>
   </data>
   <data name="TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK" xml:space="preserve">
     <value>(Optional) Leave your feedback ...</value>
@@ -903,7 +903,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Select the rooms below to be cleaned.</value>
   </data>
   <data name="TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW" xml:space="preserve">
-    <value>Selecione abaixo os responsáveis para limpar este cômodo.</value>
+    <value>Select below the people in charge of cleaning this room.</value>
   </data>
   <data name="TITLE_SENDING_DATA" xml:space="preserve">
     <value>Sending data ...</value>
@@ -1005,7 +1005,7 @@ All images used have a free license for use, and as a thank you, we leave below 
     <value>Welcome :)</value>
   </data>
   <data name="TITLE_WE_LOVE_HEAR_FROM_YOU" xml:space="preserve">
-    <value>Nos amamos ouvir você.</value>
+    <value>We love to hear from you.</value>
   </data>
   <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
     <value>What did you think of the cleaning?</value>

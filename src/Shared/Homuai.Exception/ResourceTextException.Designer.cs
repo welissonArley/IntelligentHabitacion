@@ -70,7 +70,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It is not possible to leave the cleaning schedule with ALL users without tasks..
+        ///   Looks up a localized string similar to It is not possible to set the cleaning schedule when NO users have tasks..
         /// </summary>
         public static string ALL_USER_WITHOUT_CLEANING_TASKS {
             get {
@@ -169,7 +169,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The date must be less than {0}..
+        ///   Looks up a localized string similar to The date must be before {0}..
         /// </summary>
         public static string DATE_MUST_BE_LESS_THAN {
             get {
@@ -178,7 +178,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The duedate must be grater than today..
+        ///   Looks up a localized string similar to The duedate must be after today..
         /// </summary>
         public static string DUEDATE_MUST_BE_GRATER_THAN_TODAY {
             get {
@@ -205,7 +205,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The E-mail is invalid..
+        ///   Looks up a localized string similar to The e-mail is invalid..
         /// </summary>
         public static string EMAIL_INVALID {
             get {
@@ -268,7 +268,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Task invalid..
+        ///   Looks up a localized string similar to Invalid task..
         /// </summary>
         public static string INVALID_TASK {
             get {
@@ -340,7 +340,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to One phonenumber must be entered for the Emergency contact..
+        ///   Looks up a localized string similar to A phonenumber must be entered for the Emergency contact..
         /// </summary>
         public static string PHONENUMBER_EMERGENCY_CONTACT_EMPTY {
             get {
@@ -349,7 +349,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to One phone number must be entered..
+        ///   Looks up a localized string similar to A phone number must be entered..
         /// </summary>
         public static string PHONENUMBER_EMPTY {
             get {
@@ -448,7 +448,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There area rooms that does not exist in Home.
+        ///   Looks up a localized string similar to There area rooms that do not exist in Home..
         /// </summary>
         public static string ROOM_DOES_NOT_EXIST_HOME {
             get {
@@ -583,7 +583,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You have already rate this task..
+        ///   Looks up a localized string similar to You have already rated this task..
         /// </summary>
         public static string YOU_ALREADY_RATE_THIS_TASK {
             get {
@@ -619,7 +619,7 @@ namespace Homuai.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O CEP is invalid. Must be with the format XX.XXX-XXX.
+        ///   Looks up a localized string similar to The CEP is invalid. Must be with the format XX.XXX-XXX.
         /// </summary>
         public static string ZIPCODE_INVALID_BRAZIL {
             get {

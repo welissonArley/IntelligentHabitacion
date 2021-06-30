@@ -106,7 +106,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to By performing this process you are transferring all the privileges of being an Administrator to your friend.
+        ///   Looks up a localized string similar to By performing this action you are transferring all the privileges of being an Administrator to your friend.
         /// </summary>
         public static string DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR {
             get {
@@ -196,7 +196,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ATTENTION!!! Continuing with this process will result in the loss of .
+        ///   Looks up a localized string similar to ATTENTION!!! Continuing with this action will result in the loss of.
         /// </summary>
         public static string DESCRIPTION_DELETE_HOME_FIRST_PHRASE {
             get {
@@ -205,7 +205,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  possible to recover data after confirming this process..
+        ///   Looks up a localized string similar to possible to recover data after confirming this process..
         /// </summary>
         public static string DESCRIPTION_DELETE_HOME_FOURTH_PHRASE {
             get {
@@ -250,7 +250,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Below you can see which rooms in the house were cleaned, who cleaned and on which days of the selected month..
+        ///   Looks up a localized string similar to Below you can see which rooms in the house were cleaned, who cleaned them and on which days of the selected month..
         /// </summary>
         public static string DESCRIPTION_HOUSEWORK {
             get {
@@ -259,7 +259,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to One of the goals of this App is to be designed in a creative way. And for that, nothing better than using images to illustrate and amuse the user, right?
+        ///   Looks up a localized string similar to One of the goals of this App is to have a creative design. And for that, nothing better than using images to illustrate and amuse the user, right?
         ///
         ///All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :).
         /// </summary>
@@ -270,7 +270,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this option to be part of a home already created..
+        ///   Looks up a localized string similar to Use this option to be part of an existing home..
         /// </summary>
         public static string DESCRIPTION_JOIN_HOME {
             get {
@@ -297,7 +297,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to See information about your products. (Quantity, maturity, etc)..
+        ///   Looks up a localized string similar to See information about your products. (Quantity, etc)..
         /// </summary>
         public static string DESCRIPTION_MY_FOOD {
             get {
@@ -324,7 +324,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We will send a notification to let {0} know that an order has arrived. Do you agree on that?.
+        ///   Looks up a localized string similar to We will send a notification to let {0} know that an order has arrived. Do you agree to that?.
         /// </summary>
         public static string DESCRIPTION_NOTIFY_ORDER_ARRIVED {
             get {
@@ -585,7 +585,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use the button below to add the products. So we can help you with expiration date, quantity, etc. :).
+        ///   Looks up a localized string similar to Use the button below to add the products so we can help you with expiration date, quantity, etc. :).
         /// </summary>
         public static string PHRASE_YOU_HAVENT_ADDED_FOODS {
             get {
@@ -1233,7 +1233,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose your rating from 1 to 5 stars;).
+        ///   Looks up a localized string similar to Choose your rating from 1 to 5 stars ;).
         /// </summary>
         public static string TITLE_CHOOSE_YOUR_RATING {
             get {
@@ -1701,7 +1701,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your information is saved with encryption and we will not share it with anyone. You can edit or delete at any time..
+        ///   Looks up a localized string similar to We will not share your information with anyone. You can edit or delete at any time..
         /// </summary>
         public static string TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION {
             get {
@@ -2016,7 +2016,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No responsible.
+        ///   Looks up a localized string similar to No one is in charge.
         /// </summary>
         public static string TITLE_NO_RESPONSIBLE {
             get {
@@ -2133,7 +2133,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phonenumber:.
+        ///   Looks up a localized string similar to Phone number:.
         /// </summary>
         public static string TITLE_PHONENUMBER_TWOPOINTS {
             get {
@@ -2142,7 +2142,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phonenumbers.
+        ///   Looks up a localized string similar to Phone numbers.
         /// </summary>
         public static string TITLE_PHONENUMBERS {
             get {
@@ -2412,7 +2412,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecione abaixo os responsáveis para limpar este cômodo..
+        ///   Looks up a localized string similar to Select below the people in charge of cleaning this room..
         /// </summary>
         public static string TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW {
             get {
@@ -2700,7 +2700,7 @@ namespace Homuai.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nos amamos ouvir você..
+        ///   Looks up a localized string similar to We love to hear from you..
         /// </summary>
         public static string TITLE_WE_LOVE_HEAR_FROM_YOU {
             get {

@@ -166,7 +166,7 @@
     <value>E-mail deve ser informado.</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>O E-mail é inválido.</value>
+    <value>O e-mail é inválido.</value>
   </data>
   <data name="EMERGENCYCONTACT_EMPTY" xml:space="preserve">
     <value>Um contato de emergência deve ser informado.</value>
@@ -250,7 +250,7 @@
     <value>Há cômodos que não existem na Home</value>
   </data>
   <data name="ROOM_EMPTY" xml:space="preserve">
-    <value>O nome do cômo deve ser informado.</value>
+    <value>O nome do cômodo deve ser informado.</value>
   </data>
   <data name="ROOM_NAME_EXIST" xml:space="preserve">
     <value>Já existe um cômodo com este nome.</value>

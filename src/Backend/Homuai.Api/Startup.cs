@@ -135,7 +135,7 @@ namespace Homuai.Api
             app.UseSwaggerUI(c =>
             {
                 foreach (var description in provider.ApiVersionDescriptions)
-                    c.SwaggerEndpoint($"../swagger/{description.GroupName}/swagger.json", "IntelligentHabitacion.Api - " + description.GroupName.ToUpperInvariant());
+                    c.SwaggerEndpoint($"../swagger/{description.GroupName}/swagger.json", "Homuai.Api - " + description.GroupName.ToUpperInvariant());
             });
 
             app.UseHttpsRedirection();
